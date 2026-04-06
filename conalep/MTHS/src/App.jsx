@@ -5,7 +5,21 @@ import PinModal from './components/PinModal';
 import './styles/App.css';
 
 function App() {
-  const [activeWeek, setActiveWeek] = useState('W08');
+  const getAutoWeek = () => {
+    const startDate = new Date('2026-02-09');
+    const now = new Date();
+    const diffMs = now - startDate;
+    const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
+    
+    if (diffWeeks < 0) return 'W00';
+    if (diffWeeks <= 6) return `W0${diffWeeks}`;
+    if (diffWeeks <= 8) return 'W06'; // Semanas de Vacaciones
+    if (diffWeeks === 9) return 'W07';
+    if (diffWeeks >= 10) return 'W08';
+    return 'W00';
+  };
+
+  const [activeWeek, setActiveWeek] = useState(getAutoWeek());
   const [isClassMode, setIsClassMode] = useState(false);
   const [isTeacherMode, setIsTeacherMode] = useState(false);
   const [showPinModal, setShowPinModal] = useState(false);

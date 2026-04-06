@@ -34,7 +34,7 @@ const Sidebar = ({ activeWeek, onWeekSelect }) => {
       <nav className="nav-container">
         <div className="sidebar-divider">CONTENIDO DEL CURSO</div>
 
-        {curriculumData.ras.map((ra) => {
+        {[...curriculumData.ras].reverse().map((ra) => {
           const isExpanded = expandedRas.includes(ra.id);
           const isActiveRA = ra.weeks.some(w => w.id === activeWeek);
 
@@ -50,7 +50,7 @@ const Sidebar = ({ activeWeek, onWeekSelect }) => {
               
               {isExpanded && (
                 <div className="weeks-container">
-                  {ra.weeks.map((week) => (
+                  {[...ra.weeks].reverse().map((week) => (
                     <a
                       key={week.id}
                       className={`week-link ${activeWeek === week.id ? 'active' : ''}`}

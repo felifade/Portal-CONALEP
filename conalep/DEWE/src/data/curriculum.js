@@ -6,26 +6,26 @@ export const curriculumData = {
       id: "RA1.1",
       title: "1.1 RA (10%)",
       weeks: [
-        { id: "W00", label: "Semana 00" },
-        { id: "W01", label: "Semana 01" },
-        { id: "W02", label: "Semana 02" }
+        { id: "W00", label: "Semana 00 (09-13 Feb)" },
+        { id: "W01", label: "Semana 01 (16-20 Feb)" },
+        { id: "W02", label: "Semana 02 (23-27 Feb)" }
       ]
     },
     {
       id: "RA1.2",
       title: "1.2 RA (25%)",
       weeks: [
-        { id: "W03", label: "Semana 03" },
-        { id: "W04", label: "Semana 04" },
-        { id: "W05", label: "Semana 05" }
+        { id: "W03", label: "Semana 03 (02-06 Mar)" },
+        { id: "W04", label: "Semana 04 (09-13 Mar)" },
+        { id: "W05", label: "Semana 05 (16-20 Mar)" }
       ]
     },
     {
       id: "RA1.3",
       title: "1.3 RA (25%)",
       weeks: [
-        { id: "W06", label: "Semana 06" },
-        { id: "W07", label: "Semana 07" }
+        { id: "W06", label: "Semana 06 (23-27 Mar)" },
+        { id: "W07", label: "Semana 07 (13-17 Abr)" }
       ]
     }
   ],
