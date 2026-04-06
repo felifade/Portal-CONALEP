@@ -1,16 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const BOILERPLATE = {
-  html: `<h1>🎨 Tokenizer Pro</h1>
-<p>Escribe con total fluidez sin errores visuales.</p>
-<button id="miBoton">Probar</button>`,
-  cssDefault: `body {
-  font-family: 'Outfit', sans-serif;
-  text-align: center;
-  padding: 50px;
-  background: #f8f9fa;
-}`,
-  js: `console.log('Tokenizer Pro activado...');`
+  html: `<h1>¡Hola Grupo 601!</h1>
+<p>Los admiro y los quiero mucho. ¡A darle con todo al código!</p>`,
+  cssDefault: ``,
+  js: ``
 };
 
 const RESIDENT_EVIL = {

@@ -167,19 +167,156 @@
   font-size: 14px;
 }
 
-/* Whiteboard Mode Adjustments */
-.whiteboard-mode .subject-title {
-  font-size: 36px;
-  letter-spacing: -1px;
+/* Notebook View Core */
+.notebook-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.whiteboard-mode .day-card {
-  margin-bottom: 24px;
-  border-radius: 16px;
+.day-tabs-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #eef2f1;
+  padding-bottom: 10px;
 }
 
-.whiteboard-mode .day-header h3 {
-  font-size: 22px;
+.day-tab-btn {
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: none;
+  background: #f1f5f3;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.day-tab-btn:hover {
+  background: #e1e9e5;
+}
+
+.day-tab-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 99, 65, 0.2);
+}
+
+.notebook-container {
+  position: relative;
+  min-height: 500px;
+  margin-bottom: 100px;
+}
+
+.notebook-sheet {
+  background: #fdfdfb; /* Blanco Hueso / Papel */
+  padding: 60px;
+  border-radius: 4px 20px 20px 4px;
+  box-shadow: 
+    5px 5px 15px rgba(0,0,0,0.05),
+    10px 10px 0px -2px #fff,
+    10px 10px 0px -1px #eee,
+    20px 20px 0px -4px #fff,
+    20px 20px 0px -3px #eee;
+  border-left: 10px solid var(--primary);
+  position: relative;
+  min-height: 600px;
+  animation: pageFlip 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pageFlip {
+  from {
+    transform: rotateY(5deg) translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+.sheet-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.sheet-time {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sheet-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-top: 5px;
+}
+
+/* Page Navigation */
+.page-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  background: #f8faf9;
+  padding: 8px 20px;
+  border-radius: 12px;
+}
+
+.nav-page-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--primary);
+}
+
+.nav-page-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.nav-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-indicator {
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  text-transform: uppercase;
+}
+
+/* Internal Layout improvements */
+.pedagogical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.day-closure-notebook {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px dashed #eee;
+}
+
+.notebook-purpose {
+  margin-bottom: 30px;
+  background: #f0f7f4;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
 }
 
 /* Class Mode Toggle */
@@ -296,6 +433,70 @@
 .day-content {
   padding: 0;
   background-color: white;
+}
+
+.day-purpose-banner, .day-conclusion-block {
+  display: flex;
+  gap: 15px;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.day-conclusion-block {
+  margin-top: 25px;
+  border-left-color: #28a745; /* Success Green for closure */
+  background: #f1fcf4;
+}
+
+.purpose-icon, .conclusion-title .icon {
+  font-size: 24px;
+}
+
+.conclusion-title {
+  margin: 0 0 10px 0;
+  color: #155724;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.day-quote-block {
+  margin-top: 30px;
+  padding: 25px;
+  background: #1e1e1e;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.day-quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 80px;
+  color: rgba(255,255,255,0.1);
+  font-family: serif;
+}
+
+.quote-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.quote-text {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 80%;
+  margin: 0;
+  color: #e0e0e0;
 }
 
 .day-purpose-banner {

@@ -186,84 +186,219 @@ const HourBlock = ({ hour, index, isTeacherMode }) => {
   );
 };
 
-const DayAccordion = ({ day, index, isTeacherMode }) => {
-  const [isOpen, setIsOpen] = useState(index === 0);
+const DayTabs = ({ days, activeIndex, onSelect }) => (
+  <div className="day-tabs-container">
+    {days.map((day, idx) => (
+      <button 
+        key={day.id} 
+        className={`day-tab-btn ${activeIndex === idx ? 'active' : ''}`}
+        onClick={() => onSelect(idx)}
+      >
+        {day.label.split(' — ')[0]}
+      </button>
+    ))}
+  </div>
+);
+
+const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext }) => {
+  const [showWork, setShowWork] = useState(true);
+  const [copyStatus, setCopyStatus] = useState('Copiar');
+
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyStatus('¡Copiado!');
+      setTimeout(() => setCopyStatus('Copiar'), 2000);
+    });
+  };
 
   return (
-    <div className={`day-card ${isOpen ? 'is-open' : ''}`}>
-      <div className="day-header" onClick={() => setIsOpen(!isOpen)}>
-        <h3>{day.label}</h3>
-        <span className="toggle-icon">{isOpen ? '−' : '+'}</span>
+    <div className="notebook-page-wrapper">
+      <div className="page-header-nav">
+        <button className="nav-page-btn prev" onClick={onPrev} disabled={index === 0}>
+           ← Anterior
+        </button>
+        <span className="page-indicator">Hoja {index + 1} de {total}</span>
+        <button className="nav-page-btn next" onClick={onNext} disabled={index === total - 1}>
+          Siguiente →
+        </button>
       </div>
-      {isOpen && (
-        <div className="day-content">
-          {day.purpose && (
-            <div className="day-purpose-banner">
-              <span className="purpose-icon">🎯</span>
-              <div className="purpose-text">
-                <strong>Propósito de la jornada:</strong>
-                <SmartText text={day.purpose} />
-              </div>
-            </div>
-          )}
 
-          {day.id === 'dual' ? (
-            <div className="dual-repository-view">
-              <div className="repository-intro">
-                Este apartado contiene las actividades específicas para estudiantes en modelo dual y aquellos con inasistencia justificada.
+      <div className="notebook-sheet">
+        <div className="sheet-header">
+          <span className="sheet-time">{hour.time}</span>
+          <h2 className="sheet-title">{hour.title || 'Tema del día'}</h2>
+        </div>
+
+        <div className="sheet-body">
+          <div className="pedagogical-block theory">
+            <h4 className="block-title">🧠 Teoría y Conceptos</h4>
+            <div className="block-body">
+              <SmartText text={hour.theory} />
+            </div>
+          </div>
+
+          <div className="work-sections visible">
+            <div className="pedagogical-grid">
+              <div className="pedagogical-block notebook">
+                <h4 className="block-title">✏️ En la libreta</h4>
+                <div className="block-body">
+                  <SmartText text={hour.notebook} />
+                </div>
               </div>
-              <div className="activities-list">
-                {day.activities ? (
-                  day.activities.map((activity, idx) => (
-                    <DualActivityBlock key={idx} activity={activity} />
-                  ))
-                ) : (
-                  <div className="single-block-content">
-                    <div className="block-body">
-                      <SmartText text={day.content || (day.hours && day.hours[0].notebook)} />
-                    </div>
-                  </div>
-                )}
+              
+              <div className="pedagogical-block practice">
+                <h4 className="block-title">💻 Práctica en PC</h4>
+                <div className="block-body">
+                  <SmartText text={hour.practice} />
+                </div>
               </div>
             </div>
-          ) : (
-            <div className="hours-list">
-              {day.hours.map((hour, idx) => (
-                <HourBlock key={idx} hour={hour} index={idx} isTeacherMode={isTeacherMode} />
-              ))}
+
+            {hour.code && (
+              <div className="pedagogical-block code-section">
+                <div className="block-header-row">
+                  <h4 className="block-title">📟 Código de Referencia</h4>
+                  <button className="copy-btn" onClick={() => handleCopy(hour.code)}>
+                    {copyStatus}
+                  </button>
+                </div>
+                <div className="code-editor-container">
+                  <pre className="code-editor">
+                    <code>{hour.code}</code>
+                  </pre>
+                </div>
+              </div>
+            )}
+
+            {hour.product && (
+              <div className="pedagogical-block product-block">
+                <h4 className="block-title">🎯 Producto Final</h4>
+                <div className="block-body">
+                  <SmartText text={hour.product} />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {isTeacherMode && hour.teacherNotes && (
+            <div className="pedagogical-block teacher-only">
+              <h4 className="block-title">👨‍🏫 Notas del Docente</h4>
+              <div className="block-body">
+                <SmartText text={hour.teacherNotes} />
+              </div>
             </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
 const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
   const weekData = curriculumData.schedules[weekId];
+  const [activeDayIdx, setActiveDayIdx] = useState(0);
+  const [activeHourIdx, setActiveHourIdx] = useState(0);
 
   if (!weekData) return <div className="no-data">No se encontró información para esta semana.</div>;
 
-  // Identify Dual Activities for Gallery
-  const dualDay = weekData.days.find(d => d.id === 'dual');
+  const currentDay = weekData.days[activeDayIdx];
+  const isSpecialDay = currentDay.id === 'dual' || currentDay.id === 'key';
+  
+  const handleDaySelect = (idx) => {
+    setActiveDayIdx(idx);
+    setActiveHourIdx(0);
+  };
+
+  const nextHour = () => {
+    if (activeHourIdx < currentDay.hours.length - 1) setActiveHourIdx(activeHourIdx + 1);
+  };
+
+  const prevHour = () => {
+    if (activeHourIdx > 0) setActiveHourIdx(activeHourIdx - 1);
+  };
 
   return (
-    <div className={`week-view whiteboard-mode ${isClassMode ? 'class-mode' : ''}`}>
+    <div className={`week-view notebook-view ${isClassMode ? 'class-mode' : ''}`}>
       <header className="header-section">
-        <span className="subject-badge">{curriculumData.subject}</span>
+        <div className="header-top">
+          <span className="subject-badge">{curriculumData.subject}</span>
+          <p className="group-info">Grupo {curriculumData.group} | Dr. Felipe López</p>
+        </div>
         <h1 className="subject-title">Semana {weekId.replace('W', '')}</h1>
-        <p className="group-info">Panel de Control Académico | Pizarrón Digital</p>
       </header>
 
-      {isDualMode ? (
-        <DualGallery activities={dualDay?.activities} />
-      ) : (
-        <div className="days-list">
-          {weekData.days.map((day, index) => (
-            <DayAccordion key={day.id} day={day} index={index} isTeacherMode={isTeacherMode} />
-          ))}
-        </div>
-      )}
+      <DayTabs 
+        days={weekData.days} 
+        activeIndex={activeDayIdx} 
+        onSelect={handleDaySelect} 
+      />
+
+      <div className="notebook-container">
+        {isDualMode ? (
+          <DualGallery activities={weekData.days.find(d => d.id === 'dual')?.activities} />
+        ) : isSpecialDay ? (
+          <div className="notebook-sheet special">
+             <div className="sheet-header">
+                <h2 className="sheet-title">{currentDay.label}</h2>
+             </div>
+             <div className="sheet-body">
+               {currentDay.id === 'dual' ? (
+                 <div className="dual-repository-view">
+                   {currentDay.activities?.map((activity, idx) => (
+                     <DualActivityBlock key={idx} activity={activity} />
+                   ))}
+                 </div>
+               ) : (
+                 <div className="key-code-view">
+                    {currentDay.hours?.map((h, i) => (
+                      <div key={i} className="pedagogical-block code-section">
+                        <h4 className="block-title">{h.time}</h4>
+                        <pre className="code-editor"><code>{h.code}</code></pre>
+                      </div>
+                    ))}
+                 </div>
+               )}
+             </div>
+          </div>
+        ) : (
+          <div className="day-notebook-content">
+            {currentDay.purpose && activeHourIdx === 0 && (
+              <div className="day-purpose-banner notebook-purpose">
+                <span className="purpose-icon">🎯</span>
+                <div className="purpose-text">
+                  <strong>Propósito de hoy:</strong>
+                  <SmartText text={currentDay.purpose} />
+                </div>
+              </div>
+            )}
+
+            <HourPage 
+              hour={currentDay.hours[activeHourIdx]} 
+              index={activeHourIdx}
+              total={currentDay.hours.length}
+              isTeacherMode={isTeacherMode}
+              onPrev={prevHour}
+              onNext={nextHour}
+            />
+
+            {activeHourIdx === currentDay.hours.length - 1 && (
+              <div className="day-closure-notebook">
+                {currentDay.cierre && (
+                  <div className="day-conclusion-block">
+                    <h4 className="conclusion-title">✅ Cierre de Clase</h4>
+                    <SmartText text={currentDay.cierre} />
+                  </div>
+                )}
+                {currentDay.frase_docente && (
+                  <div className="day-quote-block">
+                    <p className="quote-text"><em>"{currentDay.frase_docente}"</em></p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
