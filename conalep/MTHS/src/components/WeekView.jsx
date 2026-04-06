@@ -41,64 +41,6 @@ const SmartText = ({ text }) => {
   );
 };
 
-const DualActivityBlock = ({ activity }) => (
-  <div className="dual-activity-block">
-    <div className="dual-header">
-      <span className="dual-icon">🚀</span>
-      <h4>{activity.title}</h4>
-    </div>
-    <div className="dual-body">
-      <div className="dual-instruction">
-        <SmartText text={activity.instruction} />
-      </div>
-      {activity.image && (
-        <div className="infographic-container">
-          <img 
-            src={new URL(`../assets/${activity.image}`, import.meta.url).href} 
-            alt={activity.title} 
-            className="infographic-img"
-          />
-        </div>
-      )}
-    </div>
-  </div>
-);
-
-const DualGallery = ({ activities }) => {
-  const visualActivities = activities?.filter(a => a.image) || [];
-
-  if (visualActivities.length === 0) {
-    return (
-      <div className="dual-gallery-empty">
-        <p>No hay infografías disponibles para esta semana.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="dual-gallery-view">
-      <h2 className="gallery-title">🖼️ Galería de Infografías (Modo Dual)</h2>
-      <div className="gallery-grid">
-        {visualActivities.map((activity, idx) => (
-          <div key={idx} className="gallery-item">
-            <h3 className="gallery-item-title">{activity.title}</h3>
-            <div className="gallery-img-wrapper">
-              <img 
-                src={new URL(`../assets/${activity.image}`, import.meta.url).href} 
-                alt={activity.title} 
-                className="gallery-img"
-              />
-            </div>
-            <div className="gallery-item-instruction">
-              <SmartText text={activity.instruction} />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const HourBlock = ({ hour, index, isTeacherMode }) => {
   const [showWork, setShowWork] = useState(index === 0);
   const [copyStatus, setCopyStatus] = useState('Copiar');
@@ -294,7 +236,7 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext }) => {
   );
 };
 
-const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
+const WeekView = ({ weekId, isClassMode, isTeacherMode }) => {
   const weekData = curriculumData.schedules[weekId];
   const [activeDayIdx, setActiveDayIdx] = useState(0);
   const [activeHourIdx, setActiveHourIdx] = useState(0);
@@ -323,7 +265,7 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
   }
 
   const currentDay = weekData.days[activeDayIdx];
-  const isSpecialDay = currentDay.id === 'dual' || currentDay.id === 'key';
+  const isSpecialDay = currentDay.id === 'key';
   
   const handleDaySelect = (idx) => {
     setActiveDayIdx(idx);
@@ -355,30 +297,20 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
       />
 
       <div className="notebook-container">
-        {isDualMode ? (
-          <DualGallery activities={weekData.days.find(d => d.id === 'dual')?.activities} />
-        ) : isSpecialDay ? (
+        {isSpecialDay ? (
           <div className="notebook-sheet special">
              <div className="sheet-header">
                 <h2 className="sheet-title">{currentDay.label}</h2>
              </div>
              <div className="sheet-body">
-               {currentDay.id === 'dual' ? (
-                 <div className="dual-repository-view">
-                   {currentDay.activities?.map((activity, idx) => (
-                     <DualActivityBlock key={idx} activity={activity} />
-                   ))}
-                 </div>
-               ) : (
-                 <div className="key-code-view">
-                    {currentDay.hours?.map((h, i) => (
-                      <div key={i} className="pedagogical-block code-section">
-                        <h4 className="block-title">{h.time}</h4>
-                        <pre className="code-editor"><code>{h.code}</code></pre>
-                      </div>
-                    ))}
-                 </div>
-               )}
+               <div className="key-code-view">
+                  {currentDay.hours?.map((h, i) => (
+                    <div key={i} className="pedagogical-block code-section">
+                      <h4 className="block-title">{h.time}</h4>
+                      <pre className="code-editor"><code>{h.code}</code></pre>
+                    </div>
+                  ))}
+               </div>
              </div>
           </div>
         ) : (
