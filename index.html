@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal del Docente · CONALEP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Variables ──────────────────────────────────────────── */
+    :root {
+      --primary: #006341;
+      --primary-hover: #004d32;
+      --primary-light: #d9efe4;
+      --primary-alpha: rgba(0, 99, 65, 0.08);
+      --bg: #f3f8f5;
+      --card-bg: #ffffff;
+      --text-dark: #0b3d2c;
+      --text-muted: #4a6b5f;
+      --border: #e2ede8;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.10);
+      --shadow-hover: 0 16px 40px rgba(0, 99, 65, 0.18);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background texture (subtle lines like notebook paper) ─ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(transparent,
+          transparent 31px,
+          rgba(0, 99, 65, 0.04) 31px,
+          rgba(0, 99, 65, 0.04) 32px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 56px;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .header-badge svg {
+      flex-shrink: 0;
+    }
+
+    .header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .header h1 span {
+      color: var(--primary);
+    }
+
+    .header p {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Decorative accent line under title */
+    .header-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .header-divider span {
+      display: block;
+      height: 2px;
+      width: 60px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .header-divider .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    /* ── Section label ───────────────────────────────────────── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 40px 0 24px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(0, 99, 65, 0.2);
+    }
+
+    /* ── Grid ───────────────────────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── Card ───────────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+
+      /* Staggered entry animation */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    /* Notebook spiral binding accent */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius) 0 0 var(--radius);
+      transition: var(--transition);
+    }
+
+    /* Hover glow layer */
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 0%,
+          rgba(0, 99, 65, 0.05) 0%,
+          transparent 70%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(0, 99, 65, 0.25);
+    }
+
+    .card:hover::before {
+      width: 6px;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    /* ── Card Icon ───────────────────────────────────────────── */
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .card:hover .card-icon {
+      background: var(--primary);
+      transform: rotate(-5deg) scale(1.1);
+    }
+
+    /* ── Card Content ────────────────────────────────────────── */
+    .card-body {
+      flex: 1;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      opacity: 0.8;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Card Footer ─────────────────────────────────────────── */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 7px 14px;
+      border-radius: 999px;
+      transition: var(--transition);
+    }
+
+    .card:hover .card-cta {
+      background: var(--primary);
+      color: #fff;
+      gap: 10px;
+    }
+
+    .card-cta-arrow {
+      transition: var(--transition);
+    }
+
+    .card:hover .card-cta-arrow {
+      transform: translateX(3px);
+    }
+
+    /* ── "Próximamente" state ─────────────────────────────────── */
+    .card.coming-soon {
+      opacity: 0.6;
+      pointer-events: none;
+      filter: grayscale(0.3);
+    }
+
+    .badge-soon {
+      font-size: 11px;
+      font-weight: 600;
+      background: #f0f0f0;
+      color: #888;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      margin-top: 64px;
+      font-size: 13px;
+      color: var(--text-muted);
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+
+    .footer strong {
+      color: var(--primary);
+    }
+
+    /* ── Animations ─────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .page {
+        padding: 32px 16px 60px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        margin-bottom: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ── Header ── -->
+    <header class="header">
+      <div class="header-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+        CONALEP · Docente
+      </div>
+      <h1>Portal del <span>Docente</span></h1>
+      <p>Acceso a mis materias y recursos de clase</p>
+      <div class="header-divider">
+        <span></span>
+        <div class="dot"></div>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- ── Contenedor Dinámico de Materias ── -->
+    <div id="materias-container"></div>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+      <strong>Portal del Docente</strong> · CONALEP &nbsp;·&nbsp; Ciclo escolar 2025–2026
+    </footer>
+  </div>
+
+  <script>
+    // ────────────────────────────────────────────────────────────
+    //  MATERIAS — Edita este arreglo para agregar o quitar materias
+    // ────────────────────────────────────────────────────────────
+    const MATERIAS = [
+      {
+        icon: '💻',
+        tag: 'Desarrollo de Páginas WEB',
+        title: 'Desarrollo Web',
+        desc: 'HTML, CSS, JavaScript y frameworks modernos para la construcción de sitios y aplicaciones web.',
+        url: 'https://felifade.github.io/Portal-CONALEP/',
+        meta: 'DEWE',
+        semester: 6,
+        active: true,
+      },
+      {
+        icon: '📐',
+        tag: 'Manejo de Tecnologías de Hardware y Software',
+        title: 'MTHS',
+        desc: 'Tecnologías de Hardware y Software, Ciberseguridad.',
+        url: 'https://felifade.github.io/Portal-CONALEP-MTHS/',
+        meta: 'MTHS',
+        semester: 4,
+        active: true,
+      },
+    ];
+
+    // ── Renderizar tarjetas ─────────────────────────────────────
+    const container = document.getElementById('materias-container');
+
+    const semesterNames = {
+      4: 'Cuarto Semestre',
+      6: 'Sexto Semestre'
+    };
+
+    // Agrupar por semestre
+    const grouped = MATERIAS.reduce((acc, m) => {
+      if (!acc[m.semester]) acc[m.semester] = [];
+      acc[m.semester].push(m);
+      return acc;
+    }, {});
+
+    Object.keys(grouped).sort((a,b) => a - b).forEach((sem, index) => {
+      // ── Crear encabezado de sección por semestre ──
+      const header = document.createElement('div');
+      header.className = 'section-label';
+      header.style.animationDelay = `${0.2 + index * 0.1}s`;
+      header.innerHTML = `<span class="section-badge">${sem}</span> ${semesterNames[sem] || 'Semestre ' + sem}`;
+      container.appendChild(header);
+
+      // ── Crear grid para este semestre ──
+      const grid = document.createElement('div');
+      grid.className = 'grid';
+
+      grouped[sem].forEach((m, i) => {
+        const el = document.createElement(m.active ? 'a' : 'div');
+        if (m.active) {
+          el.href = m.url;
+          el.target = '_blank';
+          el.rel = 'noopener noreferrer';
+        }
+        el.className = 'card' + (m.active ? '' : ' coming-soon');
+        el.style.animationDelay = `${0.3 + (index * 0.1) + (i * 0.1)}s`;
+
+        el.innerHTML = `
+          <div class="card-icon">${m.icon}</div>
+          <div class="card-body">
+            <div class="card-tag">${m.tag}</div>
+            <div class="card-title">${m.title}</div>
+            <div class="card-desc">${m.desc}</div>
+          </div>
+          <div class="card-footer">
+            <span class="card-meta">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+              ${m.meta}
+            </span>
+            ${m.active
+            ? `<span class="card-cta">
+                  Entrar
+                  <svg class="card-cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>`
+            : `<span class="badge-soon">Próximamente</span>`
+          }
+          </div>
+        `;
+        grid.appendChild(el);
+      });
+
+      container.appendChild(grid);
+    });
+  </script>
+</body>
+
+</html>
