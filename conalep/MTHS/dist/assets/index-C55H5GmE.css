@@ -21,7 +21,7 @@
 .week-link { color: rgba(255,255,255,0.9) !important; }
 .week-link:hover { background-color: rgba(255,255,255,0.1) !important; color: white !important; }
 .week-link.active { background-color: white !important; color: var(--primary) !important; font-weight: 700 !important; }
-.main-nav-link { color: rgba(255,255,255,0.9) !important; }
+.main-nav-link { color: rgba(255,255,255,0.9) !important; background: transparent !important; border-color: rgba(255,255,255,0.1) !important; }
 .main-nav-link:hover { background-color: rgba(255,255,255,0.1) !important; color: white !important; }
 .main-nav-link.active { background-color: white !important; color: var(--primary) !important; font-weight: 700 !important; }
 .sidebar-divider { color: rgba(255,255,255,0.5) !important; }
