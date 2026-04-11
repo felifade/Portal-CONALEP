@@ -1,15 +1,15 @@
 :root {
-  --primary: #006341;
-  --primary-hover: #004d32;
-  --primary-light: #d9efe4;
-  --primary-transparent: rgba(0, 99, 65, 0.08);
-  --bg-app: #f3f8f5;
+  --primary: #025940;
+  --primary-hover: #013a29;
+  --primary-light: #e0ece7;
+  --primary-transparent: rgba(1, 58, 41, 0.08);
+  --bg-app: #f4f7f6;
   --sidebar-bg: #ffffff;
-  --text-dark: #0b3d2c;
-  --text-muted: #4a6b5f;
-  --border-color: #e2ede8;
+  --text-dark: #1a2320;
+  --text-muted: #5e7069;
+  --border-color: #dce4e0;
   --card-bg: #ffffff;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 12px rgba(1, 58, 41, 0.06);
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --radius: 12px;
   --transition: all 0.3s ease;
