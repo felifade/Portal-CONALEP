@@ -405,6 +405,235 @@
       font-weight: 600;
     }
 
+    /* ── Calendarización del Semestre ────────────────────────── */
+    .cal-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 72px 0 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .cal-section-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--conalep-dark);
+    }
+    .cal-section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border-color), transparent);
+    }
+    .cal-section-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--conalep-dark);
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .cal-legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .cal-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .cal-legend-dot.mths { background: #013a29; }
+    .cal-legend-dot.dewe { background: #025940; }
+    .cal-legend-dot.cont { background: var(--border-color); }
+
+    /* Timeline */
+    .cal-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 60px;
+    }
+
+    .cal-week {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-main);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      animation: fadeUp 0.4s ease forwards;
+    }
+    .cal-week.continuation {
+      background: #f9fbfa;
+      box-shadow: none;
+    }
+    .cal-week.current {
+      border-color: var(--conalep-accent);
+      box-shadow: 0 0 0 3px rgba(0,122,83,0.12), var(--shadow-md);
+    }
+
+    .cal-week-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .cal-week-header:hover { background: #f4f7f6; }
+    .cal-week.continuation .cal-week-header { padding: 10px 20px; }
+
+    .cal-week-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--conalep-dark);
+      background: #e6ede9;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      min-width: 56px;
+      text-align: center;
+    }
+    .cal-week.current .cal-week-num {
+      background: var(--conalep-accent);
+      color: #fff;
+    }
+
+    .cal-week-date {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .cal-week-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .cal-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .cal-pill.mths {
+      background: #013a29;
+      color: #fff;
+    }
+    .cal-pill.dewe {
+      background: #d0e8dd;
+      color: #013a29;
+    }
+    .cal-pill.cont {
+      background: var(--border-color);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .cal-current-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--conalep-accent);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+
+    .cal-expand-icon {
+      color: var(--text-muted);
+      font-size: 12px;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .cal-week.open .cal-expand-icon { transform: rotate(180deg); }
+
+    /* Expandable body */
+    .cal-week-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border-color);
+      animation: fadeDown 0.25s ease;
+    }
+    .cal-week.open .cal-week-body { display: block; }
+
+    .cal-subject-block {
+      margin-top: 16px;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .cal-subject-block.mths {
+      background: #f0f5f2;
+      border-left: 4px solid #013a29;
+    }
+    .cal-subject-block.dewe {
+      background: #e8f2ec;
+      border-left: 4px solid #025940;
+    }
+    .cal-subject-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cal-subject-info {}
+    .cal-subject-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--conalep-dark);
+      margin-bottom: 3px;
+    }
+    .cal-subject-ra {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .cal-subject-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .cal-subject-hours {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--conalep-dark);
+      background: rgba(1,58,41,0.08);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
     /* ── Animations ── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -469,6 +698,7 @@
   <!-- Main Content -->
   <div class="container dashboard-wrapper">
     <div id="materias-container"></div>
+    <div id="calendario-container"></div>
   </div>
 
   <!-- Footer -->
@@ -582,6 +812,158 @@
       });
 
       container.appendChild(grid);
+    });
+    // ────────────────────────────────────────────────────────────
+    //  CALENDARIZACIÓN DEL SEMESTRE
+    // ────────────────────────────────────────────────────────────
+    const SEMANAS = [
+      {
+        num: 1, date: '16 Feb 2026',
+        mths: { ra: 'RA 1.1', title: 'Identifica malwares y ataques tecnológicos para la posterior aplicación de procedimientos de mitigación y seguridad en línea.', hours: 10 },
+        dewe: { ra: 'RA 1.1', title: 'Diseña la estructura del sitio web con base en las mejores prácticas y los requerimientos del cliente.', hours: 20 },
+      },
+      { num: 2, date: '23 Feb 2026', continuation: true },
+      {
+        num: 3, date: '2 Mar 2026',
+        mths: { ra: 'RA 1.2', title: 'Contextualiza la transformación digital en la industria y vida cotidiana.', hours: 10 },
+      },
+      {
+        num: 4, date: '9 Mar 2026',
+        dewe: { ra: 'RA 1.2', title: 'Elabora páginas web estáticas usando HTML5.', hours: 35 },
+      },
+      { num: 5, date: '16 Mar 2026', continuation: true },
+      {
+        num: 6, date: '23 Mar 2026',
+        mths: { ra: 'RA 2.1', title: 'Instalación y configuración de computadoras personales.', hours: 20 },
+      },
+      { num: 7, date: '13 Abr 2026', continuation: true },
+      { num: 8, date: '20 Abr 2026', continuation: true },
+      {
+        num: 9, date: '27 Abr 2026',
+        mths: { ra: 'RA 2.2', title: 'Instalación y configuración de dispositivos tecnológicos.', hours: 15 },
+      },
+      {
+        num: 10, date: '4 May 2026',
+        dewe: { ra: 'RA 1.3', title: 'Construcción de hojas de estilo CSS3.', hours: 25 },
+      },
+      { num: 11, date: '11 May 2026', continuation: true },
+      { num: 12, date: '18 May 2026', continuation: true },
+      {
+        num: 13, date: '25 May 2026',
+        mths: { ra: 'RA 3.1', title: 'Configuración de sistemas operativos y redes.', hours: 20 },
+      },
+      { num: 14, date: '1 Jun 2026', continuation: true },
+      {
+        num: 15, date: '8 Jun 2026',
+        dewe: { ra: 'RA 2.1', title: 'Implementa interactividad con lenguaje de programación.', hours: 30 },
+      },
+      { num: 16, date: '15 Jun 2026', continuation: true },
+      {
+        num: 17, date: '22 Jun 2026',
+        mths: { ra: 'RA 3.2', title: 'Seguridad básica de red.', hours: 15 },
+      },
+      {
+        num: 18, date: '29 Jun 2026',
+        dewe: { ra: 'RA 2.2', title: 'Acceso a bases de datos en páginas web.', hours: 34 },
+      },
+    ];
+
+    // Fecha de inicio de cada semana (para detectar semana actual)
+    const WEEK_STARTS = [
+      [1,'2026-02-16'],[2,'2026-02-23'],[3,'2026-03-02'],[4,'2026-03-09'],
+      [5,'2026-03-16'],[6,'2026-03-23'],[7,'2026-04-13'],[8,'2026-04-20'],
+      [9,'2026-04-27'],[10,'2026-05-04'],[11,'2026-05-11'],[12,'2026-05-18'],
+      [13,'2026-05-25'],[14,'2026-06-01'],[15,'2026-06-08'],[16,'2026-06-15'],
+      [17,'2026-06-22'],[18,'2026-06-29'],
+    ].map(([n,d]) => [n, new Date(d)]);
+
+    function getCurrentCalWeek() {
+      const today = new Date();
+      let current = null;
+      for (const [n, start] of WEEK_STARTS) {
+        if (today >= start) current = n;
+      }
+      return current;
+    }
+
+    const currentWeekNum = getCurrentCalWeek();
+    const calContainer = document.getElementById('calendario-container');
+
+    // Header
+    calContainer.innerHTML = `
+      <div class="cal-section-header">
+        <div class="cal-section-badge">📅</div>
+        <h2>Calendarización del Semestre</h2>
+      </div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><div class="cal-legend-dot mths"></div>MTHS – Grupo 401</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot dewe"></div>DEWE – Grupo 601</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot cont"></div>Continuación</div>
+      </div>
+      <div class="cal-timeline" id="cal-timeline"></div>
+    `;
+
+    const timeline = document.getElementById('cal-timeline');
+
+    SEMANAS.forEach((s, idx) => {
+      const isCurrent = s.num === currentWeekNum;
+      const isCont = s.continuation && !s.mths && !s.dewe;
+      const hasContent = s.mths || s.dewe;
+
+      const week = document.createElement('div');
+      week.className = `cal-week${isCont ? ' continuation' : ''}${isCurrent ? ' current' : ''}`;
+      week.style.animationDelay = `${0.05 + idx * 0.03}s`;
+
+      // Pills preview
+      let pillsHtml = '';
+      if (s.mths) pillsHtml += `<span class="cal-pill mths">MTHS · ${s.mths.hours}h</span>`;
+      if (s.dewe) pillsHtml += `<span class="cal-pill dewe">DEWE · ${s.dewe.hours}h</span>`;
+      if (isCont)  pillsHtml += `<span class="cal-pill cont">Continuación</span>`;
+
+      // Expand body
+      let bodyHtml = '';
+      if (s.mths) bodyHtml += `
+        <div class="cal-subject-block mths">
+          <div class="cal-subject-icon">🖥️</div>
+          <div class="cal-subject-info">
+            <div class="cal-subject-label">MTHS · Grupo 401</div>
+            <div class="cal-subject-ra">${s.mths.ra}</div>
+            <div class="cal-subject-title">${s.mths.title}</div>
+            <span class="cal-subject-hours">⏱ ${s.mths.hours} horas</span>
+          </div>
+        </div>`;
+      if (s.dewe) bodyHtml += `
+        <div class="cal-subject-block dewe">
+          <div class="cal-subject-icon">💻</div>
+          <div class="cal-subject-info">
+            <div class="cal-subject-label">DEWE · Grupo 601</div>
+            <div class="cal-subject-ra">${s.dewe.ra}</div>
+            <div class="cal-subject-title">${s.dewe.title}</div>
+            <span class="cal-subject-hours">⏱ ${s.dewe.hours} horas</span>
+          </div>
+        </div>`;
+
+      week.innerHTML = `
+        <div class="cal-week-header">
+          <span class="cal-week-num">S · ${String(s.num).padStart(2,'0')}</span>
+          <span class="cal-week-date">${s.date}</span>
+          <div class="cal-week-pills">${pillsHtml}</div>
+          ${isCurrent ? '<span class="cal-current-badge">Semana actual</span>' : ''}
+          ${hasContent ? '<span class="cal-expand-icon">▾</span>' : ''}
+        </div>
+        ${hasContent ? `<div class="cal-week-body">${bodyHtml}</div>` : ''}
+      `;
+
+      // Toggle expand
+      if (hasContent) {
+        week.querySelector('.cal-week-header').addEventListener('click', () => {
+          week.classList.toggle('open');
+        });
+        // Auto-open current week
+        if (isCurrent) week.classList.add('open');
+      }
+
+      timeline.appendChild(week);
     });
   </script>
 </body>

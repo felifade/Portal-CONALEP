@@ -109,6 +109,7 @@ export const curriculumData = {
           frase_docente: "Un desarrollador no solo crea código, soluciona problemas reales."
         }
       ]
+    },
     // "W08": { days: [] }
   }
 };
