@@ -25,8 +25,8 @@ export const curriculumData = {
       title: "2.1 RA (20%)",
       weeks: [
         { id: "W06", label: "Semana 06 (23-27 Mar)" },
-        { id: "W07", label: "Semana 07 (13-17 Abr)" },
-        { id: "W08", label: "Semana 08 (20-24 Abr)" }
+        { id: "W07", label: "Semana 07 (13-17 Abr)" }
+        // { id: "W08", label: "Semana 08 (20-24 Abr)" }
       ]
     }
   ],
@@ -109,7 +109,6 @@ export const curriculumData = {
           frase_docente: "Un desarrollador no solo crea código, soluciona problemas reales."
         }
       ]
-    },
-    "W08": { days: [] }
+    // "W08": { days: [] }
   }
 };
