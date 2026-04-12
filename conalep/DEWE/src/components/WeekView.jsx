@@ -1,5 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { curriculumData } from '../data/curriculum';
+
+// Returns the week label (e.g. "Semana 08 (XX-XX Mes)") from the ras index
+const getWeekMeta = (weekId) => {
+  for (const ra of curriculumData.ras) {
+    const found = ra.weeks?.find(w => w.id === weekId);
+    if (found) return { label: found.label, raTitle: ra.title };
+  }
+  return { label: `Semana ${weekId.replace('W', '')}`, raTitle: '' };
+};
 
 // Helper component to format text as lists if needed
 const SmartText = ({ text }) => {
@@ -200,7 +209,7 @@ const DayTabs = ({ days, activeIndex, onSelect }) => (
   </div>
 );
 
-const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext }) => {
+const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir }) => {
   const [showWork, setShowWork] = useState(true);
   const [copyStatus, setCopyStatus] = useState('Copiar');
 
@@ -212,7 +221,7 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext }) => {
   };
 
   return (
-    <div className="notebook-page-wrapper nocopy">
+    <div className={`notebook-page-wrapper nocopy flip-${flipDir || 'fwd'}`}>
       <div className="page-header-nav">
         <button className="nav-page-btn prev" onClick={onPrev} disabled={index === 0}>
            ← Anterior
@@ -298,16 +307,31 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
   const weekData = curriculumData.schedules[weekId];
   const [activeDayIdx, setActiveDayIdx] = useState(0);
   const [activeHourIdx, setActiveHourIdx] = useState(0);
+  const [dayAnimKey, setDayAnimKey] = useState(0);   // increments → re-mounts day content → triggers day animation
+  const flipDirRef = useRef('fwd');                  // 'fwd' | 'bwd' — read at render, no extra re-render needed
+
+  const weekMeta = getWeekMeta(weekId);
+  const weekNumber = weekId.replace('W', '');
+  // Extract date range from label e.g. "Semana 08 (XX-XX Mes)" → "(XX-XX Mes)"
+  const dateRange = weekMeta.label.match(/\(([^)]+)\)/)?.[1] || '';
 
   if (!weekData) return <div className="no-data">No se encontró información para esta semana.</div>;
   if (!weekData.days || weekData.days.length === 0) {
     return (
       <div className="week-view notebook-view empty-week-state">
-        <header className="header-section">
-          <div className="header-top">
-            <span className="subject-badge">{curriculumData.subject}</span>
+        <header className="week-portada">
+          <div className="portada-inner">
+            <span className="portada-course">{curriculumData.subject}</span>
+            <div className="portada-week-number">
+              <span className="portada-week-label">Semana</span>
+              <span className="portada-week-digit">{weekNumber}</span>
+            </div>
+            {dateRange && <span className="portada-date">{dateRange}</span>}
+            <span className="portada-group">Grupo {curriculumData.group} · Dr. Felipe López</span>
           </div>
-          <h1 className="subject-title">Semana {weekId.replace('W', '')}</h1>
+          <div className="portada-lines" aria-hidden="true">
+            {[...Array(5)].map((_, i) => <span key={i} className="portada-line" />)}
+          </div>
         </header>
         <div className="notebook-container">
           <div className="notebook-sheet empty-sheet">
@@ -324,41 +348,59 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
 
   const currentDay = weekData.days[activeDayIdx];
   const isSpecialDay = currentDay.id === 'dual' || currentDay.id === 'key';
-  
+
   const handleDaySelect = (idx) => {
     setActiveDayIdx(idx);
     setActiveHourIdx(0);
+    setDayAnimKey(k => k + 1);
   };
 
   const nextHour = () => {
-    if (activeHourIdx < currentDay.hours.length - 1) setActiveHourIdx(activeHourIdx + 1);
+    if (activeHourIdx < currentDay.hours.length - 1) {
+      flipDirRef.current = 'fwd';
+      setActiveHourIdx(activeHourIdx + 1);
+    }
   };
 
   const prevHour = () => {
-    if (activeHourIdx > 0) setActiveHourIdx(activeHourIdx - 1);
+    if (activeHourIdx > 0) {
+      flipDirRef.current = 'bwd';
+      setActiveHourIdx(activeHourIdx - 1);
+    }
   };
 
   return (
     <div className={`week-view notebook-view ${isClassMode ? 'class-mode' : ''}`}>
-      <header className="header-section">
-        <div className="header-top">
-          <span className="subject-badge">{curriculumData.subject}</span>
-          <p className="group-info">Grupo {curriculumData.group} | Dr. Felipe López</p>
+
+      {/* ── Portada de semana ── */}
+      <header className="week-portada">
+        <div className="portada-inner">
+          <span className="portada-course">{curriculumData.subject}</span>
+          <div className="portada-week-number">
+            <span className="portada-week-label">Semana</span>
+            <span className="portada-week-digit">{weekNumber}</span>
+          </div>
+          {dateRange && <span className="portada-date">{dateRange}</span>}
+          <span className="portada-group">Grupo {curriculumData.group} · Dr. Felipe López</span>
         </div>
-        <h1 className="subject-title">Semana {weekId.replace('W', '')}</h1>
+        {/* Decorative ruled lines reminiscent of notebook paper */}
+        <div className="portada-lines" aria-hidden="true">
+          {[...Array(5)].map((_, i) => <span key={i} className="portada-line" />)}
+        </div>
       </header>
 
-      <DayTabs 
-        days={weekData.days} 
-        activeIndex={activeDayIdx} 
-        onSelect={handleDaySelect} 
+      <DayTabs
+        days={weekData.days}
+        activeIndex={activeDayIdx}
+        onSelect={handleDaySelect}
       />
 
-      <div className="notebook-container">
+      {/* key=dayAnimKey forces re-mount → triggers day CSS animation */}
+      <div className="notebook-container" key={dayAnimKey}>
         {isDualMode ? (
           <DualGallery activities={weekData.days.find(d => d.id === 'dual')?.activities} />
         ) : isSpecialDay ? (
-          <div className="notebook-sheet special">
+          <div className="notebook-sheet special day-enter">
              <div className="sheet-header">
                 <h2 className="sheet-title">{currentDay.label}</h2>
              </div>
@@ -393,13 +435,16 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
               </div>
             )}
 
-            <HourPage 
-              hour={currentDay.hours[activeHourIdx]} 
+            {/* key=activeHourIdx forces re-mount → triggers hour CSS animation */}
+            <HourPage
+              key={activeHourIdx}
+              hour={currentDay.hours[activeHourIdx]}
               index={activeHourIdx}
               total={currentDay.hours.length}
               isTeacherMode={isTeacherMode}
               onPrev={prevHour}
               onNext={nextHour}
+              flipDir={flipDirRef.current}
             />
 
             {activeHourIdx === currentDay.hours.length - 1 && (
