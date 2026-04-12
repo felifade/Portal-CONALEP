@@ -3,12 +3,12 @@ import { curriculumData } from '../data/curriculum';
 
 // ── Calendarización del semestre (solo MTHS) ──────────────────
 const MTHS_SEMANAS = [
-  { num: 1,  date: '16 Feb', ra: 'RA 1.1', title: 'Identifica malwares y ataques tecnológicos para la aplicación de procedimientos de mitigación y seguridad en línea.', hours: 10 },
-  { num: 3,  date: '2 Mar',  ra: 'RA 1.2', title: 'Contextualiza la transformación digital en la industria y vida cotidiana.', hours: 10 },
-  { num: 6,  date: '23 Mar', ra: 'RA 2.1', title: 'Instalación y configuración de computadoras personales.', hours: 20 },
-  { num: 9,  date: '27 Abr', ra: 'RA 2.2', title: 'Instalación y configuración de dispositivos tecnológicos.', hours: 15 },
-  { num: 13, date: '25 May', ra: 'RA 3.1', title: 'Configuración de sistemas operativos y redes.', hours: 20 },
-  { num: 17, date: '22 Jun', ra: 'RA 3.2', title: 'Seguridad básica de red.', hours: 15 },
+  { num: 1,  date: '16 Feb', ra: 'RA 1.1', title: 'Identifica malwares y ataques tecnológicos para la posterior aplicación de procedimientos de mitigación y seguridad en línea que permita la protección de datos de la organización.', hours: 10 },
+  { num: 3,  date: '2 Mar',  ra: 'RA 1.2', title: 'Contextualiza la transformación digital de acuerdo con su aplicación en la industria y la vida cotidiana para llevar a cabo procesos de conexión y automatización.', hours: 10 },
+  { num: 5,  date: '16 Mar', ra: 'RA 2.1', title: 'Ejecuta la instalación y configuración de computadoras personales para su óptimo funcionamiento, empleando componentes y protocolos de armado y funcionalidad.', hours: 20 },
+  { num: 9,  date: '27 Abr', ra: 'RA 2.2', title: 'Ejecuta la instalación y configuración de dispositivos tecnológicos para su óptimo funcionamiento, empleando componentes y protocolos de uso y conectividad.', hours: 15 },
+  { num: 13, date: '25 May', ra: 'RA 3.1', title: 'Configura sistemas operativos y dispositivos de red para su óptimo funcionamiento y conectividad, empleando las herramientas y requisitos tecnológicos.', hours: 20 },
+  { num: 16, date: '15 Jun', ra: 'RA 3.2', title: 'Implementa la seguridad básica de red para la protección de dispositivos e información de usuarios haciendo uso de protocolos de configuración y protección tecnológica.', hours: 15 },
 ];
 
 const WEEK_STARTS_MTHS = [

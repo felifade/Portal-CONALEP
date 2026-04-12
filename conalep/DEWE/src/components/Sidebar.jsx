@@ -4,10 +4,10 @@ import { curriculumData } from '../data/curriculum';
 // ── Calendarización del semestre (solo DEWE) ──────────────────
 const DEWE_SEMANAS = [
   { num: 1,  date: '16 Feb', ra: 'RA 1.1', title: 'Diseña la estructura del sitio web con base en las mejores prácticas y los requerimientos del cliente.', hours: 20 },
-  { num: 4,  date: '9 Mar',  ra: 'RA 1.2', title: 'Elabora páginas web estáticas usando HTML5.', hours: 35 },
-  { num: 10, date: '4 May',  ra: 'RA 1.3', title: 'Construcción de hojas de estilo CSS3.', hours: 25 },
-  { num: 15, date: '8 Jun',  ra: 'RA 2.1', title: 'Implementa interactividad con lenguaje de programación.', hours: 30 },
-  { num: 18, date: '29 Jun', ra: 'RA 2.2', title: 'Acceso a bases de datos en páginas web.', hours: 34 },
+  { num: 3,  date: '2 Mar',  ra: 'RA 1.2', title: 'Elabora páginas web estáticas haciendo uso del lenguaje de etiquetas HTML 5.', hours: 35 },
+  { num: 7,  date: '13 Abr', ra: 'RA 1.3', title: 'Construye hojas de estilo en cascada CSS3 de acuerdo con las especificaciones del World Wide Web Consortium (W3C).', hours: 25 },
+  { num: 10, date: '4 May',  ra: 'RA 2.1', title: 'Implementa interactividad a las páginas web, mediante el desarrollo de código de programación en un lenguaje script.', hours: 30 },
+  { num: 13, date: '25 May', ra: 'RA 2.2', title: 'Establece el acceso a bases de datos en páginas web mediante el desarrollo de código en un lenguaje de programación.', hours: 34 },
 ];
 
 const WEEK_STARTS_DEWE = [
