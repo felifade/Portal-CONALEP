@@ -43,10 +43,7 @@ function App() {
 
   return (
     <div className={`app-container ${isClassMode ? 'class-mode-active' : ''}`}>
-      <Sidebar 
-        activeWeek={activeWeek} 
-        onWeekSelect={handleWeekChange} 
-      />
+      <Sidebar />
       <main className="main-content">
         <div className="class-mode-toggle-container">
           <button 

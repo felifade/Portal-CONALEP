@@ -22,6 +22,13 @@ const Sidebar = ({ activeView, onViewSelect }) => {
             <span className="doc-icon">🧪</span>
             Laboratorio de Código
           </a>
+          <a
+            className={`main-nav-link ${activeView === 'curriculum' ? 'active' : ''}`}
+            onClick={() => onViewSelect('curriculum')}
+          >
+            <span className="doc-icon">📚</span>
+            Contenido del Curso
+          </a>
         </div>
       </nav>
     </aside>
