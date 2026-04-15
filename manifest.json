@@ -1,0 +1,35 @@
+{
+  "name": "Portal Académico CONALEP",
+  "short_name": "CONALEP",
+  "description": "Portal del Docente · Dr. Felipe López Salazar · Pachuca II",
+  "start_url": "/Portal-CONALEP/",
+  "scope": "/Portal-CONALEP/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#013a29",
+  "theme_color": "#025940",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/Portal-CONALEP/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/Portal-CONALEP/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Portal-CONALEP/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["education"],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Fondo verde institucional -->
+  <rect width="512" height="512" rx="96" fill="#013a29"/>
+  <!-- Círculo decorativo -->
+  <circle cx="256" cy="256" r="180" fill="#025940"/>
+  <!-- Letra C grande -->
+  <text
+    x="256" y="330"
+    font-family="system-ui, -apple-system, Arial, sans-serif"
+    font-size="260"
+    font-weight="900"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-8"
+  >C</text>
+  <!-- Franja inferior con nombre -->
+  <rect x="0" y="390" width="512" height="122" rx="0" fill="rgba(0,0,0,0.25)"/>
+  <rect x="0" y="468" width="512" height="44" rx="0" fill="rgba(0,0,0,0)"/>
+  <text
+    x="256" y="452"
+    font-family="system-ui, -apple-system, Arial, sans-serif"
+    font-size="52"
+    font-weight="700"
+    fill="rgba(255,255,255,0.9)"
+    text-anchor="middle"
+    letter-spacing="6"
+  >CONALEP</text>
+</svg>
