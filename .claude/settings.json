@@ -13,7 +13,8 @@
       "Bash(curl -sL https://p45-caldav.icloud.com/published/2/MTIwODExNDM2MjEyMDgxMQ_N9OFdZ615LKgUgfNU-ZZGK7f7U8agM0t5eueilYy5_zWqTey5efT0j1rx-_ftLDbmtVJTJ1mRLoSBUdaNJYE -o '/Users/felipelopezsalazar/Downloads/CONALEP/Portal CONALEP/calendar.ics')",
       "Bash(python3 -m http.server 5500)",
       "Bash(open \"http://localhost:5500/index.html\")",
-      "Bash(gh workflow:*)"
+      "Bash(gh workflow:*)",
+      "Bash(python3 -)"
     ]
   }
 }
