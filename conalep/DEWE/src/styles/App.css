@@ -1877,5 +1877,6 @@
 .ra-header:hover { background-color: rgba(0,0,0,0.1) !important; }
 .ra-active .ra-title { color: #fff !important; font-weight: 800 !important; }
 .doc-icon { opacity: 0.9 !important; }
+.portal-title { color: rgba(255,255,255,0.55) !important; font-size: 10px !important; font-weight: 800 !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; padding: 16px 12px 4px !important; margin: 0 !important; }
 
 

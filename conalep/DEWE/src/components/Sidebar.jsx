@@ -48,7 +48,7 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect }) => {
               </div>
               {isExpanded && (
                 <div className="weeks-container">
-                  {ra.weeks.map(week => (
+                  {[...ra.weeks].reverse().map(week => (
                     <div
                       key={week.id}
                       className={`week-link ${activeWeek === week.id ? 'active' : ''}`}
