@@ -500,32 +500,42 @@ export const curriculumData = {
         },
         {
           id: "thu",
-          label: "Jueves — Tipos de enlaces y sitios multi-página (H4-H5)",
-          purpose: "Reforzar el uso de enlaces internos y comenzar la transición de una página única hacia un sitio web real con múltiples archivos conectados.",
+          label: "Jueves — Navegación y transición a múltiples páginas",
+          purpose: "Comprender el uso de enlaces en HTML y realizar la transición de una página única a un sitio web con múltiples páginas conectadas.",
           hours: [
             {
               time: "Hora 1",
-              title: "Enlaces internos y tipos de enlaces",
-              theory: "Los enlaces en HTML permiten conectar diferentes partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página mediante el atributo href y el símbolo #, el cual debe coincidir con un id exacto. Además existen otros tipos: 1. Enlaces internos (#), 2. Enlaces a otra página (personajes.html) y 3. Enlaces externos (https://...).",
-              notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los tres tipos de enlaces. 2. Da un ejemplo de cada uno. 3. Explica cuándo usar cada uno. 4. ¿Qué pasa si el id no coincide con el href?",
-              practice: "1. Abrir index.html. 2. Verificar enlaces internos existentes. 3. Agregar enlace: <a href='#inicio'>Inicio</a>. 4. Agregar el ancla: <header id='inicio'>. 5. Probar en navegador y confirmar funcionamiento.",
+              title: "Enlaces internos en HTML",
+              theory: "Los enlaces en HTML permiten conectar distintas partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página. Se crean con la etiqueta <a> y el atributo href. Cuando el valor de href inicia con el símbolo #, el enlace apunta a un elemento dentro del mismo documento. Ese elemento debe tener un atributo id que coincida exactamente. Ejemplo: <a href=\"#contacto\"> <section id=\"contacto\"> Si el id no coincide, el enlace no funcionará.",
+              notebook: "Título: Enlaces internos en HTML. 1. Explica con tus palabras qué es un enlace interno. 2. Escribe un ejemplo completo de enlace interno. 3. Explica la relación entre href e id. 4. Responde: ¿Qué pasa si el id no coincide?",
+              practice: "1. Abrir el archivo index.html. 2. Revisar los enlaces internos existentes. 3. Agregar un nuevo enlace en el menú: <a href=\"#inicio\">Inicio</a>. 4. Agregar el id correspondiente en el encabezado: <header id=\"inicio\">. 5. Guardar cambios. 6. Probar en el navegador. 7. Verificar que el enlace funcione correctamente.",
               code: "<a href=\"#inicio\">Inicio</a>\n<header id=\"inicio\">",
-              product: "Menú con al menos un enlace interno nuevo funcionando correctamente.",
-              teacherNotes: "Aquí se detecta quién entiende realmente la relación entre href e id. Haz que prueben los enlaces en el navegador."
+              product: "Menú actualizado con al menos un enlace interno nuevo funcionando correctamente",
+              teacherNotes: "Aquí se detecta quién entiende la relación entre href e id. Es importante que los alumnos prueben en navegador."
             },
             {
               time: "Hora 2",
-              title: "Paso de una página a un sitio web real",
-              theory: "Hasta ahora el sitio funciona con enlaces internos (#), pero los sitios reales utilizan múltiples páginas conectadas entre sí. Esto permite una mejor organización, mayor claridad y crecimiento del proyecto. Ahora el enlace ya no apunta a una sección, sino a otro archivo independiente del sistema de archivos.",
-              notebook: "Título: De una página a un sitio web. 1. Explica la diferencia entre #personajes y personajes.html. 2. Dibuja la estructura jerárquica: Inicio -> (Personajes, Juegos, Contacto). 3. ¿Cuál es mejor para un sitio grande y por qué?",
-              practice: "1. Crear archivos: personajes.html, juegos.html y contacto.html. 2. En los nuevos archivos escribir estructura básica y un h1 demostrativo. 3. Modificar index.html para cambiar <a href='#personajes'> por <a href='personajes.html'>. 4. Verificar que el enlace abre realmente otra página.",
+              title: "Tipos de enlaces en HTML",
+              theory: "Existen distintos tipos de enlaces en HTML. 1. Enlaces internos (#) → misma página. 2. Enlaces a otra página → archivo HTML. 3. Enlaces externos → sitios web. Ejemplos: <a href=\"#contacto\">, <a href=\"personajes.html\">, <a href=\"https://google.com\" target=\"_blank\">. Cada tipo de enlace tiene un propósito específico dentro de un sitio web.",
+              notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los 3 tipos de enlaces. 2. Escribe un ejemplo de cada uno. 3. Explica cuándo usarías cada tipo. 4. Responde: ¿Cuál usarías para navegar dentro del mismo sitio?",
+              practice: "1. Abrir index.html. 2. Agregar un enlace externo: <a href=\"https://www.residentevil.com\" target=\"_blank\">Sitio oficial</a>. 3. Guardar cambios. 4. Probar en navegador. 5. Verificar que el enlace abra en una nueva pestaña.",
+              code: "<a href=\"https://www.residentevil.com\" target=\"_blank\">Sitio oficial</a>",
+              product: "Integración de un enlace externo funcional dentro del sitio",
+              teacherNotes: "Aquí el alumno entiende que HTML no solo conecta contenido interno, también permite salir del sitio."
+            },
+            {
+              time: "Hora 3",
+              title: "Transición a múltiples páginas",
+              theory: "Hasta ahora el sitio funciona como una sola página utilizando enlaces internos. Sin embargo, los sitios web reales están formados por múltiples páginas conectadas entre sí. Esto permite: mejor organización, mayor claridad y crecimiento del proyecto. Ejemplo: index.html, personajes.html, juegos.html, contacto.html. Ahora el enlace ya no apunta a una sección, sino a otro archivo.",
+              notebook: "Título: De una página a un sitio web. 1. Explica la diferencia entre #personajes y personajes.html. 2. Dibuja la estructura: Inicio ├── Personajes ├── Juegos └── Contacto. 3. Responde: ¿Cuál es mejor para un sitio grande y por qué?",
+              practice: "1. Crear los siguientes archivos en el proyecto: personajes.html, juegos.html y contacto.html. 2. Abrir personajes.html y escribir: <h1>Personajes</h1> <p>Página en construcción</p>. 3. Modificar en index.html: <a href=\"#personajes\"> por <a href=\"personajes.html\">. 4. Guardar cambios. 5. Abrir el sitio en el navegador. 6. Verificar que el enlace abre otra página.",
               code: "<a href=\"personajes.html\">Personajes</a>\n<h1>Personajes</h1>",
-              product: "Creación de al menos un archivo HTML adicional y navegación funcional entre páginas.",
-              teacherNotes: "Aquí los alumnos fallarán en rutas o nombres de archivos. Es parte del aprendizaje, no corregirles todo de inmediato."
+              product: "Creación de múltiples páginas y navegación funcional entre archivos",
+              teacherNotes: "Aquí los alumnos fallarán en rutas o nombres. Es parte del aprendizaje, no intervenir demasiado rápido."
             }
           ],
           cierre: "Hoy tu página dejó de ser una sola hoja… y empezó a ser un sitio web.",
-          frase_docente: "La verdadera web no es un documento, es una red de páginas conectadas."
+          frase_docente: "Un sitio web sin navegación es como un libro sin índice: el contenido está, pero nadie sabe cómo llegar a él."
         },
         {
           id: "dual",
