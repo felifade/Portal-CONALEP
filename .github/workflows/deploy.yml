@@ -17,9 +17,30 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            conalep/DEWE/package-lock.json
+            conalep/MTHS/package-lock.json
+
+      - name: Install & Build DEWE 💻
+        working-directory: conalep/DEWE
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install & Build MTHS 🖥️
+        working-directory: conalep/MTHS
+        run: |
+          npm ci
+          npm run build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # La rama donde se publica el sitio
-          folder: .        # Se despliega todo el contenido de la raíz del repo
-          clean: true      # Elimina archivos antiguos en gh-pages que ya no estén en main
+          branch: gh-pages
+          folder: .
+          clean: true
