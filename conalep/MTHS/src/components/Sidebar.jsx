@@ -27,7 +27,7 @@ const Sidebar = ({ activeWeek, onWeekSelect }) => {
 
       <nav className="nav-container">
         <p className="portal-title">Contenido del Curso</p>
-        {curriculumData.ras.map(ra => {
+        {[...curriculumData.ras].reverse().map(ra => {
           const isExpanded = expandedRas[ra.id];
           const hasActiveWeek = ra.weeks.some(w => w.id === activeWeek);
           return (
