@@ -1,0 +1,25 @@
+name: Auto Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permisos necesarios para JamesIves/github-pages-deploy-action
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # La rama donde se publica el sitio
+          folder: .        # Se despliega todo el contenido de la raíz del repo
+          clean: true      # Elimina archivos antiguos en gh-pages que ya no estén en main
