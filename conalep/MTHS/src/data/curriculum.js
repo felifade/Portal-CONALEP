@@ -83,30 +83,30 @@ export const curriculumData = {
         },
         {
           id: "thu",
-          label: "Jueves — Menú y Pruebas (H4-H5)",
-          purpose: "Construir el panel principal de funciones y validar el funcionamiento de la aplicación.",
+          label: "Jueves — Desarrollo de pantallas y lógica (H4-H5)",
+          purpose: "Desarrollar pantallas funcionales integrando contenido multimedia e interacción mediante componentes del sistema.",
           hours: [
             {
               time: "Hora 1",
-              title: "Organización del Menú",
-              theory: "Usamos 'Disposiciones' (Arrangements) para alinear botones. El menú principal debe ser intuitivo; si un menú es confuso, el usuario cerrará la app.",
-              notebook: "Dibuja iconos para tus 3 temas de seguridad: 1. Contraseñas, 2. WiFi, 3. Riesgos.",
-              practice: "1. En 'Menu', usa 'Disposición Vertical'.\n2. Agrega y personaliza 3 botones con temas de seguridad.",
-              product: "Panel de control diseñado.",
-              teacherNotes: "Explica la diferencia entre ancho 'Automático' y 'Ajustar al contenedor'."
+              title: "Desarrollo de pantalla: Contraseñas",
+              theory: "Una aplicación de seguridad digital debe ser informativa. En esta sesión aprenderemos a crear pantallas específicas para cada tema, integrando elementos visuales (imágenes y etiquetas) con elementos de interacción social (notificaciones) para guiar al usuario.",
+              notebook: "Anota las 3 recomendaciones de seguridad para contraseñas que incluirás en tu app. Escribe la lógica del bloque Notifier que usarás.",
+              practice: "1. Crear pantalla 'Contraseñas'.\n2. Agregar etiquetas para título y contenido con 3 recomendaciones.\n3. Insertar una imagen relacionada (candado/usuario).\n4. Agregar un Botón ('Ver consejo') y el componente Notifier.\n5. Programar: Al hacer clic en el botón, mostrar mensaje: 'Usa contraseñas diferentes para cada cuenta'.\n6. Conectar navegación desde la pantalla Menu.",
+              product: "Pantalla de contraseñas funcional y accesible.",
+              teacherNotes: "Verifica que el componente Notifier se use correctamente para mensajes de tipo alerta o diálogo."
             },
             {
               time: "Hora 2",
-              title: "Testing y Calidad",
-              theory: "Hacer pruebas permite ver la app con ojos de usuario. A veces, un botón no es claro o los colores no contrastan bien. Corregir esto diferencia un proyecto escolar de uno profesional.",
-              notebook: "Autoevaluación: ¿Qué fue lo más fácil? ¿Qué lógica te costó más? ¿Qué función secreta agregarías?",
-              practice: "1. Revisa ortografía y navegación.\n2. Prueba con 'AI Companion'.\n3. Genera código QR y prueba en un dispositivo real.",
-              product: "Aplicación funcional en dispositivo.",
-              teacherNotes: "Facilita las tablets del laboratorio si los alumnos no tienen teléfono."
+              title: "Desarrollo de pantalla: WiFi seguro",
+              theory: "El uso de redes públicas es uno de los mayores riesgos digitales. Aprenderemos a duplicar la lógica de diseño para crear una segunda pantalla dedicada al WiFi, reforzando la navegación bidireccional entre el menú principal y las secciones de contenido.",
+              notebook: "¿Cuáles son los peligros de ingresar datos sensibles en una red WiFi pública? Lista 3 consejos rápidos.",
+              practice: "1. Crear pantalla 'WiFi'.\n2. Agregar título, 3 recomendaciones en etiquetas e imagen descriptiva.\n3. Insertar Botón ('Ver recomendación') y componente Notifier.\n4. Programar: Al hacer clic, mostrar: 'No ingreses contraseñas en redes públicas'.\n5. Conectar navegación bidireccional con la pantalla Menu.\n6. Realizar pruebas finales de navegación y mensajes.",
+              product: "Pantalla de WiFi seguro integrada y probada.",
+              teacherNotes: "Observa la jerarquía visual de los elementos para asegurar que el contenido sea legible."
             }
           ],
-          cierre: "Hoy logramos construir nuestra primera aplicación móvil funcional.",
-          frase_docente: "Un desarrollador no solo crea código, soluciona problemas reales."
+          cierre: "Hoy logramos expandir nuestra app con pantallas de contenido real e interacción con el usuario.",
+          frase_docente: "La interactividad es lo que convierte una página estática en una verdadera herramienta digital."
         }
       ]
     },
