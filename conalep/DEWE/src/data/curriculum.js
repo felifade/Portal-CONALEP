@@ -565,6 +565,35 @@ export const curriculumData = {
           ],
           cierre: "Hoy tu sitio dejó de verse como código… y empezó a verse como una página real.",
           frase_docente: "El diseño no es solo cómo se ve, es cómo se siente usarlo."
+        },
+        {
+          id: "dual",
+          label: "Repositorio de Actividades Duales (Semana 07)",
+          activities: [
+            {
+              title: "Tarea 1: Estructura del proyecto",
+              instruction: "Basado en la infografía adjunta: 1. Certifica que tu carpeta raíz 'Sitio_Resident_Evil' contenga las subcarpetas img y css. 2. Verifica que el archivo index.html esté en la raíz y no dentro de las carpetas. 3. Identifica en tu libreta qué contenido de tu página actual se moverá a páginas independientes.",
+              image: "infografia_lunes.png"
+            },
+            {
+              title: "Tarea 2: Navegación y Enlaces Internos",
+              instruction: "Utiliza la infografía 'Navegación y Enlaces Internos HTML' para: 1. Identificar la diferencia entre un enlace externo y un marcador interno (#). 2. Dibujar en tu libreta el esquema de navegación mostrado. 3. Escribir el código de un menú nav que contenga al menos 3 enlaces a secciones de una misma página.",
+              image: "infografia_jueves.png"
+            }
+          ]
+        },
+        {
+          id: "key",
+          label: "Código Clave — Resumen de sintaxis",
+          hours: [
+            {
+              time: "Snippets finales",
+              theory: "Resumen de los bloques de código más importantes de la semana.",
+              notebook: "Anotar en la sección de apuntes rápidos.",
+              practice: "Usar estos bloques como referencia constante.",
+              code: "<link rel=\"stylesheet\" href=\"css/estilos.css\">\n\nbody { background-color: #111; color: white; }\n\nh1 { color: red; }"
+            }
+          ]
         }
       ]
     }
