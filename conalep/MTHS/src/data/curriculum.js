@@ -67,17 +67,17 @@ export const curriculumData = {
         },
         {
           id: "wed",
-          label: "Miércoles — Lógica y Eventos (H3)",
-          purpose: "Aprender a programar la navegación entre pantallas mediante bloques de lógica.",
+          label: "Miércoles — Desarrollo de aplicación móvil – Creación de menú (H3)",
+          purpose: "Desarrollar la pantalla principal de navegación (Menú) y programar la lógica de acceso desde la portada.",
           hours: [
             {
               time: "Hora 1",
-              title: "Eventos y Navegación",
-              theory: "Programar es dar instrucciones. En App Inventor conectamos bloques como rompecabezas. La lógica básica es: 'Cuando el usuario haga clic en este botón, entonces abre esta otra pantalla'.",
-              notebook: "Escribe la lógica en pseudocódigo: 1. Veo portada, 2. Presiono botón, 3. Sistema abre Menú.",
-              practice: "1. Crea ventana nueva: 'Menu'.\n2. En Bloques, usa: 'cuando Boton1.Click'.\n3. Agrega: 'abrir otra pantalla -> Menu'.",
-              product: "Navegación funcional entre pantallas.",
-              teacherNotes: "Asegúrate de que escriban el nombre de la pantalla idéntico en el bloque."
+              title: "Creación del Menú Principal",
+              theory: "En esta sesión se continuó con el desarrollo de la aplicación móvil utilizando App Inventor. Los alumnos crearon una segunda pantalla llamada Menu, la cual funciona como el menú principal de la aplicación. En esta pantalla agregaron un título y botones de navegación con diferentes opciones relacionadas con el contenido de la app. También programaron el botón Entrar desde la pantalla de portada para permitir la navegación hacia el menú.",
+              notebook: "Escribe la lista de las 3 opciones de seguridad que incluirás en tu menú y qué bloque de App Inventor usarás para cambiar de pantalla.",
+              practice: "Práctica II: Crear una nueva pantalla (Menú)\n\n1. Crear una pantalla llamada Menu.\n2. Agregar un título con el texto 'Menú principal'.\n3. Agregar al menos tres botones: Contraseñas seguras, WiFi seguro y Riesgos digitales.\n4. Programar el botón 'Entrar' (en la Screen1) para navegar a la pantalla Menu.\n5. Probar el funcionamiento de la aplicación.",
+              product: "Pantalla de menú funcional con botones y navegación programada.",
+              teacherNotes: "Verifica que el nombre de la pantalla en el bloque de código coincida exactamente con el nombre dado a la ventana (Case Sensitive)."
             }
           ]
         },
