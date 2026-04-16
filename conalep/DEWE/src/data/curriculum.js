@@ -565,4 +565,8 @@ export const curriculumData = {
           ],
           cierre: "Hoy tu sitio dejó de verse como código… y empezó a verse como una página real.",
           frase_docente: "El diseño no es solo cómo se ve, es cómo se siente usarlo."
-        },
+        }
+      ]
+    }
+  }
+};
