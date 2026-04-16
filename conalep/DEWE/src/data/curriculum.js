@@ -500,32 +500,32 @@ export const curriculumData = {
         },
         {
           id: "thu",
-          label: "Jueves — Preparar navegación",
-          purpose: "Comprender cómo funciona la navegación en un sitio web mediante menús y enlaces internos, verificando que cada sección esté correctamente conectada para garantizar una experiencia clara para el usuario.",
+          label: "Jueves — Tipos de enlaces y sitios multi-página (H4-H5)",
+          purpose: "Reforzar el uso de enlaces internos y comenzar la transición de una página única hacia un sitio web real con múltiples archivos conectados.",
           hours: [
             {
               time: "Hora 1",
-              title: "Navegación en un sitio web",
-              theory: "Un sitio web no solo contiene información, también debe permitir que el usuario se desplace entre sus diferentes secciones de manera clara. A este proceso se le llama navegación. La navegación en una página web se realiza principalmente mediante menús y enlaces, los cuales permiten pasar de una sección a otra sin perderse. En HTML, el menú se organiza dentro de la etiqueta nav y los enlaces se crean con la etiqueta a. Un buen menú debe ser claro, visible, ordenado y fácil de entender. Si un sitio no tiene buena navegación, el usuario se pierde y abandona la página. Por eso, antes de aplicar diseño, es fundamental verificar que la navegación funcione correctamente.",
-              notebook: "Título: Navegación en un sitio web. Instrucciones: 1. Escribe con tus propias palabras qué es la navegación en una página web. 2. Dibuja un menú con las siguientes opciones: Inicio, Personajes, Juegos, Cronología y Contacto. 3. Responde: ¿Por qué es importante que un sitio tenga un menú claro y organizado?",
-              practice: "1. Abrir el archivo index.html. 2. Localizar la sección del menú dentro de la etiqueta nav. 3. Verificar que incluya las opciones: Personajes, Juegos, Cronología y Contacto. 4. Corregir errores de escritura si existen. 5. Guardar cambios y visualizar el resultado en el navegador.",
-              code: "<nav>\n  <ul>\n    <li><a href=\"#personajes\">Personajes</a></li>\n    <li><a href=\"#juegos\">Juegos</a></li>\n    <li><a href=\"#cronologia\">Cronología</a></li>\n    <li><a href=\"#contacto\">Contacto</a></li>\n  </ul>\n</nav>",
-              product: "Menú funcional dentro del sitio web con enlaces visibles y correctamente escritos.",
-              teacherNotes: "Aquí es importante que el alumno vea que el menú no es decoración, sino una herramienta de navegación. Haz que prueben cada enlace en el navegador."
+              title: "Enlaces internos y tipos de enlaces",
+              theory: "Los enlaces en HTML permiten conectar diferentes partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página mediante el atributo href y el símbolo #, el cual debe coincidir con un id exacto. Además existen otros tipos: 1. Enlaces internos (#), 2. Enlaces a otra página (personajes.html) y 3. Enlaces externos (https://...).",
+              notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los tres tipos de enlaces. 2. Da un ejemplo de cada uno. 3. Explica cuándo usar cada uno. 4. ¿Qué pasa si el id no coincide con el href?",
+              practice: "1. Abrir index.html. 2. Verificar enlaces internos existentes. 3. Agregar enlace: <a href='#inicio'>Inicio</a>. 4. Agregar el ancla: <header id='inicio'>. 5. Probar en navegador y confirmar funcionamiento.",
+              code: "<a href=\"#inicio\">Inicio</a>\n<header id=\"inicio\">",
+              product: "Menú con al menos un enlace interno nuevo funcionando correctamente.",
+              teacherNotes: "Aquí se detecta quién entiende realmente la relación entre href e id. Haz que prueben los enlaces en el navegador."
             },
             {
               time: "Hora 2",
-              title: "Enlaces internos en HTML",
-              theory: "Los enlaces internos permiten que una página web navegue dentro de sí misma. Se construyen con la etiqueta a y el atributo href. Cuando el valor de href comienza con el símbolo #, significa que apunta a un elemento dentro de la misma página. Ese elemento debe tener un atributo id que coincida exactamente. Por ejemplo, un enlace con href=\"#contacto\" llevará a una sección con id=\"contacto\". Si el id no coincide o está mal escrito, el enlace no funcionará. Los errores más comunes son olvidar el símbolo #, escribir mal el id o no colocar el id en la sección correspondiente. Una navegación funcional es más importante que una página visualmente bonita.",
-              notebook: "Título: Enlaces internos en HTML. Instrucciones: 1. Escribe qué hace la etiqueta a. 2. Explica qué significa el símbolo # dentro de un enlace. 3. Escribe un ejemplo completo de enlace interno. 4. Anota tres errores comunes que pueden hacer que un enlace no funcione.",
-              practice: "1. Abrir el archivo index.html. 2. Revisar las secciones: personajes, juegos, cronología y contacto. 3. Verificar que cada sección tenga su atributo id correctamente escrito. 4. Probar los enlaces del menú en el navegador. 5. Corregir cualquier error detectado en href o id. 6. Guardar y volver a probar.",
-              code: "<a href=\"#contacto\">Ir a contacto</a>\n\n<section id=\"contacto\">\n  <h2>Contacto</h2>\n</section>",
-              product: "Navegación interna funcionando correctamente dentro del sitio.",
-              teacherNotes: "Rompe un enlace a propósito (cambia un id o elimina el #) y haz que ellos descubran el error. Esto genera comprensión real."
+              title: "Paso de una página a un sitio web real",
+              theory: "Hasta ahora el sitio funciona con enlaces internos (#), pero los sitios reales utilizan múltiples páginas conectadas entre sí. Esto permite una mejor organización, mayor claridad y crecimiento del proyecto. Ahora el enlace ya no apunta a una sección, sino a otro archivo independiente del sistema de archivos.",
+              notebook: "Título: De una página a un sitio web. 1. Explica la diferencia entre #personajes y personajes.html. 2. Dibuja la estructura jerárquica: Inicio -> (Personajes, Juegos, Contacto). 3. ¿Cuál es mejor para un sitio grande y por qué?",
+              practice: "1. Crear archivos: personajes.html, juegos.html y contacto.html. 2. En los nuevos archivos escribir estructura básica y un h1 demostrativo. 3. Modificar index.html para cambiar <a href='#personajes'> por <a href='personajes.html'>. 4. Verificar que el enlace abre realmente otra página.",
+              code: "<a href=\"personajes.html\">Personajes</a>\n<h1>Personajes</h1>",
+              product: "Creación de al menos un archivo HTML adicional y navegación funcional entre páginas.",
+              teacherNotes: "Aquí los alumnos fallarán en rutas o nombres de archivos. Es parte del aprendizaje, no corregirles todo de inmediato."
             }
           ],
-          cierre: "Al finalizar el jueves, el alumno debe tener un menú funcional y enlaces internos correctamente configurados que le permitan navegar entre las secciones del sitio.",
-          frase_docente: "Un sitio web sin navegación es como un libro sin índice: el contenido está, pero nadie sabe cómo llegar a él."
+          cierre: "Hoy tu página dejó de ser una sola hoja… y empezó a ser un sitio web.",
+          frase_docente: "La verdadera web no es un documento, es una red de páginas conectadas."
         },
         {
           id: "dual",
