@@ -506,12 +506,12 @@ export const curriculumData = {
             {
               time: "Hora 1",
               title: "Enlaces internos y tipos de enlaces",
-              theory: "Los enlaces en HTML permiten conectar distintas partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página. Se crean con la etiqueta <a> y el atributo href. Cuando el valor de href inicia con el símbolo #, el enlace apunta a un elemento dentro del mismo documento. Ese elemento debe tener un atributo id que coincida exactamente. Ejemplo: <a href=\"#contacto\"> <section id=\"contacto\"> Además, existen otros tipos de enlaces: 1. Enlaces internos (#) → misma página, 2. Enlaces a otra página → archivo HTML, 3. Enlaces externos → sitios web. Cada tipo cumple una función distinta dentro de un sitio.",
-              notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los 3 tipos de enlaces. 2. Escribe un ejemplo de cada uno. 3. Explica cuándo usarías cada tipo. 4. ¿Qué pasa si el id no coincide?",
-              practice: "1. Abrir index.html. 2. Revisar enlaces internos existentes. 3. Agregar en el menú: <a href=\"#inicio\">Inicio</a>. 4. Agregar en el encabezado: <header id=\"inicio\">. 5. Guardar cambios. 6. Probar en navegador.",
+              theory: "Los enlaces en HTML permiten conectar distintas partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página. Se crean con la etiqueta <a> y el atributo href. Cuando el valor de href inicia con el símbolo #, el enlace apunta a un elemento dentro del mismo documento. Ese elemento debe tener un atributo id que coincida exactamente. Ejemplo: <a href=\"#contacto\"> <section id=\"contacto\"> Además, existen otros tipos de enlaces: 1. Enlaces internos (#) → misma página, 2. Enlaces a otra página → archivo HTML, 3. Enlaces externos → sitios web.",
+              notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los 3 tipos de enlaces. 2. Escribe un ejemplo de cada uno. 3. Explica cuándo usarías cada tipo. 4. ¿Qué pasa si el id no coincide con el href?",
+              practice: "1. Abrir el archivo index.html del proyecto. 2. Localizar el menú dentro de la etiqueta <nav>. 3. Identificar los enlaces que ya existen (#personajes, #juegos, etc.). 4. Agregar una nueva opción en el menú: <a href=\"#inicio\">Inicio</a>. 5. Buscar el encabezado principal (<header>). 6. Modificarlo para agregar el id: <header id=\"inicio\">. 7. Guardar el archivo. 8. Abrir el archivo en el navegador. 9. Hacer clic en el enlace \"Inicio\". 10. Verificar que la página se desplace correctamente al inicio. 11. Si no funciona: revisar que el id esté bien escrito, revisar que el href tenga el símbolo # y corregir errores.",
               code: "<a href=\"#inicio\">Inicio</a>\n<header id=\"inicio\">",
-              product: "Menú con un nuevo enlace interno funcionando correctamente",
-              teacherNotes: "Aquí detectas quién entiende la relación entre href e id. Haz que prueben en navegador."
+              product: "Menú actualizado con un enlace interno funcional que desplaza correctamente dentro de la página",
+              teacherNotes: "Aquí no los dejes avanzar rápido. Haz que TODOS prueben el enlace. Si no hacen clic, no aprenden."
             },
             {
               time: "Hora 2",
