@@ -528,33 +528,43 @@ export const curriculumData = {
           frase_docente: "Un sitio web sin navegación es como un libro sin índice: el contenido está, pero nadie sabe cómo llegar a él."
         },
         {
-          id: "dual",
-          label: "Repositorio de Actividades Duales (Semana 07)",
-          activities: [
-            {
-              title: "Tarea 1: Estructura del proyecto",
-              instruction: "Basado en la infografía adjunta: 1. Certifica que tu carpeta raíz 'Sitio_Resident_Evil' contenga las subcarpetas img y css. 2. Verifica que el archivo index.html esté en la raíz y no dentro de las carpetas. 3. Identifica en tu libreta qué contenido de tu página actual se moverá a páginas independientes.",
-              image: "infografia_lunes.png"
-            },
-            {
-              title: "Tarea 2: Navegación y Enlaces Internos",
-              instruction: "Utiliza la infografía 'Navegación y Enlaces Internos HTML' para: 1. Identificar la diferencia entre un enlace externo y un marcador interno (#). 2. Dibujar en tu libreta el esquema de navegación mostrado. 3. Escribir el código de un menú nav que contenga al menos 3 enlaces a secciones de una misma página.",
-              image: "infografia_jueves.png"
-            }
-          ]
-        },
-        {
-          id: "key",
-          label: "Código Clave — Resumen de sintaxis",
+          id: "fri",
+          label: "Viernes — Introducción a CSS y diseño visual del sitio",
+          purpose: "Comprender cómo CSS transforma la apariencia de un sitio web, aplicando estilos básicos para mejorar el diseño del proyecto desarrollado.",
           hours: [
             {
-              time: "Snippets finales",
-              theory: "Resumen de los bloques de código más importantes de la semana.",
-              notebook: "Anotar en la sección de apuntes rápidos.",
-              practice: "Usar estos bloques como referencia constante.",
-              code: "<link rel=\"stylesheet\" href=\"css/estilos.css\">\n\nbody { background-color: #111; color: white; }\n\nh1 { color: red; }"
+              time: "Hora 1",
+              title: "HTML vs CSS (Inicio del diseño web)",
+              theory: "HTML se encarga de la estructura de una página web. Define qué elementos existen: títulos, párrafos, imágenes, enlaces. CSS se encarga de la apariencia. Permite modificar colores, fondos, tamaños, espacios y diseño visual. Un sitio solo con HTML funciona, pero se ve básico. Un sitio con CSS se vuelve visualmente atractivo y profesional. Por eso se dice: HTML construye la estructura y CSS define el diseño.",
+              notebook: "Título: HTML vs CSS. 1. Escribe qué hace HTML. 2. Escribe qué hace CSS. 3. Anota 5 cosas que CSS puede modificar en una página web. 4. Responde: ¿Por qué es importante el diseño en un sitio web?",
+              practice: "1. Entrar a la carpeta del proyecto. 2. Abrir la carpeta css. 3. Crear un archivo llamado: estilos.css. 4. Abrir index.html. 5. Dentro de la etiqueta <head> agregar: <link rel=\"stylesheet\" href=\"css/estilos.css\">. 6. Guardar cambios. 7. Abrir el sitio en el navegador. 8. Verificar que el archivo esté enlazado correctamente.",
+              code: "<link rel=\"stylesheet\" href=\"css/estilos.css\">",
+              product: "Archivo estilos.css creado y correctamente enlazado con index.html",
+              teacherNotes: "Aquí muchos alumnos fallarán en la ruta del archivo. Verificar que la carpeta css esté bien escrita y en la ubicación correcta."
+            },
+            {
+              time: "Hora 2",
+              title: "Primeros estilos con CSS",
+              theory: "CSS funciona mediante reglas que tienen tres partes: selector { propiedad: valor; }. El selector indica qué elemento se modificará. La propiedad indica qué se quiere cambiar. El valor indica cómo se verá. Ejemplo: body { background-color: black; color: white; }. Esto cambia el fondo y el color del texto de toda la página.",
+              notebook: "Título: Estructura de CSS. 1. Escribe la estructura de una regla CSS. 2. Explica qué es: - selector, - propiedad, - valor. 3. Escribe un ejemplo de regla CSS.",
+              practice: "1. Abrir el archivo estilos.css. 2. Agregar las siguientes reglas: body { background-color: #111; color: white; } h1 { color: red; }. 3. Guardar cambios. 4. Abrir el sitio en el navegador. 5. Observar los cambios visuales.",
+              code: "body {\n  background-color: #111;\n  color: white;\n}\n\nh1 {\n  color: red;\n}",
+              product: "Sitio con fondo oscuro y cambios visibles en texto y títulos",
+              teacherNotes: "Este es el momento clave. Aquí los alumnos ven el impacto real de CSS. Deja que experimenten cambiando colores."
+            },
+            {
+              time: "Hora 3",
+              title: "Diseño e identidad visual del sitio",
+              theory: "El diseño de un sitio web no debe ser al azar. Cada página debe tener una identidad visual. Esto incluye: - colores principales, - colores secundarios, - fondo, - estilo general. Un buen diseño hace que el sitio sea más claro, atractivo y fácil de usar.",
+              notebook: "Título: Diseño de mi sitio web. 1. Define: - color principal, - color secundario, - color de fondo. 2. Describe el estilo de tu sitio: - oscuro, - gamer, - elegante. 3. Explica por qué elegiste esos colores.",
+              practice: "1. Abrir estilos.css. 2. Agregar estilos adicionales: a { color: #ff4d4d; } section { margin-bottom: 20px; padding: 10px; border: 1px solid #444; }. 3. Aplicar cambios visuales al sitio. 4. Guardar. 5. Revisar en navegador. 6. Ajustar colores según el estilo elegido.",
+              code: "a {\n  color: #ff4d4d;\n}\n\nsection {\n  margin-bottom: 20px;\n  padding: 10px;\n  border: 1px solid #444;\n}",
+              product: "Sitio con identidad visual básica definida y mejoras visibles en diseño",
+              teacherNotes: "Aquí el alumno deja de copiar y empieza a decidir. Motiva a que personalicen su sitio."
             }
-          ]
+          ],
+          cierre: "Hoy tu sitio dejó de verse como código… y empezó a verse como una página real.",
+          frase_docente: "El diseño no es solo cómo se ve, es cómo se siente usarlo."
         }
       ]
     }
