@@ -500,71 +500,71 @@ export const curriculumData = {
         },
         {
           id: "thu",
-          label: "Jueves — Navegación y transición a múltiples páginas",
-          purpose: "Comprender el uso de enlaces en HTML y comenzar la transición de una página única a un sitio web con múltiples páginas.",
+          label: "Jueves — Navegación interna y uso de ID",
+          purpose: "Reforzar el uso de enlaces internos dentro del mismo documento HTML (index.html), comprendiendo la relación exacta entre el atributo href y el identificador id para crear una navegación fluida.",
           hours: [
             {
               time: "Hora 1",
               title: "Enlaces internos y tipos de enlaces",
               theory: "Los enlaces en HTML permiten conectar distintas partes de un sitio web. Los enlaces internos permiten moverse dentro de la misma página. Se crean con la etiqueta <a> y el atributo href. Cuando el valor de href inicia con el símbolo #, el enlace apunta a un elemento dentro del mismo documento. Ese elemento debe tener un atributo id que coincida exactamente. Ejemplo: <a href=\"#contacto\"> <section id=\"contacto\"> Además, existen otros tipos de enlaces: 1. Enlaces internos (#) → misma página, 2. Enlaces a otra página → archivo HTML, 3. Enlaces externos → sitios web.",
               notebook: "Título: Tipos de enlaces en HTML. 1. Escribe los 3 tipos de enlaces. 2. Escribe un ejemplo de cada uno. 3. Explica cuándo usarías cada tipo. 4. ¿Qué pasa si el id no coincide con el href?",
-              practice: "1. Abrir el archivo index.html del proyecto. 2. Localizar el menú dentro de la etiqueta <nav>. 3. Identificar los enlaces que ya existen (#personajes, #juegos, etc.). 4. Agregar una nueva opción en el menú: <a href=\"#inicio\">Inicio</a>. 5. Buscar el encabezado principal (<header>). 6. Modificarlo para agregar el id: <header id=\"inicio\">. 7. Guardar el archivo. 8. Abrir el archivo en el navegador. 9. Hacer clic en el enlace \"Inicio\". 10. Verificar que la página se desplace correctamente al inicio. 11. Si no funciona: revisar que el id esté bien escrito, revisar que el href tenga el símbolo # y corregir errores.",
+              practice: "1. Abrir el archivo index.html del proyecto. 2. Localizar el menú dentro de la etiqueta <nav>. 3. Identificar los enlaces que ya existen (#personajes, #juegos, etc.). 4. Agregar una nueva opción en el menú: <a href=\"#inicio\">Inicio</a>. 5. Buscar el encabezado principal (<header>). 6. Modificarlo para agregar el id: <header id=\"inicio\">. 7. Guardar el archivo. 8. Abrir el archivo en el navegador. 9. Hacer clic en el enlace \"Inicio\". 10. Verificar que la página se desplace correctamente al inicio.",
               code: "<a href=\"#inicio\">Inicio</a>\n<header id=\"inicio\">",
               product: "Menú actualizado con un enlace interno funcional que desplaza correctamente dentro de la página",
               teacherNotes: "Aquí no los dejes avanzar rápido. Haz que TODOS prueben el enlace. Si no hacen clic, no aprenden."
             },
             {
               time: "Hora 2",
-              title: "Paso de una página a múltiples páginas",
-              theory: "Hasta ahora el sitio funciona como una sola página usando enlaces internos (#). Sin embargo, los sitios web reales están formados por múltiples páginas conectadas entre sí. Esto permite: mejor organización, mayor claridad y crecimiento del proyecto. Ejemplo: index.html, personajes.html, juegos.html, contacto.html. Ahora el enlace apunta a otro archivo, no a una sección.",
-              notebook: "Título: De una página a un sitio web. 1. Explica la diferencia entre #personajes y personajes.html. 2. Dibuja la estructura: Inicio ├── Personajes ├── Juegos └── Contacto. 3. ¿Cuál es mejor para un sitio grande?",
-              practice: "1. Crear archivos: personajes.html, juegos.html y contacto.html. 2. En personajes.html escribir: <h1>Personajes</h1> <p>Página en construcción</p>. 3. Modificar en index.html: <a href=\"#personajes\"> por <a href=\"personajes.html\">. 4. Guardar. 5. Probar en navegador.",
-              code: "<a href=\"personajes.html\">Personajes</a>\n<h1>Personajes</h1>",
-              product: "Creación de múltiples páginas y navegación funcional entre archivos",
-              teacherNotes: "Aquí van a fallar en rutas y nombres. Es parte del aprendizaje, no intervenir demasiado rápido."
+              title: "Navegación interna dentro del documento",
+              theory: "La verdadera navegación interna depende de que los IDs estén colocados estratégicamente en las secciones del sitio. Un error en una sola letra del ID hará que el enlace no funcione. Es fundamental que el alumno entienda que el símbolo # le dice al navegador: 'busca este nombre dentro de este mismo archivo'.",
+              notebook: "Título: Navegación dentro del mismo documento. 1. ¿Cuál es la función del símbolo # en el href? 2. ¿En qué etiqueta debe colocarse el atributo id para que el salto sea exitoso? 3. Dibuja el flujo: Clic en enlace -> El navegador busca el ID -> Desplazamiento visual.",
+              practice: "1. Revisar cada <section> de index.html. 2. Asegurarse de que tengan IDs únicos (personajes, juegos, contacto). 3. Verificar que los enlaces del nav apunten exactamente a esos nombres precedidos por #. 4. Probar cada enlace en el navegador y corregir errores de ortografía en los nombres.",
+              code: "<a href=\"#personajes\">Personajes</a>\n...\n<section id=\"personajes\">",
+              product: "Navegación interna 100% funcional entre todas las secciones del index.html",
+              teacherNotes: "El error más común es olvidar el # en el href o escribir el ID con mayúsculas/minúsculas diferentes. Haz que sean minuciosos."
             }
           ],
-          cierre: "Hoy tu página dejó de ser una sola hoja… y empezó a ser un sitio web.",
-          frase_docente: "Un sitio web sin navegación es como un libro sin índice: el contenido está, pero nadie sabe cómo llegar a él."
+          cierre: "Hoy tu página aprendió a navegar por sí misma sin necesidad de archivos externos todavía.",
+          frase_docente: "Un enlace sin un ID correspondiente es como enviar una carta a una casa sin número."
         },
         {
           id: "fri",
-          label: "Viernes — Introducción a CSS y diseño visual del sitio",
-          purpose: "Comprender cómo CSS transforma la apariencia de un sitio web, aplicando estilos básicos para mejorar el diseño del proyecto desarrollado.",
+          label: "Viernes — Transición a la primera página externa",
+          purpose: "Iniciar la transición de una página única a un sitio web real mediante la creación y conexión del archivo personajes.html, comprendiendo la diferencia entre navegación interna y externa.",
           hours: [
             {
               time: "Hora 1",
-              title: "HTML vs CSS (Inicio del diseño web)",
-              theory: "HTML se encarga de la estructura de una página web. Define qué elementos existen: títulos, párrafos, imágenes, enlaces. CSS se encarga de la apariencia. Permite modificar colores, fondos, tamaños, espacios y diseño visual. Un sitio solo con HTML funciona, pero se ve básico. Un sitio con CSS se vuelve visualmente atractivo y profesional. Por eso se dice: HTML construye la estructura y CSS define el diseño.",
-              notebook: "Título: HTML vs CSS. 1. Escribe qué hace HTML. 2. Escribe qué hace CSS. 3. Anota 5 cosas que CSS puede modificar en una página web. 4. Responde: ¿Por qué es importante el diseño en un sitio web?",
-              practice: "1. Entrar a la carpeta del proyecto. 2. Abrir la carpeta css. 3. Crear un archivo llamado: estilos.css. 4. Abrir index.html. 5. Dentro de la etiqueta <head> agregar: <link rel=\"stylesheet\" href=\"css/estilos.css\">. 6. Guardar cambios. 7. Abrir el sitio en el navegador. 8. Verificar que el archivo esté enlazado correctamente.",
-              code: "<link rel=\"stylesheet\" href=\"css/estilos.css\">",
-              product: "Archivo estilos.css creado y correctamente enlazado con index.html",
-              teacherNotes: "Aquí muchos alumnos fallarán en la ruta del archivo. Verificar que la carpeta css esté bien escrita y en la ubicación correcta."
+              title: "Repaso de enlaces internos vs. externos",
+              theory: "Hasta ahora el sitio funciona como una sola página utilizando enlaces internos (#). Sin embargo, los sitios web reales están formados por múltiples archivos HTML conectados. Un enlace interno (#) busca contenido dentro del mismo archivo. Un enlace a archivo busca un documento nuevo en la misma carpeta.",
+              notebook: "Título: Enlaces internos vs. Archivos externos. 1. Explica la diferencia entre <a href=\"#personajes\"> y <a href=\"personajes.html\">. 2. ¿Por qué es necesario crear archivos independientes para sitios grandes? 3. Dibuja el mapa: index.html -> personajes.html.",
+              practice: "1. Abrir index.html y localizar el nav. 2. Analizar el código actual. 3. Discutir por qué usar '#' limita el crecimiento de la página si hay mucha información.",
+              code: "<!-- Interno -->\n<a href=\"#personajes\">Personajes</a>\n\n<!-- Externo (Archivo) -->\n<a href=\"personajes.html\">Personajes</a>",
+              product: "Comprensión clara de la diferencia entre ambos tipos de navegación",
+              teacherNotes: "Asegúrate de que entiendan que al cambiar el href a personajes.html, el navegador ya no saltará hacia abajo, sino que cargará un nuevo archivo."
             },
             {
               time: "Hora 2",
-              title: "Primeros estilos con CSS",
-              theory: "CSS funciona mediante reglas que tienen tres partes: selector { propiedad: valor; }. El selector indica qué elemento se modificará. La propiedad indica qué se quiere cambiar. El valor indica cómo se verá. Ejemplo: body { background-color: black; color: white; }. Esto cambia el fondo y el color del texto de toda la página.",
-              notebook: "Título: Estructura de CSS. 1. Escribe la estructura de una regla CSS. 2. Explica qué es: - selector, - propiedad, - valor. 3. Escribe un ejemplo de regla CSS.",
-              practice: "1. Abrir el archivo estilos.css. 2. Agregar las siguientes reglas: body { background-color: #111; color: white; } h1 { color: red; }. 3. Guardar cambios. 4. Abrir el sitio en el navegador. 5. Observar los cambios visuales.",
-              code: "body {\n  background-color: #111;\n  color: white;\n}\n\nh1 {\n  color: red;\n}",
-              product: "Sitio con fondo oscuro y cambios visibles en texto y títulos",
-              teacherNotes: "Este es el momento clave. Aquí los alumnos ven el impacto real de CSS. Deja que experimenten cambiando colores."
+              title: "Creación del archivo personajes.html",
+              theory: "Cada página de un sitio web debe ser un archivo .html independiente. Estos archivos deben vivir en la misma carpeta principal para que el navegador los encuentre fácilmente. Aunque sea una página nueva, debe seguir teniendo la estructura básica (html, head, body).",
+              notebook: "Título: Estructura de personajes.html. 1. Escribe la estructura básica necesaria para el nuevo archivo. 2. ¿Qué título le pondrás a esta pestaña en la etiqueta <title>?",
+              practice: "1. Crear un nuevo archivo en la carpeta del proyecto. 2. Nombrarlo exactamente como: personajes.html. 3. Escribir la estructura básica de HTML5. 4. Agregar un título <h1>Personajes</h1> y un párrafo <p>Página en construcción</p>. 5. Guardar el archivo.",
+              code: "<!DOCTYPE html>\n<html>\n<head>\n  <title>Personajes</title>\n</head>\n<body>\n  <h1>Personajes</h1>\n  <p>Página en construcción</p>\n</body>\n</html>",
+              product: "Archivo personajes.html creado y listo para ser enlazado",
+              teacherNotes: "El error más común aquí es que guarden el archivo con errores de dedo en el nombre. 'personaje.html' (sin s) romperá el enlace después."
             },
             {
               time: "Hora 3",
-              title: "Diseño e identidad visual del sitio",
-              theory: "El diseño de un sitio web no debe ser al azar. Cada página debe tener una identidad visual. Esto incluye: - colores principales, - colores secundarios, - fondo, - estilo general. Un buen diseño hace que el sitio sea más claro, atractivo y fácil de usar.",
-              notebook: "Título: Diseño de mi sitio web. 1. Define: - color principal, - color secundario, - color de fondo. 2. Describe el estilo de tu sitio: - oscuro, - gamer, - elegante. 3. Explica por qué elegiste esos colores.",
-              practice: "1. Abrir estilos.css. 2. Agregar estilos adicionales: a { color: #ff4d4d; } section { margin-bottom: 20px; padding: 10px; border: 1px solid #444; }. 3. Aplicar cambios visuales al sitio. 4. Guardar. 5. Revisar en navegador. 6. Ajustar colores según el estilo elegido.",
-              code: "a {\n  color: #ff4d4d;\n}\n\nsection {\n  margin-bottom: 20px;\n  padding: 10px;\n  border: 1px solid #444;\n}",
-              product: "Sitio con identidad visual básica definida y mejoras visibles en diseño",
-              teacherNotes: "Aquí el alumno deja de copiar y empieza a decidir. Motiva a que personalicen su sitio."
+              title: "Conexión y prueba de navegación",
+              theory: "Para que el usuario pueda llegar a la nueva página, debemos modificar el enlace en el menú del index.html. Al quitar el símbolo # y poner el nombre del archivo, el navegador entenderá que debe salir del documento actual y abrir el nuevo.",
+              notebook: "Título: Conexión entre páginas. 1. ¿Cómo quedó el enlace final en el nav? 2. ¿Qué sucede en el navegador cuando haces clic? 3. ¿Cómo podrías regresar al inicio desde personajes.html?",
+              practice: "1. Regresar al archivo index.html. 2. Localizar el enlace de Personajes en el menú. 3. Cambiar href=\"#personajes\" por href=\"personajes.html\". 4. Guardar index.html. 5. Abrir index.html en el navegador. 6. Probar el menú y verificar que se abra la nueva página de Personajes.",
+              code: "<a href=\"personajes.html\">Personajes</a>",
+              product: "Navegación funcional entre el index y la nueva página externa",
+              teacherNotes: "Si el enlace no funciona, es casi seguro que el nombre del archivo no coincide exactamente con el href. Haz que revisen letra por letra."
             }
           ],
-          cierre: "Hoy tu sitio dejó de verse como código… y empezó a verse como una página real.",
-          frase_docente: "El diseño no es solo cómo se ve, es cómo se siente usarlo."
+          cierre: "Hoy tu página dejó de ser un solo documento y comenzó su transformación en un sitio web profesional.",
+          frase_docente: "La web no es una hoja, es una red de páginas conectadas entre sí."
         },
         {
           id: "dual",
@@ -584,14 +584,14 @@ export const curriculumData = {
         },
         {
           id: "key",
-          label: "Código Clave — Resumen de sintaxis",
+          label: "Código Clave — Navegación",
           hours: [
             {
-              time: "Snippets finales",
-              theory: "Resumen de los bloques de código más importantes de la semana.",
+              time: "Snippets de la semana",
+              theory: "Resumen de los bloques de código más importantes para la navegación interna y externa.",
               notebook: "Anotar en la sección de apuntes rápidos.",
               practice: "Usar estos bloques como referencia constante.",
-              code: "<link rel=\"stylesheet\" href=\"css/estilos.css\">\n\nbody { background-color: #111; color: white; }\n\nh1 { color: red; }"
+              code: "<!-- Salto interno -->\n<header id=\"inicio\">\n<a href=\"#inicio\">Inicio</a>\n\n<!-- Salto externo (nuevo archivo) -->\n<a href=\"personajes.html\">Ver Personajes</a>"
             }
           ]
         }
