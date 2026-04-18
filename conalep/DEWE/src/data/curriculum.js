@@ -603,41 +603,41 @@ export const curriculumData = {
         {
           id: "mon",
           label: "Lunes — Rutas relativas y expansión del sitio web",
-          purpose: "Comprender el uso de rutas relativas dentro de un proyecto web y aplicarlas correctamente al trabajar con múltiples páginas e imágenes.",
+          purpose: "Comprender y aplicar correctamente las rutas relativas en un proyecto web, integrando múltiples páginas con imágenes y navegación funcional.",
           hours: [
             {
               time: "Hora 1",
-              title: "Rutas relativas en HTML",
-              theory: "En un sitio web, los archivos se organizan en carpetas para mantener orden. Para conectar estos archivos entre sí, se utilizan rutas relativas que dependen de la ubicación del archivo actual. El símbolo .. significa subir un nivel en la carpeta (ej. ../index.html desde una subcarpeta).",
-              notebook: "Título: Rutas relativas en HTML. 1. Copia el dictado. 2. Dibuja la estructura del proyecto (carpetas css, img, paginas). 3. Responde: ¿Cómo accedes a una imagen desde index.html? ¿Cómo accedes a una imagen desde juegos.html? ¿Qué significa ../? ",
-              practice: "1. Abrir index.html. 2. Agregar enlace a paginas/juegos.html. 3. Agregar imagen con ruta img/archivo.jpg. 4. Abrir juegos.html (en carpeta paginas). 5. Agregar enlace a ../index.html. 6. Agregar imagen con ruta ../img/archivo.jpg. 7. Probar todo en el navegador.",
-              code: "<a href=\"paginas/juegos.html\">Juegos</a>\n<img src=\"img/re4.jpg\">\n\n<a href=\"../index.html\">Inicio</a>\n<img src=\"../img/re4.jpg\">",
-              product: "Navegación funcional entre carpetas y uso correcto de rutas relativas",
-              teacherNotes: "Aquí los alumnos fallan mucho. No corregir inmediatamente. Hacer que detecten el error ellos mismos."
+              title: "Página juegos.html y rutas relativas",
+              theory: "En un sitio web, los archivos se organizan en carpetas para mantener orden. Para conectar estos archivos se utilizan rutas relativas. El símbolo ../ significa subir un nivel en la estructura de carpetas. Ejemplo: para acceder a una imagen desde 'paginas/juegos.html', la ruta sería '../img/archivo.jpg'. Si la ruta está mal escrita, el recurso no se mostrará.",
+              notebook: "Título: Rutas relativas en HTML. 1. Copia el dictado completo. 2. Dibuja la estructura del proyecto. 3. Responde: ¿Cómo accedes a juegos.html desde index.html? ¿Cómo accedes a una imagen desde juegos.html? ¿Qué significa '../'? 4. Escribe 2 errores comunes al usar rutas.",
+              practice: "1. Crear o abrir paginas/juegos.html. 2. Agregar título y lista de al menos 5 juegos. 3. Insertar mínimo 5 imágenes usando ../img/archivo.jpg. 4. Asegurar que tengan atributo alt y funcionen correctamente. 5. Agregar navegación: <a href=\"../index.html\">Inicio</a>. 6. Probar en navegador y corregir errores de ruta.",
+              code: "<img src=\"../img/re4.jpg\" alt=\"Resident Evil 4\">\n<a href=\"../index.html\">Inicio</a>",
+              product: "Página juegos.html con múltiples imágenes correctamente enlazadas usando rutas relativas",
+              teacherNotes: "Aquí se detecta quién entiende rutas. No ayudar de inmediato. Hacer que el alumno identifique el error por su cuenta."
             },
             {
               time: "Hora 2",
-              title: "Página juegos.html con imágenes",
-              theory: "Las páginas web se dividen en archivos para organizar la información. Cada página puede contener texto, listas e imágenes. El uso correcto de imágenes mejora la presentación, pero debe ser coherente y organizado mediante rutas relativas correctas.",
-              notebook: "Título: Uso de imágenes en páginas web. 1. Copia el dictado. 2. Escribe: ¿Por qué es importante usar imágenes correctamente? 3. Menciona 2 errores comunes al usar imágenes.",
-              practice: "1. Crear o abrir juegos.html dentro de la carpeta paginas. 2. Agregar título y lista de al menos 4 juegos. 3. Agregar mínimo 2 imágenes usando rutas relativas correctas (../img/). 4. Agregar navegación de regreso a la raíz. 5. Guardar y probar.",
-              code: "<img src=\"../img/re4.jpg\" alt=\"Resident Evil 4\">\n<a href=\"../index.html\">Inicio</a>",
-              product: "Página juegos.html funcional con imágenes correctamente enlazadas",
-              teacherNotes: "Aquí se consolida el uso de rutas. Revisar minuciosamente quién aún escribe mal las rutas relativas."
+              title: "Página cronologia.html con imágenes",
+              theory: "Una cronología permite organizar eventos en orden dentro de una página web. El uso de listas ordenadas (<ol>) permite estructurar la información de forma clara. Al igual que en juegos.html, las imágenes en esta página deben estar correctamente enlazadas mediante rutas relativas que suban un nivel hacia la carpeta img.",
+              notebook: "Título: Organización de contenido en HTML. 1. Copia el dictado. 2. Responde: ¿Qué es una cronología? ¿Por qué es importante organizar la información?",
+              practice: "1. Crear paginas/cronologia.html. 2. Agregar título y lista ordenada con al menos 5 elementos históricos. 3. Insertar mínimo 4 imágenes usando ../img/archivo.jpg. 4. Agregar navegación: <a href=\"../index.html\">Inicio</a> y <a href=\"juegos.html\">Juegos</a>. 5. Guardar y probar en navegador.",
+              code: "<ol>\n  <li>1996 - Resident Evil</li>\n</ol>\n\n<img src=\"../img/re1.jpg\" alt=\"Resident Evil 1\">",
+              product: "Página cronologia.html funcional con imágenes y navegación correcta",
+              teacherNotes: "Aquí se evalúa la organización del contenido y el uso consistente de rutas relativas entre archivos de la misma carpeta."
             },
             {
               time: "Hora 3",
-              title: "Integración del sitio completo",
-              theory: "Un sitio web funcional debe permitir navegar entre todas sus páginas sin errores. Esto implica que todos los enlaces y rutas estén correctamente configurados. Una buena práctica es probar el sitio completo de manera exhaustiva antes de finalizar.",
-              notebook: "Título: Navegación de un sitio web. 1. Copia el dictado. 2. Responde: ¿Qué pasa si una ruta está mal? 3. Escribe: ¿Cómo verificarías que tu sitio funciona correctamente?",
-              practice: "1. Revisar index.html y verificar enlace a juegos. 2. Revisar juegos.html y verificar enlace de regreso. 3. Verificar que TODAS las imágenes carguen correctamente en todas las páginas. 4. Corregir cualquier error de ruta detectado.",
-              code: "<a href=\"paginas/juegos.html\">Juegos</a>\n<a href=\"../index.html\">Inicio</a>",
-              product: "Sitio web funcional con navegación completa y sin errores de rutas",
-              teacherNotes: "Aquí deben probar todo. No permitir que entreguen sin revisar la navegación completa y la carga de recursos."
+              title: "Página contacto.html y navegación completa",
+              theory: "Un sitio web debe permitir navegación entre todas sus páginas sin errores. Cada página debe tener enlaces redundantes que permitan regresar al inicio o moverse a secciones clave. Además, el sitio en este punto ya debe integrar formularios básicos para capturar información del usuario.",
+              notebook: "Título: Navegación en un sitio web. 1. Copia el dictado. 2. Responde: ¿Qué pasa si una ruta está mal escrita? ¿Por qué es importante la navegación?",
+              practice: "1. Crear paginas/contacto.html con estructura de formulario básica (nombre, correo, comentario, botón). 2. Agregar navegación: <a href=\"../index.html\">Inicio</a> y <a href=\"personajes.html\">Personajes</a>. 3. En index.html, agregar enlaces a juegos.html, cronologia.html y contacto.html. 4. Probar la navegación completa del sitio.",
+              code: "<a href=\"../index.html\">Inicio</a>\n<a href=\"paginas/juegos.html\">Juegos</a>",
+              product: "Sitio web completo con navegación funcional entre todas las páginas",
+              teacherNotes: "Aquí deben probar todo el sitio antes de darlo por terminado. No permitir que entreguen sin verificar la integridad de todos los enlaces."
             }
           ],
-          cierre: "Hoy aprendiste a moverte dentro de tu propio proyecto… eso es lo que hace que un sitio funcione de verdad.",
-          frase_docente: "Si entiendes las rutas, puedes construir cualquier sitio web."
+          cierre: "Hoy aprendiste a ubicarte dentro de tu propio proyecto… eso es lo que hace que un sitio web funcione correctamente.",
+          frase_docente: "Si entiendes las rutas, puedes conectar todo tu sitio web."
         }
       ]
     }
