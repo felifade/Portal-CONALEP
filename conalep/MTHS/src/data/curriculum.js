@@ -184,7 +184,7 @@ export const curriculumData = {
               title: "Desarrollo de pantalla: WiFi seguro",
               theory: "Los alumnos continúan con el desarrollo de su aplicación móvil creando una nueva pantalla relacionada con el uso seguro de redes WiFi. Se integran elementos visuales, contenido informativo e interacción mediante botones.",
               notebook: "Anota las 3 recomendaciones sobre WiFi seguro que incluirás. Dibuja el bloque lógico para mostrar el Notifier.",
-              practice: "1. Crear pantalla 'WiFi'. 2. Agregar Label 'WiFi seguro', Label de contenido e imagen. 3. Insertar Botón 'Ver recomendación' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'No ingreses contraseñas en redes públicas'. 5. Conectar navegación desde pantalla Menu. 6. Probar funcionamiento.",
+              practice: "1. Crear pantalla 'WiFi'. 2. Agregar Label 'WiFi seguro', Label de contenido e imagen. 3. Insertar Botón 'Ver recomendación' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'No ingreses contraseñas en redes públicas'. 5. Conectar navegación desde pantalla Menu. 6. Probar funcionamiento. 7. Capturar pantalla para evidencia.",
               product: "Pantalla 'WiFi' funcional con contenido e interacción básica.",
               teacherNotes: "Asegura que la navegación desde el menú principal sea clara y regrese al punto de inicio si es necesario."
             },
@@ -193,13 +193,13 @@ export const curriculumData = {
               title: "Desarrollo de pantalla: Riesgos digitales",
               theory: "Desarrollo de una pantalla enfocada en la identificación de riesgos digitales, reforzando el uso de contenido informativo y la interacción dentro de la aplicación móvil.",
               notebook: "Lista los 3 riesgos digitales que seleccionaste. ¿Qué mensaje de alerta mostrarás en el Notifier?",
-              practice: "1. Crear pantalla 'Riesgos'. 2. Agregar Label 'Riesgos digitales', Label con 3 riesgos e imagen. 3. Insertar Botón 'Ver riesgo' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'Evita descargar archivos de sitios desconocidos'. 5. Conectar navegación desde pantalla Menu. 6. Validar navegación e interacción.",
-              product: "Pantalla 'Riesgos' integrada y validada en App Inventor.",
-              teacherNotes: "Verifica que el alumno comprenda cómo la estructura de pantallas permite organizar temas complejos de seguridad."
+              practice: "1. Crear pantalla 'Riesgos'. 2. Agregar Label 'Riesgos digitales', Label con 3 riesgos e imagen. 3. Insertar Botón 'Ver riesgo' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'Evita descargar archivos de sitios desconocidos'. 5. Conectar navegación desde pantalla Menu. 6. Validar navegación e interacción. 7. Crear documento 'Semana 08' en Google Docs con tabla de 3 columnas (Nombre, Captura, Descripción) e insertar evidencias.",
+              product: "Pantalla 'Riesgos' integrada y evidencia organizada en Google Docs.",
+              teacherNotes: "Verifica que la tabla en Google Docs incluya la pantalla WiFi, la pantalla Riesgos y la navegación desde el menú."
             }
           ],
-          cierre: "Hoy lograste expandir tu aplicación con dos secciones críticas de seguridad digital.",
-          frase_docente: "Una aplicación útil es aquella que educa e interactúa con el usuario al mismo tiempo."
+          cierre: "Hoy lograste expandir tu aplicación con dos secciones críticas de seguridad digital y documentar tu proceso profesionalmente en la nube.",
+          frase_docente: "La interactividad es lo que convierte una página estática en una verdadera herramienta digital."
         }
       ]
     }
