@@ -229,6 +229,33 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir }
                 </div>
               </div>
             )}
+
+            {(hour.image || hour.images) && (
+              <div className="pedagogical-block screenshot-preview">
+                <h4 className="block-title">🖼️ Vista previa del diseño</h4>
+                <div className="screenshot-gallery">
+                  {hour.images ? (
+                    hour.images.map((img, idx) => (
+                      <div key={idx} className="screenshot-container">
+                        <img 
+                          src={new URL(`../assets/${img}`, import.meta.url).href} 
+                          alt={`Referencia ${idx + 1}`} 
+                          className="screenshot-img"
+                        />
+                      </div>
+                    ))
+                  ) : (
+                    <div className="screenshot-container">
+                      <img 
+                        src={new URL(`../assets/${hour.image}`, import.meta.url).href} 
+                        alt="Referencia de diseño" 
+                        className="screenshot-img"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           {isTeacherMode && hour.teacherNotes && (

@@ -175,31 +175,33 @@ export const curriculumData = {
     "W08": {
       days: [
         {
-          id: "tue",
-          label: "Martes — Desarrollo de pantallas WiFi y Riesgos",
-          purpose: "Desarrollar la aplicación móvil en App Inventor agregando nuevas pantallas funcionales relacionadas con seguridad digital, integrando contenido e interacción básica.",
+          id: "mon",
+          label: "Lunes — Desarrollo de pantallas WiFi y Riesgos",
+          purpose: "Finalizar el desarrollo de las pantallas de seguridad digital en App Inventor (Contraseñas, WiFi y Riesgos) e integrar contenido e interacción básica.",
           hours: [
             {
               time: "Hora 1",
-              title: "Desarrollo de pantalla: WiFi seguro",
-              theory: "Los alumnos continúan con el desarrollo de su aplicación móvil creando una nueva pantalla relacionada con el uso seguro de redes WiFi. Se integran elementos visuales, contenido informativo e interacción mediante botones.",
-              notebook: "Anota las 3 recomendaciones sobre WiFi seguro que incluirás. Dibuja el bloque lógico para mostrar el Notifier.",
-              practice: "1. Crear pantalla 'WiFi'. 2. Agregar Label 'WiFi seguro', Label de contenido e imagen. 3. Insertar Botón 'Ver recomendación' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'No ingreses contraseñas en redes públicas'. 5. Conectar navegación desde pantalla Menu. 6. Probar funcionamiento. 7. Capturar pantalla para evidencia.",
-              product: "Pantalla 'WiFi' funcional con contenido e interacción básica.",
-              teacherNotes: "Asegura que la navegación desde el menú principal sea clara y regrese al punto de inicio si es necesario."
+              title: "Pantallas: Contraseñas y WiFi Seguro",
+              theory: "Una aplicación de seguridad efectiva debe cubrir múltiples vectores de ataque. En esta sesión consolidaremos el diseño de las pantallas de Contraseñas y WiFi, asegurando que ambas tengan navegación bidireccional y alertas mediante Notifier.",
+              notebook: "Dibuja el esquema de navegación entre Menu -> Contraseñas y Menu -> WiFi. Anota los mensajes que mostrará el Notifier en cada pantalla.",
+              practice: "1. Terminar desarrollo de pantalla 'Contraseñas'. 2. Iniciar y completar pantalla 'WiFi'. 3. En ambas: agregar labels, imágenes y componente Notifier. 4. Programar los bloques para mostrar consejos de seguridad. 5. Verificar navegación desde el Menú principal. 6. Capturar ambas pantallas.",
+              product: "Pantallas de Contraseñas y WiFi funcionales con diseño validado.",
+              images: ["contra.png", "wifi.png"],
+              teacherNotes: "Asegura que los alumnos no olviden el botón de 'Inicio' en cada nueva pantalla para no quedar atrapados en la navegación."
             },
             {
               time: "Hora 2",
-              title: "Desarrollo de pantalla: Riesgos digitales",
-              theory: "Desarrollo de una pantalla enfocada en la identificación de riesgos digitales, reforzando el uso de contenido informativo y la interacción dentro de la aplicación móvil.",
-              notebook: "Lista los 3 riesgos digitales que seleccionaste. ¿Qué mensaje de alerta mostrarás en el Notifier?",
-              practice: "1. Crear pantalla 'Riesgos'. 2. Agregar Label 'Riesgos digitales', Label con 3 riesgos e imagen. 3. Insertar Botón 'Ver riesgo' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'Evita descargar archivos de sitios desconocidos'. 5. Conectar navegación desde pantalla Menu. 6. Validar navegación e interacción. 7. Crear documento 'Semana 08' en Google Docs con tabla de 3 columnas (Nombre, Captura, Descripción) e insertar evidencias.",
-              product: "Pantalla 'Riesgos' integrada y evidencia organizada en Google Docs.",
-              teacherNotes: "Verifica que la tabla en Google Docs incluya la pantalla WiFi, la pantalla Riesgos y la navegación desde el menú."
+              title: "Pantalla: Riesgos Digitales y Documentación",
+              theory: "La identificación de riesgos es el paso final de nuestra interfaz de seguridad. Tras completar esta pantalla, el alumno debe ser capaz de documentar su proceso técnico de manera organizada en la nube.",
+              notebook: "¿Crees que tu aplicación es fácil de usar? Justifica tu respuesta. Anota los 3 riesgos que incluiste en la última pantalla.",
+              practice: "1. Crear pantalla 'Riesgos'. 2. Agregar contenido informativo sobre 3 amenazas digitales. 3. Configurar Notifier y Botón de interacción. 4. Validar navegación total del sitio. 5. Crear documento 'Semana 08' en Google Docs con tabla de 3 columnas (Nombre, Captura, Descripción) e insertar las evidencias de las 3 pantallas y el Menú.",
+              product: "Aplicación con 3 pantallas de seguridad y reporte de evidencia profesional.",
+              image: "riesgos.png",
+              teacherNotes: "Verifica la calidad de las descripciones en la tabla de Google Docs; deben explicar qué hace cada componente."
             }
           ],
-          cierre: "Hoy lograste expandir tu aplicación con dos secciones críticas de seguridad digital y documentar tu proceso profesionalmente en la nube.",
-          frase_docente: "La interactividad es lo que convierte una página estática en una verdadera herramienta digital."
+          cierre: "Hoy lograste consolidar la interfaz de tu aplicación y documentar tu avance profesionalmente.",
+          frase_docente: "La documentación es tan importante como el código; permite que otros entiendan tu visión."
         }
       ]
     }
