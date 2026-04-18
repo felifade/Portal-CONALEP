@@ -25,8 +25,8 @@ export const curriculumData = {
       title: "2.1 RA (20%)",
       weeks: [
         { id: "W06", label: "Semana 06 (23-27 Mar)" },
-        { id: "W07", label: "Semana 07 (13-17 Abr)" }
-        // { id: "W08", label: "Semana 08 (20-24 Abr)" }
+        { id: "W07", label: "Semana 07 (13-17 Abr)" },
+        { id: "W08", label: "Semana 08 (20-24 Abr)" }
       ]
     }
   ],
@@ -172,6 +172,36 @@ export const curriculumData = {
         }
       ]
     },
-    // "W08": { days: [] }
+    "W08": {
+      days: [
+        {
+          id: "tue",
+          label: "Martes — Desarrollo de pantallas WiFi y Riesgos",
+          purpose: "Desarrollar la aplicación móvil en App Inventor agregando nuevas pantallas funcionales relacionadas con seguridad digital, integrando contenido e interacción básica.",
+          hours: [
+            {
+              time: "Hora 1",
+              title: "Desarrollo de pantalla: WiFi seguro",
+              theory: "Los alumnos continúan con el desarrollo de su aplicación móvil creando una nueva pantalla relacionada con el uso seguro de redes WiFi. Se integran elementos visuales, contenido informativo e interacción mediante botones.",
+              notebook: "Anota las 3 recomendaciones sobre WiFi seguro que incluirás. Dibuja el bloque lógico para mostrar el Notifier.",
+              practice: "1. Crear pantalla 'WiFi'. 2. Agregar Label 'WiFi seguro', Label de contenido e imagen. 3. Insertar Botón 'Ver recomendación' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'No ingreses contraseñas en redes públicas'. 5. Conectar navegación desde pantalla Menu. 6. Probar funcionamiento.",
+              product: "Pantalla 'WiFi' funcional con contenido e interacción básica.",
+              teacherNotes: "Asegura que la navegación desde el menú principal sea clara y regrese al punto de inicio si es necesario."
+            },
+            {
+              time: "Hora 2",
+              title: "Desarrollo de pantalla: Riesgos digitales",
+              theory: "Desarrollo de una pantalla enfocada en la identificación de riesgos digitales, reforzando el uso de contenido informativo y la interacción dentro de la aplicación móvil.",
+              notebook: "Lista los 3 riesgos digitales que seleccionaste. ¿Qué mensaje de alerta mostrarás en el Notifier?",
+              practice: "1. Crear pantalla 'Riesgos'. 2. Agregar Label 'Riesgos digitales', Label con 3 riesgos e imagen. 3. Insertar Botón 'Ver riesgo' y Notifier. 4. Programar: Al hacer clic -> mostrar mensaje: 'Evita descargar archivos de sitios desconocidos'. 5. Conectar navegación desde pantalla Menu. 6. Validar navegación e interacción.",
+              product: "Pantalla 'Riesgos' integrada y validada en App Inventor.",
+              teacherNotes: "Verifica que el alumno comprenda cómo la estructura de pantallas permite organizar temas complejos de seguridad."
+            }
+          ],
+          cierre: "Hoy lograste expandir tu aplicación con dos secciones críticas de seguridad digital.",
+          frase_docente: "Una aplicación útil es aquella que educa e interactúa con el usuario al mismo tiempo."
+        }
+      ]
+    }
   }
 };
