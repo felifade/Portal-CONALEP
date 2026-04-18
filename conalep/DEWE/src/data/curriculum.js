@@ -25,7 +25,8 @@ export const curriculumData = {
       title: "1.3 RA (25%)",
       weeks: [
         { id: "W06", label: "Semana 06 (23-27 Mar)" },
-        { id: "W07", label: "Semana 07 (13-17 Abr)" }
+        { id: "W07", label: "Semana 07 (13-17 Abr)" },
+        { id: "W08", label: "Semana 08 (20-24 Abr)" }
       ]
     }
   ],
@@ -594,6 +595,49 @@ export const curriculumData = {
               code: "<!-- Salto interno -->\n<header id=\"inicio\">\n<a href=\"#inicio\">Inicio</a>\n\n<!-- Salto externo (nuevo archivo) -->\n<a href=\"personajes.html\">Ver Personajes</a>"
             }
           ]
+        }
+      ]
+    },
+    "W08": {
+      days: [
+        {
+          id: "mon",
+          label: "Lunes — Rutas relativas y expansión del sitio web",
+          purpose: "Comprender el uso de rutas relativas dentro de un proyecto web y aplicarlas correctamente al trabajar con múltiples páginas e imágenes.",
+          hours: [
+            {
+              time: "Hora 1",
+              title: "Rutas relativas en HTML",
+              theory: "En un sitio web, los archivos se organizan en carpetas para mantener orden. Para conectar estos archivos entre sí, se utilizan rutas relativas que dependen de la ubicación del archivo actual. El símbolo .. significa subir un nivel en la carpeta (ej. ../index.html desde una subcarpeta).",
+              notebook: "Título: Rutas relativas en HTML. 1. Copia el dictado. 2. Dibuja la estructura del proyecto (carpetas css, img, paginas). 3. Responde: ¿Cómo accedes a una imagen desde index.html? ¿Cómo accedes a una imagen desde juegos.html? ¿Qué significa ../? ",
+              practice: "1. Abrir index.html. 2. Agregar enlace a paginas/juegos.html. 3. Agregar imagen con ruta img/archivo.jpg. 4. Abrir juegos.html (en carpeta paginas). 5. Agregar enlace a ../index.html. 6. Agregar imagen con ruta ../img/archivo.jpg. 7. Probar todo en el navegador.",
+              code: "<a href=\"paginas/juegos.html\">Juegos</a>\n<img src=\"img/re4.jpg\">\n\n<a href=\"../index.html\">Inicio</a>\n<img src=\"../img/re4.jpg\">",
+              product: "Navegación funcional entre carpetas y uso correcto de rutas relativas",
+              teacherNotes: "Aquí los alumnos fallan mucho. No corregir inmediatamente. Hacer que detecten el error ellos mismos."
+            },
+            {
+              time: "Hora 2",
+              title: "Página juegos.html con imágenes",
+              theory: "Las páginas web se dividen en archivos para organizar la información. Cada página puede contener texto, listas e imágenes. El uso correcto de imágenes mejora la presentación, pero debe ser coherente y organizado mediante rutas relativas correctas.",
+              notebook: "Título: Uso de imágenes en páginas web. 1. Copia el dictado. 2. Escribe: ¿Por qué es importante usar imágenes correctamente? 3. Menciona 2 errores comunes al usar imágenes.",
+              practice: "1. Crear o abrir juegos.html dentro de la carpeta paginas. 2. Agregar título y lista de al menos 4 juegos. 3. Agregar mínimo 2 imágenes usando rutas relativas correctas (../img/). 4. Agregar navegación de regreso a la raíz. 5. Guardar y probar.",
+              code: "<img src=\"../img/re4.jpg\" alt=\"Resident Evil 4\">\n<a href=\"../index.html\">Inicio</a>",
+              product: "Página juegos.html funcional con imágenes correctamente enlazadas",
+              teacherNotes: "Aquí se consolida el uso de rutas. Revisar minuciosamente quién aún escribe mal las rutas relativas."
+            },
+            {
+              time: "Hora 3",
+              title: "Integración del sitio completo",
+              theory: "Un sitio web funcional debe permitir navegar entre todas sus páginas sin errores. Esto implica que todos los enlaces y rutas estén correctamente configurados. Una buena práctica es probar el sitio completo de manera exhaustiva antes de finalizar.",
+              notebook: "Título: Navegación de un sitio web. 1. Copia el dictado. 2. Responde: ¿Qué pasa si una ruta está mal? 3. Escribe: ¿Cómo verificarías que tu sitio funciona correctamente?",
+              practice: "1. Revisar index.html y verificar enlace a juegos. 2. Revisar juegos.html y verificar enlace de regreso. 3. Verificar que TODAS las imágenes carguen correctamente en todas las páginas. 4. Corregir cualquier error de ruta detectado.",
+              code: "<a href=\"paginas/juegos.html\">Juegos</a>\n<a href=\"../index.html\">Inicio</a>",
+              product: "Sitio web funcional con navegación completa y sin errores de rutas",
+              teacherNotes: "Aquí deben probar todo. No permitir que entreguen sin revisar la navegación completa y la carga de recursos."
+            }
+          ],
+          cierre: "Hoy aprendiste a moverte dentro de tu propio proyecto… eso es lo que hace que un sitio funcione de verdad.",
+          frase_docente: "Si entiendes las rutas, puedes construir cualquier sitio web."
         }
       ]
     }
