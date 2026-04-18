@@ -638,6 +638,17 @@ export const curriculumData = {
           ],
           cierre: "Hoy aprendiste a ubicarte dentro de tu propio proyecto… eso es lo que hace que un sitio web funcione correctamente.",
           frase_docente: "Si entiendes las rutas, puedes conectar todo tu sitio web."
+        },
+        {
+          id: "dual",
+          label: "Repositorio de Actividades Duales (Semana 08)",
+          activities: [
+            {
+              title: "Tarea 1: Rutas Relativas y Estructura",
+              instruction: "De acuerdo con la infografía 'Rutas Relativas en un Sitio Web': 1. Identifica tu ubicación actual antes de escribir una ruta. 2. Usa ../ para subir de nivel cuando estés dentro de la carpeta 'paginas'. 3. Asegúrate de que la ruta Locación -> Destino sea correcta para que las imágenes se visualicen.",
+              image: "infografia_semana_08.png"
+            }
+          ]
         }
       ]
     }
