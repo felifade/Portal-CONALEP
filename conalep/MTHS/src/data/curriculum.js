@@ -175,8 +175,8 @@ export const curriculumData = {
     "W08": {
       days: [
         {
-          id: "mon",
-          label: "Lunes — Desarrollo de pantallas WiFi y Riesgos",
+          id: "tue",
+          label: "Martes — Desarrollo de pantallas WiFi y Riesgos",
           purpose: "Finalizar el desarrollo de las pantallas de seguridad digital en App Inventor (Contraseñas, WiFi y Riesgos) e integrar contenido e interacción básica.",
           hours: [
             {
