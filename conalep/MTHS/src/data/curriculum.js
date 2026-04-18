@@ -202,6 +202,24 @@ export const curriculumData = {
           ],
           cierre: "Hoy lograste consolidar la interfaz de tu aplicación y documentar tu avance profesionalmente.",
           frase_docente: "La documentación es tan importante como el código; permite que otros entiendan tu visión."
+        },
+        {
+          id: "wed",
+          label: "Miércoles — Evaluación Interactiva",
+          purpose: "Agregar una funcionalidad interactiva dentro de la aplicación móvil mediante la creación de un mini cuestionario en App Inventor.",
+          hours: [
+            {
+              time: "Hora 1",
+              title: "Pantalla: Evaluación (Mini cuestionario)",
+              theory: "La interactividad permite que el usuario reciba retroalimentación en tiempo real. Un mini cuestionario es una excelente forma de validar si el usuario ha comprendido las recomendaciones de seguridad presentadas previamente en la aplicación.",
+              notebook: "Copia la lógica de los bloques para el botón 'Sí' (Incorrecto) y 'No' (Correcto). Explica por qué es importante dar retroalimentación inmediata.",
+              practice: "1. Crear pantalla 'Evaluación'. 2. Agregar Label con la pregunta de seguridad. 3. Insertar botones de respuesta ('Sí' y 'No'). 4. Agregar componente Notifier. 5. Programar respuestas: Botón 'Sí' -> Mensaje de riesgo; Botón 'No' -> Mensaje de buena práctica. 6. Conectar navegación desde la pantalla Menú y probar funcionalidad. 7. Capturar evidencia de las respuestas correcta e incorrecta.",
+              product: "Pantalla interactiva de evaluación funcional y documentada.",
+              teacherNotes: "Observa que los alumnos configuren correctamente los títulos y mensajes del Notifier para que la experiencia de usuario sea profesional."
+            }
+          ],
+          cierre: "Hoy completaste el ciclo de desarrollo de tu app agregando interactividad lógica.",
+          frase_docente: "Un sistema que responde al usuario es un sistema que realmente comunica."
         }
       ]
     }
