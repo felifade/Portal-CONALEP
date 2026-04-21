@@ -221,6 +221,33 @@ export const curriculumData = {
           ],
           cierre: "Hoy completaste el ciclo de desarrollo de tu app agregando interactividad lógica.",
           frase_docente: "Un sistema que responde al usuario es un sistema que realmente comunica."
+        },
+        {
+          id: "thu",
+          label: "Jueves — Programación de la app en App Inventor",
+          purpose: "Programar la navegación, los botones de interacción, la pantalla de evaluación y el botón de regreso al menú para tener una aplicación móvil completamente funcional.",
+          hours: [
+            {
+              time: "Hora 1",
+              title: "Navegación y botones de interacción",
+              theory: "La programación en App Inventor se hace con bloques visuales. Cada botón tiene un evento 'when Button.Click do' que ejecuta una acción. Para navegar entre pantallas se usa 'open another screen' y para mostrar mensajes se usa 'call Notifier.ShowAlert'.",
+              notebook: "Anota los nombres exactos de cada pantalla en tu proyecto: Portada, Menu, Contraseñas, WiFi, Riesgos, Evaluación. Escribe qué mensaje mostrará el Notifier en cada pantalla de contenido.",
+              practice: "BOTÓN ENTRAR (Portada):\n1. Ir a la pantalla Portada en el Diseñador.\n2. Cambiar a la pestaña Bloques.\n3. Buscar el bloque 'when BtnEntrar.Click do'.\n4. Dentro, agregar el bloque 'open another screen' y escribir: Menu.\n\nBOTONES DEL MENÚ:\n5. Ir a la pantalla Menu en el Diseñador.\n6. Cambiar a la pestaña Bloques.\n7. Para cada botón del menú, agregar un bloque 'when BtnX.Click do' con 'open another screen':\n   - BtnContraseñas → screenName: Contraseñas\n   - BtnWiFi → screenName: WiFi\n   - BtnRiesgos → screenName: Riesgos\n   - BtnEvaluación → screenName: Evaluación\n\nBOTONES DE INTERACCIÓN (uno en cada pantalla):\n8. Pantalla Contraseñas → bloque 'when BtnConsejo.Click do' → 'call Notifier.ShowAlert' → message: 'Usa contraseñas diferentes para cada cuenta'\n9. Pantalla WiFi → bloque 'when BtnRecomendacion.Click do' → 'call Notifier.ShowAlert' → message: 'No ingreses contraseñas en redes públicas'\n10. Pantalla Riesgos → bloque 'when BtnRiesgo.Click do' → 'call Notifier.ShowAlert' → message: 'Evita descargar archivos de sitios desconocidos'",
+              product: "Navegación completa entre las 6 pantallas y mensajes de Notifier funcionando en Contraseñas, WiFi y Riesgos.",
+              teacherNotes: "Verifica que los alumnos escriban los nombres de pantalla exactamente igual que en el Diseñador (mayúsculas incluidas). Un error tipográfico impide la navegación. Recuérda que 'open another screen' requiere el nombre exacto de la pantalla."
+            },
+            {
+              time: "Hora 2",
+              title: "Evaluación, botón de regreso y prueba final",
+              theory: "Una aplicación bien diseñada siempre permite al usuario regresar. El botón de regreso evita que el usuario quede atrapado en una pantalla. Al terminar la programación, siempre hay que hacer una prueba completa del flujo de la aplicación.",
+              notebook: "Dibuja el flujo completo de tu aplicación: Portada → Menu → cada pantalla → regreso al Menu. Anota qué hace cada botón que programaste hoy.",
+              practice: "PANTALLA DE EVALUACIÓN:\n1. Ir a la pantalla Evaluación en Bloques.\n2. Botón 'Sí': agregar 'when BtnSi.Click do' → 'call Notifier.ShowAlert' → message: 'Incorrecto. Es un riesgo de seguridad.'\n3. Botón 'No': agregar 'when BtnNo.Click do' → 'call Notifier.ShowAlert' → message: 'Correcto. Es una buena práctica.'\n\nBOTÓN REGRESAR AL MENÚ (repetir en Contraseñas, WiFi, Riesgos y Evaluación):\n4. En cada pantalla secundaria, agregar un botón 'Regresar' si aún no existe.\n5. En Bloques: 'when BtnRegresar.Click do' → 'open another screen' → screenName: Menu\n\nPRUEBA GENERAL:\n6. Conectar el teléfono o usar el emulador (MIT AI2 Companion).\n7. Verificar cada ruta:\n   - Portada → Menu (botón Entrar)\n   - Menu → Contraseñas → mensaje → Regresar al Menu\n   - Menu → WiFi → mensaje → Regresar al Menu\n   - Menu → Riesgos → mensaje → Regresar al Menu\n   - Menu → Evaluación → respuesta Sí → respuesta No → Regresar al Menu\n8. Corregir cualquier error antes de tomar capturas.\n\nEVIDENCIA EN GOOGLE DOCS:\n9. Abrir el documento 'Semana 08' en Google Docs.\n10. Insertar una tabla con 3 columnas: Pantalla | Captura | Descripción.\n11. Agregar una fila por cada pantalla con: nombre de la pantalla, captura de pantalla y una descripción breve de lo que hace.",
+              product: "Aplicación móvil completamente funcional con navegación, mensajes interactivos, evaluación y botón de regreso. Evidencia documentada en Google Docs.",
+              teacherNotes: "Durante la prueba final, pide a los alumnos que intercambien teléfonos para probar la app de un compañero. Esto detecta errores que el propio autor no nota. Verifica que la tabla en Google Docs tenga descripción real, no solo 'botón' o 'pantalla'."
+            }
+          ],
+          cierre: "Hoy terminaste de programar tu aplicación móvil. Ya tienes navegación, interacción y evaluación funcionando. ¡Felicidades!",
+          frase_docente: "Programar es resolver problemas paso a paso; hoy lo demostraste pantalla a pantalla."
         }
       ]
     }
