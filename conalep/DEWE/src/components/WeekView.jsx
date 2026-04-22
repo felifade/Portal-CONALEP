@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
+import { BookOpen, PenLine, Wrench, Package, GraduationCap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { curriculumData } from '../data/curriculum';
 
-// Returns the week label (e.g. "Semana 08 (XX-XX Mes)") from the ras index
 const getWeekMeta = (weekId) => {
   for (const ra of curriculumData.ras) {
     const found = ra.weeks?.find(w => w.id === weekId);
@@ -10,15 +10,12 @@ const getWeekMeta = (weekId) => {
   return { label: `Semana ${weekId.replace('W', '')}`, raTitle: '' };
 };
 
-// Helper component to format text as lists if needed
 const SmartText = ({ text }) => {
   if (!text) return null;
 
   const lines = text.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(l => l.trim()).filter(l => l.length > 0);
 
-  if (lines.length <= 1) {
-    return <p>{text}</p>;
-  }
+  if (lines.length <= 1) return <p>{text}</p>;
 
   const isNumbered = lines.some(line => /^[0-9]+\.\s/.test(line));
   const isBulleted = lines.some(line => /^[-•]\s/.test(line));
@@ -50,6 +47,56 @@ const SmartText = ({ text }) => {
   );
 };
 
+const BLOCK_META = {
+  theory:  { icon: <BookOpen size={13} />,     label: 'Teoría (10 min)',      cls: 'theory' },
+  notebook:{ icon: <PenLine size={13} />,      label: 'Actividad en libreta', cls: 'notebook' },
+  practice:{ icon: <Wrench size={13} />,       label: 'Práctica en PC',       cls: 'practice' },
+  product: { icon: <Package size={13} />,      label: 'Producto de la sesión',cls: 'product-block' },
+  teacher: { icon: <GraduationCap size={13} />,label: 'Solo Docente — Notas', cls: 'teacher-only' },
+};
+
+const PedBlock = ({ type, children }) => {
+  const meta = BLOCK_META[type];
+  return (
+    <div className={`pedagogical-block ${meta.cls}`}>
+      <h4 className="block-title">{meta.icon} {meta.label}</h4>
+      <div className="block-body">{children}</div>
+    </div>
+  );
+};
+
+const CodeBlock = ({ code }) => {
+  const [status, setStatus] = useState('Copiar');
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code).then(() => {
+      setStatus('¡Copiado!');
+      setTimeout(() => setStatus('Copiar'), 2000);
+    });
+  };
+  return (
+    <div className="pedagogical-block code-section">
+      <div className="block-header-row">
+        <h4 className="block-title">📟 Código de referencia</h4>
+        <button className="copy-btn" onClick={handleCopy}>{status}</button>
+      </div>
+      <div className="code-editor-container allow-copy">
+        <pre className="code-editor"><code>{code}</code></pre>
+      </div>
+    </div>
+  );
+};
+
+const LazyImg = ({ src, alt, className }) => (
+  <img
+    src={src}
+    alt={alt}
+    className={className}
+    loading="lazy"
+    onError={e => { e.target.parentElement.style.display = 'none'; }}
+  />
+);
+
+/* ── Dual components ──────────────────────────────────────── */
 const DualActivityBlock = ({ activity }) => (
   <div className="dual-activity-block">
     <div className="dual-header">
@@ -62,9 +109,9 @@ const DualActivityBlock = ({ activity }) => (
       </div>
       {activity.image && (
         <div className="infographic-container">
-          <img 
-            src={new URL(`../assets/${activity.image}`, import.meta.url).href} 
-            alt={activity.title} 
+          <LazyImg
+            src={new URL(`../assets/${activity.image}`, import.meta.url).href}
+            alt={activity.title}
             className="infographic-img"
           />
         </div>
@@ -74,9 +121,9 @@ const DualActivityBlock = ({ activity }) => (
 );
 
 const DualGallery = ({ activities }) => {
-  const visualActivities = activities?.filter(a => a.image) || [];
+  const visual = activities?.filter(a => a.image) || [];
 
-  if (visualActivities.length === 0) {
+  if (visual.length === 0) {
     return (
       <div className="dual-gallery-empty">
         <p>No hay infografías disponibles para esta semana.</p>
@@ -86,15 +133,15 @@ const DualGallery = ({ activities }) => {
 
   return (
     <div className="dual-gallery-view">
-      <h2 className="gallery-title">🖼️ Galería de Infografías (Modo Dual)</h2>
+      <h2 className="gallery-title">🖼️ Galería de Infografías</h2>
       <div className="gallery-grid">
-        {visualActivities.map((activity, idx) => (
+        {visual.map((activity, idx) => (
           <div key={idx} className="gallery-item">
             <h3 className="gallery-item-title">{activity.title}</h3>
             <div className="gallery-img-wrapper">
-              <img 
-                src={new URL(`../assets/${activity.image}`, import.meta.url).href} 
-                alt={activity.title} 
+              <LazyImg
+                src={new URL(`../assets/${activity.image}`, import.meta.url).href}
+                alt={activity.title}
                 className="gallery-img"
               />
             </div>
@@ -108,98 +155,12 @@ const DualGallery = ({ activities }) => {
   );
 };
 
-const HourBlock = ({ hour, index, isTeacherMode }) => {
-  const [showWork, setShowWork] = useState(index === 0);
-  const [copyStatus, setCopyStatus] = useState('Copiar');
-
-  const handleCopy = (text) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopyStatus('¡Copiado!');
-      setTimeout(() => setCopyStatus('Copiar'), 2000);
-    });
-  };
-
-  return (
-    <div className={`hour-block ${showWork ? 'work-open' : ''}`}>
-      <div className="hour-block-header">
-        <span className="hour-label">{hour.time} {hour.title && <span className="hour-title">— {hour.title}</span>}</span>
-      </div>
-      
-      <div className="hour-block-content">
-        <div className="pedagogical-block theory">
-          <h4 className="block-title">🧠 Teoría (10 min)</h4>
-          <div className="block-body">
-            <SmartText text={hour.theory} />
-          </div>
-        </div>
-        
-        <div className="work-toggle" onClick={() => setShowWork(!showWork)}>
-          <span>{showWork ? '▲ Ocultar Actividades y Código' : '▼ Ver Actividades y Código'}</span>
-        </div>
-
-        {showWork && (
-          <div className="work-sections">
-            <div className="pedagogical-block notebook">
-              <h4 className="block-title">✏️ Actividad en libreta</h4>
-              <div className="block-body">
-                <SmartText text={hour.notebook} />
-              </div>
-            </div>
-            
-            <div className="pedagogical-block practice">
-              <h4 className="block-title">💻 Actividad práctica</h4>
-              <div className="block-body">
-                <SmartText text={hour.practice} />
-              </div>
-            </div>
-
-            {hour.code && (
-              <div className="pedagogical-block code-section">
-                <div className="block-header-row">
-                  <h4 className="block-title">📟 Código de la práctica</h4>
-                  <button className="copy-btn" onClick={() => handleCopy(hour.code)}>
-                    {copyStatus}
-                  </button>
-                </div>
-                <div className="code-editor-container">
-                  <pre className="code-editor">
-                    <code>{hour.code}</code>
-                  </pre>
-                </div>
-              </div>
-            )}
-
-            {hour.product && (
-              <div className="pedagogical-block product-block">
-                <h4 className="block-title">🎯 Producto de la sesión</h4>
-                <div className="block-body">
-                  <SmartText text={hour.product} />
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {isTeacherMode && hour.teacherNotes && (
-          <div className="pedagogical-block teacher-only">
-            <div className="block-header-row">
-              <h4 className="block-title">👨‍🏫 Solo Docente: Notas y guía</h4>
-            </div>
-            <div className="block-body">
-              <SmartText text={hour.teacherNotes} />
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
+/* ── Day Tabs ──────────────────────────────────────────────── */
 const DayTabs = ({ days, activeIndex, onSelect }) => (
   <div className="day-tabs-container">
     {days.map((day, idx) => (
-      <button 
-        key={day.id} 
+      <button
+        key={day.id}
         className={`day-tab-btn ${activeIndex === idx ? 'active' : ''}`}
         onClick={() => onSelect(idx)}
       >
@@ -209,113 +170,96 @@ const DayTabs = ({ days, activeIndex, onSelect }) => (
   </div>
 );
 
-const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir }) => {
-  const [showWork, setShowWork] = useState(true);
-  const [copyStatus, setCopyStatus] = useState('Copiar');
+/* ── Hour Page ─────────────────────────────────────────────── */
+const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, weekMeta, weekNumber, dayLabel }) => (
+  <div className={`notebook-page-wrapper nocopy flip-${flipDir || 'fwd'}`}>
+    {/* Breadcrumb */}
+    <div className="breadcrumb">
+      <span className="breadcrumb-item">{weekMeta.raTitle}</span>
+      <span className="breadcrumb-sep">›</span>
+      <span className="breadcrumb-item">Semana {weekNumber}</span>
+      <span className="breadcrumb-sep">›</span>
+      <span className="breadcrumb-item">{dayLabel}</span>
+      <span className="breadcrumb-sep">›</span>
+      <span className="breadcrumb-item">{hour.time}</span>
+    </div>
 
-  const handleCopy = (text) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopyStatus('¡Copiado!');
-      setTimeout(() => setCopyStatus('Copiar'), 2000);
-    });
-  };
+    {/* Page nav */}
+    <div className="page-header-nav">
+      <button className="nav-page-btn prev" onClick={onPrev} disabled={index === 0}>
+        <ChevronLeft size={13} /> Anterior
+      </button>
+      <span className="page-indicator">Hoja {index + 1} de {total}</span>
+      <button className="nav-page-btn next" onClick={onNext} disabled={index === total - 1}>
+        Siguiente <ChevronRight size={13} />
+      </button>
+    </div>
 
-  return (
-    <div className={`notebook-page-wrapper nocopy flip-${flipDir || 'fwd'}`}>
-      <div className="page-header-nav">
-        <button className="nav-page-btn prev" onClick={onPrev} disabled={index === 0}>
-           ← Anterior
-        </button>
-        <span className="page-indicator">Hoja {index + 1} de {total}</span>
-        <button className="nav-page-btn next" onClick={onNext} disabled={index === total - 1}>
-          Siguiente →
-        </button>
+    <div className="notebook-sheet">
+      <div className="sheet-header">
+        <span className="sheet-time">{hour.time}</span>
+        <h2 className="sheet-title">{hour.title || 'Tema del día'}</h2>
       </div>
 
-      <div className="notebook-sheet">
-        <div className="sheet-header">
-          <span className="sheet-time">{hour.time}</span>
-          <h2 className="sheet-title">{hour.title || 'Tema del día'}</h2>
-        </div>
+      <div className="sheet-body">
+        {hour.theory && (
+          <PedBlock type="theory">
+            <SmartText text={hour.theory} />
+          </PedBlock>
+        )}
 
-        <div className="sheet-body">
-          <div className="pedagogical-block theory">
-            <h4 className="block-title">🧠 Teoría y Conceptos</h4>
-            <div className="block-body">
-              <SmartText text={hour.theory} />
-            </div>
-          </div>
-
-          <div className="work-sections visible">
-            <div className="pedagogical-grid">
-              <div className="pedagogical-block notebook">
-                <h4 className="block-title">✏️ En la libreta</h4>
-                <div className="block-body">
-                  <SmartText text={hour.notebook} />
-                </div>
-              </div>
-              
-              <div className="pedagogical-block practice">
-                <h4 className="block-title">💻 Práctica en PC</h4>
-                <div className="block-body">
-                  <SmartText text={hour.practice} />
-                </div>
-              </div>
-            </div>
-
-            {hour.code && (
-              <div className="pedagogical-block code-section allow-copy">
-                <div className="block-header-row">
-                  <h4 className="block-title">📟 Código de Referencia</h4>
-                  <button className="copy-btn" onClick={() => handleCopy(hour.code)}>
-                    {copyStatus}
-                  </button>
-                </div>
-                <div className="code-editor-container">
-                  <pre className="code-editor">
-                    <code>{hour.code}</code>
-                  </pre>
-                </div>
-              </div>
-            )}
-
-            {hour.product && (
-              <div className="pedagogical-block product-block">
-                <h4 className="block-title">🎯 Producto Final</h4>
-                <div className="block-body">
-                  <SmartText text={hour.product} />
-                </div>
-              </div>
-            )}
-          </div>
-
-          {isTeacherMode && hour.teacherNotes && (
-            <div className="pedagogical-block teacher-only">
-              <h4 className="block-title">👨‍🏫 Notas del Docente</h4>
-              <div className="block-body">
-                <SmartText text={hour.teacherNotes} />
-              </div>
-            </div>
+        <div className="pedagogical-grid">
+          {hour.notebook && (
+            <PedBlock type="notebook">
+              <SmartText text={hour.notebook} />
+            </PedBlock>
+          )}
+          {hour.practice && (
+            <PedBlock type="practice">
+              <SmartText text={hour.practice} />
+            </PedBlock>
           )}
         </div>
+
+        {hour.code && <CodeBlock code={hour.code} />}
+
+        {hour.product && (
+          <PedBlock type="product">
+            <SmartText text={hour.product} />
+          </PedBlock>
+        )}
+
+        {isTeacherMode && hour.teacherNotes && (
+          <div className="pedagogical-block teacher-only">
+            <div className="block-header-row">
+              <h4 className="block-title">
+                {BLOCK_META.teacher.icon} {BLOCK_META.teacher.label}
+              </h4>
+            </div>
+            <div className="block-body">
+              <SmartText text={hour.teacherNotes} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
+/* ── Week View ─────────────────────────────────────────────── */
 const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
   const weekData = curriculumData.schedules[weekId];
-  const [activeDayIdx, setActiveDayIdx] = useState(0);
+  const [activeDayIdx,  setActiveDayIdx]  = useState(0);
   const [activeHourIdx, setActiveHourIdx] = useState(0);
-  const [dayAnimKey, setDayAnimKey] = useState(0);   // increments → re-mounts day content → triggers day animation
-  const flipDirRef = useRef('fwd');                  // 'fwd' | 'bwd' — read at render, no extra re-render needed
+  const [dayAnimKey,    setDayAnimKey]    = useState(0);
+  const flipDirRef = useRef('fwd');
 
-  const weekMeta = getWeekMeta(weekId);
+  const weekMeta   = getWeekMeta(weekId);
   const weekNumber = weekId.replace('W', '');
-  // Extract date range from label e.g. "Semana 08 (XX-XX Mes)" → "(XX-XX Mes)"
-  const dateRange = weekMeta.label.match(/\(([^)]+)\)/)?.[1] || '';
+  const dateRange  = weekMeta.label.match(/\(([^)]+)\)/)?.[1] || '';
 
   if (!weekData) return <div className="no-data">No se encontró información para esta semana.</div>;
+
   if (!weekData.days || weekData.days.length === 0) {
     return (
       <div className="week-view notebook-view empty-week-state">
@@ -336,9 +280,12 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
         <div className="notebook-container">
           <div className="notebook-sheet empty-sheet">
             <div className="empty-message-content">
-              <span className="empty-icon">🚧</span>
-              <h2>Página en construcción</h2>
-              <p>El Dr. Felipe López está preparando el contenido para esta semana. ¡Vuelve pronto!</p>
+              <span className="empty-icon">📅</span>
+              <h2>Contenido en preparación</h2>
+              <p>
+                Esta semana corresponde al período <strong>{dateRange || weekMeta.label}</strong>.<br />
+                El Dr. Felipe López está preparando el material. ¡Vuelve pronto!
+              </p>
             </div>
           </div>
         </div>
@@ -346,7 +293,7 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
     );
   }
 
-  const currentDay = weekData.days[activeDayIdx];
+  const currentDay   = weekData.days[activeDayIdx];
   const isSpecialDay = currentDay.id === 'dual' || currentDay.id === 'key';
 
   const handleDaySelect = (idx) => {
@@ -372,7 +319,7 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
   return (
     <div className={`week-view notebook-view ${isClassMode ? 'class-mode' : ''}`}>
 
-      {/* ── Portada de semana ── */}
+      {/* ── Portada ── */}
       <header className="week-portada">
         <div className="portada-inner">
           <span className="portada-course">{curriculumData.subject}</span>
@@ -383,59 +330,52 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
           {dateRange && <span className="portada-date">{dateRange}</span>}
           <span className="portada-group">Grupo {curriculumData.group} · Dr. Felipe López</span>
         </div>
-        {/* Decorative ruled lines reminiscent of notebook paper */}
         <div className="portada-lines" aria-hidden="true">
           {[...Array(5)].map((_, i) => <span key={i} className="portada-line" />)}
         </div>
       </header>
 
-      <DayTabs
-        days={weekData.days}
-        activeIndex={activeDayIdx}
-        onSelect={handleDaySelect}
-      />
+      <DayTabs days={weekData.days} activeIndex={activeDayIdx} onSelect={handleDaySelect} />
 
-      {/* key=dayAnimKey forces re-mount → triggers day CSS animation */}
       <div className="notebook-container" key={dayAnimKey}>
         {isDualMode ? (
           <DualGallery activities={weekData.days.find(d => d.id === 'dual')?.activities} />
         ) : isSpecialDay ? (
           <div className="notebook-sheet special day-enter">
-             <div className="sheet-header">
-                <h2 className="sheet-title">{currentDay.label}</h2>
-             </div>
-             <div className="sheet-body">
-               {currentDay.id === 'dual' ? (
-                 <div className="dual-repository-view">
-                   {currentDay.activities?.map((activity, idx) => (
-                     <DualActivityBlock key={idx} activity={activity} />
-                   ))}
-                 </div>
-               ) : (
-                 <div className="key-code-view">
-                    {currentDay.hours?.map((h, i) => (
-                      <div key={i} className="pedagogical-block code-section">
-                        <h4 className="block-title">{h.time}</h4>
-                        <pre className="code-editor"><code>{h.code}</code></pre>
-                      </div>
-                    ))}
-                 </div>
-               )}
-             </div>
+            <div className="sheet-header">
+              <h2 className="sheet-title">{currentDay.label}</h2>
+            </div>
+            <div className="sheet-body">
+              {currentDay.id === 'dual' ? (
+                <div className="dual-repository-view">
+                  {currentDay.activities?.map((activity, idx) => (
+                    <DualActivityBlock key={idx} activity={activity} />
+                  ))}
+                </div>
+              ) : (
+                <div className="key-code-view">
+                  {currentDay.hours?.map((h, i) => (
+                    <div key={i} className="pedagogical-block code-section">
+                      <h4 className="block-title">{h.time}</h4>
+                      <pre className="code-editor"><code>{h.code}</code></pre>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <div className="day-notebook-content">
             {currentDay.purpose && activeHourIdx === 0 && (
-              <div className="day-purpose-banner notebook-purpose">
+              <div className="day-purpose-banner">
                 <span className="purpose-icon">🎯</span>
                 <div className="purpose-text">
-                  <strong>Propósito de hoy:</strong>
+                  <strong>Propósito de hoy</strong>
                   <SmartText text={currentDay.purpose} />
                 </div>
               </div>
             )}
 
-            {/* key=activeHourIdx forces re-mount → triggers hour CSS animation */}
             <HourPage
               key={activeHourIdx}
               hour={currentDay.hours[activeHourIdx]}
@@ -445,19 +385,22 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
               onPrev={prevHour}
               onNext={nextHour}
               flipDir={flipDirRef.current}
+              weekMeta={weekMeta}
+              weekNumber={weekNumber}
+              dayLabel={currentDay.label.split(' — ')[0]}
             />
 
             {activeHourIdx === currentDay.hours.length - 1 && (
               <div className="day-closure-notebook">
                 {currentDay.cierre && (
                   <div className="day-conclusion-block">
-                    <h4 className="conclusion-title">✅ Cierre de Clase</h4>
+                    <p className="conclusion-title">✅ Cierre de Clase</p>
                     <SmartText text={currentDay.cierre} />
                   </div>
                 )}
                 {currentDay.frase_docente && (
                   <div className="day-quote-block">
-                    <p className="quote-text"><em>"{currentDay.frase_docente}"</em></p>
+                    <p className="quote-text">"{currentDay.frase_docente}"</p>
                   </div>
                 )}
               </div>
