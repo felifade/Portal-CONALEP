@@ -73,14 +73,21 @@ const ProEditor = ({ value, onChange, type, fontSize }) => {
 
 const CodeLab = () => {
   const [activeTab, setActiveTab] = useState('html');
-  const [htmlCode, setHtmlCode] = useState(BOILERPLATE.html);
-  const [jsCode, setJsCode] = useState(BOILERPLATE.js);
-  const [cssFiles, setCssFiles] = useState([{ id: 'm', name: 'main.css', content: BOILERPLATE.cssDefault }]);
+  const [htmlCode, setHtmlCode] = useState(() => localStorage.getItem('mths-codelab-html') || BOILERPLATE.html);
+  const [jsCode, setJsCode] = useState(() => localStorage.getItem('mths-codelab-js') || BOILERPLATE.js);
+  const [cssFiles, setCssFiles] = useState(() => {
+    const saved = localStorage.getItem('mths-codelab-css');
+    return saved ? JSON.parse(saved) : [{ id: 'm', name: 'main.css', content: BOILERPLATE.cssDefault }];
+  });
   const [activeCssFileId, setActiveCssFileId] = useState('m');
   const [viewCode, setViewCode] = useState('');
   const [fontSize, setFontSize] = useState(15);
   const [toasts, setToasts] = useState([]);
   const [confirm, setConfirm] = useState({ active: false, message: '', onConfirm: null });
+
+  useEffect(() => { localStorage.setItem('mths-codelab-html', htmlCode); }, [htmlCode]);
+  useEffect(() => { localStorage.setItem('mths-codelab-js', jsCode); }, [jsCode]);
+  useEffect(() => { localStorage.setItem('mths-codelab-css', JSON.stringify(cssFiles)); }, [cssFiles]);
 
   const addToast = (m, t = 'success') => { const id = Date.now(); setToasts(p => [...p, { id, message: m, type: t }]); setTimeout(() => setToasts(p => p.filter(x => x.id !== id)), 4000); };
   const updateCss = (c) => setCssFiles(p => p.map(f => f.id === activeCssFileId ? { ...f, content: c } : f));

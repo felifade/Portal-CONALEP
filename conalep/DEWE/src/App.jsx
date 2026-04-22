@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Monitor, GraduationCap, Layers, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from './components/WeekView';
 import CodeLab from './components/CodeLab';
@@ -11,33 +12,30 @@ function App() {
     const now = new Date();
     const diffMs = now - startDate;
     const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
-    
-    if (diffWeeks < 0) return 'W00';
-    if (diffWeeks <= 6) return `W0${diffWeeks}`;
-    if (diffWeeks <= 8) return 'W06'; // Semanas de Vacaciones
+
+    if (diffWeeks < 0)   return 'W00';
+    if (diffWeeks <= 6)  return `W0${diffWeeks}`;
+    if (diffWeeks <= 8)  return 'W06';
     if (diffWeeks === 9) return 'W07';
-    if (diffWeeks >= 10) return 'W08';
-    return 'W00';
+    return 'W08';
   };
 
-  const [activeWeek, setActiveWeek] = useState(getAutoWeek());
-  const [activeView, setActiveView] = useState('curriculum');
-  const [isClassMode, setIsClassMode] = useState(false);
-  const [isTeacherMode, setIsTeacherMode] = useState(false);
-  const [isDualMode, setIsDualMode] = useState(false);
-  const [showPinModal, setShowPinModal] = useState(false);
+  const currentWeek = getAutoWeek();
 
-  const handleTeacherModeToggle = () => {
+  const [activeWeek, setActiveWeek]       = useState(currentWeek);
+  const [activeView, setActiveView]       = useState('curriculum');
+  const [isClassMode, setIsClassMode]     = useState(false);
+  const [isTeacherMode, setIsTeacherMode] = useState(false);
+  const [isDualMode, setIsDualMode]       = useState(false);
+  const [showPinModal, setShowPinModal]   = useState(false);
+  const [sidebarOpen, setSidebarOpen]     = useState(false);
+
+  const handleTeacherToggle = () => {
     if (!isTeacherMode) {
       setShowPinModal(true);
     } else {
       setIsTeacherMode(false);
     }
-  };
-
-  const handlePinSuccess = () => {
-    setIsTeacherMode(true);
-    setShowPinModal(false);
   };
 
   const handleWeekChange = (weekId) => {
@@ -47,42 +45,56 @@ function App() {
 
   return (
     <div className={`app-container ${isClassMode ? 'class-mode-active' : ''}`}>
-      <Sidebar 
-        activeWeek={activeWeek} 
+
+      {/* ── Mobile top bar ── */}
+      <div className="mobile-header">
+        <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
+          <Menu size={18} />
+        </button>
+        <span className="mobile-brand">CONALEP · DEWE</span>
+      </div>
+
+      <Sidebar
+        activeWeek={activeWeek}
         activeView={activeView}
-        onWeekSelect={handleWeekChange} 
+        onWeekSelect={handleWeekChange}
         onViewSelect={setActiveView}
+        currentWeek={currentWeek}
+        isMobileOpen={sidebarOpen}
+        onMobileClose={() => setSidebarOpen(false)}
       />
+
       <main className="main-content">
         <div className="class-mode-toggle-container">
-          <button 
+          <button
             className={`class-mode-btn ${isClassMode ? 'active' : ''}`}
             onClick={() => setIsClassMode(!isClassMode)}
           >
-            {isClassMode ? '📺 Salir de Modo Clase' : '🔦 Modo Clase'}
+            <Monitor size={14} />
+            {isClassMode ? 'Salir de Clase' : 'Modo Clase'}
           </button>
-
-          <button 
+          <button
             className={`dual-mode-btn ${isDualMode ? 'active' : ''}`}
             onClick={() => setIsDualMode(!isDualMode)}
           >
-            {isDualMode ? '🚀 Salir de Modo Dual' : '🚀 Modo Dual'}
+            <Layers size={14} />
+            {isDualMode ? 'Salir Dual' : 'Modo Dual'}
           </button>
-          
-          <button 
+          <button
             className={`teacher-mode-btn ${isTeacherMode ? 'active' : ''}`}
-            onClick={handleTeacherModeToggle}
+            onClick={handleTeacherToggle}
           >
-            {isTeacherMode ? '👨‍🏫 Salir de Modo Docente' : '👨‍🏫 Modo Docente'}
+            <GraduationCap size={14} />
+            {isTeacherMode ? 'Salir Docente' : 'Modo Docente'}
           </button>
         </div>
 
         {activeView === 'curriculum' ? (
-          <WeekView 
-            weekId={activeWeek} 
-            isClassMode={isClassMode} 
+          <WeekView
+            weekId={activeWeek}
+            isClassMode={isClassMode}
             isTeacherMode={isTeacherMode}
-            isDualMode={isDualMode} 
+            isDualMode={isDualMode}
           />
         ) : (
           <CodeLab />
@@ -90,9 +102,9 @@ function App() {
       </main>
 
       {showPinModal && (
-        <PinModal 
-          onSuccess={handlePinSuccess} 
-          onCancel={() => setShowPinModal(false)} 
+        <PinModal
+          onSuccess={() => { setIsTeacherMode(true); setShowPinModal(false); }}
+          onCancel={() => setShowPinModal(false)}
         />
       )}
     </div>

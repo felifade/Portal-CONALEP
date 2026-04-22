@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from './components/WeekView';
 import PinModal from './components/PinModal';
@@ -10,21 +11,23 @@ function App() {
     const now = new Date();
     const diffMs = now - startDate;
     const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
-    
-    if (diffWeeks < 0) return 'W00';
-    if (diffWeeks <= 6) return `W0${diffWeeks}`;
-    if (diffWeeks <= 8) return 'W06'; // Semanas de Vacaciones
+
+    if (diffWeeks < 0)   return 'W00';
+    if (diffWeeks <= 6)  return `W0${diffWeeks}`;
+    if (diffWeeks <= 8)  return 'W06';
     if (diffWeeks === 9) return 'W07';
-    if (diffWeeks >= 10) return 'W08';
-    return 'W00';
+    return 'W08';
   };
 
-  const [activeWeek, setActiveWeek] = useState(getAutoWeek());
-  const [isClassMode, setIsClassMode] = useState(false);
-  const [isTeacherMode, setIsTeacherMode] = useState(false);
-  const [showPinModal, setShowPinModal] = useState(false);
+  const currentWeek = getAutoWeek();
 
-  const handleTeacherModeToggle = () => {
+  const [activeWeek, setActiveWeek]       = useState(currentWeek);
+  const [isClassMode, setIsClassMode]     = useState(false);
+  const [isTeacherMode, setIsTeacherMode] = useState(false);
+  const [showPinModal, setShowPinModal]   = useState(false);
+  const [sidebarOpen, setSidebarOpen]     = useState(false);
+
+  const handleTeacherToggle = () => {
     if (!isTeacherMode) {
       setShowPinModal(true);
     } else {
@@ -32,46 +35,54 @@ function App() {
     }
   };
 
-  const handlePinSuccess = () => {
-    setIsTeacherMode(true);
-    setShowPinModal(false);
-  };
-
-  const handleWeekChange = (weekId) => {
-    setActiveWeek(weekId);
-  };
-
   return (
     <div className={`app-container ${isClassMode ? 'class-mode-active' : ''}`}>
-      <Sidebar activeWeek={activeWeek} onWeekSelect={handleWeekChange} />
+
+      {/* ── Mobile top bar ── */}
+      <div className="mobile-header">
+        <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
+          <Menu size={18} />
+        </button>
+        <span className="mobile-brand">CONALEP · MTHS</span>
+      </div>
+
+      <Sidebar
+        activeWeek={activeWeek}
+        onWeekSelect={setActiveWeek}
+        currentWeek={currentWeek}
+        isMobileOpen={sidebarOpen}
+        onMobileClose={() => setSidebarOpen(false)}
+      />
+
       <main className="main-content">
         <div className="class-mode-toggle-container">
-          <button 
+          <button
             className={`class-mode-btn ${isClassMode ? 'active' : ''}`}
             onClick={() => setIsClassMode(!isClassMode)}
           >
-            {isClassMode ? '📺 Salir de Modo Clase' : '🔦 Modo Clase'}
+            <Monitor size={14} />
+            {isClassMode ? 'Salir de Clase' : 'Modo Clase'}
           </button>
-          
-          <button 
+          <button
             className={`teacher-mode-btn ${isTeacherMode ? 'active' : ''}`}
-            onClick={handleTeacherModeToggle}
+            onClick={handleTeacherToggle}
           >
-            {isTeacherMode ? '👨‍🏫 Salir de Modo Docente' : '👨‍🏫 Modo Docente'}
+            <GraduationCap size={14} />
+            {isTeacherMode ? 'Salir Docente' : 'Modo Docente'}
           </button>
         </div>
 
-        <WeekView 
-          weekId={activeWeek} 
-          isClassMode={isClassMode} 
+        <WeekView
+          weekId={activeWeek}
+          isClassMode={isClassMode}
           isTeacherMode={isTeacherMode}
         />
       </main>
 
       {showPinModal && (
-        <PinModal 
-          onSuccess={handlePinSuccess} 
-          onCancel={() => setShowPinModal(false)} 
+        <PinModal
+          onSuccess={() => { setIsTeacherMode(true); setShowPinModal(false); }}
+          onCancel={() => setShowPinModal(false)}
         />
       )}
     </div>
