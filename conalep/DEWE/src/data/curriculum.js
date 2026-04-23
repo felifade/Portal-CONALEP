@@ -28,6 +28,15 @@ export const curriculumData = {
         { id: "W07", label: "Semana 07 (13-17 Abr)" },
         { id: "W08", label: "Semana 08 (20-24 Abr)" }
       ]
+    },
+    {
+      id: "RA2.1",
+      title: "2.1 RA (40%)",
+      weeks: [
+        { id: "W09", label: "Semana 09 (27 Abr-01 May)" },
+        { id: "W10", label: "Semana 10 (04-08 May)" },
+        { id: "W11", label: "Semana 11 (11-15 May)" }
+      ]
     }
   ],
   schedules: {
@@ -699,6 +708,9 @@ export const curriculumData = {
           ]
         }
       ]
-    }
+    },
+    "W09": { days: [] },
+    "W10": { days: [] },
+    "W11": { days: [] }
   }
 };
