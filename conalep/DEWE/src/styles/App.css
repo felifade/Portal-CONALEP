@@ -1457,29 +1457,40 @@
 }
 
 .pro-highlighter, .pro-textarea {
+  /* identical box model — any difference causes drift */
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   padding: 16px 18px;
   margin: 0;
-  font-family: var(--font-mono);
-  line-height: 1.6;
-  tab-size: 2;
-  white-space: pre;
-  word-wrap: normal;
   border: none;
   outline: none;
   box-sizing: border-box;
+
+  /* identical text rendering */
+  font-family: var(--font-mono);
+  font-size: inherit;
+  line-height: 1.6;
+  letter-spacing: 0;
+  word-spacing: 0;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  tab-size: 2;
+  -moz-tab-size: 2;
+
   transition: font-size 0.15s ease-out;
 }
 
 .pro-textarea {
   background: transparent;
   color: transparent;
-  caret-color: white;
+  -webkit-text-fill-color: transparent;
+  caret-color: #fff;
   resize: none;
   z-index: 20;
   overflow: auto;
+  scrollbar-gutter: stable;
 }
 
 .pro-highlighter {
@@ -1489,8 +1500,12 @@
   pointer-events: none;
   user-select: none !important;
   -webkit-user-select: none !important;
-  overflow: hidden;
+  /* scrollbar invisible pero mismo tamaño que textarea */
+  overflow: scroll;
+  scrollbar-width: none;
 }
+
+.pro-highlighter::-webkit-scrollbar { display: none; }
 
 .pro-gutter {
   width: 44px;
