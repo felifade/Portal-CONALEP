@@ -862,6 +862,31 @@
   padding: 0;
 }
 
+/* Código completo — solo modo docente */
+.pedagogical-block.code-section.code-ref {
+  background: #1a1208;
+  border-color: #92400e;
+  border-left: 4px solid #d97706;
+}
+
+.pedagogical-block.code-section.code-ref .block-header-row {
+  background: #1f160a;
+  border-bottom: 1px solid #78350f;
+}
+
+.pedagogical-block.code-section.code-ref .block-title {
+  color: #fbbf24;
+}
+
+.pedagogical-block.code-section.code-ref .copy-btn {
+  background: #92400e;
+  color: #fef3c7;
+}
+
+.pedagogical-block.code-section.code-ref .copy-btn:hover {
+  background: #b45309;
+}
+
 .copy-btn {
   background: var(--primary);
   color: white;
