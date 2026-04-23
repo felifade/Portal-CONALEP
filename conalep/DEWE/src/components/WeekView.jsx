@@ -65,7 +65,7 @@ const PedBlock = ({ type, children }) => {
   );
 };
 
-const CodeBlock = ({ code }) => {
+const CodeBlock = ({ code, isRef = false }) => {
   const [status, setStatus] = useState('Copiar');
   const handleCopy = () => {
     navigator.clipboard.writeText(code).then(() => {
@@ -74,9 +74,11 @@ const CodeBlock = ({ code }) => {
     });
   };
   return (
-    <div className="pedagogical-block code-section">
+    <div className={`pedagogical-block code-section ${isRef ? 'code-ref' : ''}`}>
       <div className="block-header-row">
-        <h4 className="block-title">📟 Código de referencia</h4>
+        <h4 className="block-title">
+          {isRef ? '🔑 Código completo (solo docente)' : '📟 Código base'}
+        </h4>
         <button className="copy-btn" onClick={handleCopy}>{status}</button>
       </div>
       <div className="code-editor-container allow-copy">
@@ -222,6 +224,7 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, 
         </div>
 
         {hour.code && <CodeBlock code={hour.code} />}
+        {isTeacherMode && hour.codeRef && <CodeBlock code={hour.codeRef} isRef />}
 
         {hour.product && (
           <PedBlock type="product">

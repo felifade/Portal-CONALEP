@@ -106,10 +106,12 @@ const CodeLab = () => {
   const [fontSize, setFontSize]   = useState(15);
   const [toasts, setToasts]       = useState([]);
   const [confirm, setConfirm]     = useState({ active: false, message: '', onConfirm: null });
-  const [autoRun, setAutoRun]           = useState(false);
-  const [addingFile, setAddingFile]     = useState(false);
-  const [newFileName, setNewFileName]   = useState('');
+  const [autoRun, setAutoRun]                   = useState(false);
+  const [addingFile, setAddingFile]             = useState(false);
+  const [newFileName, setNewFileName]           = useState('');
   const [previewCollapsed, setPreviewCollapsed] = useState(false);
+  const [downloadName, setDownloadName]         = useState('mi-proyecto');
+  const [showDownloadInput, setShowDownloadInput] = useState(false);
 
   const autoRunTimer = useRef(null);
 
@@ -157,14 +159,16 @@ const CodeLab = () => {
   };
 
   const handleDownload = () => {
+    const name = (downloadName.trim() || 'mi-proyecto').replace(/\.html$/i, '');
     const blob = new Blob([combine()], { type: 'text/html' });
     const url  = URL.createObjectURL(blob);
     const a    = document.createElement('a');
     a.href     = url;
-    a.download = 'mi-proyecto.html';
+    a.download = `${name}.html`;
     a.click();
     URL.revokeObjectURL(url);
-    addToast('Archivo descargado', 'success');
+    setShowDownloadInput(false);
+    addToast(`Descargado: ${name}.html`, 'success');
   };
 
   const handleLoadTemplate = type => {
@@ -210,35 +214,83 @@ const CodeLab = () => {
           <h1 className="lab-title">Editor de Código</h1>
         </div>
         <div className="codelab-actions">
-          <span className="actions-label">Plantilla:</span>
-          <button className="lab-btn secondary" onClick={() => handleLoadTemplate('basic')}>Básica</button>
-          <button className="lab-btn secondary" onClick={() => handleLoadTemplate('resident')}>Resident Evil</button>
+
+          {/* Plantillas */}
+          <select
+            className="template-select"
+            defaultValue=""
+            onChange={e => { if (e.target.value) { handleLoadTemplate(e.target.value); e.target.value = ''; } }}
+          >
+            <option value="" disabled>Plantilla…</option>
+            <option value="basic">Básica</option>
+            <option value="resident">Resident Evil</option>
+          </select>
+
           <div className="divider" />
+
+          {/* Tamaño de fuente */}
           <div className="font-controls">
             <button className="font-btn" onClick={() => setFontSize(p => Math.max(10, p - 2))}>A−</button>
             <span className="font-val">{fontSize}</span>
             <button className="font-btn" onClick={() => setFontSize(p => Math.min(30, p + 2))}>A+</button>
           </div>
+
           <div className="divider" />
+
+          {/* Auto-run */}
           <button
             className={`lab-btn autorun-btn ${autoRun ? 'autorun-on' : ''}`}
             onClick={() => setAutoRun(p => !p)}
             title="Ejecutar automáticamente mientras escribes"
           >
-            ⚡ {autoRun ? 'Auto: ON' : 'Auto: OFF'}
+            ⚡ Auto
           </button>
-          <button className="lab-btn help" onClick={() => navigator.clipboard.writeText(combine()).then(() => addToast('¡Proyecto copiado!', 'success'))}>
-            Copiar todo
+
+          {/* Copiar */}
+          <button
+            className="lab-btn help"
+            title="Copiar todo el proyecto"
+            onClick={() => navigator.clipboard.writeText(combine()).then(() => addToast('¡Proyecto copiado!', 'success'))}
+          >
+            Copiar
           </button>
-          <button className="lab-btn download-btn" onClick={handleDownload}>
-            ↓ Descargar
-          </button>
-          <button className="lab-btn danger" onClick={() => setConfirm({ active: true, message: '¿Limpiar todo el código?', onConfirm: () => { setHtmlCode(''); setCssFiles([{id:'m',name:'main.css',content:''}]); setJsCode(''); setViewCode(''); addToast('Código limpiado', 'warning'); } })}>
+
+          {/* Descargar con nombre */}
+          {showDownloadInput ? (
+            <div className="download-inline">
+              <input
+                autoFocus
+                className="download-name-input"
+                value={downloadName}
+                onChange={e => setDownloadName(e.target.value)}
+                onKeyDown={e => { if (e.key === 'Enter') handleDownload(); if (e.key === 'Escape') setShowDownloadInput(false); }}
+                placeholder="nombre-archivo"
+                maxLength={40}
+              />
+              <span className="download-ext">.html</span>
+              <button className="add-file-confirm" onClick={handleDownload} title="Descargar">↓</button>
+              <button className="add-file-cancel"  onClick={() => setShowDownloadInput(false)}>×</button>
+            </div>
+          ) : (
+            <button className="lab-btn download-btn" onClick={() => setShowDownloadInput(true)}>
+              ↓ Guardar
+            </button>
+          )}
+
+          {/* Limpiar */}
+          <button
+            className="lab-btn danger"
+            title="Limpiar todo el código"
+            onClick={() => setConfirm({ active: true, message: '¿Limpiar todo el código?', onConfirm: () => { setHtmlCode(''); setCssFiles([{id:'m',name:'main.css',content:''}]); setJsCode(''); setViewCode(''); addToast('Código limpiado', 'warning'); } })}
+          >
             Limpiar
           </button>
-          <button className="lab-btn primary" onClick={handleRun} title="También: Cmd+Enter / Ctrl+Enter">
+
+          {/* Ejecutar */}
+          <button className="lab-btn primary" onClick={handleRun} title="Cmd+Enter / Ctrl+Enter">
             ▶ Ejecutar
           </button>
+
         </div>
       </header>
 
