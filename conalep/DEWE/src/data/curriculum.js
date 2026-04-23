@@ -1,10 +1,16 @@
 export const curriculumData = {
   subject: "Elaboración de Páginas Web (DEWE-20)",
   group: "601",
+  cortes: [
+    { id: 1, label: "1er Corte", peso: "35%" },
+    { id: 2, label: "2do Corte", peso: "25%" },
+    { id: 3, label: "3er Corte", peso: "40%" },
+  ],
   ras: [
     {
       id: "RA1.1",
       title: "1.1 RA (10%)",
+      corte: 1,
       weeks: [
         { id: "W00", label: "Semana 00 (09-13 Feb)" },
         { id: "W01", label: "Semana 01 (16-20 Feb)" },
@@ -14,6 +20,7 @@ export const curriculumData = {
     {
       id: "RA1.2",
       title: "1.2 RA (25%)",
+      corte: 1,
       weeks: [
         { id: "W03", label: "Semana 03 (02-06 Mar)" },
         { id: "W04", label: "Semana 04 (09-13 Mar)" },
@@ -23,6 +30,7 @@ export const curriculumData = {
     {
       id: "RA1.3",
       title: "1.3 RA (25%)",
+      corte: 2,
       weeks: [
         { id: "W06", label: "Semana 06 (23-27 Mar)" },
         { id: "W07", label: "Semana 07 (13-17 Abr)" },
@@ -32,10 +40,21 @@ export const curriculumData = {
     {
       id: "RA2.1",
       title: "2.1 RA (20%)",
+      corte: 3,
       weeks: [
         { id: "W09", label: "Semana 09 (27 Abr-01 May)" },
         { id: "W10", label: "Semana 10 (04-08 May)" },
         { id: "W11", label: "Semana 11 (11-15 May)" }
+      ]
+    },
+    {
+      id: "RA2.2",
+      title: "2.2 RA (20%)",
+      corte: 3,
+      weeks: [
+        { id: "W12", label: "Semana 12 (18-22 May)" },
+        { id: "W13", label: "Semana 13 (25-29 May)" },
+        { id: "W14", label: "Semana 14 (01-05 Jun)" }
       ]
     }
   ],
@@ -711,6 +730,9 @@ export const curriculumData = {
     },
     "W09": { days: [] },
     "W10": { days: [] },
-    "W11": { days: [] }
+    "W11": { days: [] },
+    "W12": { days: [] },
+    "W13": { days: [] },
+    "W14": { days: [] }
   }
 };
