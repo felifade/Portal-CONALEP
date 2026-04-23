@@ -67,9 +67,13 @@ const ProEditor = ({ value, onChange, type, fontSize }) => {
         {lineNumbers.map(n => <div key={n} className="line-number">{n}</div>)}
       </div>
       <div className="pro-editor-wrapper">
-        <pre className="pro-highlighter" ref={preRef} aria-hidden="true" style={{ fontSize: `${fontSize}px` }}>
-          <code dangerouslySetInnerHTML={{ __html: highlightCode(value, type) + '\n' }} />
-        </pre>
+        <pre
+          className="pro-highlighter"
+          ref={preRef}
+          aria-hidden="true"
+          style={{ fontSize: `${fontSize}px` }}
+          dangerouslySetInnerHTML={{ __html: highlightCode(value, type) + '\n' }}
+        />
         <textarea
           className={`pro-textarea ${type}-caret`}
           ref={textareaRef}
