@@ -63,7 +63,7 @@ const ProEditor = ({ value, onChange, type, fontSize }) => {
   const lineNumbers = Array.from({ length: Math.max(value.split('\n').length, 1) }, (_, i) => i + 1);
   return (
     <div className="pro-editor-container">
-      <div className="pro-gutter" ref={gutterRef} style={{ fontSize: `${fontSize}px` }}>
+      <div className="pro-gutter" ref={gutterRef} style={{ fontSize: `${fontSize}px`, paddingTop: '16px' }}>
         {lineNumbers.map(n => <div key={n} className="line-number">{n}</div>)}
       </div>
       <div className="pro-editor-wrapper">
