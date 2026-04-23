@@ -1,6 +1,69 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronRight, GraduationCap, Lock } from 'lucide-react';
+import { BarChart2, ChevronRight, GraduationCap, Lock } from 'lucide-react';
 import { curriculumData } from '../data/curriculum';
+
+const POND_DATA = [
+  {
+    label: "Identificación de vulnerabilidades en línea",
+    peso: "30%",
+    ras: [
+      { id: "1.1", desc: "Malwares y ataques tecnológicos",     act: "1.1.1", peso: "15%" },
+      { id: "1.2", desc: "Transformación digital e industria",  act: "1.2.1", peso: "15%" },
+    ],
+  },
+  {
+    label: "Configuración tecnológica de dispositivos en PC",
+    peso: "35%",
+    ras: [
+      { id: "2.1", desc: "Instalación y configuración de PCs",          act: "2.1.1", peso: "20%" },
+      { id: "2.2", desc: "Configuración de dispositivos tecnológicos",  act: "2.2.1", peso: "15%" },
+    ],
+  },
+  {
+    label: "Configuración tecnológica de sistemas operativos",
+    peso: "35%",
+    ras: [
+      { id: "3.1", desc: "Sistemas operativos y dispositivos de red", act: "3.1.1", peso: "20%" },
+      { id: "3.2", desc: "Seguridad básica de red",                   act: "3.2.1", peso: "15%" },
+    ],
+  },
+];
+
+const PonderacionPanel = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="ponderacion-panel">
+      <div className="ponderacion-header" onClick={() => setOpen(o => !o)}>
+        <BarChart2 size={13} className="pond-icon" />
+        <span>Ponderación</span>
+        <ChevronRight size={12} style={{ transform: open ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease', flexShrink: 0 }} />
+      </div>
+      {open && (
+        <div className="ponderacion-body">
+          {POND_DATA.map((unit, ui) => (
+            <div key={ui} className="pond-unit">
+              <div className="pond-unit-header">
+                <span className="pond-unit-title">{ui + 1}. {unit.label}</span>
+                <span className="pond-unit-peso">{unit.peso}</span>
+              </div>
+              {unit.ras.map((ra, ri) => (
+                <div key={ri} className="pond-ra-row">
+                  <span className="pond-ra-id">{ra.id}</span>
+                  <span className="pond-ra-desc">{ra.desc}</span>
+                  <span className="pond-ra-peso">{ra.peso}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+          <div className="pond-total">
+            <span>Total del módulo</span>
+            <span>100%</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const allOrderedWeeks = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
 
@@ -55,6 +118,8 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
         </div>
 
         <nav className="nav-container">
+          <PonderacionPanel />
+
           <p className="portal-title">Contenido del Curso</p>
           {[...curriculumData.ras].reverse().map(ra => {
             const isExpanded = expandedRas[ra.id];
