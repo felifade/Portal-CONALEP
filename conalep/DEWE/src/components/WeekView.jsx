@@ -250,7 +250,7 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, 
 );
 
 /* ── Week View ─────────────────────────────────────────────── */
-const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
+const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode, isPreviewWeek }) => {
   const weekData = curriculumData.schedules[weekId];
   const [activeDayIdx,  setActiveDayIdx]  = useState(0);
   const [activeHourIdx, setActiveHourIdx] = useState(0);
@@ -337,6 +337,16 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode }) => {
           {[...Array(5)].map((_, i) => <span key={i} className="portada-line" />)}
         </div>
       </header>
+
+      {isPreviewWeek && (
+        <div className="preview-week-banner">
+          <span className="preview-icon">👁️</span>
+          <div className="preview-text">
+            <strong>Vista Previa Docente</strong>
+            <span>Esta semana aún no está disponible para los estudiantes</span>
+          </div>
+        </div>
+      )}
 
       <DayTabs days={weekData.days} activeIndex={activeDayIdx} onSelect={handleDaySelect} />
 

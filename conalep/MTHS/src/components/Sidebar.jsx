@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronRight, GraduationCap } from 'lucide-react';
+import { BookOpen, ChevronRight, GraduationCap, Lock } from 'lucide-react';
 import { curriculumData } from '../data/curriculum';
 
-const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, isMobileOpen, onMobileClose }) => {
+const allOrderedWeeks = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
+
+const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMode, isMobileOpen, onMobileClose }) => {
   const [expandedRas, setExpandedRas] = useState(() => {
     const init = {};
     curriculumData.ras.forEach(ra => {
@@ -15,7 +17,17 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, isMobileOpen, onMobile
     setExpandedRas(prev => ({ ...prev, [raId]: !prev[raId] }));
   };
 
+  const currentIdx = allOrderedWeeks.indexOf(currentWeek);
+
+  const isWeekLocked = (weekId) => {
+    const weekIdx = allOrderedWeeks.indexOf(weekId);
+    if (weekIdx <= currentIdx) return false;
+    if (isTeacherMode && weekId === nextWeek) return false;
+    return true;
+  };
+
   const handleWeekClick = (weekId) => {
+    if (isWeekLocked(weekId)) return;
     onWeekSelect(weekId);
     if (onMobileClose) onMobileClose();
   };
@@ -60,16 +72,20 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, isMobileOpen, onMobile
                 {isExpanded && (
                   <div className="weeks-container">
                     {[...ra.weeks].reverse().map(week => {
-                      const isActive = activeWeek === week.id;
+                      const isActive  = activeWeek === week.id;
                       const isCurrent = currentWeek === week.id;
+                      const locked    = isWeekLocked(week.id);
+                      const isPreview = isTeacherMode && week.id === nextWeek;
                       return (
                         <div
                           key={week.id}
-                          className={`week-link ${isActive ? 'active' : ''}`}
+                          className={`week-link ${isActive ? 'active' : ''} ${locked ? 'locked' : ''}`}
                           onClick={() => handleWeekClick(week.id)}
                         >
                           <span>{week.label}</span>
+                          {locked    && <Lock size={11} className="lock-icon" />}
                           {isCurrent && <span className="badge-hoy">HOY</span>}
+                          {isPreview && <span className="badge-preview">PREVIA</span>}
                         </div>
                       );
                     })}

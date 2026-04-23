@@ -3,6 +3,7 @@ import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from './components/WeekView';
 import PinModal from './components/PinModal';
+import { curriculumData } from './data/curriculum';
 import './styles/App.css';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
   };
 
   const currentWeek = getAutoWeek();
+  const allWeeks    = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
+  const currentIdx  = allWeeks.indexOf(currentWeek);
+  const nextWeek    = currentIdx < allWeeks.length - 1 ? allWeeks[currentIdx + 1] : null;
 
   const [activeWeek, setActiveWeek]       = useState(currentWeek);
   const [isClassMode, setIsClassMode]     = useState(false);
@@ -50,6 +54,8 @@ function App() {
         activeWeek={activeWeek}
         onWeekSelect={setActiveWeek}
         currentWeek={currentWeek}
+        nextWeek={nextWeek}
+        isTeacherMode={isTeacherMode}
         isMobileOpen={sidebarOpen}
         onMobileClose={() => setSidebarOpen(false)}
       />
@@ -76,6 +82,7 @@ function App() {
           weekId={activeWeek}
           isClassMode={isClassMode}
           isTeacherMode={isTeacherMode}
+          isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
         />
       </main>
 
