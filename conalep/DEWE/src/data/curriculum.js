@@ -31,7 +31,7 @@ export const curriculumData = {
     },
     {
       id: "RA2.1",
-      title: "2.1 RA (40%)",
+      title: "2.1 RA (20%)",
       weeks: [
         { id: "W09", label: "Semana 09 (27 Abr-01 May)" },
         { id: "W10", label: "Semana 10 (04-08 May)" },
