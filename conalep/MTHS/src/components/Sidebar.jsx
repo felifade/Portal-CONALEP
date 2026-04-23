@@ -130,7 +130,7 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
           <PonderacionPanel />
 
           <p className="portal-title">Contenido del Curso</p>
-          {curriculumData.cortes.map(corte => {
+          {[...curriculumData.cortes].reverse().map(corte => {
             const corteRas     = curriculumData.ras.filter(ra => ra.corte === corte.id);
             const corteExpanded = expandedCortes[corte.id];
             const corteHasActive = corteRas.some(ra => ra.weeks.some(w => w.id === activeWeek));
