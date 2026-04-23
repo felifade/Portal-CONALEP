@@ -22,7 +22,7 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
   const isWeekLocked = (weekId) => {
     const weekIdx = allOrderedWeeks.indexOf(weekId);
     if (weekIdx <= currentIdx) return false;
-    if (isTeacherMode && weekId === nextWeek) return false;
+    if (isTeacherMode) return false;
     return true;
   };
 
