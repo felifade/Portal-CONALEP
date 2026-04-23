@@ -170,9 +170,63 @@
   margin: 0;
 }
 
+/* ── Corte Groups ────────────────────────────────────────── */
+.corte-group {
+  margin-bottom: 2px;
+}
+
+.corte-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+  border-left: 3px solid transparent;
+}
+
+.corte-header:hover {
+  background: var(--border-light);
+}
+
+.corte-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-900);
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.corte-peso {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-50);
+  padding: 1px 6px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+
+.corte-active > .corte-header {
+  border-left-color: var(--primary);
+}
+
+.corte-active > .corte-header .corte-title {
+  color: var(--primary);
+}
+
 /* ── RA Groups ───────────────────────────────────────────── */
 .ra-group {
   margin-bottom: 2px;
+}
+
+.ra-group.nested > .ra-header {
+  padding-left: 32px;
+}
+
+.ra-group.nested .weeks-container .week-link {
+  padding-left: 52px;
 }
 
 .ra-header {

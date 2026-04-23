@@ -61,18 +61,6 @@ const PonderacionPanel = () => {
 const allOrderedWeeks = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
 
 const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWeek, nextWeek, isTeacherMode, isMobileOpen, onMobileClose }) => {
-  const [expandedRas, setExpandedRas] = useState(() => {
-    const init = {};
-    curriculumData.ras.forEach(ra => {
-      init[ra.id] = ra.weeks.some(w => w.id === activeWeek);
-    });
-    return init;
-  });
-
-  const toggleRa = (raId) => {
-    setExpandedRas(prev => ({ ...prev, [raId]: !prev[raId] }));
-  };
-
   const currentIdx = allOrderedWeeks.indexOf(currentWeek);
 
   const isWeekLocked = (weekId) => {
@@ -81,6 +69,27 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
     if (isTeacherMode) return false;
     return true;
   };
+
+  const [expandedCortes, setExpandedCortes] = useState(() => {
+    const init = {};
+    curriculumData.cortes.forEach(c => {
+      init[c.id] = curriculumData.ras
+        .filter(ra => ra.corte === c.id)
+        .some(ra => ra.weeks.some(w => w.id === activeWeek));
+    });
+    return init;
+  });
+
+  const [expandedRas, setExpandedRas] = useState(() => {
+    const init = {};
+    curriculumData.ras.forEach(ra => {
+      init[ra.id] = ra.weeks.some(w => w.id === activeWeek);
+    });
+    return init;
+  });
+
+  const toggleCorte = (id) => setExpandedCortes(prev => ({ ...prev, [id]: !prev[id] }));
+  const toggleRa    = (id) => setExpandedRas(prev => ({ ...prev, [id]: !prev[id] }));
 
   const handleWeekClick = (weekId) => {
     if (isWeekLocked(weekId)) return;
@@ -125,40 +134,51 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
           <PonderacionPanel />
 
           <p className="portal-title">Contenido del Curso</p>
-          {[...curriculumData.ras].reverse().map(ra => {
-            const isExpanded = expandedRas[ra.id];
-            const hasActiveWeek = ra.weeks.some(w => w.id === activeWeek);
+          {[...curriculumData.cortes].reverse().map(corte => {
+            const corteRas      = curriculumData.ras.filter(ra => ra.corte === corte.id);
+            const corteExpanded = expandedCortes[corte.id];
+            const corteHasActive = corteRas.some(ra => ra.weeks.some(w => w.id === activeWeek));
             return (
-              <div key={ra.id} className={`ra-group ${hasActiveWeek ? 'ra-active' : ''}`}>
-                <div className="ra-header" onClick={() => toggleRa(ra.id)}>
-                  <ChevronRight
-                    size={12}
-                    style={{ transition: 'transform 0.2s ease', transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)', color: 'var(--text-400)', flexShrink: 0 }}
-                  />
-                  <span className="ra-title">{ra.title}</span>
+              <div key={corte.id} className={`corte-group ${corteHasActive ? 'corte-active' : ''}`}>
+                <div className="corte-header" onClick={() => toggleCorte(corte.id)}>
+                  <ChevronRight size={12} style={{ transition: 'transform 0.2s ease', transform: corteExpanded ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0 }} />
+                  <span className="corte-title">{corte.label}</span>
+                  <span className="corte-peso">{corte.peso}</span>
                 </div>
-                {isExpanded && (
-                  <div className="weeks-container">
-                    {[...ra.weeks].reverse().map(week => {
-                      const isActive  = activeWeek === week.id && activeView === 'curriculum';
-                      const isCurrent = currentWeek === week.id;
-                      const locked    = isWeekLocked(week.id);
-                      const isPreview = isTeacherMode && week.id === nextWeek;
-                      return (
-                        <div
-                          key={week.id}
-                          className={`week-link ${isActive ? 'active' : ''} ${locked ? 'locked' : ''}`}
-                          onClick={() => handleWeekClick(week.id)}
-                        >
-                          <span>{week.label}</span>
-                          {locked    && <Lock size={11} className="lock-icon" />}
-                          {isCurrent && <span className="badge-hoy">HOY</span>}
-                          {isPreview && <span className="badge-preview">PREVIA</span>}
+                {corteExpanded && corteRas.map(ra => {
+                  const raExpanded  = expandedRas[ra.id];
+                  const raHasActive = ra.weeks.some(w => w.id === activeWeek);
+                  return (
+                    <div key={ra.id} className={`ra-group nested ${raHasActive ? 'ra-active' : ''}`}>
+                      <div className="ra-header" onClick={() => toggleRa(ra.id)}>
+                        <ChevronRight size={11} style={{ transition: 'transform 0.2s ease', transform: raExpanded ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0, color: 'var(--text-400)' }} />
+                        <span className="ra-title">{ra.title}</span>
+                      </div>
+                      {raExpanded && (
+                        <div className="weeks-container">
+                          {[...ra.weeks].reverse().map(week => {
+                            const isActive  = activeWeek === week.id && activeView === 'curriculum';
+                            const isCurrent = currentWeek === week.id;
+                            const locked    = isWeekLocked(week.id);
+                            const isPreview = isTeacherMode && week.id === nextWeek;
+                            return (
+                              <div
+                                key={week.id}
+                                className={`week-link ${isActive ? 'active' : ''} ${locked ? 'locked' : ''}`}
+                                onClick={() => handleWeekClick(week.id)}
+                              >
+                                <span>{week.label}</span>
+                                {locked    && <Lock size={11} className="lock-icon" />}
+                                {isCurrent && <span className="badge-hoy">HOY</span>}
+                                {isPreview && <span className="badge-preview">PREVIA</span>}
+                              </div>
+                            );
+                          })}
                         </div>
-                      );
-                    })}
-                  </div>
-                )}
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             );
           })}
