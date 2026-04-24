@@ -723,6 +723,11 @@ export const curriculumData = {
               title: "Tarea 1: Rutas Relativas y Estructura",
               instruction: "De acuerdo con la infografía 'Rutas Relativas en un Sitio Web': 1. Identifica tu ubicación actual antes de escribir una ruta. 2. Usa ../ para subir de nivel cuando estés dentro de la carpeta 'paginas'. 3. Asegúrate de que la ruta Locación -> Destino sea correcta para que las imágenes se visualicen.",
               image: "infografia_semana_08.png"
+            },
+            {
+              title: "Tarea 2: Completar el Sitio Web de 5 Páginas",
+              instruction: "De acuerdo con la infografía 'Completar el sitio web de 5 páginas': 1. Crea cronologia.html con lista ordenada <ol> y mínimo 4 imágenes usando rutas relativas ../img/. 2. Crea contacto.html con formulario semántico usando <label for> vinculado al <input id> correspondiente. 3. Verifica que las 5 páginas (index, personajes, juegos, cronología, contacto) estén conectadas entre sí mediante navegación.",
+              image: "s8_info02.png"
             }
           ]
         }
