@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import WeekView from './components/WeekView';
 import CodeLab from './components/CodeLab';
 import PinModal from './components/PinModal';
+import { curriculumData } from './data/curriculum';
 import './styles/App.css';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
   };
 
   const currentWeek = getAutoWeek();
+  const allWeeks    = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
+  const currentIdx  = allWeeks.indexOf(currentWeek);
+  const nextWeek    = currentIdx < allWeeks.length - 1 ? allWeeks[currentIdx + 1] : null;
 
   const [activeWeek, setActiveWeek]       = useState(currentWeek);
   const [activeView, setActiveView]       = useState('curriculum');
@@ -60,6 +64,8 @@ function App() {
         onWeekSelect={handleWeekChange}
         onViewSelect={setActiveView}
         currentWeek={currentWeek}
+        nextWeek={nextWeek}
+        isTeacherMode={isTeacherMode}
         isMobileOpen={sidebarOpen}
         onMobileClose={() => setSidebarOpen(false)}
       />
@@ -95,6 +101,7 @@ function App() {
             isClassMode={isClassMode}
             isTeacherMode={isTeacherMode}
             isDualMode={isDualMode}
+            isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
           />
         ) : (
           <CodeLab />
