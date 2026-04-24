@@ -716,6 +716,48 @@ export const curriculumData = {
           frase_docente: "Un sitio no es una página — es una red. Hoy terminaste de conectar la tuya."
         },
         {
+          id: "fri",
+          label: "Viernes — Repaso del sitio + Introducción a CSS",
+          purpose: "Verificar que el sitio de 5 páginas esté completamente funcional y dar los primeros pasos con CSS para cambiar la apariencia visual del sitio.",
+          hours: [
+            {
+              time: "Hora 1",
+              title: "Repaso: auditoría del sitio de 5 páginas",
+              theory: "Un sitio web no está terminado hasta que cada página carga correctamente, todas las imágenes aparecen y todos los enlaces funcionan en ambas direcciones. Antes de agregar CSS, la estructura HTML debe ser sólida — un error de ruta o un enlace roto se vuelve invisible bajo los estilos y es mucho más difícil de corregir después.",
+              notebook: "Título: Checklist del sitio completo.\n1. Escribe las 5 páginas de tu sitio y su ubicación (index en raíz, resto en paginas/).\n2. Para cada página anota: ¿carga? ¿imágenes visibles? ¿nav funciona?\n3. Responde: ¿qué diferencia hay entre una ruta ../img/ y una ruta img/ y cuándo falla cada una?\n4. Dibuja el mapa de navegación completo del sitio.",
+              practice: "1. Abrir index.html en el navegador.\n2. Hacer clic en cada enlace del nav y verificar que abre la página correcta.\n3. En cada página hija: verificar que el enlace 'Inicio' regresa a index.html.\n4. Verificar que todas las imágenes cargan (no deben aparecer íconos rotos).\n5. Si hay errores: identificar si es problema de nombre de archivo, extensión o nivel de carpeta.\n6. Anotar en libreta los errores encontrados y cómo se corrigieron.",
+              code: "<!-- Checklist: completa los href correctos -->\n\n<!-- Desde index.html hacia páginas hijas -->\n<a href=\"\">Personajes</a>\n<a href=\"\">Juegos</a>\n<a href=\"\">Cronología</a>\n<a href=\"\">Contacto</a>\n\n<!-- Desde paginas/cualquiera.html hacia inicio -->\n<a href=\"\">Inicio</a>\n\n<!-- Imagen desde paginas/ hacia img/ -->\n<img src=\"\" alt=\"\">",
+              codeRef: "<!-- Desde index.html hacia páginas hijas -->\n<a href=\"paginas/personajes.html\">Personajes</a>\n<a href=\"paginas/juegos.html\">Juegos</a>\n<a href=\"paginas/cronologia.html\">Cronología</a>\n<a href=\"paginas/contacto.html\">Contacto</a>\n\n<!-- Desde paginas/cualquiera.html hacia inicio -->\n<a href=\"../index.html\">Inicio</a>\n\n<!-- Imagen desde paginas/ hacia img/ -->\n<img src=\"../img/re1.jpg\" alt=\"Resident Evil 1\">",
+              product: "Sitio auditado: 5 páginas funcionales, imágenes cargando, navegación completa sin errores.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora es diagnóstica. No es tiempo libre — es revisión sistemática. El alumno que diga 'ya lo tengo' debe demostrarlo navegando el sitio completo delante del docente. Los errores más comunes: href sin paginas/ desde index, o sin ../ desde páginas hijas. Quien termina antes ayuda a quien tiene errores."
+            },
+            {
+              time: "Hora 2",
+              title: "CSS: vincular hoja de estilos y primeras propiedades",
+              theory: "CSS (Cascading Style Sheets — Hojas de Estilo en Cascada) es el lenguaje que controla la apariencia visual de las páginas HTML. Se escribe en un archivo separado con extensión .css y se vincula al HTML mediante la etiqueta <link> dentro del <head>. La sintaxis básica es: selector { propiedad: valor; }. El selector indica a qué elemento HTML se aplica el estilo, la propiedad qué aspecto se cambia, y el valor cómo queda.",
+              notebook: "Título: Introducción a CSS.\n1. Escribe la sintaxis básica de una regla CSS con sus 3 partes: selector, propiedad y valor.\n2. ¿Dónde se coloca el <link> para vincular el CSS?\n3. ¿Por qué se recomienda un archivo CSS externo en lugar de escribir estilos dentro del HTML?\n4. Escribe la regla CSS para poner el fondo del body en color negro y el texto en blanco.",
+              practice: "1. Crear la carpeta css/ dentro de tu proyecto (si no existe).\n2. Crear el archivo css/style.css.\n3. En el <head> de index.html agregar: <link rel=\"stylesheet\" href=\"css/style.css\">.\n4. En style.css escribir las siguientes reglas:\n   - body: background-color oscuro, color de texto claro, font-family sans-serif.\n   - h1: color de acento (rojo, azul, etc.), font-size más grande.\n   - p: line-height para mejor lectura.\n5. Guardar y verificar en el navegador que los estilos se aplican.\n6. Si no aparecen: revisar la ruta del href en el link.",
+              code: "/* Completa las propiedades y valores */\n\nbody {\n  background-color: ;\n  color: ;\n  font-family: ;\n}\n\nh1 {\n  color: ;\n  font-size: ;\n}\n\np {\n  line-height: ;\n}",
+              codeRef: "/* css/style.css — estilos base del sitio */\n\nbody {\n  background-color: #0f1117;\n  color: #e2e8f0;\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  color: #e53e3e;\n  font-size: 2rem;\n}\n\np {\n  line-height: 1.6;\n}\n\n/* Vincular en el <head> de index.html: */\n/* <link rel=\"stylesheet\" href=\"css/style.css\"> */",
+              product: "Archivo css/style.css creado y vinculado a index.html con estilos básicos aplicados a body, h1 y p.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más frecuente es la ruta del link. Desde index.html la ruta es css/style.css (sin ../). Desde paginas/ sería ../css/style.css — ese punto se aborda en la hora 3. Enfocarse primero en que funcione en index.html antes de extenderlo a las demás páginas."
+            },
+            {
+              time: "Hora 3",
+              title: "CSS: estilizar el nav, colores y tipografía",
+              theory: "El nav es uno de los elementos más importantes visualmente porque aparece en todas las páginas. Con CSS podemos cambiar su color de fondo, el espaciado entre los enlaces y el comportamiento al pasar el cursor (hover). La pseudo-clase :hover permite aplicar estilos solo cuando el usuario pasa el mouse sobre un elemento — esto hace la navegación más intuitiva y profesional.",
+              notebook: "Título: Estilizar el nav con CSS.\n1. ¿Qué es una pseudo-clase en CSS? Escribe el ejemplo de :hover.\n2. Escribe la diferencia entre padding y margin.\n3. ¿Por qué cambiar el display de los <a> dentro del nav a inline-block mejora el diseño?\n4. Dibuja cómo se vería tu nav antes y después de aplicar CSS.",
+              practice: "1. En style.css agregar estilos para el nav:\n   - Fondo oscuro, padding vertical.\n2. Estilizar los enlaces a dentro del nav:\n   - Quitar el subrayado (text-decoration: none).\n   - Color de texto claro.\n   - Padding horizontal para separar los links.\n   - display: inline-block.\n3. Agregar :hover con cambio de color de fondo o texto.\n4. Vincular css/style.css a las 4 páginas hijas usando la ruta ../css/style.css.\n5. Verificar que el nav se vea igual en las 5 páginas.",
+              code: "/* Completa los valores para el nav */\n\nnav {\n  background-color: ;\n  padding: ;\n}\n\nnav a {\n  color: ;\n  text-decoration: ;\n  padding: ;\n  display: ;\n}\n\nnav a:hover {\n  background-color: ;\n  color: ;\n}",
+              codeRef: "/* Nav estilizado */\n\nnav {\n  background-color: #1a1a2e;\n  padding: 12px 20px;\n}\n\nnav a {\n  color: #e2e8f0;\n  text-decoration: none;\n  padding: 8px 16px;\n  display: inline-block;\n  border-radius: 4px;\n}\n\nnav a:hover {\n  background-color: #e53e3e;\n  color: #ffffff;\n}\n\n/* En páginas hijas vincular con: */\n/* <link rel=\"stylesheet\" href=\"../css/style.css\"> */",
+              product: "Nav estilizado y consistente en las 5 páginas del sitio. Primeros estilos CSS funcionales con hover interactivo.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: El punto crítico de esta hora es la ruta del link en las páginas hijas: ../css/style.css (con ../). Si olvidan el ../ el CSS no aplica. Hacer que lo comparen con la ruta de las imágenes — es la misma lógica. El cierre ideal es que el nav se vea idéntico al navegar entre las 5 páginas."
+            }
+          ],
+          cierre: "Hoy tu sitio dejó de ser solo estructura y comenzó a tener identidad visual. El mismo CSS que vinculaste hoy puede evolucionar durante todo el semestre.",
+          frase_docente: "HTML construye la casa. CSS la decora. Hoy pusiste el primer color en las paredes."
+        },
+        {
           id: "dual",
           label: "Repositorio de Actividades Duales (Semana 08)",
           activities: [
