@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, ChevronRight, GraduationCap, Lock } from 'lucide-react';
+import { BarChart2, BookOpen, ChevronRight, GraduationCap, Lock } from 'lucide-react';
 import { curriculumData } from '../data/curriculum';
 
 const POND_DATA = [
@@ -23,8 +23,8 @@ const POND_DATA = [
     label: "Configuración tecnológica de sistemas operativos",
     peso: "35%",
     ras: [
-      { id: "3.1", desc: "Sistemas operativos y dispositivos de red", act: "3.1.1", peso: "20%" },
-      { id: "3.2", desc: "Seguridad básica de red",                   act: "3.2.1", peso: "15%" },
+      { id: "3.1", desc: "Sistemas operativos y dispositivos de red", act: "3.1.1", peso: "15%" },
+      { id: "3.2", desc: "Seguridad básica de red",                   act: "3.2.1", peso: "20%" },
     ],
   },
 ];
@@ -66,6 +66,8 @@ const PonderacionPanel = () => {
 };
 
 const allOrderedWeeks = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
+const corteMap        = Object.fromEntries(curriculumData.cortes.map(c => [c.id, c]));
+const sortedRas       = curriculumData.ras;
 
 const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMode, isMobileOpen, onMobileClose }) => {
   const currentIdx = allOrderedWeeks.indexOf(currentWeek);
@@ -77,16 +79,6 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
     return true;
   };
 
-  const [expandedCortes, setExpandedCortes] = useState(() => {
-    const init = {};
-    curriculumData.cortes.forEach(c => {
-      init[c.id] = curriculumData.ras
-        .filter(ra => ra.corte === c.id)
-        .some(ra => ra.weeks.some(w => w.id === activeWeek));
-    });
-    return init;
-  });
-
   const [expandedRas, setExpandedRas] = useState(() => {
     const init = {};
     curriculumData.ras.forEach(ra => {
@@ -95,8 +87,7 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
     return init;
   });
 
-  const toggleCorte = (id) => setExpandedCortes(prev => ({ ...prev, [id]: !prev[id] }));
-  const toggleRa    = (id) => setExpandedRas(prev => ({ ...prev, [id]: !prev[id] }));
+  const toggleRa = (id) => setExpandedRas(prev => ({ ...prev, [id]: !prev[id] }));
 
   const handleWeekClick = (weekId) => {
     if (isWeekLocked(weekId)) return;
@@ -130,51 +121,48 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
           <PonderacionPanel />
 
           <p className="portal-title">Contenido del Curso</p>
-          {[...curriculumData.cortes].reverse().map(corte => {
-            const corteRas     = curriculumData.ras.filter(ra => ra.corte === corte.id);
-            const corteExpanded = expandedCortes[corte.id];
-            const corteHasActive = corteRas.some(ra => ra.weeks.some(w => w.id === activeWeek));
+          {sortedRas.map(ra => {
+            const raExpanded  = expandedRas[ra.id];
+            const raHasActive = ra.weeks.some(w => w.id === activeWeek);
+            const corte       = corteMap[ra.corte];
             return (
-              <div key={corte.id} className={`corte-group ${corteHasActive ? 'corte-active' : ''}`}>
-                <div className="corte-header" onClick={() => toggleCorte(corte.id)}>
-                  <ChevronRight size={12} style={{ transition: 'transform 0.2s ease', transform: corteExpanded ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0 }} />
-                  <span className="corte-title">{corte.label}</span>
-                  <span className="corte-peso">{corte.peso}</span>
+              <div key={ra.id} className={`ra-card ${raHasActive ? 'ra-card-active' : ''}`}>
+                <div className="ra-card-header" onClick={() => toggleRa(ra.id)}>
+                  <ChevronRight
+                    size={11}
+                    className="ra-chevron"
+                    style={{ transform: raExpanded ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease', flexShrink: 0 }}
+                  />
+                  <BookOpen size={13} className="ra-icon" />
+                  <span className="ra-card-title">{ra.title}</span>
+                  <span className={`ra-badge-corte ra-badge-corte-${ra.corte}`}>
+                    {corte.label} · {ra.peso ?? corte.peso}
+                  </span>
                 </div>
-                {corteExpanded && corteRas.map(ra => {
-                  const raExpanded   = expandedRas[ra.id];
-                  const raHasActive  = ra.weeks.some(w => w.id === activeWeek);
-                  return (
-                    <div key={ra.id} className={`ra-group nested ${raHasActive ? 'ra-active' : ''}`}>
-                      <div className="ra-header" onClick={() => toggleRa(ra.id)}>
-                        <ChevronRight size={11} style={{ transition: 'transform 0.2s ease', transform: raExpanded ? 'rotate(90deg)' : 'rotate(0deg)', flexShrink: 0, color: 'var(--text-400)' }} />
-                        <span className="ra-title">{ra.title}</span>
-                      </div>
-                      {raExpanded && (
-                        <div className="weeks-container">
-                          {[...ra.weeks].reverse().map(week => {
-                            const isActive  = activeWeek === week.id;
-                            const isCurrent = currentWeek === week.id;
-                            const locked    = isWeekLocked(week.id);
-                            const isPreview = isTeacherMode && week.id === nextWeek;
-                            return (
-                              <div
-                                key={week.id}
-                                className={`week-link ${isActive ? 'active' : ''} ${locked ? 'locked' : ''}`}
-                                onClick={() => handleWeekClick(week.id)}
-                              >
-                                <span>{week.label}</span>
-                                {locked    && <Lock size={11} className="lock-icon" />}
-                                {isCurrent && <span className="badge-hoy">HOY</span>}
-                                {isPreview && <span className="badge-preview">PREVIA</span>}
-                              </div>
-                            );
-                          })}
+                {raExpanded && (
+                  <div className="ra-weeks-list">
+                    {ra.weeks.map(week => {
+                      const isActive  = activeWeek === week.id;
+                      const isCurrent = currentWeek === week.id;
+                      const locked    = isWeekLocked(week.id);
+                      const isPreview = isTeacherMode && week.id === nextWeek;
+                      return (
+                        <div
+                          key={week.id}
+                          className={`week-item ${isActive ? 'active' : ''} ${locked ? 'locked' : ''}`}
+                          onClick={() => handleWeekClick(week.id)}
+                        >
+                          <span className="week-item-label">{week.label}</span>
+                          <span className="week-item-badges">
+                            {locked    && <Lock size={10} className="lock-icon" />}
+                            {isCurrent && <span className="badge-hoy">HOY</span>}
+                            {isPreview && <span className="badge-preview">PREVIA</span>}
+                          </span>
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             );
           })}
