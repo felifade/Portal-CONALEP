@@ -4,7 +4,7 @@
                Network-first para calendar.ics (datos en vivo)
    ============================================================ */
 
-const CACHE_NAME   = 'conalep-portal-v21';
+const CACHE_NAME   = 'conalep-portal-v22';
 const BASE         = '/Portal-CONALEP';
 
 // Recursos a cachear en la instalación
@@ -45,6 +45,12 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
+  // HTML → Network-first: siempre verifica si hay versión nueva en el servidor
+  if (url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
+    event.respondWith(networkFirst(event.request));
+    return;
+  }
+
   // calendar.ics → Network-first (datos en vivo, con fallback a caché)
   if (url.pathname.endsWith('calendar.ics')) {
     event.respondWith(networkFirst(event.request));
@@ -57,7 +63,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Resto de recursos del portal → Cache-first
+  // Assets con hash en el nombre (JS, CSS, imágenes de Vite) → Cache-first
   event.respondWith(cacheFirst(event.request));
 });
 
