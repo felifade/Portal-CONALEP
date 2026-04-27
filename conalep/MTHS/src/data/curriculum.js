@@ -283,19 +283,17 @@ export const curriculumData = {
       days: [
         {
           id: "mon",
-          label: "Lunes — Cierre App Inventor + Hola ESP32",
-          purpose: "Cerrar el ciclo de App Inventor con una revisión de proyectos y dar el primer paso con ESP32 en Wokwi, entendiendo por qué esta placa es la base ideal para proyectos Bluetooth.",
+          label: "Lunes — Conclusión App Inventor + Hola ESP32 (H1-H2)",
+          purpose: "Cerrar definitivamente el proyecto de App Inventor con prueba final y evidencia, y dar el primer paso con ESP32 simulando en Wokwi.",
           hours: [
             {
               time: "Hora 1",
-              title: "Cierre de App Inventor: revisión de proyectos",
-              theory: "Antes de avanzar a nueva tecnología es importante consolidar lo que ya construimos. Una aplicación móvil funcional demuestra que dominas la lógica de bloques, la interfaz de usuario y la navegación entre pantallas — habilidades que aplicarás directamente cuando diseñes la app que controlará el ESP32 por Bluetooth.",
-              notebook: "Título: Lo que aprendí con App Inventor.\n1. Escribe las 3 pantallas o funciones principales de tu app.\n2. ¿Qué bloque fue el más difícil de entender y cómo lo resolviste?\n3. ¿Qué mejorarías si tuvieras más tiempo?\n4. Escribe una conexión entre lo que hiciste en App Inventor y lo que crees que harás con el ESP32.",
-              practice: "1. Abrir el proyecto de App Inventor en el navegador.\n2. Navegar la app en el emulador o teléfono y verificar que todas las pantallas funcionan.\n3. Mostrar al docente la función principal de la app.\n4. Identificar qué componente de la app podría usarse para mandar comandos a una placa electrónica (pista: botones y TextBox).\n5. Anotar en libreta: ¿cómo mandarías el texto '1' al presionar un botón en App Inventor?",
-              code: "// No aplica código en esta hora.\n// Reflexión: ¿qué bloque de App Inventor\n// usarías para enviar un texto por Bluetooth?\n\n// Pista: BluetoothClient.SendText(\"1\")",
-              codeRef: "// Bloque App Inventor para enviar dato:\n//\n// cuando Boton1.Clic\n//   llamar BluetoothClient1.EnviarTexto\n//   texto: \"1\"\n//\n// Esto es exactamente lo que conectará\n// el teléfono con el ESP32 más adelante.",
-              product: "App Inventor revisada y aprobada. Conexión conceptual establecida entre App Inventor y el control Bluetooth del ESP32.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora es de consolidación y transición. No extender la revisión más de lo necesario — el objetivo es cerrar el ciclo con satisfacción y crear expectativa para lo que viene. La pregunta sobre BluetoothClient.SendText es el puente mental clave entre ambas tecnologías."
+              title: "Conclusión de la app móvil: prueba final y APK",
+              theory: "La semana pasada programamos la navegación completa, los mensajes Notifier, la pantalla de Evaluación y el botón de regreso. Hoy cerramos el ciclo: verificamos que todo funciona de extremo a extremo, generamos el APK para instalar la app en el teléfono y entregamos la evidencia en Google Docs. Una app terminada y documentada es el primer producto profesional que construiste.",
+              notebook: "Título: Cierre de mi app de seguridad digital.\n1. Dibuja el mapa de navegación completo: Portada → Menu → las 4 pantallas → regreso.\n2. ¿Qué pantalla fue la más difícil de programar?\n3. ¿Qué mejorarías si tuvieras más tiempo?\n4. ¿Qué componente de App Inventor crees que podrías usar para mandar datos a una placa electrónica? (Pista: BluetoothClient)",
+              practice: "PRUEBA FINAL:\n1. Abrir el proyecto en App Inventor y conectar con MIT AI2 Companion o emulador.\n2. Navegar todas las rutas:\n   - Portada → Menu → Contraseñas → consejo → Regresar\n   - Portada → Menu → WiFi → recomendación → Regresar\n   - Portada → Menu → Riesgos → aviso → Regresar\n   - Portada → Menu → Evaluación → respuesta Sí → respuesta No → Regresar\n3. Corregir cualquier error de navegación o texto.\n\nGENERAR APK:\n4. En App Inventor: Generar → App (archivo .apk).\n5. Instalar la app en el teléfono escaneando el código QR.\n6. Probar la app instalada (no solo el Companion).\n\nEVIDENCIA FINAL:\n7. Abrir Google Docs 'Semana 08'.\n8. Verificar que la tabla tiene una fila por cada pantalla con: nombre, captura y descripción.\n9. Agregar al final una reflexión de 3 líneas sobre lo que aprendiste.",
+              product: "App instalada en el teléfono (APK). Google Docs con tabla completa de 5 pantallas + reflexión. Proyecto aprobado por el docente.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: La generación del APK puede tardar 1-2 minutos. Mientras esperan, pedir que redacten la reflexión. Quien no tenga alguna pantalla completa: priorizarla antes de generar el APK. El objetivo es que todos salgan de esta hora con algo instalable en el teléfono — aunque sea básico."
             },
             {
               time: "Hora 2",
@@ -306,64 +304,37 @@ export const curriculumData = {
               code: "// Completa los valores faltantes\n\nconst int LED_PIN = 2;\n\nvoid setup() {\n  pinMode(LED_PIN, );\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, );\n  delay();\n  digitalWrite(LED_PIN, );\n  delay();\n}",
               codeRef: "const int LED_PIN = 2;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);  // encender\n  delay(500);                   // esperar 500ms\n  digitalWrite(LED_PIN, LOW);   // apagar\n  delay(500);\n}",
               product: "Proyecto creado en Wokwi con LED parpadeando en ESP32. Primera interacción con la plataforma de simulación.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más común es no conectar el GND del LED al GND de la placa. Si el LED no enciende, pedir que sigan el cable verde desde el pin 2 hasta el LED y de ahí hasta GND. Dejar que lo descubran solos antes de intervenir."
-            },
-            {
-              time: "Hora 3",
-              title: "Serial Monitor: controlar el LED con comandos",
-              theory: "El Serial Monitor es una ventana de comunicación entre la computadora y el ESP32. Permite enviar texto y recibir respuestas en tiempo real. Esto es exactamente lo que hará el teléfono cuando se conecte por Bluetooth: enviar un carácter ('1' o '0') y el ESP32 reacciona encendiendo o apagando el LED. Al practicarlo con el Serial Monitor en Wokwi, aprendes la lógica completa antes de introducir el Bluetooth.",
-              notebook: "Título: Serial Monitor como simulador de Bluetooth.\n1. ¿Qué función tiene Serial.available() en el código?\n2. ¿Qué diferencia hay entre Serial.read() y Serial.println()?\n3. Dibuja el flujo: teclado → Serial Monitor → ESP32 → LED.\n4. ¿Cómo cambia ese flujo cuando usas Bluetooth? ¿Qué sustituye al teclado?",
-              practice: "1. En el mismo proyecto de Wokwi, reemplazar el código Blink por el sketch de control serial.\n2. Presionar ▶ para iniciar la simulación.\n3. Abrir el Serial Monitor (ícono de terminal en Wokwi).\n4. Escribir '1' y presionar Enter → verificar que el LED enciende.\n5. Escribir '0' y presionar Enter → verificar que el LED apaga.\n6. Verificar el mensaje de respuesta en el monitor ('LED encendido' / 'LED apagado').\n7. Experimentar con otros caracteres y observar que no pasa nada (lógica de comandos desconocidos).",
-              code: "const int LED_PIN = 2;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Escribe 1 o 0:\");\n}\n\nvoid loop() {\n  if (Serial.available()) {\n    char cmd = Serial.read();\n\n    if (cmd == '') {\n      digitalWrite(LED_PIN, );\n      Serial.println(\"\");\n    }\n    else if (cmd == '') {\n      digitalWrite(LED_PIN, );\n      Serial.println(\"\");\n    }\n  }\n}",
-              codeRef: "const int LED_PIN = 2;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Escribe 1 o 0:\");\n}\n\nvoid loop() {\n  if (Serial.available()) {\n    char cmd = Serial.read();\n\n    if (cmd == '1') {\n      digitalWrite(LED_PIN, HIGH);\n      Serial.println(\"LED encendido\");\n    }\n    else if (cmd == '0') {\n      digitalWrite(LED_PIN, LOW);\n      Serial.println(\"LED apagado\");\n    }\n  }\n}",
-              product: "LED controlado desde el Serial Monitor con comandos '1' y '0'. Lógica de Bluetooth comprendida y simulada.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: Insistir en que esto NO es Bluetooth todavía — es la misma lógica con diferente canal. Cuando llegue el ESP32 físico solo cambiará Serial por SerialBT. Quien termine antes: pedirle que agregue un segundo LED en otro pin y que responda al comando '2'."
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más común es no conectar el GND del LED al GND de la placa. Si el LED no enciende, pedir que sigan el cable desde el pin 2 hasta el LED y de ahí hasta GND. Dejar que lo descubran solos antes de intervenir."
             }
           ],
-          cierre: "Hoy cerraste una etapa y abriste otra. Tu teléfono ya puede hablar con hardware — solo falta conectar los cables.",
-          frase_docente: "La lógica no cambia. Solo cambia el cable."
+          cierre: "Cerraste tu primera app móvil y encendiste tu primer LED en ESP32. Esta semana la tecnología cambió de pantalla a circuito.",
+          frase_docente: "Construir algo que funciona es la mejor forma de aprender."
         },
         {
-          id: "thu",
-          label: "Jueves — Semáforo ESP32 + Diseño de la App",
-          purpose: "Ampliar el proyecto a un semáforo de 3 LEDs controlado por comandos de una sola letra, y diseñar en App Inventor la interfaz que enviará esos comandos por Bluetooth.",
+          id: "wed",
+          label: "Miércoles — Semáforo ESP32 (H3)",
+          purpose: "Escalar el proyecto Wokwi a un semáforo de 3 LEDs controlado por comandos desde el Serial Monitor, aprendiendo la lógica de estado que más adelante usará el Bluetooth.",
           hours: [
             {
               time: "Hora 1",
-              title: "Semáforo con 3 LEDs controlado por Serial",
-              theory: "Un semáforo es un sistema de señalización que solo puede mostrar un estado a la vez — rojo, amarillo o verde. En código esto se traduce en: apagar todos los LEDs y encender solo el que corresponde al comando recibido. Para controlar 3 LEDs independientes necesitamos 3 pines GPIO diferentes. El principio es el mismo que la hora anterior pero escalado: en lugar de '1' y '0', ahora usamos 'R', 'Y' y 'G' como comandos.",
-              notebook: "Título: Semáforo con ESP32.\n1. Dibuja el circuito: ESP32 con 3 LEDs (rojo pin 25, amarillo pin 26, verde pin 27).\n2. ¿Por qué hay que apagar todos los LEDs antes de encender el que corresponde?\n3. ¿Qué pasa si no apagas los otros antes?\n4. Escribe la tabla de comandos: R → LED rojo, Y → LED amarillo, G → LED verde.",
-              practice: "1. En Wokwi agregar 2 LEDs más (amarillo y verde) con sus resistencias.\n2. Conectar: rojo → pin 25, amarillo → pin 26, verde → pin 27.\n3. Escribir el sketch del semáforo.\n4. Simular y probar en el Serial Monitor:\n   - Escribir 'R' → solo LED rojo enciende.\n   - Escribir 'Y' → solo LED amarillo enciende.\n   - Escribir 'G' → solo LED verde enciende.\n5. Verificar que al cambiar de color el anterior se apaga.",
+              title: "Semáforo con 3 LEDs controlado por Serial Monitor",
+              theory: "Un semáforo solo puede mostrar un estado a la vez — rojo, amarillo o verde. En código esto se traduce en: apagar todos los LEDs y encender solo el que corresponde al comando recibido. El Serial Monitor actúa hoy como el teléfono: envía un carácter y el ESP32 reacciona. Para controlar 3 LEDs independientes necesitamos 3 pines GPIO diferentes y una función apagar_todos() que garantice que solo un LED esté activo en cada momento.",
+              notebook: "Título: Semáforo con ESP32.\n1. Dibuja el circuito: ESP32 con 3 LEDs (rojo pin 25, amarillo pin 26, verde pin 27).\n2. ¿Por qué hay que apagar todos los LEDs antes de encender el que corresponde?\n3. ¿Qué pasa si no apagas los otros antes de encender el nuevo?\n4. Escribe la tabla de comandos: R → LED rojo, Y → LED amarillo, G → LED verde.\n5. ¿Qué reemplazaría al Serial Monitor cuando tengamos el ESP32 físico?",
+              practice: "1. Abrir el proyecto Wokwi del lunes.\n2. Agregar 2 LEDs más (amarillo y verde) con sus resistencias 220Ω.\n3. Conectar: LED rojo → pin 25, LED amarillo → pin 26, LED verde → pin 27.\n4. Reemplazar el código Blink con el sketch del semáforo.\n5. Presionar ▶ y abrir el Serial Monitor.\n6. Probar cada comando:\n   - Escribir 'R' → solo LED rojo enciende.\n   - Escribir 'Y' → solo LED amarillo enciende.\n   - Escribir 'G' → solo LED verde enciende.\n7. Verificar que al cambiar de color el anterior se apaga.\n8. Guardar el proyecto como 'Semaforo_Serial_v1'.",
               code: "const int LED_ROJO     = 25;\nconst int LED_AMARILLO = 26;\nconst int LED_VERDE    = 27;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_ROJO,     );\n  pinMode(LED_AMARILLO, );\n  pinMode(LED_VERDE,    );\n  Serial.println(\"R=Rojo  Y=Amarillo  G=Verde\");\n}\n\nvoid apagar_todos() {\n  digitalWrite(LED_ROJO,     LOW);\n  digitalWrite(LED_AMARILLO, LOW);\n  digitalWrite(LED_VERDE,    LOW);\n}\n\nvoid loop() {\n  if (Serial.available()) {\n    char cmd = Serial.read();\n    apagar_todos();\n\n    if      (cmd == '') digitalWrite(LED_ROJO,     HIGH);\n    else if (cmd == '') digitalWrite(LED_AMARILLO, HIGH);\n    else if (cmd == '') digitalWrite(LED_VERDE,    HIGH);\n\n    Serial.print(\"Comando: \");\n    Serial.println(cmd);\n  }\n}",
               codeRef: "const int LED_ROJO     = 25;\nconst int LED_AMARILLO = 26;\nconst int LED_VERDE    = 27;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_ROJO,     OUTPUT);\n  pinMode(LED_AMARILLO, OUTPUT);\n  pinMode(LED_VERDE,    OUTPUT);\n  Serial.println(\"R=Rojo  Y=Amarillo  G=Verde\");\n}\n\nvoid apagar_todos() {\n  digitalWrite(LED_ROJO,     LOW);\n  digitalWrite(LED_AMARILLO, LOW);\n  digitalWrite(LED_VERDE,    LOW);\n}\n\nvoid loop() {\n  if (Serial.available()) {\n    char cmd = Serial.read();\n    apagar_todos();\n\n    if      (cmd == 'R') digitalWrite(LED_ROJO,     HIGH);\n    else if (cmd == 'Y') digitalWrite(LED_AMARILLO, HIGH);\n    else if (cmd == 'G') digitalWrite(LED_VERDE,    HIGH);\n\n    Serial.print(\"Comando: \");\n    Serial.println(cmd);\n  }\n}",
-              product: "Semáforo de 3 LEDs funcional en Wokwi, respondiendo a comandos R, Y, G desde el Serial Monitor.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: La función apagar_todos() es el concepto clave — enseña a pensar en 'resetear el estado antes de aplicar el nuevo'. Si alguien pregunta por qué no solo encender el nuevo, demostrar qué pasa sin apagar los otros primero. Quien termine antes: agregar un comando 'A' que haga el ciclo automático rojo→amarillo→verde con delay."
-            },
-            {
-              time: "Hora 2",
-              title: "App Inventor: diseño de la app controladora",
-              theory: "Ahora que el ESP32 entiende los comandos R, Y y G, necesitamos una app que los envíe. En App Inventor el componente BluetoothClient permite conectarse a dispositivos Bluetooth y enviar texto con el bloque EnviarTexto. La interfaz tendrá: un ListPicker para elegir el dispositivo, un botón Conectar y tres botones de color que enviarán cada uno su letra correspondiente. La app no sabe de LEDs — solo sabe que al presionar un botón manda un carácter.",
-              notebook: "Título: App controladora de semáforo.\n1. Dibuja el diseño de la app con sus elementos: ListPicker, botón Conectar, 3 botones de color.\n2. ¿Qué bloque de App Inventor envía texto por Bluetooth?\n3. ¿Qué texto manda el botón Rojo? ¿Y el Verde?\n4. ¿Por qué el ListPicker debe ir antes del botón Conectar?",
-              practice: "1. Abrir MIT App Inventor (ai2.appinventor.mit.edu).\n2. Crear nuevo proyecto: 'Semaforo_BT'.\n3. En el Diseñador agregar:\n   - ListPicker (para buscar dispositivos BT) — texto: 'Buscar dispositivo'\n   - Botón Conectar\n   - Label que muestre el estado de conexión\n   - 3 botones: Rojo (fondo rojo), Amarillo (fondo amarillo), Verde (fondo verde)\n   - Componente BluetoothClient (no visible)\n4. En el Editor de Bloques programar:\n   - ListPicker.AntesDeSeleccionar → cargar dispositivos BT\n   - ListPicker.DespuésDeSeleccionar → conectar al seleccionado\n   - Cada botón de color → BluetoothClient.EnviarTexto con su letra\n5. Probar en el emulador que los botones responden.",
-              code: "// Este es el texto que enviará cada botón:\n\n// Botón ROJO    → EnviarTexto: \"R\"\n// Botón AMARILLO → EnviarTexto: \"Y\"\n// Botón VERDE   → EnviarTexto: \"G\"\n\n// El ESP32 recibirá ese carácter\n// y encenderá el LED correspondiente.",
-              codeRef: "// Bloques App Inventor (lógica):\n//\n// cuando ListPicker1.AntesDeSeleccionar\n//   asignar ListPicker1.Elementos =\n//     BluetoothClient1.DispositivosEmparejados\n//\n// cuando ListPicker1.DespuésDeSeleccionar\n//   llamar BluetoothClient1.Conectar\n//   dirección: ListPicker1.Selección\n//\n// cuando BotonRojo.Clic\n//   llamar BluetoothClient1.EnviarTexto\n//   texto: \"R\"\n//\n// cuando BotonVerde.Clic\n//   llamar BluetoothClient1.EnviarTexto\n//   texto: \"G\"",
-              product: "App Inventor con diseño completo del controlador de semáforo: conexión BT y 3 botones que envían R, Y, G.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: En esta hora no habrá conexión Bluetooth real — el objetivo es tener la app lista para cuando llegue el ESP32 físico. Verificar que los bloques estén bien programados aunque no se puedan probar completos. El emulador puede confirmar que los botones responden aunque no haya BT."
-            },
-            {
-              time: "Hora 3",
-              title: "Flujo completo: app → Bluetooth → ESP32 → LED",
-              theory: "Cuando el ESP32 físico llegue, el único cambio en el código será reemplazar Serial por SerialBT — la lógica de comandos R, Y, G es exactamente la misma. El teléfono ocupa el lugar del Serial Monitor: envía un carácter, el ESP32 lo lee, apaga todos los LEDs y enciende el correspondiente. Entender este flujo completo antes de tener el hardware es lo que permitirá que la conexión funcione al primer intento.",
-              notebook: "Título: Flujo completo del proyecto.\n1. Dibuja el diagrama completo: Teléfono → App Inventor → Bluetooth → ESP32 → LEDs.\n2. ¿Qué línea de código cambia al pasar de simulación a hardware real?\n3. Escribe el nombre del componente de App Inventor que maneja Bluetooth.\n4. ¿Qué debe pasar primero: conectar por Bluetooth o presionar el botón de color? ¿Por qué?",
-              practice: "1. Abrir el proyecto Wokwi del semáforo.\n2. Simular el flujo completo usando el Serial Monitor como si fuera la app:\n   - Escribir R → verificar LED rojo\n   - Escribir Y → verificar LED amarillo\n   - Escribir G → verificar LED verde\n3. En el código de Wokwi, mostrar el cambio que se hará para hardware real:\n   cambiar Serial.available() → SerialBT.available()\n   cambiar Serial.read() → SerialBT.read()\n4. Guardar el proyecto de Wokwi con el nombre 'Semaforo_BT_v1'.\n5. Guardar el proyecto de App Inventor.\n6. Documentar en libreta: lista de materiales para el ESP32 físico.",
-              code: "// SIMULACIÓN (Wokwi — hoy)\n// ─────────────────────────\nif (Serial.available()) {\n  char cmd = Serial.read();\n}\n\n// HARDWARE REAL (próxima semana)\n// ─────────────────────────────\n// #include \"BluetoothSerial.h\"\n// BluetoothSerial SerialBT;\n//\n// if (SerialBT.available()) {\n//   char cmd = SerialBT.read();\n// }",
-              codeRef: "// Versión completa para ESP32 físico:\n\n#include \"BluetoothSerial.h\"\n\nBluetoothSerial SerialBT;\n\nconst int LED_ROJO     = 25;\nconst int LED_AMARILLO = 26;\nconst int LED_VERDE    = 27;\n\nvoid apagar_todos() {\n  digitalWrite(LED_ROJO,     LOW);\n  digitalWrite(LED_AMARILLO, LOW);\n  digitalWrite(LED_VERDE,    LOW);\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  SerialBT.begin(\"Semaforo_BT\");\n  pinMode(LED_ROJO,     OUTPUT);\n  pinMode(LED_AMARILLO, OUTPUT);\n  pinMode(LED_VERDE,    OUTPUT);\n}\n\nvoid loop() {\n  if (SerialBT.available()) {\n    char cmd = SerialBT.read();\n    apagar_todos();\n    if      (cmd == 'R') digitalWrite(LED_ROJO,     HIGH);\n    else if (cmd == 'Y') digitalWrite(LED_AMARILLO, HIGH);\n    else if (cmd == 'G') digitalWrite(LED_VERDE,    HIGH);\n  }\n}",
-              product: "Flujo completo documentado. Proyectos Wokwi y App Inventor guardados y listos para hardware real.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: El cierre de esta hora es la lista de materiales. Cada alumno debe anotar: 1 ESP32 DevKit, 3 LEDs (rojo, amarillo, verde), 3 resistencias 220Ω, cables dupont, protoboard. Esto es lo que traerán o comprarán para W10. Revisar que todos tengan ambos proyectos guardados antes de salir."
+              product: "Semáforo de 3 LEDs funcional en Wokwi respondiendo a comandos R, Y, G desde el Serial Monitor. Proyecto guardado.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: La función apagar_todos() es el concepto clave — enseña a resetear el estado antes de aplicar el nuevo. Si alguien pregunta por qué no solo encender el nuevo sin apagar, demostrar en vivo qué pasa: los LEDs quedan encendidos simultáneamente. Quien termine antes: agregar un comando 'A' que haga el ciclo automático rojo→amarillo→verde con delay(1000) dentro de un else."
             }
           ],
-          cierre: "El semáforo responde a tus comandos. La app está lista. Solo falta el cable que no existe — el Bluetooth. La próxima semana lo conectamos.",
-          frase_docente: "Ya programaste el hardware y diseñaste la app. Lo único que falta es que se conozcan."
+          cierre: "Tres LEDs, tres comandos, una función que lo mantiene limpio. Esa es la lógica que el Bluetooth usará.",
+          frase_docente: "Resetear antes de actuar — en código y en la vida."
+        },
+        {
+          id: "thu",
+          label: "Jueves — Pendiente según avance",
+          purpose: "Sesión flexible — se definirá según el avance del grupo en la semana.",
+          hours: []
         }
       ]
     },
