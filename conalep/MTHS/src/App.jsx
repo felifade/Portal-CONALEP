@@ -13,11 +13,12 @@ function App() {
     const diffMs = now - startDate;
     const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
 
-    if (diffWeeks < 0)   return 'W00';
-    if (diffWeeks <= 6)  return `W0${diffWeeks}`;
-    if (diffWeeks <= 8)  return 'W06';
-    if (diffWeeks === 9) return 'W07';
-    return 'W08';
+    if (diffWeeks < 0)    return 'W00';
+    if (diffWeeks <= 6)   return `W0${diffWeeks}`;
+    if (diffWeeks <= 8)   return 'W06';
+    if (diffWeeks === 9)  return 'W07';
+    if (diffWeeks === 10) return 'W08';
+    return 'W09';
   };
 
   const currentWeek = getAutoWeek();
