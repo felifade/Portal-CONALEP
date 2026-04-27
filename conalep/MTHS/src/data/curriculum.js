@@ -282,18 +282,18 @@ export const curriculumData = {
     "W09": {
       days: [
         {
-          id: "mon",
-          label: "Lunes — Conclusión App Inventor + Hola ESP32 (H1-H2)",
-          purpose: "Cerrar definitivamente el proyecto de App Inventor con prueba final y evidencia, y dar el primer paso con ESP32 simulando en Wokwi.",
+          id: "tue",
+          label: "Martes — Conclusión App Inventor + Hola ESP32 (H1-H2)",
+          purpose: "Cerrar el proyecto de App Inventor mostrando el funcionamiento al docente, y dar el primer paso con ESP32 simulando en Wokwi.",
           hours: [
             {
               time: "Hora 1",
-              title: "Conclusión de la app móvil: prueba final y APK",
-              theory: "La semana pasada programamos la navegación completa, los mensajes Notifier, la pantalla de Evaluación y el botón de regreso. Hoy cerramos el ciclo: verificamos que todo funciona de extremo a extremo, generamos el APK para instalar la app en el teléfono y entregamos la evidencia en Google Docs. Una app terminada y documentada es el primer producto profesional que construiste.",
+              title: "Conclusión de la app móvil: demostración al docente",
+              theory: "La semana pasada programamos la navegación completa, los mensajes Notifier, la pantalla de Evaluación y el botón de regreso. Hoy cerramos el ciclo: cada alumno demuestra al docente que su app funciona de extremo a extremo navegando todas las pantallas en el emulador o teléfono con MIT AI2 Companion.",
               notebook: "Título: Cierre de mi app de seguridad digital.\n1. Dibuja el mapa de navegación completo: Portada → Menu → las 4 pantallas → regreso.\n2. ¿Qué pantalla fue la más difícil de programar?\n3. ¿Qué mejorarías si tuvieras más tiempo?\n4. ¿Qué componente de App Inventor crees que podrías usar para mandar datos a una placa electrónica? (Pista: BluetoothClient)",
-              practice: "PRUEBA FINAL:\n1. Abrir el proyecto en App Inventor y conectar con MIT AI2 Companion o emulador.\n2. Navegar todas las rutas:\n   - Portada → Menu → Contraseñas → consejo → Regresar\n   - Portada → Menu → WiFi → recomendación → Regresar\n   - Portada → Menu → Riesgos → aviso → Regresar\n   - Portada → Menu → Evaluación → respuesta Sí → respuesta No → Regresar\n3. Corregir cualquier error de navegación o texto.\n\nGENERAR APK:\n4. En App Inventor: Generar → App (archivo .apk).\n5. Instalar la app en el teléfono escaneando el código QR.\n6. Probar la app instalada (no solo el Companion).\n\nEVIDENCIA FINAL:\n7. Abrir Google Docs 'Semana 08'.\n8. Verificar que la tabla tiene una fila por cada pantalla con: nombre, captura y descripción.\n9. Agregar al final una reflexión de 3 líneas sobre lo que aprendiste.",
-              product: "App instalada en el teléfono (APK). Google Docs con tabla completa de 5 pantallas + reflexión. Proyecto aprobado por el docente.",
-              teacherNotes: "👨‍🏫 NOTA DOCENTE: La generación del APK puede tardar 1-2 minutos. Mientras esperan, pedir que redacten la reflexión. Quien no tenga alguna pantalla completa: priorizarla antes de generar el APK. El objetivo es que todos salgan de esta hora con algo instalable en el teléfono — aunque sea básico."
+              practice: "1. Abrir el proyecto en App Inventor y conectar con MIT AI2 Companion o emulador.\n2. Navegar todas las rutas frente al docente:\n   - Portada → Menu → Contraseñas → consejo → Regresar\n   - Portada → Menu → WiFi → recomendación → Regresar\n   - Portada → Menu → Riesgos → aviso → Regresar\n   - Portada → Menu → Evaluación → respuesta Sí → respuesta No → Regresar\n3. Corregir cualquier error antes de la demostración.\n4. Quien termine antes: apoyar a un compañero que aún no tenga su app lista.",
+              product: "App de seguridad digital demostrada y aprobada por el docente.",
+              teacherNotes: "👨‍🏫 NOTA DOCENTE: Revisión rápida uno por uno — el criterio es que las pantallas naveguen correctamente y los Notifier muestren texto. No es necesario que sea perfecto en diseño. Quien no terminó la semana pasada tiene esta hora para completar lo mínimo. Mantener el ritmo para arrancar Wokwi en H2."
             },
             {
               time: "Hora 2",
