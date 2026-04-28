@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
-import WeekView from './components/WeekView';
-import PinModal from './components/PinModal';
+import WeekView from '@shared/components/WeekView';
+import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
+
+const assetUrl = (filename) => new URL(`./assets/${filename}`, import.meta.url).href;
 
 function App() {
   const getAutoWeek = () => {
@@ -84,6 +86,8 @@ function App() {
           isClassMode={isClassMode}
           isTeacherMode={isTeacherMode}
           isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
+          curriculumData={curriculumData}
+          assetUrl={assetUrl}
         />
       </main>
 
