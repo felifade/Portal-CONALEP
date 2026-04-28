@@ -16,7 +16,7 @@ export const W09 = {
           code: "<!-- En index.html (ya lo tienen) -->\n<link rel=\"stylesheet\" href=\"\">\n\n<!-- En paginas/personajes.html -->\n<link rel=\"stylesheet\" href=\"\">\n\n<!-- En paginas/juegos.html -->\n<link rel=\"stylesheet\" href=\"\">\n\n<!-- En paginas/cronologia.html -->\n<link rel=\"stylesheet\" href=\"\">",
           codeRef: "<!-- En index.html -->\n<link rel=\"stylesheet\" href=\"css/style.css\">\n\n<!-- En paginas/personajes.html -->\n<link rel=\"stylesheet\" href=\"../css/style.css\">\n\n<!-- En paginas/juegos.html -->\n<link rel=\"stylesheet\" href=\"../css/style.css\">\n\n<!-- En paginas/cronologia.html -->\n<link rel=\"stylesheet\" href=\"../css/style.css\">",
           product: "Las 5 páginas del sitio con el mismo CSS aplicado — diseño consistente y unificado.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más común es poner css/style.css en las páginas hijas en lugar de ../css/style.css. Antes de avanzar a H2 verificar que TODOS tengan las 5 páginas con estilos. Quien tenga errores: comparar la ruta del CSS con la ruta de sus imágenes — es exactamente la misma lógica con ../"
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más común es poner css/style.css en las páginas hijas en lugar de ../css/style.css. Antes de avanzar a H2 verificar que TODOS tengan las 5 páginas con estilos. Quien tenga errores: comparar la ruta del CSS con la ruta de sus imágenes — es exactamente la misma lógica con ../",
         },
         {
           time: "Hora 2",
@@ -43,6 +43,17 @@ export const W09 = {
       ],
       cierre: "Hoy el sitio pasó de HTML puro a tener un diseño unificado, imágenes con acabado profesional y una galería que se organiza sola. Todo con un único archivo CSS.",
       frase_docente: "Un buen CSS hace que el mismo HTML se vea completamente diferente. Hoy lo comprobaste."
+    },
+    {
+      id: "dual",
+      label: "Repositorio de Actividades Duales (Semana 09)",
+      activities: [
+        {
+          title: "Semana 09 — Referencia Visual",
+          instruction: "Usa esta infografía como guía rápida durante la sesión: revisa las reglas CSS vistas en clase y verifica que tu style.css las incluya todas antes de cerrar el proyecto.",
+          image: "dewe_w09_info01.png"
+        }
+      ]
     }
   ]
 };
