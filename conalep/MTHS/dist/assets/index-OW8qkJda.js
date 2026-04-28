@@ -100,30 +100,55 @@ EVIDENCIA EN GOOGLE DOCS:
 5. Conectar: GPIO 2 → resistencia → LED(+) → GND.
 6. En el editor escribir el sketch Blink para el pin 2.
 7. Presionar ▶ y verificar que el LED parpadea.
-8. Cambiar el valor de delay() y observar el efecto.`,code:`// Completa los valores faltantes
+8. Cambiar el valor de delay() y observar el efecto.`,code:`// Práctica 1 — Control de LED por comandos
+// Versión Serial (simula el Bluetooth para aprender en Wokwi)
 
-const int LED_PIN = 2;
+const int LED_PIN = 2;  // GPIO donde está conectado el LED
 
 void setup() {
-  pinMode(LED_PIN, );
+  Serial.begin(115200);           // Inicia comunicación serial a 115200 baudios
+  pinMode(LED_PIN, OUTPUT);       // Configura el pin como salida
+  digitalWrite(LED_PIN, LOW);     // El LED empieza apagado
+
+  Serial.println("=================================");
+  Serial.println("  Control de LED - Práctica 1");
+  Serial.println("=================================");
+  Serial.println("Envía '1' para encender el LED");
+  Serial.println("Envía '0' para apagar el LED");
+  Serial.println("Envía 'p' para parpadear 3 veces");
+  Serial.println("---------------------------------");
 }
 
 void loop() {
-  digitalWrite(LED_PIN, );
-  delay();
-  digitalWrite(LED_PIN, );
-  delay();
-}`,codeRef:`const int LED_PIN = 2;
+  // Si hay un dato esperando en el buffer serial, lo leemos
+  if (Serial.available()) {
+    char comando = Serial.read();
 
-void setup() {
-  pinMode(LED_PIN, OUTPUT);
-}
-
-void loop() {
-  digitalWrite(LED_PIN, HIGH);  // encender
-  delay(500);                   // esperar 500ms
-  digitalWrite(LED_PIN, LOW);   // apagar
-  delay(500);
+    if (comando == '1') {
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("✓ LED encendido");
+    } 
+    else if (comando == '0') {
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("✓ LED apagado");
+    }
+    else if (comando == 'p') {
+      Serial.println("✓ Parpadeando...");
+      for (int i = 0; i < 3; i++) {
+        digitalWrite(LED_PIN, HIGH);
+        delay(300);
+        digitalWrite(LED_PIN, LOW);
+        delay(300);
+      }
+      Serial.println("  ...listo");
+    }
+    // Ignoramos saltos de línea y espacios en blanco
+    else if (comando != '\\n' && comando != '\\r' && comando != ' ') {
+      Serial.print("✗ Comando desconocido: '");
+      Serial.print(comando);
+      Serial.println("'");
+    }
+  }
 }`,product:`Proyecto creado en Wokwi con LED parpadeando en ESP32. Primera interacción con la plataforma de simulación.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El error más común es no conectar el GND del LED al GND de la placa. Si el LED no enciende, pedir que sigan el cable desde el pin 2 hasta el LED y de ahí hasta GND. Dejar que lo descubran solos antes de intervenir.`}],cierre:`Cerraste tu primera app móvil y encendiste tu primer LED en ESP32. Esta semana la tecnología cambió de pantalla a circuito.`,frase_docente:`Construir algo que funciona es la mejor forma de aprender.`},{id:`wed`,label:`Miércoles — Semáforo ESP32 (H3)`,purpose:`Escalar el proyecto Wokwi a un semáforo de 3 LEDs controlado por comandos desde el Serial Monitor, aprendiendo la lógica de estado que más adelante usará el Bluetooth.`,hours:[{time:`Hora 1`,title:`Semáforo con 3 LEDs controlado por Serial Monitor`,theory:`Un semáforo solo puede mostrar un estado a la vez — rojo, amarillo o verde. En código esto se traduce en: apagar todos los LEDs y encender solo el que corresponde al comando recibido. El Serial Monitor actúa hoy como el teléfono: envía un carácter y el ESP32 reacciona. Para controlar 3 LEDs independientes necesitamos 3 pines GPIO diferentes y una función apagar_todos() que garantice que solo un LED esté activo en cada momento.`,notebook:`Título: Semáforo con ESP32.
 1. Dibuja el circuito: ESP32 con 3 LEDs (rojo pin 25, amarillo pin 26, verde pin 27).
 2. ¿Por qué hay que apagar todos los LEDs antes de encender el que corresponde?
