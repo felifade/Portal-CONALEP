@@ -98,9 +98,14 @@ export const W09 = {
       label: "Repositorio de Actividades Duales (Semana 09)",
       activities: [
         {
-          title: "Semana 09 — Referencia Visual",
+          title: "Lunes — CSS completo en todo el sitio",
           instruction: "Usa esta infografía como guía rápida durante la sesión: revisa las reglas CSS vistas en clase y verifica que tu style.css las incluya todas antes de cerrar el proyecto.",
           image: "dewe_w09_info01.png"
+        },
+        {
+          title: "Jueves — Nav y Footer con CSS",
+          instruction: "Consulta esta infografía para estilizar tu nav y footer: verifica que el color de fondo coincida en ambos, que los enlaces tengan hover y que la clase .activo esté en el enlace correcto de cada página.",
+          image: "dewe_w09_info02.png"
         }
       ]
     }
