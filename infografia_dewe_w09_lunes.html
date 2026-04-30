@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080">
+  <title>Infografía DEWE W09 Lunes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1080px;
+      background: #0d1117;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #e6edf3;
+      padding: 0;
+    }
+
+    /* ── WRAPPER ── */
+    .infografia {
+      width: 1080px;
+      min-height: 1920px;
+      background: #0d1117;
+      display: flex;
+      flex-direction: column;
+      padding: 64px 72px 56px;
+      gap: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative top line */
+    .infografia::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: #06b6d4;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-blue {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.25);
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f0f6fc 30%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 4px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: #7d8590;
+    }
+
+    .meta-dot {
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    .skills-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .skill-chip {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 6px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .skill-chip.h1 { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+    .skill-chip.h2 { background: rgba(6,182,212,0.15);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.3); }
+    .skill-chip.h3 { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+
+    /* ── BLOQUE ── */
+    .block {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .block:nth-child(1) .block-accent { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .block:nth-child(2) .block-accent { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+    .block:nth-child(3) .block-accent { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+
+    .block-inner {
+      padding: 32px 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .block-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .block-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .block:nth-child(1) .block-icon { background: rgba(59,130,246,0.15); }
+    .block:nth-child(2) .block-icon { background: rgba(6,182,212,0.15); }
+    .block:nth-child(3) .block-icon { background: rgba(139,92,246,0.15); }
+
+    .block-icon svg { width: 26px; height: 26px; }
+    .block:nth-child(1) .block-icon svg { color: #3b82f6; }
+    .block:nth-child(2) .block-icon svg { color: #06b6d4; }
+    .block:nth-child(3) .block-icon svg { color: #8b5cf6; }
+
+    .block-title-area {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 2px;
+    }
+
+    .block-hora {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    .block:nth-child(1) .block-hora { color: #3b82f6; }
+    .block:nth-child(2) .block-hora { color: #06b6d4; }
+    .block:nth-child(3) .block-hora { color: #8b5cf6; }
+
+    .block-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f0f6fc;
+      line-height: 1.25;
+    }
+
+    /* ── CONCEPTO CLAVE ── */
+    .concepto {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .concepto-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7d8590;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+
+    .concepto-text {
+      font-size: 15px;
+      color: #c9d1d9;
+      line-height: 1.5;
+    }
+
+    .concepto-text strong {
+      color: #f0f6fc;
+      font-weight: 600;
+    }
+
+    /* ── CODE BLOCK ── */
+    .code-block {
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #161b22;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .code-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-dot.red    { background: #ff5f57; }
+    .code-dot.yellow { background: #ffbd2e; }
+    .code-dot.green  { background: #28ca41; }
+
+    .code-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #6e7681;
+      margin-left: 4px;
+    }
+
+    .code-body {
+      padding: 18px 20px;
+    }
+
+    .code-body pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      line-height: 1.8;
+      white-space: pre;
+      color: #e6edf3;
+    }
+
+    .kw  { color: #ff7b72; }   /* keyword */
+    .prop{ color: #79c0ff; }   /* property */
+    .val { color: #a5d6ff; }   /* value */
+    .str { color: #a5d6ff; }   /* string */
+    .sel { color: #7ee787; }   /* selector */
+    .tag-html { color: #7ee787; }
+    .attr{ color: #79c0ff; }
+    .cm  { color: #8b949e; font-style: italic; }
+    .hl  { color: #06b6d4; font-weight: 600; }
+    .num { color: #f2cc60; }
+
+    /* ── NOTA ── */
+    .nota {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+
+    .block:nth-child(1) .nota { background: rgba(59,130,246,0.08); border-left: 3px solid #3b82f6; }
+    .block:nth-child(2) .nota { background: rgba(6,182,212,0.08);  border-left: 3px solid #06b6d4; }
+    .block:nth-child(3) .nota { background: rgba(139,92,246,0.08); border-left: 3px solid #8b5cf6; }
+
+    .nota-icon {
+      font-size: 16px;
+      margin-top: 1px;
+    }
+
+    .nota-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #c9d1d9;
+    }
+
+    .nota-text strong {
+      color: #f0f6fc;
+      font-weight: 600;
+    }
+
+    /* ── DIAGRAM FLEXBOX ── */
+    .flex-diagram {
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .diag-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #6e7681;
+      letter-spacing: 0.06em;
+    }
+
+    .diag-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .diag-box {
+      width: 80px;
+      height: 56px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid;
+      flex-shrink: 0;
+    }
+
+    .diag-box.img1 { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #a78bfa; }
+    .diag-box.img2 { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.3); color: #60a5fa; }
+    .diag-box.img3 { background: rgba(6,182,212,0.12);  border-color: rgba(6,182,212,0.3);  color: #22d3ee; }
+    .diag-box.img4 { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #fb923c; }
+    .diag-box.img5 { background: rgba(34,197,94,0.12);  border-color: rgba(34,197,94,0.3);  color: #4ade80; }
+
+    .diag-arrow {
+      font-size: 20px;
+      color: #3b82f6;
+      margin: 0 4px;
+    }
+
+    .diag-before .diag-box {
+      width: 140px;
+      height: 42px;
+    }
+
+    .diag-container {
+      border: 1px dashed rgba(139,92,246,0.4);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(139,92,246,0.05);
+    }
+
+    .diag-container-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #8b5cf6;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .diag-flex-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .diag-sep {
+      height: 1px;
+      background: #21262d;
+      margin: 4px 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: auto;
+      padding-top: 28px;
+      border-top: 1px solid #21262d;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-quote {
+      font-size: 18px;
+      font-style: italic;
+      color: #8b949e;
+      line-height: 1.5;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .footer-quote span {
+      color: #06b6d4;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #30363d;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-dot {
+      width: 8px; height: 8px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+
+    .badge-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #3b82f6;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+<div class="infografia">
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <div class="header">
+    <div class="header-top">
+      <span class="tag">DEWE · W09 · Lunes</span>
+      <span class="tag tag-blue">3 horas · 3 habilidades</span>
+    </div>
+    <h1>CSS Completo<br>en Todo el Sitio</h1>
+    <div class="header-meta">
+      <div class="meta-item">
+        <div class="meta-dot"></div>
+        Elaboración de Páginas Web
+      </div>
+      <div class="meta-item">
+        <div class="meta-dot"></div>
+        Grupo 601
+      </div>
+    </div>
+    <div class="skills-row">
+      <span class="skill-chip h1">H1 · Rutas CSS</span>
+      <span class="skill-chip h2">H2 · Estilo de Imágenes</span>
+      <span class="skill-chip h3">H3 · Flexbox</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ BLOQUE 1 ═══════════════ -->
+  <div class="block">
+    <div class="block-accent"></div>
+    <div class="block-inner">
+
+      <div class="block-header">
+        <div class="block-icon">
+          <!-- CSS file icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="12" y2="17"/>
+          </svg>
+        </div>
+        <div class="block-title-area">
+          <span class="block-hora">Hora 1</span>
+          <div class="block-title">Un CSS para todas las páginas</div>
+        </div>
+      </div>
+
+      <div class="concepto">
+        <span class="concepto-label">Clave</span>
+        <span class="concepto-text">
+          Un <strong>solo archivo style.css</strong> → diseño consistente en las <strong>5 páginas</strong> del sitio. Si cambias un color, cambia en todas al mismo tiempo.
+        </span>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot red"></div>
+          <div class="code-dot yellow"></div>
+          <div class="code-dot green"></div>
+          <span class="code-filename">index.html &amp; paginas/*.html</span>
+        </div>
+        <div class="code-body">
+          <pre
+><span class="cm">/* index.html — en la raíz */</span>
+<span class="tag-html">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="hl">"css/style.css"</span><span class="tag-html">&gt;</span>
+
+<span class="cm">/* paginas/*.html — hay que subir un nivel */</span>
+<span class="tag-html">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="hl">"../css/style.css"</span><span class="tag-html">&gt;</span></pre>
+        </div>
+      </div>
+
+      <div class="nota">
+        <span class="nota-icon">💡</span>
+        <span class="nota-text">El <strong>../</strong> sube un nivel en la carpeta — exactamente igual que la ruta de las imágenes desde <strong>paginas/</strong>.</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════ BLOQUE 2 ═══════════════ -->
+  <div class="block">
+    <div class="block-accent"></div>
+    <div class="block-inner">
+
+      <div class="block-header">
+        <div class="block-icon">
+          <!-- image icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+        <div class="block-title-area">
+          <span class="block-hora">Hora 2</span>
+          <div class="block-title">Imágenes con estilo y efecto hover</div>
+        </div>
+      </div>
+
+      <div class="concepto">
+        <span class="concepto-label">Clave</span>
+        <span class="concepto-text">
+          <strong>max-width</strong> limita el tamaño · <strong>border-radius</strong> redondea · <strong>box-shadow</strong> da profundidad · <strong>transition</strong> suaviza el efecto hover.
+        </span>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot red"></div>
+          <div class="code-dot yellow"></div>
+          <div class="code-dot green"></div>
+          <span class="code-filename">css/style.css</span>
+        </div>
+        <div class="code-body">
+          <pre
+><span class="sel">img</span> {
+  <span class="prop">max-width</span>:   <span class="num">280px</span>;
+  <span class="prop">display</span>:     <span class="val">block</span>;
+  <span class="prop">border-radius</span>: <span class="num">8px</span>;
+  <span class="prop">box-shadow</span>:  <span class="num">0 4px 16px</span> <span class="val">rgba(0, 0, 0, 0.6)</span>;
+  <span class="prop">transition</span>:  <span class="val">transform</span> <span class="num">0.3s</span> <span class="val">ease</span>;
+}
+
+<span class="sel">img:hover</span> {
+  <span class="prop">transform</span>: <span class="val">scale</span>(<span class="num">1.05</span>);   <span class="cm">/* zoom suave */</span>
+}</pre>
+        </div>
+      </div>
+
+      <div class="nota">
+        <span class="nota-icon">✨</span>
+        <span class="nota-text">El <strong>hover</strong> aplica a <em>todas</em> las imágenes del sitio sin tocar el HTML. Con <strong>border-radius: 50%</strong> se hacen círculos.</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════ BLOQUE 3 ═══════════════ -->
+  <div class="block">
+    <div class="block-accent"></div>
+    <div class="block-inner">
+
+      <div class="block-header">
+        <div class="block-icon">
+          <!-- grid icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="block-title-area">
+          <span class="block-hora">Hora 3</span>
+          <div class="block-title">Flexbox: galería que se organiza sola</div>
+        </div>
+      </div>
+
+      <div class="concepto">
+        <span class="concepto-label">Clave</span>
+        <span class="concepto-text">
+          <strong>display: flex</strong> se aplica al <strong>contenedor</strong>, no a las imágenes. <strong>flex-wrap: wrap</strong> permite que pasen a la siguiente línea automáticamente.
+        </span>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dot red"></div>
+          <div class="code-dot yellow"></div>
+          <div class="code-dot green"></div>
+          <span class="code-filename">css/style.css</span>
+        </div>
+        <div class="code-body">
+          <pre
+><span class="sel">main</span> {
+  <span class="prop">max-width</span>: <span class="num">960px</span>;
+  <span class="prop">margin</span>:    <span class="num">0</span> <span class="val">auto</span>;    <span class="cm">/* centrar */</span>
+  <span class="prop">padding</span>:   <span class="num">24px 20px</span>;
+}
+
+<span class="sel">.galeria</span> {
+  <span class="prop">display</span>:         <span class="hl">flex</span>;
+  <span class="prop">flex-wrap</span>:       <span class="hl">wrap</span>;
+  <span class="prop">gap</span>:             <span class="num">16px</span>;
+  <span class="prop">justify-content</span>: <span class="val">center</span>;
+}</pre>
+        </div>
+      </div>
+
+      <!-- Diagrama Flexbox -->
+      <div class="flex-diagram">
+        <div class="diag-label">// Cómo se ven las imágenes con Flexbox + flex-wrap: wrap</div>
+        <div class="diag-container">
+          <div class="diag-container-label">div.galeria { display: flex; flex-wrap: wrap; }</div>
+          <div class="diag-flex-row">
+            <div class="diag-box img1">img 1</div>
+            <div class="diag-box img2">img 2</div>
+            <div class="diag-box img3">img 3</div>
+            <div class="diag-box img4">img 4</div>
+            <div class="diag-box img5">img 5</div>
+          </div>
+        </div>
+        <div class="diag-label" style="color:#4ade80; margin-top:2px;">✓ Al reducir la ventana, los elementos pasan solos a la siguiente fila</div>
+      </div>
+
+      <div class="nota">
+        <span class="nota-icon">⚠️</span>
+        <span class="nota-text">Error común: aplicar <strong>display:flex</strong> al <strong>&lt;img&gt;</strong> en lugar del <strong>&lt;div&gt;</strong> que las contiene. Flexbox siempre va en el <strong>padre</strong>.</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <div class="footer">
+    <div class="footer-quote">
+      "Un buen CSS hace que el mismo HTML se vea<br>
+      <span>completamente diferente</span>. Hoy lo comprobaste."
+    </div>
+    <div class="footer-brand">
+      <span class="footer-left">CONALEP · DEWE · Grupo 601 · Semana 9</span>
+      <div class="footer-badge">
+        <div class="badge-dot"></div>
+        <span class="badge-text">W09 · Lunes</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
