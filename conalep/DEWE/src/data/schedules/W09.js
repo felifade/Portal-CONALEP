@@ -45,6 +45,55 @@ export const W09 = {
       frase_docente: "Un buen CSS hace que el mismo HTML se vea completamente diferente. Hoy lo comprobaste."
     },
     {
+      id: "thu",
+      label: "Jueves — CSS: estilizar el nav",
+      purpose: "Transformar la barra de navegación de texto plano a un componente con identidad visual: color de fondo, espaciado, hover en los enlaces y destacar la página activa.",
+      hours: [
+        {
+          time: "Hora 1",
+          title: "CSS: color, hover y página activa en el nav",
+          theory: "El `<nav>` es el elemento más visto del sitio — aparece en todas las páginas. Sin CSS tiene fondo transparente y los enlaces se ven como texto subrayado azul. Con CSS podemos darle un color de fondo que defina el tema visual del sitio, quitar el subrayado de los enlaces con `text-decoration: none`, agregar padding para que los links sean más fáciles de clicar y usar `:hover` para que cambien de color al pasar el cursor. La clase `.activo` en el `<a>` de la página actual permite distinguir en qué sección está el usuario.",
+          notebook: "Título: Estilizar el nav con CSS.\n1. ¿Por qué es importante darle estilos al nav? → ________________________________\n2. ¿Qué hace text-decoration: none en un enlace? → ________________________________\n3. ¿Qué diferencia hay entre nav a y nav a:hover? → ________________________________\n4. ¿Para qué sirve la clase .activo en un enlace? → ________________________________\n5. Escribe la regla CSS para que el nav tenga fondo oscuro y los enlaces sean blancos. → ________________________________",
+          practice: "1. Abrir css/style.css.\n2. Agregar las reglas para el nav:\n   - Fondo de color con background-color.\n   - display flex y gap para alinear los enlaces en fila.\n   - padding interno.\n3. Agregar reglas para nav a:\n   - color blanco.\n   - text-decoration none.\n   - padding en cada enlace.\n4. Agregar nav a:hover con un color diferente y transition.\n5. En cada HTML, agregar class=\"activo\" al enlace que corresponde a la página actual.\n6. Agregar nav a.activo con un color o subrayado que lo diferencie.\n7. Guardar y verificar en las 5 páginas que el nav se ve igual y el enlace activo se distingue.",
+          code: "/* Agrega en style.css */\n\nnav {\n  background-color: ;\n  display: ;\n  gap: ;\n  padding: ;\n}\n\nnav a {\n  color: ;\n  text-decoration: ;\n  padding: ;\n  transition: ;\n}\n\nnav a:hover {\n  color: ;\n}\n\nnav a.activo {\n  color: ;\n  font-weight: ;\n}",
+          codeRef: "/* Nav estilizado */\n\nnav {\n  background-color: #1a0000;\n  display: flex;\n  gap: 8px;\n  padding: 12px 24px;\n}\n\nnav a {\n  color: #ffffff;\n  text-decoration: none;\n  padding: 8px 16px;\n  border-radius: 4px;\n  transition: background-color 0.2s ease;\n}\n\nnav a:hover {\n  background-color: #8b0000;\n  color: #ffffff;\n}\n\nnav a.activo {\n  background-color: #8b0000;\n  color: #ffffff;\n  font-weight: bold;\n}",
+          product: "Nav con fondo oscuro, enlaces en fila, efecto hover y enlace activo visible en las 5 páginas del sitio.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: El error más común es agregar class=\"activo\" en TODOS los archivos al mismo enlace en lugar de al que corresponde a cada página. Verificar que en index.html el activo es 'Inicio', en juegos.html es 'Juegos', etc. Los colores del ejemplo usan el tema Resident Evil — dejar que los alumnos ajusten los colores a su propio tema. Quien termine antes: agregar `position: sticky; top: 0;` al nav para que quede fijo al hacer scroll."
+        },
+        {
+          time: "Hora 2",
+          title: "CSS: estilizar el footer",
+          theory: "El footer cierra el sitio visualmente igual que el nav lo abre. En HTML ya tienen un `<footer>` con texto como el nombre del sitio, el año o el autor. Con CSS le damos color de fondo que haga juego con el nav, centramos el texto con `text-align: center`, le damos `padding` para que no se vea apretado y separamos el contenido con `margin-top: auto` si el footer está dentro de un flex container. El resultado: el sitio tiene cabeza, cuerpo y pie — estructura visual completa.",
+          notebook: "Título: El footer en CSS.\n1. ¿Qué información suele tener un footer? → ________________________________\n2. ¿Qué propiedad centra el texto dentro del footer? → ________________________________\n3. ¿Cómo haces que el footer tenga el mismo color de fondo que el nav? → ________________________________\n4. ¿Qué diferencia hay entre padding y margin? → ________________________________\n5. Escribe la regla CSS completa para un footer con fondo oscuro, texto blanco y centrado. → ________________________________",
+          practice: "1. Verificar que cada HTML tiene un <footer> con contenido (si no, agregarlo).\n   Ejemplo: <footer><p>© 2025 — Mi Sitio Web</p></footer>\n2. Abrir css/style.css y agregar al final las reglas del footer.\n3. Usar el mismo color de fondo que el nav para que coincidan.\n4. Centrar el texto y agregar padding arriba y abajo.\n5. Cambiar el color del texto a blanco o un tono claro.\n6. Agregar un margin-top para separar el footer del contenido principal.\n7. Guardar y verificar en las 5 páginas que el footer se ve igual en todas.",
+          code: "/* Agrega en style.css */\n\nfooter {\n  background-color: ;\n  color: ;\n  text-align: ;\n  padding: ;\n  margin-top: ;\n}\n\nfooter p {\n  font-size: ;\n}",
+          codeRef: "/* Footer */\n\nfooter {\n  background-color: #1a0000;\n  color: #cccccc;\n  text-align: center;\n  padding: 20px 24px;\n  margin-top: 40px;\n}\n\nfooter p {\n  font-size: 14px;\n}",
+          product: "Footer con color de fondo, texto centrado y padding aplicado en las 5 páginas del sitio.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Si el footer no llega al fondo de la página cuando el contenido es corto, es porque el body no ocupa el alto completo. Solución: agregar `min-height: 100vh; display: flex; flex-direction: column;` al body y `flex: 1;` al main. No es obligatorio resolverlo hoy — mencionarlo como curiosidad para quien pregunte. El color debe coincidir con el nav — recordar a los alumnos que consistencia visual = sitio profesional."
+        }
+      ],
+      cierre: "El nav arriba, el footer abajo — el sitio ya tiene estructura visual completa. Todo con el mismo archivo CSS.",
+      frase_docente: "El diseño no es decoración — es comunicación."
+    },
+    {
+      id: "fri",
+      label: "Viernes — Día del Trabajo (Sin clases)",
+      purpose: "No hay clases. 1 de mayo — Día Internacional del Trabajo.",
+      hours: [
+        {
+          time: "📅 Sin sesión",
+          title: "1 de Mayo — Día Internacional del Trabajo",
+          theory: "El 1 de mayo se conmemora el Día Internacional del Trabajo en memoria de los Mártires de Chicago: el 4 de mayo de 1886, obreros en huelga que exigían la jornada de 8 horas fueron reprimidos en la plaza Haymarket. Murieron trabajadores y policías, y varios líderes sindicales fueron ejecutados en juicios considerados injustos. En México es día de descanso obligatorio desde 1923. La jornada de 8 horas que hoy damos por sentada fue conquistada con esa lucha.",
+          notebook: "Reflexión (opcional para quien quiera):\n1. ¿Cuántas horas diarias trabajaban los obreros antes de 1886?\n2. ¿Qué pedían los trabajadores en la huelga de Chicago?\n3. ¿Por qué crees que esta fecha se recuerda en todo el mundo?\n4. ¿Qué derechos laborales existen hoy que antes no existían?",
+          practice: "Día de descanso — no hay práctica en PC.",
+          product: "Descanso merecido. Nos vemos la próxima semana.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Sin sesión. Si quieres, comparte la reflexión de libreta como actividad voluntaria por plataforma."
+        }
+      ],
+      cierre: "Los derechos que tenemos hoy alguien los ganó ayer. Descansa y nos vemos la próxima semana.",
+      frase_docente: "Detrás de cada derecho laboral hay una historia de valentía."
+    },
+    {
       id: "dual",
       label: "Repositorio de Actividades Duales (Semana 09)",
       activities: [

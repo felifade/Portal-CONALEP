@@ -100,64 +100,95 @@ EVIDENCIA EN GOOGLE DOCS:
 5. Conectar: GPIO 2 → resistencia → LED(+) → GND.
 6. En el editor escribir el sketch Blink para el pin 2.
 7. Presionar ▶ y verificar que el LED parpadea.
-8. Cambiar el valor de delay() y observar el efecto.`,code:`// Práctica 1 — Control de LED por comandos
-// Versión Serial (simula el Bluetooth para aprender en Wokwi)
+8. Cambiar el valor de delay() y observar el efecto.`,code:`// PROGRAMA 01. Encender LED
+const int LED_PIN = 2;
 
-const int LED_PIN = 2;  // GPIO donde está conectado el LED
-
-void setup() {
-  Serial.begin(115200);           // Inicia comunicación serial a 115200 baudios
-  pinMode(LED_PIN, OUTPUT);       // Configura el pin como salida
-  digitalWrite(LED_PIN, LOW);     // El LED empieza apagado
-
-  Serial.println("=================================");
-  Serial.println("  Control de LED - Práctica 1");
-  Serial.println("=================================");
-  Serial.println("Envía '1' para encender el LED");
-  Serial.println("Envía '0' para apagar el LED");
-  Serial.println("Envía 'p' para parpadear 3 veces");
-  Serial.println("---------------------------------");
+void setup(){
+  pinMode(LED_PIN, OUTPUT);
 }
 
-void loop() {
-  // Si hay un dato esperando en el buffer serial, lo leemos
-  if (Serial.available()) {
-    char comando = Serial.read();
+void loop(){
+  digitalWrite(LED_PIN, HIGH); //encender
+  delay(500);
+  digitalWrite(LED_PIN, LOW);  //apagar
+  delay(500);
+}`,product:`Proyecto creado en Wokwi con LED parpadeando en ESP32. Primera interacción con la plataforma de simulación.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El error más común es no conectar el GND del LED al GND de la placa. Si el LED no enciende, pedir que sigan el cable desde el pin 2 hasta el LED y de ahí hasta GND. Dejar que lo descubran solos antes de intervenir.`}],cierre:`Cerraste tu primera app móvil y encendiste tu primer LED en ESP32. Esta semana la tecnología cambió de pantalla a circuito.`,frase_docente:`Construir algo que funciona es la mejor forma de aprender.`},{id:`wed`,label:`Miércoles — Continuación Martes + Semáforo ESP32`,purpose:`Cerrar la práctica del martes con el reto de delay y escalar el proyecto a un semáforo de 3 LEDs controlado por comandos desde el Serial Monitor.`,hours:[{time:`Hora 1`,title:`Continuación: control de LED + reto de delay`,theory:`La función delay() recibe el tiempo en milisegundos — no en segundos. Para convertir: segundos × 1000 = milisegundos. Así, 2 segundos son 2000 ms, 5 segundos son 5000 ms y 10 segundos son 10000 ms. Esta conversión es fundamental porque todos los tiempos en Arduino/ESP32 se manejan en milisegundos.`,notebook:`Título: delay() en milisegundos.
+1. ¿Cuántos milisegundos tiene 1 segundo?
+2. Completa la tabla:
+   - 2 segundos  = _____ ms → delay(_____)
+   - 5 segundos  = _____ ms → delay(_____)
+   - 10 segundos = _____ ms → delay(_____)
+3. ¿Qué pasaría si escribes delay(2) en lugar de delay(2000)?
+4. ¿Por qué crees que Arduino usa milisegundos en lugar de segundos?`,practice:`1. Abrir el proyecto Wokwi del martes (Programa 01 — blink con delay 500ms).
+2. Verificar que el LED sigue parpadeando correctamente.
+3. Reto de delay — modificar el loop para que el LED haga 3 ciclos con tiempos distintos:
+   - Ciclo 1: encendido 2 segundos, apagado 2 segundos.
+   - Ciclo 2: encendido 5 segundos, apagado 5 segundos.
+   - Ciclo 3: encendido 10 segundos, apagado 10 segundos.
+4. Calcular primero en la libreta cuántos ms son cada tiempo antes de escribir el código.
+5. Presionar ▶ y medir con el reloj del celular si los tiempos son correctos.
+6. Guardar como 'Programa_02_Delay'.`,code:`// PROGRAMA 02 — Reto de delay
+// Modifica los valores de delay() con los ms correctos
 
-    if (comando == '1') {
-      digitalWrite(LED_PIN, HIGH);
-      Serial.println("✓ LED encendido");
-    } 
-    else if (comando == '0') {
-      digitalWrite(LED_PIN, LOW);
-      Serial.println("✓ LED apagado");
-    }
-    else if (comando == 'p') {
-      Serial.println("✓ Parpadeando...");
-      for (int i = 0; i < 3; i++) {
-        digitalWrite(LED_PIN, HIGH);
-        delay(300);
-        digitalWrite(LED_PIN, LOW);
-        delay(300);
-      }
-      Serial.println("  ...listo");
-    }
-    // Ignoramos saltos de línea y espacios en blanco
-    else if (comando != '\\n' && comando != '\\r' && comando != ' ') {
-      Serial.print("✗ Comando desconocido: '");
-      Serial.print(comando);
-      Serial.println("'");
-    }
-  }
-}`,product:`Proyecto creado en Wokwi con LED parpadeando en ESP32. Primera interacción con la plataforma de simulación.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El error más común es no conectar el GND del LED al GND de la placa. Si el LED no enciende, pedir que sigan el cable desde el pin 2 hasta el LED y de ahí hasta GND. Dejar que lo descubran solos antes de intervenir.`}],cierre:`Cerraste tu primera app móvil y encendiste tu primer LED en ESP32. Esta semana la tecnología cambió de pantalla a circuito.`,frase_docente:`Construir algo que funciona es la mejor forma de aprender.`},{id:`wed`,label:`Miércoles — Semáforo ESP32 (H3)`,purpose:`Escalar el proyecto Wokwi a un semáforo de 3 LEDs controlado por comandos desde el Serial Monitor, aprendiendo la lógica de estado que más adelante usará el Bluetooth.`,hours:[{time:`Hora 1`,title:`Semáforo con 3 LEDs controlado por Serial Monitor`,theory:`Un semáforo solo puede mostrar un estado a la vez — rojo, amarillo o verde. En código esto se traduce en: apagar todos los LEDs y encender solo el que corresponde al comando recibido. El Serial Monitor actúa hoy como el teléfono: envía un carácter y el ESP32 reacciona. Para controlar 3 LEDs independientes necesitamos 3 pines GPIO diferentes y una función apagar_todos() que garantice que solo un LED esté activo en cada momento.`,notebook:`Título: Semáforo con ESP32.
+const int LED_PIN = 2;
+
+void setup(){
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop(){
+  // Ciclo 1 — 2 segundos (2 s = _____ ms)
+  digitalWrite(LED_PIN, HIGH);
+  delay( );
+  digitalWrite(LED_PIN, LOW);
+  delay( );
+
+  // Ciclo 2 — 5 segundos (5 s = _____ ms)
+  digitalWrite(LED_PIN, HIGH);
+  delay( );
+  digitalWrite(LED_PIN, LOW);
+  delay( );
+
+  // Ciclo 3 — 10 segundos (10 s = _____ ms)
+  digitalWrite(LED_PIN, HIGH);
+  delay( );
+  digitalWrite(LED_PIN, LOW);
+  delay( );
+}`,codeRef:`// PROGRAMA 02 — Solución
+
+const int LED_PIN = 2;
+
+void setup(){
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop(){
+  // Ciclo 1 — 2 segundos
+  digitalWrite(LED_PIN, HIGH);
+  delay(2000);
+  digitalWrite(LED_PIN, LOW);
+  delay(2000);
+
+  // Ciclo 2 — 5 segundos
+  digitalWrite(LED_PIN, HIGH);
+  delay(5000);
+  digitalWrite(LED_PIN, LOW);
+  delay(5000);
+
+  // Ciclo 3 — 10 segundos
+  digitalWrite(LED_PIN, HIGH);
+  delay(10000);
+  digitalWrite(LED_PIN, LOW);
+  delay(10000);
+}`,product:`Programa_02_Delay guardado en Wokwi con los 3 ciclos de 2, 5 y 10 segundos verificados con el reloj del celular.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Pedir que calculen en la libreta antes de escribir el código — la tabla de la libreta ya la tienen. El error más común es delay(2), delay(5), delay(10) sin multiplicar. Dejar que lo vean en el simulador: el LED parpadea tan rápido que parece siempre encendido. Quien termine antes: hacer que el LED parpadee exactamente 1 minuto en cada ciclo (delay(60000)).`},{time:`Hora 2`,title:`Semáforo con 3 LEDs controlado por Serial Monitor`,theory:`Un semáforo solo puede mostrar un estado a la vez — rojo, amarillo o verde. En código esto se traduce en: apagar todos los LEDs y encender solo el que corresponde al comando recibido. El Serial Monitor actúa hoy como el teléfono: envía un carácter y el ESP32 reacciona. Para controlar 3 LEDs independientes necesitamos 3 pines GPIO diferentes y una función apagar_todos() que garantice que solo un LED esté activo en cada momento.`,notebook:`Título: Semáforo con ESP32.
 1. Dibuja el circuito: ESP32 con 3 LEDs (rojo pin 25, amarillo pin 26, verde pin 27).
 2. ¿Por qué hay que apagar todos los LEDs antes de encender el que corresponde?
 3. ¿Qué pasa si no apagas los otros antes de encender el nuevo?
 4. Escribe la tabla de comandos: R → LED rojo, Y → LED amarillo, G → LED verde.
-5. ¿Qué reemplazaría al Serial Monitor cuando tengamos el ESP32 físico?`,practice:`1. Abrir el proyecto Wokwi del lunes.
-2. Agregar 2 LEDs más (amarillo y verde) con sus resistencias 220Ω.
+5. ¿Qué reemplazaría al Serial Monitor cuando tengamos el ESP32 físico?`,practice:`1. Crear un nuevo proyecto en Wokwi → seleccionar ESP32.
+2. Agregar 3 LEDs (rojo, amarillo, verde) con sus resistencias 220Ω.
 3. Conectar: LED rojo → pin 25, LED amarillo → pin 26, LED verde → pin 27.
-4. Reemplazar el código Blink con el sketch del semáforo.
+4. Escribir el sketch del semáforo.
 5. Presionar ▶ y abrir el Serial Monitor.
 6. Probar cada comando:
    - Escribir 'R' → solo LED rojo enciende.
@@ -224,4 +255,198 @@ void loop() {
     Serial.print("Comando: ");
     Serial.println(cmd);
   }
-}`,product:`Semáforo de 3 LEDs funcional en Wokwi respondiendo a comandos R, Y, G desde el Serial Monitor. Proyecto guardado.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La función apagar_todos() es el concepto clave — enseña a resetear el estado antes de aplicar el nuevo. Si alguien pregunta por qué no solo encender el nuevo sin apagar, demostrar en vivo qué pasa: los LEDs quedan encendidos simultáneamente. Quien termine antes: agregar un comando 'A' que haga el ciclo automático rojo→amarillo→verde con delay(1000) dentro de un else.`}],cierre:`Tres LEDs, tres comandos, una función que lo mantiene limpio. Esa es la lógica que el Bluetooth usará.`,frase_docente:`Resetear antes de actuar — en código y en la vida.`},{id:`thu`,label:`Jueves — Pendiente según avance`,purpose:`Sesión flexible — se definirá según el avance del grupo en la semana.`,hours:[]}]},W10:{days:[]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,k.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,k.jsx)(`p`,{children:e},t))})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Fe=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Pe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Ie=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Pe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Le=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Re=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Pe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Pe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),ze=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Le,{days:s.days,activeIndex:c,onSelect:x}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Ie,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Fe,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Re,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},Be=`2024`,Ve=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===Be?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},He=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ue(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:`W09`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(ze,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:He})]}),u&&(0,k.jsx)(Ve,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ue,{})}));
+}`,product:`Semáforo de 3 LEDs funcional en Wokwi respondiendo a comandos R, Y, G desde el Serial Monitor. Proyecto guardado.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La función apagar_todos() es el concepto clave — enseña a resetear el estado antes de aplicar el nuevo. Si alguien pregunta por qué no solo encender el nuevo sin apagar, demostrar en vivo qué pasa: los LEDs quedan encendidos simultáneamente. Quien termine antes: agregar un comando 'A' que haga el ciclo automático rojo→amarillo→verde con delay(1000) dentro de un else.`}],cierre:`Convertiste milisegundos en segundos reales y escalaste de 1 LED a 3. La lógica de estado del semáforo es exactamente la que usará el Bluetooth.`,frase_docente:`Resetear antes de actuar — en código y en la vida.`},{id:`thu`,label:`Jueves — Control de LED por Serial Monitor`,purpose:`Implementar y depurar el control de un LED mediante comandos de texto enviados desde el Serial Monitor, entendiendo cómo el ESP32 lee, interpreta y responde a cada instrucción.`,hours:[{time:`Hora 1`,title:`Práctica 1: Control de LED por comandos Serial`,theory:`El Serial Monitor funciona como un canal de comunicación entre la computadora y el ESP32. Serial.begin(115200) abre ese canal a 115200 baudios — si el monitor tiene una velocidad diferente, los caracteres llegan como basura. Serial.available() devuelve cuántos bytes están esperando en el buffer: si es mayor a 0, hay un dato listo. Serial.read() toma ese byte y lo guarda como un char (carácter). El programa compara ese carácter con '1', '0' o 'p' y ejecuta la acción correspondiente — exactamente como lo hará el Bluetooth más adelante.`,notebook:`Título: Control de LED por Serial.
+Copia y explica cada instrucción:
+1. Serial.begin(115200) → ________________________________
+2. pinMode(LED_PIN, OUTPUT) → ________________________________
+3. digitalWrite(LED_PIN, LOW) → ________________________________
+4. if (Serial.available()) → ________________________________
+5. char comando = Serial.read() → ________________________________
+6. if (comando == '1') → ________________________________
+7. for (int i = 0; i < 3; i++) → ________________________________
+8. ¿Por qué ignoramos '\\n', '\\r' y ' '? → ________________________________`,practice:`1. Abrir Wokwi y crear un nuevo proyecto ESP32.
+2. Agregar un LED con resistencia 220Ω conectado al GPIO 2.
+3. Copiar el código de Práctica 1 en el editor.
+4. Presionar ▶ para iniciar la simulación.
+5. Abrir el Serial Monitor — verificar que la velocidad es 115200.
+6. Si aparece texto ilegible (??? o símbolos raros): el baud rate está mal — corregirlo.
+7. Probar los 3 comandos:
+   - Enviar '1' → LED enciende + mensaje '✓ LED encendido'
+   - Enviar '0' → LED apaga + mensaje '✓ LED apagado'
+   - Enviar 'p' → LED parpadea 3 veces + mensajes
+8. Probar un comando inválido (por ejemplo 'x') → verificar que aparece '✗ Comando desconocido'
+9. Guardar el proyecto como 'Control_LED_Serial_P1'.`,code:`// Práctica 1 — Control de LED por comandos
+// Completa los espacios en blanco
+
+const int LED_PIN = ;  // ¿qué pin?
+
+void setup() {
+  Serial.begin( );      // ¿cuántos baudios?
+  pinMode(LED_PIN, );
+  digitalWrite(LED_PIN, );  // empieza apagado
+
+  Serial.println("Envía '1' para encender el LED");
+  Serial.println("Envía '0' para apagar el LED");
+  Serial.println("Envía 'p' para parpadear 3 veces");
+}
+
+void loop() {
+  if (Serial.    ()) {       // ¿hay datos?
+    char comando = Serial.  ();
+
+    if (comando == ' ') {          // encender
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("✓ LED encendido");
+    } 
+    else if (comando == ' ') {     // apagar
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("✓ LED apagado");
+    }
+    else if (comando == ' ') {     // parpadear
+      for (int i = 0; i < 3; i++) {
+        digitalWrite(LED_PIN, HIGH);
+        delay(300);
+        digitalWrite(LED_PIN, LOW);
+        delay(300);
+      }
+    }
+  }
+}`,codeRef:`// Práctica 1 — Control de LED por comandos
+// Versión Serial (simula el Bluetooth para aprender en Wokwi)
+
+const int LED_PIN = 2;  // GPIO donde está conectado el LED
+
+void setup() {
+  Serial.begin(115200);           // Inicia comunicación serial a 115200 baudios
+  pinMode(LED_PIN, OUTPUT);       // Configura el pin como salida
+  digitalWrite(LED_PIN, LOW);     // El LED empieza apagado
+
+  Serial.println("=================================");
+  Serial.println("  Control de LED - Práctica 1");
+  Serial.println("=================================");
+  Serial.println("Envía '1' para encender el LED");
+  Serial.println("Envía '0' para apagar el LED");
+  Serial.println("Envía 'p' para parpadear 3 veces");
+  Serial.println("---------------------------------");
+}
+
+void loop() {
+  if (Serial.available()) {
+    char comando = Serial.read();
+
+    if (comando == '1') {
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("✓ LED encendido");
+    } 
+    else if (comando == '0') {
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("✓ LED apagado");
+    }
+    else if (comando == 'p') {
+      Serial.println("✓ Parpadeando...");
+      for (int i = 0; i < 3; i++) {
+        digitalWrite(LED_PIN, HIGH);
+        delay(300);
+        digitalWrite(LED_PIN, LOW);
+        delay(300);
+      }
+      Serial.println("  ...listo");
+    }
+    else if (comando != '\\n' && comando != '\\r' && comando != ' ') {
+      Serial.print("✗ Comando desconocido: '");
+      Serial.print(comando);
+      Serial.println("'");
+    }
+  }
+}`,product:`Proyecto Control_LED_Serial_P1 funcionando en Wokwi: los 3 comandos responden correctamente y el Serial Monitor muestra los mensajes de confirmación.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El problema más frecuente es que el Serial Monitor esté en 9600 baudios en lugar de 115200 — los caracteres llegan como '???'. Pedir que lo corrijan antes de empezar a depurar el código. El segundo error común: no abrir el Serial Monitor después de iniciar la simulación (el menú de Wokwi). Recordar que '\\n' y '\\r' son los caracteres invisibles que agrega el Enter — sin ignorarlos, el ESP32 responde 'comando desconocido' después de cada comando válido.`},{time:`Hora 2`,title:`Práctica 2: Dos LEDs independientes`,theory:`Cuando conectamos varios LEDs a distintos pines GPIO, cada uno se declara con su propia variable y se configura por separado en el setup(). Lo importante es que los comandos ahora deben identificar a CUÁL LED afectar — por eso '1' controla LED1, '2' controla LED2, 'b' los enciende a ambos y '0' apaga todo. Este patrón de múltiples salidas es la base del semáforo y de cualquier sistema con más de un actuador.`,notebook:`Título: Dos LEDs, dos pines, un programa.
+1. ¿En qué pin va LED1 y en qué pin va LED2? → ________________________________
+2. ¿Qué comando enciende solo LED1? → ________________________________
+3. ¿Qué comando enciende solo LED2? → ________________________________
+4. ¿Qué hace el comando 'b'? → ________________________________
+5. ¿Qué hace el comando '0'? → ________________________________
+6. Si envías '1' y luego '2' sin enviar '0', ¿qué LEDs están encendidos? → ________________________________`,practice:`1. Mantener el LED1 del GPIO 2 del proyecto anterior.
+2. Agregar un segundo LED con resistencia 220Ω conectado al GPIO 4.
+3. Copiar el código de Práctica 2 en el editor.
+4. Presionar ▶ y abrir el Serial Monitor (115200 baudios).
+5. Probar los 4 comandos en orden:
+   - Enviar '1' → solo LED1 enciende
+   - Enviar '2' → solo LED2 enciende
+   - Enviar 'b' → ambos LEDs encienden
+   - Enviar '0' → ambos LEDs apagan
+6. Probar combinaciones: '1' luego '2' — ¿qué pasa?
+7. Guardar como 'Control_LED_Serial_P2'.`,code:`// Práctica 2 — Dos LEDs independientes
+// Completa los espacios en blanco
+
+const int LED1 = 2;
+const int LED2 = ;   // ¿qué pin?
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, );
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, );
+  Serial.println("'1'=LED1  '2'=LED2  'b'=ambos  '0'=todo apagado");
+}
+
+void loop() {
+  if (Serial.available()) {
+    char cmd = Serial.read();
+
+    if (cmd == '1') {
+      digitalWrite(LED1, );
+      Serial.println("✓ LED1 encendido");
+    }
+    else if (cmd == '2') {
+      digitalWrite(LED2, );
+      Serial.println("✓ LED2 encendido");
+    }
+    else if (cmd == 'b') {
+      digitalWrite(LED1, );
+      digitalWrite(LED2, );
+      Serial.println("✓ Ambos encendidos");
+    }
+    else if (cmd == '0') {
+      digitalWrite(LED1, LOW);
+      digitalWrite(LED2, );
+      Serial.println("✓ Todo apagado");
+    }
+  }
+}`,codeRef:`// Práctica 2 — Dos LEDs independientes
+
+const int LED1 = 2;
+const int LED2 = 4;
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  Serial.println("'1'=LED1  '2'=LED2  'b'=ambos  '0'=todo apagado");
+}
+
+void loop() {
+  if (Serial.available()) {
+    char cmd = Serial.read();
+
+    if (cmd == '1') {
+      digitalWrite(LED1, HIGH);
+      Serial.println("✓ LED1 encendido");
+    }
+    else if (cmd == '2') {
+      digitalWrite(LED2, HIGH);
+      Serial.println("✓ LED2 encendido");
+    }
+    else if (cmd == 'b') {
+      digitalWrite(LED1, HIGH);
+      digitalWrite(LED2, HIGH);
+      Serial.println("✓ Ambos encendidos");
+    }
+    else if (cmd == '0') {
+      digitalWrite(LED1, LOW);
+      digitalWrite(LED2, LOW);
+      Serial.println("✓ Todo apagado");
+    }
+  }
+}`,product:`Proyecto Control_LED_Serial_P2 con dos LEDs respondiendo a comandos independientes desde el Serial Monitor.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La pregunta clave de la práctica 6 (enviar '1' luego '2') revela si los alumnos entienden que los comandos no apagan los demás LEDs — ambos quedan encendidos. Esto introduce la necesidad de 'apagar todo antes de encender' que usará el semáforo. Quien termine antes: agregar un comando 'a' que alterne los LEDs (si LED1 está encendido → apagarlo y encender LED2, y viceversa).`}],cierre:`De 1 LED a 2, de 3 comandos a 4. Cada nuevo pin es un nuevo actuador que el ESP32 puede controlar de forma independiente.`,frase_docente:`Un programa que escucha es más poderoso que uno que solo ejecuta.`}]},W10:{days:[]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,k.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,k.jsx)(`p`,{children:e},t))})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Fe=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Pe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Ie=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Pe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Le=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Re=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Pe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Pe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),ze=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Le,{days:s.days,activeIndex:c,onSelect:x}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Ie,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Fe,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Re,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},Be=`2024`,Ve=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===Be?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},He=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ue(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:`W09`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(ze,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:He})]}),u&&(0,k.jsx)(Ve,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ue,{})}));
