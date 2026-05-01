@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #58a6ff; margin-bottom: 18px; }
+  .panels { display: flex; gap: 20px; flex-wrap: wrap; }
+  .panel {
+    flex: 1; min-width: 260px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .panel h3 { font-size: 12px; margin-bottom: 12px; }
+  .bad  h3 { color: #f85149; }
+  .good h3 { color: #3fb950; }
+  canvas { width: 100%; border-radius: 6px; background: #0d1117; display: block; }
+  .desc { margin-top: 12px; font-size: 10px; color: #8b949e; line-height: 1.6; }
+  .desc strong { color: #e6edf3; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px; border-radius: 12px;
+    font-size: 10px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .tag-bad  { background: #3d1a1a; color: #f85149; }
+  .tag-good { background: #1a3a1a; color: #3fb950; }
+  .steps { margin-top: 14px; }
+  .step {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 10px;
+    background: #21262d;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    color: #8b949e;
+  }
+  .step-num {
+    background: #30363d;
+    border-radius: 50%;
+    width: 18px; height: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; color: #e6edf3;
+    flex-shrink: 0;
+  }
+  code { color: #79c0ff; font-size: 10px; }
+</style>
+</head>
+<body>
+<h2>⚡ Programa 05 — El rebote del botón: sin debounce vs con debounce</h2>
+
+<div class="panels">
+  <!-- SIN DEBOUNCE -->
+  <div class="panel bad">
+    <span class="tag tag-bad">❌ Sin debounce</span>
+    <h3>Señal real del botón (zoom extremo)</h3>
+    <canvas id="bad" width="300" height="100"></canvas>
+    <p class="desc">
+      Presionas <strong>1 vez</strong> → el ESP32 detecta <strong>8–15 flancos</strong> en los primeros ~5 ms por el rebote mecánico.<br>
+      Resultado: el contador sube varios números con un solo clic.
+    </p>
+  </div>
+
+  <!-- CON DEBOUNCE -->
+  <div class="panel good">
+    <span class="tag tag-good">✅ Con debounce (delay 50 ms)</span>
+    <h3>Señal filtrada</h3>
+    <canvas id="good" width="300" height="100"></canvas>
+    <p class="desc">
+      Después de detectar el flanco, esperamos <strong>50 ms</strong> y confirmamos.<br>
+      El rebote ya terminó — el ESP32 cuenta exactamente <strong>1 pulsación</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="steps" style="margin-top:20px">
+  <div class="step">
+    <span class="step-num">1</span>
+    <span>Detectar <strong>flanco descendente</strong>: <code>anteriorEstado == HIGH && estadoActual == LOW</code></span>
+  </div>
+  <div class="step">
+    <span class="step-num">2</span>
+    <span>Esperar: <code>delay(50);</code> — el rebote dura ~5 ms, 50 ms garantiza que terminó</span>
+  </div>
+  <div class="step">
+    <span class="step-num">3</span>
+    <span>Confirmar: <code>if (digitalRead(BOTON_PIN) == LOW)</code> — si sigue presionado, es real</span>
+  </div>
+  <div class="step">
+    <span class="step-num">4</span>
+    <span>Ejecutar la acción: <code>contador++;</code> — solo una vez por pulsación real</span>
+  </div>
+</div>
+
+<script>
+function drawBad(id) {
+  const c = document.getElementById(id);
+  const ctx = c.getContext('2d');
+  c.width = c.offsetWidth * 2; c.height = 100;
+  const w = c.width, h = c.height;
+  ctx.fillStyle = '#0d1117'; ctx.fillRect(0,0,w,h);
+
+  ctx.strokeStyle = '#f85149'; ctx.lineWidth = 2;
+  ctx.beginPath();
+
+  // idle HIGH
+  let x = 0, y = 20;
+  ctx.moveTo(x, y);
+  x = w * 0.2; ctx.lineTo(x, y);
+
+  // bouncing sequence
+  const bounces = [
+    [0,80],[5,20],[8,80],[12,20],[15,80],[18,20],[20,80],[22,20],[24,80],[26,20],
+    [28,80],[40,80]
+  ];
+  bounces.forEach(([dx, ny]) => {
+    x += dx * (w / 400);
+    ctx.lineTo(x, ny);
+  });
+  // stable LOW
+  ctx.lineTo(w * 0.7, 80);
+  // release bounce
+  const rel = [[0,20],[4,80],[7,20],[10,80],[13,20]];
+  rel.forEach(([dx, ny]) => {
+    x = w * 0.7 + dx * (w / 400);
+    ctx.lineTo(x, ny);
+  });
+  ctx.lineTo(w, 20);
+  ctx.stroke();
+
+  // labels
+  ctx.fillStyle = '#8b949e'; ctx.font = `${w/30}px Segoe UI`;
+  ctx.fillText('HIGH', 4, 18);
+  ctx.fillText('LOW',  4, 92);
+
+  // rebote bracket
+  ctx.strokeStyle = '#f8514966'; ctx.lineWidth = 1;
+  ctx.setLineDash([3,3]);
+  ctx.strokeRect(w*0.19, 10, w*0.2, 80);
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#f85149'; ctx.font = `${w/35}px Segoe UI`;
+  ctx.fillText('rebote ~5ms', w*0.2, 8);
+}
+
+function drawGood(id) {
+  const c = document.getElementById(id);
+  const ctx = c.getContext('2d');
+  c.width = c.offsetWidth * 2; c.height = 100;
+  const w = c.width, h = c.height;
+  ctx.fillStyle = '#0d1117'; ctx.fillRect(0,0,w,h);
+
+  ctx.strokeStyle = '#3fb950'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, 20);
+  ctx.lineTo(w*0.25, 20);
+  ctx.lineTo(w*0.25, 80);
+  ctx.lineTo(w*0.65, 80);
+  ctx.lineTo(w*0.65, 20);
+  ctx.lineTo(w, 20);
+  ctx.stroke();
+
+  // delay zone
+  ctx.fillStyle = '#3fb95022';
+  ctx.fillRect(w*0.25, 10, w*0.08, 80);
+  ctx.fillStyle = '#3fb950'; ctx.font = `${w/40}px Segoe UI`;
+  ctx.fillText('delay(50)', w*0.255, 8);
+  ctx.fillText('✓ confirmado', w*0.34, 50);
+
+  ctx.fillStyle = '#8b949e'; ctx.font = `${w/30}px Segoe UI`;
+  ctx.fillText('HIGH', 4, 18);
+  ctx.fillText('LOW',  4, 92);
+}
+
+drawBad('bad');
+drawGood('good');
+</script>
+</body>
+</html>

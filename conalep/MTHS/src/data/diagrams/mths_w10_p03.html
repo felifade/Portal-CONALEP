@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    font-family: 'Segoe UI', sans-serif;
+    color: #e6edf3;
+    padding: 24px;
+  }
+  h2 { font-size: 15px; color: #58a6ff; margin-bottom: 18px; letter-spacing: .5px; }
+  .diagram { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+  .circuit {
+    position: relative;
+    width: 340px;
+    height: 300px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  /* ESP32 */
+  .esp32 {
+    position: absolute;
+    left: 120px; top: 80px;
+    width: 100px; height: 140px;
+    background: #1a3a1a;
+    border: 2px solid #3fb950;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #3fb950;
+    letter-spacing: 1px;
+  }
+  .pin {
+    position: absolute;
+    font-size: 9px;
+    color: #8b949e;
+    white-space: nowrap;
+  }
+  /* Pines izquierda (botón) */
+  .pin-gnd-l  { left: 6px; top: 108px; }
+  .pin-gpio4  { left: 6px; top: 128px; }
+  /* Pines derecha (LED) */
+  .pin-gpio2  { right: 6px; top: 108px; }
+  .pin-gnd-r  { right: 6px; top: 128px; }
+
+  /* Botón */
+  .btn-body {
+    position: absolute;
+    left: 30px; top: 108px;
+    width: 28px; height: 28px;
+    background: #21262d;
+    border: 2px solid #58a6ff;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #58a6ff;
+  }
+  .btn-label {
+    position: absolute;
+    left: 18px; top: 142px;
+    font-size: 9px; color: #8b949e;
+  }
+
+  /* LED */
+  .led-body {
+    position: absolute;
+    right: 30px; top: 104px;
+    width: 20px; height: 28px;
+  }
+  .led-triangle {
+    width: 0; height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 18px solid #f85149;
+    margin: 0 auto;
+  }
+  .led-line {
+    width: 2px; height: 10px;
+    background: #f85149;
+    margin: 0 auto;
+  }
+  .led-label {
+    position: absolute;
+    right: 18px; top: 138px;
+    font-size: 9px; color: #8b949e;
+  }
+
+  /* Resistencia */
+  .res-body {
+    position: absolute;
+    right: 58px; top: 112px;
+    width: 16px; height: 18px;
+    background: #21262d;
+    border: 1.5px solid #d29922;
+    border-radius: 3px;
+  }
+  .res-label {
+    position: absolute;
+    right: 54px; top: 134px;
+    font-size: 9px; color: #d29922;
+  }
+
+  /* Cables SVG */
+  svg.wires {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  /* Info lateral */
+  .info { flex: 1; min-width: 200px; }
+  .info-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+  }
+  .info-icon { font-size: 18px; flex-shrink: 0; }
+  .info-text h4 { font-size: 11px; color: #58a6ff; margin-bottom: 3px; }
+  .info-text p  { font-size: 10px; color: #8b949e; line-height: 1.5; }
+
+  .chip-label {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+  }
+  .chip-label span { display: block; }
+</style>
+</head>
+<body>
+<h2>🔌 Circuito — Programas 03 y 04: Botón + LED con ESP32</h2>
+
+<div class="diagram">
+  <div class="circuit">
+    <!-- Pines -->
+    <span class="pin pin-gnd-l">GND</span>
+    <span class="pin pin-gpio4">GPIO 4</span>
+    <span class="pin pin-gpio2">GPIO 2</span>
+    <span class="pin pin-gnd-r">GND</span>
+
+    <!-- ESP32 -->
+    <div class="esp32">
+      <div class="chip-label">
+        <span>ESP</span>
+        <span>32</span>
+      </div>
+    </div>
+
+    <!-- Botón -->
+    <div class="btn-body">▣</div>
+    <span class="btn-label">BTN</span>
+
+    <!-- Resistencia -->
+    <div class="res-body"></div>
+    <span class="res-label">220Ω</span>
+
+    <!-- LED -->
+    <div class="led-body">
+      <div class="led-triangle"></div>
+      <div class="led-line"></div>
+    </div>
+    <span class="led-label">LED</span>
+
+    <!-- Cables -->
+    <svg class="wires">
+      <!-- GPIO4 → Botón (azul) -->
+      <line x1="120" y1="135" x2="58" y2="122" stroke="#58a6ff" stroke-width="2"/>
+      <!-- Botón → GND (gris) -->
+      <polyline points="44,136 44,230 160,230 160,220" fill="none" stroke="#8b949e" stroke-width="2"/>
+      <!-- GPIO2 → Resistencia (naranja) -->
+      <line x1="220" y1="121" x2="294" y2="121" stroke="#f0883e" stroke-width="2"/>
+      <!-- Resistencia → LED (naranja) -->
+      <line x1="310" y1="121" x2="295" y2="114" stroke="#f0883e" stroke-width="2"/>
+      <!-- LED → GND (gris) -->
+      <polyline points="305,132 305,220 240,220 240,135" fill="none" stroke="#8b949e" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="info">
+    <div class="info-row">
+      <span class="info-icon">🔵</span>
+      <div class="info-text">
+        <h4>Botón → GPIO 4 + GND</h4>
+        <p>Un terminal al GPIO 4, el otro a GND. Sin resistencia externa — usa <strong>INPUT_PULLUP</strong> interna del ESP32.</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <span class="info-icon">🟠</span>
+      <div class="info-text">
+        <h4>LED → GPIO 2 con resistencia 220Ω</h4>
+        <p>GPIO 2 → resistencia 220Ω → ánodo LED (+) → cátodo LED (–) → GND.</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <span class="info-icon">⚠️</span>
+      <div class="info-text">
+        <h4>Lógica invertida con INPUT_PULLUP</h4>
+        <p><strong>LOW</strong> = botón presionado<br><strong>HIGH</strong> = botón suelto</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <span class="info-icon">🔑</span>
+      <div class="info-text">
+        <h4>Código clave</h4>
+        <p><code style="color:#79c0ff;font-size:10px">pinMode(BOTON_PIN, INPUT_PULLUP);</code><br>
+        <code style="color:#79c0ff;font-size:10px">digitalRead(BOTON_PIN) == LOW</code></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
