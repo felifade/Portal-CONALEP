@@ -847,7 +847,274 @@ footer p {
 1. ¿Cuántas horas diarias trabajaban los obreros antes de 1886?
 2. ¿Qué pedían los trabajadores en la huelga de Chicago?
 3. ¿Por qué crees que esta fecha se recuerda en todo el mundo?
-4. ¿Qué derechos laborales existen hoy que antes no existían?`,practice:`Día de descanso — no hay práctica en PC.`,product:`Descanso merecido. Nos vemos la próxima semana.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Sin sesión. Si quieres, comparte la reflexión de libreta como actividad voluntaria por plataforma.`}],cierre:`Los derechos que tenemos hoy alguien los ganó ayer. Descansa y nos vemos la próxima semana.`,frase_docente:`Detrás de cada derecho laboral hay una historia de valentía.`},{id:`dual`,label:`Repositorio de Actividades Duales (Semana 09)`,activities:[{title:`Lunes — CSS completo en todo el sitio`,instruction:`Usa esta infografía como guía rápida durante la sesión: revisa las reglas CSS vistas en clase y verifica que tu style.css las incluya todas antes de cerrar el proyecto.`,image:`dewe_w09_info01.png`},{title:`Jueves — Nav y Footer con CSS`,instruction:`Consulta esta infografía para estilizar tu nav y footer: verifica que el color de fondo coincida en ambos, que los enlaces tengan hover y que la clase .activo esté en el enlace correcto de cada página.`,image:`dewe_w09_info02.png`}]}]},W10:{days:[]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},we=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=we()}))(),Te=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ee=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Te.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},De=Ce.ras.flatMap(e=>e.weeks.map(e=>e.id)),Oe=Object.fromEntries(Ce.cortes.map(e=>[e.id,e])),ke=Ce.ras,Ae=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=De.indexOf(i),u=e=>!(De.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ce.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,k.jsxs)(k.Fragment,{children:[s&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,k.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(`div`,{className:`main-nav-section`,children:(0,k.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,k.jsx)(O,{size:15,className:`doc-icon`}),`Laboratorio de Código`]})}),(0,k.jsx)(Ee,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),ke.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Oe[n.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,k.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,k.jsx)(_e,{size:10,className:`lock-icon`}),s&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},je=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Me=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,k.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,k.jsx)(`p`,{children:e},t))})},Ne={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(xe,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(Se,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(be,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(he,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Pe=({type:e,children:t})=>{let n=Ne[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Fe=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Ie=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Le=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Me,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Ie,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Re=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Ie,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Me,{text:e.instruction})})]},n))})]})},ze=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Pe,{type:`theory`,children:(0,k.jsx)(Me,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Pe,{type:`notebook`,children:(0,k.jsx)(Me,{text:e.notebook})}),e.practice&&(0,k.jsx)(Pe,{type:`practice`,children:(0,k.jsx)(Me,{text:e.practice})})]}),e.code&&(0,k.jsx)(Fe,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Fe,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Pe,{type:`product`,children:(0,k.jsx)(Me,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[Ne.screenshot.icon,` `,Ne.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Ie,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Ie,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[Ne.teacher.icon,` `,Ne.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Me,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=je(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(ze,{days:s.days,activeIndex:c,onSelect:x}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Re,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Le,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Me,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Me,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He={html:`<h1>¡Hola Grupo 601!</h1>
+4. ¿Qué derechos laborales existen hoy que antes no existían?`,practice:`Día de descanso — no hay práctica en PC.`,product:`Descanso merecido. Nos vemos la próxima semana.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Sin sesión. Si quieres, comparte la reflexión de libreta como actividad voluntaria por plataforma.`}],cierre:`Los derechos que tenemos hoy alguien los ganó ayer. Descansa y nos vemos la próxima semana.`,frase_docente:`Detrás de cada derecho laboral hay una historia de valentía.`},{id:`dual`,label:`Repositorio de Actividades Duales (Semana 09)`,activities:[{title:`Lunes — CSS completo en todo el sitio`,instruction:`Usa esta infografía como guía rápida durante la sesión: revisa las reglas CSS vistas en clase y verifica que tu style.css las incluya todas antes de cerrar el proyecto.`,image:`dewe_w09_info01.png`},{title:`Jueves — Nav y Footer con CSS`,instruction:`Consulta esta infografía para estilizar tu nav y footer: verifica que el color de fondo coincida en ambos, que los enlaces tengan hover y que la clase .activo esté en el enlace correcto de cada página.`,image:`dewe_w09_info02.png`}]}]},W10:{materia:`dewe`,weekId:`W10`,days:[{id:`mon`,label:`Lunes — 🎖️ 5 de Mayo: Batalla de Puebla (Suspensión)`,purpose:`No hay clases. Conmemoración del 5 de Mayo — Batalla de Puebla (1862).`,hours:[{time:`📅 Sin sesión`,title:`🎖️ 5 de Mayo — Batalla de Puebla`,theory:`El 5 de mayo de 1862, el ejército mexicano derrotó a las fuerzas francesas en los Fuertes de Loreto y Guadalupe, en Puebla. 🇲🇽
+
+⚔️ EL CONTEXTO
+México estaba en ruinas económicas. El presidente Benito Juárez había suspendido el pago de deudas externas, lo que provocó que Francia, Inglaterra y España enviaran tropas. Inglaterra y España negociaron y se retiraron — Francia decidió quedarse y conquistar el país.
+
+🪖 LOS NÚMEROS
+Francia tenía el ejército más poderoso del mundo en esa época, con más de 6,000 soldados bien entrenados y equipados. México defendió Puebla con aproximadamente 2,000 hombres bajo el mando del General Ignacio Zaragoza, muchos de ellos indígenas zapotecos de Oaxaca.
+
+🏆 LA VICTORIA
+A pesar de la desventaja, el ejército mexicano resistió dos ataques frontales y derrotó a los franceses. Zaragoza escribió al gobierno: 'Las armas nacionales se han cubierto de gloria.' Murieron alrededor de 500 franceses por menos de 100 mexicanos.
+
+📌 LO QUE MUCHA GENTE NO SABE
+- ❌ El 5 de Mayo NO es el Día de la Independencia de México — ese es el 16 de Septiembre.
+- 🇺🇸 Se celebra más en Estados Unidos (especialmente en comunidades mexicanas) que en México.
+- 😔 La victoria fue temporal: un año después Francia regresó con 30,000 soldados, tomó la capital y estableció el Segundo Imperio Mexicano bajo Maximiliano I.
+- 🌟 Aun así, la batalla demostró que México podía resistir y se convirtió en símbolo de valentía nacional.
+
+🗺️ PUEBLA HOY
+La ciudad de Puebla celebra el 5 de mayo con desfiles militares, recreaciones históricas en los fuertes y es feriado oficial en el estado. En el resto de México es día de suspensión de actividades escolares.`,notebook:`Reflexión (opcional):
+1. ¿Por qué crees que México ganó la batalla a pesar de estar en desventaja numérica?
+2. ¿Qué diferencia hay entre el 5 de Mayo y el 16 de Septiembre?
+3. ¿Por qué crees que el 5 de Mayo se celebra más en Estados Unidos que en México?
+4. ¿Qué tiene en común esta batalla con la actitud de nunca rendirse ante un reto difícil?`,practice:`Día de suspensión — no hay práctica en PC.`,product:`Descanso merecido. Regresamos el jueves.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Sin sesión. La reflexión de libreta puede asignarse como actividad voluntaria. El punto 4 conecta la historia con la actitud frente a retos académicos — útil para motivar al grupo.`}],cierre:`Una victoria contra todo pronóstico. A veces la preparación y el valor pesan más que los números.`,frase_docente:`Las armas nacionales se han cubierto de gloria. — General Ignacio Zaragoza, 5 de mayo de 1862.`},{id:`thu`,label:`Jueves — 📺 Black Mirror: El Himno Nacional`,purpose:`Paréntesis reflexivo: analizar cómo las redes sociales, el morbo colectivo y la presión mediática condicionan el comportamiento humano, usando el primer episodio de Black Mirror como detonador.`,hours:[{time:`Hora 1`,title:`📺 Proyección — Black Mirror T1E1: 'El Himno Nacional'`,theory:`⚠️ CONTENIDO PARA ADULTOS — El episodio contiene situaciones perturbadoras. Su propósito es detonar una reflexión sobre el poder de los medios y las redes sociales.
+
+Black Mirror es una serie británica creada por Charlie Brooker que explora los efectos oscuros de la tecnología en la sociedad. Cada episodio es una historia independiente. El primer episodio, 'The National Anthem' (2011), fue tan polémico que muchos creyeron que era real cuando se estrenó.
+
+🎬 DE QUÉ TRATA:
+El Primer Ministro del Reino Unido recibe una amenaza: si no realiza un acto humillante en vivo en televisión nacional, una princesa secuestrada morirá. Mientras el gobierno busca opciones, el video de la amenaza se filtra en redes sociales y se vuelve viral en minutos. La opinión pública cambia hora a hora. Los medios deciden si transmitir o no. El mundo entero observa.`,notebook:`Anota mientras ves:
+1. ¿Cuánto tiempo tardó el video filtrado en volverse viral?
+2. ¿Qué hacía la gente en la calle vs. qué hacía frente a sus pantallas?
+3. ¿En qué momento cambia la opinión pública y por qué?
+4. Anota una escena que te haya impactado y por qué.`,practice:`Proyección del episodio. Duración: 53 minutos.`,product:`Notas personales durante la proyección para usar en la reflexión de Hora 2.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Avisar antes de iniciar que el episodio tiene contenido perturbador y que el propósito es académico. No revelar el final. Detener 5 min antes de que termine para que anoten su predicción de cómo va a terminar — genera más discusión.`},{time:`Hora 2`,title:`✍️ Reflexión en libreta — Lo que el episodio nos dice de nosotros`,theory:`El episodio no es sobre el Primer Ministro ni sobre la princesa. Es sobre nosotros: los que compartimos, los que vemos, los que opinamos desde la comodidad de una pantalla. Charlie Brooker dijo que la idea surgió de observar cómo la indignación en redes dura exactamente lo que tarda en llegar la siguiente noticia.`,notebook:`Responde con honestidad — no hay respuestas correctas o incorrectas:
+1. ¿Por qué crees que las calles estaban vacías en el momento del evento pero todos lo estaban viendo?
+2. Si el video hubiera aparecido en tu feed, ¿lo habrías compartido? ¿Por qué sí o por qué no?
+3. ¿Crees que los medios tomaron la decisión correcta al transmitirlo? ¿Qué habrías hecho tú?
+4. El raptor liberó a la princesa 30 minutos antes del evento — y aun así el evento ocurrió. ¿Por qué nadie lo detuvo?
+5. ¿Hay diferencia entre ver algo terrible en una pantalla y verlo en persona? ¿Esa diferencia nos hace más o menos responsables?
+6. ¿Recuerdas algún momento en redes donde la gente se indignó masivamente y a la semana nadie hablaba del tema?
+7. Si esto ocurriera hoy con TikTok e Instagram, ¿sería diferente? ¿Más rápido, más lento, más o menos cruel?`,practice:`No hay práctica en PC. La actividad es la reflexión escrita en libreta.`,product:`7 respuestas escritas en libreta con criterio propio y argumentadas.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: No conducir hacia una 'respuesta correcta' — el valor está en que argumenten. La pregunta 4 (¿por qué nadie lo detuvo si ya estaba libre?) suele generar la discusión más rica: momentum social, inercia mediática, nadie quería ser el primero en parar. La pregunta 5 conecta con la desensibilización digital. Si el tiempo lo permite, abrir 3-4 preguntas a discusión grupal antes de que las escriban.`}],cierre:`La tecnología no cambió quiénes somos — reveló quiénes siempre fuimos. Eso es Black Mirror.`,frase_docente:`La pantalla no nos hace mejores ni peores personas. Solo nos hace más visibles.`},{id:`fri`,label:`Viernes — 🟡 Introducción a JavaScript`,purpose:`Dar el primer contacto con JavaScript: qué es, cómo se conecta con HTML, y escribir los primeros programas que responden al usuario.`,hours:[{time:`Hora 1`,title:`🟡 ¿Qué es JavaScript? — Variables, alert y console.log`,theory:`Hasta ahora construiste la estructura (HTML) y la apariencia (CSS). JavaScript es el tercer pilar: le da comportamiento a la página. Si HTML es el esqueleto y CSS es la piel, JS es el cerebro.
+
+🔗 CÓMO SE CONECTA CON HTML
+Puedes escribir JS directamente en el HTML usando la etiqueta <script>. Siempre va antes de cerrar </body>:
+
+\`\`\`html
+<script>
+  // Aquí va tu código JavaScript
+<\/script>
+\`\`\`
+
+📦 VARIABLES
+Una variable es una caja donde guardas información. En JS moderno usamos let:
+
+\`\`\`js
+let nombre = "Carlos";
+let edad = 17;
+let esEstudiante = true;
+\`\`\`
+
+📢 alert() y console.log()
+Dos formas de mostrar información:
+
+\`\`\`js
+alert("Hola, mundo");         // Ventana emergente en el navegador
+console.log("Hola, mundo");   // Mensaje en la consola del navegador (F12)
+\`\`\`
+
+🧮 OPERACIONES BÁSICAS
+JS puede hacer matemáticas:
+
+\`\`\`js
+let a = 10;
+let b = 3;
+console.log(a + b);  // 13
+console.log(a * b);  // 30
+console.log(a - b);  // 7
+\`\`\`
+
+💬 CONCATENAR TEXTO
+\`\`\`js
+let nombre = "Ana";
+let saludo = "Hola, " + nombre + "!";
+console.log(saludo);  // Hola, Ana!
+\`\`\``,notebook:`1. ¿Qué hace cada etiqueta de la 'triada web'? HTML = ___, CSS = ___, JS = ___
+2. ¿Cuál es la diferencia entre alert() y console.log()?
+3. Escribe una variable llamada 'materia' con el valor 'Diseño Web'.
+4. ¿Dónde se abre la consola del navegador para ver console.log?
+5. Escribe el resultado: let x = 5; let y = 4; console.log(x * y); → ___`,practice:`En VS Code, abre tu carpeta del proyecto y crea un archivo prueba.html.
+
+1. Escribe la estructura base HTML.
+2. Antes de </body>, agrega <script> con el siguiente código:
+
+\`\`\`js
+let nombre = "TuNombre";
+let materia = "DEWE";
+let año = 2026;
+
+console.log("Hola, soy " + nombre);
+console.log("Estudio " + materia + " en el año " + año);
+alert("Bienvenido a JavaScript, " + nombre + "!");
+\`\`\`
+
+3. Guarda y abre en el navegador.
+4. Presiona F12 → pestaña 'Console' para ver los mensajes.
+5. Cambia los valores de las variables y observa cómo cambia el resultado.`,product:`Archivo prueba.html con al menos 3 variables, 2 console.log y 1 alert funcionando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Muchos alumnos creerán que alert() es 'mejor' porque se ve. Demostrar que console.log() es la herramienta de los programadores — no para el usuario final. Insistir en F12 como hábito desde el día 1. Si el grupo va rápido, demostrar typeof: console.log(typeof nombre) para introducir tipos de datos.`},{time:`Hora 2`,title:`🖱️ DOM — getElementById y onclick: páginas que responden`,theory:`El DOM (Document Object Model) es la representación de tu HTML como un árbol de objetos que JavaScript puede manipular. Básicamente, JS puede leer y modificar cualquier elemento de tu página.
+
+🎯 getElementById
+Permite 'agarrar' un elemento HTML usando su id:
+
+\`\`\`html
+<p id="mensaje">Texto inicial</p>
+\`\`\`
+\`\`\`js
+let parrafo = document.getElementById("mensaje");
+\`\`\`
+
+✏️ CAMBIAR EL TEXTO
+Una vez que tienes el elemento, puedes cambiar su contenido:
+
+\`\`\`js
+parrafo.textContent = "¡Texto nuevo desde JavaScript!";
+\`\`\`
+
+🖱️ onclick — reaccionar a clics
+Puedes hacer que un botón ejecute código JS cuando se presiona:
+
+\`\`\`html
+<button onclick="cambiarTexto()">Presióname</button>
+\`\`\`
+\`\`\`js
+function cambiarTexto() {
+  let parrafo = document.getElementById("mensaje");
+  parrafo.textContent = "¡El botón funcionó!";
+}
+\`\`\`
+
+🔁 EL FLUJO COMPLETO
+1. El usuario hace clic en el botón
+2. El navegador ejecuta la función cambiarTexto()
+3. La función agarra el elemento con id="mensaje"
+4. Cambia su textContent
+5. El usuario ve el cambio al instante — sin recargar la página`,notebook:`1. ¿Qué significa DOM?
+2. ¿Para qué sirve getElementById?
+3. ¿Cuál es la diferencia entre textContent e innerHTML?
+4. Escribe el HTML de un botón que llame a una función llamada saludar()
+5. ¿Por qué JS puede cambiar el texto sin recargar la página?`,practice:`En tu prueba.html, agrega esto dentro del <body> (antes del <script>):
+
+\`\`\`html
+<h2 id="titulo">Título original</h2>
+<p id="contador">Clics: 0</p>
+<button onclick="cambiarTitulo()">Cambiar título</button>
+<button onclick="contar()">Sumar clic</button>
+\`\`\`
+
+Y en el <script>:
+
+\`\`\`js
+let clics = 0;
+
+function cambiarTitulo() {
+  let titulo = document.getElementById("titulo");
+  titulo.textContent = "¡Título cambiado por JS!";
+}
+
+function contar() {
+  clics = clics + 1;
+  let contador = document.getElementById("contador");
+  contador.textContent = "Clics: " + clics;
+}
+\`\`\`
+
+Prueba: ¿Qué pasa si presionas el botón de contar varias veces?`,product:`Página HTML con dos botones funcionando: uno que cambia texto y uno que cuenta clics.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El contador es el ejercicio más valioso — introduce el concepto de estado (una variable que persiste entre clics). Preguntar: '¿Dónde vive el número de clics?' — en la variable clics, no en el HTML. Esto prepara para entender React y frameworks más adelante. La diferencia textContent vs innerHTML puede dejarse como curiosidad: innerHTML interpreta etiquetas HTML, textContent las trata como texto plano.`},{time:`Hora 3`,title:`🎨 JS + Estilos — Modo oscuro/claro con un botón`,theory:`JavaScript puede modificar los estilos CSS de cualquier elemento directamente desde código. Esto abre la puerta a interacciones visuales en tiempo real.
+
+🎨 element.style.propiedad
+Puedes cambiar cualquier propiedad CSS de un elemento:
+
+\`\`\`js
+let titulo = document.getElementById("titulo");
+titulo.style.color = "red";
+titulo.style.fontSize = "32px";
+titulo.style.backgroundColor = "yellow";
+\`\`\`
+
+⚠️ Nota: en CSS es font-size (con guion), en JS es fontSize (camelCase).
+
+🌙 MODO OSCURO / CLARO
+El truco del modo oscuro/claro es usar una variable para recordar el estado actual:
+
+\`\`\`js
+let modoOscuro = false;
+
+function toggleModo() {
+  if (modoOscuro === false) {
+    document.body.style.backgroundColor = "#1a1a1a";
+    document.body.style.color = "white";
+    modoOscuro = true;
+  } else {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+    modoOscuro = false;
+  }
+}
+\`\`\`
+
+🏷️ CAMBIAR CLASES CON CLASSLIST
+Una forma más limpia: en lugar de cambiar estilos uno por uno, cambiar una clase CSS:
+
+\`\`\`js
+document.body.classList.toggle("dark");
+\`\`\`
+
+Y en CSS:
+\`\`\`css
+.dark {
+  background-color: #1a1a1a;
+  color: white;
+}
+\`\`\``,notebook:`1. ¿Por qué las propiedades CSS se escriben diferente en JS? (font-size → ___)
+2. ¿Para qué sirve la variable modoOscuro = false?
+3. ¿Qué hace classList.toggle()?
+4. ¿Cuál método es más limpio: cambiar style.propiedad o classList.toggle? ¿Por qué?
+5. Escribe el código JS para cambiar el color de fondo de un elemento con id='caja' a azul.`,practice:`Crea una página mini con modo oscuro/claro:
+
+\`\`\`html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modo Oscuro</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+      padding: 40px;
+      transition: all 0.3s;
+    }
+    .dark {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #6c63ff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi primera página con JS</h1>
+  <p>Hola, soy <span id="nombre">estudiante</span>.</p>
+  <p>Esta es mi semana <strong>10</strong> de DEWE.</p>
+  <br>
+  <button onclick="toggleModo()">🌙 Cambiar modo</button>
+
+  <script>
+    function toggleModo() {
+      document.body.classList.toggle("dark");
+    }
+  <\/script>
+</body>
+</html>
+\`\`\`
+
+Reto extra: haz que el texto del botón cambie también — que diga '☀️ Modo claro' cuando está en modo oscuro y '🌙 Modo oscuro' cuando está en modo claro.`,product:`Página HTML con modo oscuro/claro funcionando usando classList.toggle. Reto extra: botón con texto dinámico.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La propiedad transition: all 0.3s en CSS hace que el cambio sea suave — mencionar que ese efecto lo dio CSS, no JS. JS solo cambió la clase. Esta separación de responsabilidades (JS decide cuándo, CSS decide cómo se ve) es un principio fundamental del desarrollo web. El reto extra requiere getElementById en el botón + textContent — conecta con la Hora 2.`}],cierre:`HTML estructura, CSS decora, JavaScript actúa. Hoy escribiste las primeras líneas de código que hacen que una página piense.`,frase_docente:`Cualquier aplicación suficientemente compleja es indistinguible de magia — hasta que aprendes cómo funciona.`}]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},we=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=we()}))(),Te=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ee=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Te.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},De=Ce.ras.flatMap(e=>e.weeks.map(e=>e.id)),Oe=Object.fromEntries(Ce.cortes.map(e=>[e.id,e])),ke=Ce.ras,Ae=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=De.indexOf(i),u=e=>!(De.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ce.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,k.jsxs)(k.Fragment,{children:[s&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,k.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(`div`,{className:`main-nav-section`,children:(0,k.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,k.jsx)(O,{size:15,className:`doc-icon`}),`Laboratorio de Código`]})}),(0,k.jsx)(Ee,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),ke.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Oe[n.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,k.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,k.jsx)(_e,{size:10,className:`lock-icon`}),s&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},je=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Me=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,k.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,k.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,k.jsx)(`p`,{children:e},t))})},Ne={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(xe,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(Se,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(be,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(he,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Pe=({type:e,children:t})=>{let n=Ne[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Fe=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Ie=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Le=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Me,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Ie,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Re=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Ie,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Me,{text:e.instruction})})]},n))})]})},ze=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Pe,{type:`theory`,children:(0,k.jsx)(Me,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Pe,{type:`notebook`,children:(0,k.jsx)(Me,{text:e.notebook})}),e.practice&&(0,k.jsx)(Pe,{type:`practice`,children:(0,k.jsx)(Me,{text:e.practice})})]}),e.code&&(0,k.jsx)(Fe,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Fe,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Pe,{type:`product`,children:(0,k.jsx)(Me,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[Ne.screenshot.icon,` `,Ne.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Ie,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Ie,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[Ne.teacher.icon,` `,Ne.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Me,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=je(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(ze,{days:s.days,activeIndex:c,onSelect:x}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Re,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Le,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Me,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Me,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He={html:`<h1>¡Hola Grupo 601!</h1>
 <p>Los admiro y los quiero mucho. ¡A darle con todo al código!</p>`,cssDefault:``,js:``},Ue={html:`<h1>🧟 Resident Evil Labs</h1>
 <div class="mansion">
   <p>Status: <span id="status">Normal</span></p>
