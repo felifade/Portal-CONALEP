@@ -556,7 +556,14 @@
   border-radius: 10px;
 }
 
-.ph-preview-toggle {
+.ph-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ph-preview-toggle,
+.ph-theme-toggle {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -575,6 +582,17 @@
   border-color: #b91c1c;
   color: #ef4444;
   background: rgba(185,28,28,0.08);
+}
+
+.ph-theme-toggle:hover {
+  border-color: #555;
+  color: #d4d4d4;
+}
+
+.ph-theme-toggle.active {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  background: rgba(245,158,11,0.08);
 }
 
 .ph-snap-tabs {
@@ -773,6 +791,33 @@
   overflow: hidden;
   z-index: 1;
 }
+
+/* ── Tema claro (proyector) ───────────────────────────────── */
+.ph-theme-light {
+  background: #ffffff;
+  border-top-color: #d1d5db;
+}
+
+.ph-theme-light .ph-editor-pre { color: #1e293b; }
+.ph-theme-light .ph-editor-textarea { caret-color: #1e293b; }
+
+/* VS Code Light+ tokens */
+.ph-theme-light .token.tag            { color: #800000; }
+.ph-theme-light .token.attr-name      { color: #e50000; }
+.ph-theme-light .token.attr-value,
+.ph-theme-light .token.string         { color: #0451a5; }
+.ph-theme-light .token.comment        { color: #008000; font-style: italic; }
+.ph-theme-light .token.keyword        { color: #0000ff; }
+.ph-theme-light .token.property       { color: #e50000; }
+.ph-theme-light .token.selector       { color: #800000; }
+.ph-theme-light .token.unit,
+.ph-theme-light .token.number         { color: #098658; }
+.ph-theme-light .token.function       { color: #795e26; }
+.ph-theme-light .token.atrule         { color: #0000ff; }
+.ph-theme-light .token.punctuation    { color: #333333; }
+.ph-theme-light .token.operator       { color: #333333; }
+.ph-theme-light .token.url            { color: #0451a5; }
+.ph-theme-light .token.important      { color: #0000ff; font-weight: bold; }
 
 /* plain-text file (estructura) shown as read-only pre */
 .ph-code-block {
