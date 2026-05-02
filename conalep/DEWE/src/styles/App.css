@@ -704,39 +704,67 @@
   border-color: #2563eb;
 }
 
+/* ── Prism token colours (VS Code Dark+) ──────────────────── */
+.ph-editor-pre .token.doctype,
+.ph-editor-pre .token.prolog         { color: #808080; }
+.ph-editor-pre .token.punctuation    { color: #d4d4d4; }
+.ph-editor-pre .token.tag            { color: #569cd6; }
+.ph-editor-pre .token.attr-name      { color: #9cdcfe; }
+.ph-editor-pre .token.attr-value,
+.ph-editor-pre .token.string         { color: #ce9178; }
+.ph-editor-pre .token.comment        { color: #6a9955; font-style: italic; }
+.ph-editor-pre .token.keyword        { color: #c586c0; }
+.ph-editor-pre .token.property       { color: #9cdcfe; }
+.ph-editor-pre .token.selector       { color: #d7ba7d; }
+.ph-editor-pre .token.unit           { color: #b5cea8; }
+.ph-editor-pre .token.number         { color: #b5cea8; }
+.ph-editor-pre .token.function       { color: #dcdcaa; }
+.ph-editor-pre .token.boolean        { color: #569cd6; }
+.ph-editor-pre .token.operator       { color: #d4d4d4; }
+.ph-editor-pre .token.atrule         { color: #c586c0; }
+.ph-editor-pre .token.url            { color: #ce9178; }
+.ph-editor-pre .token.important      { color: #569cd6; font-weight: bold; }
+
+/* ── Editor wrapper ───────────────────────────────────────── */
+.ph-editor-wrap {
+  border-top: 1px solid #2d2d2d;
+  max-height: 440px;
+  overflow-y: auto;
+  background: #1e1e1e;
+}
+
+.ph-editor {
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 12.5px !important;
+  line-height: 1.75 !important;
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  min-height: 200px;
+}
+
+.ph-editor-textarea { outline: none !important; caret-color: #aeafad; }
+
+.ph-editor-pre {
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 12.5px !important;
+  line-height: 1.75 !important;
+  color: #d4d4d4;
+}
+
+/* plain-text file (estructura) shown as read-only pre */
 .ph-code-block {
   margin: 0;
   padding: 20px 24px;
   font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
   font-size: 12.5px;
   line-height: 1.75;
-  color: #1e293b;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  color: #d4d4d4;
+  background: #1e1e1e;
+  border-top: 1px solid #2d2d2d;
   overflow-x: auto;
-  max-height: 420px;
+  max-height: 440px;
   overflow-y: auto;
   white-space: pre;
-}
-
-.ph-code-editor {
-  display: block;
-  width: 100%;
-  resize: vertical;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  white-space: pre;
-  overflow-wrap: normal;
-  tab-size: 2;
-}
-
-.ph-lang-css  { color: #1e293b; }
-.ph-lang-html { color: #1e293b; }
-.ph-lang-text {
-  color: #334155;
-  background: #f1f5f9;
-  font-family: 'Consolas', monospace;
 }
 
 .ph-preview-wrap {
