@@ -133,6 +133,14 @@ const HistorialPanel = () => {
 
       {previewMode ? (
         <div className="ph-preview-wrap">
+          <div className="ph-preview-bar">
+            <button className="ph-back-btn" onClick={() => setPreviewMode(false)}>
+              ← Ver código
+            </button>
+            {livePreview && (
+              <span className="ph-preview-badge">Vista de tu código editado</span>
+            )}
+          </div>
           <iframe srcDoc={previewSrc} title={snap.title} className="ph-preview-iframe" />
         </div>
       ) : (
