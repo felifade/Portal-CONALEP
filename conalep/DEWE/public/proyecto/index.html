@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resident Evil — Fan Page</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* W10 Vie H3 — modo claro */
+    body.modo-claro { background-color: #f5f5f5; color: #111111; }
+    body.modo-claro nav { background-color: #dddddd; border-bottom-color: #aaa; }
+    body.modo-claro nav a { color: #222222; }
+    body.modo-claro nav a:hover { background-color: #b91c1c; color: #fff; }
+    body.modo-claro h2 { color: #b91c1c; }
+    body.modo-claro article { background-color: #ffffff; border-color: #ddd; }
+    body.modo-claro header { background-color: #f0e0e0; }
+  </style>
 </head>
 <body>
 
@@ -24,6 +34,12 @@
       <li><a href="paginas/juegos.html">Juegos</a></li>
       <li><a href="#cronologia">Cronología</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li>
+        <button id="btn-modo" onclick="toggleModo()"
+          style="cursor:pointer;padding:6px 14px;background:#8b0000;color:white;border:none;border-radius:4px;font-size:13px;margin-left:8px;">
+          ☀ Modo Claro
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -33,6 +49,14 @@
     <!-- PERSONAJES -->
     <section id="personajes">
       <h2>Personajes principales</h2>
+      <button onclick="mostrarInfo()"
+        style="margin-bottom:16px;padding:8px 20px;background:transparent;border:1.5px solid #b91c1c;color:#ef4444;border-radius:6px;cursor:pointer;font-size:13px;letter-spacing:1px;">
+        🔍 Más información
+      </button>
+      <p id="info-extra" style="display:none;margin-bottom:16px;color:#888;line-height:1.6;">
+        Los personajes son agentes especiales que combaten amenazas biológicas.
+        Cada uno tiene habilidades únicas de combate y supervivencia.
+      </p>
       <a href="paginas/personajes.html" class="btn-ver">ABRIR VISTA COMPLETA</a>
 
       <article>
@@ -134,6 +158,38 @@
   <footer>
     <p>Fan Page de Resident Evil — Proyecto DEWE · Grupo 601 · CONALEP Pachuca II</p>
   </footer>
+
+  <script>
+    // ── W10 Vie H1: Variables y console.log ─────────────────
+    let titulo = "Resident Evil Fan Page";
+    let version = "1.0";
+    let anio = 2026;
+
+    console.log("Bienvenido a: " + titulo);
+    console.log("Versión: " + version);
+    console.log("Año: " + anio);
+
+    // ── W10 Vie H2: getElementById + onclick ────────────────
+    function mostrarInfo() {
+      let elem = document.getElementById("info-extra");
+      if (elem.style.display === "none") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+
+    // ── W10 Vie H3: classList.toggle + modo claro ───────────
+    function toggleModo() {
+      document.body.classList.toggle("modo-claro");
+      let btn = document.getElementById("btn-modo");
+      if (document.body.classList.contains("modo-claro")) {
+        btn.textContent = "🌙 Modo Oscuro";
+      } else {
+        btn.textContent = "☀ Modo Claro";
+      }
+    }
+  </script>
 
 </body>
 </html>
