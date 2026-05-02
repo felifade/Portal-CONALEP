@@ -809,7 +809,7 @@ const PERSONAJES_CON_BOTON =
         Los personajes son agentes especiales que combaten amenazas biológicas.
         Cada uno tiene habilidades únicas de combate y supervivencia.
       </p>
-      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>`;
+      <a href="paginas/personajes.html" class="btn-ver">ABRIR VISTA COMPLETA</a>`;
 
 const LI_BTN_MODO =
 `<li><a href="#contacto">Contacto</a></li>
@@ -831,21 +831,22 @@ const STYLE_MODO_CLARO =
     body.modo-claro h2 { color: #b91c1c; }
   </style>`;
 
-/* ── index.html de cada hora (construido acumulando cambios) ─ */
-const INDEX_W10_H1 = INDEX_HTML
+/* ── index.html de cada hora — base: INDEX_V2 + CSS_PRO ─────
+   (las horas JS se construyen sobre el sitio ya con CSS pro) */
+const INDEX_W10_H1 = INDEX_V2
   .replace('</body>', makeScript(SCRIPT_H1) + '\n\n</body>');
 
-const INDEX_W10_H2 = INDEX_HTML
+const INDEX_W10_H2 = INDEX_V2
   .replace(
-    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>',
+    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html" class="btn-ver">ABRIR VISTA COMPLETA</a>',
     PERSONAJES_CON_BOTON
   )
   .replace('</body>', makeScript(SCRIPT_H1, FUNC_MOSTRAR_INFO) + '\n\n</body>');
 
-const INDEX_W10_H3 = INDEX_HTML
+const INDEX_W10_H3 = INDEX_V2
   .replace('<link rel="stylesheet" href="css/style.css">', STYLE_MODO_CLARO)
   .replace(
-    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>',
+    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html" class="btn-ver">ABRIR VISTA COMPLETA</a>',
     PERSONAJES_CON_BOTON
   )
   .replace('<li><a href="#contacto">Contacto</a></li>', LI_BTN_MODO)
@@ -1049,7 +1050,7 @@ export const proyectoHistory = [
     label: 'S10 · H1',
     title: 'Semana 10 — Vie H1: Variables y console.log',
     description: 'Primer contacto con JavaScript. Se agrega <script> con variables y console.log. Abre F12 → Console para ver los mensajes.',
-    srcdoc: withCSS(INDEX_W10_H1, CSS_FINAL),
+    srcdoc: withCSS(INDEX_W10_H1, CSS_PRO),
     files: [
       {
         label: '🆕 Lo que agregamos', lang: 'js', content: SNIPPET_JS_H1,
@@ -1057,7 +1058,7 @@ export const proyectoHistory = [
       },
       {
         label: 'index.html', lang: 'html', content: INDEX_W10_H1,
-        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_PRO}</style>`),
       },
     ],
   },
@@ -1066,7 +1067,7 @@ export const proyectoHistory = [
     label: 'S10 · H2',
     title: 'Semana 10 — Vie H2: getElementById + onclick',
     description: 'Se agrega un botón en #personajes que muestra u oculta un párrafo usando getElementById y onclick.',
-    srcdoc: withCSS(INDEX_W10_H2, CSS_FINAL),
+    srcdoc: withCSS(INDEX_W10_H2, CSS_PRO),
     files: [
       {
         label: '🆕 HTML — en personajes', lang: 'html', content: SNIPPET_HTML_H2,
@@ -1078,7 +1079,7 @@ export const proyectoHistory = [
       },
       {
         label: 'index.html', lang: 'html', content: INDEX_W10_H2,
-        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_PRO}</style>`),
       },
     ],
   },
@@ -1087,7 +1088,7 @@ export const proyectoHistory = [
     label: 'S10 · H3',
     title: 'Semana 10 — Vie H3: classList.toggle + modo claro',
     description: 'Se agrega botón ☀ Modo Claro en el nav que cambia el tema de toda la página usando classList.toggle().',
-    srcdoc: INDEX_W10_H3.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+    srcdoc: INDEX_W10_H3.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_PRO}</style>`),
     files: [
       {
         label: '🆕 CSS — .modo-claro', lang: 'css', content: SNIPPET_CSS_H3,
@@ -1103,7 +1104,7 @@ export const proyectoHistory = [
       },
       {
         label: 'index.html', lang: 'html', content: INDEX_W10_H3,
-        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_PRO}</style>`),
       },
     ],
   },
