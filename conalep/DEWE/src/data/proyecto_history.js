@@ -405,6 +405,174 @@ const withCSSNested = (html, css) =>
     `<style>${css}</style>`
   );
 
+/* CSS acumulado al final de W09 */
+const CSS_FINAL = CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES;
+
+/* ─────────────────────────────────────────────────────────────
+   W10 Viernes — bloques de JS acumulables
+   ───────────────────────────────────────────────────────────── */
+const SCRIPT_H1 = `    // ── Hora 1: Variables y console.log ─────────────────────
+    let titulo = "Resident Evil Fan Page";
+    let version = "1.0";
+    let anio = 2026;
+
+    console.log("Bienvenido a: " + titulo);
+    console.log("Versión: " + version);
+    console.log("Año: " + anio);`;
+
+const FUNC_MOSTRAR_INFO = `    // ── Hora 2: getElementById + onclick ───────────────────
+    function mostrarInfo() {
+      let elem = document.getElementById("info-extra");
+      if (elem.style.display === "none") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }`;
+
+const FUNC_TOGGLE_MODO = `    // ── Hora 3: classList.toggle + modo claro ───────────────
+    function toggleModo() {
+      document.body.classList.toggle("modo-claro");
+      let btn = document.getElementById("btn-modo");
+      if (document.body.classList.contains("modo-claro")) {
+        btn.textContent = "🌙 Modo Oscuro";
+      } else {
+        btn.textContent = "☀ Modo Claro";
+      }
+    }`;
+
+const makeScript = (...parts) =>
+  `  <script>\n${parts.join('\n\n')}\n  </script>`;
+
+/* ── Piezas de HTML que se van agregando ─────────────────── */
+const PERSONAJES_CON_BOTON =
+`      <h2>Personajes principales</h2>
+      <button onclick="mostrarInfo()">🔍 Más información</button>
+      <p id="info-extra" style="display:none; margin-top:8px; color:#888;">
+        Los personajes son agentes especiales que combaten amenazas biológicas.
+        Cada uno tiene habilidades únicas de combate y supervivencia.
+      </p>
+      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>`;
+
+const LI_BTN_MODO =
+`<li><a href="#contacto">Contacto</a></li>
+      <li>
+        <button id="btn-modo" onclick="toggleModo()"
+          style="cursor:pointer;padding:6px 14px;background:#8b0000;color:white;border:none;border-radius:4px;font-size:13px;">
+          ☀ Modo Claro
+        </button>
+      </li>`;
+
+const STYLE_MODO_CLARO =
+`<link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── W10 H3: Modo claro ───────────────────────────────── */
+    body.modo-claro { background-color: #f5f5f5; color: #111111; }
+    body.modo-claro nav { background-color: #dddddd; }
+    body.modo-claro nav a { color: #222222; }
+    body.modo-claro nav a:hover { background-color: #b91c1c; color: #ffffff; }
+    body.modo-claro h2 { color: #b91c1c; }
+  </style>`;
+
+/* ── index.html de cada hora (construido acumulando cambios) ─ */
+const INDEX_W10_H1 = INDEX_HTML
+  .replace('</body>', makeScript(SCRIPT_H1) + '\n\n</body>');
+
+const INDEX_W10_H2 = INDEX_HTML
+  .replace(
+    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>',
+    PERSONAJES_CON_BOTON
+  )
+  .replace('</body>', makeScript(SCRIPT_H1, FUNC_MOSTRAR_INFO) + '\n\n</body>');
+
+const INDEX_W10_H3 = INDEX_HTML
+  .replace('<link rel="stylesheet" href="css/style.css">', STYLE_MODO_CLARO)
+  .replace(
+    '      <h2>Personajes principales</h2>\n      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>',
+    PERSONAJES_CON_BOTON
+  )
+  .replace('<li><a href="#contacto">Contacto</a></li>', LI_BTN_MODO)
+  .replace('</body>', makeScript(SCRIPT_H1, FUNC_MOSTRAR_INFO, FUNC_TOGGLE_MODO) + '\n\n</body>');
+
+/* ── Snippets para dictar en clase (solo lo nuevo de cada hora) */
+const SNIPPET_JS_H1 =
+`// Agregar antes de </body> en index.html
+
+let titulo = "Resident Evil Fan Page";
+let version = "1.0";
+let anio = 2026;
+
+console.log("Bienvenido a: " + titulo);
+console.log("Versión: " + version);
+console.log("Año: " + anio);`;
+
+const SNIPPET_HTML_H2 =
+`<!-- Agregar en #personajes, después del <h2> -->
+
+<button onclick="mostrarInfo()">🔍 Más información</button>
+<p id="info-extra" style="display:none; margin-top:8px; color:#888;">
+  Los personajes son agentes especiales que combaten amenazas biológicas.
+  Cada uno tiene habilidades únicas de combate y supervivencia.
+</p>`;
+
+const SNIPPET_JS_H2 =
+`// Agregar dentro del <script>
+
+function mostrarInfo() {
+  let elem = document.getElementById("info-extra");
+  if (elem.style.display === "none") {
+    elem.style.display = "block";
+  } else {
+    elem.style.display = "none";
+  }
+}`;
+
+const SNIPPET_CSS_H3 =
+`/* Agregar en <head>, dentro de un <style> nuevo */
+
+body.modo-claro {
+  background-color: #f5f5f5;
+  color: #111111;
+}
+body.modo-claro nav {
+  background-color: #dddddd;
+}
+body.modo-claro nav a {
+  color: #222222;
+}
+body.modo-claro nav a:hover {
+  background-color: #b91c1c;
+  color: #ffffff;
+}
+body.modo-claro h2 {
+  color: #b91c1c;
+}`;
+
+const SNIPPET_HTML_H3 =
+`<!-- Agregar en <nav>, al final de la <ul> -->
+
+<li>
+  <button id="btn-modo" onclick="toggleModo()"
+    style="cursor:pointer; padding:6px 14px;
+           background:#8b0000; color:white;
+           border:none; border-radius:4px; font-size:13px;">
+    ☀ Modo Claro
+  </button>
+</li>`;
+
+const SNIPPET_JS_H3 =
+`// Agregar dentro del <script>
+
+function toggleModo() {
+  document.body.classList.toggle("modo-claro");
+  let btn = document.getElementById("btn-modo");
+  if (document.body.classList.contains("modo-claro")) {
+    btn.textContent = "🌙 Modo Oscuro";
+  } else {
+    btn.textContent = "☀ Modo Claro";
+  }
+}`;
+
 /* ─────────────────────────────────────────────────────────────
    Estructura de carpetas (W08 Jueves)
    ───────────────────────────────────────────────────────────── */
@@ -490,15 +658,78 @@ export const proyectoHistory = [
     label: 'S09 · Jueves',
     title: 'Semana 09 — Jueves: Nav links estilizados',
     description: 'Se agregaron estilos a los enlaces del nav: color blanco, padding, hover con fondo #8b0000 y clase .activo resaltada.',
-    srcdoc: withCSS(INDEX_HTML, CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES),
+    srcdoc: withCSS(INDEX_HTML, CSS_FINAL),
     files: [
       {
         label: 'css/style.css (nuevo)', lang: 'css', content: CSS_W09_JUEVES,
         buildPreview: (c) => withCSS(INDEX_HTML, CSS_W09_LUNES + '\n\n' + c),
       },
       {
-        label: 'css/style.css (completo)', lang: 'css', content: CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES,
+        label: 'css/style.css (completo)', lang: 'css', content: CSS_FINAL,
         buildPreview: (c) => withCSS(INDEX_HTML, c),
+      },
+    ],
+  },
+  {
+    id: 'w10-vie-h1',
+    label: 'S10 · H1',
+    title: 'Semana 10 — Vie H1: Variables y console.log',
+    description: 'Primer contacto con JavaScript. Se agrega <script> con variables y console.log. Abre F12 → Console para ver los mensajes.',
+    srcdoc: withCSS(INDEX_W10_H1, CSS_FINAL),
+    files: [
+      {
+        label: '🆕 Lo que agregamos', lang: 'js', content: SNIPPET_JS_H1,
+        buildPreview: null,
+      },
+      {
+        label: 'index.html', lang: 'html', content: INDEX_W10_H1,
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+      },
+    ],
+  },
+  {
+    id: 'w10-vie-h2',
+    label: 'S10 · H2',
+    title: 'Semana 10 — Vie H2: getElementById + onclick',
+    description: 'Se agrega un botón en #personajes que muestra u oculta un párrafo usando getElementById y onclick.',
+    srcdoc: withCSS(INDEX_W10_H2, CSS_FINAL),
+    files: [
+      {
+        label: '🆕 HTML — en personajes', lang: 'html', content: SNIPPET_HTML_H2,
+        buildPreview: null,
+      },
+      {
+        label: '🆕 JS — mostrarInfo()', lang: 'js', content: SNIPPET_JS_H2,
+        buildPreview: null,
+      },
+      {
+        label: 'index.html', lang: 'html', content: INDEX_W10_H2,
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+      },
+    ],
+  },
+  {
+    id: 'w10-vie-h3',
+    label: 'S10 · H3',
+    title: 'Semana 10 — Vie H3: classList.toggle + modo claro',
+    description: 'Se agrega botón ☀ Modo Claro en el nav que cambia el tema de toda la página usando classList.toggle().',
+    srcdoc: INDEX_W10_H3.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
+    files: [
+      {
+        label: '🆕 CSS — .modo-claro', lang: 'css', content: SNIPPET_CSS_H3,
+        buildPreview: null,
+      },
+      {
+        label: '🆕 HTML — botón en nav', lang: 'html', content: SNIPPET_HTML_H3,
+        buildPreview: null,
+      },
+      {
+        label: '🆕 JS — toggleModo()', lang: 'js', content: SNIPPET_JS_H3,
+        buildPreview: null,
+      },
+      {
+        label: 'index.html', lang: 'html', content: INDEX_W10_H3,
+        buildPreview: (c) => c.replace('<link rel="stylesheet" href="css/style.css">', `<style>${CSS_FINAL}</style>`),
       },
     ],
   },
