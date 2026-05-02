@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ExternalLink, History, Monitor } from 'lucide-react';
+import { ExternalLink, History, Monitor, Sun, Moon } from 'lucide-react';
 import { proyectoHistory } from '../data/proyecto_history';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
@@ -8,7 +8,7 @@ import 'prismjs/components/prism-javascript';
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const CodeEditor = ({ value, onChange, lang }) => {
+const CodeEditor = ({ value, onChange, lang, light }) => {
   const preRef = useRef(null);
 
   const highlighted = (() => {
@@ -29,7 +29,7 @@ const CodeEditor = ({ value, onChange, lang }) => {
   };
 
   return (
-    <div className="ph-editor-wrap">
+    <div className={`ph-editor-wrap ${light ? 'ph-theme-light' : ''}`}>
       <pre
         ref={preRef}
         className="ph-editor-pre"
@@ -66,6 +66,7 @@ const HistorialPanel = () => {
   const [previewMode, setPreviewMode] = useState(false);
   const [editedFiles, setEditedFiles] = useState({});
   const [livePreview, setLivePreview] = useState(null);
+  const [lightTheme, setLightTheme]   = useState(false);
 
   const snap    = proyectoHistory[activeSnap];
   const file    = snap.files[activeFile] ?? snap.files[0];
@@ -93,13 +94,23 @@ const HistorialPanel = () => {
           <span className="ph-header-title">Historial del Proyecto</span>
           <span className="ph-header-sub">Solo Modo Docente</span>
         </div>
-        <button
-          className={`ph-preview-toggle ${previewMode ? 'active' : ''}`}
-          onClick={() => setPreviewMode(p => !p)}
-        >
-          <Monitor size={13} />
-          {previewMode ? 'Ver código' : 'Ver preview'}
-        </button>
+        <div className="ph-header-actions">
+          <button
+            className={`ph-theme-toggle ${lightTheme ? 'active' : ''}`}
+            onClick={() => setLightTheme(t => !t)}
+            title={lightTheme ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro (proyector)'}
+          >
+            {lightTheme ? <Moon size={13} /> : <Sun size={13} />}
+            {lightTheme ? 'Oscuro' : 'Claro'}
+          </button>
+          <button
+            className={`ph-preview-toggle ${previewMode ? 'active' : ''}`}
+            onClick={() => setPreviewMode(p => !p)}
+          >
+            <Monitor size={13} />
+            {previewMode ? 'Ver código' : 'Ver preview'}
+          </button>
+        </div>
       </div>
 
       {/* Snapshot tabs */}
@@ -143,7 +154,7 @@ const HistorialPanel = () => {
               )}
             </div>
           </div>
-          <CodeEditor value={currentContent} onChange={handleEdit} lang={file.lang} />
+          <CodeEditor value={currentContent} onChange={handleEdit} lang={file.lang} light={lightTheme} />
         </div>
       )}
     </div>
