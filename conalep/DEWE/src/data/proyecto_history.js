@@ -409,6 +409,363 @@ const withCSSNested = (html, css) =>
 const CSS_FINAL = CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES;
 
 /* ─────────────────────────────────────────────────────────────
+   HTML actual del proyecto (W09 final — con btn-ver / btn-volver)
+   ───────────────────────────────────────────────────────────── */
+const INDEX_V2 = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil — Fan Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <section id="inicio">
+      <h1>Resident Evil</h1>
+      <p>Fan page creada en HTML + CSS</p>
+    </section>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#inicio" class="activo">Inicio</a></li>
+      <li><a href="paginas/personajes.html">Personajes</a></li>
+      <li><a href="paginas/juegos.html">Juegos</a></li>
+      <li><a href="#cronologia">Cronología</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="personajes">
+      <h2>Personajes principales</h2>
+      <a href="paginas/personajes.html" class="btn-ver">ABRIR VISTA COMPLETA</a>
+
+      <article>
+        <h3>Leon S. Kennedy</h3>
+        <p>Uno de los personajes más importantes de la saga. Destaca por su valentía y evolución dentro de la historia.</p>
+      </article>
+
+      <article>
+        <h3>Jill Valentine</h3>
+        <p>Miembro de S.T.A.R.S. reconocida por su inteligencia y habilidades en combate.</p>
+      </article>
+
+      <article>
+        <h3>Chris Redfield</h3>
+        <p>Protagonista clave en la lucha contra Umbrella y otras amenazas biológicas.</p>
+      </article>
+
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Resident_Evil_4_cover.jpg" width="250" alt="Resident Evil 4">
+      <a href="#inicio" class="btn-volver">↑ Regresar al Inicio</a>
+    </section>
+
+    <section id="juegos">
+      <h2>Juegos representativos</h2>
+      <ul>
+        <li>Resident Evil (1996)</li>
+        <li>Resident Evil 2 (1998)</li>
+        <li>Resident Evil 3 (1999)</li>
+        <li>Resident Evil 4 (2005)</li>
+        <li>Resident Evil 7 (2017)</li>
+        <li>Resident Evil Village (2021)</li>
+      </ul>
+      <p>Visita el sitio oficial: <a href="https://www.residentevil.com/" target="_blank">residentevil.com</a></p>
+      <a href="#inicio" class="btn-volver">↑ Regresar al Inicio</a>
+    </section>
+
+    <section id="cronologia">
+      <h2>Cronología básica</h2>
+      <table>
+        <tr><th>Juego</th><th>Año</th><th>Tipo</th></tr>
+        <tr><td>Resident Evil</td><td>1996</td><td>Survival Horror</td></tr>
+        <tr><td>Resident Evil 2</td><td>1998</td><td>Survival Horror</td></tr>
+        <tr><td>Resident Evil 4</td><td>2005</td><td>Acción / Horror</td></tr>
+        <tr><td>Resident Evil 7</td><td>2017</td><td>Survival Horror</td></tr>
+      </table>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form>
+        <label>Nombre:</label><br>
+        <input type="text" placeholder="Tu nombre"><br><br>
+        <label>Correo:</label><br>
+        <input type="email" placeholder="tu@correo.com"><br><br>
+        <label>Edad:</label><br>
+        <input type="number" placeholder="17"><br><br>
+        <label>Comentario:</label><br>
+        <textarea rows="4" cols="30" placeholder="Escribe tu comentario..."></textarea><br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Fan Page de Resident Evil — Proyecto DEWE · Grupo 601 · CONALEP Pachuca II</p>
+  </footer>
+
+</body>
+</html>`;
+
+/* ─────────────────────────────────────────────────────────────
+   CSS profesional completo — el que se ve al abrir el proyecto
+   ───────────────────────────────────────────────────────────── */
+const CSS_PRO = `/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Body ── */
+body {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Header ── */
+header {
+  background-color: #1a0000;
+  padding: 60px 60px;
+  text-align: center;
+  border-bottom: 3px solid #b91c1c;
+}
+
+header h1 {
+  font-size: 56px;
+  color: #ef4444;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px rgba(185,28,28,0.5);
+}
+
+header p {
+  color: #888;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(10, 10, 10, 0.95);
+  border-bottom: 2px solid #b91c1c;
+  backdrop-filter: blur(8px);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0 40px;
+  margin: 0;
+  height: 56px;
+  align-items: center;
+}
+
+nav a {
+  color: #888;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color 0.2s;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background-color: #ef4444;
+  transition: width 0.25s ease;
+}
+
+nav a:hover { color: #f0f0f0; }
+nav a:hover::after { width: 100%; }
+nav a.activo { color: #ef4444; }
+nav a.activo::after { width: 100%; }
+
+/* ── Main / Sections ── */
+main { padding: 0; }
+
+section {
+  padding: 50px 60px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+h2 {
+  font-size: 28px;
+  color: #ef4444;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  border-left: 4px solid #b91c1c;
+  padding-left: 16px;
+}
+
+/* ── Articles ── */
+article {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+article:hover {
+  border-color: #b91c1c;
+  transform: translateY(-3px);
+}
+
+article h3 { color: #f0f0f0; margin-bottom: 8px; font-size: 18px; }
+article p  { color: #888; line-height: 1.6; }
+
+/* ── Links ── */
+a { color: #ef4444; }
+a:hover { color: #f87171; }
+
+.btn-ver {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 10px 24px;
+  border: 1.5px solid #b91c1c;
+  border-radius: 6px;
+  color: #ef4444;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: background-color 0.2s;
+}
+
+.btn-ver:hover { background-color: rgba(185,28,28,0.15); color: #ef4444; }
+
+.btn-volver {
+  display: inline-block;
+  margin-top: 20px;
+  color: #555;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.btn-volver:hover { color: #ef4444; }
+
+/* ── Image ── */
+img {
+  border: 2px solid #b91c1c;
+  border-radius: 8px;
+  display: block;
+  margin: 24px 0;
+}
+
+/* ── Lista de juegos ── */
+ul { padding-left: 24px; }
+ul li {
+  padding: 8px 0;
+  color: #ccc;
+  border-bottom: 1px solid #1a1a1a;
+  list-style: none;
+}
+ul li::before { content: '▸ '; color: #b91c1c; }
+
+/* ── Tabla ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+th {
+  background-color: #b91c1c;
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+td {
+  padding: 10px 16px;
+  border: 1px solid #2a2a2a;
+  color: #ccc;
+}
+tr:hover td { background-color: #1a1a1a; }
+
+/* ── Formulario ── */
+label {
+  color: #888;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: #f0f0f0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  width: 320px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #b91c1c;
+  outline: none;
+}
+
+input[type="submit"] {
+  background-color: #b91c1c;
+  color: white;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  width: auto;
+}
+input[type="submit"]:hover { background-color: #ef4444; }
+
+input[type="reset"] {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #888;
+  padding: 10px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  width: auto;
+}
+input[type="reset"]:hover { border-color: #555; color: #ccc; }
+
+/* ── Footer ── */
+footer {
+  background-color: #050505;
+  border-top: 1px solid #1a1a1a;
+  padding: 32px 60px;
+  text-align: center;
+  color: #444;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}`;
+
+/* ─────────────────────────────────────────────────────────────
    W10 Viernes — bloques de JS acumulables
    ───────────────────────────────────────────────────────────── */
 const SCRIPT_H1 = `    // ── Hora 1: Variables y console.log ─────────────────────
@@ -667,6 +1024,23 @@ export const proyectoHistory = [
       {
         label: 'css/style.css (completo)', lang: 'css', content: CSS_FINAL,
         buildPreview: (c) => withCSS(INDEX_HTML, c),
+      },
+    ],
+  },
+  {
+    id: 'w10-vie-css',
+    label: 'S10 · Vie CSS',
+    title: 'Semana 10 — Viernes: CSS profesional completo',
+    description: 'Reescritura total del style.css: fondo oscuro, tipografía, header, nav sticky, articles con hover, tabla, formulario y footer. De básico a profesional.',
+    srcdoc: withCSS(INDEX_V2, CSS_PRO),
+    files: [
+      {
+        label: 'css/style.css', lang: 'css', content: CSS_PRO,
+        buildPreview: (c) => withCSS(INDEX_V2, c),
+      },
+      {
+        label: 'index.html', lang: 'html', content: INDEX_V2,
+        buildPreview: (c) => withCSS(c, CSS_PRO),
       },
     ],
   },
