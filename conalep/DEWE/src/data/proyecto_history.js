@@ -1,0 +1,505 @@
+/* ─────────────────────────────────────────────────────────────
+   HTML base — el index.html que se creó en W08 Lunes
+   ───────────────────────────────────────────────────────────── */
+const INDEX_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil V 1.2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <section id="inicio">
+      <h1>Resident Evil</h1>
+      <p>Fan page creada en HTML puro</p>
+    </section>
+  </header>
+
+  <!-- MENÚ -->
+  <nav>
+    <ul>
+      <li><a href="#inicio" class="activo">Inicio</a></li>
+      <li><a href="paginas/personajes.html">Personajes</a></li>
+      <li><a href="paginas/juegos.html">Juegos</a></li>
+      <li><a href="#cronologia">Cronología</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <hr>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+
+    <!-- PERSONAJES -->
+    <section id="personajes">
+      <h2>Personajes principales</h2>
+      <a href="paginas/personajes.html">ABRIR VISTA COMPLETA</a>
+      <article>
+        <h3>Leon S. Kennedy</h3>
+        <p>Uno de los personajes más importantes de la saga.</p>
+      </article>
+      <article>
+        <h3>Jill Valentine</h3>
+        <p>Miembro de S.T.A.R.S. reconocida por su inteligencia.</p>
+      </article>
+      <article>
+        <h3>Chris Redfield</h3>
+        <p>Protagonista clave en la lucha contra Umbrella.</p>
+      </article>
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Resident_Evil_4_cover.jpg" width="250" alt="RE4">
+      <a href="#inicio">Regresar al Inicio</a>
+    </section>
+
+    <!-- JUEGOS -->
+    <section id="juegos">
+      <h2>Juegos representativos</h2>
+      <ul>
+        <li>Resident Evil</li>
+        <li>Resident Evil 2</li>
+        <li>Resident Evil 3</li>
+        <li>Resident Evil 4</li>
+        <li>Resident Evil 7</li>
+        <li>Resident Evil Village</li>
+      </ul>
+      <p>Visita: <a href="https://www.residentevil.com/" target="_blank">Página oficial</a></p>
+      <a href="#inicio">Regresar al Inicio</a>
+    </section>
+
+    <!-- CRONOLOGÍA -->
+    <section id="cronologia">
+      <h2>Cronología básica</h2>
+      <table border="1">
+        <tr><th>Juego</th><th>Año</th><th>Tipo</th></tr>
+        <tr><td>Resident Evil</td><td>1996</td><td>Survival Horror</td></tr>
+        <tr><td>Resident Evil 2</td><td>1998</td><td>Survival Horror</td></tr>
+        <tr><td>Resident Evil 4</td><td>2005</td><td>Acción / Horror</td></tr>
+        <tr><td>Resident Evil 7</td><td>2017</td><td>Survival Horror</td></tr>
+      </table>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form>
+        <label>Nombre:</label><br>
+        <input type="text"><br><br>
+        <label>Correo:</label><br>
+        <input type="email"><br><br>
+        <label>Edad:</label><br>
+        <input type="number"><br><br>
+        <label>Comentario:</label><br>
+        <textarea rows="4" cols="30"></textarea><br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+      </form>
+    </section>
+
+  </main>
+
+  <hr>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Fan Page de Resident Evil - Proyecto HTML</p>
+  </footer>
+
+</body>
+</html>`;
+
+/* ─────────────────────────────────────────────────────────────
+   paginas/personajes.html — creada en W08 Jueves
+   ───────────────────────────────────────────────────────────── */
+const PERSONAJES_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Personajes — Resident Evil</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Personajes</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="personajes.html" class="activo">Personajes</a></li>
+      <li><a href="juegos.html">Juegos</a></li>
+      <li><a href="cronologia.html">Cronología</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Personajes principales</h2>
+
+      <article>
+        <h3>Leon S. Kennedy</h3>
+        <p>Ex-oficial del Departamento de Policía de Raccoon City. Sobrevivió al brote del T-Virus en 1998.</p>
+      </article>
+
+      <article>
+        <h3>Jill Valentine</h3>
+        <p>Miembro fundadora de S.T.A.R.S. Sobrevivió a la Mansión Spencer y al incidente de Raccoon City.</p>
+      </article>
+
+      <article>
+        <h3>Chris Redfield</h3>
+        <p>Cofundador de S.T.A.R.S. y del B.S.A.A. Ha enfrentado a Umbrella en múltiples misiones.</p>
+      </article>
+
+      <article>
+        <h3>Claire Redfield</h3>
+        <p>Hermana de Chris. Llegó a Raccoon City buscándolo y sobrevivió junto a Sherry Birkin.</p>
+      </article>
+
+      <article>
+        <h3>Ada Wong</h3>
+        <p>Agente de identidad misteriosa. Sus lealtades siempre han sido ambiguas.</p>
+      </article>
+
+      <article>
+        <h3>Albert Wesker</h3>
+        <p>Ex-capitán de S.T.A.R.S. Infectado con el Prototype Virus. Buscaba dominar el mundo.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fan Page de Resident Evil - Proyecto HTML</p>
+  </footer>
+
+</body>
+</html>`;
+
+/* ─────────────────────────────────────────────────────────────
+   paginas/juegos.html — creada en W08 Jueves
+   ───────────────────────────────────────────────────────────── */
+const JUEGOS_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juegos — Resident Evil</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Juegos</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="juegos.html" class="activo">Juegos</a></li>
+      <li><a href="cronologia.html">Cronología</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Juegos representativos</h2>
+
+      <ul>
+        <li>Resident Evil (1996)</li>
+        <li>Resident Evil 2 (1998)</li>
+        <li>Resident Evil 3: Nemesis (1999)</li>
+        <li>Resident Evil 4 (2005)</li>
+        <li>Resident Evil 5 (2009)</li>
+        <li>Resident Evil 6 (2012)</li>
+        <li>Resident Evil 7: Biohazard (2017)</li>
+        <li>Resident Evil 2 Remake (2019)</li>
+        <li>Resident Evil Village (2021)</li>
+        <li>Resident Evil 4 Remake (2023)</li>
+      </ul>
+
+      <p>Visita el sitio oficial:</p>
+      <a href="https://www.residentevil.com/" target="_blank">residentevil.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fan Page de Resident Evil - Proyecto HTML</p>
+  </footer>
+
+</body>
+</html>`;
+
+/* ─────────────────────────────────────────────────────────────
+   paginas/cronologia.html — creada en W08 Jueves
+   ───────────────────────────────────────────────────────────── */
+const CRONOLOGIA_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cronología — Resident Evil</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Cronología</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="juegos.html">Juegos</a></li>
+      <li><a href="cronologia.html" class="activo">Cronología</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Cronología básica</h2>
+
+      <table border="1">
+        <tr>
+          <th>Juego</th>
+          <th>Año</th>
+          <th>Tipo</th>
+        </tr>
+        <tr>
+          <td>Resident Evil</td>
+          <td>1996</td>
+          <td>Survival Horror</td>
+        </tr>
+        <tr>
+          <td>Resident Evil 2</td>
+          <td>1998</td>
+          <td>Survival Horror</td>
+        </tr>
+        <tr>
+          <td>Resident Evil 3: Nemesis</td>
+          <td>1999</td>
+          <td>Survival Horror</td>
+        </tr>
+        <tr>
+          <td>Resident Evil 4</td>
+          <td>2005</td>
+          <td>Acción / Horror</td>
+        </tr>
+        <tr>
+          <td>Resident Evil 7: Biohazard</td>
+          <td>2017</td>
+          <td>Survival Horror</td>
+        </tr>
+        <tr>
+          <td>Resident Evil Village</td>
+          <td>2021</td>
+          <td>Survival Horror</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fan Page de Resident Evil - Proyecto HTML</p>
+  </footer>
+
+</body>
+</html>`;
+
+/* ─────────────────────────────────────────────────────────────
+   CSS Semana 09 Lunes — el CSS real de clase
+   ───────────────────────────────────────────────────────────── */
+const CSS_W09_LUNES = `/* SEMANA 09 LUNES */
+
+body {
+  background-color: green;
+  color: #e2e8f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #e53e3e;
+  font-size: 2rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Nav estilizado */
+nav {
+  background-color: #1a0000;
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+}
+
+/* Imágenes estilizadas */
+img {
+  max-width: 280px;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Centrar el contenido principal */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Galería flexible */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}`;
+
+/* ─────────────────────────────────────────────────────────────
+   CSS Semana 09 Jueves — nav a + hover + .activo
+   ───────────────────────────────────────────────────────────── */
+const CSS_W09_JUEVES = `/* SEMANA 09 JUEVES */
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #8b0000;
+  color: #ffffff;
+}
+
+nav a.activo {
+  background-color: #8b0000;
+  color: #ffffff;
+  font-weight: bold;
+}`;
+
+/* ─────────────────────────────────────────────────────────────
+   Helpers para construir el srcdoc de cada snapshot
+   ───────────────────────────────────────────────────────────── */
+const withCSS = (html, css) =>
+  html.replace(
+    '<link rel="stylesheet" href="css/style.css">',
+    `<style>${css}</style>`
+  );
+
+const withCSSNested = (html, css) =>
+  html.replace(
+    '<link rel="stylesheet" href="../css/style.css">',
+    `<style>${css}</style>`
+  );
+
+/* ─────────────────────────────────────────────────────────────
+   Estructura de carpetas (W08 Jueves)
+   ───────────────────────────────────────────────────────────── */
+const ESTRUCTURA = `proyecto/
+├── index.html          ← página principal
+├── css/
+│   └── style.css       ← hoja de estilos (vacía por ahora)
+├── paginas/
+│   ├── personajes.html ← sección de personajes
+│   ├── juegos.html     ← sección de juegos
+│   └── cronologia.html ← tabla cronológica
+└── img/
+    └── (imágenes aquí)
+
+Los enlaces del index.html apuntan a cada página:
+  href="paginas/personajes.html"
+  href="paginas/juegos.html"
+  href="#cronologia"  ← sección que queda en index`;
+
+/* ─────────────────────────────────────────────────────────────
+   HISTORIAL
+   ───────────────────────────────────────────────────────────── */
+const NO_LINK = (html) => html.replace('<link rel="stylesheet" href="css/style.css">', '');
+
+export const proyectoHistory = [
+  {
+    id: 'w08-lunes',
+    label: 'S08 · Lunes',
+    title: 'Semana 08 — Lunes: HTML base en un solo archivo',
+    description: 'Se creó el index.html con todas las secciones en una sola página: header, nav, personajes, juegos, cronología, contacto y footer. Sin CSS todavía.',
+    srcdoc: NO_LINK(INDEX_HTML),
+    files: [
+      {
+        label: 'index.html', lang: 'html', content: INDEX_HTML,
+        buildPreview: (c) => NO_LINK(c),
+      },
+    ],
+  },
+  {
+    id: 'w08-jueves',
+    label: 'S08 · Jueves',
+    title: 'Semana 08 — Jueves: Separación en páginas',
+    description: 'Se creó la estructura de carpetas: css/, paginas/, img/. Las secciones se movieron a archivos HTML independientes.',
+    srcdoc: NO_LINK(INDEX_HTML),
+    files: [
+      {
+        label: '📁 Estructura', lang: 'text', content: ESTRUCTURA,
+        buildPreview: null,
+      },
+      {
+        label: 'paginas/personajes.html', lang: 'html', content: PERSONAJES_HTML,
+        buildPreview: (c) => withCSSNested(c, ''),
+      },
+      {
+        label: 'paginas/juegos.html', lang: 'html', content: JUEGOS_HTML,
+        buildPreview: (c) => withCSSNested(c, ''),
+      },
+      {
+        label: 'paginas/cronologia.html', lang: 'html', content: CRONOLOGIA_HTML,
+        buildPreview: (c) => withCSSNested(c, ''),
+      },
+    ],
+  },
+  {
+    id: 'w09-lunes',
+    label: 'S09 · Lunes',
+    title: 'Semana 09 — Lunes: CSS completo en todo el sitio',
+    description: 'Primera sesión de CSS: fondo verde, tipografía, nav con fondo oscuro, imágenes con hover scale, main centrado y clase .galeria con flexbox.',
+    srcdoc: withCSS(INDEX_HTML, CSS_W09_LUNES),
+    files: [
+      {
+        label: 'css/style.css', lang: 'css', content: CSS_W09_LUNES,
+        buildPreview: (c) => withCSS(INDEX_HTML, c),
+      },
+      {
+        label: 'index.html', lang: 'html', content: INDEX_HTML,
+        buildPreview: (c) => withCSS(c, CSS_W09_LUNES),
+      },
+    ],
+  },
+  {
+    id: 'w09-jueves',
+    label: 'S09 · Jueves',
+    title: 'Semana 09 — Jueves: Nav links estilizados',
+    description: 'Se agregaron estilos a los enlaces del nav: color blanco, padding, hover con fondo #8b0000 y clase .activo resaltada.',
+    srcdoc: withCSS(INDEX_HTML, CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES),
+    files: [
+      {
+        label: 'css/style.css (nuevo)', lang: 'css', content: CSS_W09_JUEVES,
+        buildPreview: (c) => withCSS(INDEX_HTML, CSS_W09_LUNES + '\n\n' + c),
+      },
+      {
+        label: 'css/style.css (completo)', lang: 'css', content: CSS_W09_LUNES + '\n\n' + CSS_W09_JUEVES,
+        buildPreview: (c) => withCSS(INDEX_HTML, c),
+      },
+    ],
+  },
+];
