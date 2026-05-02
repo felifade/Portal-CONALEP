@@ -725,30 +725,53 @@
 .ph-editor-pre .token.url            { color: #ce9178; }
 .ph-editor-pre .token.important      { color: #569cd6; font-weight: bold; }
 
-/* ── Editor wrapper ───────────────────────────────────────── */
+/* ── Syntax editor (overlay technique) ───────────────────── */
 .ph-editor-wrap {
+  position: relative;
   border-top: 1px solid #2d2d2d;
-  max-height: 440px;
-  overflow-y: auto;
   background: #1e1e1e;
+  max-height: 440px;
+  overflow: auto;
 }
 
-.ph-editor {
-  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
-  font-size: 12.5px !important;
-  line-height: 1.75 !important;
-  background: #1e1e1e !important;
-  color: #d4d4d4 !important;
-  min-height: 200px;
+.ph-editor-pre,
+.ph-editor-textarea {
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  padding: 20px 24px;
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+  tab-size: 2;
+  box-sizing: border-box;
+  min-height: 220px;
+  width: 100%;
 }
-
-.ph-editor-textarea { outline: none !important; caret-color: #aeafad; }
 
 .ph-editor-pre {
-  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
-  font-size: 12.5px !important;
-  line-height: 1.75 !important;
   color: #d4d4d4;
+  background: transparent;
+  pointer-events: none;
+  border: none;
+  display: block;
+}
+
+.ph-editor-textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: transparent;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  caret-color: #aeafad;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
 /* plain-text file (estructura) shown as read-only pre */

@@ -1,11 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ExternalLink, History, Monitor } from 'lucide-react';
 import { proyectoHistory } from '../data/proyecto_history';
-import Editor from 'react-simple-code-editor';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-javascript';
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const CodeEditor = ({ value, onChange, lang }) => {
+  const preRef = useRef(null);
+
+  const highlighted = (() => {
+    try {
+      const g =
+        lang === 'html' ? Prism.languages.markup :
+        lang === 'css'  ? Prism.languages.css     :
+        lang === 'js'   ? Prism.languages.javascript : null;
+      return g ? Prism.highlight(value, g, lang) : esc(value);
+    } catch { return esc(value); }
+  })();
+
+  const syncScroll = e => {
+    if (preRef.current) {
+      preRef.current.scrollTop  = e.target.scrollTop;
+      preRef.current.scrollLeft = e.target.scrollLeft;
+    }
+  };
+
+  return (
+    <div className="ph-editor-wrap">
+      <pre
+        ref={preRef}
+        className="ph-editor-pre"
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: highlighted + '\n' }}
+      />
+      <textarea
+        className="ph-editor-textarea"
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        onScroll={syncScroll}
+        spellCheck={false}
+        autoCapitalize="off"
+        autoCorrect="off"
+      />
+    </div>
+  );
+};
 
 const CopyBtn = ({ text }) => {
   const [label, setLabel] = useState('Copiar');
@@ -101,25 +143,7 @@ const HistorialPanel = () => {
               )}
             </div>
           </div>
-          <div className="ph-editor-wrap">
-            <Editor
-              value={currentContent}
-              onValueChange={handleEdit}
-              highlight={code => {
-                const grammar =
-                  file.lang === 'css'  ? Prism.languages.css  :
-                  file.lang === 'js'   ? Prism.languages.javascript :
-                  file.lang === 'html' ? Prism.languages.markup : null;
-                return grammar
-                  ? Prism.highlight(code, grammar, file.lang)
-                  : code;
-              }}
-              padding={20}
-              className="ph-editor"
-              textareaClassName="ph-editor-textarea"
-              preClassName="ph-editor-pre"
-            />
-          </div>
+          <CodeEditor value={currentContent} onChange={handleEdit} lang={file.lang} />
         </div>
       )}
     </div>
