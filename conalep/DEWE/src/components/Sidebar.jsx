@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, BookOpen, ChevronRight, FlaskConical, GraduationCap, Lock } from 'lucide-react';
+import { BarChart2, BookOpen, ChevronRight, FlaskConical, GraduationCap, Lock, Clapperboard } from 'lucide-react';
 import { curriculumData } from '../data/curriculum';
 
 const POND_DATA = [
@@ -119,6 +119,13 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
             >
               <FlaskConical size={15} className="doc-icon" />
               Laboratorio de Código
+            </a>
+            <a
+              className={`main-nav-link proyecto-nav-link ${activeView === 'proyecto' ? 'active' : ''}`}
+              onClick={() => { onViewSelect('proyecto'); if (onMobileClose) onMobileClose(); }}
+            >
+              <Clapperboard size={15} className="doc-icon" />
+              Proyecto — Resident Evil
             </a>
           </div>
 

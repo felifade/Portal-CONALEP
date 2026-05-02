@@ -3,6 +3,7 @@ import { Monitor, GraduationCap, Layers, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from '@shared/components/WeekView';
 import CodeLab from './components/CodeLab';
+import ProyectoView from './components/ProyectoView';
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
@@ -108,6 +109,8 @@ function App() {
             curriculumData={curriculumData}
             assetUrl={assetUrl}
           />
+        ) : activeView === 'proyecto' ? (
+          <ProyectoView isTeacherMode={isTeacherMode} />
         ) : (
           <CodeLab />
         )}
