@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { ExternalLink, History, Monitor } from 'lucide-react';
 import { proyectoHistory } from '../data/proyecto_history';
+import Editor from 'react-simple-code-editor';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-javascript';
 
 const CopyBtn = ({ text }) => {
   const [label, setLabel] = useState('Copiar');
@@ -96,12 +101,25 @@ const HistorialPanel = () => {
               )}
             </div>
           </div>
-          <textarea
-            className={`ph-code-block ph-code-editor ph-lang-${file.lang}`}
-            value={currentContent}
-            onChange={e => handleEdit(e.target.value)}
-            spellCheck={false}
-          />
+          <div className="ph-editor-wrap">
+            <Editor
+              value={currentContent}
+              onValueChange={handleEdit}
+              highlight={code => {
+                const grammar =
+                  file.lang === 'css'  ? Prism.languages.css  :
+                  file.lang === 'js'   ? Prism.languages.javascript :
+                  file.lang === 'html' ? Prism.languages.markup : null;
+                return grammar
+                  ? Prism.highlight(code, grammar, file.lang)
+                  : code;
+              }}
+              padding={20}
+              className="ph-editor"
+              textareaClassName="ph-editor-textarea"
+              preClassName="ph-editor-pre"
+            />
+          </div>
         </div>
       )}
     </div>
