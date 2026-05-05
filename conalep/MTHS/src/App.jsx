@@ -20,7 +20,12 @@ function App() {
     if (diffWeeks <= 8)   return 'W06';
     if (diffWeeks === 9)  return 'W07';
     if (diffWeeks === 10) return 'W08';
-    return 'W09';
+    if (diffWeeks === 11) return 'W09';
+    if (diffWeeks === 12) return 'W10';
+    if (diffWeeks === 13) return 'W11';
+    if (diffWeeks === 14) return 'W12';
+    if (diffWeeks === 15) return 'W13';
+    return 'W14';
   };
 
   const currentWeek = getAutoWeek();
