@@ -885,236 +885,398 @@ El Primer Ministro del Reino Unido recibe una amenaza: si no realiza un acto hum
 4. El raptor liberó a la princesa 30 minutos antes del evento — y aun así el evento ocurrió. ¿Por qué nadie lo detuvo?
 5. ¿Hay diferencia entre ver algo terrible en una pantalla y verlo en persona? ¿Esa diferencia nos hace más o menos responsables?
 6. ¿Recuerdas algún momento en redes donde la gente se indignó masivamente y a la semana nadie hablaba del tema?
-7. Si esto ocurriera hoy con TikTok e Instagram, ¿sería diferente? ¿Más rápido, más lento, más o menos cruel?`,practice:`No hay práctica en PC. La actividad es la reflexión escrita en libreta.`,product:`7 respuestas escritas en libreta con criterio propio y argumentadas.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: No conducir hacia una 'respuesta correcta' — el valor está en que argumenten. La pregunta 4 (¿por qué nadie lo detuvo si ya estaba libre?) suele generar la discusión más rica: momentum social, inercia mediática, nadie quería ser el primero en parar. La pregunta 5 conecta con la desensibilización digital. Si el tiempo lo permite, abrir 3-4 preguntas a discusión grupal antes de que las escriban.`}],cierre:`La tecnología no cambió quiénes somos — reveló quiénes siempre fuimos. Eso es Black Mirror.`,frase_docente:`La pantalla no nos hace mejores ni peores personas. Solo nos hace más visibles.`},{id:`fri`,label:`Viernes — 🟡 Introducción a JavaScript`,purpose:`Dar el primer contacto con JavaScript: qué es, cómo se conecta con HTML, y escribir los primeros programas que responden al usuario.`,hours:[{time:`Hora 1`,title:`🟡 ¿Qué es JavaScript? — Variables, alert y console.log`,theory:`Hasta ahora construiste la estructura (HTML) y la apariencia (CSS). JavaScript es el tercer pilar: le da comportamiento a la página. Si HTML es el esqueleto y CSS es la piel, JS es el cerebro.
+7. Si esto ocurriera hoy con TikTok e Instagram, ¿sería diferente? ¿Más rápido, más lento, más o menos cruel?`,practice:`No hay práctica en PC. La actividad es la reflexión escrita en libreta.`,product:`7 respuestas escritas en libreta con criterio propio y argumentadas.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: No conducir hacia una 'respuesta correcta' — el valor está en que argumenten. La pregunta 4 (¿por qué nadie lo detuvo si ya estaba libre?) suele generar la discusión más rica: momentum social, inercia mediática, nadie quería ser el primero en parar. La pregunta 5 conecta con la desensibilización digital. Si el tiempo lo permite, abrir 3-4 preguntas a discusión grupal antes de que las escriban.`}],cierre:`La tecnología no cambió quiénes somos — reveló quiénes siempre fuimos. Eso es Black Mirror.`,frase_docente:`La pantalla no nos hace mejores ni peores personas. Solo nos hace más visibles.`},{id:`fri`,label:`Viernes — 🎨 CSS Profesional: De básico a espectacular`,purpose:`Transformar el sitio de Resident Evil de un diseño básico (fondo verde) al diseño profesional oscuro con paleta roja, tipografía, animaciones y jerarquía visual. Los alumnos copian el CSS bloque por bloque y lo escriben en su archivo.`,hours:[{time:`Hora 1`,title:`🔧 Reset, Body, Header y Nav`,theory:`Hoy transformamos el sitio de verde básico a diseño profesional — todo CSS, cero JavaScript.
 
-🔗 CÓMO SE CONECTA CON HTML
-Puedes escribir JS directamente en el HTML usando la etiqueta <script>. Siempre va antes de cerrar </body>:
+🎨 PALETA
+Tres rojos y tres grises: #0a0a0a fondo · #1a0000 header · #b91c1c acentos · #ef4444 highlights · #f0f0f0 texto · #888 subtexto.
 
-\`\`\`html
-<script>
-  // Aquí va tu código JavaScript
-<\/script>
-\`\`\`
+🔄 RESET
+Cada navegador agrega márgenes y padding propios por defecto. El reset los elimina para que el diseño se vea igual en Chrome, Firefox y Edge. Va siempre al inicio del CSS.
 
-📦 VARIABLES
-Una variable es una caja donde guardas información. En JS moderno usamos let:
+📌 STICKY
+position: sticky mantiene el nav visible al hacer scroll sin sacarlo del flujo del documento. A diferencia de position: fixed, sí ocupa su espacio original y solo se «pega» al llegar a él.
 
-\`\`\`js
-let nombre = "Carlos";
-let edad = 17;
-let esEstudiante = true;
-\`\`\`
+↔ SUBRAYADO ANIMADO
+El truco del nav usa nav a::after — un pseudo-elemento vacío que empieza con width: 0 (invisible) y crece al 100% en el hover gracias a transition: width.`,notebook:`1. ¿Qué problema resuelve el reset al inicio de un CSS?
+2. ¿Cuál es la diferencia entre position: sticky y position: fixed?
+3. ¿Qué significa rgba(10, 10, 10, 0.95)? ¿Qué controla el último número?
+4. ¿Por qué nav a::after empieza con width: 0?
+5. Escribe los tres tonos de rojo que usa esta paleta y para qué se usa cada uno.`,practice:`Abre css/style.css y reemplaza TODO el contenido con este bloque:
 
-📢 alert() y console.log()
-Dos formas de mostrar información:
-
-\`\`\`js
-alert("Hola, mundo");         // Ventana emergente en el navegador
-console.log("Hola, mundo");   // Mensaje en la consola del navegador (F12)
-\`\`\`
-
-🧮 OPERACIONES BÁSICAS
-JS puede hacer matemáticas:
-
-\`\`\`js
-let a = 10;
-let b = 3;
-console.log(a + b);  // 13
-console.log(a * b);  // 30
-console.log(a - b);  // 7
-\`\`\`
-
-💬 CONCATENAR TEXTO
-\`\`\`js
-let nombre = "Ana";
-let saludo = "Hola, " + nombre + "!";
-console.log(saludo);  // Hola, Ana!
-\`\`\``,notebook:`1. ¿Qué hace cada etiqueta de la 'triada web'? HTML = ___, CSS = ___, JS = ___
-2. ¿Cuál es la diferencia entre alert() y console.log()?
-3. Escribe una variable llamada 'materia' con el valor 'Diseño Web'.
-4. ¿Dónde se abre la consola del navegador para ver console.log?
-5. Escribe el resultado: let x = 5; let y = 4; console.log(x * y); → ___`,practice:`En VS Code, abre tu carpeta del proyecto y crea un archivo prueba.html.
-
-1. Escribe la estructura base HTML.
-2. Antes de </body>, agrega <script> con el siguiente código:
-
-\`\`\`js
-let nombre = "TuNombre";
-let materia = "DEWE";
-let año = 2026;
-
-console.log("Hola, soy " + nombre);
-console.log("Estudio " + materia + " en el año " + año);
-alert("Bienvenido a JavaScript, " + nombre + "!");
-\`\`\`
-
-3. Guarda y abre en el navegador.
-4. Presiona F12 → pestaña 'Console' para ver los mensajes.
-5. Cambia los valores de las variables y observa cómo cambia el resultado.`,product:`Archivo prueba.html con al menos 3 variables, 2 console.log y 1 alert funcionando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Muchos alumnos creerán que alert() es 'mejor' porque se ve. Demostrar que console.log() es la herramienta de los programadores — no para el usuario final. Insistir en F12 como hábito desde el día 1. Si el grupo va rápido, demostrar typeof: console.log(typeof nombre) para introducir tipos de datos.`},{time:`Hora 2`,title:`🖱️ DOM — getElementById y onclick: páginas que responden`,theory:`El DOM (Document Object Model) es la representación de tu HTML como un árbol de objetos que JavaScript puede manipular. Básicamente, JS puede leer y modificar cualquier elemento de tu página.
-
-🎯 getElementById
-Permite 'agarrar' un elemento HTML usando su id:
-
-\`\`\`html
-<p id="mensaje">Texto inicial</p>
-\`\`\`
-\`\`\`js
-let parrafo = document.getElementById("mensaje");
-\`\`\`
-
-✏️ CAMBIAR EL TEXTO
-Una vez que tienes el elemento, puedes cambiar su contenido:
-
-\`\`\`js
-parrafo.textContent = "¡Texto nuevo desde JavaScript!";
-\`\`\`
-
-🖱️ onclick — reaccionar a clics
-Puedes hacer que un botón ejecute código JS cuando se presiona:
-
-\`\`\`html
-<button onclick="cambiarTexto()">Presióname</button>
-\`\`\`
-\`\`\`js
-function cambiarTexto() {
-  let parrafo = document.getElementById("mensaje");
-  parrafo.textContent = "¡El botón funcionó!";
-}
-\`\`\`
-
-🔁 EL FLUJO COMPLETO
-1. El usuario hace clic en el botón
-2. El navegador ejecuta la función cambiarTexto()
-3. La función agarra el elemento con id="mensaje"
-4. Cambia su textContent
-5. El usuario ve el cambio al instante — sin recargar la página`,notebook:`1. ¿Qué significa DOM?
-2. ¿Para qué sirve getElementById?
-3. ¿Cuál es la diferencia entre textContent e innerHTML?
-4. Escribe el HTML de un botón que llame a una función llamada saludar()
-5. ¿Por qué JS puede cambiar el texto sin recargar la página?`,practice:`En tu prueba.html, agrega esto dentro del <body> (antes del <script>):
-
-\`\`\`html
-<h2 id="titulo">Título original</h2>
-<p id="contador">Clics: 0</p>
-<button onclick="cambiarTitulo()">Cambiar título</button>
-<button onclick="contar()">Sumar clic</button>
-\`\`\`
-
-Y en el <script>:
-
-\`\`\`js
-let clics = 0;
-
-function cambiarTitulo() {
-  let titulo = document.getElementById("titulo");
-  titulo.textContent = "¡Título cambiado por JS!";
-}
-
-function contar() {
-  clics = clics + 1;
-  let contador = document.getElementById("contador");
-  contador.textContent = "Clics: " + clics;
-}
-\`\`\`
-
-Prueba: ¿Qué pasa si presionas el botón de contar varias veces?`,product:`Página HTML con dos botones funcionando: uno que cambia texto y uno que cuenta clics.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El contador es el ejercicio más valioso — introduce el concepto de estado (una variable que persiste entre clics). Preguntar: '¿Dónde vive el número de clics?' — en la variable clics, no en el HTML. Esto prepara para entender React y frameworks más adelante. La diferencia textContent vs innerHTML puede dejarse como curiosidad: innerHTML interpreta etiquetas HTML, textContent las trata como texto plano.`},{time:`Hora 3`,title:`🎨 JS + Estilos — Modo oscuro/claro con un botón`,theory:`JavaScript puede modificar los estilos CSS de cualquier elemento directamente desde código. Esto abre la puerta a interacciones visuales en tiempo real.
-
-🎨 element.style.propiedad
-Puedes cambiar cualquier propiedad CSS de un elemento:
-
-\`\`\`js
-let titulo = document.getElementById("titulo");
-titulo.style.color = "red";
-titulo.style.fontSize = "32px";
-titulo.style.backgroundColor = "yellow";
-\`\`\`
-
-⚠️ Nota: en CSS es font-size (con guion), en JS es fontSize (camelCase).
-
-🌙 MODO OSCURO / CLARO
-El truco del modo oscuro/claro es usar una variable para recordar el estado actual:
-
-\`\`\`js
-let modoOscuro = false;
-
-function toggleModo() {
-  if (modoOscuro === false) {
-    document.body.style.backgroundColor = "#1a1a1a";
-    document.body.style.color = "white";
-    modoOscuro = true;
-  } else {
-    document.body.style.backgroundColor = "white";
-    document.body.style.color = "black";
-    modoOscuro = false;
-  }
-}
-\`\`\`
-
-🏷️ CAMBIAR CLASES CON CLASSLIST
-Una forma más limpia: en lugar de cambiar estilos uno por uno, cambiar una clase CSS:
-
-\`\`\`js
-document.body.classList.toggle("dark");
-\`\`\`
-
-Y en CSS:
 \`\`\`css
-.dark {
-  background-color: #1a1a1a;
-  color: white;
+/* ══════════════════════════════════════════
+   RESET UNIVERSAL
+   El selector * aplica a TODOS los elementos de la página.
+   ::before y ::after son pseudoelementos (contenido extra decorativo).
+   box-sizing: border-box → el padding y border se incluyen dentro del ancho total.
+   margin y padding en 0 → eliminamos los espacios que el navegador pone por defecto.
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ══════════════════════════════════════════
+   BODY — Cuerpo de la página
+   Es el contenedor principal de todo el contenido visible.
+   background-color → color de fondo (negro casi puro).
+   color → color del texto por defecto en toda la página.
+   font-family → tipografía a usar; si la primera no existe se usa la siguiente.
+══════════════════════════════════════════ */
+body {
+  background-color: #0a0a0a;   /* Negro muy oscuro de fondo */
+  color: #f0f0f0;               /* Texto blanco suave */
+  font-family: 'Segoe UI', Arial, sans-serif; /* Fuente principal del sitio */
 }
-\`\`\``,notebook:`1. ¿Por qué las propiedades CSS se escriben diferente en JS? (font-size → ___)
-2. ¿Para qué sirve la variable modoOscuro = false?
-3. ¿Qué hace classList.toggle()?
-4. ¿Cuál método es más limpio: cambiar style.propiedad o classList.toggle? ¿Por qué?
-5. Escribe el código JS para cambiar el color de fondo de un elemento con id='caja' a azul.`,practice:`Crea una página mini con modo oscuro/claro:
 
-\`\`\`html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Modo Oscuro</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: white;
-      color: black;
-      padding: 40px;
-      transition: all 0.3s;
-    }
-    .dark {
-      background-color: #1a1a1a;
-      color: #f0f0f0;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 8px;
-      background-color: #6c63ff;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-  <h1>Mi primera página con JS</h1>
-  <p>Hola, soy <span id="nombre">estudiante</span>.</p>
-  <p>Esta es mi semana <strong>10</strong> de DEWE.</p>
-  <br>
-  <button onclick="toggleModo()">🌙 Cambiar modo</button>
+/* ══════════════════════════════════════════
+   HEADER — Encabezado de la página
+   Es la sección de presentación en la parte superior.
+   padding → espacio interno (arriba/abajo izquierda/derecha).
+   text-align: center → centra horizontalmente todo el texto.
+   border-bottom → línea decorativa roja en la parte inferior del header.
+══════════════════════════════════════════ */
+header {
+  background-color: #1a0000;        /* Fondo rojo muy oscuro (casi negro) */
+  padding: 60px 60px;               /* Espacio interno: 60px arriba/abajo y a los lados */
+  text-align: center;               /* Centra el contenido */
+  border-bottom: 3px solid #b91c1c; /* Línea roja de 3px abajo del header */
+}
 
-  <script>
-    function toggleModo() {
-      document.body.classList.toggle("dark");
-    }
-  <\/script>
-</body>
-</html>
-\`\`\`
+/* Título principal dentro del header (etiqueta h1) */
+header h1 {
+  font-size: 56px;                         /* Tamaño grande del título */
+  color: #ef4444;                          /* Rojo brillante */
+  letter-spacing: 4px;                     /* Espacio extra entre letras */
+  text-transform: uppercase;               /* Convierte el texto a MAYÚSCULAS */
+  margin-bottom: 10px;                     /* Espacio de 10px debajo del título */
+  text-shadow: 0 0 30px rgba(185,28,28,0.5); /* Sombra roja difusa (efecto brillo) */
+}
 
-Reto extra: haz que el texto del botón cambie también — que diga '☀️ Modo claro' cuando está en modo oscuro y '🌙 Modo oscuro' cuando está en modo claro.`,product:`Página HTML con modo oscuro/claro funcionando usando classList.toggle. Reto extra: botón con texto dinámico.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La propiedad transition: all 0.3s en CSS hace que el cambio sea suave — mencionar que ese efecto lo dio CSS, no JS. JS solo cambió la clase. Esta separación de responsabilidades (JS decide cuándo, CSS decide cómo se ve) es un principio fundamental del desarrollo web. El reto extra requiere getElementById en el botón + textContent — conecta con la Hora 2.`}],cierre:`HTML estructura, CSS decora, JavaScript actúa. Hoy escribiste las primeras líneas de código que hacen que una página piense.`,frase_docente:`Cualquier aplicación suficientemente compleja es indistinguible de magia — hasta que aprendes cómo funciona.`}]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},De=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=De()}))(),Oe=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],ke=()=>{let[e,t]=(0,_.useState)(!1);return(0,j.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,j.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,j.jsx)(de,{size:13,className:`pond-icon`}),(0,j.jsx)(`span`,{children:`Ponderación`}),(0,j.jsx)(k,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,j.jsxs)(`div`,{className:`ponderacion-body`,children:[Oe.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-unit`,children:[(0,j.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,j.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,j.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,j.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,j.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,j.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,j.jsxs)(`div`,{className:`pond-total`,children:[(0,j.jsx)(`span`,{children:`Total del módulo`}),(0,j.jsx)(`span`,{children:`100%`})]})]})]})},Ae=Ee.ras.flatMap(e=>e.weeks.map(e=>e.id)),je=Object.fromEntries(Ee.cortes.map(e=>[e.id,e])),Me=Ee.ras,Ne=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=Ae.indexOf(i),u=e=>!(Ae.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ee.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,j.jsxs)(j.Fragment,{children:[s&&(0,j.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,j.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,j.jsxs)(`div`,{className:`sidebar-header`,children:[(0,j.jsxs)(`div`,{className:`school-brand`,children:[(0,j.jsx)(`div`,{className:`brand-icon`,children:(0,j.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,j.jsxs)(`div`,{className:`school-info`,children:[(0,j.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,j.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,j.jsxs)(`div`,{className:`author-credits`,children:[(0,j.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,j.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,j.jsxs)(`nav`,{className:`nav-container`,children:[(0,j.jsxs)(`div`,{className:`main-nav-section`,children:[(0,j.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,j.jsx)(me,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,j.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,j.jsx)(A,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,j.jsx)(ke,{}),(0,j.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Me.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=je[n.corte];return(0,j.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,j.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,j.jsx)(k,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,j.jsx)(le,{size:13,className:`ra-icon`}),(0,j.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,j.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,j.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,j.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,j.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,j.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,j.jsx)(ve,{size:10,className:`lock-icon`}),s&&(0,j.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,j.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Pe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Fe=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,j.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,j.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,j.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,j.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,j.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,j.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,j.jsx)(`p`,{children:e},t))})},Ie={theory:{icon:(0,j.jsx)(le,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,j.jsx)(Ce,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,j.jsx)(Te,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,j.jsx)(Se,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,j.jsx)(he,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,j.jsx)(ue,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Le=({type:e,children:t})=>{let n=Ie[e];return(0,j.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:t})]})},Re=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,j.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,j.jsxs)(`div`,{className:`block-header-row`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,j.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,j.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e})})})]})},ze=({html:e})=>(0,j.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,j.jsx)(`div`,{className:`block-body diagram-body`,children:(0,j.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{try{let t=e.target.contentDocument.body.scrollHeight;e.target.style.height=t+`px`}catch{}}})})]}),Be=({src:e,alt:t,className:n})=>(0,j.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ve=({activity:e,assetUrl:t})=>(0,j.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,j.jsxs)(`div`,{className:`dual-header`,children:[(0,j.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,j.jsx)(`h4`,{children:e.title})]}),(0,j.jsxs)(`div`,{className:`dual-body`,children:[(0,j.jsx)(`div`,{className:`dual-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})}),e.image&&t&&(0,j.jsx)(`div`,{className:`infographic-container`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),He=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,j.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,j.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,j.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,j.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,j.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,j.jsxs)(`div`,{className:`gallery-item`,children:[(0,j.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,j.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,j.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})})]},n))})]})},Ue=({days:e,activeIndex:t,onSelect:n})=>(0,j.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),We=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,j.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Ge=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,j.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,j.jsxs)(`div`,{className:`breadcrumb`,children:[(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,j.jsxs)(`div`,{className:`page-header-nav`,children:[(0,j.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,j.jsx)(fe,{size:13}),` Anterior`]}),(0,j.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,j.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,j.jsx)(k,{size:13})]})]}),(0,j.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,j.jsxs)(`div`,{className:`sheet-header`,children:[(0,j.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,j.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,j.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,j.jsx)(Le,{type:`theory`,children:(0,j.jsx)(Fe,{text:e.theory})}),(0,j.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,j.jsx)(Le,{type:`notebook`,children:(0,j.jsx)(Fe,{text:e.notebook})}),e.practice&&(0,j.jsx)(Le,{type:`practice`,children:(0,j.jsx)(Fe,{text:e.practice})})]}),e.diagram&&(0,j.jsx)(ze,{html:e.diagram}),e.code&&(0,j.jsx)(Re,{code:e.code}),r&&e.codeRef&&(0,j.jsx)(Re,{code:e.codeRef,isRef:!0}),e.product&&(0,j.jsx)(Le,{type:`product`,children:(0,j.jsx)(Fe,{text:e.product})}),u&&(e.image||e.images)&&(0,j.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.screenshot.icon,` `,Ie.screenshot.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,j.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,j.jsx)(`div`,{className:`block-header-row`,children:(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.teacher.icon,` `,Ie.teacher.label]})}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(Fe,{text:e.teacherNotes})})]})]})]})]}),Ke=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=Pe(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,j.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,j.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),(0,j.jsx)(`div`,{className:`notebook-container`,children:(0,j.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,j.jsxs)(`div`,{className:`empty-message-content`,children:[(0,j.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,j.jsx)(`h2`,{children:`Contenido en preparación`}),(0,j.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,j.jsx)(`strong`,{children:v||h.label}),`.`,(0,j.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},S=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},C=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,j.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,j.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,j.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,j.jsxs)(`div`,{className:`preview-text`,children:[(0,j.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,j.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,j.jsx)(Ue,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,j.jsx)(We,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,j.jsx)(`div`,{className:`notebook-container`,children:r?(0,j.jsx)(He,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,j.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,j.jsx)(`div`,{className:`sheet-header`,children:(0,j.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,j.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,j.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,j.jsx)(Ve,{activity:e,assetUrl:o},t))}):(0,j.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,j.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,j.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,j.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,j.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,j.jsxs)(`div`,{className:`purpose-text`,children:[(0,j.jsx)(`strong`,{children:`Propósito de hoy`}),(0,j.jsx)(Fe,{text:y.purpose})]})]}),(0,j.jsx)(Ge,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:C,onNext:S,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,j.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,j.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,j.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,j.jsx)(Fe,{text:y.cierre})]}),y.frase_docente&&(0,j.jsx)(`div`,{className:`day-quote-block`,children:(0,j.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},qe={html:`<h1>¡Hola Grupo 601!</h1>
+/* Párrafo de subtítulo dentro del header */
+header p {
+  color: #888;          /* Gris medio para el subtítulo */
+  font-size: 14px;      /* Tamaño pequeño */
+  letter-spacing: 2px;  /* Espaciado entre letras */
+}
+
+/* ══════════════════════════════════════════
+   NAV — Barra de navegación
+   Contiene los enlaces del menú principal.
+   position: sticky → se queda fija en la pantalla al hacer scroll.
+   top: 0 → se pega a la parte superior de la ventana.
+   z-index: 100 → se muestra por encima de otros elementos.
+   backdrop-filter: blur → efecto de desenfoque del fondo detrás del nav.
+══════════════════════════════════════════ */
+nav {
+  position: sticky;                         /* Se queda visible al hacer scroll */
+  top: 0;                                   /* Pegada al borde superior */
+  z-index: 100;                             /* Capa 100: se pone encima de casi todo */
+  background-color: rgba(10, 10, 10, 0.95); /* Negro con 95% de opacidad */
+  border-bottom: 2px solid #b91c1c;         /* Línea roja abajo del menú */
+  backdrop-filter: blur(8px);               /* Desenfoca lo que hay detrás del nav */
+}
+
+/* Lista desordenada ul dentro del nav (los ítems del menú) */
+nav ul {
+  list-style: none;      /* Quita los puntos de la lista */
+  display: flex;         /* Coloca los ítems en fila horizontal */
+  gap: 8px;              /* Espacio de 8px entre cada ítem */
+  padding: 0 40px;       /* Espacio interno a los lados */
+  margin: 0;             /* Sin márgenes externos */
+  height: 56px;          /* Altura fija de la barra */
+  align-items: center;   /* Centra los ítems verticalmente */
+}
+
+/* Los enlaces <a> dentro del nav */
+nav a {
+  color: #888;                /* Color gris por defecto */
+  text-decoration: none;      /* Quita el subrayado de los enlaces */
+  font-size: 13px;            /* Tamaño de letra pequeño */
+  letter-spacing: 1.5px;      /* Espacio entre letras */
+  text-transform: uppercase;  /* Texto en mayúsculas */
+  padding-bottom: 4px;        /* Espacio abajo para que quepa la línea decorativa */
+  position: relative;         /* Necesario para posicionar el ::after */
+  transition: color 0.2s;     /* Animación suave al cambiar de color */
+}
+
+/* Línea decorativa que aparece debajo del enlace al pasar el mouse.
+   Es un pseudoelemento ::after (contenido generado por CSS, no por HTML).
+   Empieza con width: 0 (invisible) y se expande al hacer hover. */
+nav a::after {
+  content: '';               /* Texto vacío (solo es decorativo) */
+  position: absolute;        /* Se posiciona respecto al <a> (que es relative) */
+  bottom: 0; left: 0;        /* Parte de abajo a la izquierda del enlace */
+  width: 0; height: 2px;     /* Inicia sin ancho → invisible */
+  background-color: #ef4444; /* Color rojo de la línea */
+  transition: width 0.25s ease; /* Animación: el ancho crece suavemente */
+}
+
+/* Estado hover: cuando el mouse está encima del enlace */
+nav a:hover { color: #f0f0f0; }           /* El texto se vuelve blanco */
+nav a:hover::after { width: 100%; }       /* La línea roja se extiende al 100% */
+
+/* Clase .activo: marca el enlace de la página actual */
+nav a.activo { color: #ef4444; }          /* Enlace activo en rojo */
+nav a.activo::after { width: 100%; }      /* Con la línea roja siempre visible */
+\`\`\``,product:`css/style.css con reset, body, header y nav. La página ya muestra la paleta roja y el nav sticky con subrayado animado.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Antes de dictar, abrir el Historial del Proyecto y mostrar S09·Lunes (verde) vs el preview de S10·Vie CSS — el contraste motiva. Al terminar la Hora 1 el header ya luce radicalmente diferente. Señalar el nav a::after: animación sin JavaScript, un patrón que usarán toda su vida.`},{time:`Hora 2`,title:`📐 Main, Secciones, H2 y Tarjetas`,theory:`Con header y nav listos, ahora estilizamos las secciones y las tarjetas de personajes.
+
+📦 BOX MODEL
+Todo elemento HTML es una caja con 4 capas: content (contenido) → padding (espacio interior) → border (borde) → margin (espacio exterior). Con box-sizing: border-box del reset, el padding queda dentro del tamaño declarado.
+
+🏷️ ACENTO EN H2
+border-left: 4px solid #b91c1c crea la barra roja vertical a la izquierda del título — un patrón de diseño simple y muy efectivo.
+
+🃏 PATRÓN DE TARJETA
+Fondo diferente + borde sutil + border-radius + hover con transform y transition. Regla clave: transition debe estar en el elemento, no en el :hover, para que la animación de salida también sea suave.`,notebook:`1. Dibuja las 4 capas del box model y etiqueta cada una.
+2. ¿Qué diferencia visual produce border-left: 4px solid #b91c1c en el h2?
+3. ¿Qué hace transform: translateY(-3px) en el hover del article?
+4. ¿Por qué transition debe estar en el elemento y no solo en el :hover?
+5. ¿Qué valor de line-height mejora la legibilidad del texto? ¿Por qué?`,practice:`Continúa en css/style.css — agrega este bloque a continuación:
+
+\`\`\`css
+/* ══════════════════════════════════════════
+   MAIN Y SECTION — Contenido principal
+   <main> es el contenedor de todo el contenido central.
+   <section> agrupa bloques temáticos (ej: Personajes, Juegos).
+══════════════════════════════════════════ */
+main { padding: 0; } /* Sin espacio extra; cada section maneja su propio padding */
+
+section {
+  padding: 50px 60px;               /* Espacio interno cómodo dentro de cada sección */
+  border-bottom: 1px solid #1a1a1a; /* Línea separadora gris muy oscura entre secciones */
+}
+
+/* Subtítulos h2 de cada sección */
+h2 {
+  font-size: 28px;           /* Tamaño del subtítulo */
+  color: #ef4444;            /* Rojo para los títulos */
+  text-transform: uppercase; /* En mayúsculas */
+  letter-spacing: 2px;       /* Espacio entre letras */
+  margin-bottom: 24px;       /* Espacio debajo del título */
+  border-left: 4px solid #b91c1c; /* Barra roja vertical a la izquierda */
+  padding-left: 16px;        /* Espacio para separar el texto de la barra */
+}
+
+/* ══════════════════════════════════════════
+   ARTICLE — Tarjetas de contenido
+   Cada <article> es una tarjeta con información de un personaje o juego.
+   transition → anima los cambios de borde y posición suavemente.
+══════════════════════════════════════════ */
+article {
+  background-color: #1a1a1a;   /* Fondo gris oscuro de la tarjeta */
+  border: 1px solid #2a2a2a;   /* Borde gris sutil */
+  border-radius: 8px;          /* Esquinas redondeadas */
+  padding: 20px 24px;          /* Espacio interno de la tarjeta */
+  margin-bottom: 16px;         /* Separación entre tarjetas */
+  transition: border-color 0.25s ease, transform 0.25s ease; /* Animaciones al hover */
+}
+
+/* Efecto al pasar el mouse sobre una tarjeta */
+article:hover {
+  border-color: #b91c1c;       /* El borde se vuelve rojo */
+  transform: translateY(-3px); /* La tarjeta sube 3px (efecto de elevación) */
+}
+
+/* Título h3 y párrafo p dentro de cada tarjeta */
+article h3 { color: #f0f0f0; margin-bottom: 8px; font-size: 18px; } /* Título en blanco */
+article p  { color: #888; line-height: 1.6; }  /* Texto gris con interlineado cómodo */
+\`\`\``,product:`Secciones y tarjetas de personajes estilizadas. El hover anima la tarjeta con borde rojo y efecto de levitación.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Demostrar el hover de las tarjetas en el proyector — es uno de los efectos más impactantes y es solo CSS. Hacer el experimento en vivo: mover el transition al :hover → la animación de entrada desaparece. Ese experimento toma 30 segundos y enseña la diferencia de forma memorable.`},{time:`Hora 3`,title:`🔗 Links, Botones, Lista, Tabla, Formulario y Footer`,theory:`Terminamos el diseño completo. Esta hora cubre todos los elementos restantes.
+
+🔲 ::before — VIÑETAS SIN TOCAR EL HTML
+ul li::before { content: '▸ '; } inserta el triángulo decorativo solo con CSS. El pseudo-elemento ::before genera contenido visual antes del elemento — sin agregar nada al HTML.
+
+📊 BORDER-COLLAPSE
+Por defecto las tablas tienen doble borde entre celdas. border-collapse: collapse los fusiona en uno limpio.
+
+🎯 SELECTORES DE ATRIBUTO
+input[type="submit"] apunta solo al botón de enviar, no a todos los inputs. Más específico que input{} — permite estilos independientes por tipo.
+
+🔴 ESTADO :FOCUS
+Cuando el usuario hace clic en un input entra al estado :focus. Cambiamos el borde a rojo y quitamos el outline azul del navegador con outline: none.`,notebook:`1. ¿Qué hace ul li::before { content: '▸ '; }? ¿Para qué sirve content?
+2. ¿Por qué border-collapse: collapse mejora la apariencia de la tabla?
+3. ¿Cuál es la diferencia entre input{} e input[type="submit"]?
+4. ¿Qué es el estado :focus? ¿Cuándo se activa en un formulario?
+5. ¿Para qué sirve cursor: pointer en los botones de tipo input?`,practice:`Continúa en css/style.css — agrega el bloque final:
+
+\`\`\`css
+/* ══════════════════════════════════════════
+   ENLACES GENERALES Y BOTONES
+   Estilos para <a> globales y clases de botones personalizados.
+══════════════════════════════════════════ */
+
+/* Color base de todos los enlaces de la página */
+a { color: #ef4444; }             /* Rojo por defecto */
+a:hover { color: #f87171; }       /* Rojo más claro al pasar el mouse */
+
+/* Botón Ver más → enlace estilizado como botón con borde */
+.btn-ver {
+  display: inline-block;          /* Se comporta como bloque pero en línea */
+  margin-bottom: 24px;            /* Espacio debajo del botón */
+  padding: 10px 24px;             /* Espacio interno del botón */
+  border: 1.5px solid #b91c1c;    /* Borde rojo */
+  border-radius: 6px;             /* Esquinas redondeadas */
+  color: #ef4444;                 /* Texto rojo */
+  text-decoration: none;          /* Sin subrayado */
+  font-size: 12px;                /* Texto pequeño */
+  letter-spacing: 2px;            /* Espacio entre letras */
+  transition: background-color 0.2s; /* Animación del fondo */
+}
+
+/* Hover del botón Ver más: fondo rojo translúcido */
+.btn-ver:hover { background-color: rgba(185,28,28,0.15); color: #ef4444; }
+
+/* Botón Volver → enlace discreto para regresar */
+.btn-volver {
+  display: inline-block;   /* En línea como bloque */
+  margin-top: 20px;        /* Espacio arriba */
+  color: #555;             /* Gris oscuro, pasa desapercibido */
+  font-size: 12px;         /* Texto pequeño */
+  text-decoration: none;   /* Sin subrayado */
+  letter-spacing: 1px;     /* Leve espaciado */
+  transition: color 0.2s;  /* Animación del color */
+}
+
+/* Hover del botón Volver: se ilumina en rojo */
+.btn-volver:hover { color: #ef4444; }
+
+/* ══════════════════════════════════════════
+   IMG — Imágenes
+   Estilos aplicados a todas las imágenes del sitio.
+   display: block → evita el espacio extra debajo que tienen las imágenes en línea.
+══════════════════════════════════════════ */
+img {
+  border: 2px solid #b91c1c; /* Marco rojo alrededor de la imagen */
+  border-radius: 8px;        /* Esquinas redondeadas */
+  display: block;            /* La imagen ocupa toda su línea (evita espacios raros) */
+  margin: 24px 0;            /* Espacio arriba y abajo de la imagen */
+}
+
+/* ══════════════════════════════════════════
+   UL / LI — Listas de juegos u otro contenido
+   Usamos ::before para agregar un símbolo decorativo (▸) antes de cada ítem.
+══════════════════════════════════════════ */
+ul { padding-left: 24px; } /* Sangría izquierda de la lista */
+
+ul li {
+  padding: 8px 0;                   /* Espacio arriba y abajo de cada ítem */
+  color: #ccc;                      /* Texto gris claro */
+  border-bottom: 1px solid #1a1a1a; /* Línea separadora entre ítems */
+  list-style: none;                 /* Quita el punto de lista por defecto */
+}
+
+/* Símbolo decorativo antes de cada ítem de lista */
+ul li::before { content: '▸ '; color: #b91c1c; } /* Flecha roja como viñeta */
+
+/* ══════════════════════════════════════════
+   TABLE / TH / TD / TR — Tabla de contenido
+   border-collapse: collapse → une los bordes de las celdas (sin doble borde).
+   width: 100% → la tabla ocupa todo el ancho disponible.
+══════════════════════════════════════════ */
+table {
+  border-collapse: collapse; /* Une los bordes de celdas adyacentes */
+  width: 100%;               /* La tabla ocupa todo el ancho del contenedor */
+  margin-top: 20px;          /* Espacio arriba de la tabla */
+}
+
+/* th → celdas de encabezado de la tabla */
+th {
+  background-color: #b91c1c; /* Fondo rojo para el encabezado */
+  color: white;              /* Texto blanco */
+  padding: 12px 16px;        /* Espacio interno de la celda */
+  text-align: left;          /* Texto alineado a la izquierda */
+  letter-spacing: 1px;       /* Espacio entre letras */
+}
+
+/* td → celdas de datos de la tabla */
+td {
+  padding: 10px 16px;        /* Espacio interno */
+  border: 1px solid #2a2a2a; /* Borde gris oscuro entre celdas */
+  color: #ccc;               /* Texto gris claro */
+}
+
+/* Fila completa se resalta al pasar el mouse */
+tr:hover td { background-color: #1a1a1a; } /* Fondo oscuro en toda la fila */
+
+/* ══════════════════════════════════════════
+   FORMULARIO — Inputs, textarea y botones
+   Estilos para los campos del formulario de contacto u otro.
+══════════════════════════════════════════ */
+
+/* label → etiqueta de cada campo del formulario */
+label {
+  color: #888;          /* Gris para las etiquetas */
+  font-size: 13px;      /* Texto pequeño */
+  letter-spacing: 1px;  /* Espaciado entre letras */
+  display: block;       /* Cada label ocupa su propia línea */
+  margin-bottom: 4px;   /* Pequeño espacio entre el label y el input */
+}
+
+/* Campos de texto, email, número y área de texto */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  background-color: #1a1a1a; /* Fondo oscuro del campo */
+  border: 1px solid #333;    /* Borde gris oscuro */
+  color: #f0f0f0;            /* Texto blanco al escribir */
+  padding: 10px 14px;        /* Espacio interno del campo */
+  border-radius: 6px;        /* Esquinas redondeadas */
+  width: 320px;              /* Ancho fijo de 320 píxeles */
+  font-size: 14px;           /* Tamaño del texto escrito */
+  font-family: inherit;      /* Hereda la fuente del body */
+  transition: border-color 0.2s; /* Animación al enfocar el campo */
+}
+
+/* Cuando el usuario hace clic en el campo (estado :focus) */
+input:focus, textarea:focus {
+  border-color: #b91c1c; /* El borde se vuelve rojo al estar activo */
+  outline: none;         /* Quita el contorno azul por defecto del navegador */
+}
+
+/* Botón de enviar el formulario */
+input[type="submit"] {
+  background-color: #b91c1c; /* Fondo rojo */
+  color: white;              /* Texto blanco */
+  border: none;              /* Sin borde */
+  padding: 10px 28px;        /* Espacio interno del botón */
+  border-radius: 6px;        /* Esquinas redondeadas */
+  cursor: pointer;           /* El cursor cambia a manita al pasar encima */
+  font-size: 14px;           /* Tamaño del texto */
+  transition: background-color 0.2s; /* Animación al hacer hover */
+  width: auto;               /* El botón solo ocupa el espacio necesario */
+}
+
+/* Hover del botón Enviar: rojo más claro */
+input[type="submit"]:hover { background-color: #ef4444; }
+
+/* Botón de limpiar/restablecer el formulario */
+input[type="reset"] {
+  background-color: transparent; /* Fondo transparente */
+  border: 1px solid #333;        /* Borde gris */
+  color: #888;                   /* Texto gris */
+  padding: 10px 28px;            /* Espacio interno */
+  border-radius: 6px;            /* Esquinas redondeadas */
+  cursor: pointer;               /* Cursor de manita */
+  font-size: 14px;               /* Tamaño del texto */
+  width: auto;                   /* Solo el ancho necesario */
+}
+
+/* Hover del botón Reset: borde y texto se iluminan */
+input[type="reset"]:hover { border-color: #555; color: #ccc; }
+
+/* ══════════════════════════════════════════
+   FOOTER — Pie de página
+   Zona inferior del sitio con información de créditos o copyright.
+══════════════════════════════════════════ */
+footer {
+  background-color: #050505;       /* Negro casi puro */
+  border-top: 1px solid #1a1a1a;  /* Línea separadora arriba */
+  padding: 32px 60px;              /* Espacio interno */
+  text-align: center;              /* Texto centrado */
+  color: #444;                     /* Gris muy oscuro (texto discreto) */
+  font-size: 12px;                 /* Texto pequeño */
+  letter-spacing: 2px;             /* Espacio entre letras */
+  text-transform: uppercase;       /* Texto en mayúsculas */
+}
+\`\`\``,product:`Sitio de Resident Evil con diseño profesional completo: viñetas rojas, tabla de cronología estilizada, formulario oscuro y footer de firma.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Al terminar, abrir el Historial del Proyecto y recorrer la progresión: S09·Lunes (verde básico) → S09·Jueves (con nav) → S10·Vie CSS (resultado de hoy). El contraste es la mejor conclusión. Recordar al grupo: escribimos CERO líneas de JavaScript. La semana que viene empieza JS.`}],cierre:`De un fondo verde plano a un sitio oscuro con animaciones, tipografía y jerarquía visual — todo sin una sola línea de JavaScript. CSS bien escrito es diseño profesional.`,frase_docente:`El diseño no es solo cómo se ve — es cómo funciona. Y hoy hicimos que ambas cosas sean lo mismo.`}]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},De=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=De()}))(),Oe=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],ke=()=>{let[e,t]=(0,_.useState)(!1);return(0,j.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,j.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,j.jsx)(de,{size:13,className:`pond-icon`}),(0,j.jsx)(`span`,{children:`Ponderación`}),(0,j.jsx)(k,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,j.jsxs)(`div`,{className:`ponderacion-body`,children:[Oe.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-unit`,children:[(0,j.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,j.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,j.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,j.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,j.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,j.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,j.jsxs)(`div`,{className:`pond-total`,children:[(0,j.jsx)(`span`,{children:`Total del módulo`}),(0,j.jsx)(`span`,{children:`100%`})]})]})]})},Ae=Ee.ras.flatMap(e=>e.weeks.map(e=>e.id)),je=Object.fromEntries(Ee.cortes.map(e=>[e.id,e])),Me=Ee.ras,Ne=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=Ae.indexOf(i),u=e=>!(Ae.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ee.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,j.jsxs)(j.Fragment,{children:[s&&(0,j.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,j.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,j.jsxs)(`div`,{className:`sidebar-header`,children:[(0,j.jsxs)(`div`,{className:`school-brand`,children:[(0,j.jsx)(`div`,{className:`brand-icon`,children:(0,j.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,j.jsxs)(`div`,{className:`school-info`,children:[(0,j.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,j.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,j.jsxs)(`div`,{className:`author-credits`,children:[(0,j.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,j.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]})]}),(0,j.jsxs)(`nav`,{className:`nav-container`,children:[(0,j.jsxs)(`div`,{className:`main-nav-section`,children:[(0,j.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,j.jsx)(me,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,j.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,j.jsx)(A,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,j.jsx)(ke,{}),(0,j.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Me.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=je[n.corte];return(0,j.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,j.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,j.jsx)(k,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,j.jsx)(le,{size:13,className:`ra-icon`}),(0,j.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,j.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,j.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,j.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,j.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,j.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,j.jsx)(ve,{size:10,className:`lock-icon`}),s&&(0,j.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,j.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Pe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Fe=({text:e})=>{if(!e)return null;let t=e.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,j.jsx)(`p`,{children:e});let n=t.some(e=>/^[0-9]+\.\s/.test(e)),r=t.some(e=>/^[-•]\s/.test(e));return n?(0,j.jsx)(`ol`,{className:`smart-list numbered`,children:t.map((e,t)=>(0,j.jsx)(`li`,{children:e.replace(/^[0-9]+\.\s/,``)},t))}):r?(0,j.jsx)(`ul`,{className:`smart-list bulleted`,children:t.map((e,t)=>(0,j.jsx)(`li`,{children:e.replace(/^[-•]\s/,``)},t))}):(0,j.jsx)(`div`,{className:`smart-paragraphs`,children:t.map((e,t)=>(0,j.jsx)(`p`,{children:e},t))})},Ie={theory:{icon:(0,j.jsx)(le,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,j.jsx)(Ce,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,j.jsx)(Te,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,j.jsx)(Se,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,j.jsx)(he,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,j.jsx)(ue,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Le=({type:e,children:t})=>{let n=Ie[e];return(0,j.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:t})]})},Re=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,j.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,j.jsxs)(`div`,{className:`block-header-row`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,j.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,j.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e})})})]})},ze=({html:e})=>(0,j.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,j.jsx)(`div`,{className:`block-body diagram-body`,children:(0,j.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{try{let t=e.target.contentDocument.body.scrollHeight;e.target.style.height=t+`px`}catch{}}})})]}),Be=({src:e,alt:t,className:n})=>(0,j.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ve=({activity:e,assetUrl:t})=>(0,j.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,j.jsxs)(`div`,{className:`dual-header`,children:[(0,j.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,j.jsx)(`h4`,{children:e.title})]}),(0,j.jsxs)(`div`,{className:`dual-body`,children:[(0,j.jsx)(`div`,{className:`dual-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})}),e.image&&t&&(0,j.jsx)(`div`,{className:`infographic-container`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),He=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,j.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,j.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,j.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,j.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,j.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,j.jsxs)(`div`,{className:`gallery-item`,children:[(0,j.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,j.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,j.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})})]},n))})]})},Ue=({days:e,activeIndex:t,onSelect:n})=>(0,j.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),We=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,j.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Ge=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,j.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,j.jsxs)(`div`,{className:`breadcrumb`,children:[(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,j.jsxs)(`div`,{className:`page-header-nav`,children:[(0,j.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,j.jsx)(fe,{size:13}),` Anterior`]}),(0,j.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,j.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,j.jsx)(k,{size:13})]})]}),(0,j.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,j.jsxs)(`div`,{className:`sheet-header`,children:[(0,j.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,j.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,j.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,j.jsx)(Le,{type:`theory`,children:(0,j.jsx)(Fe,{text:e.theory})}),(0,j.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,j.jsx)(Le,{type:`notebook`,children:(0,j.jsx)(Fe,{text:e.notebook})}),e.practice&&(0,j.jsx)(Le,{type:`practice`,children:(0,j.jsx)(Fe,{text:e.practice})})]}),e.diagram&&(0,j.jsx)(ze,{html:e.diagram}),e.code&&(0,j.jsx)(Re,{code:e.code}),r&&e.codeRef&&(0,j.jsx)(Re,{code:e.codeRef,isRef:!0}),e.product&&(0,j.jsx)(Le,{type:`product`,children:(0,j.jsx)(Fe,{text:e.product})}),u&&(e.image||e.images)&&(0,j.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.screenshot.icon,` `,Ie.screenshot.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,j.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,j.jsx)(`div`,{className:`block-header-row`,children:(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.teacher.icon,` `,Ie.teacher.label]})}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(Fe,{text:e.teacherNotes})})]})]})]})]}),Ke=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=Pe(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,j.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,j.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),(0,j.jsx)(`div`,{className:`notebook-container`,children:(0,j.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,j.jsxs)(`div`,{className:`empty-message-content`,children:[(0,j.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,j.jsx)(`h2`,{children:`Contenido en preparación`}),(0,j.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,j.jsx)(`strong`,{children:v||h.label}),`.`,(0,j.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},S=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},C=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,j.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,j.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,j.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,j.jsxs)(`div`,{className:`preview-text`,children:[(0,j.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,j.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,j.jsx)(Ue,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,j.jsx)(We,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,j.jsx)(`div`,{className:`notebook-container`,children:r?(0,j.jsx)(He,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,j.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,j.jsx)(`div`,{className:`sheet-header`,children:(0,j.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,j.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,j.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,j.jsx)(Ve,{activity:e,assetUrl:o},t))}):(0,j.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,j.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,j.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,j.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,j.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,j.jsxs)(`div`,{className:`purpose-text`,children:[(0,j.jsx)(`strong`,{children:`Propósito de hoy`}),(0,j.jsx)(Fe,{text:y.purpose})]})]}),(0,j.jsx)(Ge,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:C,onNext:S,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,j.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,j.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,j.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,j.jsx)(Fe,{text:y.cierre})]}),y.frase_docente&&(0,j.jsx)(`div`,{className:`day-quote-block`,children:(0,j.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},qe={html:`<h1>¡Hola Grupo 601!</h1>
 <p>Los admiro y los quiero mucho. ¡A darle con todo al código!</p>`,cssDefault:``,js:``},Je={html:`<h1>🧟 Resident Evil Labs</h1>
 <div class="mansion">
   <p>Status: <span id="status">Normal</span></p>
