@@ -1094,6 +1094,13 @@
   color: #856404;
 }
 
+.pedagogical-block.diagram-block .diagram-body {
+  padding: 0;
+}
+.diagram-iframe {
+  min-height: 360px;
+}
+
 /* ════════════════════════════════════════════════════════════
    SMART TEXT & LISTS
 ════════════════════════════════════════════════════════════ */
