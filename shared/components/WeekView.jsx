@@ -90,6 +90,30 @@ const CodeBlock = ({ code, isRef = false }) => {
   );
 };
 
+const DiagramBlock = ({ html }) => (
+  <div className="pedagogical-block diagram-block">
+    <h4 className="block-title">🔌 Diagrama de referencia</h4>
+    <div className="block-body diagram-body">
+      <iframe
+        srcDoc={html}
+        title="Diagrama de circuito"
+        className="diagram-iframe"
+        scrolling="no"
+        style={{ width: '100%', border: 'none', borderRadius: '8px', display: 'block' }}
+        onLoad={e => {
+          const frame = e.target;
+          setTimeout(() => {
+            try {
+              const h = frame.contentDocument.body.scrollHeight;
+              if (h > 0) frame.style.height = h + 'px';
+            } catch(_) {}
+          }, 200);
+        }}
+      />
+    </div>
+  </div>
+);
+
 const LazyImg = ({ src, alt, className }) => (
   <img
     src={src}
@@ -174,6 +198,24 @@ const DayTabs = ({ days, activeIndex, onSelect }) => (
   </div>
 );
 
+/* ── Hour Tabs ─────────────────────────────────────────────── */
+const HourTabs = ({ hours, activeIndex, onSelect }) => {
+  if (!hours || hours.length < 2) return null;
+  return (
+    <div className="hour-tabs-container">
+      {hours.map((hour, idx) => (
+        <button
+          key={idx}
+          className={`hour-tab-btn ${activeIndex === idx ? 'active' : ''}`}
+          onClick={() => onSelect(idx)}
+        >
+          {hour.time}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 /* ── Hour Page ─────────────────────────────────────────────── */
 const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, weekMeta, weekNumber, dayLabel, assetUrl }) => (
   <div className={`notebook-page-wrapper nocopy flip-${flipDir || 'fwd'}`}>
@@ -225,6 +267,7 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, 
           )}
         </div>
 
+        {hour.diagram && <DiagramBlock html={hour.diagram} />}
         {hour.code && <CodeBlock code={hour.code} />}
         {isTeacherMode && hour.codeRef && <CodeBlock code={hour.codeRef} isRef />}
 
@@ -375,6 +418,17 @@ const WeekView = ({ weekId, isClassMode, isTeacherMode, isDualMode, isPreviewWee
       )}
 
       <DayTabs days={weekData.days} activeIndex={activeDayIdx} onSelect={handleDaySelect} />
+
+      {!isSpecialDay && (
+        <HourTabs
+          hours={currentDay.hours}
+          activeIndex={activeHourIdx}
+          onSelect={(idx) => {
+            flipDirRef.current = idx > activeHourIdx ? 'fwd' : 'bwd';
+            setActiveHourIdx(idx);
+          }}
+        />
+      )}
 
       <div className="notebook-container" key={dayAnimKey}>
         {isDualMode ? (
