@@ -115,8 +115,8 @@ const Sidebar = ({ activeWeek, onWeekSelect, currentWeek, nextWeek, isTeacherMod
             <p className="author-label">Realizado por</p>
             <p className="author-name">Dr. Felipe López Salazar</p>
           </div>
-          <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.4)', textAlign: 'right', paddingRight: '12px', paddingBottom: '4px', letterSpacing: '0.5px' }}>
-            v47-diag
+          <div style={{ fontSize: '11px', color: '#facc15', textAlign: 'right', paddingRight: '12px', paddingBottom: '6px', fontWeight: 'bold', letterSpacing: '1px' }}>
+            v48-diag
           </div>
         </div>
 
