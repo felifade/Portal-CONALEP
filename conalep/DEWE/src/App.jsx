@@ -106,6 +106,7 @@ function App() {
 
         {activeView === 'curriculum' ? (
           <WeekView
+            key={activeWeek}
             weekId={activeWeek}
             isClassMode={isClassMode}
             isTeacherMode={isTeacherMode}
