@@ -87,6 +87,7 @@ function App() {
         </div>
 
         <WeekView
+          key={activeWeek}
           weekId={activeWeek}
           isClassMode={isClassMode}
           isTeacherMode={isTeacherMode}
