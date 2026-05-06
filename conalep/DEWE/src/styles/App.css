@@ -1604,6 +1604,43 @@
   margin-bottom: 0;
 }
 
+.smart-content p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.smart-content p:last-child { margin-bottom: 0; }
+
+.smart-heading {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 14px;
+  margin-bottom: 6px;
+  padding: 4px 10px;
+  background: var(--primary-transparent);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.smart-content > .smart-heading:first-child { margin-top: 0; }
+
+.smart-code {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #79c0ff;
+  overflow-x: auto;
+  margin: 6px 0;
+  white-space: pre;
+  line-height: 1.6;
+}
+
+.smart-content .smart-list { margin-top: 2px; }
+
 /* ════════════════════════════════════════════════════════════
    DAY PURPOSE & CLOSURE
 ════════════════════════════════════════════════════════════ */

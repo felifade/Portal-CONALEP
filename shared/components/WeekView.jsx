@@ -12,36 +12,59 @@ const getWeekMeta = (weekId, curriculumData) => {
 const SmartText = ({ text }) => {
   if (!text) return null;
 
-  const lines = text.split(/\n|(?=\s[0-9]\.\s)|(?=\s[-•]\s)/g).map(l => l.trim()).filter(l => l.length > 0);
+  const rawLines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  if (rawLines.length <= 1) return <p>{text}</p>;
 
-  if (lines.length <= 1) return <p>{text}</p>;
+  const segments = [];
+  let currentList = null;
+  let inCode = false;
+  let codeLines = [];
 
-  const isNumbered = lines.some(line => /^[0-9]+\.\s/.test(line));
-  const isBulleted  = lines.some(line => /^[-•]\s/.test(line));
+  const flushList = () => {
+    if (currentList) { segments.push(currentList); currentList = null; }
+  };
 
-  if (isNumbered) {
-    return (
-      <ol className="smart-list numbered">
-        {lines.map((line, i) => (
-          <li key={i}>{line.replace(/^[0-9]+\.\s/, '')}</li>
-        ))}
-      </ol>
-    );
+  for (const line of rawLines) {
+    if (line === '```') {
+      if (inCode) {
+        flushList();
+        segments.push({ type: 'code', content: codeLines.join('\n') });
+        codeLines = []; inCode = false;
+      } else {
+        flushList(); inCode = true;
+      }
+      continue;
+    }
+    if (inCode) { codeLines.push(line); continue; }
+
+    const isBullet   = /^[-•]\s/.test(line);
+    const isNumbered = /^[0-9]+\.\s/.test(line);
+    const isHeading  = !isBullet && !isNumbered && /^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(line);
+
+    if (isBullet || isNumbered) {
+      const listType = isNumbered ? 'ol' : 'ul';
+      if (!currentList || currentList.type !== listType) { flushList(); currentList = { type: listType, items: [] }; }
+      currentList.items.push(line.replace(/^[-•]\s*/, '').replace(/^[0-9]+\.\s*/, ''));
+    } else {
+      flushList();
+      segments.push({ type: isHeading ? 'heading' : 'p', content: line });
+    }
   }
+  flushList();
+  if (inCode && codeLines.length) segments.push({ type: 'code', content: codeLines.join('\n') });
 
-  if (isBulleted) {
-    return (
-      <ul className="smart-list bulleted">
-        {lines.map((line, i) => (
-          <li key={i}>{line.replace(/^[-•]\s/, '')}</li>
-        ))}
-      </ul>
-    );
-  }
+  if (segments.length === 0) return <p>{text}</p>;
 
   return (
-    <div className="smart-paragraphs">
-      {lines.map((line, i) => <p key={i}>{line}</p>)}
+    <div className="smart-content">
+      {segments.map((seg, i) => {
+        if (seg.type === 'heading') return <div key={i} className="smart-heading">{seg.content}</div>;
+        if (seg.type === 'p')       return <p key={i}>{seg.content}</p>;
+        if (seg.type === 'code')    return <pre key={i} className="smart-code"><code>{seg.content}</code></pre>;
+        if (seg.type === 'ul')      return <ul key={i} className="smart-list bulleted">{seg.items.map((item, j) => <li key={j}>{item}</li>)}</ul>;
+        if (seg.type === 'ol')      return <ol key={i} className="smart-list numbered">{seg.items.map((item, j) => <li key={j}>{item}</li>)}</ol>;
+        return null;
+      })}
     </div>
   );
 };
