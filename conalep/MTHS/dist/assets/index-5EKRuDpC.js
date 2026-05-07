@@ -987,7 +987,7 @@ void loop() {
     Serial.println("LED: OFF");
   }
   delay(100);
-}`,product:`Proyecto Programa_04_BotonLED: el LED enciende mientras se presiona el botón y apaga al soltarlo. Reto extra: parpadeo al presionar.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El delay(100) evita que el Serial Monitor se llene demasiado rápido, pero introduce un pequeño retraso perceptible. Señalar esto: es un compromiso entre legibilidad del Serial Monitor y respuesta del botón. El reto de parpadeo al presionar requiere un for loop dentro del if — quien llegue ahí ya conectó la semana anterior con la actual.`}],cierre:`De leer un botón a controlar una salida: el ESP32 responde al mundo físico en tiempo real. Mañana aprenderemos a filtrarlo.`,frase_docente:`Saber leer no es suficiente — hay que saber reaccionar.`},{id:`thu`,label:`Jueves — Debounce y Toggle`,purpose:`Filtrar el rebote mecánico del botón con debounce (Prog 05) e implementar el patrón toggle para que el LED recuerde su estado entre pulsaciones (Prog 06).`,hours:[{time:`Hora 1`,title:`Programa 05: contador de pulsaciones — sin debounce y con debounce`,theory:`Un botón mecánico no hace contacto limpio al presionarlo. En los primeros milisegundos 'rebota': hace y rompe contacto varias veces antes de estabilizarse. El ESP32 es tan rápido que detecta cada rebote como una pulsación separada.
+}`,product:`Proyecto Programa_04_BotonLED: el LED enciende mientras se presiona el botón y apaga al soltarlo. Reto extra: parpadeo al presionar.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El delay(100) evita que el Serial Monitor se llene demasiado rápido, pero introduce un pequeño retraso perceptible. Señalar esto: es un compromiso entre legibilidad del Serial Monitor y respuesta del botón. El reto de parpadeo al presionar requiere un for loop dentro del if — quien llegue ahí ya conectó la semana anterior con la actual.`}],cierre:`De leer un botón a controlar una salida: el ESP32 responde al mundo físico en tiempo real. Mañana aprenderemos a filtrarlo.`,frase_docente:`Saber leer no es suficiente — hay que saber reaccionar.`},{id:`thu`,label:`Jueves — Del simulador al circuito real`,purpose:`Primera práctica con hardware físico: armar el circuito de botón + LED en protoboard, observar el rebote mecánico real con debounce (Prog 05) e implementar toggle (Prog 06) sin desmontar nada.`,hours:[{time:`Hora 1`,title:`Programa 05: contador de pulsaciones — sin debounce y con debounce`,theory:`Un botón mecánico no hace contacto limpio al presionarlo. En los primeros milisegundos 'rebota': hace y rompe contacto varias veces antes de estabilizarse. El ESP32 es tan rápido que detecta cada rebote como una pulsación separada.
 
 ⚠️ EL PROBLEMA
 Sin debounce: presionas el botón UNA vez → el contador sube 5, 10 o 15 unidades porque detectó 5, 10 o 15 'pulsaciones' del rebote mecánico.
@@ -1016,108 +1016,213 @@ void loop() {
 3. ¿Qué es un flanco descendente?
 4. ¿Por qué comparamos anteriorEstado == HIGH && estadoActual == LOW?
 5. ¿Cuántos ms de delay se usan para debounce y por qué ese valor?
-6. ¿Qué pasaría si usamos delay(500) para debounce en lugar de delay(50)?`,practice:`PARTE 1 — Sin debounce (ver el problema):
-1. Abrir Wokwi con el circuito del martes (LED en GPIO 2, botón en GPIO 4).
-2. Copiar la versión SIN debounce del Programa 05.
-3. Presionar ▶ y abrir el Serial Monitor.
-4. Presionar el botón despacio UNA sola vez — anotar cuántos conteos aparecieron.
-5. Presionar 5 veces — anotar el número final (¿es 5?).
+6. ¿Qué pasaría si usamos delay(500) para debounce en lugar de delay(50)?`,practice:`🧰 VERIFICAR MATERIALES — antes de arrancar
+- ESP32 DevKit (el microcontrolador principal)
+- Protoboard (400 o 830 puntos)
+- LED (cualquier color, pata larga = ánodo +)
+- Resistencia 220Ω (bandas: rojo-rojo-marrón)
+- Botón táctil de 4 pines
+- 4 cables jumper macho-macho
+- Cable USB para el ESP32
 
-PARTE 2 — Con debounce (la solución):
-6. Actualizar el código con la versión CON debounce.
-7. Repetir: presionar 5 veces despacio — el contador debe llegar exactamente a 5.
-8. Presionar 10 veces — debe marcar exactamente 10.
-9. Guardar como 'Programa_05_Contador_Debounce'.`,diagram:`<!DOCTYPE html>
+🔧 ARMAR EL CIRCUITO EN PROTOBOARD
+1. Insertar el ESP32 centrado en la protoboard.
+2. LED: pata larga (+) → resistencia 220Ω → GPIO 2. Pata corta (–) → GND.
+3. Botón: terminal A → GPIO 4. Terminal B → GND.
+4. Puente negro: pin GND del ESP32 → línea GND de la protoboard.
+5. Comparar con el diagrama en pantalla antes de conectar el USB.
+
+⚡ PARTE 1 — Sin debounce (observar el problema)
+1. Conectar USB. En Arduino IDE: placa "ESP32 Dev Module", puerto correcto.
+2. Cargar la versión SIN debounce del Programa 05.
+3. Abrir Serial Monitor a 115200 baudios.
+4. Presionar el botón UNA sola vez — anotar cuántos conteos aparecieron.
+5. Presionar 5 veces — anotar el número final (¿llegó exactamente a 5?).
+
+✅ PARTE 2 — Con debounce (la solución)
+1. Cargar la versión CON debounce. El circuito no cambia.
+2. Presionar 5 veces despacio — debe marcar exactamente 5.
+3. Presionar 10 veces — debe marcar exactamente 10.
+4. Guardar el proyecto como 'Programa_05_Debounce'.`,diagram:`<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
-  h2 { font-size: 15px; color: #58a6ff; margin-bottom: 18px; }
-  .panels { display: flex; gap: 20px; flex-wrap: wrap; }
-  .panel {
-    flex: 1; min-width: 260px;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 16px;
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+
+  /* ── Secciones ── */
+  .sec-title {
+    font-size: 10px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 5px; margin-bottom: 12px; margin-top: 20px;
   }
-  .panel h3 { font-size: 12px; margin-bottom: 12px; }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* ── Warning ── */
+  .warn {
+    background: #1f1700; border: 1px solid #d29922; border-radius: 8px;
+    padding: 10px 14px; font-size: 10px; color: #d29922;
+    display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px;
+  }
+  .warn-icon { font-size: 16px; flex-shrink: 0; }
+  .warn strong { color: #f0c040; }
+
+  /* ── Materiales grid ── */
+  .mat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 6px;
+  }
+  .mat-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px 8px; text-align: center;
+  }
+  .mat-card.alert { border-color: #f85149; background: #1a0808; }
+  .mat-icon { font-size: 26px; display: block; margin-bottom: 5px; }
+  .mat-name { font-size: 10px; font-weight: 700; color: #e6edf3; display: block; }
+  .mat-card.alert .mat-name { color: #f85149; }
+  .mat-spec { font-size: 9px; color: #8b949e; display: block; margin-top: 2px; }
+
+  /* ── Checklist ── */
+  .checklist { display: flex; flex-direction: column; gap: 5px; }
+  .chk {
+    display: flex; gap: 10px; align-items: center;
+    background: #161b22; border: 1px solid #30363d; border-radius: 6px;
+    padding: 7px 12px; font-size: 10px;
+  }
+  .chk-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #21262d; color: #58a6ff; font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .chk-text { flex: 1; color: #c9d1d9; }
+  .chk-wire {
+    width: 28px; height: 6px; border-radius: 3px; flex-shrink: 0;
+  }
+  code { color: #79c0ff; font-size: 10px; }
+
+  /* ── Connections ── */
+  .conn-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .conn-box {
+    flex: 1; min-width: 160px;
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 12px;
+  }
+  .conn-label {
+    font-size: 10px; font-weight: 700; color: #58a6ff;
+    margin-bottom: 8px; display: block;
+  }
+  .conn-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; color: #8b949e; margin-bottom: 6px;
+  }
+  .conn-row:last-child { margin-bottom: 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .pin-badge {
+    background: #1a3a1a; color: #3fb950; border-radius: 4px;
+    padding: 1px 5px; font-size: 9px; font-weight: 700;
+  }
+  .pin-gnd { background: #1a1a2a; color: #8b949e; border-radius: 4px; padding: 1px 5px; font-size: 9px; }
+
+  /* ── Debounce signal ── */
+  .panels { display: flex; gap: 16px; flex-wrap: wrap; }
+  .panel {
+    flex: 1; min-width: 220px;
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 12px;
+  }
+  .panel h3 { font-size: 11px; margin-bottom: 10px; }
   .bad  h3 { color: #f85149; }
   .good h3 { color: #3fb950; }
   canvas { width: 100%; border-radius: 6px; background: #0d1117; display: block; }
-  .desc { margin-top: 12px; font-size: 10px; color: #8b949e; line-height: 1.6; }
+  .desc { margin-top: 10px; font-size: 10px; color: #8b949e; line-height: 1.6; }
   .desc strong { color: #e6edf3; }
-  .tag {
-    display: inline-block;
-    padding: 2px 8px; border-radius: 12px;
-    font-size: 10px; font-weight: 700;
-    margin-bottom: 8px;
-  }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; margin-bottom: 8px; }
   .tag-bad  { background: #3d1a1a; color: #f85149; }
   .tag-good { background: #1a3a1a; color: #3fb950; }
-  .steps { margin-top: 14px; }
-  .step {
-    display: flex; gap: 10px; align-items: flex-start;
-    padding: 8px 10px;
-    background: #21262d;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    font-size: 10px;
-    color: #8b949e;
-  }
-  .step-num {
-    background: #30363d;
-    border-radius: 50%;
-    width: 18px; height: 18px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; font-weight: 700; color: #e6edf3;
-    flex-shrink: 0;
-  }
   code { color: #79c0ff; font-size: 10px; }
 </style>
 </head>
 <body>
-<h2>⚡ Programa 05 — El rebote del botón: sin debounce vs con debounce</h2>
 
+<div class="warn">
+  <span class="warn-icon">⚠️</span>
+  <div><strong>Antes de conectar:</strong> Verificar que Arduino IDE tiene soporte para ESP32 instalado. Placa: <code>"ESP32 Dev Module"</code> · Baudrate: <code>115200</code></div>
+</div>
+
+<p class="sec-title">🧰 Materiales necesarios</p>
+<div class="mat-grid">
+  <div class="mat-card">
+    <span class="mat-icon">🔲</span>
+    <span class="mat-name">ESP32 DevKit</span>
+    <span class="mat-spec">microcontrolador</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">🟦</span>
+    <span class="mat-name">Protoboard</span>
+    <span class="mat-spec">400 o 830 puntos</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">💡</span>
+    <span class="mat-name">LED</span>
+    <span class="mat-spec">cualquier color</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">〰️</span>
+    <span class="mat-name">Resistencia 220Ω</span>
+    <span class="mat-spec">rojo-rojo-marrón</span>
+  </div>
+  <div class="mat-card alert">
+    <span class="mat-icon">🔘</span>
+    <span class="mat-name">Botón táctil 4P</span>
+    <span class="mat-spec">¡No olvidar!</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">🔌</span>
+    <span class="mat-name">Cables jumper</span>
+    <span class="mat-spec">4 macho-macho</span>
+  </div>
+</div>
+
+<p class="sec-title">🔗 Conexiones en protoboard</p>
+<div class="conn-grid">
+  <div class="conn-box">
+    <span class="conn-label">💡 LED</span>
+    <div class="conn-row">
+      <span class="dot" style="background:#3fb950"></span>
+      <span>Pata larga (+) → R 220Ω → <span class="pin-badge">GPIO 2</span></span>
+    </div>
+    <div class="conn-row">
+      <span class="dot" style="background:#8b949e"></span>
+      <span>Pata corta (−) → <span class="pin-gnd">GND</span></span>
+    </div>
+  </div>
+  <div class="conn-box">
+    <span class="conn-label">🔘 Botón</span>
+    <div class="conn-row">
+      <span class="dot" style="background:#58a6ff"></span>
+      <span>Terminal A → <span class="pin-badge">GPIO 4</span></span>
+    </div>
+    <div class="conn-row">
+      <span class="dot" style="background:#8b949e"></span>
+      <span>Terminal B → <span class="pin-gnd">GND</span></span>
+    </div>
+  </div>
+</div>
+
+<p class="sec-title">📡 Señal del botón — sin debounce vs con debounce</p>
 <div class="panels">
   <div class="panel bad">
     <span class="tag tag-bad">❌ Sin debounce</span>
     <h3>Señal real del botón (zoom extremo)</h3>
     <canvas id="bad" width="300" height="100"></canvas>
-    <p class="desc">
-      Presionas <strong>1 vez</strong> → el ESP32 detecta <strong>8–15 flancos</strong> en los primeros ~5 ms por el rebote mecánico.<br>
-      Resultado: el contador sube varios números con un solo clic.
-    </p>
+    <p class="desc">Presionas <strong>1 vez</strong> → el ESP32 detecta <strong>8–15 flancos</strong> en los primeros ~5 ms.</p>
   </div>
   <div class="panel good">
     <span class="tag tag-good">✅ Con debounce (delay 50 ms)</span>
     <h3>Señal filtrada</h3>
     <canvas id="good" width="300" height="100"></canvas>
-    <p class="desc">
-      Después de detectar el flanco, esperamos <strong>50 ms</strong> y confirmamos.<br>
-      El rebote ya terminó — el ESP32 cuenta exactamente <strong>1 pulsación</strong>.
-    </p>
-  </div>
-</div>
-
-<div class="steps" style="margin-top:20px">
-  <div class="step">
-    <span class="step-num">1</span>
-    <span>Detectar <strong>flanco descendente</strong>: <code>anteriorEstado == HIGH && estadoActual == LOW</code></span>
-  </div>
-  <div class="step">
-    <span class="step-num">2</span>
-    <span>Esperar: <code>delay(50);</code> — el rebote dura ~5 ms, 50 ms garantiza que terminó</span>
-  </div>
-  <div class="step">
-    <span class="step-num">3</span>
-    <span>Confirmar: <code>if (digitalRead(BOTON_PIN) == LOW)</code> — si sigue presionado, es real</span>
-  </div>
-  <div class="step">
-    <span class="step-num">4</span>
-    <span>Ejecutar la acción: <code>contador++;</code> — solo una vez por pulsación real</span>
+    <p class="desc">Después de detectar el flanco, esperamos <strong>50 ms</strong> → exactamente <strong>1 pulsación</strong>.</p>
   </div>
 </div>
 
@@ -1290,16 +1395,20 @@ if (anteriorBoton == HIGH && estadoBoton == LOW) {
 2. Si estadoLED = true, ¿qué vale después de estadoLED = !estadoLED? → ___
 3. ¿En qué se diferencia el Programa 06 del Programa 04?
 4. ¿Por qué necesitamos la variable anteriorBoton para el toggle?
-5. Da 3 ejemplos de la vida real donde se use el patrón toggle.`,practice:`1. Abrir el proyecto del jueves, primera hora (Programa_05) en Wokwi.
-2. Copiar el código del Programa 06 y completar los espacios en blanco.
-3. Presionar ▶ y probar:
+5. Da 3 ejemplos de la vida real donde se use el patrón toggle.`,practice:`El circuito NO cambia — es el mismo de la Hora 1. Solo carga el código nuevo.
+
+1. Con el circuito ya armado y el ESP32 conectado por USB:
+2. En Arduino IDE abrir un sketch nuevo y copiar el código del Programa 06.
+3. Completar los espacios en blanco.
+4. Compilar y cargar (→). Esperar 'Done uploading'.
+5. Probar:
    - Primer clic → LED enciende (queda encendido al soltar)
    - Segundo clic → LED apaga
    - Tercer clic → LED enciende
    - ... y así alternando
-4. Verificar en el Serial Monitor que imprime 'LED: ON' y 'LED: OFF' alternando.
-5. Reto: agregar al Serial Monitor el número de veces que se ha pulsado (combinar contador + toggle).
-6. Guardar como 'Programa_06_Toggle'.`,diagram:`<!DOCTYPE html>
+6. Verificar en Serial Monitor (115200) que imprime 'LED: ON' y 'LED: OFF' alternando.
+7. Reto: agregar al Serial Monitor el número de veces que se ha pulsado (combinar contador + toggle).
+8. Guardar como 'Programa_06_Toggle'.`,diagram:`<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -1487,7 +1596,7 @@ void loop() {
   }
 
   anteriorBoton = estadoBoton;
-}`,product:`Proyecto Programa_06_Toggle: el LED cambia de estado con cada pulsación del botón. Serial Monitor refleja ON/OFF.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El concepto de 'estado que persiste' es nuevo para la mayoría. Preguntar: '¿Dónde vive el estado del LED cuando nadie toca nada?' — en la variable estadoLED. El hardware (LED encendido o apagado) es solo el reflejo de esa variable. Este patrón aparece en toda la programación: React con useState, videojuegos con flags de estado, menús con isOpen. El reto de combinar contador + toggle es excelente para quien va rápido.`}],cierre:`Del rebote caótico al flanco limpio, y del control momentáneo al estado persistente. El ESP32 ya detecta, filtra y recuerda.`,frase_docente:`El estado es memoria. Y la memoria es lo que separa una reacción de una decisión.`}]},W11:{materia:`mths`,weekId:`W11`,days:[{id:`tue`,label:`Martes — Dos botones, dos LEDs independientes`,purpose:`Escalar el patrón toggle a múltiples entradas y salidas: cada botón controla su propio LED de forma completamente independiente.`,hours:[{time:`Hora 1`,title:`Programa 07: dos botones, dos LEDs — control independiente`,theory:`Escalamos el proyecto: dos botones controlan dos LEDs de forma independiente. Cada botón tiene su propia variable de estado, su propio anteriorEstado y su propia lógica de toggle. El patrón es idéntico al Programa 06, solo se duplica.
+}`,product:`Proyecto Programa_06_Toggle: el LED cambia de estado con cada pulsación del botón. Serial Monitor refleja ON/OFF.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El concepto de 'estado que persiste' es nuevo para la mayoría. Preguntar: '¿Dónde vive el estado del LED cuando nadie toca nada?' — en la variable estadoLED. El hardware (LED encendido o apagado) es solo el reflejo de esa variable. Este patrón aparece en toda la programación: React con useState, videojuegos con flags de estado, menús con isOpen. El reto de combinar contador + toggle es excelente para quien va rápido.`}],cierre:`Pasaron del simulador a la protoboard y los programas siguieron funcionando — eso es la abstracción de hardware en acción. El circuito que armaron hoy los acompañará el resto del semestre.`,frase_docente:`La diferencia entre el simulador y la protoboard es la misma que entre leer sobre nadar y lanzarse al agua. Hoy nadaron.`}]},W11:{materia:`mths`,weekId:`W11`,days:[{id:`tue`,label:`Martes — Dos botones, dos LEDs independientes`,purpose:`Escalar el patrón toggle a múltiples entradas y salidas: cada botón controla su propio LED de forma completamente independiente.`,hours:[{time:`Hora 1`,title:`Programa 07: dos botones, dos LEDs — control independiente`,theory:`Escalamos el proyecto: dos botones controlan dos LEDs de forma independiente. Cada botón tiene su propia variable de estado, su propio anteriorEstado y su propia lógica de toggle. El patrón es idéntico al Programa 06, solo se duplica.
 
 🔌 PINES
 - LED1 → GPIO 2
