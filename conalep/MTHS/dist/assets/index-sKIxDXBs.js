@@ -987,136 +987,363 @@ void loop() {
     Serial.println("LED: OFF");
   }
   delay(100);
-}`,product:`Proyecto Programa_04_BotonLED: el LED enciende mientras se presiona el botón y apaga al soltarlo. Reto extra: parpadeo al presionar.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El delay(100) evita que el Serial Monitor se llene demasiado rápido, pero introduce un pequeño retraso perceptible. Señalar esto: es un compromiso entre legibilidad del Serial Monitor y respuesta del botón. El reto de parpadeo al presionar requiere un for loop dentro del if — quien llegue ahí ya conectó la semana anterior con la actual.`}],cierre:`De leer un botón a controlar una salida: el ESP32 responde al mundo físico en tiempo real. Mañana aprenderemos a filtrarlo.`,frase_docente:`Saber leer no es suficiente — hay que saber reaccionar.`},{id:`thu`,label:`Jueves — Del simulador al circuito real`,purpose:`Primera práctica con hardware físico: armar el circuito de botón + LED en protoboard, observar el rebote mecánico real con debounce (Prog 05) e implementar toggle (Prog 06) sin desmontar nada.`,hours:[{time:`Hora 1`,title:`Programa 05: contador de pulsaciones — sin debounce y con debounce`,theory:`Un botón mecánico no hace contacto limpio al presionarlo. En los primeros milisegundos 'rebota': hace y rompe contacto varias veces antes de estabilizarse. El ESP32 es tan rápido que detecta cada rebote como una pulsación separada.
+}`,product:`Proyecto Programa_04_BotonLED: el LED enciende mientras se presiona el botón y apaga al soltarlo. Reto extra: parpadeo al presionar.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El delay(100) evita que el Serial Monitor se llene demasiado rápido, pero introduce un pequeño retraso perceptible. Señalar esto: es un compromiso entre legibilidad del Serial Monitor y respuesta del botón. El reto de parpadeo al presionar requiere un for loop dentro del if — quien llegue ahí ya conectó la semana anterior con la actual.`}],cierre:`De leer un botón a controlar una salida: el ESP32 responde al mundo físico en tiempo real. Mañana aprenderemos a filtrarlo.`,frase_docente:`Saber leer no es suficiente — hay que saber reaccionar.`},{id:`thu`,label:`Jueves — Primer encendido del ESP32 (Windows + puerto serial)`,purpose:`Bootstrap completo del ESP32 en máquinas Windows: del cable USB al primer 'Hello World' por el Serial Monitor. Al final del día reproducimos el Programa 04 del miércoles, pero esta vez en hardware real, viendo en vivo lo que sale por el puerto serial.`,hours:[{time:`Hora 1`,title:`Setup en Windows: del cable USB al puerto COM`,theory:`Cuando conectas el ESP32 a la PC con un cable USB, hay TRES cosas que tienen que estar bien para que la PC lo reconozca:
 
-⚠️ EL PROBLEMA
-Sin debounce: presionas el botón UNA vez → el contador sube 5, 10 o 15 unidades porque detectó 5, 10 o 15 'pulsaciones' del rebote mecánico.
+1️⃣ EL CHIP USB‑SERIAL
+El ESP32 no habla USB nativo — usa un chip puente (USB↔Serial) que traduce. Hay dos modelos comunes en placas DevKit:
+• CP2102 (Silicon Labs)
+• CH340 / CH9102 (WCH)
+Mira el chip cuadrado pequeño que está justo al lado del puerto micro‑USB de tu ESP32 — ahí dice cuál tienes.
 
-✅ LA SOLUCIÓN — debounce por delay
-Cuando detectamos que el botón se presionó, esperamos 50 ms y volvemos a leer. Si después de 50 ms el botón sigue presionado, es una pulsación real. Si ya se soltó, fue un rebote.
+2️⃣ EL DRIVER
+Windows no trae los drivers de estos chips de fábrica. Hay que descargar e instalar el correcto:
+• CP2102 → driver de Silicon Labs (silabs.com)
+• CH340 → driver CH341SER de WCH
+Sin el driver, Windows ve un dispositivo desconocido y no asigna puerto.
 
-🔑 CONCEPTO CLAVE: FLANCO DESCENDENTE
-En lugar de detectar 'botón presionado', detectamos el momento exacto en que cambia de suelto (HIGH) a presionado (LOW). Ese instante se llama flanco descendente y ocurre una sola vez por pulsación:
+3️⃣ EL PUERTO COM
+Una vez instalado el driver, Windows asigna un número de puerto: COM3, COM5, COM7, etc. Ese número aparece en el Administrador de dispositivos. Es el 'teléfono' por el que la PC y el ESP32 se comunican.
 
-\`\`\`
-bool anteriorEstado = HIGH;
+📡 BAUDRATE — el idioma del puerto
+La velocidad de comunicación serial se mide en baudios. El estándar del ESP32 es 115200 baud. Ambos lados (PC y ESP32) tienen que usar el mismo número o sale basura ilegible.
 
-void loop() {
-  bool estadoActual = digitalRead(BOTON_PIN);
-  
-  if (anteriorEstado == HIGH && estadoActual == LOW) {
-    // ← este if solo se cumple UNA vez por pulsación
-  }
-  
-  anteriorEstado = estadoActual;
-}
-\`\`\``,notebook:`Título: Debounce — el rebote del botón.
-1. ¿Qué es el rebote mecánico de un botón?
-2. ¿Por qué el ESP32 detecta múltiples pulsaciones en un solo clic?
-3. ¿Qué es un flanco descendente?
-4. ¿Por qué comparamos anteriorEstado == HIGH && estadoActual == LOW?
-5. ¿Cuántos ms de delay se usan para debounce y por qué ese valor?
-6. ¿Qué pasaría si usamos delay(500) para debounce en lugar de delay(50)?`,practice:`🧰 VERIFICAR MATERIALES — antes de arrancar
-- ESP32 DevKit (el microcontrolador principal)
-- Protoboard (400 o 830 puntos)
-- LED (cualquier color, pata larga = ánodo +)
-- Resistencia 220Ω (bandas: rojo-rojo-marrón)
-- Botón táctil de 4 pines
-- 4 cables jumper macho-macho
-- Cable USB para el ESP32
+🔑 RESUMEN
+• Driver = traductor
+• Puerto COM = teléfono
+• Baudrate = idioma
+Los tres tienen que estar bien para que la PC y el ESP32 se entiendan.`,notebook:`Título: Mi primera conexión con el ESP32.
+1. ¿Qué chip USB‑Serial trae tu ESP32 (CP2102 o CH340)? ¿Cómo lo identificaste?
+2. ¿Qué número de puerto COM te asignó Windows?
+3. Con tus palabras: ¿para qué sirve un driver USB‑Serial?
+4. ¿Qué es el baudrate y por qué la PC y el ESP32 deben usar el mismo?
+5. Si conectas tu ESP32 en la PC de un compañero, ¿el número de COM va a ser el mismo? ¿Por qué?
+6. ¿Qué pasaría si en Arduino IDE seleccionas COM3 cuando tu ESP32 está realmente en COM5?
+7. ¿Por qué algunos cables USB no funcionan (aunque carguen el celular bien)?`,practice:`🛠️ PASO 0 — Verificar materiales
+• ESP32 DevKit
+• Cable USB DE DATOS (no de solo carga — los cables de carga no tienen los hilos de datos)
+• PC con Windows 10/11
 
-🔧 ARMAR EL CIRCUITO EN PROTOBOARD
-1. Insertar el ESP32 centrado en la protoboard.
-2. LED: pata larga (+) → resistencia 220Ω → GPIO 2. Pata corta (–) → GND.
-3. Botón: terminal A → GPIO 4. Terminal B → GND.
-4. Puente negro: pin GND del ESP32 → línea GND de la protoboard.
-5. Comparar con el diagrama en pantalla antes de conectar el USB.
+🔍 PASO 1 — Identificar tu chip USB‑Serial
+Mira el chip cuadrado pequeño junto al puerto micro‑USB del ESP32:
+• Dice CP2102 → driver Silicon Labs
+• Dice CH340 o CH9102 → driver WCH
+Anotar en libreta cuál tienes.
 
-⚡ PARTE 1 — Sin debounce (observar el problema)
-1. Conectar USB. En Arduino IDE: placa "ESP32 Dev Module", puerto correcto.
-2. Cargar la versión SIN debounce del Programa 05.
-3. Abrir Serial Monitor a 115200 baudios.
-4. Presionar el botón UNA sola vez — anotar cuántos conteos aparecieron.
-5. Presionar 5 veces — anotar el número final (¿llegó exactamente a 5?).
+💾 PASO 2 — Instalar el driver correcto
+CP2102:
+  1. Ir a silabs.com → buscar 'CP210x VCP Drivers'
+  2. Descargar la versión Windows Universal
+  3. Descomprimir, ejecutar el instalador → Siguiente → Siguiente → Finalizar
+CH340:
+  1. Buscar en Google: 'CH341SER.EXE descarga'
+  2. Descargar el instalador
+  3. Ejecutar como Administrador (clic derecho → 'Ejecutar como administrador')
+  4. Botón 'INSTALL' → esperar mensaje 'Driver install success!'
+• Si Windows lo pide, reiniciar la PC.
 
-✅ PARTE 2 — Con debounce (la solución)
-1. Cargar la versión CON debounce. El circuito no cambia.
-2. Presionar 5 veces despacio — debe marcar exactamente 5.
-3. Presionar 10 veces — debe marcar exactamente 10.
-4. Guardar el proyecto como 'Programa_05_Debounce'.`,diagram:`<!DOCTYPE html>
+🔌 PASO 3 — Conectar el ESP32 y detectar el puerto COM
+  1. Conectar el ESP32 a la PC con el cable USB
+  2. El LED rojo del ESP32 debe encender (señal de alimentación)
+  3. Abrir Administrador de dispositivos: Win+X → 'Administrador de dispositivos'
+  4. Buscar la sección 'Puertos (COM y LPT)'
+  5. Ahí debe aparecer:
+     - 'Silicon Labs CP210x USB to UART Bridge (COMx)' → CP2102
+     - 'USB-SERIAL CH340 (COMx)' → CH340
+  6. Anotar el número COM (ej. COM5) — lo necesitamos en el Paso 7.
+• Si NO aparece → el driver no se instaló bien O el cable es de solo carga. Pedir ayuda.
+
+🧰 PASO 4 — Instalar Arduino IDE 2.x
+  1. Ir a arduino.cc/en/software
+  2. Descargar 'Arduino IDE 2.x' para Windows
+  3. Instalar con todas las opciones por defecto (aceptar drivers Arduino que pida)
+
+⚙️ PASO 5 — Agregar soporte ESP32 al IDE
+  1. Abrir Arduino IDE
+  2. File → Preferences
+  3. En el campo 'Additional boards manager URLs' pegar:
+     https://espressif.github.io/arduino-esp32/package_esp32_index.json
+  4. OK
+
+📦 PASO 6 — Instalar el paquete ESP32
+  1. Tools → Board → Boards Manager…
+  2. Buscar 'esp32'
+  3. Instalar 'esp32 by Espressif Systems' (espera 2–5 min, descarga ~200 MB)
+
+🎯 PASO 7 — Seleccionar placa y puerto
+  1. Tools → Board → esp32 → 'ESP32 Dev Module'
+  2. Tools → Port → COMx (el que anotaste en el Paso 3)
+  3. Tools → Upload Speed → 115200
+
+✅ PASO 8 — Hello Serial: confirmar que la PC habla con el ESP32
+  1. File → New Sketch
+  2. Pegar el código 'Hello Serial' (ver bloque de código)
+  3. Click en ✓ (Verify) — debe compilar sin errores
+  4. Click en → (Upload). Mensaje: 'Connecting...'
+     - Si se queda en 'Connecting....._____' por más de 10 s, mantener presionado el botón BOOT del ESP32 hasta que empiece a subir
+  5. Esperar 'Done uploading.'
+  6. Tools → Serial Monitor (o Ctrl+Shift+M)
+  7. En la esquina inferior derecha del Serial Monitor, seleccionar '115200 baud'
+  8. Debe imprimir: 'ESP32 listo — primera conexion' y luego 'vivo' cada segundo
+
+📸 EVIDENCIA — captura del Serial Monitor con el mensaje 'vivo' apareciendo, junto al puerto COM visible. Subir a Classroom.`,diagram:`<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
-
-  /* ── Secciones ── */
   .sec-title {
-    font-size: 10px; font-weight: 700; color: #58a6ff;
+    font-size: 11px; font-weight: 700; color: #58a6ff;
     text-transform: uppercase; letter-spacing: 1px;
     border-bottom: 1px solid #21262d;
-    padding-bottom: 5px; margin-bottom: 12px; margin-top: 20px;
+    padding-bottom: 6px; margin: 18px 0 12px;
   }
   .sec-title:first-child { margin-top: 0; }
 
-  /* ── Warning ── */
-  .warn {
-    background: #1f1700; border: 1px solid #d29922; border-radius: 8px;
-    padding: 10px 14px; font-size: 10px; color: #d29922;
-    display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px;
-  }
-  .warn-icon { font-size: 16px; flex-shrink: 0; }
-  .warn strong { color: #f0c040; }
-
-  /* ── Materiales grid ── */
-  .mat-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 6px;
-  }
-  .mat-card {
+  /* Flow steps */
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; }
+  .step {
+    flex: 1 1 calc(25% - 8px); min-width: 110px;
     background: #161b22; border: 1px solid #30363d; border-radius: 10px;
-    padding: 12px 8px; text-align: center;
+    padding: 10px 8px; text-align: center; position: relative;
   }
-  .mat-card.alert { border-color: #f85149; background: #1a0808; }
-  .mat-icon { font-size: 26px; display: block; margin-bottom: 5px; }
-  .mat-name { font-size: 10px; font-weight: 700; color: #e6edf3; display: block; }
-  .mat-card.alert .mat-name { color: #f85149; }
-  .mat-spec { font-size: 9px; color: #8b949e; display: block; margin-top: 2px; }
-
-  /* ── Checklist ── */
-  .checklist { display: flex; flex-direction: column; gap: 5px; }
-  .chk {
-    display: flex; gap: 10px; align-items: center;
-    background: #161b22; border: 1px solid #30363d; border-radius: 6px;
-    padding: 7px 12px; font-size: 10px;
-  }
-  .chk-num {
+  .step .num {
+    position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    background: #1f6feb; color: white; font-size: 10px; font-weight: 700;
     width: 18px; height: 18px; border-radius: 50%;
-    background: #21262d; color: #58a6ff; font-size: 9px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
   }
-  .chk-text { flex: 1; color: #c9d1d9; }
-  .chk-wire {
-    width: 28px; height: 6px; border-radius: 3px; flex-shrink: 0;
-  }
-  code { color: #79c0ff; font-size: 10px; }
+  .step .icon { font-size: 22px; display: block; margin: 6px 0 4px; }
+  .step .label { font-size: 10px; font-weight: 700; color: #e6edf3; display: block; }
+  .step .sub { font-size: 9px; color: #8b949e; display: block; margin-top: 2px; }
+  .step.key { border-color: #d29922; background: #1f1700; }
+  .step.key .label { color: #f0c040; }
 
-  /* ── Connections ── */
-  .conn-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
-  .conn-box {
-    flex: 1; min-width: 160px;
-    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  /* Chip identification */
+  .chip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .chip-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
     padding: 12px;
   }
-  .conn-label {
-    font-size: 10px; font-weight: 700; color: #58a6ff;
-    margin-bottom: 8px; display: block;
+  .chip-card h4 { font-size: 11px; color: #58a6ff; margin-bottom: 6px; }
+  .chip-card .marking {
+    font-family: 'Consolas', monospace; font-size: 13px; color: #79c0ff;
+    background: #0d1117; border: 1px solid #30363d;
+    padding: 6px 8px; border-radius: 4px; margin-bottom: 6px; text-align: center;
+    letter-spacing: 1px;
   }
-  .conn-row {
+  .chip-card p { font-size: 10px; color: #8b949e; line-height: 1.5; }
+  .chip-card a { color: #58a6ff; }
+
+  /* Device manager mock */
+  .devmgr {
+    background: #f3f3f3; color: #000; border-radius: 6px;
+    border: 1px solid #999; font-family: 'Segoe UI', sans-serif;
+    padding: 8px 10px; font-size: 11px; max-width: 460px;
+  }
+  .devmgr .title-bar {
+    background: #0078d4; color: white;
+    margin: -8px -10px 6px; padding: 4px 8px;
+    border-radius: 6px 6px 0 0; font-size: 10px;
+  }
+  .devmgr .tree { line-height: 1.7; }
+  .devmgr .tree-item { padding-left: 16px; position: relative; }
+  .devmgr .tree-item::before {
+    content: '▸'; position: absolute; left: 4px; color: #666; font-size: 9px;
+  }
+  .devmgr .tree-item.open::before { content: '▾'; }
+  .devmgr .com {
+    background: #fff5cc; border: 1px solid #d29922; padding: 1px 6px;
+    border-radius: 3px; font-weight: 700; color: #6d4c00;
+  }
+
+  /* Comm bus */
+  .bus { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .bus-node {
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 8px 12px; text-align: center; min-width: 90px;
+  }
+  .bus-node .ic { font-size: 20px; display: block; margin-bottom: 2px; }
+  .bus-node .nm { font-size: 10px; font-weight: 700; color: #e6edf3; }
+  .bus-node .sub { font-size: 9px; color: #8b949e; }
+  .bus-arrow {
+    flex: 1; height: 2px; background: linear-gradient(90deg, #1f6feb, #3fb950);
+    border-radius: 2px; min-width: 30px; position: relative;
+  }
+  .bus-arrow::after {
+    content: ''; position: absolute; right: -6px; top: -4px;
+    border-left: 6px solid #3fb950;
+    border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+  .bus-tag {
+    background: #0d1117; border: 1px solid #30363d; border-radius: 12px;
+    padding: 1px 8px; font-size: 9px; color: #79c0ff; font-family: 'Consolas', monospace;
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<p class="sec-title">🔍 Identifica tu chip USB‑Serial</p>
+<div class="chip-grid">
+  <div class="chip-card">
+    <h4>Opción A — Silicon Labs</h4>
+    <div class="marking">CP2102</div>
+    <p>Driver: <strong>CP210x VCP Drivers</strong> de silabs.com — instalador <code>.exe</code> con asistente.</p>
+  </div>
+  <div class="chip-card">
+    <h4>Opción B — WCH</h4>
+    <div class="marking">CH340 / CH9102</div>
+    <p>Driver: <strong>CH341SER.EXE</strong> — ejecutar como administrador y presionar 'INSTALL'.</p>
+  </div>
+</div>
+
+<p class="sec-title">📋 Flujo de setup en Windows (8 pasos)</p>
+<div class="flow">
+  <div class="step"><span class="num">1</span><span class="icon">🔌</span><span class="label">Cable USB</span><span class="sub">de datos, no carga</span></div>
+  <div class="step"><span class="num">2</span><span class="icon">🔍</span><span class="label">Identificar chip</span><span class="sub">CP2102 o CH340</span></div>
+  <div class="step"><span class="num">3</span><span class="icon">💾</span><span class="label">Instalar driver</span><span class="sub">según el chip</span></div>
+  <div class="step key"><span class="num">4</span><span class="icon">📟</span><span class="label">Adm. dispositivos</span><span class="sub">anotar COMx</span></div>
+  <div class="step"><span class="num">5</span><span class="icon">🧰</span><span class="label">Arduino IDE</span><span class="sub">arduino.cc</span></div>
+  <div class="step"><span class="num">6</span><span class="icon">📦</span><span class="label">Boards Manager</span><span class="sub">esp32 Espressif</span></div>
+  <div class="step"><span class="num">7</span><span class="icon">🎯</span><span class="label">Seleccionar</span><span class="sub">placa + COMx</span></div>
+  <div class="step key"><span class="num">8</span><span class="icon">📡</span><span class="label">Hello Serial</span><span class="sub">115200 baud</span></div>
+</div>
+
+<p class="sec-title">📟 Cómo se ve en Administrador de dispositivos</p>
+<div class="devmgr">
+  <div class="title-bar">📟 Administrador de dispositivos</div>
+  <div class="tree">
+    <div class="tree-item">Adaptadores de pantalla</div>
+    <div class="tree-item">Equipo</div>
+    <div class="tree-item open">Puertos (COM y LPT)</div>
+    <div class="tree-item" style="padding-left:32px;">Silicon Labs CP210x USB to UART Bridge <span class="com">(COM5)</span></div>
+    <div class="tree-item">Procesadores</div>
+    <div class="tree-item">Teclados</div>
+  </div>
+</div>
+
+<p class="sec-title">🔄 La cadena de comunicación</p>
+<div class="bus">
+  <div class="bus-node"><span class="ic">💻</span><span class="nm">PC Windows</span><span class="sub">Serial Monitor</span></div>
+  <div class="bus-arrow"><span class="bus-tag">USB · COM5</span></div>
+  <div class="bus-node"><span class="ic">🔀</span><span class="nm">Chip USB↔Serial</span><span class="sub">CP2102 / CH340</span></div>
+  <div class="bus-arrow"><span class="bus-tag">UART · 115200</span></div>
+  <div class="bus-node"><span class="ic">🔲</span><span class="nm">ESP32</span><span class="sub">Serial.println()</span></div>
+</div>
+
+</body>
+</html>
+`,code:`// HELLO SERIAL — primer programa para confirmar que la PC habla con el ESP32
+// Completa los espacios en blanco
+
+void setup() {
+  Serial.begin( );        // ¿qué baudrate usa el ESP32 por defecto?
+  delay(1000);
+  Serial.println("ESP32 listo — primera conexion");
+}
+
+void loop() {
+  Serial.println( );      // imprimir la palabra "vivo" cada segundo
+  delay(1000);
+}`,codeRef:`// HELLO SERIAL — primer programa para confirmar que la PC habla con el ESP32
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  Serial.println("ESP32 listo — primera conexion");
+}
+
+void loop() {
+  Serial.println("vivo");
+  delay(1000);
+}`,product:`Captura de pantalla del Serial Monitor mostrando 'ESP32 listo — primera conexion' seguido de varios 'vivo', con el indicador '115200 baud' visible y el puerto COMx anotado en libreta.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Este es el día más frágil del semestre — un cable de carga, un driver mal instalado, una placa CH340 confundida con CP2102, y el alumno se atora 40 min. Recomendaciones: (1) Pre‑descargar AMBOS instaladores (CP210x y CH341SER) en una USB y pasarla en el aula — el internet del CONALEP no siempre alcanza para 200 MB del paquete ESP32 multiplicado por 20 PCs. (2) Verificar primero que la placa esté reconocida en Administrador de dispositivos ANTES de abrir Arduino IDE — separa errores de driver de errores de IDE. (3) El botón BOOT: muchos ESP32 NO necesitan presionarlo, pero los clones chinos baratos sí — si 'Connecting....._____' se cuelga, mantener BOOT presionado hasta que empiece a subir y soltar. (4) Si un alumno ve caracteres ilegibles en el Serial Monitor (Ⱨ䶻⼬), el baudrate está mal — revisar abajo a la derecha. (5) Llevar 2-3 cables USB de datos extra; los cables de solo carga son la causa #1 de 'no se conecta'.`},{time:`Hora 2`,title:`Programa 04 en hardware real + Serial Monitor en vivo`,theory:`Ahora que la PC y el ESP32 ya se hablan, vamos a reproducir el Programa 04 del miércoles — pero esta vez en silicio real, no en simulador.
+
+🌉 DEL SIMULADOR A LA PROTOBOARD
+En el simulador (Wokwi) el comportamiento es 'limpio': el botón es perfecto, los tiempos son exactos. En hardware real veremos pequeñas diferencias — y eso es bueno, porque el mundo real es así.
+
+🪟 SERIAL.PRINTLN() COMO VENTANA DE DEPURACIÓN
+Hasta ahora 'veíamos' qué pasa por el LED. Ahora agregamos una segunda ventana: imprimimos en cada ciclo del loop() el estado del botón y del LED. El Serial Monitor se vuelve un rastreo en vivo de lo que está pensando el ESP32.
+
+Esto es FUNDAMENTAL para el resto del curso — cuando algo no funciona, lo primero que haces es agregar Serial.println() para ver qué está pasando dentro.
+
+📐 print vs println
+• Serial.print("Hola") → escribe 'Hola' y se queda en la misma línea
+• Serial.println("Hola") → escribe 'Hola' y salta a la siguiente línea
+Usamos print() para ir armando una línea en pedazos, y println() para cerrarla.
+
+⚡ EL CICLO
+Cada 100 ms el loop() se ejecuta:
+  1. Lee el botón
+  2. Aplica el estado al LED (invertido por INPUT_PULLUP)
+  3. Imprime ambos valores al Serial
+Resultado: una línea nueva en el Serial Monitor cada décima de segundo, mostrando el estado actual.`,notebook:`Título: Hardware real + Serial Monitor.
+1. ¿Por qué digitalRead() devuelve 1 (HIGH) cuando NO presionas el botón?
+2. ¿Qué hace el operador ! en digitalWrite(LED_PIN, !boton)?
+3. Diferencias que notaste entre el simulador (miércoles) y la protoboard (hoy).
+4. ¿Para qué sirve Serial.print() vs Serial.println()?
+5. Si quitas el delay(100), ¿qué crees que pasaría con el Serial Monitor?
+6. ¿Qué ventaja tiene ver los valores en el Serial Monitor en lugar de solo ver el LED?
+7. Si presionas el botón muy rápido (clic clic clic), ¿alcanzas a ver cada estado en el Serial?`,practice:`🔧 PASO 1 — Armar el circuito en protoboard
+• ESP32 centrado en la protoboard
+• LED: pata larga (+) → resistencia 220Ω → GPIO 2. Pata corta (−) → línea GND
+• Botón táctil de 4 pines: terminal A → GPIO 4. Terminal B → línea GND
+• Puente: pin GND del ESP32 → línea GND de la protoboard
+• Verificar visualmente ANTES de conectar el USB
+
+💻 PASO 2 — Cargar el código
+  1. Conectar el ESP32 (debe aparecer el COM ya conocido)
+  2. File → New Sketch
+  3. Copiar el código de la sección de abajo
+  4. Completar los espacios en blanco
+  5. Verificar (✓) y subir (→)
+
+📡 PASO 3 — Abrir Serial Monitor
+  1. Tools → Serial Monitor
+  2. Confirmar 115200 baud abajo a la derecha
+  3. Ver las líneas saliendo cada 100 ms con 'Boton: 1 | LED: 0'
+
+🔬 PASO 4 — Experimentos
+  Experimento A: Sin presionar nada
+    → Debe salir continuamente: 'Boton: 1 | LED: 0' (LED apagado)
+  Experimento B: Mantener presionado
+    → Debe salir continuamente: 'Boton: 0 | LED: 1' (LED encendido)
+  Experimento C: Presionar y soltar rápido (5 veces seguidas)
+    → Anotar qué se ve en el Serial — ¿se alcanzan a ver los cambios?
+  Experimento D: Cambiar delay(100) por delay(1000) y volver a subir
+    → ¿Qué cambia en el Serial Monitor?
+  Experimento E (reto): Cambiar delay(100) por delay(10) y volver a subir
+    → ¿El Serial se llena más rápido? ¿Sigue siendo legible?
+
+💾 Guardar como 'Programa_04_Real_Serial'.
+📸 Subir a Classroom: foto del circuito armado + captura del Serial Monitor.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 18px 0 12px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* Pin connections */
+  .pins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pin-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px;
+  }
+  .pin-card h4 { font-size: 11px; color: #58a6ff; margin-bottom: 8px; }
+  .pin-row {
     display: flex; align-items: center; gap: 8px;
-    font-size: 10px; color: #8b949e; margin-bottom: 6px;
+    font-size: 10px; color: #c9d1d9; margin-bottom: 6px;
   }
-  .conn-row:last-child { margin-bottom: 0; }
+  .pin-row:last-child { margin-bottom: 0; }
   .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .pin-badge {
     background: #1a3a1a; color: #3fb950; border-radius: 4px;
@@ -1124,479 +1351,144 @@ void loop() {
   }
   .pin-gnd { background: #1a1a2a; color: #8b949e; border-radius: 4px; padding: 1px 5px; font-size: 9px; }
 
-  /* ── Debounce signal ── */
-  .panels { display: flex; gap: 16px; flex-wrap: wrap; }
-  .panel {
-    flex: 1; min-width: 220px;
-    background: #161b22; border: 1px solid #30363d;
-    border-radius: 8px; padding: 12px;
+  /* Serial monitor mock */
+  .serial-frame {
+    background: #1e1e1e; border: 1px solid #30363d; border-radius: 8px;
+    overflow: hidden;
   }
-  .panel h3 { font-size: 11px; margin-bottom: 10px; }
-  .bad  h3 { color: #f85149; }
-  .good h3 { color: #3fb950; }
-  canvas { width: 100%; border-radius: 6px; background: #0d1117; display: block; }
-  .desc { margin-top: 10px; font-size: 10px; color: #8b949e; line-height: 1.6; }
-  .desc strong { color: #e6edf3; }
-  .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; margin-bottom: 8px; }
-  .tag-bad  { background: #3d1a1a; color: #f85149; }
-  .tag-good { background: #1a3a1a; color: #3fb950; }
-  code { color: #79c0ff; font-size: 10px; }
+  .serial-bar {
+    background: #2d2d30; padding: 6px 12px; font-size: 10px;
+    color: #cccccc; display: flex; justify-content: space-between;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .serial-bar .baud { color: #4ec9b0; font-family: 'Consolas', monospace; }
+  .serial-body {
+    padding: 10px 12px; font-family: 'Consolas', monospace; font-size: 11px;
+    line-height: 1.5; color: #d4d4d4; max-height: 200px; overflow-y: auto;
+  }
+  .serial-line { white-space: nowrap; }
+  .serial-line.pressed { background: rgba(76, 175, 80, 0.08); }
+  .k { color: #569cd6; }
+  .v0 { color: #ce9178; }
+  .v1 { color: #4ec9b0; }
+  .pipe { color: #6a9955; }
+
+  /* Cycle */
+  .cycle { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .cycle-step {
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 8px 10px; font-size: 10px; color: #c9d1d9; min-width: 100px;
+  }
+  .cycle-step b { color: #58a6ff; display: block; font-size: 9px; margin-bottom: 2px; }
+  .cycle-arrow { color: #58a6ff; font-size: 14px; }
 </style>
 </head>
 <body>
 
-<div class="warn">
-  <span class="warn-icon">⚠️</span>
-  <div><strong>Antes de conectar:</strong> Verificar que Arduino IDE tiene soporte para ESP32 instalado. Placa: <code>"ESP32 Dev Module"</code> · Baudrate: <code>115200</code></div>
-</div>
-
-<p class="sec-title">🧰 Materiales necesarios</p>
-<div class="mat-grid">
-  <div class="mat-card">
-    <span class="mat-icon">🔲</span>
-    <span class="mat-name">ESP32 DevKit</span>
-    <span class="mat-spec">microcontrolador</span>
-  </div>
-  <div class="mat-card">
-    <span class="mat-icon">🟦</span>
-    <span class="mat-name">Protoboard</span>
-    <span class="mat-spec">400 o 830 puntos</span>
-  </div>
-  <div class="mat-card">
-    <span class="mat-icon">💡</span>
-    <span class="mat-name">LED</span>
-    <span class="mat-spec">cualquier color</span>
-  </div>
-  <div class="mat-card">
-    <span class="mat-icon">〰️</span>
-    <span class="mat-name">Resistencia 220Ω</span>
-    <span class="mat-spec">rojo-rojo-marrón</span>
-  </div>
-  <div class="mat-card alert">
-    <span class="mat-icon">🔘</span>
-    <span class="mat-name">Botón táctil 4P</span>
-    <span class="mat-spec">¡No olvidar!</span>
-  </div>
-  <div class="mat-card">
-    <span class="mat-icon">🔌</span>
-    <span class="mat-name">Cables jumper</span>
-    <span class="mat-spec">4 macho-macho</span>
-  </div>
-</div>
-
-<p class="sec-title">🔗 Conexiones en protoboard</p>
-<div class="conn-grid">
-  <div class="conn-box">
-    <span class="conn-label">💡 LED</span>
-    <div class="conn-row">
+<p class="sec-title">🔗 Conexiones (mismo circuito que el simulador del miércoles)</p>
+<div class="pins">
+  <div class="pin-card">
+    <h4>💡 LED</h4>
+    <div class="pin-row">
       <span class="dot" style="background:#3fb950"></span>
       <span>Pata larga (+) → R 220Ω → <span class="pin-badge">GPIO 2</span></span>
     </div>
-    <div class="conn-row">
+    <div class="pin-row">
       <span class="dot" style="background:#8b949e"></span>
       <span>Pata corta (−) → <span class="pin-gnd">GND</span></span>
     </div>
   </div>
-  <div class="conn-box">
-    <span class="conn-label">🔘 Botón</span>
-    <div class="conn-row">
+  <div class="pin-card">
+    <h4>🔘 Botón</h4>
+    <div class="pin-row">
       <span class="dot" style="background:#58a6ff"></span>
       <span>Terminal A → <span class="pin-badge">GPIO 4</span></span>
     </div>
-    <div class="conn-row">
+    <div class="pin-row">
       <span class="dot" style="background:#8b949e"></span>
       <span>Terminal B → <span class="pin-gnd">GND</span></span>
     </div>
   </div>
 </div>
 
-<p class="sec-title">📡 Señal del botón — sin debounce vs con debounce</p>
-<div class="panels">
-  <div class="panel bad">
-    <span class="tag tag-bad">❌ Sin debounce</span>
-    <h3>Señal real del botón (zoom extremo)</h3>
-    <canvas id="bad" width="300" height="100"></canvas>
-    <p class="desc">Presionas <strong>1 vez</strong> → el ESP32 detecta <strong>8–15 flancos</strong> en los primeros ~5 ms.</p>
+<p class="sec-title">⚡ Ciclo del loop() — cada 100 ms</p>
+<div class="cycle">
+  <div class="cycle-step"><b>1. Leer</b>digitalRead(BOTON_PIN)</div>
+  <span class="cycle-arrow">→</span>
+  <div class="cycle-step"><b>2. Aplicar</b>digitalWrite(LED_PIN, !boton)</div>
+  <span class="cycle-arrow">→</span>
+  <div class="cycle-step"><b>3. Imprimir</b>Serial.println(...)</div>
+  <span class="cycle-arrow">↻</span>
+  <div class="cycle-step"><b>4. Esperar</b>delay(100)</div>
+</div>
+
+<p class="sec-title">📡 Lo que verás en el Serial Monitor</p>
+<div class="serial-frame">
+  <div class="serial-bar">
+    <span>📡 Serial Monitor — COM5</span>
+    <span class="baud">115200 baud</span>
   </div>
-  <div class="panel good">
-    <span class="tag tag-good">✅ Con debounce (delay 50 ms)</span>
-    <h3>Señal filtrada</h3>
-    <canvas id="good" width="300" height="100"></canvas>
-    <p class="desc">Después de detectar el flanco, esperamos <strong>50 ms</strong> → exactamente <strong>1 pulsación</strong>.</p>
+  <div class="serial-body">
+    <div class="serial-line"><span class="k">Programa 04 — boton controla LED</span></div>
+    <div class="serial-line"><span class="k">Boton:</span> <span class="v1">1</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v0">0</span></div>
+    <div class="serial-line"><span class="k">Boton:</span> <span class="v1">1</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v0">0</span></div>
+    <div class="serial-line"><span class="k">Boton:</span> <span class="v1">1</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v0">0</span></div>
+    <div class="serial-line pressed"><span class="k">Boton:</span> <span class="v0">0</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v1">1</span> &nbsp;<span class="pipe">// ← presionado</span></div>
+    <div class="serial-line pressed"><span class="k">Boton:</span> <span class="v0">0</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v1">1</span></div>
+    <div class="serial-line pressed"><span class="k">Boton:</span> <span class="v0">0</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v1">1</span></div>
+    <div class="serial-line"><span class="k">Boton:</span> <span class="v1">1</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v0">0</span> &nbsp;<span class="pipe">// ← soltado</span></div>
+    <div class="serial-line"><span class="k">Boton:</span> <span class="v1">1</span> <span class="pipe">|</span> <span class="k">LED:</span> <span class="v0">0</span></div>
   </div>
 </div>
 
-<script>
-function drawBad(id) {
-  const c = document.getElementById(id);
-  const ctx = c.getContext('2d');
-  c.width = c.offsetWidth * 2; c.height = 100;
-  const w = c.width, h = c.height;
-  ctx.fillStyle = '#0d1117'; ctx.fillRect(0,0,w,h);
-  ctx.strokeStyle = '#f85149'; ctx.lineWidth = 2;
-  ctx.beginPath();
-  let x = 0, y = 20;
-  ctx.moveTo(x, y);
-  x = w * 0.2; ctx.lineTo(x, y);
-  const bounces = [
-    [0,80],[5,20],[8,80],[12,20],[15,80],[18,20],[20,80],[22,20],[24,80],[26,20],
-    [28,80],[40,80]
-  ];
-  bounces.forEach(([dx, ny]) => {
-    x += dx * (w / 400);
-    ctx.lineTo(x, ny);
-  });
-  ctx.lineTo(w * 0.7, 80);
-  const rel = [[0,20],[4,80],[7,20],[10,80],[13,20]];
-  rel.forEach(([dx, ny]) => {
-    x = w * 0.7 + dx * (w / 400);
-    ctx.lineTo(x, ny);
-  });
-  ctx.lineTo(w, 20);
-  ctx.stroke();
-  ctx.fillStyle = '#8b949e'; ctx.font = \`\${w/30}px Segoe UI\`;
-  ctx.fillText('HIGH', 4, 18);
-  ctx.fillText('LOW',  4, 92);
-  ctx.strokeStyle = '#f8514966'; ctx.lineWidth = 1;
-  ctx.setLineDash([3,3]);
-  ctx.strokeRect(w*0.19, 10, w*0.2, 80);
-  ctx.setLineDash([]);
-  ctx.fillStyle = '#f85149'; ctx.font = \`\${w/35}px Segoe UI\`;
-  ctx.fillText('rebote ~5ms', w*0.2, 8);
-}
-
-function drawGood(id) {
-  const c = document.getElementById(id);
-  const ctx = c.getContext('2d');
-  c.width = c.offsetWidth * 2; c.height = 100;
-  const w = c.width, h = c.height;
-  ctx.fillStyle = '#0d1117'; ctx.fillRect(0,0,w,h);
-  ctx.strokeStyle = '#3fb950'; ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(0, 20);
-  ctx.lineTo(w*0.25, 20);
-  ctx.lineTo(w*0.25, 80);
-  ctx.lineTo(w*0.65, 80);
-  ctx.lineTo(w*0.65, 20);
-  ctx.lineTo(w, 20);
-  ctx.stroke();
-  ctx.fillStyle = '#3fb95022';
-  ctx.fillRect(w*0.25, 10, w*0.08, 80);
-  ctx.fillStyle = '#3fb950'; ctx.font = \`\${w/40}px Segoe UI\`;
-  ctx.fillText('delay(50)', w*0.255, 8);
-  ctx.fillText('✓ confirmado', w*0.34, 50);
-  ctx.fillStyle = '#8b949e'; ctx.font = \`\${w/30}px Segoe UI\`;
-  ctx.fillText('HIGH', 4, 18);
-  ctx.fillText('LOW',  4, 92);
-}
-
-drawBad('bad');
-drawGood('good');
-<\/script>
 </body>
 </html>
-`,code:`// PROGRAMA 05 — Contador con debounce
+`,code:`// PROGRAMA 04 (hardware real) — botón controla LED + traza serial
 // Completa los espacios en blanco
 
-const int LED_PIN   = 2;
-const int BOTON_PIN = 4;
+#define LED_PIN    2
+#define BOTON_PIN  4
 
-int  contador      = 0;
-bool anteriorEstado = ;  // ¿HIGH o LOW? (botón suelto al inicio)
+void setup() {
+  Serial.begin( );                       // baudrate estándar del ESP32
+  pinMode(LED_PIN,   OUTPUT);
+  pinMode(BOTON_PIN,  );                 // botón con resistencia interna pull-up
+  Serial.println("Programa 04 — boton controla LED");
+}
+
+void loop() {
+  bool boton = digitalRead( );           // ¿qué pin lee el botón?
+  digitalWrite(LED_PIN,  );              // INPUT_PULLUP → invertir
+
+  Serial.print("Boton: ");
+  Serial.print(boton);
+  Serial.print(" | LED: ");
+  Serial.println( );                     // imprimir el estado del LED
+
+  delay(100);
+}`,codeRef:`// PROGRAMA 04 (hardware real) — botón controla LED + traza serial
+
+#define LED_PIN    2
+#define BOTON_PIN  4
 
 void setup() {
   Serial.begin(115200);
   pinMode(LED_PIN,   OUTPUT);
   pinMode(BOTON_PIN, INPUT_PULLUP);
-  Serial.println("Contador listo. Presiona el botón.");
+  Serial.println("Programa 04 — boton controla LED");
 }
 
 void loop() {
-  bool estadoActual = digitalRead( );
+  bool boton = digitalRead(BOTON_PIN);
+  digitalWrite(LED_PIN, !boton);
 
-  if (anteriorEstado ==  && estadoActual == ) {
-    delay( );  // esperar 50 ms para debounce
+  Serial.print("Boton: ");
+  Serial.print(boton);
+  Serial.print(" | LED: ");
+  Serial.println(!boton);
 
-    if (digitalRead(BOTON_PIN) == LOW) {
-      contador = contador + 1;
-      Serial.print("Pulsaciones: ");
-      Serial.println( );
-
-      digitalWrite(LED_PIN, HIGH);
-      delay(100);
-      digitalWrite(LED_PIN, );
-    }
-  }
-
-  anteriorEstado = estadoActual;
-}`,codeRef:`// PROGRAMA 05 — Contador con debounce
-
-const int LED_PIN   = 2;
-const int BOTON_PIN = 4;
-
-int  contador       = 0;
-bool anteriorEstado = HIGH;
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(LED_PIN,   OUTPUT);
-  pinMode(BOTON_PIN, INPUT_PULLUP);
-  Serial.println("Contador listo. Presiona el botón.");
-}
-
-void loop() {
-  bool estadoActual = digitalRead(BOTON_PIN);
-
-  if (anteriorEstado == HIGH && estadoActual == LOW) {
-    delay(50);
-
-    if (digitalRead(BOTON_PIN) == LOW) {
-      contador = contador + 1;
-      Serial.print("Pulsaciones: ");
-      Serial.println(contador);
-
-      digitalWrite(LED_PIN, HIGH);
-      delay(100);
-      digitalWrite(LED_PIN, LOW);
-    }
-  }
-
-  anteriorEstado = estadoActual;
-}`,product:`Proyecto Programa_05_Contador_Debounce: el contador refleja exactamente cuántas veces se presionó el botón, sin lecturas falsas por rebote.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Es importante que vean el problema ANTES de la solución — PARTE 1 sin debounce. Algunos simuladores (Wokwi) pueden comportarse mejor que hardware real con el rebote; si no es visible, mencionar que en placa física el efecto es muy notorio. El concepto de flanco descendente (solo reaccionar al instante del cambio, no mientras está presionado) es fundamental para el resto del curso — repetirlo con diferentes palabras: 'no nos importa que esté presionado, nos importa el momento exacto en que se presionó'.`},{time:`Hora 2`,title:`Programa 06: toggle con botón — encender y apagar alternando`,theory:`En el Programa 04, el LED encendía solo mientras mantenías presionado el botón. Hoy implementamos toggle: cada pulsación cambia el estado del LED de forma permanente, como un interruptor de pared.
-
-🔄 EL OPERADOR ! (negación booleana)
-Si tienes una variable bool, el operador ! la invierte:
-
-\`\`\`
-bool estadoLED = false;
-estadoLED = !estadoLED;  // ahora es true
-estadoLED = !estadoLED;  // ahora es false otra vez
-\`\`\`
-
-Cada vez que ejecutas !estadoLED, el valor se alterna. Esto es el toggle.
-
-🧠 EL PATRÓN COMPLETO
-1. Detectar flanco descendente del botón (igual que Programa 05)
-2. Invertir la variable estadoLED con !
-3. Aplicar el nuevo estado al LED con digitalWrite()
-
-\`\`\`
-if (anteriorBoton == HIGH && estadoBoton == LOW) {
-  delay(50);  // debounce
-  if (digitalRead(BOTON_PIN) == LOW) {
-    estadoLED = !estadoLED;           // toggle
-    digitalWrite(LED_PIN, estadoLED); // aplicar
-  }
-}
-\`\`\`
-
-📌 La variable estadoLED 'recuerda' el último estado — el ESP32 guarda esa información aunque no estés presionando nada.`,notebook:`Título: Toggle — el interruptor de pared.
-1. ¿Qué hace el operador ! sobre una variable bool?
-2. Si estadoLED = true, ¿qué vale después de estadoLED = !estadoLED? → ___
-3. ¿En qué se diferencia el Programa 06 del Programa 04?
-4. ¿Por qué necesitamos la variable anteriorBoton para el toggle?
-5. Da 3 ejemplos de la vida real donde se use el patrón toggle.`,practice:`El circuito NO cambia — es el mismo de la Hora 1. Solo carga el código nuevo.
-
-1. Con el circuito ya armado y el ESP32 conectado por USB:
-2. En Arduino IDE abrir un sketch nuevo y copiar el código del Programa 06.
-3. Completar los espacios en blanco.
-4. Compilar y cargar (→). Esperar 'Done uploading'.
-5. Probar:
-   - Primer clic → LED enciende (queda encendido al soltar)
-   - Segundo clic → LED apaga
-   - Tercer clic → LED enciende
-   - ... y así alternando
-6. Verificar en Serial Monitor (115200) que imprime 'LED: ON' y 'LED: OFF' alternando.
-7. Reto: agregar al Serial Monitor el número de veces que se ha pulsado (combinar contador + toggle).
-8. Guardar como 'Programa_06_Toggle'.`,diagram:`<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
-  h2 { font-size: 15px; color: #58a6ff; margin-bottom: 18px; }
-  .layout { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
-  .circuit {
-    position: relative;
-    width: 360px; height: 320px;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    flex-shrink: 0;
-  }
-  .esp32 {
-    position: absolute;
-    left: 130px; top: 70px;
-    width: 100px; height: 180px;
-    background: #1a3a1a;
-    border: 2px solid #3fb950;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: #3fb950;
-    letter-spacing: 1px;
-  }
-  .pin { position: absolute; font-size: 9px; color: #8b949e; white-space: nowrap; }
-  .p-gnd1  { left: 6px; top: 118px; }
-  .p-gp4   { left: 6px; top: 138px; }
-  .p-gnd2  { left: 6px; top: 158px; }
-  .p-gp5   { left: 6px; top: 178px; }
-  .p-gp2   { right: 6px; top: 118px; }
-  .p-gnd3  { right: 6px; top: 138px; }
-  .p-gp13  { right: 6px; top: 158px; }
-  .p-gnd4  { right: 6px; top: 178px; }
-  .btn {
-    position: absolute;
-    width: 26px; height: 26px;
-    background: #21262d;
-    border: 2px solid #58a6ff;
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; color: #58a6ff;
-  }
-  .btn1 { left: 30px; top: 130px; }
-  .btn2 { left: 30px; top: 168px; }
-  .btn-lbl { position: absolute; font-size: 9px; color: #8b949e; }
-  .bl1 { left: 20px; top: 160px; }
-  .bl2 { left: 20px; top: 198px; }
-  .led { position: absolute; }
-  .led-tri { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; margin: 0 auto; }
-  .led-line-v { width: 2px; height: 8px; margin: 0 auto; }
-  .led1 { right: 34px; top: 114px; }
-  .led2 { right: 34px; top: 154px; }
-  .led-lbl { position: absolute; font-size: 9px; color: #8b949e; }
-  .ll1 { right: 24px; top: 140px; }
-  .ll2 { right: 24px; top: 180px; }
-  .res { position: absolute; width: 14px; height: 16px; background: #21262d; border: 1.5px solid #d29922; border-radius: 2px; }
-  .res1 { right: 56px; top: 118px; }
-  .res2 { right: 56px; top: 158px; }
-  .res-lbl { position: absolute; font-size: 8px; color: #d29922; }
-  .rl1 { right: 52px; top: 136px; }
-  .rl2 { right: 52px; top: 176px; }
-  svg.wires { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-  .table-box { flex: 1; min-width: 180px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 16px; }
-  th { background: #21262d; color: #58a6ff; padding: 6px 10px; text-align: left; font-size: 10px; }
-  td { padding: 6px 10px; border-bottom: 1px solid #21262d; color: #8b949e; }
-  td strong { color: #e6edf3; }
-  .note { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 10px 12px; font-size: 10px; color: #8b949e; line-height: 1.6; }
-  .note strong { color: #e6edf3; }
-  code { color: #79c0ff; }
-</style>
-</head>
-<body>
-<h2>🔌 Circuito — Programa 06: Toggle — 1 botón + 1 LED</h2>
-<div class="layout">
-  <div class="circuit">
-    <span class="pin p-gnd1">GND</span>
-    <span class="pin p-gp4">GPIO 4</span>
-    <span class="pin p-gp2">GPIO 2</span>
-    <span class="pin p-gnd3">GND</span>
-    <div class="esp32">ESP32</div>
-    <div class="btn btn1">▣</div>
-    <span class="btn-lbl bl1">BTN</span>
-    <div class="res res1"></div>
-    <span class="res-lbl rl1">220Ω</span>
-    <div class="led led1">
-      <div class="led-tri" style="border-top: 16px solid #f85149;"></div>
-      <div class="led-line-v" style="background:#f85149;"></div>
-    </div>
-    <span class="led-lbl ll1">LED</span>
-    <svg class="wires">
-      <line x1="130" y1="143" x2="56" y2="143" stroke="#58a6ff" stroke-width="2"/>
-      <polyline points="43,156 43,240 180,240 180,225" fill="none" stroke="#8b949e" stroke-width="2"/>
-      <line x1="230" y1="124" x2="286" y2="124" stroke="#f0883e" stroke-width="2"/>
-      <line x1="300" y1="124" x2="313" y2="122" stroke="#f0883e" stroke-width="2"/>
-      <polyline points="322,138 322,240 180,240" fill="none" stroke="#8b949e" stroke-width="2"/>
-    </svg>
-  </div>
-  <div class="table-box">
-    <table>
-      <tr><th>Componente</th><th>Pin ESP32</th></tr>
-      <tr><td><strong>Botón</strong> (terminal A)</td><td>GPIO 4</td></tr>
-      <tr><td><strong>Botón</strong> (terminal B)</td><td>GND</td></tr>
-      <tr><td><strong>LED</strong> (rojo) + 220Ω</td><td>GPIO 2 → GND</td></tr>
-    </table>
-    <div class="note">
-      <strong>Patrón toggle</strong><br>
-      <code>estadoLED = !estadoLED;</code><br>
-      <code>digitalWrite(LED_PIN, estadoLED);</code><br><br>
-      La variable <strong>estadoLED</strong> recuerda el estado entre pulsaciones — sin ella, el LED solo respondería mientras mantienes presionado.
-    </div>
-  </div>
-</div>
-</body>
-</html>
-`,code:`// PROGRAMA 06 — Toggle LED con botón
-// Completa los espacios en blanco
-
-const int LED_PIN   = 2;
-const int BOTON_PIN = 4;
-
-bool estadoLED    = ;  // ¿true o false? (LED apagado al inicio)
-bool anteriorBoton = HIGH;
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(LED_PIN,   OUTPUT);
-  pinMode(BOTON_PIN, INPUT_PULLUP);
-  digitalWrite(LED_PIN, LOW);
-  Serial.println("Presiona el botón para cambiar el LED.");
-}
-
-void loop() {
-  bool estadoBoton = digitalRead(BOTON_PIN);
-
-  if (anteriorBoton ==  && estadoBoton == ) {  // flanco descendente
-    delay(50);
-    if (digitalRead(BOTON_PIN) == LOW) {
-      estadoLED = !;           // toggle — invertir estado
-      digitalWrite(LED_PIN, );  // aplicar al LED
-
-      if (estadoLED) {
-        Serial.println("LED: ON");
-      } else {
-        Serial.println("LED: OFF");
-      }
-    }
-  }
-
-  anteriorBoton = estadoBoton;
-}`,codeRef:`// PROGRAMA 06 — Toggle LED con botón
-
-const int LED_PIN   = 2;
-const int BOTON_PIN = 4;
-
-bool estadoLED    = false;
-bool anteriorBoton = HIGH;
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(LED_PIN,   OUTPUT);
-  pinMode(BOTON_PIN, INPUT_PULLUP);
-  digitalWrite(LED_PIN, LOW);
-  Serial.println("Presiona el botón para cambiar el LED.");
-}
-
-void loop() {
-  bool estadoBoton = digitalRead(BOTON_PIN);
-
-  if (anteriorBoton == HIGH && estadoBoton == LOW) {
-    delay(50);
-    if (digitalRead(BOTON_PIN) == LOW) {
-      estadoLED = !estadoLED;
-      digitalWrite(LED_PIN, estadoLED);
-
-      if (estadoLED) {
-        Serial.println("LED: ON");
-      } else {
-        Serial.println("LED: OFF");
-      }
-    }
-  }
-
-  anteriorBoton = estadoBoton;
-}`,product:`Proyecto Programa_06_Toggle: el LED cambia de estado con cada pulsación del botón. Serial Monitor refleja ON/OFF.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El concepto de 'estado que persiste' es nuevo para la mayoría. Preguntar: '¿Dónde vive el estado del LED cuando nadie toca nada?' — en la variable estadoLED. El hardware (LED encendido o apagado) es solo el reflejo de esa variable. Este patrón aparece en toda la programación: React con useState, videojuegos con flags de estado, menús con isOpen. El reto de combinar contador + toggle es excelente para quien va rápido.`}],cierre:`Pasaron del simulador a la protoboard y los programas siguieron funcionando — eso es la abstracción de hardware en acción. El circuito que armaron hoy los acompañará el resto del semestre.`,frase_docente:`La diferencia entre el simulador y la protoboard es la misma que entre leer sobre nadar y lanzarse al agua. Hoy nadaron.`}]},W11:{materia:`mths`,weekId:`W11`,days:[{id:`tue`,label:`Martes — Dos botones, dos LEDs independientes`,purpose:`Escalar el patrón toggle a múltiples entradas y salidas: cada botón controla su propio LED de forma completamente independiente.`,hours:[{time:`Hora 1`,title:`Programa 07: dos botones, dos LEDs — control independiente`,theory:`Escalamos el proyecto: dos botones controlan dos LEDs de forma independiente. Cada botón tiene su propia variable de estado, su propio anteriorEstado y su propia lógica de toggle. El patrón es idéntico al Programa 06, solo se duplica.
+  delay(100);
+}`,product:`Proyecto Programa_04_Real_Serial: el LED enciende mientras el botón se mantiene presionado, y el Serial Monitor muestra 'Boton: x | LED: y' actualizándose cada 100 ms. Foto del circuito armado + captura del Serial Monitor entregadas en Classroom.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: La transición simulador → hardware real es un momento clave — los alumnos ven que el código que escribieron el miércoles funciona idéntico en silicio. Resaltar: 'la lógica no cambió, solo el medio'. Sobre Serial.println() como herramienta: este es el momento de plantar la semilla — TODO el resto del semestre, cuando algo no funcione, lo primero será agregar prints. Es la herramienta de depuración #1 en sistemas embebidos. Sobre los experimentos: el delay(10) llena el Serial muy rápido y se vuelve ilegible — buena oportunidad para discutir 'velocidad de muestreo vs. legibilidad humana'. Si algún alumno ya pidió hacer toggle (Programa 06) o contador (Programa 05), invitarlo a guardar ese reto para el viernes — hoy es día de bootstrap, no de funcionalidad nueva.`}],cierre:`Hoy cruzaron el puente más importante del semestre: del código que vive en la pantalla del simulador al código que vive en silicio. Aprendieron a instalar drivers, identificar puertos COM y leer el Serial Monitor — herramientas que usarán en CADA sesión que viene. Todo lo demás es ampliar lo que ya hicieron hoy.`,frase_docente:`Un programa que solo funciona en el simulador es una promesa. Uno que funciona conectado por USB es una herramienta.`}]},W11:{materia:`mths`,weekId:`W11`,days:[{id:`tue`,label:`Martes — Dos botones, dos LEDs independientes`,purpose:`Escalar el patrón toggle a múltiples entradas y salidas: cada botón controla su propio LED de forma completamente independiente.`,hours:[{time:`Hora 1`,title:`Programa 07: dos botones, dos LEDs — control independiente`,theory:`Escalamos el proyecto: dos botones controlan dos LEDs de forma independiente. Cada botón tiene su propia variable de estado, su propio anteriorEstado y su propia lógica de toggle. El patrón es idéntico al Programa 06, solo se duplica.
 
 🔌 PINES
 - LED1 → GPIO 2
