@@ -1276,7 +1276,237 @@ footer {
   letter-spacing: 2px;             /* Espacio entre letras */
   text-transform: uppercase;       /* Texto en mayúsculas */
 }
-\`\`\``,product:`Sitio de Resident Evil con diseño profesional completo: viñetas rojas, tabla de cronología estilizada, formulario oscuro y footer de firma.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Al terminar, abrir el Historial del Proyecto y recorrer la progresión: S09·Lunes (verde básico) → S09·Jueves (con nav) → S10·Vie CSS (resultado de hoy). El contraste es la mejor conclusión. Recordar al grupo: escribimos CERO líneas de JavaScript. La semana que viene empieza JS.`}],cierre:`De un fondo verde plano a un sitio oscuro con animaciones, tipografía y jerarquía visual — todo sin una sola línea de JavaScript. CSS bien escrito es diseño profesional.`,frase_docente:`El diseño no es solo cómo se ve — es cómo funciona. Y hoy hicimos que ambas cosas sean lo mismo.`}]},W11:{days:[]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},De=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=De()}))(),Oe=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],ke=()=>{let[e,t]=(0,_.useState)(!1);return(0,j.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,j.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,j.jsx)(de,{size:13,className:`pond-icon`}),(0,j.jsx)(`span`,{children:`Ponderación`}),(0,j.jsx)(k,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,j.jsxs)(`div`,{className:`ponderacion-body`,children:[Oe.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-unit`,children:[(0,j.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,j.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,j.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,j.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,j.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,j.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,j.jsxs)(`div`,{className:`pond-total`,children:[(0,j.jsx)(`span`,{children:`Total del módulo`}),(0,j.jsx)(`span`,{children:`100%`})]})]})]})},Ae=Ee.ras.flatMap(e=>e.weeks.map(e=>e.id)),je=Object.fromEntries(Ee.cortes.map(e=>[e.id,e])),Me=Ee.ras,Ne=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=Ae.indexOf(i),u=e=>!(Ae.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ee.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,j.jsxs)(j.Fragment,{children:[s&&(0,j.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,j.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,j.jsxs)(`div`,{className:`sidebar-header`,children:[(0,j.jsxs)(`div`,{className:`school-brand`,children:[(0,j.jsx)(`div`,{className:`brand-icon`,children:(0,j.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,j.jsxs)(`div`,{className:`school-info`,children:[(0,j.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,j.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,j.jsxs)(`div`,{className:`author-credits`,children:[(0,j.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,j.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,j.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,j.jsxs)(`nav`,{className:`nav-container`,children:[(0,j.jsxs)(`div`,{className:`main-nav-section`,children:[(0,j.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,j.jsx)(me,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,j.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,j.jsx)(A,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,j.jsx)(ke,{}),(0,j.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Me.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=je[n.corte];return(0,j.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,j.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,j.jsx)(k,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,j.jsx)(le,{size:13,className:`ra-icon`}),(0,j.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,j.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,j.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,j.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,j.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,j.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,j.jsx)(ve,{size:10,className:`lock-icon`}),s&&(0,j.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,j.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Pe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Fe=({text:e})=>{if(!e)return null;let t=e.split(`
+\`\`\``,product:`Sitio de Resident Evil con diseño profesional completo: viñetas rojas, tabla de cronología estilizada, formulario oscuro y footer de firma.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Al terminar, abrir el Historial del Proyecto y recorrer la progresión: S09·Lunes (verde básico) → S09·Jueves (con nav) → S10·Vie CSS (resultado de hoy). El contraste es la mejor conclusión. Recordar al grupo: escribimos CERO líneas de JavaScript. La semana que viene empieza JS.`}],cierre:`De un fondo verde plano a un sitio oscuro con animaciones, tipografía y jerarquía visual — todo sin una sola línea de JavaScript. CSS bien escrito es diseño profesional.`,frase_docente:`El diseño no es solo cómo se ve — es cómo funciona. Y hoy hicimos que ambas cosas sean lo mismo.`}]},W11:{materia:`dewe`,weekId:`W11`,days:[{id:`mon`,label:`Lunes — 🟨 JavaScript desde cero: el lenguaje detrás de la magia`,purpose:`Iniciar formalmente el aprendizaje de JavaScript. El viernes vieron lo que JS puede hacer (modo oscuro, galería, bienvenida) usando IA — hoy aprenden las primeras palabras del idioma para que esa magia deje de ser caja negra.`,hours:[{time:`Hora 1`,title:`👋 Hola JavaScript — la consola como laboratorio`,theory:`🟨 ¿QUÉ ES JAVASCRIPT?
+JavaScript es el lenguaje que da vida a las páginas web. HTML pone los huesos, CSS pone la piel y la ropa, JavaScript pone los movimientos, las decisiones y la interacción. Sin JS una página solo se ve — con JS, responde.
+
+📜 UNA HISTORIA DE 10 DÍAS
+En 1995 Netscape contrató a Brendan Eich y le dio diez días para crear un lenguaje que funcionara dentro del navegador. Lo llamaron primero Mocha, luego LiveScript, y finalmente JavaScript — un nombre de marketing porque Java estaba de moda (no son parientes, solo se parecen en el nombre).
+
+Hoy JavaScript es el lenguaje más usado del mundo. Funciona en navegadores (Chrome, Firefox, Safari), en servidores (Node.js), en aplicaciones móviles (React Native), en escritorios (VS Code está hecho en JS) e incluso en hardware (Arduino con Espruino).
+
+🖥️ DÓNDE VIVE EL JS QUE NOSOTROS ESCRIBIMOS
+En nuestro caso, JS vive dentro del navegador. Cada navegador tiene un motor que lo ejecuta — Chrome usa V8, Firefox usa SpiderMonkey, Safari usa JavaScriptCore. Los tres entienden el mismo idioma.
+
+🔬 LA CONSOLA — NUESTRO LABORATORIO
+F12 abre las DevTools. La pestaña Console es un laboratorio donde puedes escribir JS y ver el resultado al instante, sin necesidad de archivos. Es donde todo programador prueba ideas antes de escribirlas en serio.
+
+3 INSTRUCCIONES BÁSICAS PARA EMPEZAR:
+• console.log("texto") — imprime un mensaje en la consola (solo lo ves tú, el desarrollador).
+• alert("texto") — muestra una ventana emergente al usuario.
+• prompt("pregunta") — pregunta algo al usuario y devuelve lo que escribió.`,notebook:`1. ¿Quién creó JavaScript y en cuánto tiempo?
+2. ¿Por qué se llama JavaScript si no es pariente de Java?
+3. ¿Qué motor de JS usa Google Chrome?
+4. ¿Qué tecla abre las DevTools del navegador?
+5. ¿Qué diferencia hay entre console.log y alert?
+6. ¿Qué hace prompt y qué pasa con lo que el usuario escribe?`,practice:`Abre Chrome → F12 → pestaña Console. Escribe cada línea, pulsa Enter después de cada una y observa lo que aparece:
+
+\`\`\`js
+// 1. Imprime un saludo en la consola (solo tú lo ves)
+console.log("Hola, mundo");
+
+// 2. Muestra una ventana emergente al usuario
+alert("¡Bienvenido al curso de JavaScript!");
+
+// 3. Pregunta el nombre y guarda lo que escribe el usuario
+prompt("¿Cómo te llamas?");
+
+// 4. Operaciones matemáticas — la consola es una calculadora
+2 + 3
+10 * 5
+100 / 4
+
+// 5. Texto entre comillas
+"hola" + " " + "mundo"
+
+// 6. Ver qué pasa sin comillas (¿qué error sale?)
+hola
+\`\`\`
+
+Reto rápido: en una sola línea de la consola, calcula cuántos minutos tiene un día de 24 horas.`,product:`Notas en libreta con las 6 respuestas + capturas o anotaciones de lo que aparece en la consola al ejecutar cada línea. Mostrar el reto del día (1440 minutos) en la consola al docente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 100% en la consola del navegador — nadie abre VS Code todavía. Importante: muchos alumnos NUNCA han abierto F12. Dedicar 5 minutos a que lo abran, lo cierren, lo muevan a la derecha. La línea sin comillas (paso 6) genera un ReferenceError — aprovecharla para enseñar que JS distingue palabras del lenguaje vs texto entre comillas. Si alguien pregunta por qué prompt devuelve un valor pero no lo imprime, decir que en la siguiente hora aprenderemos a guardarlo en una variable.`},{time:`Hora 2`,title:`📦 Variables y tipos — guardar información en memoria`,theory:`Una variable es una caja con nombre que guarda un dato. Se declara con la palabra reservada let o const, se le pone un nombre y se le asigna un valor con el signo igual.
+
+🔐 LET vs CONST
+• let edad = 17;       — el valor PUEDE cambiar después.
+• const PI = 3.1416;   — el valor NO puede cambiar (constante).
+
+Regla práctica: usa const por defecto. Si más adelante necesitas cambiar el valor, lo cambias a let.
+
+🧬 LOS 5 TIPOS BÁSICOS DE DATO
+• string  — texto entre comillas: "Hola", 'mundo'
+• number  — números (enteros o decimales): 17, 3.14, -8
+• boolean — verdadero o falso: true, false
+• null    — vacío intencional (yo digo que está vacío)
+• undefined — sin asignar (no le he puesto valor)
+
+🪄 TEMPLATE LITERALS — LA FORMA MODERNA DE ARMAR TEXTOS
+En lugar de concatenar con +, los template literals usan acentos graves (\`) y permiten meter variables con \${}.
+
+  Forma vieja:    "Hola " + nombre + ", tienes " + edad + " años"
+  Forma moderna:  \`Hola \${nombre}, tienes \${edad} años\`
+
+Más limpio, más legible, menos errores de comillas. Es el estándar desde 2015.
+
+🔍 typeof — DESCUBRIR EL TIPO DE UN DATO
+typeof 17         devuelve "number"
+typeof "hola"     devuelve "string"
+typeof true       devuelve "boolean"`,notebook:`1. ¿Cuál es la diferencia entre let y const?
+2. Lista los 5 tipos básicos de dato y da un ejemplo de cada uno.
+3. ¿Qué carácter se usa para los template literals? ¿Dónde está en tu teclado?
+4. Reescribe esta línea con template literal: "Tu edad es " + edad + " años".
+5. ¿Qué devuelve typeof "42"? ¿Y typeof 42? ¿Por qué son distintos?`,practice:`Sigue en la consola del navegador. Escribe paso a paso:
+
+\`\`\`js
+// 1. Declarar variables con datos personales
+const nombre = "Felipe";
+let edad = 17;
+const esEstudiante = true;
+
+// 2. Mostrarlas en consola
+console.log(nombre);
+console.log(edad);
+console.log(esEstudiante);
+
+// 3. Cambiar el valor de let (sí se puede)
+edad = 18;
+console.log(edad);
+
+// 4. Intentar cambiar const (¡da error!)
+// nombre = "Luis";   ← descomenta y observa el TypeError
+
+// 5. Concatenación a la antigua
+console.log("Hola " + nombre + ", tienes " + edad + " años");
+
+// 6. Template literal — la forma moderna
+console.log(\`Hola \${nombre}, tienes \${edad} años\`);
+
+// 7. Descubrir el tipo de cada variable
+console.log(typeof nombre);
+console.log(typeof edad);
+console.log(typeof esEstudiante);
+
+// 8. Trampa típica: prompt SIEMPRE devuelve string
+const respuesta = prompt("¿Cuántos años tienes?");
+console.log(respuesta);
+console.log(typeof respuesta);   // "string", aunque escribas un número
+
+// 9. Convertir string a number
+const edadReal = Number(respuesta);
+console.log(edadReal + 5);       // ahora sí suma como número
+\`\`\``,product:`Las 5 respuestas en libreta + ejecución completa de los 9 pasos en consola. El alumno debe poder explicar por qué el paso 8 devuelve "string" aunque escriba un número.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El paso 4 es el experimento clave para entender const — vale la pena dejar que TODOS lo prueben y vean el TypeError. El paso 8-9 introduce el problema de la conversión de tipos: prompt siempre devuelve string. Si el grupo viene rápido, mostrar también que prompt("...") + 5 da "175" (concatenación) en lugar de 22 (suma) — es un error real que cometerán pronto.`},{time:`Hora 3`,title:`📄 Primer script real — JS fuera de la consola`,theory:`La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.
+
+📁 ESTRUCTURA RECOMENDADA
+Dentro de la carpeta del sitio Resident Evil:
+  index.html
+  css/style.css
+  js/script.js     ← lo creamos hoy
+
+🔗 CÓMO VINCULAR EL JS AL HTML
+Dentro del <head> o justo antes del </body> del index.html se agrega:
+
+  <script src="js/script.js" defer><\/script>
+
+• src apunta al archivo JS.
+• defer le dice al navegador: "descarga el script mientras lees el HTML, pero ejecútalo después de que el HTML esté listo". Es la opción más segura.
+
+💡 BUENA PRÁCTICA: COMENTARIOS
+Los comentarios en JS se escriben así:
+
+  // comentario de una sola línea
+  /* comentario
+     de varias líneas */
+
+Los comentarios no se ejecutan — sirven para explicarle al lector (incluido tu yo del futuro) qué hace el código.
+
+🎯 OBJETIVO DE LA HORA
+Que cada alumno tenga su primer archivo .js vinculado al HTML, ejecutándose al cargar el sitio, con un programa que interactúa con el usuario.`,notebook:`1. ¿Por qué movemos el JS de la consola a un archivo .js?
+2. ¿Qué hace el atributo defer en la etiqueta <script>?
+3. ¿Dónde se debe colocar la etiqueta <script> dentro del HTML?
+4. ¿Cómo se escribe un comentario de una sola línea en JS?
+5. ¿Qué pasaría si quitamos el defer y el script intenta tocar un elemento que aún no se ha cargado?`,practice:`Paso 1 — Crear la estructura.
+Dentro de la carpeta del sitio Resident Evil, crear la subcarpeta js/ y dentro un archivo script.js.
+
+Paso 2 — Vincularlo al HTML.
+En index.html, dentro del <head>, agregar al final de los estilos:
+
+\`\`\`html
+<script src="js/script.js" defer><\/script>
+\`\`\`
+
+Paso 3 — Escribir el primer programa en js/script.js.
+
+\`\`\`js
+// =====================================================
+// Mi primer script — Sitio Resident Evil
+// Autor: [Tu nombre]
+// Fecha: 11 de mayo
+// =====================================================
+
+// 1. Mensaje de carga (solo lo ves tú en la consola)
+console.log("✅ script.js cargado correctamente");
+
+// 2. Pedir el nombre del visitante
+const nombre = prompt("¿Cómo te llamas, sobreviviente?");
+
+// 3. Pedir la edad y convertirla a número
+const edadTexto = prompt("¿Cuántos años tienes?");
+const edad = Number(edadTexto);
+
+// 4. Decidir el rango según la edad
+let rango;
+if (edad >= 18) {
+  rango = "Agente";
+} else {
+  rango = "Cadete";
+}
+
+// 5. Mensaje personalizado al usuario
+alert(\`Bienvenido a Raccoon City, \${rango} \${nombre}.\\nTienes \${edad} años. La misión comienza ahora.\`);
+
+// 6. Confirmación en consola
+console.log(\`Visitante registrado: \${nombre}, \${edad} años, rango \${rango}\`);
+\`\`\`
+
+Paso 4 — Probar.
+Guardar todo, abrir index.html en el navegador y verificar:
+• La consola muestra el mensaje de carga.
+• Aparecen los dos prompts.
+• El alert muestra el mensaje con nombre y rango.
+• La consola muestra el resumen final.
+
+Reto extra (para los rápidos): cambiar el if/else para que también haya un rango "Recluta" si la edad es menor de 15.`,product:`Carpeta js/ creada con script.js dentro, vinculada al index.html con defer, ejecutándose al cargar la página, con un programa interactivo que pregunta nombre y edad, asigna un rango con if/else y muestra un mensaje personalizado.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta es LA hora más importante de la semana — los alumnos pasan de probar líneas sueltas a tener un archivo JS de verdad. Insistir en guardar antes de recargar. Errores frecuentes: olvidar las comillas, escribir Console.log con C mayúscula, mezclar comillas dobles y simples en un mismo string. El if/else es la primera vez que ven una estructura de control — anticiparles que la próxima semana lo formalizamos. Si alguien pregunta por la IA: "Hoy escribimos el código a mano. La IA es útil cuando ya entiendes lo que escribe." Cierre del corte: este script demuestra que el alumno SÍ puede escribir JS sin depender de la IA.`}],cierre:`Diez días le tomó a Brendan Eich crear el lenguaje. Tres horas a ustedes para escribir su primer script real. La diferencia entre ver y entender empieza aquí.`,frase_docente:`La IA escribe código. El programador entiende lo que la IA escribió. Hoy empezamos a entender.`},{id:`thu`,label:`Jueves — 📅 Sin actividades programadas`,purpose:`Día sin sesión. No hay actividades programadas en DEWE para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de DEWE. Las actividades del lunes (introducción a JavaScript) son la base sobre la que construiremos a partir de la semana 12.
+
+📌 RECORDATORIO
+Si el lunes no terminaste el script.js con el programa de bienvenida + rango, este es un buen día para terminarlo en casa. La próxima semana entramos a manipulación del DOM y necesitamos esa base sólida.
+
+📚 REPASO SUGERIDO (OPCIONAL)
+• Diferencia entre let y const.
+• Los 5 tipos básicos: string, number, boolean, null, undefined.
+• Sintaxis de template literal con backticks y \${}.
+• Convertir string a número con Number().`,notebook:`Repaso voluntario:
+1. Anota un ejemplo propio de cada uno de los 5 tipos básicos.
+2. Reescribe en template literal: "Hola " + nombre + ", bienvenido a " + ciudad + "."
+3. ¿Qué devuelve Number("42") + 8? ¿Y "42" + 8?`,practice:`Sin práctica obligatoria. Si quieres, abre tu script.js del lunes y experimenta agregándole más rangos o más preguntas.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Si algún alumno se acerca a preguntar, reforzar que la próxima semana arrancamos con DOM y que tener firme lo del lunes es indispensable.`}],cierre:`Un día de pausa también es parte del aprendizaje — el cerebro consolida cuando descansa.`,frase_docente:`El descanso no es ausencia de progreso; es la condición para que ocurra.`},{id:`fri`,label:`Viernes — 🎖️ 15 de Mayo: Día del Maestro`,purpose:`No hay clases. Conmemoración del Día del Maestro en México — un día para reconocer a quienes dedican su vida a enseñar.`,hours:[{time:`📅 Sin sesión`,title:`🎖️ 15 de Mayo — Día del Maestro`,theory:`El Día del Maestro se celebra en México cada 15 de mayo desde 1918, cuando el presidente Venustiano Carranza decretó esta fecha en honor a la profesión docente. ✏️
+
+📜 EL ORIGEN
+La fecha fue elegida por dos diputados, Benito Ramírez García y Enrique Viesca Lobatón, en homenaje a San Juan Bautista de La Salle — el santo patrono de los maestros para la Iglesia Católica, canonizado en 1900 y declarado patrón de los educadores en 1950 por el Papa Pío XII.
+
+👩‍🏫 ¿POR QUÉ EXISTE ESTE DÍA?
+Porque enseñar no es solo transmitir información. Es despertar curiosidad, sostener la duda, acompañar el error, celebrar el avance. Un maestro deja huella mucho después de que termine la clase — a veces décadas después, cuando un ex-alumno recuerda exactamente la frase que le cambió la forma de mirar algo.
+
+🇲🇽 EN MÉXICO
+El 15 de mayo es día de descanso obligatorio para el personal docente de educación básica y media superior. Las escuelas suelen organizar eventos el día previo: presentaciones de los alumnos, regalos, palabras de agradecimiento.
+
+🌎 OTROS PAÍSES
+• España y muchos países hispanos: 27 de noviembre (San José de Calasanz).
+• Estados Unidos: primer martes de mayo.
+• China: 10 de septiembre.
+• Día Mundial de los Docentes (UNESCO): 5 de octubre.
+
+💛 PARA TI, ESTUDIANTE
+El mejor regalo para un maestro no es material — es que lo aprendido se use, se cuestione y se transmita. Si hubo un docente que te marcó, hoy es buen día para escribirle un mensaje.`,notebook:`Reflexión opcional:
+1. ¿Qué maestro o maestra recuerdas con más cariño? ¿Por qué?
+2. ¿Qué aprendiste de él/ella que sigas usando hoy?
+3. ¿Hay alguna frase suya que se te quedó grabada?
+4. Si tú fueras maestro por un día, ¿qué clase darías?`,practice:`Día de suspensión — no hay práctica en PC.`,product:`Descanso. Si te animas, escribe un mensaje a un maestro que te haya marcado — no tiene que ser largo.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Sin sesión. Felicidades a quienes hacen de la docencia su vocación — esta clase también existe gracias a maestros que les enseñaron antes a sus actuales maestros. La cadena no se rompe.`}],cierre:`Un maestro influye en la eternidad — nunca puede saber dónde se detiene su influencia. — Henry Adams.`,frase_docente:`Enseñar es la única profesión que crea a todas las demás.`}]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},De=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=De()}))(),Oe=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],ke=()=>{let[e,t]=(0,_.useState)(!1);return(0,j.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,j.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,j.jsx)(de,{size:13,className:`pond-icon`}),(0,j.jsx)(`span`,{children:`Ponderación`}),(0,j.jsx)(k,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,j.jsxs)(`div`,{className:`ponderacion-body`,children:[Oe.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-unit`,children:[(0,j.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,j.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,j.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,j.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,j.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,j.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,j.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,j.jsxs)(`div`,{className:`pond-total`,children:[(0,j.jsx)(`span`,{children:`Total del módulo`}),(0,j.jsx)(`span`,{children:`100%`})]})]})]})},Ae=Ee.ras.flatMap(e=>e.weeks.map(e=>e.id)),je=Object.fromEntries(Ee.cortes.map(e=>[e.id,e])),Me=Ee.ras,Ne=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=Ae.indexOf(i),u=e=>!(Ae.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return Ee.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,j.jsxs)(j.Fragment,{children:[s&&(0,j.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,j.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,j.jsxs)(`div`,{className:`sidebar-header`,children:[(0,j.jsxs)(`div`,{className:`school-brand`,children:[(0,j.jsx)(`div`,{className:`brand-icon`,children:(0,j.jsx)(he,{size:18,color:`white`,strokeWidth:2.5})}),(0,j.jsxs)(`div`,{className:`school-info`,children:[(0,j.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,j.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,j.jsxs)(`div`,{className:`author-credits`,children:[(0,j.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,j.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,j.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,j.jsxs)(`nav`,{className:`nav-container`,children:[(0,j.jsxs)(`div`,{className:`main-nav-section`,children:[(0,j.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,j.jsx)(me,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,j.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,j.jsx)(A,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,j.jsx)(ke,{}),(0,j.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Me.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=je[n.corte];return(0,j.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,j.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,j.jsx)(k,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,j.jsx)(le,{size:13,className:`ra-icon`}),(0,j.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,j.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,j.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,j.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,j.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,j.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,j.jsx)(ve,{size:10,className:`lock-icon`}),s&&(0,j.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,j.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Pe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Fe=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,j.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,j.jsx)(`p`,{children:e}):(0,j.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,j.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,j.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,j.jsx)(`pre`,{className:`smart-code`,children:(0,j.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,j.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,j.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,j.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,j.jsx)(`li`,{children:e},t))},t):null)})},Ie={theory:{icon:(0,j.jsx)(le,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,j.jsx)(Ce,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,j.jsx)(Te,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,j.jsx)(Se,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,j.jsx)(he,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,j.jsx)(ue,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Le=({type:e,children:t})=>{let n=Ie[e];return(0,j.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:t})]})},Re=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,j.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,j.jsxs)(`div`,{className:`block-header-row`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,j.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,j.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e})})})]})},ze=({html:e})=>(0,j.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,j.jsx)(`div`,{className:`block-body diagram-body`,children:(0,j.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Be=({src:e,alt:t,className:n})=>(0,j.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ve=({activity:e,assetUrl:t})=>(0,j.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,j.jsxs)(`div`,{className:`dual-header`,children:[(0,j.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,j.jsx)(`h4`,{children:e.title})]}),(0,j.jsxs)(`div`,{className:`dual-body`,children:[(0,j.jsx)(`div`,{className:`dual-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})}),e.image&&t&&(0,j.jsx)(`div`,{className:`infographic-container`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),He=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,j.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,j.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,j.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,j.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,j.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,j.jsxs)(`div`,{className:`gallery-item`,children:[(0,j.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,j.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,j.jsx)(Be,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,j.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,j.jsx)(Fe,{text:e.instruction})})]},n))})]})},Ue=({days:e,activeIndex:t,onSelect:n})=>(0,j.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),We=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,j.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,j.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Ge=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,j.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,j.jsxs)(`div`,{className:`breadcrumb`,children:[(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,j.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,j.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,j.jsxs)(`div`,{className:`page-header-nav`,children:[(0,j.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,j.jsx)(fe,{size:13}),` Anterior`]}),(0,j.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,j.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,j.jsx)(k,{size:13})]})]}),(0,j.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,j.jsxs)(`div`,{className:`sheet-header`,children:[(0,j.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,j.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,j.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,j.jsx)(Le,{type:`theory`,children:(0,j.jsx)(Fe,{text:e.theory})}),(0,j.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,j.jsx)(Le,{type:`notebook`,children:(0,j.jsx)(Fe,{text:e.notebook})}),e.practice&&(0,j.jsx)(Le,{type:`practice`,children:(0,j.jsx)(Fe,{text:e.practice})})]}),e.diagram&&(0,j.jsx)(ze,{html:e.diagram}),e.code&&(0,j.jsx)(Re,{code:e.code}),r&&e.codeRef&&(0,j.jsx)(Re,{code:e.codeRef,isRef:!0}),e.product&&(0,j.jsx)(Le,{type:`product`,children:(0,j.jsx)(Fe,{text:e.product})}),u&&(e.image||e.images)&&(0,j.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.screenshot.icon,` `,Ie.screenshot.label]}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,j.jsx)(`div`,{className:`screenshot-container`,children:(0,j.jsx)(Be,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,j.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,j.jsx)(`div`,{className:`block-header-row`,children:(0,j.jsxs)(`h4`,{className:`block-title`,children:[Ie.teacher.icon,` `,Ie.teacher.label]})}),(0,j.jsx)(`div`,{className:`block-body`,children:(0,j.jsx)(Fe,{text:e.teacherNotes})})]})]})]})]}),Ke=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=Pe(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,j.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,j.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),(0,j.jsx)(`div`,{className:`notebook-container`,children:(0,j.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,j.jsxs)(`div`,{className:`empty-message-content`,children:[(0,j.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,j.jsx)(`h2`,{children:`Contenido en preparación`}),(0,j.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,j.jsx)(`strong`,{children:v||h.label}),`.`,(0,j.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},S=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},C=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,j.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,j.jsxs)(`header`,{className:`week-portada`,children:[(0,j.jsxs)(`div`,{className:`portada-inner`,children:[(0,j.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,j.jsxs)(`div`,{className:`portada-week-number`,children:[(0,j.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,j.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,j.jsx)(`span`,{className:`portada-date`,children:v}),(0,j.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,j.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,j.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,j.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,j.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,j.jsxs)(`div`,{className:`preview-text`,children:[(0,j.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,j.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,j.jsx)(Ue,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,j.jsx)(We,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,j.jsx)(`div`,{className:`notebook-container`,children:r?(0,j.jsx)(He,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,j.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,j.jsx)(`div`,{className:`sheet-header`,children:(0,j.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,j.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,j.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,j.jsx)(Ve,{activity:e,assetUrl:o},t))}):(0,j.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,j.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,j.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,j.jsx)(`pre`,{className:`code-editor`,children:(0,j.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,j.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,j.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,j.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,j.jsxs)(`div`,{className:`purpose-text`,children:[(0,j.jsx)(`strong`,{children:`Propósito de hoy`}),(0,j.jsx)(Fe,{text:y.purpose})]})]}),(0,j.jsx)(Ge,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:C,onNext:S,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,j.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,j.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,j.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,j.jsx)(Fe,{text:y.cierre})]}),y.frase_docente&&(0,j.jsx)(`div`,{className:`day-quote-block`,children:(0,j.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},qe={html:`<h1>¡Hola Grupo 601!</h1>
