@@ -31,6 +31,102 @@ export const W11 = {
           theory: "La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.\n\n📁 ESTRUCTURA RECOMENDADA\nDentro de la carpeta del sitio Resident Evil:\n  index.html\n  css/style.css\n  js/script.js     ← lo creamos hoy\n\n🔗 CÓMO VINCULAR EL JS AL HTML\nDentro del <head> o justo antes del </body> del index.html se agrega:\n\n  <script src=\"js/script.js\" defer></script>\n\n• src apunta al archivo JS.\n• defer le dice al navegador: \"descarga el script mientras lees el HTML, pero ejecútalo después de que el HTML esté listo\". Es la opción más segura.\n\n💡 BUENA PRÁCTICA: COMENTARIOS\nLos comentarios en JS se escriben así:\n\n  // comentario de una sola línea\n  /* comentario\n     de varias líneas */\n\nLos comentarios no se ejecutan — sirven para explicarle al lector (incluido tu yo del futuro) qué hace el código.\n\n🎯 OBJETIVO DE LA HORA\nQue cada alumno tenga su primer archivo .js vinculado al HTML, ejecutándose al cargar el sitio, con un programa que interactúa con el usuario.",
           notebook: "1. ¿Por qué movemos el JS de la consola a un archivo .js?\n2. ¿Qué hace el atributo defer en la etiqueta <script>?\n3. ¿Dónde se debe colocar la etiqueta <script> dentro del HTML?\n4. ¿Cómo se escribe un comentario de una sola línea en JS?\n5. ¿Qué pasaría si quitamos el defer y el script intenta tocar un elemento que aún no se ha cargado?",
           practice: "Paso 1 — Crear la estructura.\nDentro de la carpeta del sitio Resident Evil, crear la subcarpeta js/ y dentro un archivo script.js.\n\nPaso 2 — Vincularlo al HTML.\nEn index.html, dentro del <head>, agregar al final de los estilos:\n\n```html\n<script src=\"js/script.js\" defer></script>\n```\n\nPaso 3 — Escribir el primer programa en js/script.js.\n\n```js\n// =====================================================\n// Mi primer script — Sitio Resident Evil\n// Autor: [Tu nombre]\n// Fecha: 11 de mayo\n// =====================================================\n\n// 1. Mensaje de carga (solo lo ves tú en la consola)\nconsole.log(\"✅ script.js cargado correctamente\");\n\n// 2. Pedir el nombre del visitante\nconst nombre = prompt(\"¿Cómo te llamas, sobreviviente?\");\n\n// 3. Pedir la edad y convertirla a número\nconst edadTexto = prompt(\"¿Cuántos años tienes?\");\nconst edad = Number(edadTexto);\n\n// 4. Decidir el rango según la edad\nlet rango;\nif (edad >= 18) {\n  rango = \"Agente\";\n} else {\n  rango = \"Cadete\";\n}\n\n// 5. Mensaje personalizado al usuario\nalert(`Bienvenido a Raccoon City, ${rango} ${nombre}.\\nTienes ${edad} años. La misión comienza ahora.`);\n\n// 6. Confirmación en consola\nconsole.log(`Visitante registrado: ${nombre}, ${edad} años, rango ${rango}`);\n```\n\nPaso 4 — Probar.\nGuardar todo, abrir index.html en el navegador y verificar:\n• La consola muestra el mensaje de carga.\n• Aparecen los dos prompts.\n• El alert muestra el mensaje con nombre y rango.\n• La consola muestra el resumen final.\n\nReto extra (para los rápidos): cambiar el if/else para que también haya un rango \"Recluta\" si la edad es menor de 15.",
+          diagram: `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; letter-spacing: 0.3px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .tree { font-family: 'Consolas', 'Monaco', monospace; font-size: 13px; line-height: 1.9; color: #e6edf3; }
+  .tree .folder { color: #58a6ff; font-weight: 600; }
+  .tree .new    { color: #f7df1e; font-weight: 600; }
+  .tree .ind    { color: #6e7681; }
+  .tree .tag-new { background: #2d2710; color: #f7df1e; padding: 1px 6px; border-radius: 3px; font-size: 10px; margin-left: 6px; }
+  .codebox { font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 10px 12px; color: #e6edf3; line-height: 1.7; overflow-x: auto; }
+  .c-com  { color: #6e7681; }
+  .c-tag  { color: #79c0ff; }
+  .c-attr { color: #d2a8ff; }
+  .c-val  { color: #a5d6ff; }
+  .flow { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 11px; flex-wrap: wrap; }
+  .flow-box { padding: 8px 12px; border-radius: 6px; background: #21262d; border: 1px solid #30363d; font-weight: 600; }
+  .flow-box.html { color: #ff7b72; border-color: #ff7b72; background: #2a1818; }
+  .flow-box.tag  { color: #79c0ff; border-color: #79c0ff; background: #102030; }
+  .flow-box.js   { color: #f7df1e; border-color: #f7df1e; background: #2a2510; }
+  .flow-arrow { color: #f7df1e; font-weight: 800; font-size: 16px; }
+  .timeline { list-style: none; counter-reset: step; padding: 0; }
+  .timeline li { counter-increment: step; padding: 10px 0 10px 36px; position: relative; font-size: 12.5px; color: #c9d1d9; border-bottom: 1px dashed #21262d; line-height: 1.6; }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline li::before { content: counter(step); position: absolute; left: 0; top: 10px; width: 24px; height: 24px; background: #f7df1e; color: #0d1117; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+  .timeline code { color: #79c0ff; font-family: 'Consolas', monospace; font-size: 12px; background: #0d1117; padding: 1px 5px; border-radius: 3px; }
+  .timeline strong { color: #f7df1e; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 14px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+  .note code { color: #79c0ff; font-family: 'Consolas', monospace; }
+  .full { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<h2>🔗 Cómo conecta el HTML con tu archivo JavaScript</h2>
+<div class="layout">
+
+  <div class="panel">
+    <h3>📁 Estructura de carpetas del sitio</h3>
+    <div class="tree">
+      <div><span class="folder">📂 sitio-resident-evil/</span></div>
+      <div><span class="ind">├──</span> 📄 index.html</div>
+      <div><span class="ind">├──</span> <span class="folder">📂 css/</span></div>
+      <div><span class="ind">│   └──</span> 📄 style.css</div>
+      <div><span class="ind">└──</span> <span class="folder new">📂 js/</span><span class="tag-new">NUEVO</span></div>
+      <div><span class="ind">&nbsp;&nbsp;&nbsp;&nbsp;└──</span> <span class="new">📄 script.js</span><span class="tag-new">NUEVO</span></div>
+    </div>
+    <div class="note">
+      <strong>Convención:</strong> el archivo JS vive en su propia carpeta <code>js/</code>, igual que el CSS vive en <code>css/</code>. Mantiene el proyecto ordenado y fácil de leer.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>🏷️ La etiqueta que une todo</h3>
+    <div class="codebox">
+<span class="c-com">&lt;!-- dentro del &lt;head&gt; de index.html --&gt;</span>
+<span class="c-tag">&lt;script</span> <span class="c-attr">src</span>=<span class="c-val">"js/script.js"</span> <span class="c-attr">defer</span><span class="c-tag">&gt;&lt;/script&gt;</span>
+    </div>
+    <div class="flow">
+      <span class="flow-box html">📄 index.html</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-box tag">🏷️ &lt;script&gt;</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-box js">📄 script.js</span>
+    </div>
+    <div class="note">
+      <strong>src</strong> apunta a la ruta del archivo JS (relativa al index.html).<br>
+      <strong>defer</strong> = "descarga el script mientras lees el HTML, pero ejecútalo DESPUÉS de leer todo".
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h3>⏱️ Qué hace el navegador al abrir tu página</h3>
+    <ol class="timeline">
+      <li>El navegador <strong>lee el index.html</strong> de arriba hacia abajo.</li>
+      <li>Encuentra <code>&lt;script src="js/script.js" defer&gt;</code> y empieza a <strong>descargar el archivo JS en paralelo</strong> — sin pausar la lectura del HTML.</li>
+      <li>Sigue leyendo y mostrando el HTML al usuario — <strong>la página aparece rápido</strong>.</li>
+      <li>Cuando termina de leer todo el HTML, <strong>ejecuta el JavaScript</strong> que ya descargó.</li>
+      <li>El JS empieza a correr: <code>console.log()</code>, <code>prompt()</code>, <code>alert()</code>... y la página cobra vida.</li>
+    </ol>
+    <div class="note">
+      <strong>¿Por qué defer?</strong> Sin él, el navegador se detiene a ejecutar el JS antes de mostrar la página — el usuario ve pantalla en blanco más tiempo. Con <code>defer</code>, la página aparece rápido y el JS corre cuando todo está listo. <strong>Es la práctica recomendada moderna.</strong>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+`,
           product: "Carpeta js/ creada con script.js dentro, vinculada al index.html con defer, ejecutándose al cargar la página, con un programa interactivo que pregunta nombre y edad, asigna un rango con if/else y muestra un mensaje personalizado.",
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es LA hora más importante de la semana — los alumnos pasan de probar líneas sueltas a tener un archivo JS de verdad. Insistir en guardar antes de recargar. Errores frecuentes: olvidar las comillas, escribir Console.log con C mayúscula, mezclar comillas dobles y simples en un mismo string. El if/else es la primera vez que ven una estructura de control — anticiparles que la próxima semana lo formalizamos. Si alguien pregunta por la IA: \"Hoy escribimos el código a mano. La IA es útil cuando ya entiendes lo que escribe.\" Cierre del corte: este script demuestra que el alumno SÍ puede escribir JS sin depender de la IA."
         }
