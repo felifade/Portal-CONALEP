@@ -18,12 +18,183 @@ export const W11 = {
         },
         {
           time: "Hora 2",
-          title: "🔌 Construir el circuito físico + cargar el Programa 04",
-          theory: "Con el puerto COM funcionando y el sketch 'vivo' cargado, ahora reproducimos en hardware real el Programa 04 que ya conocemos del simulador: un botón que controla un LED, con traza por el Serial Monitor.\n\n🧱 LA PROTOBOARD — CÓMO FUNCIONAN LAS LÍNEAS\nLos huecos de la protoboard NO están todos conectados:\n• Las dos filas largas de los lados (marcadas + y -) son las líneas de alimentación: cada fila completa está conectada horizontalmente.\n• Las columnas centrales están conectadas verticalmente en grupos de 5 huecos, separados por la zanja del centro.\n\nCualquier componente que comparta una columna está eléctricamente conectado.\n\n🪛 COMPONENTES DE HOY\n• 1 ESP32 (DevKit V1 o similar).\n• 1 LED (cualquier color).\n• 1 resistencia de 220 Ω (color: rojo-rojo-marrón).\n• 1 push button (4 patas).\n• Cables Dupont macho-macho.\n\n🔁 EL MISMO CÓDIGO, OTRO MEDIO\nEl código del Programa 04 no cambia ni una línea respecto a Wokwi:\n• LED en GPIO 2.\n• Botón entre GPIO 4 y GND, con INPUT_PULLUP.\n• Lógica invertida: digitalWrite(LED_PIN, !boton).\n\nEn simulador el botón es perfecto. En hardware real verás:\n• Pequeños rebotes mecánicos al presionar (pueden hacer que el LED parpadee un instante).\n• Eso es real y se llama bouncing — lo arreglaremos con debounce más adelante.\n\n🪟 SERIAL.PRINTLN() COMO VENTANA AL ESP32\nMientras el botón controla el LED físicamente, el Serial Monitor muestra en tiempo real lo que el ESP32 está leyendo. Esa ventana es la herramienta de depuración #1 del resto del curso.",
-          notebook: "1. Dibuja la protoboard y marca: las líneas de alimentación, las columnas centrales y la zanja del centro.\n2. ¿Por qué la resistencia de 220 Ω va en serie con el LED?\n3. ¿Qué hace INPUT_PULLUP en el pinMode del botón?\n4. ¿Por qué el código usa !boton para encender el LED?\n5. ¿Qué es el rebote (bouncing) de un botón mecánico? ¿Por qué no se ve en el simulador?",
-          practice: "Trabajo en equipo de 2 — uno arma, otro verifica.\n\nPaso 1 — Construir el circuito.\n1. Colocar el ESP32 a caballo sobre la zanja central de la protoboard.\n2. LED + resistencia:\n   - Pata corta del LED (cátodo) → fila negativa (-) de la protoboard.\n   - Pata larga del LED (ánodo) → un extremo de la resistencia.\n   - Otro extremo de la resistencia → cable a GPIO 2.\n3. Push button:\n   - Una pata del botón → cable a GPIO 4.\n   - Pata diagonal opuesta → fila negativa (-).\n4. Cable de la fila negativa (-) → pin GND del ESP32.\n\nPaso 2 — Verificar antes de cargar.\nAntes de cargar el código, repasar visualmente:\n• ¿La pata corta del LED va a GND (vía la fila -)?\n• ¿La resistencia está en serie con el LED?\n• ¿El botón conecta GPIO 4 con GND solo cuando se presiona?\nSi algo no es claro, llamar al docente.\n\nPaso 3 — Cargar el código.\nCopiar y completar los espacios en blanco:\n\n```cpp\n// PROGRAMA 04 — botón controla LED + traza serial\n\n#define LED_PIN    2\n#define BOTON_PIN  4\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN,   OUTPUT);\n  pinMode(BOTON_PIN,  );          // ¿qué modo permite resistencia interna pull-up?\n  Serial.println(\"Programa 04 — boton controla LED\");\n}\n\nvoid loop() {\n  bool boton = digitalRead( );    // ¿qué pin lee el botón?\n  digitalWrite(LED_PIN,  );       // INPUT_PULLUP → invertir el valor\n\n  Serial.print(\"Boton: \");\n  Serial.print(boton);\n  Serial.print(\" | LED: \");\n  Serial.println( );              // imprimir el estado del LED\n\n  delay(100);\n}\n```\n\nPaso 4 — Probar.\n1. Click en → (Upload).\n2. Abrir Serial Monitor a 115200 baud.\n3. Sin tocar el botón → LED encendido, Serial muestra 'Boton: 1 | LED: 0'.\n4. Presionar el botón → LED apagado, Serial muestra 'Boton: 0 | LED: 1'.\n5. Soltar → vuelve al estado inicial.\n6. Guardar como 'Programa_04_Hardware'.\n\nReto opcional (para los rápidos): cambiar el delay(100) a delay(10) y observar cómo el Serial Monitor se llena más rápido — discutir 'velocidad de muestreo vs. legibilidad'.",
-          product: "Circuito físico armado en protoboard con LED, resistencia y botón. Programa_04_Hardware cargado en el ESP32 real, controlando el LED con el botón, con traza visible en el Serial Monitor. La cadena completa simulador → hardware está cerrada.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora es la recompensa del semestre — los alumnos ven que el código que escribieron en Wokwi corre idéntico en silicio real. Resaltar: 'la lógica no cambió, solo el medio'.\n\nErrores frecuentes a vigilar:\n• LED al revés (pata corta y larga invertidas) → no enciende. Decirles que volteen el LED.\n• Resistencia ausente → el LED puede dañarse en segundos. Verificar SIEMPRE antes de Upload.\n• Botón conectado a la pata equivocada → muchos botones tienen 4 patas formando un par y un par diagonal. Solo dos pares funcionan; los otros dos están en cortocircuito.\n• El reto del delay(10) es valioso pero opcional — si la mitad del grupo apenas terminó, dejarlo para otro día.\n\nCierre del corte 3: con esto los alumnos ya manejan código en simulador Y en hardware real. La semana 12 abre la puerta al proyecto final con conectividad inalámbrica (Bluetooth) — pero eso es otra historia."
+          title: "Programa 08: Control del LED desde el Serial Monitor",
+          theory: "Ya cerramos la cadena USB → ESP32 → LED en hardware real (Hora 1 + Programa 04). Ahora invertimos la dirección de la comunicación: el ESP32 deja de solo HABLAR por el Serial — hoy también nos ESCUCHA.\n\n🔄 COMUNICACIÓN BIDIRECCIONAL\nEl puerto serial es de doble vía:\n• PC → ESP32: tú escribes, el ESP32 lee.\n• ESP32 → PC: el ESP32 escribe, tú lees.\nHasta hoy solo usamos la dirección 2. Hoy abrimos la dirección 1.\n\n📥 EL BUFFER DE ENTRADA\nCuando escribes algo en el Serial Monitor y presionas Enter, esos caracteres se guardan en un buffer dentro del ESP32 — una pequeña cola de espera. En cada loop() preguntamos si hay algo ahí:\n\n• Serial.available() → devuelve cuántos caracteres están esperando (0 = nada, >0 = hay algo).\n• Serial.read() → toma UN carácter del buffer y lo devuelve. Avanza la cola.\n\n```\nif (Serial.available() > 0) {\n  char comando = Serial.read();\n  // ahora 'comando' es '1', '0', 'p', etc.\n}\n```\n\n🎯 COMANDOS DE HOY\n• '1' → encender LED\n• '0' → apagar LED\n• 'p' → parpadear (cambia cada 300 ms)\n\n⚠️ EL OPERADOR ' (COMILLAS SIMPLES)\nFíjate que comparamos con comillas simples: comando == '1' (no comando == 1). Las comillas simples representan el CARÁCTER '1', no el número uno. Son cosas distintas: el carácter '1' es el código 49 en ASCII, el número 1 es 1.\n\n⏱️ millis() — TIMING NO BLOQUEANTE (concepto nuevo)\nPara el modo parpadeo NO podemos usar delay() — si usáramos delay(300), durante esos 300 ms el ESP32 estaría 'congelado' y NO escucharía nuevos comandos. Solución: millis().\n\nmillis() devuelve cuántos milisegundos lleva encendido el ESP32. Cada vez que el loop() pasa, comparamos:\n• ¿millis() - ultimoCambio es ≥ 300?\n• Si sí → toca cambiar el LED y guardar el momento.\n• Si no → seguir, sin bloquear.\n\nAsí el loop() sigue dando vueltas todo el tiempo y puede escuchar nuevos comandos EN MEDIO de un parpadeo. ✨",
+          notebook: "Título: El ESP32 también escucha.\n1. ¿Qué devuelve Serial.available() si nadie ha escrito nada en el Serial Monitor?\n2. ¿Qué diferencia hay entre Serial.read() y Serial.println()?\n3. ¿Por qué comparamos con comillas: comando == '1' y no comando == 1?\n4. ¿Para qué sirve millis() y por qué NO usamos delay() en el modo parpadeo?\n5. Si presionas la tecla '1' SIN dar Enter en Serial Monitor, ¿el ESP32 hace algo? ¿Por qué?\n6. Si estando en modo 'p' presionas '0', ¿qué tan rápido se detiene el parpadeo? Explica con millis().\n7. Da un ejemplo de la vida real donde un dispositivo escucha comandos por un canal (Alexa, control remoto TV, etc.).",
+          practice: "🔧 PASO 1 — Reutilizar el circuito de la Hora 1\n• Quitar el botón — esta hora NO lo usamos.\n• Dejar SOLO el LED en GPIO 2 con su resistencia 220Ω → GND.\n• El ESP32 sigue conectado por USB en el mismo puerto COM.\n\n💻 PASO 2 — Cargar el código\n  1. Arduino IDE → File → New Sketch.\n  2. Pegar el código (con espacios en blanco) y completar.\n  3. Verificar (✓) → Subir (→). Esperar 'Done uploading.'\n\n📡 PASO 3 — Configurar el Serial Monitor para enviar comandos\n  1. Tools → Serial Monitor (Ctrl+Shift+M).\n  2. Confirmar 115200 baud abajo a la derecha.\n  3. ⚠️ IMPORTANTE: en la barra inferior del Serial Monitor cambiar 'No line ending' → 'Newline' (o 'Both NL & CR').\n     Esto hace que al presionar Enter se mande efectivamente el carácter al ESP32.\n  4. En el campo de texto de ARRIBA del Serial Monitor, escribir el comando y presionar Enter.\n\n🧪 PASO 4 — Probar los 3 comandos\n  • Escribir '1' + Enter → LED enciende. Serial debe imprimir 'LED encendido'.\n  • Escribir '0' + Enter → LED apaga. Serial: 'LED apagado'.\n  • Escribir 'p' + Enter → LED empieza a parpadear cada 300 ms. Serial: 'LED parpadeando — escribe 0 o 1 para detener'.\n  • Estando en parpadeo, escribir '0' + Enter → debe detenerse INMEDIATAMENTE. Eso es el poder de millis().\n\n🔬 PASO 5 — Experimentos\n  Experimento A: Escribir un carácter que NO sea 1/0/p (ejemplo: 'x'). ¿Qué hace el ESP32? ¿Por qué no truena?\n  Experimento B: Cambiar INTERVALO_PARPADEO de 300 a 50. Subir de nuevo. ¿Cómo se ve el parpadeo? ¿Sigues pudiendo detenerlo con '0'?\n  Experimento C: Cambiar INTERVALO_PARPADEO a 2000. ¿Cómo se siente ahora? ¿Le tienes que esperar para detener?\n\n💾 Guardar como 'Programa_08_Serial_Control'.\n📸 Subir a Classroom: captura del Serial Monitor con los 3 comandos enviados y sus respuestas.",
+          diagram: `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 18px 0 12px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  .pin-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px; max-width: 320px;
+  }
+  .pin-card h4 { font-size: 11px; color: #58a6ff; margin-bottom: 8px; }
+  .pin-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; color: #c9d1d9; margin-bottom: 6px;
+  }
+  .pin-row:last-child { margin-bottom: 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .pin-badge {
+    background: #1a3a1a; color: #3fb950; border-radius: 4px;
+    padding: 1px 5px; font-size: 9px; font-weight: 700;
+  }
+  .pin-gnd { background: #1a1a2a; color: #8b949e; border-radius: 4px; padding: 1px 5px; font-size: 9px; }
+
+  .cmd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .cmd-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px; text-align: center;
+  }
+  .cmd-key {
+    background: #0d1117; border: 1px solid #58a6ff; color: #79c0ff;
+    font-family: 'Consolas', monospace; font-size: 18px; font-weight: 700;
+    width: 36px; height: 36px; border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .cmd-action { font-size: 11px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
+  .cmd-icon { font-size: 22px; display: block; margin: 6px 0; }
+  .cmd-card.blink .cmd-key { border-color: #d29922; color: #f0c040; }
+
+  .serial-frame {
+    background: #1e1e1e; border: 1px solid #30363d; border-radius: 8px;
+    overflow: hidden;
+  }
+  .serial-bar {
+    background: #2d2d30; padding: 6px 12px; font-size: 10px;
+    color: #cccccc; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .serial-bar .baud { color: #4ec9b0; font-family: 'Consolas', monospace; }
+  .serial-input {
+    background: #1e1e1e; padding: 6px 10px; display: flex; gap: 6px; align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .serial-input .prompt { color: #569cd6; font-family: 'Consolas', monospace; font-size: 11px; }
+  .serial-input .box {
+    flex: 1; background: #0d1117; border: 1px solid #30363d;
+    padding: 3px 8px; font-family: 'Consolas', monospace; font-size: 11px;
+    color: #d4d4d4; border-radius: 3px;
+  }
+  .serial-input .send {
+    background: #1f6feb; color: white; padding: 3px 10px;
+    border-radius: 3px; font-size: 10px; font-weight: 700;
+  }
+  .serial-input .nl {
+    background: #094771; color: #4ec9b0; padding: 1px 6px;
+    border-radius: 3px; font-size: 9px; font-family: 'Consolas', monospace;
+  }
+  .serial-body {
+    padding: 10px 12px; font-family: 'Consolas', monospace; font-size: 11px;
+    line-height: 1.6; color: #d4d4d4; max-height: 220px; overflow-y: auto;
+  }
+  .you { color: #4ec9b0; }
+  .esp { color: #d4d4d4; }
+  .info { color: #569cd6; }
+  .cmt { color: #6a9955; }
+
+  .flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .flow-node {
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 8px 12px; font-size: 10px; color: #c9d1d9; min-width: 120px; text-align: center;
+  }
+  .flow-node b { color: #58a6ff; display: block; font-size: 9px; margin-bottom: 2px; }
+  .flow-arrow { color: #3fb950; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<p class="sec-title">🔌 Circuito mínimo</p>
+<div class="pin-card">
+  <h4>💡 Solo un LED</h4>
+  <div class="pin-row">
+    <span class="dot" style="background:#3fb950"></span>
+    <span>Pata larga (+) → R 220Ω → <span class="pin-badge">GPIO 2</span></span>
+  </div>
+  <div class="pin-row">
+    <span class="dot" style="background:#8b949e"></span>
+    <span>Pata corta (−) → <span class="pin-gnd">GND</span></span>
+  </div>
+</div>
+
+<p class="sec-title">🎯 Comandos disponibles</p>
+<div class="cmd-grid">
+  <div class="cmd-card">
+    <div class="cmd-key">1</div>
+    <div class="cmd-icon">💡</div>
+    <div class="cmd-action">Encender</div>
+  </div>
+  <div class="cmd-card">
+    <div class="cmd-key">0</div>
+    <div class="cmd-icon">⚫</div>
+    <div class="cmd-action">Apagar</div>
+  </div>
+  <div class="cmd-card blink">
+    <div class="cmd-key">p</div>
+    <div class="cmd-icon">✨</div>
+    <div class="cmd-action">Parpadear</div>
+  </div>
+</div>
+
+<p class="sec-title">🔄 Flujo de datos</p>
+<div class="flow">
+  <div class="flow-node"><b>1. Tú escribes</b>'1' + Enter</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-node"><b>2. Buffer</b>Serial.available()</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-node"><b>3. Lee</b>Serial.read()</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-node"><b>4. Reacciona</b>digitalWrite()</div>
+</div>
+
+<p class="sec-title">📡 Cómo se ve el Serial Monitor</p>
+<div class="serial-frame">
+  <div class="serial-bar">
+    <span>📡 Serial Monitor — COM5</span>
+    <span class="baud">115200 baud · Newline</span>
+  </div>
+  <div class="serial-input">
+    <span class="prompt">▸</span>
+    <div class="box">1</div>
+    <span class="send">Send</span>
+    <span class="nl">\\n</span>
+  </div>
+  <div class="serial-body">
+    <div><span class="info">Programa 08 — Control desde Serial</span></div>
+    <div><span class="info">Comandos: 1 = encender | 0 = apagar | p = parpadear</span></div>
+    <div><span class="you">▸ 1</span></div>
+    <div><span class="esp">LED encendido</span></div>
+    <div><span class="you">▸ 0</span></div>
+    <div><span class="esp">LED apagado</span></div>
+    <div><span class="you">▸ p</span></div>
+    <div><span class="esp">LED parpadeando — escribe 0 o 1 para detener</span></div>
+    <div><span class="cmt">// el LED parpadea en la protoboard ✨</span></div>
+    <div><span class="you">▸ 0</span></div>
+    <div><span class="esp">LED apagado</span></div>
+  </div>
+</div>
+
+</body>
+</html>
+`,
+          code: "// PROGRAMA 08 — Control del LED desde el Serial Monitor\n// Comandos: '1' = encender | '0' = apagar | 'p' = parpadear\n// Completa los espacios en blanco\n\n#define LED_PIN 2\n#define INTERVALO_PARPADEO 300   // ms entre cambios al parpadear\n\nchar modo = '0';                  // '0' apagado, '1' encendido, 'p' parpadeando\nunsigned long ultimoCambio = 0;\nbool estadoParpadeo = false;\n\nvoid setup() {\n  Serial.begin( );                // baudrate del ESP32\n  pinMode(LED_PIN,  );            // ¿OUTPUT o INPUT?\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Programa 08 — Control desde Serial\");\n  Serial.println(\"Comandos: 1 = encender | 0 = apagar | p = parpadear\");\n}\n\nvoid loop() {\n  // 1. ¿Llegó un comando del Serial?\n  if (Serial.available() > 0) {\n    char comando = Serial.read();\n\n    if (comando == '1') {\n      modo = '1';\n      digitalWrite(LED_PIN,  );    // encender\n      Serial.println(\"LED encendido\");\n    }\n    else if (comando == '0') {\n      modo = '0';\n      digitalWrite(LED_PIN,  );    // apagar\n      Serial.println(\"LED apagado\");\n    }\n    else if (comando ==  ) {        // ¿qué carácter activa el parpadeo?\n      modo = 'p';\n      ultimoCambio = millis();\n      Serial.println(\"LED parpadeando — escribe 0 o 1 para detener\");\n    }\n  }\n\n  // 2. Si está en modo parpadeo, alternar cada INTERVALO_PARPADEO ms\n  if (modo == 'p') {\n    if (millis() - ultimoCambio >= INTERVALO_PARPADEO) {\n      estadoParpadeo = !estadoParpadeo;\n      digitalWrite(LED_PIN,  );    // aplicar el nuevo estado\n      ultimoCambio = millis();\n    }\n  }\n}",
+          codeRef: "// PROGRAMA 08 — Control del LED desde el Serial Monitor\n// Comandos: '1' = encender | '0' = apagar | 'p' = parpadear\n\n#define LED_PIN 2\n#define INTERVALO_PARPADEO 300\n\nchar modo = '0';\nunsigned long ultimoCambio = 0;\nbool estadoParpadeo = false;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Programa 08 — Control desde Serial\");\n  Serial.println(\"Comandos: 1 = encender | 0 = apagar | p = parpadear\");\n}\n\nvoid loop() {\n  if (Serial.available() > 0) {\n    char comando = Serial.read();\n\n    if (comando == '1') {\n      modo = '1';\n      digitalWrite(LED_PIN, HIGH);\n      Serial.println(\"LED encendido\");\n    }\n    else if (comando == '0') {\n      modo = '0';\n      digitalWrite(LED_PIN, LOW);\n      Serial.println(\"LED apagado\");\n    }\n    else if (comando == 'p') {\n      modo = 'p';\n      ultimoCambio = millis();\n      Serial.println(\"LED parpadeando — escribe 0 o 1 para detener\");\n    }\n  }\n\n  if (modo == 'p') {\n    if (millis() - ultimoCambio >= INTERVALO_PARPADEO) {\n      estadoParpadeo = !estadoParpadeo;\n      digitalWrite(LED_PIN, estadoParpadeo);\n      ultimoCambio = millis();\n    }\n  }\n}",
+          product: "Proyecto Programa_08_Serial_Control: el LED responde a 3 comandos ('1', '0', 'p') enviados desde el Serial Monitor. Captura del Serial mostrando los tres comandos enviados y sus respuestas + foto del LED parpadeando.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Dos conceptos nuevos importantes que es bueno reforzar: (1) la diferencia entre el CARÁCTER '1' (comillas simples) y el NÚMERO 1 — esta confusión va a aparecer toda la carrera, hoy es un buen momento para asentarla. Mostrar en pizarra: ASCII '1' = 49, '0' = 48, 'p' = 112. (2) millis() vs delay() es probablemente el cambio mental más grande del semestre — la idea de que el código no se 'pausa' sino que sigue dando vueltas y compara tiempos. Si alguien lo entiende a la primera, está listo para programar interfaces interactivas. Sobre el 'Newline' del Serial Monitor: es la causa #1 de 'no me funciona' — si el alumno deja 'No line ending', los comandos llegan pero los Serial.read() pueden no procesarlos como espera. Verificar en la barra inferior. Sobre el experimento A (carácter inválido como 'x'): el código simplemente IGNORA — buena oportunidad para discutir 'manejo defensivo' (no truena con entrada inesperada). Si alguien va rápido, retarlo a agregar un comando 'h' (help) que reimprima la lista de comandos."
         }
       ],
       cierre: "El simulador enseña la lógica; el hardware enseña la realidad. Hoy cerramos esa cadena — del cable USB al LED parpadeando con un botón real, con todo lo que pasa en medio bajo control.",
