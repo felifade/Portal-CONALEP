@@ -1552,7 +1552,408 @@ void loop() {
 • Tener listos los drivers CP2102 y CH340 en una USB o carpeta de red para no depender del WiFi escolar.
 • Identificar 2-3 alumnos rápidos como ayudantes — pueden destrabar a los demás mientras tú resuelves casos complejos.
 • Si una PC simplemente no reconoce el puerto, mover al alumno a otra PC en lugar de gastar 30 min depurando — el objetivo es que TODOS lleguen al 'vivo' antes de la hora 2.
-• El sketch vacío es deliberado: si fallara con un programa complejo, no sabríamos si es código o hardware. Vacío = aislamos hardware.`},{time:`Hora 2`,title:`Programa 08: Control del LED desde el Serial Monitor`,theory:`Ya cerramos la cadena USB → ESP32 → LED en hardware real (Hora 1 + Programa 04). Ahora invertimos la dirección de la comunicación: el ESP32 deja de solo HABLAR por el Serial — hoy también nos ESCUCHA.
+• El sketch vacío es deliberado: si fallara con un programa complejo, no sabríamos si es código o hardware. Vacío = aislamos hardware.`},{time:`Hora 2`,title:`🔁 Continuación del bootstrap — terminar drivers, COM y sketch 'vivo'`,theory:`La Hora 1 muchas veces no alcanza para que TODOS los alumnos terminen el bootstrap del ESP32. Esta hora es para que nadie se quede atrás: terminar de instalar drivers, lograr que el puerto COM aparezca en Windows, y confirmar la comunicación con el sketch 'vivo'.
+
+🎯 OBJETIVO ÚNICO
+Que al final de esta hora TODOS tengan en su Serial Monitor la palabra 'vivo' apareciendo a 115200 baud. Sin excepciones.
+
+📌 TRES BLOQUEOS COMUNES
+1. Cable USB de solo carga → cambiar por uno de datos.
+2. Driver no instalado o mal instalado → reinstalar como administrador y reiniciar.
+3. Botón BOOT no presionado durante 'Connecting...' → presionar y soltar cuando empiece la subida.
+
+Si tu compañero ya terminó, ofrécele ayuda al que sigue trabado — explicar a otro es la mejor forma de afianzar lo que aprendiste.`,notebook:`Si ya tienes 'vivo' en Serial Monitor:
+1. Anota qué problema (si tuvo alguno) y cómo lo resolviste.
+2. ¿Qué pasos darías la próxima vez que conectes un ESP32 a una PC nueva?
+3. ¿Por qué es importante el sketch 'vivo' antes de cargar programas más complejos?`,practice:`🆘 RUTA DE DEPURACIÓN (seguir en orden):
+
+Paso A — ¿El ESP32 enciende?
+  • Mira el LED rojo cerca del puerto USB. Si NO enciende:
+    - Cambia el cable USB (probablemente sea de solo carga).
+    - Prueba otro puerto USB de la PC.
+
+Paso B — ¿Aparece en Administrador de Dispositivos?
+  • Win+X → Administrador de Dispositivos → 'Puertos (COM y LPT)'.
+  • Si NO aparece:
+    - Identificar chip (CP2102 o CH340) y reinstalar driver como administrador.
+    - Reiniciar la PC después de instalar.
+    - Volver a conectar.
+
+Paso C — ¿Compila el sketch?
+  • File → New → pegar el sketch 'vivo'.
+  • Tools → Board → ESP32 Dev Module.
+  • Tools → Port → seleccionar el COM identificado.
+  • Click en ✓ (Verify). Si truena:
+    - Revisar que la URL del board manager esté en File → Preferences.
+    - Reinstalar el paquete ESP32 desde Boards Manager.
+
+Paso D — ¿Sube al ESP32?
+  • Click en → (Upload).
+  • Si se queda en 'Connecting....._____':
+    - Mantener presionado el botón BOOT del ESP32.
+    - Soltar cuando empiece la subida real.
+  • Si dice 'Failed to connect':
+    - Cerrar el Serial Monitor (a veces bloquea el puerto).
+    - Volver a intentar.
+
+Paso E — ¿Se ve 'vivo' en Serial Monitor?
+  • Tools → Serial Monitor.
+  • Confirmar 115200 baud abajo a la derecha.
+  • Presionar el botón EN (reset) del ESP32.
+  • Debe aparecer 'vivo'.
+  • Si aparece basura ilegible (Ⱨ䶻⼬): baudrate equivocado — cambiar a 115200.
+
+💡 SI YA TERMINASTE:
+  • Ayuda a un compañero que esté trabado.
+  • Si todo el grupo terminó, sigue al adelanto opcional:
+    - Modificar el sketch 'vivo' para que imprima tu nombre cada 2 segundos en vez de 'vivo' cada vez que se enciende.
+    - Guardar como 'Test_MiNombre'.
+
+📸 EVIDENCIA OBLIGATORIA — captura del Serial Monitor mostrando 'vivo' (o tu nombre) saliendo a 115200 baud. Subir a Classroom.`,product:`ESP32 reconocido en puerto COM, sketch 'vivo' (o variante con nombre) cargado y mostrando salida en Serial Monitor a 115200 baud. Captura de pantalla subida a Classroom.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es el COLCHÓN para que la clase llegue completa al final del bootstrap. Estrategias: (1) Identificar al inicio 2-3 alumnos que ya terminaron en Hora 1 y volverlos 'asistentes' — pueden destrabar a 1-2 compañeros cada uno mientras tú atiendes los casos más complejos. (2) Si alguien lleva 30 min trabado en el mismo paso, MOVER a otra PC en lugar de seguir depurando — frecuentemente es un problema de la PC, no del alumno. (3) Tener LISTOS en un USB los instaladores CP210x y CH341SER para evitar depender del WiFi escolar. (4) Si todo el grupo termina antes, anunciar el reto opcional ('imprime tu nombre') — esto los acerca al concepto de modificar código existente, no solo cargarlo. (5) AL FINAL de la hora, hacer un mini-cierre verbal: '¿quién no llegó a vivo?' — los que falten quedan en lista para apoyo en horario de tutoría.`}],cierre:`El simulador enseña la lógica; el hardware enseña la realidad. Hoy cerramos esa cadena — del cable USB al LED parpadeando con un botón real, con todo lo que pasa en medio bajo control.`,frase_docente:`Cuando el código corre en silicio, ya no es teoría: es una máquina obedeciendo lo que escribiste.`},{id:`wed`,label:`Miércoles — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. Lo que se hizo el martes (bootstrap del ESP32 + cargar Programa 04 en hardware real) es la base sobre la que construiremos el proyecto final a partir de la semana 12.
+
+📌 RECORDATORIO
+Si el martes no terminaste el circuito físico o no logró cargar el Programa 04 en hardware, este es un buen día para ponerse al corriente en casa. La semana 12 abre con el proyecto final y necesitamos que todos partan del mismo punto.
+
+🧰 LO QUE YA TIENES INSTALADO
+• Arduino IDE con soporte para ESP32.
+• Driver del chip USB-Serial (CP2102 o CH340).
+• Sketch 'Test_Vivo' como referencia rápida si algo falla.
+• Programa_04_Hardware corriendo en silicio real.`,notebook:`Repaso voluntario:
+1. Anota los pasos para reconocer el ESP32 en Windows (puerto COM).
+2. ¿Qué papel cumple el Serial Monitor en el ciclo de desarrollo?
+3. ¿Qué diferencia notaste entre el botón en Wokwi y el botón real?`,practice:`Sin práctica obligatoria. Si quieres adelantar, investiga qué es el Bluetooth Classic vs BLE y qué diferencia hay entre los dos — ese tema asoma la próxima semana.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Si algún alumno se acerca, reforzar que la próxima semana arrancamos con el proyecto final y conectividad inalámbrica.`}],cierre:`Un día sin sesión también cuenta — el cerebro consolida cuando descansa.`,frase_docente:`El descanso no es ausencia de progreso; es la condición para que ocurra.`},{id:`thu`,label:`Jueves — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. Aprovecha para repasar el martes si te quedaste con dudas, o para preparar la mente: la semana 12 entra al proyecto final.
+
+🚀 LO QUE VIENE
+En la semana 12 abrimos el último corte del semestre con el proyecto final. La idea es conectar el ESP32 inalámbricamente (Bluetooth) para controlar el LED desde un celular u otra PC — el detalle exacto del proyecto se confirma en la sesión del martes próximo.
+
+📚 SI QUIERES ADELANTARTE
+• Revisa que tu Programa_04_Hardware del martes siga funcionando.
+• Investiga: ¿qué es el Bluetooth y cómo se diferencia del Wi-Fi?
+• ¿Qué es 'pairing' (emparejamiento) entre dispositivos Bluetooth?`,notebook:`Reflexión opcional:
+1. ¿En qué situación cotidiana usas Bluetooth?
+2. ¿Qué pasaría si dos dispositivos Bluetooth no se emparejaran antes de comunicarse?
+3. Si pudieras controlar el LED del ESP32 desde tu celular, ¿qué proyecto se te ocurre construir con eso?`,practice:`Sin práctica obligatoria.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Confirmar la próxima semana qué proyecto inalámbrico exacto se trabajará — Bluetooth Classic con app del celular es lo más viable, pero también queda abierto BLE o WiFi según el equipo disponible.`}],cierre:`El último corte abre la próxima semana — preparar la mente también es parte del trabajo.`,frase_docente:`Lo que viene siempre se prepara antes — el éxito del próximo martes empieza con la calma de hoy.`}]},W12:{materia:`mths`,weekId:`W12`,days:[{id:`tue`,label:`Martes — 🔧 Armado del circuito + 💻 Control desde Serial`,purpose:`Cerrar la práctica que quedó pendiente la semana pasada: armar el circuito físico con LED + resistencia en protoboard siguiendo indicaciones paso a paso, y luego cargar el Programa 08 para controlar ese LED desde el Serial Monitor con los comandos '1', '0' y 'p'.`,hours:[{time:`Hora 1`,title:`🔧 Armado del circuito en protoboard — paso a paso`,theory:`Hoy nos preparamos para el Programa 08 (Hora 2): armar correctamente un circuito mínimo con un LED controlado por el ESP32. Un circuito bien armado AHORA evita 90% de los problemas DESPUÉS.
+
+🪛 LA PROTOBOARD POR DENTRO (importante)
+Los huecos NO están todos conectados entre sí — hay un patrón eléctrico oculto:
+
+• Filas de los lados (marcadas + y −): son las LÍNEAS DE ALIMENTACIÓN. Cada fila completa está conectada horizontalmente de extremo a extremo.
+• Columnas del centro: están conectadas VERTICALMENTE en grupos de 5 huecos. La zanja del centro PARTE esa conexión en dos mitades (una arriba, una abajo).
+
+DOS componentes que comparten una columna ESTÁN conectados eléctricamente — sin necesidad de cable. Esa es la magia de la protoboard.
+
+💡 EL LED TIENE POLARIDAD
+No es un cable cualquiera — solo conduce en UN sentido:
+• Pata LARGA = ánodo = (+) = recibe la corriente del GPIO
+• Pata CORTA = cátodo = (−) = la corriente se va a GND
+
+Si lo conectas al revés: NO enciende. NO se daña, simplemente no funciona. Esa es la prueba número uno cuando 'no enciende el LED'.
+
+🛡️ ¿POR QUÉ RESISTENCIA 220Ω?
+Un LED solo necesita ~2 V para encender. El GPIO del ESP32 entrega 3.3 V. Si conectas el LED directo: pasa demasiada corriente y SE QUEMA en segundos. La resistencia limita la corriente a un nivel seguro (~15 mA).
+
+La resistencia va EN SERIE con el LED — antes o después da igual, mientras esté en el mismo camino de corriente.
+
+Identificación por colores: 220Ω = rojo, rojo, marrón, dorado.
+
+🎯 EL CIRCUITO DE HOY
+• LED (pata larga +) → resistencia 220Ω → GPIO 2 del ESP32
+• LED (pata corta −) → GND del ESP32
+
+Nada más. Sin botones (los botones quedan para más adelante). Es lo más simple posible.`,notebook:`Título: Armado del circuito físico.
+1. ¿Cómo se conectan eléctricamente los huecos de los lados (+ y −) de la protoboard?
+2. ¿Cómo se conectan los huecos centrales? ¿Qué pasa con la zanja del centro?
+3. ¿Cómo se distingue la pata + del LED de la pata −?
+4. Si conectas el LED al revés, ¿qué pasa? ¿Se daña?
+5. ¿Para qué sirve la resistencia 220Ω? ¿Qué pasaría si la quitas?
+6. ¿Por qué decimos que la resistencia y el LED van 'en serie'?
+7. Dibuja el circuito completo en tu libreta y márcalo: GPIO 2, GND, ánodo, cátodo, resistencia.`,practice:`🧰 PASO 0 — Verificar materiales (en la mesa)
+• 1 ESP32 DevKit con cable USB de datos
+• 1 protoboard (cualquier tamaño)
+• 1 LED (cualquier color)
+• 1 resistencia de 220Ω (rojo-rojo-marrón-dorado)
+• 2 cables jumper macho-macho
+• NO se necesita botón hoy
+
+🪜 PASO 1 — Identificar las partes de la protoboard
+  1. Toma la protoboard y obsérvala con atención.
+  2. Localiza las DOS filas largas de los lados (marcadas '+' rojo y '−' azul). Son las líneas de alimentación.
+  3. Localiza la ZANJA del centro — divide la protoboard en mitad de arriba y mitad de abajo.
+  4. Confirma con tu compañero: '¿qué huecos están conectados entre sí?'
+
+🔲 PASO 2 — Colocar el ESP32 sobre la protoboard
+  1. Toma el ESP32 con cuidado por los lados (NO toques los pines).
+  2. Alinea las dos filas de pines del ESP32 con los huecos centrales — UNA fila a cada lado de la zanja.
+  3. Empuja suave y parejo hasta que TODAS las patas entren.
+  4. Verifica visualmente: la zanja debe quedar JUSTO en medio del ESP32.
+  5. NO conectes el USB todavía.
+
+💡 PASO 3 — Identificar polaridad del LED
+  1. Toma el LED y obsérvalo a contraluz.
+  2. Localiza la pata LARGA (es la +, el ánodo).
+  3. Localiza la pata CORTA (es la −, el cátodo). También verás un 'corte plano' en el borde del LED del lado de la pata corta.
+  4. Anota en tu libreta cuál identificaste como + y cuál como −.
+
+🔌 PASO 4 — Insertar el LED en la protoboard
+  1. Toma el LED por el cuerpo (no por las patas).
+  2. Inserta la pata LARGA (+) en una columna LIBRE de la mitad de arriba de la protoboard. Anota la columna (ej: columna 15).
+  3. Inserta la pata CORTA (−) en la fila de la línea negativa '−' del costado.
+  4. Verifica: el LED debe quedar parado, las dos patas en huecos distintos.
+
+〰️ PASO 5 — Insertar la resistencia
+  1. Toma la resistencia de 220Ω (rojo-rojo-marrón).
+  2. La resistencia NO tiene polaridad — puede ir en cualquier sentido.
+  3. Una pata en la MISMA columna donde está la pata larga (+) del LED.
+  4. La otra pata en una columna LIBRE diferente. Anota esa columna (ej: columna 20).
+
+🔗 PASO 6 — Cables al ESP32
+  1. Cable jumper #1: conecta la columna donde está el otro extremo de la resistencia → pin GPIO 2 del ESP32.
+  2. Cable jumper #2: conecta la fila negativa '−' (donde está la pata corta del LED) → pin GND del ESP32.
+  3. Verifica visualmente que ningún cable haga cortocircuito (que no toque otros pines).
+
+🔍 PASO 7 — Inspección final (ANTES de conectar USB)
+  Llama a un compañero o al docente y revisen JUNTOS:
+  ☐ La pata LARGA del LED conecta con la resistencia.
+  ☐ La resistencia conecta con GPIO 2 (vía cable).
+  ☐ La pata CORTA del LED conecta con GND (vía la fila negativa y el cable).
+  ☐ Ningún cable toca pines extra del ESP32.
+  ☐ El ESP32 está bien insertado (zanja en medio).
+  Si las 5 ☐ están marcadas → procede al Paso 8. Si no → corrige antes de conectar USB.
+
+✅ PASO 8 — Prueba con sketch Blink básico
+  1. Conecta el cable USB al ESP32 y la PC.
+  2. Arduino IDE: Tools → Board → ESP32 Dev Module · Tools → Port → COMx.
+  3. File → New Sketch. Pegar el código (con espacios en blanco) y completar.
+  4. Verificar (✓) → Subir (→). Esperar 'Done uploading.'
+  5. ✨ El LED debe parpadear AUTOMÁTICAMENTE cada 500 ms (medio segundo encendido, medio segundo apagado).
+
+🆘 ¿NO ENCIENDE EL LED?
+  1. Verifica polaridad — voltea el LED y vuelve a probar.
+  2. Verifica que la resistencia esté en su lugar (220Ω, no otra).
+  3. Verifica que el cable a GPIO 2 esté en el pin correcto del ESP32.
+  4. Verifica que el cable a GND esté en un pin GND real (hay varios en el ESP32, todos sirven).
+  5. Si nada de eso funciona → llama al docente.
+
+💾 Guardar como 'Programa_Blink_Verificacion'. El circuito QUEDA armado para la Hora 2.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 18px 0 12px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  .mat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  }
+  .mat-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 10px 6px; text-align: center;
+  }
+  .mat-icon { font-size: 22px; display: block; margin-bottom: 4px; }
+  .mat-name { font-size: 10px; font-weight: 700; color: #e6edf3; display: block; }
+  .mat-spec { font-size: 9px; color: #8b949e; display: block; margin-top: 2px; }
+
+  /* LED polarity */
+  .led-box {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 14px; display: flex; gap: 16px; align-items: center;
+  }
+  .led-visual {
+    background: #0d1117; border: 1px solid #30363d; border-radius: 8px;
+    padding: 16px; width: 130px; text-align: center;
+  }
+  .led-bulb {
+    width: 50px; height: 50px; background: radial-gradient(circle, #ffd700 0%, #ff8c00 70%, #b35900 100%);
+    border-radius: 50%; margin: 0 auto 8px; box-shadow: 0 0 20px #ffaa00;
+  }
+  .led-legs { display: flex; justify-content: center; gap: 8px; }
+  .leg-long {
+    background: #d4d4d4; width: 4px; height: 36px;
+    position: relative;
+  }
+  .leg-long::after {
+    content: '+'; position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+    color: #3fb950; font-weight: 700; font-size: 14px;
+  }
+  .leg-short {
+    background: #d4d4d4; width: 4px; height: 22px;
+    position: relative;
+  }
+  .leg-short::after {
+    content: '−'; position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+    color: #f85149; font-weight: 700; font-size: 18px;
+  }
+  .led-info { flex: 1; font-size: 11px; color: #c9d1d9; line-height: 1.7; }
+  .led-info strong { color: #58a6ff; }
+  .led-info .plus { color: #3fb950; font-weight: 700; }
+  .led-info .minus { color: #f85149; font-weight: 700; }
+
+  /* Connections list */
+  .conn-list {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 14px;
+  }
+  .conn-step {
+    display: flex; gap: 10px; align-items: center;
+    padding: 6px 0; font-size: 11px; color: #c9d1d9;
+    border-bottom: 1px dashed #21262d;
+  }
+  .conn-step:last-child { border-bottom: none; }
+  .step-num {
+    background: #1f6feb; color: white; width: 22px; height: 22px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .pin-badge {
+    background: #1a3a1a; color: #3fb950; border-radius: 4px;
+    padding: 1px 5px; font-size: 9px; font-weight: 700;
+  }
+  .pin-gnd { background: #1a1a2a; color: #8b949e; border-radius: 4px; padding: 1px 5px; font-size: 9px; }
+
+  /* Checklist */
+  .check-card {
+    background: #1f1700; border: 1px solid #d29922; border-radius: 10px;
+    padding: 12px;
+  }
+  .check-card h4 { font-size: 11px; color: #f0c040; margin-bottom: 10px; }
+  .check-row {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 11px; color: #c9d1d9; padding: 4px 0;
+  }
+  .box-icon {
+    width: 16px; height: 16px; border: 2px solid #d29922; border-radius: 3px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<p class="sec-title">🧰 Materiales (en la mesa)</p>
+<div class="mat-grid">
+  <div class="mat-card">
+    <span class="mat-icon">🔲</span>
+    <span class="mat-name">ESP32 DevKit</span>
+    <span class="mat-spec">+ cable USB datos</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">🟦</span>
+    <span class="mat-name">Protoboard</span>
+    <span class="mat-spec">cualquier tamaño</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">💡</span>
+    <span class="mat-name">LED</span>
+    <span class="mat-spec">cualquier color</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">〰️</span>
+    <span class="mat-name">Resistencia 220Ω</span>
+    <span class="mat-spec">rojo-rojo-marrón</span>
+  </div>
+  <div class="mat-card">
+    <span class="mat-icon">🔌</span>
+    <span class="mat-name">Cables jumper</span>
+    <span class="mat-spec">2 macho-macho</span>
+  </div>
+  <div class="mat-card" style="opacity:.4;">
+    <span class="mat-icon">🚫</span>
+    <span class="mat-name">Sin botón</span>
+    <span class="mat-spec">hoy NO se usa</span>
+  </div>
+</div>
+
+<p class="sec-title">💡 Identificar la polaridad del LED</p>
+<div class="led-box">
+  <div class="led-visual">
+    <div class="led-bulb"></div>
+    <div class="led-legs">
+      <div class="leg-long"></div>
+      <div class="leg-short"></div>
+    </div>
+  </div>
+  <div class="led-info">
+    <div><strong>Pata LARGA</strong> = <span class="plus">ánodo (+)</span> → va al GPIO vía resistencia.</div>
+    <div><strong>Pata CORTA</strong> = <span class="minus">cátodo (−)</span> → va a GND.</div>
+    <div style="margin-top:10px; color:#8b949e;">Si lo conectas al revés: NO enciende. NO se daña. Voltéalo y listo.</div>
+  </div>
+</div>
+
+<p class="sec-title">🔗 Conexiones — orden de armado</p>
+<div class="conn-list">
+  <div class="conn-step">
+    <span class="step-num">1</span>
+    <span>ESP32 a caballo sobre la zanja central de la protoboard.</span>
+  </div>
+  <div class="conn-step">
+    <span class="step-num">2</span>
+    <span>LED pata larga (+) → columna libre arriba · pata corta (−) → fila <span class="pin-gnd">−</span> del costado.</span>
+  </div>
+  <div class="conn-step">
+    <span class="step-num">3</span>
+    <span>Resistencia 220Ω: una pata en la columna del LED (+) · otra en columna libre.</span>
+  </div>
+  <div class="conn-step">
+    <span class="step-num">4</span>
+    <span>Cable: columna libre de la resistencia → <span class="pin-badge">GPIO 2</span> del ESP32.</span>
+  </div>
+  <div class="conn-step">
+    <span class="step-num">5</span>
+    <span>Cable: fila <span class="pin-gnd">−</span> → <span class="pin-gnd">GND</span> del ESP32.</span>
+  </div>
+</div>
+
+<p class="sec-title">🔍 Checklist final ANTES de conectar USB</p>
+<div class="check-card">
+  <h4>⚠️ Revisar con un compañero antes de cargar:</h4>
+  <div class="check-row"><div class="box-icon"></div><span>Pata LARGA del LED → conecta con la resistencia.</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Resistencia → conecta con GPIO 2 (vía cable).</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Pata CORTA del LED → conecta con GND.</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Ningún cable toca pines extra del ESP32.</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>ESP32 bien insertado, zanja en medio.</span></div>
+</div>
+
+</body>
+</html>
+`,code:`// SKETCH DE VERIFICACIÓN — Blink básico
+// Comprueba que el circuito está bien armado: el LED debe parpadear cada 500 ms
+// Completa los espacios en blanco
+
+#define LED_PIN 2
+
+void setup() {
+  pinMode(LED_PIN,  );           // ¿OUTPUT o INPUT?
+  Serial.begin(115200);
+  Serial.println("Circuito listo — si el LED parpadea, todo bien.");
+}
+
+void loop() {
+  digitalWrite(LED_PIN,  );      // encender
+  delay(500);
+  digitalWrite(LED_PIN,  );      // apagar
+  delay( );                      // medio segundo
+}`,codeRef:`// SKETCH DE VERIFICACIÓN — Blink básico
+
+#define LED_PIN 2
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+  Serial.println("Circuito listo — si el LED parpadea, todo bien.");
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(500);
+  digitalWrite(LED_PIN, LOW);
+  delay(500);
+}`,product:`Circuito armado en protoboard con LED + resistencia 220Ω + ESP32, conectado a la PC, con el sketch Blink corriendo y el LED parpadeando cada 500 ms. El circuito QUEDA armado para la Hora 2 (no se desarma).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 80% pedagogía de hardware básico. Los errores típicos a vigilar y atender PROACTIVAMENTE: (1) LED al revés (es lo más frecuente — no se daña, solo voltéenlo); (2) resistencia ausente o de valor incorrecto (¡revisar bandas de colores antes de Upload!); (3) pin GND confundido con otro pin del ESP32 (hay varios GND, todos sirven pero algunos alumnos no los identifican); (4) cable mal pinchado (el hueco del jumper no atrapó bien el cable interno). Sobre el flujo: el Paso 7 (checklist final) es crítico — NO debe haber un solo USB conectado en el aula antes de que esa revisión esté hecha. Eso evita LEDs quemados y frustración. Sobre el sketch Blink: deliberadamente simple — si parpadea, el circuito está bien y la Hora 2 va a fluir; si no parpadea, mejor descubrirlo ahora con código sencillo que con Programa 08 cargado. Tener disponibles 2-3 LEDs + resistencias extra por si algún alumno daña los suyos.`},{time:`Hora 2`,title:`Programa 08: Control del LED desde el Serial Monitor`,theory:`Ya cerramos la cadena USB → ESP32 → LED en hardware real (Hora 1 + Programa 04). Ahora invertimos la dirección de la comunicación: el ESP32 deja de solo HABLAR por el Serial — hoy también nos ESCUCHA.
 
 🔄 COMUNICACIÓN BIDIRECCIONAL
 El puerto serial es de doble vía:
@@ -1888,30 +2289,13 @@ void loop() {
       ultimoCambio = millis();
     }
   }
-}`,product:`Proyecto Programa_08_Serial_Control: el LED responde a 3 comandos ('1', '0', 'p') enviados desde el Serial Monitor. Captura del Serial mostrando los tres comandos enviados y sus respuestas + foto del LED parpadeando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Dos conceptos nuevos importantes que es bueno reforzar: (1) la diferencia entre el CARÁCTER '1' (comillas simples) y el NÚMERO 1 — esta confusión va a aparecer toda la carrera, hoy es un buen momento para asentarla. Mostrar en pizarra: ASCII '1' = 49, '0' = 48, 'p' = 112. (2) millis() vs delay() es probablemente el cambio mental más grande del semestre — la idea de que el código no se 'pausa' sino que sigue dando vueltas y compara tiempos. Si alguien lo entiende a la primera, está listo para programar interfaces interactivas. Sobre el 'Newline' del Serial Monitor: es la causa #1 de 'no me funciona' — si el alumno deja 'No line ending', los comandos llegan pero los Serial.read() pueden no procesarlos como espera. Verificar en la barra inferior. Sobre el experimento A (carácter inválido como 'x'): el código simplemente IGNORA — buena oportunidad para discutir 'manejo defensivo' (no truena con entrada inesperada). Si alguien va rápido, retarlo a agregar un comando 'h' (help) que reimprima la lista de comandos.`}],cierre:`El simulador enseña la lógica; el hardware enseña la realidad. Hoy cerramos esa cadena — del cable USB al LED parpadeando con un botón real, con todo lo que pasa en medio bajo control.`,frase_docente:`Cuando el código corre en silicio, ya no es teoría: es una máquina obedeciendo lo que escribiste.`},{id:`wed`,label:`Miércoles — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. Lo que se hizo el martes (bootstrap del ESP32 + cargar Programa 04 en hardware real) es la base sobre la que construiremos el proyecto final a partir de la semana 12.
+}`,product:`Proyecto Programa_08_Serial_Control: el LED responde a 3 comandos ('1', '0', 'p') enviados desde el Serial Monitor. Captura del Serial mostrando los tres comandos enviados y sus respuestas + foto del LED parpadeando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Dos conceptos nuevos importantes que es bueno reforzar: (1) la diferencia entre el CARÁCTER '1' (comillas simples) y el NÚMERO 1 — esta confusión va a aparecer toda la carrera, hoy es un buen momento para asentarla. Mostrar en pizarra: ASCII '1' = 49, '0' = 48, 'p' = 112. (2) millis() vs delay() es probablemente el cambio mental más grande del semestre — la idea de que el código no se 'pausa' sino que sigue dando vueltas y compara tiempos. Si alguien lo entiende a la primera, está listo para programar interfaces interactivas. Sobre el 'Newline' del Serial Monitor: es la causa #1 de 'no me funciona' — si el alumno deja 'No line ending', los comandos llegan pero los Serial.read() pueden no procesarlos como espera. Verificar en la barra inferior. Sobre el experimento A (carácter inválido como 'x'): el código simplemente IGNORA — buena oportunidad para discutir 'manejo defensivo' (no truena con entrada inesperada). Si alguien va rápido, retarlo a agregar un comando 'h' (help) que reimprima la lista de comandos.`}],cierre:`Hoy cerramos el círculo: armaron físicamente el circuito que la semana pasada quedó solo en teoría, y enseguida lo controlaron desde el Serial Monitor con tres comandos simples. El ESP32 ya no es una abstracción — es una pieza de hardware que obedece lo que escribes.`,frase_docente:`Un buen circuito no es el más complicado — es el que aguanta la siguiente clase sin que tengas que rearmarlo.`},{id:`wed`,label:`Miércoles — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. El martes armaron el circuito físico y controlaron el LED desde el Serial Monitor — un paso enorme. Lo que viene en jueves y en las semanas siguientes amplía ese mismo patrón con más comandos, sensores y conectividad.
 
 📌 RECORDATORIO
-Si el martes no terminaste el circuito físico o no logró cargar el Programa 04 en hardware, este es un buen día para ponerse al corriente en casa. La semana 12 abre con el proyecto final y necesitamos que todos partan del mismo punto.
-
-🧰 LO QUE YA TIENES INSTALADO
-• Arduino IDE con soporte para ESP32.
-• Driver del chip USB-Serial (CP2102 o CH340).
-• Sketch 'Test_Vivo' como referencia rápida si algo falla.
-• Programa_04_Hardware corriendo en silicio real.`,notebook:`Repaso voluntario:
-1. Anota los pasos para reconocer el ESP32 en Windows (puerto COM).
-2. ¿Qué papel cumple el Serial Monitor en el ciclo de desarrollo?
-3. ¿Qué diferencia notaste entre el botón en Wokwi y el botón real?`,practice:`Sin práctica obligatoria. Si quieres adelantar, investiga qué es el Bluetooth Classic vs BLE y qué diferencia hay entre los dos — ese tema asoma la próxima semana.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Si algún alumno se acerca, reforzar que la próxima semana arrancamos con el proyecto final y conectividad inalámbrica.`}],cierre:`Un día sin sesión también cuenta — el cerebro consolida cuando descansa.`,frase_docente:`El descanso no es ausencia de progreso; es la condición para que ocurra.`},{id:`thu`,label:`Jueves — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. Aprovecha para repasar el martes si te quedaste con dudas, o para preparar la mente: la semana 12 entra al proyecto final.
-
-🚀 LO QUE VIENE
-En la semana 12 abrimos el último corte del semestre con el proyecto final. La idea es conectar el ESP32 inalámbricamente (Bluetooth) para controlar el LED desde un celular u otra PC — el detalle exacto del proyecto se confirma en la sesión del martes próximo.
-
-📚 SI QUIERES ADELANTARTE
-• Revisa que tu Programa_04_Hardware del martes siga funcionando.
-• Investiga: ¿qué es el Bluetooth y cómo se diferencia del Wi-Fi?
-• ¿Qué es 'pairing' (emparejamiento) entre dispositivos Bluetooth?`,notebook:`Reflexión opcional:
-1. ¿En qué situación cotidiana usas Bluetooth?
-2. ¿Qué pasaría si dos dispositivos Bluetooth no se emparejaran antes de comunicarse?
-3. Si pudieras controlar el LED del ESP32 desde tu celular, ¿qué proyecto se te ocurre construir con eso?`,practice:`Sin práctica obligatoria.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Confirmar la próxima semana qué proyecto inalámbrico exacto se trabajará — Bluetooth Classic con app del celular es lo más viable, pero también queda abierto BLE o WiFi según el equipo disponible.`}],cierre:`El último corte abre la próxima semana — preparar la mente también es parte del trabajo.`,frase_docente:`Lo que viene siempre se prepara antes — el éxito del próximo martes empieza con la calma de hoy.`}]},W12:{days:[]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
+Si el martes no terminaste el Programa 08 (control desde Serial), aprovecha hoy en casa para repasarlo. El circuito queda armado y los códigos están guardados — solo necesitas conectar el ESP32 y volver a probar los comandos '1', '0' y 'p'.`,notebook:`Repaso voluntario:
+1. ¿Cuál fue la diferencia entre el sketch Blink (Hora 1) y el Programa 08 (Hora 2)?
+2. ¿Qué hace exactamente Serial.available() en cada vuelta del loop()?
+3. ¿Por qué millis() permite que el parpadeo se interrumpa con un comando?`,practice:`Sin práctica obligatoria. Reto opcional: agrega un comando 'h' (help) al Programa 08 que reimprima la lista de comandos disponibles cuando el alumno lo presione.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Si algún alumno se acerca con dudas del martes, reforzar dos conceptos: (1) el carácter '1' es distinto del número 1, (2) millis() vs delay() — son la base de TODO lo que sigue.`}],cierre:`Un día sin sesión también cuenta — el cerebro consolida cuando descansa.`,frase_docente:`El descanso no es ausencia de progreso; es la condición para que ocurra.`},{id:`thu`,label:`Jueves — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Día libre de MTHS. La semana 12 abre el corte 3.2 (RA 3.2) — su práctica principal arrancó el martes con el armado del circuito y el Programa 08. Las siguientes semanas (W13, W14) construirán sobre esa misma base.`,notebook:`Sin libreta obligatoria.`,practice:`Sin práctica.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Aprovechar para revisar entregas de Classroom del martes y planear materiales para la siguiente semana.`}],cierre:`El descanso también construye.`,frase_docente:`Cada semana tiene su ritmo — respetar los días sin sesión también es parte del diseño.`}]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,k.jsx)(`p`,{children:e}):(0,k.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,k.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,k.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,k.jsx)(`pre`,{className:`smart-code`,children:(0,k.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):null)})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({html:e})=>(0,k.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,k.jsx)(`div`,{className:`block-body diagram-body`,children:(0,k.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Fe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ie=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Le=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Re=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),ze=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,k.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.diagram&&(0,k.jsx)(Pe,{html:e.diagram}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Re,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,k.jsx)(ze,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Le,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Ie,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He=`2024`,Ue=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===He?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},We=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ge(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:t===11?`W09`:t===12?`W10`:t===13?`W11`:t===14?`W12`:t===15?`W13`:`W14`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(Ve,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:We},i)]}),u&&(0,k.jsx)(Ue,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ge,{})}));
