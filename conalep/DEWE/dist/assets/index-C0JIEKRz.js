@@ -1322,7 +1322,125 @@ prompt("¿Cómo te llamas?");
 hola
 \`\`\`
 
-Reto rápido: en una sola línea de la consola, calcula cuántos minutos tiene un día de 24 horas.`,product:`Notas en libreta con las 6 respuestas + capturas o anotaciones de lo que aparece en la consola al ejecutar cada línea. Mostrar el reto del día (1440 minutos) en la consola al docente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 100% en la consola del navegador — nadie abre VS Code todavía. Importante: muchos alumnos NUNCA han abierto F12. Dedicar 5 minutos a que lo abran, lo cierren, lo muevan a la derecha. La línea sin comillas (paso 6) genera un ReferenceError — aprovecharla para enseñar que JS distingue palabras del lenguaje vs texto entre comillas. Si alguien pregunta por qué prompt devuelve un valor pero no lo imprime, decir que en la siguiente hora aprenderemos a guardarlo en una variable.`},{time:`Hora 2`,title:`📦 Variables y tipos — guardar información en memoria`,theory:`Una variable es una caja con nombre que guarda un dato. Se declara con la palabra reservada let o const, se le pone un nombre y se le asigna un valor con el signo igual.
+Reto rápido: en una sola línea de la consola, calcula cuántos minutos tiene un día de 24 horas.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; letter-spacing: 0.3px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .full { grid-column: 1 / -1; }
+  .browser { background: #21262d; border-radius: 8px 8px 4px 4px; border: 1px solid #30363d; overflow: hidden; }
+  .browser-bar { background: #161b22; padding: 6px 10px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #30363d; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #f85149; } .dot.y { background: #d29922; } .dot.g { background: #3fb950; }
+  .url { flex: 1; background: #0d1117; padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #8b949e; font-family: monospace; }
+  .devtools { background: #0d1117; min-height: 120px; padding: 10px 12px; font-family: 'Consolas', monospace; font-size: 11px; }
+  .dt-tabs { display: flex; gap: 8px; border-bottom: 1px solid #21262d; padding-bottom: 4px; margin-bottom: 8px; }
+  .dt-tab { font-size: 10px; color: #6e7681; padding: 2px 6px; }
+  .dt-tab.active { color: #f7df1e; border-bottom: 2px solid #f7df1e; padding-bottom: 2px; }
+  .dt-line { display: flex; gap: 8px; padding: 2px 0; align-items: baseline; }
+  .dt-prompt { color: #58a6ff; }
+  .dt-input  { color: #e6edf3; }
+  .dt-out    { color: #8b949e; font-style: italic; padding-left: 14px; }
+  .dt-err    { color: #f85149; padding-left: 14px; }
+  .key-row { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 16px 0 8px; }
+  .key { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; padding: 0 10px; background: #21262d; border: 1px solid #6e7681; border-bottom-width: 3px; border-radius: 5px; font-family: 'Consolas', monospace; font-size: 12px; color: #f7df1e; font-weight: 700; }
+  .key-lbl { font-size: 11px; color: #8b949e; margin-top: 4px; text-align: center; }
+  .instr { display: flex; flex-direction: column; gap: 12px; }
+  .instr-row { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 10px 12px; }
+  .instr-row code { font-family: 'Consolas', monospace; font-size: 12px; color: #f7df1e; font-weight: 600; }
+  .instr-row .desc { font-size: 11px; color: #8b949e; margin-top: 4px; line-height: 1.5; }
+  .instr-row .visual { margin-top: 8px; padding: 6px 10px; border-radius: 4px; font-size: 11px; }
+  .v-console { background: #0a0f1a; color: #c9d1d9; font-family: 'Consolas', monospace; border-left: 3px solid #58a6ff; }
+  .v-alert   { background: #1f1a0a; color: #f7df1e; border-left: 3px solid #f7df1e; text-align: center; font-weight: 600; }
+  .v-prompt  { background: #1a0f1f; color: #d2a8ff; border-left: 3px solid #d2a8ff; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 8px; }
+  th { background: #21262d; color: #58a6ff; padding: 7px 10px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; }
+  td { padding: 8px 10px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  td strong { color: #f7df1e; font-family: 'Consolas', monospace; }
+  td.who { font-style: italic; color: #8b949e; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 14px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h2>🔬 La consola del navegador — tu primer laboratorio JS</h2>
+<div class="layout">
+
+  <div class="panel">
+    <h3>🖥️ Cómo abrir las DevTools</h3>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <div class="url">🌐 https://mi-sitio.com</div>
+      </div>
+      <div class="devtools">
+        <div class="dt-tabs">
+          <span class="dt-tab">Elements</span>
+          <span class="dt-tab active">Console</span>
+          <span class="dt-tab">Network</span>
+          <span class="dt-tab">Sources</span>
+        </div>
+        <div class="dt-line"><span class="dt-prompt">&gt;</span><span class="dt-input">console.log("Hola")</span></div>
+        <div class="dt-out">Hola</div>
+        <div class="dt-line"><span class="dt-prompt">&gt;</span><span class="dt-input">2 + 3</span></div>
+        <div class="dt-out">5</div>
+        <div class="dt-line"><span class="dt-prompt">&gt;</span><span class="dt-input">hola</span></div>
+        <div class="dt-err">✗ ReferenceError: hola is not defined</div>
+      </div>
+    </div>
+    <div class="key-row">
+      <span class="key">F12</span>
+      <span style="color:#8b949e;font-size:11px;">o</span>
+      <span class="key">Ctrl</span><span style="color:#6e7681;">+</span><span class="key">Shift</span><span style="color:#6e7681;">+</span><span class="key">I</span>
+    </div>
+    <div class="key-lbl">Atajo para abrir las DevTools en cualquier navegador</div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ Las 3 instrucciones básicas</h3>
+    <div class="instr">
+      <div class="instr-row">
+        <code>console.log("Hola")</code>
+        <div class="desc">📋 Imprime en la consola — solo lo ves tú, el desarrollador. Útil para depurar.</div>
+        <div class="visual v-console">&gt; Hola</div>
+      </div>
+      <div class="instr-row">
+        <code>alert("¡Bienvenido!")</code>
+        <div class="desc">📢 Muestra una ventana emergente al usuario. Bloquea la página hasta que se cierra.</div>
+        <div class="visual v-alert">⚠️ ¡Bienvenido!  [ OK ]</div>
+      </div>
+      <div class="instr-row">
+        <code>prompt("¿Cómo te llamas?")</code>
+        <div class="desc">❓ Pregunta al usuario y devuelve lo que escribió como texto (string).</div>
+        <div class="visual v-prompt">❓ ¿Cómo te llamas?  [ ____________ ]  [ OK ] [ Cancel ]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h3>📊 Comparativa rápida</h3>
+    <table>
+      <tr><th>Instrucción</th><th>¿Quién lo ve?</th><th>¿Devuelve algo?</th><th>¿Bloquea la página?</th></tr>
+      <tr><td><strong>console.log()</strong></td><td class="who">solo el desarrollador (en F12)</td><td>no</td><td>no</td></tr>
+      <tr><td><strong>alert()</strong></td><td class="who">el usuario final</td><td>no</td><td>sí, hasta que pulse OK</td></tr>
+      <tr><td><strong>prompt()</strong></td><td class="who">el usuario final</td><td>sí — un string con lo que escribió</td><td>sí, hasta que pulse OK o Cancel</td></tr>
+    </table>
+    <div class="note">
+      <strong>Regla de oro:</strong> <code style="color:#79c0ff;">console.log()</code> para ti (depurar), <code style="color:#79c0ff;">alert()</code> y <code style="color:#79c0ff;">prompt()</code> para hablarle al usuario. Los profesionales casi nunca usan alert/prompt en producción — los reemplazan con modales bonitos — pero para aprender son perfectos.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+`,product:`Notas en libreta con las 6 respuestas + capturas o anotaciones de lo que aparece en la consola al ejecutar cada línea. Mostrar el reto del día (1440 minutos) en la consola al docente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 100% en la consola del navegador — nadie abre VS Code todavía. Importante: muchos alumnos NUNCA han abierto F12. Dedicar 5 minutos a que lo abran, lo cierren, lo muevan a la derecha. La línea sin comillas (paso 6) genera un ReferenceError — aprovecharla para enseñar que JS distingue palabras del lenguaje vs texto entre comillas. Si alguien pregunta por qué prompt devuelve un valor pero no lo imprime, decir que en la siguiente hora aprenderemos a guardarlo en una variable.`},{time:`Hora 2`,title:`📦 Variables y tipos — guardar información en memoria`,theory:`Una variable es una caja con nombre que guarda un dato. Se declara con la palabra reservada let o const, se le pone un nombre y se le asigna un valor con el signo igual.
 
 🔐 LET vs CONST
 • let edad = 17;       — el valor PUEDE cambiar después.
@@ -1391,7 +1509,175 @@ console.log(typeof respuesta);   // "string", aunque escribas un número
 // 9. Convertir string a number
 const edadReal = Number(respuesta);
 console.log(edadReal + 5);       // ahora sí suma como número
-\`\`\``,product:`Las 5 respuestas en libreta + ejecución completa de los 9 pasos en consola. El alumno debe poder explicar por qué el paso 8 devuelve "string" aunque escriba un número.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El paso 4 es el experimento clave para entender const — vale la pena dejar que TODOS lo prueben y vean el TypeError. El paso 8-9 introduce el problema de la conversión de tipos: prompt siempre devuelve string. Si el grupo viene rápido, mostrar también que prompt("...") + 5 da "175" (concatenación) en lugar de 22 (suma) — es un error real que cometerán pronto.`},{time:`Hora 3`,title:`📄 Primer script real — JS fuera de la consola`,theory:`La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.
+\`\`\``,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; letter-spacing: 0.3px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .full { grid-column: 1 / -1; }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .box { background: #0d1117; border: 2px solid #30363d; border-radius: 8px; padding: 14px 12px; text-align: center; position: relative; }
+  .box.let  { border-color: #58a6ff; }
+  .box.const { border-color: #f7df1e; }
+  .box-label { position: absolute; top: -10px; left: 12px; background: #161b22; padding: 0 8px; font-family: 'Consolas', monospace; font-size: 11px; font-weight: 700; }
+  .box.let .box-label   { color: #58a6ff; }
+  .box.const .box-label { color: #f7df1e; }
+  .box-icon { font-size: 28px; margin-bottom: 6px; }
+  .box-name { font-family: 'Consolas', monospace; font-size: 13px; color: #e6edf3; margin: 4px 0; }
+  .box-value { font-family: 'Consolas', monospace; font-size: 14px; color: #79c0ff; padding: 4px 0; }
+  .box-arrow { font-size: 14px; color: #3fb950; margin: 2px 0; }
+  .box-lock  { font-size: 14px; color: #f7df1e; margin: 2px 0; }
+  .box-desc { font-size: 10px; color: #8b949e; margin-top: 4px; line-height: 1.5; }
+  .types { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  @media (max-width: 720px) { .types { grid-template-columns: repeat(2, 1fr); } }
+  .type-card { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 10px 8px; text-align: center; border-top: 3px solid; }
+  .type-card.str  { border-top-color: #f7df1e; }
+  .type-card.num  { border-top-color: #79c0ff; }
+  .type-card.bool { border-top-color: #d2a8ff; }
+  .type-card.nul  { border-top-color: #6e7681; }
+  .type-card.und  { border-top-color: #ff7b72; }
+  .type-name { font-family: 'Consolas', monospace; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .type-card.str  .type-name { color: #f7df1e; }
+  .type-card.num  .type-name { color: #79c0ff; }
+  .type-card.bool .type-name { color: #d2a8ff; }
+  .type-card.nul  .type-name { color: #6e7681; }
+  .type-card.und  .type-name { color: #ff7b72; }
+  .type-icon { font-size: 22px; margin: 4px 0; }
+  .type-ex { font-family: 'Consolas', monospace; font-size: 10px; color: #c9d1d9; margin-top: 4px; line-height: 1.5; word-break: break-word; }
+  .codebox { font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.8; }
+  .c-key  { color: #ff7b72; font-weight: 600; }
+  .c-var  { color: #79c0ff; }
+  .c-str  { color: #a5d6ff; }
+  .c-num  { color: #f7df1e; }
+  .c-com  { color: #6e7681; font-style: italic; }
+  .c-tick { color: #f7df1e; font-weight: 700; }
+  .c-interp { background: #2a2510; color: #f7df1e; padding: 1px 4px; border-radius: 3px; font-weight: 700; }
+  .flow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 16px 0 8px; flex-wrap: wrap; }
+  .flow-box { padding: 8px 12px; border-radius: 6px; background: #21262d; border: 1px solid #30363d; font-family: 'Consolas', monospace; font-size: 11px; font-weight: 600; }
+  .flow-box.input  { color: #f7df1e; border-color: #f7df1e; background: #2a2510; }
+  .flow-box.convert { color: #d2a8ff; border-color: #d2a8ff; background: #1a0f1f; }
+  .flow-box.output { color: #79c0ff; border-color: #79c0ff; background: #102030; }
+  .flow-arrow { color: #f7df1e; font-weight: 800; font-size: 18px; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 14px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+  .note code { color: #79c0ff; font-family: 'Consolas', monospace; }
+</style>
+</head>
+<body>
+<h2>📦 Variables y tipos — guardar información en memoria</h2>
+<div class="layout">
+
+  <div class="panel">
+    <h3>🔐 let vs const — ¿la caja se puede cambiar?</h3>
+    <div class="vs">
+      <div class="box let">
+        <span class="box-label">let</span>
+        <div class="box-icon">📦</div>
+        <div class="box-name">edad</div>
+        <div class="box-value">17</div>
+        <div class="box-arrow">↻ puede cambiar</div>
+        <div class="box-value">18</div>
+        <div class="box-desc">Caja con tapa removible — el valor se puede reasignar.</div>
+      </div>
+      <div class="box const">
+        <span class="box-label">const</span>
+        <div class="box-icon">🔒</div>
+        <div class="box-name">PI</div>
+        <div class="box-value">3.1416</div>
+        <div class="box-lock">🔒 sellada</div>
+        <div class="box-value" style="text-decoration:line-through;color:#6e7681;">3.14</div>
+        <div class="box-desc">Caja sellada — intentar cambiar el valor lanza TypeError.</div>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Regla práctica:</strong> usa <code>const</code> por defecto. Si más adelante necesitas reasignar el valor, lo cambias a <code>let</code>. Casi nunca verás <code>var</code> en código moderno.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>🧬 Los 5 tipos básicos de JavaScript</h3>
+    <div class="types">
+      <div class="type-card str">
+        <div class="type-name">string</div>
+        <div class="type-icon">📝</div>
+        <div class="type-ex">"Hola"<br>'mundo'</div>
+      </div>
+      <div class="type-card num">
+        <div class="type-name">number</div>
+        <div class="type-icon">🔢</div>
+        <div class="type-ex">17<br>3.14<br>-8</div>
+      </div>
+      <div class="type-card bool">
+        <div class="type-name">boolean</div>
+        <div class="type-icon">⚖️</div>
+        <div class="type-ex">true<br>false</div>
+      </div>
+      <div class="type-card nul">
+        <div class="type-name">null</div>
+        <div class="type-icon">∅</div>
+        <div class="type-ex">vacío<br>intencional</div>
+      </div>
+      <div class="type-card und">
+        <div class="type-name">undefined</div>
+        <div class="type-icon">❓</div>
+        <div class="type-ex">sin asignar<br>aún</div>
+      </div>
+    </div>
+    <div class="note">
+      <code>typeof "Hola"</code> → <strong>"string"</strong> · <code>typeof 17</code> → <strong>"number"</strong> · <code>typeof true</code> → <strong>"boolean"</strong>
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h3>🪄 Template literals — interpolación de variables</h3>
+    <div class="vs">
+      <div>
+        <div style="font-size:10px;color:#8b949e;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">❌ Forma vieja (con +)</div>
+        <div class="codebox">
+<span class="c-com">// concatenar pedazos con +</span>
+<span class="c-key">const</span> <span class="c-var">saludo</span> = <span class="c-str">"Hola "</span> + <span class="c-var">nombre</span> + <span class="c-str">", tienes "</span> + <span class="c-var">edad</span> + <span class="c-str">" años"</span>;
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:#8b949e;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">✅ Forma moderna (template literal)</div>
+        <div class="codebox">
+<span class="c-com">// usa acentos graves `` y ${variable}</span>
+<span class="c-key">const</span> <span class="c-var">saludo</span> = <span class="c-tick">\`</span>Hola <span class="c-interp">\${nombre}</span>, tienes <span class="c-interp">\${edad}</span> años<span class="c-tick">\`</span>;
+        </div>
+      </div>
+    </div>
+    <div class="note">
+      El carácter <strong>\`</strong> (acento grave / backtick) está en la tecla de la <strong>tilde ~</strong> a la izquierda del 1. <code>\${variable}</code> mete el valor de esa variable dentro del texto.
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h3>⚠️ Trampa típica: prompt() siempre devuelve string</h3>
+    <div class="flow">
+      <span class="flow-box input">prompt("Edad?")</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-box input">"17" <span style="opacity:0.7;">(string)</span></span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-box convert">Number("17")</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-box output">17 <span style="opacity:0.7;">(number)</span></span>
+    </div>
+    <div class="note">
+      Aunque el usuario escriba <code>17</code> en el prompt, lo recibes como <strong>"17" (string)</strong>. Si haces <code>"17" + 5</code> obtienes <code>"175"</code> (concatena), no <code>22</code> (suma). Usa <code>Number(respuesta)</code> para convertir antes de hacer matemáticas.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+`,product:`Las 5 respuestas en libreta + ejecución completa de los 9 pasos en consola. El alumno debe poder explicar por qué el paso 8 devuelve "string" aunque escriba un número.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: El paso 4 es el experimento clave para entender const — vale la pena dejar que TODOS lo prueben y vean el TypeError. El paso 8-9 introduce el problema de la conversión de tipos: prompt siempre devuelve string. Si el grupo viene rápido, mostrar también que prompt("...") + 5 da "175" (concatenación) en lugar de 22 (suma) — es un error real que cometerán pronto.`},{time:`Hora 3`,title:`📄 Primer script real — JS fuera de la consola`,theory:`La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.
 
 📁 ESTRUCTURA RECOMENDADA
 Dentro de la carpeta del sitio Resident Evil:
