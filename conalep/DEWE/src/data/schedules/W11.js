@@ -280,7 +280,7 @@ export const W11 = {
       <div>
         <div style="font-size:10px;color:#8b949e;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">✅ Forma moderna (template literal)</div>
         <div class="codebox">
-<span class="c-com">// usa acentos graves ` ` y ${variable}</span>
+<span class="c-com">// usa acentos graves \` \` y \${variable}</span>
 <span class="c-key">const</span> <span class="c-var">saludo</span> = <span class="c-tick">\`</span>Hola <span class="c-interp">\${nombre}</span>, tienes <span class="c-interp">\${edad}</span> años<span class="c-tick">\`</span>;
         </div>
       </div>
