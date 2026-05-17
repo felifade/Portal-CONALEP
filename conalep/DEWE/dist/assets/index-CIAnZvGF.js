@@ -1582,7 +1582,8 @@ console.log(edadReal + 5);       // ahora sí suma como número
   .type-card.bool .type-name { color: #d2a8ff; }
   .type-card.nul  .type-name { color: #6e7681; }
   .type-card.und  .type-name { color: #ff7b72; }
-  .type-icon { font-size: 22px; margin: 4px 0; }
+  .type-icon { font-size: 22px; margin: 4px 0; min-height: 28px; display: flex; align-items: center; justify-content: center; }
+  .num-badge { display: inline-flex; align-items: center; justify-content: center; padding: 3px 9px; background: rgba(121,192,255,0.15); border: 1px solid rgba(121,192,255,0.4); border-radius: 5px; font-family: 'Consolas','Monaco',monospace; font-weight: 800; font-size: 13px; color: #79c0ff; letter-spacing: 0.02em; }
   .type-ex { font-family: 'Consolas', monospace; font-size: 10px; color: #c9d1d9; margin-top: 4px; line-height: 1.5; word-break: break-word; }
   .codebox { font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.8; }
   .c-key  { color: #ff7b72; font-weight: 600; }
@@ -1644,7 +1645,7 @@ console.log(edadReal + 5);       // ahora sí suma como número
       </div>
       <div class="type-card num">
         <div class="type-name">number</div>
-        <div class="type-icon">🔢</div>
+        <div class="type-icon"><span class="num-badge">123</span></div>
         <div class="type-ex">17<br>3.14<br>-8</div>
       </div>
       <div class="type-card bool">
