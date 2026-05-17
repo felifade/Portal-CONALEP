@@ -1660,7 +1660,20 @@ Identificación por colores: 220Ω = rojo, rojo, marrón, dorado.
 • LED (pata larga +) → resistencia 220Ω → GPIO 2 del ESP32
 • LED (pata corta −) → GND del ESP32
 
-Nada más. Sin botones (los botones quedan para más adelante). Es lo más simple posible.`,notebook:`Título: Armado del circuito físico.
+Nada más. Sin botones (los botones quedan para más adelante). Es lo más simple posible.
+
+📱 ALTERNATIVA — TABLET ANDROID CON OTG (opción secundaria)
+Si no tienes PC disponible (o prefieres trabajar desde la tablet), TODO el flujo funciona igual desde un Android — incluyendo la tablet Honor X8a que les dieron a todos. Lo único que cambia es el 'IDE': en lugar de Arduino IDE en Windows se usa la app ArduinoDroid en la tablet, conectando el ESP32 vía un adaptador USB.
+
+El circuito físico es IDÉNTICO. El código es IDÉNTICO. La salida en el LED es IDÉNTICA. Lo único distinto es por dónde se compila y se sube.
+
+🧰 MATERIAL EXTRA PARA LA OPCIÓN ANDROID
+• Tablet Honor X8a (la que todos tienen del programa CONALEP).
+• El cable USB-C de carga que viene con la tablet.
+• Un adaptador USB-A (hembra) → USB-C (macho) — se compra en cualquier tienda de electrónica por ~30-60 pesos. Es el adaptador chico que permite conectar el cable USB-A del ESP32 al puerto USB-C de la tablet.
+• ArduinoDroid instalada (gratis, Play Store).
+
+La primera vez que abres ArduinoDroid descarga las librerías ESP32 (~200 MB, tarda 5-10 min con WiFi). Hacerlo en casa antes de la clase.`,notebook:`Título: Armado del circuito físico.
 1. ¿Cómo se conectan eléctricamente los huecos de los lados (+ y −) de la protoboard?
 2. ¿Cómo se conectan los huecos centrales? ¿Qué pasa con la zanja del centro?
 3. ¿Cómo se distingue la pata + del LED de la pata −?
@@ -1726,6 +1739,19 @@ Nada más. Sin botones (los botones quedan para más adelante). Es lo más simpl
   3. File → New Sketch. Pegar el código (con espacios en blanco) y completar.
   4. Verificar (✓) → Subir (→). Esperar 'Done uploading.'
   5. ✨ El LED debe parpadear AUTOMÁTICAMENTE cada 500 ms (medio segundo encendido, medio segundo apagado).
+
+📱 PASO 8-B (Alternativa Android) — Cargar Blink desde la tablet Honor X8a
+  Si prefieres usar la tablet en lugar de la PC, sigue estos pasos en vez del Paso 8 anterior:
+  1. Tener instalado ArduinoDroid desde Play Store (mejor desde casa, descarga ~80 MB la app + ~200 MB librerías ESP32 la primera vez).
+  2. Conectar el adaptador USB-A (hembra) → USB-C (macho) al puerto USB-C de la tablet.
+  3. Conectar el cable del ESP32 al adaptador. La tablet detecta el ESP32 y pregunta '¿Permitir que ArduinoDroid acceda al dispositivo USB?' → tocar 'Aceptar' (marcar 'Usar de forma predeterminada' si quieres que no vuelva a preguntar).
+  4. Abrir ArduinoDroid → 'Sketch' → 'New Sketch' → pegar el código Blink (el mismo que en el Paso 8) y completar.
+  5. Tocar el menú (☰) → 'Board' → seleccionar 'ESP32 Dev Module'.
+  6. Tocar el ícono de la palomita ✓ para compilar. Esperar el mensaje 'Compilation successful'.
+  7. Tocar el ícono de la flecha → para subir al ESP32. Esperar 'Upload complete'.
+  8. ✨ El LED debe parpadear igual que con la PC — cada 500 ms.
+
+  💡 NOTA: La primera compilación tarda más (la app está calentando librerías). Las siguientes son rápidas.
 
 🆘 ¿NO ENCIENDE EL LED?
   1. Verifica polaridad — voltea el LED y vuelve a probar.
@@ -1953,7 +1979,9 @@ void loop() {
   delay(500);
   digitalWrite(LED_PIN, LOW);
   delay(500);
-}`,product:`Circuito armado en protoboard con LED + resistencia 220Ω + ESP32, conectado a la PC, con el sketch Blink corriendo y el LED parpadeando cada 500 ms. El circuito QUEDA armado para la Hora 2 (no se desarma).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 80% pedagogía de hardware básico. Los errores típicos a vigilar y atender PROACTIVAMENTE: (1) LED al revés (es lo más frecuente — no se daña, solo voltéenlo); (2) resistencia ausente o de valor incorrecto (¡revisar bandas de colores antes de Upload!); (3) pin GND confundido con otro pin del ESP32 (hay varios GND, todos sirven pero algunos alumnos no los identifican); (4) cable mal pinchado (el hueco del jumper no atrapó bien el cable interno). Sobre el flujo: el Paso 7 (checklist final) es crítico — NO debe haber un solo USB conectado en el aula antes de que esa revisión esté hecha. Eso evita LEDs quemados y frustración. Sobre el sketch Blink: deliberadamente simple — si parpadea, el circuito está bien y la Hora 2 va a fluir; si no parpadea, mejor descubrirlo ahora con código sencillo que con Programa 08 cargado. Tener disponibles 2-3 LEDs + resistencias extra por si algún alumno daña los suyos.`},{time:`Hora 2`,title:`Programa 08: Control del LED desde el Serial Monitor`,theory:`Ya cerramos la cadena USB → ESP32 → LED en hardware real (Hora 1 + Programa 04). Ahora invertimos la dirección de la comunicación: el ESP32 deja de solo HABLAR por el Serial — hoy también nos ESCUCHA.
+}`,product:`Circuito armado en protoboard con LED + resistencia 220Ω + ESP32, conectado a la PC, con el sketch Blink corriendo y el LED parpadeando cada 500 ms. El circuito QUEDA armado para la Hora 2 (no se desarma).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 80% pedagogía de hardware básico. Los errores típicos a vigilar y atender PROACTIVAMENTE: (1) LED al revés (es lo más frecuente — no se daña, solo voltéenlo); (2) resistencia ausente o de valor incorrecto (¡revisar bandas de colores antes de Upload!); (3) pin GND confundido con otro pin del ESP32 (hay varios GND, todos sirven pero algunos alumnos no los identifican); (4) cable mal pinchado (el hueco del jumper no atrapó bien el cable interno). Sobre el flujo: el Paso 7 (checklist final) es crítico — NO debe haber un solo USB conectado en el aula antes de que esa revisión esté hecha. Eso evita LEDs quemados y frustración. Sobre el sketch Blink: deliberadamente simple — si parpadea, el circuito está bien y la Hora 2 va a fluir; si no parpadea, mejor descubrirlo ahora con código sencillo que con Programa 08 cargado. Tener disponibles 2-3 LEDs + resistencias extra por si algún alumno daña los suyos.
+
+📱 SOBRE LA ALTERNATIVA ANDROID: El docente probó el flujo completo con la tablet Honor X8a (la que todos los alumnos recibieron) + adaptador USB-A→USB-C + ArduinoDroid — funciona idéntico al de PC. Esta opción es UTILÍSIMA cuando: (a) el aula no tiene PC libre para todos, (b) el alumno quiere trabajar en casa pero no tiene laptop, (c) hay problemas de drivers en la PC. Recomendaciones para el aula: (1) Pedir a los alumnos que instalen ArduinoDroid EN CASA antes de la clase para no consumir el WiFi escolar con descargas de 280 MB simultáneas. (2) Llevar 3-4 adaptadores USB-A→USB-C de respaldo (~$50 cada uno) — son la pieza más fácil de olvidar. (3) Si un alumno no tiene PC y olvidó el adaptador, prestarle uno de los del aula. (4) En ArduinoDroid el botón BOOT del ESP32 se usa igual: si 'Connecting...' se atora, mantener BOOT presionado hasta que empiece la subida.`},{time:`Hora 2`,title:`Programa 08: Control del LED desde el Serial Monitor`,theory:`Ya cerramos la cadena USB → ESP32 → LED en hardware real (Hora 1 + Programa 04). Ahora invertimos la dirección de la comunicación: el ESP32 deja de solo HABLAR por el Serial — hoy también nos ESCUCHA.
 
 🔄 COMUNICACIÓN BIDIRECCIONAL
 El puerto serial es de doble vía:
@@ -1990,7 +2018,9 @@ millis() devuelve cuántos milisegundos lleva encendido el ESP32. Cada vez que e
 • Si sí → toca cambiar el LED y guardar el momento.
 • Si no → seguir, sin bloquear.
 
-Así el loop() sigue dando vueltas todo el tiempo y puede escuchar nuevos comandos EN MEDIO de un parpadeo. ✨`,notebook:`Título: El ESP32 también escucha.
+Así el loop() sigue dando vueltas todo el tiempo y puede escuchar nuevos comandos EN MEDIO de un parpadeo. ✨
+
+📱 ALTERNATIVA TABLET ANDROID: El flujo es idéntico desde ArduinoDroid en la Honor X8a. El Serial Monitor de la app permite enviar los comandos '1', '0', 'p' igual que el Serial Monitor de Arduino IDE en PC. Misma experiencia.`,notebook:`Título: El ESP32 también escucha.
 1. ¿Qué devuelve Serial.available() si nadie ha escrito nada en el Serial Monitor?
 2. ¿Qué diferencia hay entre Serial.read() y Serial.println()?
 3. ¿Por qué comparamos con comillas: comando == '1' y no comando == 1?
@@ -2013,6 +2043,11 @@ Así el loop() sigue dando vueltas todo el tiempo y puede escuchar nuevos comand
   3. ⚠️ IMPORTANTE: en la barra inferior del Serial Monitor cambiar 'No line ending' → 'Newline' (o 'Both NL & CR').
      Esto hace que al presionar Enter se mande efectivamente el carácter al ESP32.
   4. En el campo de texto de ARRIBA del Serial Monitor, escribir el comando y presionar Enter.
+
+📱 VARIANTE ANDROID — Si usas ArduinoDroid en la tablet:
+  • Paso 2 alternativo: ArduinoDroid → Sketch → New Sketch → pegar el código → menú ☰ → Board → ESP32 Dev Module → ✓ compilar → → subir.
+  • Paso 3 alternativo: en ArduinoDroid, menú ☰ → Serial Monitor → confirmar 115200 baud → en el selector de 'Line ending' elegir 'Newline' (NL) → escribir el comando en el campo inferior → 'Send'.
+  • El comportamiento del LED y de las respuestas es IDÉNTICO al de PC.
 
 🧪 PASO 4 — Probar los 3 comandos
   • Escribir '1' + Enter → LED enciende. Serial debe imprimir 'LED encendido'.
@@ -2289,7 +2324,9 @@ void loop() {
       ultimoCambio = millis();
     }
   }
-}`,product:`Proyecto Programa_08_Serial_Control: el LED responde a 3 comandos ('1', '0', 'p') enviados desde el Serial Monitor. Captura del Serial mostrando los tres comandos enviados y sus respuestas + foto del LED parpadeando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Dos conceptos nuevos importantes que es bueno reforzar: (1) la diferencia entre el CARÁCTER '1' (comillas simples) y el NÚMERO 1 — esta confusión va a aparecer toda la carrera, hoy es un buen momento para asentarla. Mostrar en pizarra: ASCII '1' = 49, '0' = 48, 'p' = 112. (2) millis() vs delay() es probablemente el cambio mental más grande del semestre — la idea de que el código no se 'pausa' sino que sigue dando vueltas y compara tiempos. Si alguien lo entiende a la primera, está listo para programar interfaces interactivas. Sobre el 'Newline' del Serial Monitor: es la causa #1 de 'no me funciona' — si el alumno deja 'No line ending', los comandos llegan pero los Serial.read() pueden no procesarlos como espera. Verificar en la barra inferior. Sobre el experimento A (carácter inválido como 'x'): el código simplemente IGNORA — buena oportunidad para discutir 'manejo defensivo' (no truena con entrada inesperada). Si alguien va rápido, retarlo a agregar un comando 'h' (help) que reimprima la lista de comandos.`}],cierre:`Hoy cerramos el círculo: armaron físicamente el circuito que la semana pasada quedó solo en teoría, y enseguida lo controlaron desde el Serial Monitor con tres comandos simples. El ESP32 ya no es una abstracción — es una pieza de hardware que obedece lo que escribes.`,frase_docente:`Un buen circuito no es el más complicado — es el que aguanta la siguiente clase sin que tengas que rearmarlo.`},{id:`wed`,label:`Miércoles — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. El martes armaron el circuito físico y controlaron el LED desde el Serial Monitor — un paso enorme. Lo que viene en jueves y en las semanas siguientes amplía ese mismo patrón con más comandos, sensores y conectividad.
+}`,product:`Proyecto Programa_08_Serial_Control: el LED responde a 3 comandos ('1', '0', 'p') enviados desde el Serial Monitor. Captura del Serial mostrando los tres comandos enviados y sus respuestas + foto del LED parpadeando.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Dos conceptos nuevos importantes que es bueno reforzar: (1) la diferencia entre el CARÁCTER '1' (comillas simples) y el NÚMERO 1 — esta confusión va a aparecer toda la carrera, hoy es un buen momento para asentarla. Mostrar en pizarra: ASCII '1' = 49, '0' = 48, 'p' = 112. (2) millis() vs delay() es probablemente el cambio mental más grande del semestre — la idea de que el código no se 'pausa' sino que sigue dando vueltas y compara tiempos. Si alguien lo entiende a la primera, está listo para programar interfaces interactivas. Sobre el 'Newline' del Serial Monitor: es la causa #1 de 'no me funciona' — si el alumno deja 'No line ending', los comandos llegan pero los Serial.read() pueden no procesarlos como espera. Verificar en la barra inferior. Sobre el experimento A (carácter inválido como 'x'): el código simplemente IGNORA — buena oportunidad para discutir 'manejo defensivo' (no truena con entrada inesperada). Si alguien va rápido, retarlo a agregar un comando 'h' (help) que reimprima la lista de comandos.
+
+📱 SOBRE EL FLUJO ANDROID: El Serial Monitor de ArduinoDroid acepta exactamente los mismos comandos ('1', '0', 'p') y muestra las mismas respuestas que en PC. La única curva de aprendizaje extra es ubicar dónde está el selector de 'Line ending' dentro de la app (suele estar en el menú de configuración del Serial Monitor, no en la barra principal). Si un alumno reporta que 'no responde el ESP32 a sus comandos' en ArduinoDroid, el primer check es ese: Line ending = Newline. Probado en Honor X8a — funciona idéntico al de PC.`}],cierre:`Hoy cerramos el círculo: armaron físicamente el circuito que la semana pasada quedó solo en teoría, y enseguida lo controlaron desde el Serial Monitor con tres comandos simples. El ESP32 ya no es una abstracción — es una pieza de hardware que obedece lo que escribes.`,frase_docente:`Un buen circuito no es el más complicado — es el que aguanta la siguiente clase sin que tengas que rearmarlo.`},{id:`wed`,label:`Miércoles — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Hoy no hay sesión de MTHS. El martes armaron el circuito físico y controlaron el LED desde el Serial Monitor — un paso enorme. Lo que viene en jueves y en las semanas siguientes amplía ese mismo patrón con más comandos, sensores y conectividad.
 
 📌 RECORDATORIO
 Si el martes no terminaste el Programa 08 (control desde Serial), aprovecha hoy en casa para repasarlo. El circuito queda armado y los códigos están guardados — solo necesitas conectar el ESP32 y volver a probar los comandos '1', '0' y 'p'.`,notebook:`Repaso voluntario:
