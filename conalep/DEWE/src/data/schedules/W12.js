@@ -329,6 +329,22 @@ export const W12 = {
       ],
       cierre: "Sesión por definir.",
       frase_docente: "El cierre de semana es momento para mirar atrás antes de seguir."
+    },
+    {
+      id: "dual",
+      label: "Repositorio de Actividades Duales (Semana 12)",
+      activities: [
+        {
+          title: "Lunes H1 — Variables y Tipos en JavaScript",
+          instruction: "Cheat-sheet de referencia rápida para la primera hora del lunes. Tenla abierta mientras escribes en la consola: let vs const, los 5 tipos básicos, template literals y la trampa de prompt() devolviendo siempre string.",
+          image: "dewe_w12_info01.png"
+        },
+        {
+          title: "Lunes H2 — Conectar JS al HTML",
+          instruction: "Guía paso a paso para la segunda hora: estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script con if/else. Úsala como referencia mientras armas tu primer archivo .js.",
+          image: "dewe_w12_info02.png"
+        }
+      ]
     }
   ]
 };
