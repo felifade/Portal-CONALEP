@@ -188,6 +188,33 @@ export const W12 = {
         },
         {
           time: "Hora 2",
+          title: "🌧️ Cancelado por lluvia",
+          theory: "Esta hora se canceló porque se suspendieron las clases por lluvia el lunes. El contenido planeado para esta hora (Primer script real — vincular js/script.js al HTML) se reprogramó para el jueves de esta misma semana.\n\n📌 ¿QUÉ DEBES HACER?\nRevisa la pestaña del jueves — ahí está la sesión completa de Primer Script Real con if/else, prompt y alert. No hay actividad obligatoria para este día.",
+          notebook: "Sin libreta — hora cancelada por suspensión de clases.",
+          practice: "Sin práctica — hora cancelada por suspensión de clases.",
+          product: "Sin entregable.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Lunes suspendido por lluvia. Contenido movido al jueves. Si algún alumno pregunta, indicar que el jueves se cubre lo de hoy."
+        },
+        {
+          time: "Hora 3",
+          title: "🌧️ Cancelado por lluvia",
+          theory: "Esta hora también se canceló por suspensión de clases. La sesión continúa el jueves con el primer script .js conectado al HTML.\n\n📌 ¿QUÉ DEBES HACER?\nSi te queda tiempo en casa, repasa lo que vimos en la Hora 1 (Variables y Tipos) — el jueves construimos sobre eso.",
+          notebook: "Sin libreta — hora cancelada por suspensión de clases.",
+          practice: "Sin práctica — hora cancelada por suspensión de clases.",
+          product: "Sin entregable.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Día suspendido. Contenido reagendado al jueves."
+        }
+      ],
+      cierre: "Hoy solo alcanzamos a ver Variables y Tipos. Las dos horas restantes se cancelaron por suspensión de clases (lluvia) y se reagendaron al jueves.",
+      frase_docente: "Lo que esta semana parece detalle (let vs const, comillas vs backticks) la próxima semana es la diferencia entre código que corre y código que se rompe."
+    },
+    {
+      id: "thu",
+      label: "Jueves — 🟨 JavaScript: Primer script real (reprogramado desde lunes)",
+      purpose: "Sesión reprogramada desde el lunes (suspendido por lluvia). Hoy construimos el primer archivo .js conectado al HTML (H1) y lo extendemos con rangos por edad usando if/else if (H2).",
+      hours: [
+        {
+          time: "Hora 1",
           title: "📄 Primer script real — JS fuera de la consola",
           theory: "La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.\n\n📁 ESTRUCTURA RECOMENDADA\nDentro de la carpeta del sitio Resident Evil:\n  index.html\n  css/style.css\n  js/script.js     ← lo creamos hoy\n\n🔗 CÓMO VINCULAR EL JS AL HTML\nDentro del <head> o justo antes del </body> del index.html se agrega:\n\n  <script src=\"js/script.js\" defer></script>\n\n• src apunta al archivo JS.\n• defer le dice al navegador: \"descarga el script mientras lees el HTML, pero ejecútalo después de que el HTML esté listo\". Es la opción más segura.\n\n💡 BUENA PRÁCTICA: COMENTARIOS\nLos comentarios en JS se escriben así:\n\n  // comentario de una sola línea\n  /* comentario\n     de varias líneas */\n\nLos comentarios no se ejecutan — sirven para explicarle al lector (incluido tu yo del futuro) qué hace el código.\n\n🎯 OBJETIVO DE LA HORA\nQue cada alumno tenga su primer archivo .js vinculado al HTML, ejecutándose al cargar el sitio, con un programa que interactúa con el usuario.",
           notebook: "1. ¿Por qué movemos el JS de la consola a un archivo .js?\n2. ¿Qué hace el atributo defer en la etiqueta <script>?\n3. ¿Dónde se debe colocar la etiqueta <script> dentro del HTML?\n4. ¿Cómo se escribe un comentario de una sola línea en JS?\n5. ¿Qué pasaría si quitamos el defer y el script intenta tocar un elemento que aún no se ha cargado?",
@@ -291,27 +318,19 @@ export const W12 = {
           product: "Carpeta js/ creada con script.js dentro, vinculada al index.html con defer, ejecutándose al cargar la página, con un programa interactivo que pregunta nombre y edad, asigna un rango con if/else y muestra un mensaje personalizado.",
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es LA hora más importante de la semana — los alumnos pasan de probar líneas sueltas a tener un archivo JS de verdad. Insistir en guardar antes de recargar. Errores frecuentes: olvidar las comillas, escribir Console.log con C mayúscula, mezclar comillas dobles y simples en un mismo string. El if/else es la primera vez que ven una estructura de control — anticiparles que la próxima semana lo formalizamos. Si alguien pregunta por la IA: \"Hoy escribimos el código a mano. La IA es útil cuando ya entiendes lo que escribe.\" Cierre del corte: este script demuestra que el alumno SÍ puede escribir JS sin depender de la IA."
         }
-      ],
-      cierre: "Variables, tipos y un archivo .js conectado al HTML — la base sobre la que vivirá todo el JavaScript del resto del semestre.",
-      frase_docente: "Lo que esta semana parece detalle (let vs const, comillas vs backticks) la próxima semana es la diferencia entre código que corre y código que se rompe."
-    },
-    {
-      id: "thu",
-      label: "Jueves — 🚧 Por planear",
-      purpose: "Sesión pendiente de planeación. Se confirmará después de revisar el avance del lunes.",
-      hours: [
+,
         {
-          time: "🚧 Por planear",
-          title: "🚧 Sesión por planear",
-          theory: "Esta sesión se planeará después de evaluar lo avanzado el lunes. Posibles direcciones:\n\n• Profundizar en estructuras de control (if/else, switch).\n• Empezar con eventos del DOM (addEventListener).\n• Reforzar lo del lunes si el grupo necesita más práctica.\n\n📌 PARA EL ALUMNO\nMantén tu carpeta del proyecto Resident Evil al día y trae tu script.js funcionando del lunes — sobre eso construiremos.",
-          notebook: "Sin libreta — sesión por confirmar.",
-          practice: "Sin práctica obligatoria — sesión por confirmar.",
-          product: "Por definir.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Decidir el contenido en función del avance del lunes. Si el grupo cerró Variables y Primer Script real con solvencia, avanzar a if/else o eventos. Si quedaron dudas, reforzar."
+          time: "Hora 2",
+          title: "🔨 Práctica: extender el script.js con más rangos",
+          theory: "Tienes tu primer script.js funcionando con dos rangos (Agente / Cadete). Esta hora vamos a extenderlo: agregar más rangos según la edad, validar entradas y mejorar los mensajes.\n\n🎯 OBJETIVOS DE LA HORA\n• Practicar if/else if/else con múltiples condiciones.\n• Validar que el usuario haya escrito algo (no haya pulsado Cancelar).\n• Mejorar el mensaje final con datos completos.\n• Empezar a pensar como programador: ¿qué pasa si el usuario hace algo inesperado?\n\n📐 NUEVOS RANGOS\n• Menor de 13       → 'Recluta'\n• Entre 13 y 17     → 'Cadete'\n• Entre 18 y 59     → 'Agente'\n• 60 o más          → 'Veterano'\n\n🛡️ VALIDACIÓN BÁSICA\nSi el usuario pulsa Cancelar en un prompt, devuelve null. Si solo pulsa OK sin escribir, devuelve cadena vacía \"\". Hay que detectar ambos casos con un if antes de seguir.",
+          notebook: "1. ¿Qué devuelve prompt() si el usuario pulsa Cancelar?\n2. ¿Qué devuelve prompt() si pulsa OK sin escribir nada?\n3. ¿Cuántas condiciones tiene tu if/else if/else extendido?\n4. ¿Qué pasaría si el usuario escribe 'veinte' en lugar de '20'?",
+          practice: "Modifica tu script.js del jueves H1 para incluir:\n\n```js\n// 1. Validación de entradas\nif (nombre === null || nombre.trim() === \"\") {\n  alert(\"Necesitas escribir un nombre para continuar.\");\n} else {\n  // continuar con el flujo normal\n}\n\n// 2. Rangos extendidos\nlet rango;\nif (edad < 13) {\n  rango = \"Recluta\";\n} else if (edad < 18) {\n  rango = \"Cadete\";\n} else if (edad < 60) {\n  rango = \"Agente\";\n} else {\n  rango = \"Veterano\";\n}\n\n// 3. Mensaje final mejorado con template literal multilínea\nconst mensaje = `\n🧟 Bienvenido a Raccoon City\n────────────────────────\nNombre:  ${nombre}\nEdad:    ${edad} años\nRango:   ${rango}\n────────────────────────\nLa misión comienza ahora.\n`;\n\nalert(mensaje);\nconsole.log(mensaje);\n```\n\nGuarda como 'Programa_RaccoonCity_v2'. Verifica los 4 rangos probando edades distintas.",
+          product: "script.js actualizado con 4 rangos por edad, validación de entrada y mensaje final mejorado. Capturas o evidencia de los 4 rangos funcionando (probar con edades 10, 15, 30, 70).",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es la primera vez que ven if/else if/else con múltiples ramas — buen momento para discutir orden de las condiciones (importa que vayan de menor a mayor para que la lógica caiga bien). La validación de prompt (null vs string vacío) es un patrón que verán mucho. Si alguien ya terminó: invitarlos a agregar un quinto rango secreto si el nombre coincide con un personaje (Leon, Claire, Jill — cualquier coincidencia es 'Personaje Principal')."
         }
       ],
-      cierre: "Sesión por definir.",
-      frase_docente: "Planear sobre la marcha es legítimo — siempre que sepas qué viste y qué falta."
+      cierre: "Reagendamos el lunes en el jueves — la lluvia no detiene el aprendizaje, solo lo cambia de día.",
+      frase_docente: "Adaptar el calendario también es parte del oficio docente — lo importante no es cuándo, sino que pase."
     },
     {
       id: "fri",
@@ -341,8 +360,8 @@ export const W12 = {
           image: "dewe_w12_info01.png"
         },
         {
-          title: "Lunes H2 — Conectar JS al HTML",
-          instruction: "Guía paso a paso para la segunda hora: estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script con if/else. Úsala como referencia mientras armas tu primer archivo .js.",
+          title: "Jueves H1 — Conectar JS al HTML (reprogramado)",
+          instruction: "Guía paso a paso para la sesión del jueves (originalmente lunes H2, movido por suspensión de clases por lluvia): estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script con if/else.",
           image: "dewe_w12_info02.png"
         }
       ]
