@@ -192,8 +192,8 @@ export const W12 = {
     },
     {
       id: "thu",
-      label: "Jueves — 🟨 JavaScript: del setup al primer programa con if/else (3h)",
-      purpose: "Sesión extendida de 3h que absorbe lo que no alcanzamos el lunes. H1: conectar el archivo script.js al HTML (setup limpio). H2: primer programa interactivo con prompt + alert + if/else. H3: extender a 4 rangos por edad con if/else if y validación de entradas.",
+      label: "Jueves — 🟨 JavaScript: del setup al primer programa con if/else",
+      purpose: "Sesión de 2h que reabsorbe parte del contenido perdido del lunes. H1: conectar el archivo script.js al HTML (setup limpio + mensaje de carga). H2: primer programa interactivo con prompt + alert + if/else (2 rangos: Agente / Cadete).",
       hours: [
         {
           time: "Hora 1",
@@ -310,19 +310,9 @@ export const W12 = {
           product: "script.js extendido del H1 que pregunta nombre y edad, asigna rango con if/else (Agente o Cadete), y muestra mensaje de bienvenida personalizado con template literal. Guardar como 'Programa_Bienvenida'.",
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es LA hora donde el alumno SIENTE el poder de JavaScript — pide algo, decide, responde. Tres conceptos nuevos a la vez (prompt/alert, Number(), if/else) — vigila quién se está perdiendo. La trampa de 'string vs number' es la fuente #1 de errores: si alguien dice 'no me suma bien', probablemente olvidó el Number(). El template literal con backticks puede confundir vs comillas dobles — recordar que el carácter ` está a la izquierda del 1. La H3 formalizará if/else if/else con más rangos."
         }
-,
-        {
-          time: "Hora 3",
-          title: "🔨 Extender el script.js — 4 rangos por edad + validación",
-          theory: "Tienes tu primer script.js funcionando con dos rangos (Agente / Cadete). Esta hora vamos a extenderlo: agregar más rangos según la edad, validar entradas y mejorar los mensajes.\n\n🎯 OBJETIVOS DE LA HORA\n• Practicar if/else if/else con múltiples condiciones.\n• Validar que el usuario haya escrito algo (no haya pulsado Cancelar).\n• Mejorar el mensaje final con datos completos.\n• Empezar a pensar como programador: ¿qué pasa si el usuario hace algo inesperado?\n\n📐 NUEVOS RANGOS\n• Menor de 13       → 'Recluta'\n• Entre 13 y 17     → 'Cadete'\n• Entre 18 y 59     → 'Agente'\n• 60 o más          → 'Veterano'\n\n🛡️ VALIDACIÓN BÁSICA\nSi el usuario pulsa Cancelar en un prompt, devuelve null. Si solo pulsa OK sin escribir, devuelve cadena vacía \"\". Hay que detectar ambos casos con un if antes de seguir.",
-          notebook: "1. ¿Qué devuelve prompt() si el usuario pulsa Cancelar?\n2. ¿Qué devuelve prompt() si pulsa OK sin escribir nada?\n3. ¿Cuántas condiciones tiene tu if/else if/else extendido?\n4. ¿Qué pasaría si el usuario escribe 'veinte' en lugar de '20'?",
-          practice: "Modifica tu script.js del jueves H1 para incluir:\n\n```js\n// 1. Validación de entradas\nif (nombre === null || nombre.trim() === \"\") {\n  alert(\"Necesitas escribir un nombre para continuar.\");\n} else {\n  // continuar con el flujo normal\n}\n\n// 2. Rangos extendidos\nlet rango;\nif (edad < 13) {\n  rango = \"Recluta\";\n} else if (edad < 18) {\n  rango = \"Cadete\";\n} else if (edad < 60) {\n  rango = \"Agente\";\n} else {\n  rango = \"Veterano\";\n}\n\n// 3. Mensaje final mejorado con template literal multilínea\nconst mensaje = `\n🧟 Bienvenido a Raccoon City\n────────────────────────\nNombre:  ${nombre}\nEdad:    ${edad} años\nRango:   ${rango}\n────────────────────────\nLa misión comienza ahora.\n`;\n\nalert(mensaje);\nconsole.log(mensaje);\n```\n\nGuarda como 'Programa_RaccoonCity_v2'. Verifica los 4 rangos probando edades distintas.",
-          product: "script.js actualizado con 4 rangos por edad, validación de entrada y mensaje final mejorado. Capturas o evidencia de los 4 rangos funcionando (probar con edades 10, 15, 30, 70).",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es la primera vez que ven if/else if/else con múltiples ramas — buen momento para discutir orden de las condiciones (importa que vayan de menor a mayor para que la lógica caiga bien). La validación de prompt (null vs string vacío) es un patrón que verán mucho. Si alguien ya terminó: invitarlos a agregar un quinto rango secreto si el nombre coincide con un personaje (Leon, Claire, Jill — cualquier coincidencia es 'Personaje Principal')."
-        }
       ],
-      cierre: "Tres horas para hacer lo que normalmente eran dos — el lunes nos quitó tiempo, pero la lluvia no quitó aprendizaje.",
-      frase_docente: "Distribuir el contenido para que respire mejor — a veces menos prisa enseña más que el plan original."
+      cierre: "Dos horas, dos pasos: conectar el archivo y hacerlo hablar. El viernes le ponemos más músculo al programa.",
+      frase_docente: "Primero que conecte, luego que decida — la lógica viene después del cableado."
     },
     {
       id: "fri",
