@@ -4,8 +4,8 @@ export const W12 = {
   days: [
     {
       id: "mon",
-      label: "Lunes — 🟨 JavaScript (continuación): variables, tipos y primer script real",
-      purpose: "Retomar JavaScript donde lo dejamos en la W11. Hoy formalizamos las variables, los 5 tipos básicos y los template literals (H1), y luego construimos el primer archivo .js conectado al HTML con un programa de bienvenida (H2).",
+      label: "Lunes — 🟨 JavaScript: Variables y Tipos (solo H1, resto reagendado)",
+      purpose: "Hoy solo alcanzamos a ver Variables y Tipos (H1). El resto de la sesión planeada (Primer script real + extensión) se reagendó al jueves, repartido en 3 horas para tener tiempo de hacerlo bien.",
       hours: [
         {
           time: "Hora 1",
@@ -186,39 +186,21 @@ export const W12 = {
           product: "Las 5 respuestas en libreta + ejecución completa de los 9 pasos en consola. El alumno debe poder explicar por qué el paso 8 devuelve \"string\" aunque escriba un número.",
           teacherNotes: "👨‍🏫 NOTA DOCENTE: El paso 4 es el experimento clave para entender const — vale la pena dejar que TODOS lo prueben y vean el TypeError. El paso 8-9 introduce el problema de la conversión de tipos: prompt siempre devuelve string. Si el grupo viene rápido, mostrar también que prompt(\"...\") + 5 da \"175\" (concatenación) en lugar de 22 (suma) — es un error real que cometerán pronto."
         },
-        {
-          time: "Hora 2",
-          title: "🌧️ Cancelado por lluvia",
-          theory: "Esta hora se canceló porque se suspendieron las clases por lluvia el lunes. El contenido planeado para esta hora (Primer script real — vincular js/script.js al HTML) se reprogramó para el jueves de esta misma semana.\n\n📌 ¿QUÉ DEBES HACER?\nRevisa la pestaña del jueves — ahí está la sesión completa de Primer Script Real con if/else, prompt y alert. No hay actividad obligatoria para este día.",
-          notebook: "Sin libreta — hora cancelada por suspensión de clases.",
-          practice: "Sin práctica — hora cancelada por suspensión de clases.",
-          product: "Sin entregable.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Lunes suspendido por lluvia. Contenido movido al jueves. Si algún alumno pregunta, indicar que el jueves se cubre lo de hoy."
-        },
-        {
-          time: "Hora 3",
-          title: "🌧️ Cancelado por lluvia",
-          theory: "Esta hora también se canceló por suspensión de clases. La sesión continúa el jueves con el primer script .js conectado al HTML.\n\n📌 ¿QUÉ DEBES HACER?\nSi te queda tiempo en casa, repasa lo que vimos en la Hora 1 (Variables y Tipos) — el jueves construimos sobre eso.",
-          notebook: "Sin libreta — hora cancelada por suspensión de clases.",
-          practice: "Sin práctica — hora cancelada por suspensión de clases.",
-          product: "Sin entregable.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Día suspendido. Contenido reagendado al jueves."
-        }
       ],
-      cierre: "Hoy solo alcanzamos a ver Variables y Tipos. Las dos horas restantes se cancelaron por suspensión de clases (lluvia) y se reagendaron al jueves.",
+      cierre: "Variables y tipos quedaron firmes. El primer script real lo construiremos el jueves con calma, repartido en 3 horas.",
       frase_docente: "Lo que esta semana parece detalle (let vs const, comillas vs backticks) la próxima semana es la diferencia entre código que corre y código que se rompe."
     },
     {
       id: "thu",
-      label: "Jueves — 🟨 JavaScript: Primer script real (reprogramado desde lunes)",
-      purpose: "Sesión reprogramada desde el lunes (suspendido por lluvia). Hoy construimos el primer archivo .js conectado al HTML (H1) y lo extendemos con rangos por edad usando if/else if (H2).",
+      label: "Jueves — 🟨 JavaScript: del setup al primer programa con if/else (3h)",
+      purpose: "Sesión extendida de 3h que absorbe lo que no alcanzamos el lunes. H1: conectar el archivo script.js al HTML (setup limpio). H2: primer programa interactivo con prompt + alert + if/else. H3: extender a 4 rangos por edad con if/else if y validación de entradas.",
       hours: [
         {
           time: "Hora 1",
-          title: "📄 Primer script real — JS fuera de la consola",
-          theory: "La consola está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga. Hoy creamos el primer script propio del sitio.\n\n📁 ESTRUCTURA RECOMENDADA\nDentro de la carpeta del sitio Resident Evil:\n  index.html\n  css/style.css\n  js/script.js     ← lo creamos hoy\n\n🔗 CÓMO VINCULAR EL JS AL HTML\nDentro del <head> o justo antes del </body> del index.html se agrega:\n\n  <script src=\"js/script.js\" defer></script>\n\n• src apunta al archivo JS.\n• defer le dice al navegador: \"descarga el script mientras lees el HTML, pero ejecútalo después de que el HTML esté listo\". Es la opción más segura.\n\n💡 BUENA PRÁCTICA: COMENTARIOS\nLos comentarios en JS se escriben así:\n\n  // comentario de una sola línea\n  /* comentario\n     de varias líneas */\n\nLos comentarios no se ejecutan — sirven para explicarle al lector (incluido tu yo del futuro) qué hace el código.\n\n🎯 OBJETIVO DE LA HORA\nQue cada alumno tenga su primer archivo .js vinculado al HTML, ejecutándose al cargar el sitio, con un programa que interactúa con el usuario.",
+          title: "🔗 Conectar el archivo script.js al HTML",
+          theory: "La consola del navegador está bien para experimentar, pero el JS de verdad vive en archivos .js que el HTML carga al abrir la página. Esta hora la dedicamos solo a UNA cosa: crear el archivo y conectarlo correctamente. El programa con prompt y alert lo escribimos en la H2.\n\n📁 ESTRUCTURA RECOMENDADA\nDentro de la carpeta del sitio Resident Evil:\n  index.html\n  css/style.css\n  js/script.js     ← lo creamos hoy\n\nCada tipo de archivo en su propia carpeta. Igual que el CSS vive en css/, el JS vive en js/.\n\n🔗 CÓMO VINCULAR EL JS AL HTML\nDentro del <head> del index.html se agrega:\n\n  <script src=\"js/script.js\" defer></script>\n\n• src apunta a la ruta del archivo JS (relativa al index.html).\n• defer le dice al navegador: \"descarga el script mientras lees el HTML, pero ejecútalo DESPUÉS de que el HTML esté listo\".\n\n💡 BUENA PRÁCTICA: COMENTARIOS\nLos comentarios en JS:\n  // comentario de una sola línea\n  /* comentario\n     de varias líneas */\n\nNo se ejecutan — sirven para explicarle al lector (incluido tu yo del futuro) qué hace el código.\n\n🎯 OBJETIVO DE ESTA HORA\nQue cada alumno tenga su archivo js/script.js creado, vinculado al HTML, mostrando un mensaje de carga en la consola del navegador. Sin código de programa todavía — eso es la próxima hora.",
           notebook: "1. ¿Por qué movemos el JS de la consola a un archivo .js?\n2. ¿Qué hace el atributo defer en la etiqueta <script>?\n3. ¿Dónde se debe colocar la etiqueta <script> dentro del HTML?\n4. ¿Cómo se escribe un comentario de una sola línea en JS?\n5. ¿Qué pasaría si quitamos el defer y el script intenta tocar un elemento que aún no se ha cargado?",
-          practice: "Paso 1 — Crear la estructura.\nDentro de la carpeta del sitio Resident Evil, crear la subcarpeta js/ y dentro un archivo script.js.\n\nPaso 2 — Vincularlo al HTML.\nEn index.html, dentro del <head>, agregar al final de los estilos:\n\n```html\n<script src=\"js/script.js\" defer></script>\n```\n\nPaso 3 — Escribir el primer programa en js/script.js.\n\n```js\n// =====================================================\n// Mi primer script — Sitio Resident Evil\n// Autor: [Tu nombre]\n// Fecha: 11 de mayo\n// =====================================================\n\n// 1. Mensaje de carga (solo lo ves tú en la consola)\nconsole.log(\"✅ script.js cargado correctamente\");\n\n// 2. Pedir el nombre del visitante\nconst nombre = prompt(\"¿Cómo te llamas, sobreviviente?\");\n\n// 3. Pedir la edad y convertirla a número\nconst edadTexto = prompt(\"¿Cuántos años tienes?\");\nconst edad = Number(edadTexto);\n\n// 4. Decidir el rango según la edad\nlet rango;\nif (edad >= 18) {\n  rango = \"Agente\";\n} else {\n  rango = \"Cadete\";\n}\n\n// 5. Mensaje personalizado al usuario\nalert(`Bienvenido a Raccoon City, ${rango} ${nombre}.\\nTienes ${edad} años. La misión comienza ahora.`);\n\n// 6. Confirmación en consola\nconsole.log(`Visitante registrado: ${nombre}, ${edad} años, rango ${rango}`);\n```\n\nPaso 4 — Probar.\nGuardar todo, abrir index.html en el navegador y verificar:\n• La consola muestra el mensaje de carga.\n• Aparecen los dos prompts.\n• El alert muestra el mensaje con nombre y rango.\n• La consola muestra el resumen final.\n\nReto extra (para los rápidos): cambiar el if/else para que también haya un rango \"Recluta\" si la edad es menor de 15.",
+          practice: "Paso 1 — Crear la estructura.\nDentro de la carpeta del sitio Resident Evil, crear la subcarpeta js/ y dentro un archivo script.js.\n\nPaso 2 — Vincular al HTML.\nEn index.html, dentro del <head>, agregar al final de los estilos:\n\n```html\n<script src=\"js/script.js\" defer></script>\n```\n\nPaso 3 — Mensaje mínimo de carga.\nEn js/script.js escribir solamente:\n\n```js\n// =====================================================\n// Mi primer script — Sitio Resident Evil\n// Autor: [Tu nombre]\n// =====================================================\n\nconsole.log(\"✅ script.js cargado correctamente\");\n```\n\nPaso 4 — Probar.\nGuardar todo, abrir index.html en el navegador, abrir DevTools (F12) → pestaña Console. Debe aparecer:\n\n  ✅ script.js cargado correctamente\n\nSi NO aparece:\n• Revisa que la ruta src='js/script.js' coincida con la carpeta real.\n• Revisa que el archivo se llame exactamente script.js (sin espacios, minúsculas).\n• Revisa que el <script> esté dentro de <head> y tenga defer.",
           diagram: `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -315,13 +297,23 @@ export const W12 = {
 </body>
 </html>
 `,
-          product: "Carpeta js/ creada con script.js dentro, vinculada al index.html con defer, ejecutándose al cargar la página, con un programa interactivo que pregunta nombre y edad, asigna un rango con if/else y muestra un mensaje personalizado.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es LA hora más importante de la semana — los alumnos pasan de probar líneas sueltas a tener un archivo JS de verdad. Insistir en guardar antes de recargar. Errores frecuentes: olvidar las comillas, escribir Console.log con C mayúscula, mezclar comillas dobles y simples en un mismo string. El if/else es la primera vez que ven una estructura de control — anticiparles que la próxima semana lo formalizamos. Si alguien pregunta por la IA: \"Hoy escribimos el código a mano. La IA es útil cuando ya entiendes lo que escribe.\" Cierre del corte: este script demuestra que el alumno SÍ puede escribir JS sin depender de la IA."
+          product: "Carpeta js/ creada con archivo script.js dentro, vinculada al index.html con la etiqueta <script src defer>, mostrando el mensaje '✅ script.js cargado correctamente' en la consola del navegador al abrir la página.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora vale por sí sola — no incluye prompt/alert, eso es la H2. El objetivo es que TODOS terminen con un script.js mostrando el mensaje de carga. Errores frecuentes: ruta src equivocada (escribir 'JS/' en lugar de 'js/'), olvidar defer, escribir Console.log con C mayúscula. Si alguien termina rápido, pídele que ayude a sus compañeros — todos deben entrar a la H2 con su archivo funcionando."
         }
 ,
         {
           time: "Hora 2",
-          title: "🔨 Práctica: extender el script.js con más rangos",
+          title: "📝 Primer programa interactivo — prompt, alert e if/else",
+          theory: "Ya tienes tu script.js vinculado al HTML (H1). Ahora vamos a hacerlo INTERACTIVO: que pregunte cosas al usuario y tome decisiones según lo que conteste. Tres herramientas nuevas:\n\n📥 prompt(\"pregunta\") — DEVUELVE LO QUE EL USUARIO ESCRIBE\nMuestra una ventana con una pregunta y un campo de texto. Lo que escriba el usuario lo devuelve como string (texto). Si pulsa Cancelar devuelve null.\n\n  const nombre = prompt(\"¿Cómo te llamas?\");\n\n📢 alert(\"mensaje\") — MUESTRA UNA VENTANA AL USUARIO\nVentana emergente con un solo botón OK. No devuelve nada útil, solo informa.\n\n  alert(\"Bienvenido, agente.\");\n\n⚠️ TRAMPA: prompt SIEMPRE devuelve string\nSi le preguntas la edad y escribe 17, recibes el string \"17\", no el número 17. Para hacer operaciones matemáticas necesitas convertir con Number():\n\n  const edadTexto = prompt(\"¿Cuántos años tienes?\");\n  const edad = Number(edadTexto);\n\nSi haces \"17\" + 5 obtienes \"175\" (concatena). Si haces Number(\"17\") + 5 obtienes 22 (suma).\n\n🚦 if / else — DECIDIR SEGÚN UNA CONDICIÓN\nLa primera estructura de control: hace algo si una condición es verdadera, otra cosa si es falsa.\n\n  if (edad >= 18) {\n    rango = \"Agente\";\n  } else {\n    rango = \"Cadete\";\n  }\n\nLa condición va entre ( ). El bloque entre { } se ejecuta solo si la condición es true.\n\n🎯 OBJETIVO DE ESTA HORA\nQue tu script.js pida nombre y edad al usuario, decida si es Agente (≥18) o Cadete (<18), y muestre un mensaje de bienvenida personalizado con su nombre y rango.",
+          notebook: "1. ¿Qué tipo de dato devuelve siempre prompt()?\n2. ¿Cómo conviertes un string que contiene un número (\"17\") al número 17?\n3. ¿Qué es la diferencia entre alert() y prompt()?\n4. Escribe un if/else que diga \"mayor de edad\" si la edad es ≥ 18, y \"menor\" en otro caso.\n5. ¿Qué devuelve prompt() si el usuario pulsa Cancelar?",
+          practice: "Abre tu js/script.js del H1 (que solo tiene el console.log de carga) y agrega debajo:\n\n```js\n// 1. Pedir el nombre del visitante\nconst nombre = prompt(\"¿Cómo te llamas, sobreviviente?\");\n\n// 2. Pedir la edad y convertirla a número\nconst edadTexto = prompt(\"¿Cuántos años tienes?\");\nconst edad = Number(edadTexto);\n\n// 3. Decidir el rango según la edad\nlet rango;\nif (edad >= 18) {\n  rango = \"Agente\";\n} else {\n  rango = \"Cadete\";\n}\n\n// 4. Mensaje personalizado al usuario\nalert(`Bienvenido a Raccoon City, ${rango} ${nombre}.\\nTienes ${edad} años. La misión comienza ahora.`);\n\n// 5. Confirmación en consola (para el desarrollador)\nconsole.log(`Visitante registrado: ${nombre}, ${edad} años, rango ${rango}`);\n```\n\nGuarda, recarga el index.html en el navegador. Deben aparecer:\n• Dos prompts (nombre y edad)\n• Un alert con el mensaje personalizado\n• En la consola: el resumen final\n\nReto opcional (si terminas rápido): cambia el rango a \"Cadete\" si la edad es menor de 18 PERO mayor de 13, y a \"Recluta\" si es menor de 13. Esto requiere un else if — lo formalizamos en la H3.",
+          product: "script.js extendido del H1 que pregunta nombre y edad, asigna rango con if/else (Agente o Cadete), y muestra mensaje de bienvenida personalizado con template literal. Guardar como 'Programa_Bienvenida'.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es LA hora donde el alumno SIENTE el poder de JavaScript — pide algo, decide, responde. Tres conceptos nuevos a la vez (prompt/alert, Number(), if/else) — vigila quién se está perdiendo. La trampa de 'string vs number' es la fuente #1 de errores: si alguien dice 'no me suma bien', probablemente olvidó el Number(). El template literal con backticks puede confundir vs comillas dobles — recordar que el carácter ` está a la izquierda del 1. La H3 formalizará if/else if/else con más rangos."
+        }
+,
+        {
+          time: "Hora 3",
+          title: "🔨 Extender el script.js — 4 rangos por edad + validación",
           theory: "Tienes tu primer script.js funcionando con dos rangos (Agente / Cadete). Esta hora vamos a extenderlo: agregar más rangos según la edad, validar entradas y mejorar los mensajes.\n\n🎯 OBJETIVOS DE LA HORA\n• Practicar if/else if/else con múltiples condiciones.\n• Validar que el usuario haya escrito algo (no haya pulsado Cancelar).\n• Mejorar el mensaje final con datos completos.\n• Empezar a pensar como programador: ¿qué pasa si el usuario hace algo inesperado?\n\n📐 NUEVOS RANGOS\n• Menor de 13       → 'Recluta'\n• Entre 13 y 17     → 'Cadete'\n• Entre 18 y 59     → 'Agente'\n• 60 o más          → 'Veterano'\n\n🛡️ VALIDACIÓN BÁSICA\nSi el usuario pulsa Cancelar en un prompt, devuelve null. Si solo pulsa OK sin escribir, devuelve cadena vacía \"\". Hay que detectar ambos casos con un if antes de seguir.",
           notebook: "1. ¿Qué devuelve prompt() si el usuario pulsa Cancelar?\n2. ¿Qué devuelve prompt() si pulsa OK sin escribir nada?\n3. ¿Cuántas condiciones tiene tu if/else if/else extendido?\n4. ¿Qué pasaría si el usuario escribe 'veinte' en lugar de '20'?",
           practice: "Modifica tu script.js del jueves H1 para incluir:\n\n```js\n// 1. Validación de entradas\nif (nombre === null || nombre.trim() === \"\") {\n  alert(\"Necesitas escribir un nombre para continuar.\");\n} else {\n  // continuar con el flujo normal\n}\n\n// 2. Rangos extendidos\nlet rango;\nif (edad < 13) {\n  rango = \"Recluta\";\n} else if (edad < 18) {\n  rango = \"Cadete\";\n} else if (edad < 60) {\n  rango = \"Agente\";\n} else {\n  rango = \"Veterano\";\n}\n\n// 3. Mensaje final mejorado con template literal multilínea\nconst mensaje = `\n🧟 Bienvenido a Raccoon City\n────────────────────────\nNombre:  ${nombre}\nEdad:    ${edad} años\nRango:   ${rango}\n────────────────────────\nLa misión comienza ahora.\n`;\n\nalert(mensaje);\nconsole.log(mensaje);\n```\n\nGuarda como 'Programa_RaccoonCity_v2'. Verifica los 4 rangos probando edades distintas.",
@@ -329,8 +321,8 @@ export const W12 = {
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es la primera vez que ven if/else if/else con múltiples ramas — buen momento para discutir orden de las condiciones (importa que vayan de menor a mayor para que la lógica caiga bien). La validación de prompt (null vs string vacío) es un patrón que verán mucho. Si alguien ya terminó: invitarlos a agregar un quinto rango secreto si el nombre coincide con un personaje (Leon, Claire, Jill — cualquier coincidencia es 'Personaje Principal')."
         }
       ],
-      cierre: "Reagendamos el lunes en el jueves — la lluvia no detiene el aprendizaje, solo lo cambia de día.",
-      frase_docente: "Adaptar el calendario también es parte del oficio docente — lo importante no es cuándo, sino que pase."
+      cierre: "Tres horas para hacer lo que normalmente eran dos — el lunes nos quitó tiempo, pero la lluvia no quitó aprendizaje.",
+      frase_docente: "Distribuir el contenido para que respire mejor — a veces menos prisa enseña más que el plan original."
     },
     {
       id: "fri",
@@ -360,8 +352,8 @@ export const W12 = {
           image: "dewe_w12_info01.png"
         },
         {
-          title: "Jueves H1 — Conectar JS al HTML (reprogramado)",
-          instruction: "Guía paso a paso para la sesión del jueves (originalmente lunes H2, movido por suspensión de clases por lluvia): estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script con if/else.",
+          title: "Jueves — Conectar JS al HTML + Primer programa con if/else",
+          instruction: "Guía completa de las 3 horas del jueves (sesión reprogramada del lunes por suspensión por lluvia): estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script interactivo con prompt + alert + if/else. Tenla abierta durante toda la sesión.",
           image: "dewe_w12_info02.png"
         }
       ]
