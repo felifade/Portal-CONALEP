@@ -392,21 +392,170 @@ export const W12 = {
     },
     {
       id: "wed",
-      label: "Miércoles — 📅 Sin actividades programadas",
-      purpose: "Día sin sesión de MTHS. No hay actividades programadas para esta jornada.",
+      label: "Miércoles — 🔧 Cargar el Programa 03: alternativas cuando ArduinoDroid falla",
+      purpose: "Garantizar que TODO alumno tenga el Programa 03 (control del LED desde Serial: '1' encender, '0' apagar, 'p' parpadear) corriendo en su ESP32. Si ArduinoDroid no logró cargar el programa desde la tablet, hoy probamos 4 vías alternativas escalonadas.",
       hours: [
         {
-          time: "📅 Sin sesión",
-          title: "📅 Sin actividades programadas",
-          theory: "Hoy no hay sesión de MTHS. El martes armaron el circuito físico y controlaron el LED desde el Serial Monitor — un paso enorme. Lo que viene en jueves y en las semanas siguientes amplía ese mismo patrón con más comandos, sensores y conectividad.\n\n📌 RECORDATORIO\nSi el martes no terminaste el Programa 08 (control desde Serial), aprovecha hoy en casa para repasarlo. El circuito queda armado y los códigos están guardados — solo necesitas conectar el ESP32 y volver a probar los comandos '1', '0' y 'p'.",
-          notebook: "Repaso voluntario:\n1. ¿Cuál fue la diferencia entre el sketch Blink (Hora 1) y el Programa 08 (Hora 2)?\n2. ¿Qué hace exactamente Serial.available() en cada vuelta del loop()?\n3. ¿Por qué millis() permite que el parpadeo se interrumpa con un comando?",
-          practice: "Sin práctica obligatoria. Reto opcional: agrega un comando 'h' (help) al Programa 08 que reimprima la lista de comandos disponibles cuando el alumno lo presione.",
-          product: "Sin entregable.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Día sin sesión. Si algún alumno se acerca con dudas del martes, reforzar dos conceptos: (1) el carácter '1' es distinto del número 1, (2) millis() vs delay() — son la base de TODO lo que sigue."
+          time: "Hora 1",
+          title: "🔧 Programa 03: Control del LED desde Serial — 4 alternativas para cargarlo",
+          theory: "El martes muchos no lograron cargar el programa desde ArduinoDroid en la tablet — el flujo Android es prometedor pero a veces falla por librerías, permisos USB o el modo BOOT del ESP32. Hoy ofrecemos 4 caminos: si uno falla, pasamos al siguiente. La meta es que TODOS terminen la clase con el Programa 03 funcionando — no importa por cuál vía.\n\n🛣️ LAS 4 VÍAS (en orden de cercanía a lo que ya intentaron)\n\n📱 VÍA A — Re-intentar ArduinoDroid con ajustes\nA veces ArduinoDroid funciona con pequeños retoques:\n• Limpiar caché de la app: Ajustes de Android → Apps → ArduinoDroid → Almacenamiento → Borrar caché.\n• Forzar permisos USB: desconectar el ESP32, abrir ArduinoDroid, conectar el ESP32, en el diálogo emergente tocar 'Permitir' Y marcar 'Usar de forma predeterminada'.\n• Botón BOOT: durante el Upload, mantener presionado el botón BOOT del ESP32 hasta que el progreso empiece a avanzar.\n\n📱 VÍA B — Bluino Loader (alternativa Android)\nOtra app Arduino-compatible para Android, suele ser más estable que ArduinoDroid con ESP32:\n• Buscar en Play Store: 'Bluino Loader Arduino IDE'.\n• Gratis con anuncios.\n• Soporta ESP32 nativamente.\n• Mismo cable OTG, mismo adaptador.\n\n💻 VÍA C — Caer al flujo PC (Arduino IDE Windows)\nLa opción más segura — el flujo que documentamos el martes Hora 1 funciona sin sorpresas:\n• Arduino IDE en la PC del aula (o tuya).\n• Tools → Board → ESP32 Dev Module · Port → COMx.\n• Verificar (✓) → Subir (→).\n\n🌐 VÍA D — Wokwi (simulador web, sin hardware)\nSi NADA de lo anterior funciona, no perdemos la clase:\n• Abrir https://wokwi.com en cualquier navegador (PC, tablet o celular).\n• Crear un nuevo proyecto ESP32.\n• Armar el mismo circuito virtual: LED en GPIO 2 + R 220Ω + GND.\n• Pegar el código del Programa 03 y presionar ▶ (play).\n• Wokwi tiene su propio Serial Monitor — funciona idéntico al de Arduino IDE.\n• Aunque no es hardware real, EL APRENDIZAJE ES EL MISMO. Hardware queda como tarea para casa.\n\n💡 BONUS — Serial USB Terminal (solo monitor)\nSi YA cargaste el programa antes (en PC o ArduinoDroid) pero ahora solo quieres mandar comandos desde la tablet:\n• Instalar 'Serial USB Terminal' (Kai Morich) — gratis, Play Store.\n• Conectar el ESP32 por OTG.\n• Configurar 115200 baud + Newline.\n• Escribir '1', '0', 'p' y mandar.\n\nNo compila ni sube código — solo es Serial Monitor por USB. Perfecto cuando el problema NO era el código sino el Serial Monitor de ArduinoDroid.",
+          notebook: "Título: Plan B cuando la herramienta falla.\n1. ¿En qué paso exacto se atoró ArduinoDroid en tu tablet el martes? (no compiló / no detectó el ESP32 / 'Connecting...' eterno / Serial Monitor no responde a los comandos)\n2. ¿Cuál de las 4 vías terminó funcionando para ti? ¿Por qué?\n3. Ventajas de cada vía con tus palabras (rápido / sin internet / sin PC / etc.).\n4. Si tuvieras que prepararle el ESP32 a un compañero nuevo el próximo semestre, ¿cuál vía le recomendarías primero?\n5. ¿Qué aprendiste hoy sobre 'cuando una herramienta falla, hay que tener un plan B'?",
+          practice: "🕐 ESTRUCTURA DE LA HORA (60 min)\n\n10 min — DIAGNÓSTICO PERSONAL\n  • Cada alumno anota en su libreta dónde exactamente se atoró ArduinoDroid el martes.\n  • El docente recorre las mesas y categoriza: ¿es problema de compilación, de detección USB, de flasheo, o de Serial Monitor?\n  • Los que YA terminaron el martes se vuelven 'asistentes' del docente.\n\n35 min — PROBAR LA VÍA QUE CORRESPONDA\n  Según el diagnóstico, elegir la primera vía a intentar:\n  • Problema menor (cache, permisos, BOOT) → Vía A.\n  • ArduinoDroid simplemente no funciona en tu tablet → Vía B (Bluino Loader).\n  • Sin tiempo para experimentar / PC disponible → Vía C.\n  • Sin hardware accesible / urgencia de avanzar → Vía D (Wokwi).\n\n  📋 EL CÓDIGO ES IDÉNTICO EN LAS 4 VÍAS. Copiar el Programa 03 del bloque de código de abajo (todo el archivo, sin completar nada — está listo para pegar) y subirlo / pegarlo según la vía elegida.\n\n15 min — VERIFICACIÓN EN VIVO\n  • Cada alumno demuestra al docente los 3 comandos:\n    - Escribir '1' → LED enciende. Serial responde 'LED encendido'.\n    - Escribir '0' → LED apaga. Serial responde 'LED apagado'.\n    - Escribir 'p' → LED parpadea. Serial responde 'LED parpadeando...'.\n  • Si está en Wokwi (Vía D), demostrar los 3 comandos en el simulador.\n  • Sacar captura del Serial Monitor con los 3 comandos enviados y subirla a Classroom.\n\n📸 EVIDENCIA OBLIGATORIA\n• Foto del LED encendido (Vías A, B, C) O captura de Wokwi (Vía D).\n• Captura del Serial Monitor mostrando los 3 comandos.\n• En Classroom, mencionar qué vía terminó funcionando para ti.",
+          diagram: `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 18px 0 12px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* Decision tree */
+  .tree {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 16px;
+  }
+  .question {
+    background: #1f1700; border: 1px solid #d29922; border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 12px;
+    font-size: 12px; color: #f0c040; font-weight: 700;
+  }
+  .branches { display: flex; flex-direction: column; gap: 8px; }
+  .branch {
+    display: flex; gap: 10px; align-items: stretch;
+    background: #0d1117; border-radius: 6px; overflow: hidden;
+  }
+  .branch-label {
+    background: #1f6feb; color: white;
+    padding: 8px 12px; font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; min-width: 70px; justify-content: center;
+  }
+  .branch.a .branch-label { background: #6e7681; }
+  .branch.b .branch-label { background: #1f6feb; }
+  .branch.c .branch-label { background: #3fb950; }
+  .branch.d .branch-label { background: #d29922; }
+  .branch-content {
+    flex: 1; padding: 8px 12px; font-size: 11px; color: #c9d1d9; line-height: 1.5;
+  }
+  .branch-content b { color: #e6edf3; }
+
+  /* Apps cards */
+  .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .app-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px;
+  }
+  .app-card h4 { font-size: 11px; margin-bottom: 6px; }
+  .app-card .icon { font-size: 24px; display: block; margin-bottom: 6px; }
+  .app-card .desc { font-size: 10px; color: #8b949e; line-height: 1.5; }
+  .app-card.a h4 { color: #f0c040; }
+  .app-card.b h4 { color: #79c0ff; }
+  .app-card.c h4 { color: #3fb950; }
+  .app-card.d h4 { color: #ff7b72; }
+
+  /* Commands recap */
+  .cmd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .cmd-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px; text-align: center;
+  }
+  .cmd-key {
+    background: #0d1117; border: 1px solid #58a6ff; color: #79c0ff;
+    font-family: 'Consolas', monospace; font-size: 18px; font-weight: 700;
+    width: 36px; height: 36px; border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .cmd-card.blink .cmd-key { border-color: #d29922; color: #f0c040; }
+  .cmd-action { font-size: 11px; font-weight: 700; color: #e6edf3; }
+  .cmd-icon { font-size: 22px; display: block; margin: 6px 0; }
+</style>
+</head>
+<body>
+
+<p class="sec-title">🛣️ Las 4 vías para cargar el Programa 03</p>
+<div class="tree">
+  <div class="question">¿Tu ArduinoDroid del martes no funcionó? Elige tu vía:</div>
+  <div class="branches">
+    <div class="branch a">
+      <div class="branch-label">VÍA A</div>
+      <div class="branch-content"><b>Re-intentar ArduinoDroid con ajustes</b><br>Limpiar caché · Permisos USB · BOOT durante upload.</div>
+    </div>
+    <div class="branch b">
+      <div class="branch-label">VÍA B</div>
+      <div class="branch-content"><b>Bluino Loader</b> — Otra app Arduino para Android (Play Store, gratis).</div>
+    </div>
+    <div class="branch c">
+      <div class="branch-label">VÍA C</div>
+      <div class="branch-content"><b>Arduino IDE en PC</b> — La opción más segura, siempre funciona.</div>
+    </div>
+    <div class="branch d">
+      <div class="branch-label">VÍA D</div>
+      <div class="branch-content"><b>Wokwi (simulador web)</b> — Sin hardware. wokwi.com → ESP32 → mismo código.</div>
+    </div>
+  </div>
+</div>
+
+<p class="sec-title">📲 Apps Android útiles</p>
+<div class="apps">
+  <div class="app-card a">
+    <span class="icon">⚙️</span>
+    <h4>ArduinoDroid</h4>
+    <p class="desc">IDE completo · compila + sube · ~80 MB.<br>Inestable con algunos ESP32.</p>
+  </div>
+  <div class="app-card b">
+    <span class="icon">🔵</span>
+    <h4>Bluino Loader</h4>
+    <p class="desc">IDE completo alternativo · más estable con ESP32 · gratis con ads.</p>
+  </div>
+  <div class="app-card c">
+    <span class="icon">📡</span>
+    <h4>Serial USB Terminal</h4>
+    <p class="desc">SOLO Serial Monitor · no compila · perfecto si ya subiste con PC.</p>
+  </div>
+  <div class="app-card d">
+    <span class="icon">🌐</span>
+    <h4>Wokwi (navegador)</h4>
+    <p class="desc">Simulador web · sin hardware · funciona en cualquier dispositivo.</p>
+  </div>
+</div>
+
+<p class="sec-title">🎯 Recordatorio — los 3 comandos del Programa 03</p>
+<div class="cmd-grid">
+  <div class="cmd-card">
+    <div class="cmd-key">1</div>
+    <div class="cmd-icon">💡</div>
+    <div class="cmd-action">Encender</div>
+  </div>
+  <div class="cmd-card">
+    <div class="cmd-key">0</div>
+    <div class="cmd-icon">⚫</div>
+    <div class="cmd-action">Apagar</div>
+  </div>
+  <div class="cmd-card blink">
+    <div class="cmd-key">p</div>
+    <div class="cmd-icon">✨</div>
+    <div class="cmd-action">Parpadear</div>
+  </div>
+</div>
+
+</body>
+</html>
+`,
+          code: "// PROGRAMA 03 — Control del LED desde el Serial Monitor\n// Comandos: '1' = encender | '0' = apagar | 'p' = parpadear\n// CÓDIGO LISTO PARA COPIAR Y PEGAR — sin espacios en blanco\n\n#define LED_PIN 2\n#define INTERVALO_PARPADEO 300   // ms entre cambios al parpadear\n\nchar modo = '0';                  // '0' apagado, '1' encendido, 'p' parpadeando\nunsigned long ultimoCambio = 0;\nbool estadoParpadeo = false;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Programa 03 — Control desde Serial\");\n  Serial.println(\"Comandos: 1 = encender | 0 = apagar | p = parpadear\");\n}\n\nvoid loop() {\n  // 1. ¿Llegó un comando del Serial?\n  if (Serial.available() > 0) {\n    char comando = Serial.read();\n\n    if (comando == '1') {\n      modo = '1';\n      digitalWrite(LED_PIN, HIGH);\n      Serial.println(\"LED encendido\");\n    }\n    else if (comando == '0') {\n      modo = '0';\n      digitalWrite(LED_PIN, LOW);\n      Serial.println(\"LED apagado\");\n    }\n    else if (comando == 'p') {\n      modo = 'p';\n      ultimoCambio = millis();\n      Serial.println(\"LED parpadeando — escribe 0 o 1 para detener\");\n    }\n  }\n\n  // 2. Si está en modo parpadeo, alternar cada INTERVALO_PARPADEO ms\n  if (modo == 'p') {\n    if (millis() - ultimoCambio >= INTERVALO_PARPADEO) {\n      estadoParpadeo = !estadoParpadeo;\n      digitalWrite(LED_PIN, estadoParpadeo);\n      ultimoCambio = millis();\n    }\n  }\n}",
+          codeRef: "// PROGRAMA 03 — Control del LED desde el Serial Monitor\n// Comandos: '1' = encender | '0' = apagar | 'p' = parpadear\n\n#define LED_PIN 2\n#define INTERVALO_PARPADEO 300\n\nchar modo = '0';\nunsigned long ultimoCambio = 0;\nbool estadoParpadeo = false;\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println(\"Programa 03 — Control desde Serial\");\n  Serial.println(\"Comandos: 1 = encender | 0 = apagar | p = parpadear\");\n}\n\nvoid loop() {\n  if (Serial.available() > 0) {\n    char comando = Serial.read();\n\n    if (comando == '1') {\n      modo = '1';\n      digitalWrite(LED_PIN, HIGH);\n      Serial.println(\"LED encendido\");\n    }\n    else if (comando == '0') {\n      modo = '0';\n      digitalWrite(LED_PIN, LOW);\n      Serial.println(\"LED apagado\");\n    }\n    else if (comando == 'p') {\n      modo = 'p';\n      ultimoCambio = millis();\n      Serial.println(\"LED parpadeando — escribe 0 o 1 para detener\");\n    }\n  }\n\n  if (modo == 'p') {\n    if (millis() - ultimoCambio >= INTERVALO_PARPADEO) {\n      estadoParpadeo = !estadoParpadeo;\n      digitalWrite(LED_PIN, estadoParpadeo);\n      ultimoCambio = millis();\n    }\n  }\n}",
+          product: "Cada alumno con el Programa 03 funcionando en ALGUNA de las 4 vías (A, B, C o D). Foto del LED encendido / apagado / parpadeando (vías A-C) o captura de Wokwi (vía D) + captura del Serial Monitor con los 3 comandos enviados. Subir a Classroom mencionando qué vía funcionó.",
+          teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora es 100% pragmatismo — la meta es que NADIE termine sin Programa 03 corriendo. Estrategias:\n\n(1) MINI-DIAGNÓSTICO COLECTIVO AL INICIO: '¿Quién logró el Programa 03 ayer?' (manos arriba) · '¿Quién se atoró en compilación?' · '¿Quién se atoró en upload?' · '¿Quién no logró nada con la tablet?'. Esto te dice qué porcentaje del grupo necesita cada vía y te permite anunciar UNA migración colectiva si más del 50% está atorado en lo mismo.\n\n(2) ASISTENTES: Identificar a los que ya terminaron y volverlos tu equipo de apoyo. Pueden destrabar 1-2 compañeros cada uno mientras tú atiendes los casos complejos.\n\n(3) ORDEN DE VÍAS — NO predicar: si un alumno ya intentó ArduinoDroid 30 min y no le sale, NO le digas 'intenta otra vez con ajustes'. Salta directo a Vía B o C. La idea NO es que aprenda a depurar ArduinoDroid, sino que tenga el Programa 03 corriendo.\n\n(4) WOKWI ES LA RED DE SEGURIDAD: Si un alumno NO tiene PC accesible y la tablet le falla de verdad, mándalo directo a Wokwi (Vía D). El aprendizaje del código y del Serial Monitor es idéntico — el hardware queda como tarea opcional para casa. Mejor que termine la clase con conocimiento que con frustración.\n\n(5) BLUINO LOADER: Esta es la vía menos conocida pero suele funcionar cuando ArduinoDroid no. Vale la pena que la pruebes ANTES de la clase para conocer su flujo y poder guiarlos.\n\n(6) IMPORTANTE — sobre el nombre 'Programa 03': este nombre se reutiliza para esta nueva fase de hardware. En W10 existió otro 'Programa 03' que era 'leer un botón en simulador Wokwi'. Si algún alumno pregunta, explicarle que el contador se 'reinició' para los programas físicos del ESP32."
         }
       ],
-      cierre: "Un día sin sesión también cuenta — el cerebro consolida cuando descansa.",
-      frase_docente: "El descanso no es ausencia de progreso; es la condición para que ocurra."
+      cierre: "Hoy no se trataba de aprender ArduinoDroid — se trataba de aprender que ninguna herramienta es indispensable cuando hay un plan B (y un plan C, y un plan D). El Programa 03 vive ahora en su ESP32, en su PC, o en un simulador web — en cualquier lugar, hace lo mismo.",
+      frase_docente: "La diferencia entre un técnico que se queda atorado y uno que entrega no es la herramienta — es la cantidad de planes de respaldo que tiene listos."
     },
     {
       id: "thu",
