@@ -342,8 +342,8 @@ export const W12 = {
           image: "dewe_w12_info01.png"
         },
         {
-          title: "Jueves — Conectar JS al HTML + Primer programa con if/else",
-          instruction: "Guía completa de las 3 horas del jueves (sesión reprogramada del lunes por suspensión por lluvia): estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer script interactivo con prompt + alert + if/else. Tenla abierta durante toda la sesión.",
+          title: "Jueves H1 — Conectar JS al HTML",
+          instruction: "Cheat-sheet para la primera hora del jueves (sesión reprogramada del lunes por lluvia). Cubre: estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer programa interactivo. Tenla abierta mientras armas tu archivo .js.",
           image: "dewe_w12_info02.png"
         }
       ]
