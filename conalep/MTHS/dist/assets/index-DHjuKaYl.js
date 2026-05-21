@@ -2650,7 +2650,473 @@ void loop() {
 
 (5) BLUINO LOADER: Esta es la vía menos conocida pero suele funcionar cuando ArduinoDroid no. Vale la pena que la pruebes ANTES de la clase para conocer su flujo y poder guiarlos.
 
-(6) IMPORTANTE — sobre el nombre 'Programa 03': este nombre se reutiliza para esta nueva fase de hardware. En W10 existió otro 'Programa 03' que era 'leer un botón en simulador Wokwi'. Si algún alumno pregunta, explicarle que el contador se 'reinició' para los programas físicos del ESP32.`}],cierre:`Hoy no se trataba de aprender ArduinoDroid — se trataba de aprender que ninguna herramienta es indispensable cuando hay un plan B (y un plan C, y un plan D). El Programa 03 vive ahora en su ESP32, en su PC, o en un simulador web — en cualquier lugar, hace lo mismo.`,frase_docente:`La diferencia entre un técnico que se queda atorado y uno que entrega no es la herramienta — es la cantidad de planes de respaldo que tiene listos.`},{id:`thu`,label:`Jueves — 📅 Sin actividades programadas`,purpose:`Día sin sesión de MTHS. No hay actividades programadas para esta jornada.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin actividades programadas`,theory:`Día libre de MTHS. La semana 12 abre el corte 3.2 (RA 3.2) — su práctica principal arrancó el martes con el armado del circuito y el Programa 03. Las siguientes semanas (W13, W14) construirán sobre esa misma base.`,notebook:`Sin libreta obligatoria.`,practice:`Sin práctica.`,product:`Sin entregable.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Día sin sesión. Aprovechar para revisar entregas de Classroom del martes y planear materiales para la siguiente semana.`}],cierre:`El descanso también construye.`,frase_docente:`Cada semana tiene su ritmo — respetar los días sin sesión también es parte del diseño.`}]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
+(6) IMPORTANTE — sobre el nombre 'Programa 03': este nombre se reutiliza para esta nueva fase de hardware. En W10 existió otro 'Programa 03' que era 'leer un botón en simulador Wokwi'. Si algún alumno pregunta, explicarle que el contador se 'reinició' para los programas físicos del ESP32.`}],cierre:`Hoy no se trataba de aprender ArduinoDroid — se trataba de aprender que ninguna herramienta es indispensable cuando hay un plan B (y un plan C, y un plan D). El Programa 03 vive ahora en su ESP32, en su PC, o en un simulador web — en cualquier lugar, hace lo mismo.`,frase_docente:`La diferencia entre un técnico que se queda atorado y uno que entrega no es la herramienta — es la cantidad de planes de respaldo que tiene listos.`},{id:`thu`,label:`Jueves — 📡 BLE: el programa que sí funciona + análisis con IA`,purpose:`Cargar el Programa 04 (BLE + Serial + Botón) — la versión funcional probada por el docente que reemplaza el intento del miércoles que no terminó de funcionar. Como actividad principal, los alumnos desglosan el código línea por línea usando una IA como tutor, y en Hora 2 controlan el LED desde el celular vía BLE.`,hours:[{time:`Hora 1`,title:`📡 Cargar el Programa 04 (BLE + Serial + Botón) + análisis del código con IA`,theory:`Después de la batalla del miércoles para cargar el Programa 03, hoy damos un salto grande: BLE (Bluetooth Low Energy). En lugar de mandar comandos por cable USB, los mandaremos desde el celular. Y lo bonito es que el mismo programa acepta los comandos por TRES caminos a la vez — Serial, BLE y el botón físico.
+
+📡 ¿QUÉ ES BLE (Bluetooth Low Energy)?
+BLE es una versión del Bluetooth pensada para gastar muy poca energía. Es la que usan smartwatches, sensores de salud, candados inteligentes y los AirTags. A diferencia del Bluetooth clásico (que se usa para audífonos), BLE no mantiene una conexión continua — se 'despierta' solo cuando hay datos que enviar.
+
+🏷️ SERVICIO Y CARACTERÍSTICA — los dos conceptos clave
+Cada dispositivo BLE anuncia:
+• Un SERVICIO (Service) — una 'categoría' de funciones que ofrece.
+• Una CARACTERÍSTICA (Characteristic) — el 'buzón' donde se escriben o leen datos dentro de ese servicio.
+
+Para identificarlos sin confusión, cada uno tiene un UUID — un código largo único (como una dirección IP pero para BLE). Nuestro programa define:
+• SERVICE_UUID: 4fafc201-1fb5-459e-8fcc-c5c9c331914b
+• CHARACTERISTIC_UUID: beb5483e-36e1-4688-b7f5-ea07361b26a8
+
+Esos UUIDs son arbitrarios — solo necesitan ser únicos. La app del celular y el ESP32 deben usar los MISMOS UUIDs para hablarse.
+
+🎯 EL PROGRAMA DE HOY (el que SÍ FUNCIONA)
+El miércoles intentamos cargar el Programa 03 — algunos lograron pero el LED no respondía. Hoy les damos un programa más completo que ya está PROBADO y funciona:
+• Acepta los comandos '1' / '0' / 'p' por TRES vías: Serial, BLE y un botón físico.
+• Imprime en el Serial Monitor de DÓNDE vino cada comando (entre corchetes: [SERIAL], [BLE], [Botón]).
+• El comando 'p' parpadea 3 veces (no infinito).
+• El comando desconocido NO truena — solo imprime un mensaje de error elegante.
+
+🧠 EL PATRÓN: UNA FUNCIÓN, MÚLTIPLES FUENTES
+Lo más elegante del programa es que NO duplica código. Hay UNA sola función llamada procesarComando(char comando, String origen) que hace TODO el trabajo. Las 3 fuentes (Serial, BLE, Botón) simplemente la llaman cuando llega un comando. Eso es ARQUITECTURA — algo que verás en sistemas operativos, apps móviles, servidores web. Hoy lo ven aplicado en un ESP32.
+
+🤖 ANÁLISIS CON IA — ACTIVIDAD CENTRAL DE HOY
+Como el código tiene partes nuevas (BLE, clases, callbacks, UUIDs), van a usar una IA como tutor personal. Le pasarán el código completo, le harán preguntas específicas por sección, y anotarán las respuestas en su libreta CON SUS PROPIAS PALABRAS.
+
+⚠️ REGLA DE ORO: la IA explica; ustedes ENTIENDEN. Si la respuesta de la IA tiene una palabra que no conocen, pregúntenle qué significa. NO copien y peguen sin entender — eso no les sirve para el examen ni para el proyecto final.`,notebook:`Título: Análisis del Programa BLE — sección por sección.
+
+INSTRUCCIONES:
+1. Copia el código completo del bloque de abajo a una IA (ChatGPT, Claude, Gemini, Copilot, lo que tengan).
+2. Para cada sección abajo, hazle una pregunta específica a la IA y anota la respuesta en TUS PALABRAS (no copies y pegues — reformula).
+3. Si una palabra de la respuesta no la entiendes, vuelve a preguntar.
+
+📋 SECCIONES A DESGLOSAR (Hora 1 — primeras 4)
+
+1. Sección de #include (líneas 1-3)
+   → Pregunta a la IA: '¿Para qué sirven las 3 librerías BLEDevice.h, BLEUtils.h y BLEServer.h?'
+   → Escribe la respuesta resumida.
+
+2. Sección de UUIDs (líneas con SERVICE_UUID y CHARACTERISTIC_UUID)
+   → Pregunta a la IA: '¿Qué es un UUID en BLE y por qué se necesitan dos diferentes en este código?'
+   → Escribe la respuesta.
+
+3. La clase MyCallbacks (el bloque que empieza con 'class MyCallbacks : public BLECharacteristicCallbacks')
+   → Pregunta a la IA: '¿Qué hace el método onWrite y cuándo se ejecuta automáticamente?'
+   → Escribe la respuesta.
+
+4. La función procesarComando (la función larga con los if/else)
+   → Pregunta a la IA: '¿Por qué la función recibe el parámetro origen y para qué se usa?'
+   → Escribe la respuesta.
+
+🤔 PREGUNTA DE CIERRE DE LA HORA 1
+¿Qué ventaja tiene tener UNA función procesarComando en lugar de copiar el mismo if/else en 3 lugares distintos (Serial, BLE, Botón)?`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (5 min) — Verificar circuito
+  • LED en GPIO 2 (con resistencia 220Ω → GND).
+  • Botón entre GPIO 4 y GND.
+  • ESP32 conectado por USB (PC o tablet con la vía que les funcionó ayer).
+
+2️⃣ PASO 2 (10 min) — Cargar el código del Programa BLE
+  • Abrir Arduino IDE (o la vía que les funcionó ayer).
+  • File → New Sketch.
+  • COPIAR Y PEGAR el código completo del bloque de abajo (sin modificaciones).
+  • Tools → Board → ESP32 Dev Module · Port → COMx.
+  • Verificar (✓). La primera vez puede tardar 30-60 s porque compila las librerías BLE.
+  • Subir (→). Si pide BOOT, mantenerlo presionado.
+
+3️⃣ PASO 3 (5 min) — Probar Serial y Botón (BLE en Hora 2)
+  • Abrir Serial Monitor a 115200 baud.
+  • Debe aparecer el banner: 'ESP32 BLE + Serial + Botón', 'Nombre: ESP32-Felipe', y la lista de comandos.
+  • PROBAR SERIAL: escribir '1' + Enter → LED enciende, Serial dice '[SERIAL] Comando: 1' y '✓ LED encendido'.
+  • PROBAR BOTÓN: presionar el botón físico → LED cambia de estado, Serial dice '✓ Botón presionado - LED encendido'.
+
+4️⃣ PASO 4 (35 min) — ANÁLISIS DEL CÓDIGO CON IA (actividad principal)
+  • Abrir una IA en celular o navegador: ChatGPT, Claude, Gemini, Copilot.
+  • Copiar el código completo del bloque de abajo y pegarlo en el chat de la IA.
+  • Hacer una pregunta para CADA una de las 4 secciones de la libreta (ver columna 'Libreta').
+  • Anotar las respuestas EN PALABRAS PROPIAS — no copiar y pegar.
+  • Si una palabra no la entiendes, pregúntale a la IA qué significa.
+
+5️⃣ PASO 5 (5 min) — Cierre y respuesta colectiva
+  • El docente pregunta al grupo: '¿qué hace exactamente la clase MyCallbacks?'.
+  • 2-3 alumnos comparten su respuesta.
+  • El docente clarifica si hay confusión.
+
+📸 EVIDENCIA OBLIGATORIA AL FINAL DE LA HORA
+• Captura del Serial Monitor mostrando el banner y al menos un '[SERIAL] Comando: 1' o '[Botón] presionado'.
+• Foto de la libreta con las 4 secciones desglosadas y la respuesta a la pregunta de cierre.`,code:`// PROGRAMA 04 — Control BLE + Serial + Botón
+// CÓDIGO LISTO PARA COPIAR Y PEGAR — funciona tal cual
+// (Esta es la versión funcional probada por el docente)
+
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+
+#define LED_PIN 2
+#define BUTTON_PIN 4
+
+#define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+#define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+
+BLECharacteristic *pCharacteristic;
+int ledState = LOW;
+int lastButtonState = HIGH;
+
+// ===== DECLARACIÓN HACIA ADELANTE =====
+void procesarComando(char comando, String origen);
+
+class MyCallbacks : public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic *pCharacteristic) {
+    String value = pCharacteristic->getValue();
+
+    if (value.length() > 0) {
+      char comando = value[0];
+      procesarComando(comando, "BLE");
+    }
+  }
+};
+
+// Función para procesar comandos (sirve para BLE y Serial)
+void procesarComando(char comando, String origen) {
+  Serial.print("[");
+  Serial.print(origen);
+  Serial.print("] Comando: ");
+  Serial.println(comando);
+
+  if (comando == '1') {
+    digitalWrite(LED_PIN, HIGH);
+    ledState = HIGH;
+    Serial.println("✓ LED encendido");
+  }
+  else if (comando == '0') {
+    digitalWrite(LED_PIN, LOW);
+    ledState = LOW;
+    Serial.println("✓ LED apagado");
+  }
+  else if (comando == 'p') {
+    Serial.println("✓ Parpadeando...");
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(LED_PIN, HIGH);
+      delay(300);
+      digitalWrite(LED_PIN, LOW);
+      delay(300);
+    }
+    ledState = LOW;
+    Serial.println("  ...listo");
+  }
+  else if (comando != '\\n' && comando != '\\r' && comando != ' ') {
+    Serial.print("✗ Comando desconocido: '");
+    Serial.print(comando);
+    Serial.println("'");
+  }
+}
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  digitalWrite(LED_PIN, LOW);
+
+  Serial.begin(115200);
+
+  // ===== CONFIGURAR BLE =====
+  BLEDevice::init("ESP32-Felipe");
+  BLEServer *pServer = BLEDevice::createServer();
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+
+  pCharacteristic = pService->createCharacteristic(
+    CHARACTERISTIC_UUID,
+    BLECharacteristic::PROPERTY_WRITE
+  );
+
+  pCharacteristic->setCallbacks(new MyCallbacks());
+  pService->start();
+
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->start();
+
+  Serial.println("=================================");
+  Serial.println(" ESP32 BLE + Serial + Botón");
+  Serial.println(" Nombre: ESP32-Felipe");
+  Serial.println("=================================");
+  Serial.println(" Comandos:");
+  Serial.println("  '1' = Encender LED");
+  Serial.println("  '0' = Apagar LED");
+  Serial.println("  'p' = Parpadear 3 veces");
+  Serial.println(" Funciona por: Serial, BLE, Botón");
+  Serial.println("=================================");
+}
+
+void loop() {
+  // ===== LEER BOTÓN FÍSICO =====
+  int currentButtonState = digitalRead(BUTTON_PIN);
+
+  if (currentButtonState != lastButtonState && currentButtonState == LOW) {
+    delay(20);
+    ledState = (ledState == LOW) ? HIGH : LOW;
+    digitalWrite(LED_PIN, ledState);
+
+    Serial.print("✓ Botón presionado - LED ");
+    Serial.println(ledState == HIGH ? "encendido" : "apagado");
+  }
+  lastButtonState = currentButtonState;
+
+  // ===== LEER COMANDOS SERIAL =====
+  if (Serial.available()) {
+    char comando = Serial.read();
+    procesarComando(comando, "SERIAL");
+  }
+
+  delay(10);
+}`,codeRef:`// PROGRAMA 04 — Control BLE + Serial + Botón (versión funcional, probada)
+
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+
+#define LED_PIN 2
+#define BUTTON_PIN 4
+
+#define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+#define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+
+BLECharacteristic *pCharacteristic;
+int ledState = LOW;
+int lastButtonState = HIGH;
+
+// ===== DECLARACIÓN HACIA ADELANTE =====
+void procesarComando(char comando, String origen);
+
+class MyCallbacks : public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic *pCharacteristic) {
+    String value = pCharacteristic->getValue();
+
+    if (value.length() > 0) {
+      char comando = value[0];
+      procesarComando(comando, "BLE");
+    }
+  }
+};
+
+// Función para procesar comandos (sirve para BLE y Serial)
+void procesarComando(char comando, String origen) {
+  Serial.print("[");
+  Serial.print(origen);
+  Serial.print("] Comando: ");
+  Serial.println(comando);
+
+  if (comando == '1') {
+    digitalWrite(LED_PIN, HIGH);
+    ledState = HIGH;
+    Serial.println("✓ LED encendido");
+  }
+  else if (comando == '0') {
+    digitalWrite(LED_PIN, LOW);
+    ledState = LOW;
+    Serial.println("✓ LED apagado");
+  }
+  else if (comando == 'p') {
+    Serial.println("✓ Parpadeando...");
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(LED_PIN, HIGH);
+      delay(300);
+      digitalWrite(LED_PIN, LOW);
+      delay(300);
+    }
+    ledState = LOW;
+    Serial.println("  ...listo");
+  }
+  else if (comando != '\\n' && comando != '\\r' && comando != ' ') {
+    Serial.print("✗ Comando desconocido: '");
+    Serial.print(comando);
+    Serial.println("'");
+  }
+}
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  digitalWrite(LED_PIN, LOW);
+
+  Serial.begin(115200);
+
+  // ===== CONFIGURAR BLE =====
+  BLEDevice::init("ESP32-Felipe");
+  BLEServer *pServer = BLEDevice::createServer();
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+
+  pCharacteristic = pService->createCharacteristic(
+    CHARACTERISTIC_UUID,
+    BLECharacteristic::PROPERTY_WRITE
+  );
+
+  pCharacteristic->setCallbacks(new MyCallbacks());
+  pService->start();
+
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->start();
+
+  Serial.println("=================================");
+  Serial.println(" ESP32 BLE + Serial + Botón");
+  Serial.println(" Nombre: ESP32-Felipe");
+  Serial.println("=================================");
+  Serial.println(" Comandos:");
+  Serial.println("  '1' = Encender LED");
+  Serial.println("  '0' = Apagar LED");
+  Serial.println("  'p' = Parpadear 3 veces");
+  Serial.println(" Funciona por: Serial, BLE, Botón");
+  Serial.println("=================================");
+}
+
+void loop() {
+  // ===== LEER BOTÓN FÍSICO =====
+  int currentButtonState = digitalRead(BUTTON_PIN);
+
+  if (currentButtonState != lastButtonState && currentButtonState == LOW) {
+    delay(20);
+    ledState = (ledState == LOW) ? HIGH : LOW;
+    digitalWrite(LED_PIN, ledState);
+
+    Serial.print("✓ Botón presionado - LED ");
+    Serial.println(ledState == HIGH ? "encendido" : "apagado");
+  }
+  lastButtonState = currentButtonState;
+
+  // ===== LEER COMANDOS SERIAL =====
+  if (Serial.available()) {
+    char comando = Serial.read();
+    procesarComando(comando, "SERIAL");
+  }
+
+  delay(10);
+}`,product:`ESP32 con el Programa 04 (BLE + Serial + Botón) cargado y respondiendo a los comandos por Serial y por el botón físico. Libreta con las 4 primeras secciones del código desglosadas usando IA (con las respuestas reformuladas en palabras propias).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora introduce TRES conceptos nuevos a la vez (BLE, callbacks, AI como tutor). El truco es no profundizar en ninguno demasiado en Hora 1 — usar la IA es lo que les permitirá ir a su ritmo.
+
+(1) SOBRE LA CARGA DEL CÓDIGO: La primera compilación con librerías BLE tarda 30-60 segundos — avisar al grupo o se desesperan. Si en una PC vieja tarda 2 minutos, es normal.
+
+(2) SOBRE EL USO DE IA: Este es el primer ejercicio del semestre donde los alumnos usan IA COMO HERRAMIENTA DE APRENDIZAJE explícitamente. Reforzar la regla: 'la IA explica, ustedes entienden'. Pasar entre las mesas y preguntar al azar 'explícame con tus palabras qué hace este bloque' — si responden con frases textuales de la IA, pedirles que lo cuenten 'como si se lo explicaras a tu hermano de 12 años'.
+
+(3) SOBRE EL CÓDIGO: La declaración hacia adelante (line 'void procesarComando(char comando, String origen);' antes de la clase) es importante — sin ella, la clase MyCallbacks no podría llamar a procesarComando porque aún no está 'declarada'. C++ es estricto con esto. Si algún alumno pregunta, esa es la explicación corta.
+
+(4) SOBRE EL BOTÓN: El delay(20) después de detectar el botón es un debounce simplificado (más sencillo que el del Programa 05 que está pendiente). Es 'suficientemente bueno' para esta hora.
+
+(5) NIVELES DE ACOMPAÑAMIENTO: Algunos alumnos van a copiar y pegar respuestas de la IA sin entender. Identificar 2-3 que lo estén haciendo bien y volverlos modelo del resto. Para los que no entienden, sentarse 5 min con ellos y desmenuzar UNA sección juntos como ejemplo.`},{time:`Hora 2`,title:`📱 Controlar el LED desde el celular vía BLE + completar análisis`,theory:`En Hora 1 cargamos el programa y lo probamos por Serial y Botón. Ahora abrimos el tercer canal: BLE. La meta de esta hora es ENCENDER el LED desde el celular, sin cable.
+
+📲 APPS PARA BLE EN EL CELULAR
+Hay varias apps que funcionan. La que recomendamos:
+
+• nRF Connect for Mobile (Nordic Semiconductor) — Play Store / App Store, GRATIS.
+  Es la app estándar para BLE. Te deja escanear, conectarte, ver servicios y características, y escribir/leer valores. Funciona idéntico en Android y iOS.
+
+Alternativas si no carga nRF Connect:
+• LightBlue (Punch Through) — Android e iOS, gratis.
+• Serial Bluetooth Terminal (Kai Morich) — Android — modo BLE → escanear → conectar.
+
+🔄 EL FLUJO DE CONEXIÓN BLE EN GENERAL
+1. El ESP32 está ANUNCIANDO ('advertising') su nombre 'ESP32-Felipe'.
+2. El celular ESCANEA y encuentra el ESP32.
+3. El celular se CONECTA al ESP32.
+4. El celular descubre los SERVICIOS y CARACTERÍSTICAS disponibles.
+5. El celular ESCRIBE un carácter ('1', '0' o 'p') en la característica con UUID beb5483e-...
+6. El ESP32 recibe esa escritura → su método onWrite se ejecuta → llama a procesarComando con origen 'BLE' → mueve el LED.
+
+🪞 PARALELISMO CON SERIAL
+Notar la simetría:
+• Serial: PC escribe carácter en el puerto serie → Serial.read() lo recibe → llama a procesarComando con origen 'SERIAL'.
+• BLE: Celular escribe carácter en la característica → onWrite() se dispara → llama a procesarComando con origen 'BLE'.
+
+Es el mismo concepto (alguien externo manda un dato, el ESP32 lo procesa) por dos vías distintas. Esa es la elegancia del programa.
+
+🔋 ¿POR QUÉ BLE ES MEJOR QUE BLUETOOTH CLÁSICO PARA ESTO?
+• Consume MENOS BATERÍA — el ESP32 puede correr meses con una batería pequeña usando BLE bien.
+• Conexión más rápida — emparejarse toma 1-2 segundos en lugar de 10-15.
+• Mejor para pequeños mensajes — como nuestros caracteres '1', '0', 'p'.
+• Es estándar en TODO smartphone moderno (iPhone, Android).`,notebook:`Título: Análisis del Programa BLE — completar.
+
+📋 SECCIONES RESTANTES A DESGLOSAR (Hora 2 — secciones 5-7)
+
+5. La función setup() — específicamente las líneas que empiezan con BLEDevice::, BLEServer, BLEService y BLEAdvertising.
+   → Pregunta a la IA: '¿Qué hace cada uno de esos 4 objetos (BLEDevice, BLEServer, BLEService, BLEAdvertising) en el setup?'
+   → Escribe la respuesta resumida en tus palabras.
+
+6. La función loop() — explica las 3 partes principales.
+   → Pregunta a la IA: 'Explícame las 3 secciones del loop: lectura del botón, lectura del Serial, y delay(10). ¿Qué hace cada una?'
+   → Escribe la respuesta.
+
+7. El detalle del botón — específicamente la línea: 'ledState = (ledState == LOW) ? HIGH : LOW;'
+   → Pregunta a la IA: 'Explícame qué hace la línea ledState = (ledState == LOW) ? HIGH : LOW; ¿Qué es ese operador "? :"?'
+   → Escribe la respuesta.
+
+🤔 PREGUNTAS DE INTEGRACIÓN (responder con tus propias palabras, sin IA)
+8. Cuando mandas '1' por BLE desde el celular, ¿qué función se ejecuta primero en el ESP32? ¿Y después qué pasa?
+9. ¿Cuál es la diferencia funcional entre mandar '1' por Serial, por BLE, o presionar el botón? Responde en términos de QUÉ pasa con el LED.
+10. Si quisieras agregar un cuarto comando 'r' que parpadee 6 veces en lugar de 3, ¿qué líneas EXACTAS del código tendrías que modificar/agregar?`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (5 min) — Verificar que el programa de Hora 1 sigue cargado
+  • El ESP32 debe seguir advertising. Si reiniciaron la PC, volver a abrir Serial Monitor y presionar el botón EN del ESP32 para ver el banner.
+  • LED debe responder al botón físico — si no, recargar el código de Hora 1.
+
+2️⃣ PASO 2 (10 min) — Instalar y abrir nRF Connect
+  • Abrir Play Store (Android) o App Store (iOS).
+  • Buscar: 'nRF Connect for Mobile' (icono morado/azul con un átomo).
+  • Instalar (~50 MB).
+  • Abrir la app. Aceptar permisos de Bluetooth y ubicación (sí, BLE en Android requiere permiso de ubicación — es por seguridad).
+
+3️⃣ PASO 3 (10 min) — Escanear y conectar
+  • En nRF Connect, ir a la pestaña 'Scanner'.
+  • Tocar 'Start scanning' (botón de play).
+  • En la lista, buscar 'ESP32-Felipe' (puede haber varios ESP32 de tus compañeros — tu nombre es el del docente Felipe a menos que cambies BLEDevice::init).
+  • Tocar 'CONNECT' al lado del dispositivo correcto.
+
+4️⃣ PASO 4 (10 min) — Encontrar el servicio y escribir el primer comando
+  • Después de conectar, verás una lista de servicios. Buscar el que tiene UUID que empieza con '4fafc201-...'.
+  • Expandirlo (tocar la flecha ▼).
+  • Adentro verás la característica con UUID 'beb5483e-...'.
+  • Tocar el ícono de flecha hacia arriba ↑ (Write).
+  • En el cuadro de diálogo, en el selector de tipo de dato, elegir 'TEXT' o 'BYTE ARRAY' → 'UTF-8'.
+  • Escribir el carácter: '1'.
+  • Tocar 'SEND'.
+
+5️⃣ PASO 5 (5 min) — Verificar el resultado
+  • El LED del ESP32 debe ENCENDER.
+  • En el Serial Monitor de la PC (si lo tenías abierto), debe aparecer: '[BLE] Comando: 1' y '✓ LED encendido'.
+  • Repetir con '0' (apaga) y 'p' (parpadea 3 veces).
+
+6️⃣ PASO 6 (15 min) — Completar el análisis con IA en libreta
+  • Volver a la IA donde quedó el análisis de Hora 1.
+  • Responder las secciones 5, 6 y 7 con la ayuda de la IA.
+  • Responder las preguntas 8, 9 y 10 SIN IA — en sus propias palabras.
+
+7️⃣ PASO 7 (5 min) — Demostración al docente
+  • Cada alumno (o pareja) demuestra:
+    - LED encendido por BLE desde el celular (mostrar la pantalla de nRF Connect después del 'SEND').
+    - LED apagado por BLE.
+    - Parpadeo de 3 veces.
+  • El docente verifica que el Serial Monitor muestra los tres '[BLE] Comando: x' correspondientes.
+
+📸 EVIDENCIA OBLIGATORIA
+• Captura de nRF Connect mostrando la conexión exitosa al ESP32-Felipe.
+• Captura del Serial Monitor mostrando los 3 comandos '[BLE]' procesados.
+• Foto de la libreta con las secciones 5-10 completadas.
+• Video corto (15 s, opcional pero recomendado) del LED respondiendo al celular.`,code:`// Mismo Programa 04 cargado en Hora 1 — referencia rápida.
+// El código completo está en la Hora 1.
+
+// Recordatorio del flujo BLE:
+// 1. Celular escribe '1' a la característica con UUID beb5483e-36e1-4688-b7f5-ea07361b26a8
+// 2. Se dispara onWrite() en la clase MyCallbacks
+// 3. onWrite() lee value[0] → llama a procesarComando(comando, "BLE")
+// 4. procesarComando imprime '[BLE] Comando: 1', enciende el LED, imprime '✓ LED encendido'`,codeRef:`// Mismo Programa 04 cargado en Hora 1 — referencia rápida.
+// El código completo está en la Hora 1.
+
+// Recordatorio del flujo BLE:
+// 1. Celular escribe '1' a la característica con UUID beb5483e-36e1-4688-b7f5-ea07361b26a8
+// 2. Se dispara onWrite() en la clase MyCallbacks
+// 3. onWrite() lee value[0] → llama a procesarComando(comando, "BLE")
+// 4. procesarComando imprime '[BLE] Comando: 1', enciende el LED, imprime '✓ LED encendido'`,product:`Cada alumno demuestra el LED respondiendo a los 3 comandos ('1', '0', 'p') enviados desde nRF Connect en su celular vía BLE. Libreta con las secciones 5-7 desglosadas con IA y las preguntas 8-10 contestadas con palabras propias. Captura de nRF Connect + Serial Monitor + video del LED respondiendo subidos a Classroom.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es VISUALMENTE espectacular — los alumnos prenden y apagan el LED desde su celular sin cable. Es uno de los momentos 'wow' del semestre. Aprovecharlo para reforzar la idea de que TODO lo que aprendimos (estructuras, funciones, estado) se conecta cuando se hace algo así.
+
+(1) SOBRE nRF CONNECT: Es estable pero su interfaz es densa. La primera vez, mostrar a todo el grupo en proyector cómo escanear, conectar, y escribir un valor. Después dejarlos solos. Si alguno no puede instalar nRF Connect, intentar LightBlue.
+
+(2) PERMISOS DE UBICACIÓN EN ANDROID: BLE en Android 6+ requiere permiso de ubicación 'mientras se usa la app' para escanear. NO es porque la app sepa dónde estás — es porque los dispositivos BLE pueden ser usados para geolocalizar (regla de Google). Algunos alumnos pueden negarse a aceptar — explicarles la razón.
+
+(3) EL NOMBRE 'ESP32-Felipe': Si varios alumnos cargan el código sin cambiar nada, TODOS los ESP32 se llaman 'ESP32-Felipe'. En el scanner aparecerán varios — los alumnos deben identificar el suyo por la SEÑAL más fuerte (RSSI más alto en nRF Connect, número menos negativo cerca del -50 dBm). Si hay confusión, reto opcional: que cada alumno cambie BLEDevice::init("ESP32-Felipe") por BLEDevice::init("ESP32-SuNombre") y recompile.
+
+(4) SOBRE EL ANÁLISIS CON IA — REPASO: La pregunta 10 ('¿qué líneas modificarías para agregar un comando r?') es la PRUEBA real de que entendieron. Si no logran responderla, su análisis con IA fue superficial. Apoyarlos individualmente si lo necesitan.
+
+(5) IMPORTANTE — Si NO funciona BLE en algún alumno: opciones de fallback: (a) verificar que el celular tiene Bluetooth activado (sí, suena obvio), (b) cerrar y volver a abrir nRF Connect, (c) reiniciar el ESP32 (botón EN), (d) si nada funciona, el alumno puede trabajar TODA la hora desde Serial — el código y el análisis siguen siendo válidos. La meta es que ENTIENDAN el programa, no necesariamente que controlen el LED desde el celular.`}],cierre:`Hoy controlaron un dispositivo físico desde su celular sin tocarlo — eso es lo que llaman 'Internet de las Cosas' en una de sus formas más puras. Y el código que lo hace posible NO es magia: cada línea tiene una función específica que ahora pueden explicar con palabras propias.`,frase_docente:`La diferencia entre copiar código y entender código es la libreta. La IA acelera el aprendizaje, pero solo cuando reformulas lo que te explicó.`}]},W13:{days:[]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,k.jsx)(`p`,{children:e}):(0,k.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,k.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,k.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,k.jsx)(`pre`,{className:`smart-code`,children:(0,k.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):null)})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({html:e})=>(0,k.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,k.jsx)(`div`,{className:`block-body diagram-body`,children:(0,k.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Fe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ie=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Le=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Re=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),ze=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,k.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.diagram&&(0,k.jsx)(Pe,{html:e.diagram}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Re,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,k.jsx)(ze,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Le,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Ie,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He=`2024`,Ue=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===He?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},We=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ge(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:t===11?`W09`:t===12?`W10`:t===13?`W11`:t===14?`W12`:t===15?`W13`:`W14`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(Ve,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:We},i)]}),u&&(0,k.jsx)(Ue,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ge,{})}));
