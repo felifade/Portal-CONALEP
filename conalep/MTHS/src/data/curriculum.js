@@ -5,6 +5,7 @@ import { W09 } from './schedules/W09.js';
 import { W10 } from './schedules/W10.js';
 import { W11 } from './schedules/W11.js';
 import { W12 } from './schedules/W12.js';
+import { W13 } from './schedules/W13.js';
 
 export const curriculumData = {
   subject: "Manejo de Tecnologías de Hardware y Software (MTHS)",
@@ -85,7 +86,7 @@ export const curriculumData = {
     "W10": W10,
     "W11": W11,
     "W12": W12,
-    "W13": { days: [] },
+    "W13": W13,
     "W14": { days: [] }
   }
 };
