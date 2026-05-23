@@ -28,6 +28,18 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;
   transition:background-color 0.45s ease,color 0.45s ease,border-color 0.45s ease,box-shadow 0.45s ease;}
 canvas,.loader-bar,.hud-bar-fill,.code-float,.scroll-arrow,.hero-badge::before{transition:none!important;}
+
+/* ── CURSOR TRAIL ── */
+#trail-canvas{position:fixed;inset:0;z-index:9997;pointer-events:none;}
+[data-theme="light"] #trail-canvas{opacity:0.5;}
+
+/* ── TYPEWRITER ── */
+.typewriter-wrap{display:inline-block;position:relative;}
+.tw-word{color:var(--cyan);font-weight:700;}
+.tw-cursor{display:inline-block;width:3px;height:1em;background:var(--cyan);margin-left:2px;vertical-align:middle;animation:tw-blink 0.8s step-end infinite;}
+@keyframes tw-blink{0%,100%{opacity:1}50%{opacity:0}}
+[data-theme="light"] .tw-word{color:var(--cyan);}
+[data-theme="light"] .tw-cursor{background:var(--cyan);}
 html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none;}
 [data-theme="light"] body{cursor:default;}
@@ -161,6 +173,10 @@ section{position:relative;z-index:1;}
 #materias{padding:8rem 0;background:var(--black);}
 .materias-header{text-align:center;margin-bottom:5rem;}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.5rem;}
+/* ── TILT 3D + HOLO ── */
+.tilt-card{transform-style:preserve-3d;will-change:transform;}
+.holo-shine{position:absolute;inset:0;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:2;mix-blend-mode:screen;}
+.tilt-card:hover .holo-shine{opacity:1;}
 .skill-card{background:var(--dark2);border:1px solid var(--gray);border-radius:12px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;}
 .skill-card::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;background:radial-gradient(ellipse at 50% 0%,var(--glow-color,var(--cyan-dim)) 0%,transparent 70%);}
 .skill-card:hover::before{opacity:1;}
@@ -272,6 +288,170 @@ section{position:relative;z-index:1;}
 @keyframes ring-pulse{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.04);opacity:0}}
 .school-tag{margin-top:5rem;font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.3em;color:var(--gray);opacity:0.6;}
 
+/* ── ESCENAS VISUALES ── */
+#escenas{padding:8rem 0;background:linear-gradient(180deg,var(--black),var(--dark));border-top:1px solid rgba(123,47,255,0.08);}
+.escenas-header{text-align:center;margin-bottom:4rem;}
+.escenas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
+.escena{border-radius:16px;overflow:hidden;border:1px solid var(--gray);position:relative;height:280px;cursor:pointer;transition:transform 0.4s,box-shadow 0.4s;}
+.escena:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 30px 80px rgba(0,0,0,0.6),0 0 40px var(--e-glow,rgba(0,212,255,0.2));}
+.escena-label{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;background:linear-gradient(0deg,rgba(6,6,14,0.97),transparent);z-index:5;}
+.escena-label h4{font-family:var(--font-tech);font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;}
+.escena-label p{font-family:var(--font-body);font-size:0.78rem;color:var(--gray2);}
+
+/* ESCENA 1: VIDEOJUEGO */
+.escena-game{background:#00000f;--e-glow:rgba(0,255,100,0.25);}
+.game-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 15% 20%,#fff,transparent),radial-gradient(1px 1px at 35% 45%,#fff,transparent),radial-gradient(1.5px 1.5px at 55% 15%,#fff,transparent),radial-gradient(1px 1px at 75% 60%,#fff,transparent),radial-gradient(1px 1px at 20% 75%,#fff,transparent),radial-gradient(1.5px 1.5px at 85% 30%,#fff,transparent),radial-gradient(1px 1px at 45% 80%,#fff,transparent),radial-gradient(1px 1px at 65% 50%,#fff,transparent),radial-gradient(2px 2px at 10% 50%,rgba(0,212,255,0.8),transparent),radial-gradient(2px 2px at 90% 70%,rgba(123,47,255,0.8),transparent);opacity:0.8;}
+.game-hud-top{position:absolute;top:1rem;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;z-index:3;}
+.game-score{font-family:var(--font-code);font-size:0.75rem;color:#00ff66;text-shadow:0 0 8px #00ff66;}
+.game-lives{font-size:0.9rem;letter-spacing:0.2em;}
+.game-hp{display:flex;flex-direction:column;gap:0.2rem;align-items:flex-end;}
+.game-hp span{font-family:var(--font-code);font-size:0.55rem;color:#00ff66;}
+.game-hp-bar{width:80px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;}
+.game-hp-fill{height:100%;width:72%;background:linear-gradient(90deg,#00ff66,#00cc44);border-radius:3px;box-shadow:0 0 6px #00ff66;}
+.game-arena{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.game-player{font-size:2.8rem;filter:drop-shadow(0 0 15px #00d4ff);animation:game-float 2s ease-in-out infinite;z-index:2;}
+@keyframes game-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.game-enemy{position:absolute;font-size:1.8rem;filter:drop-shadow(0 0 10px #ff006e);animation:game-enemy-move 3s ease-in-out infinite;}
+.game-enemy.e1{top:25%;left:15%;animation-delay:0s;}
+.game-enemy.e2{top:20%;right:20%;animation-delay:1s;}
+.game-enemy.e3{top:40%;left:35%;animation-delay:0.5s;}
+@keyframes game-enemy-move{0%,100%{transform:translateX(0) translateY(0)}33%{transform:translateX(8px) translateY(5px)}66%{transform:translateX(-5px) translateY(-3px)}}
+.game-bullet{position:absolute;width:3px;height:18px;background:linear-gradient(180deg,#00d4ff,transparent);border-radius:2px;box-shadow:0 0 8px #00d4ff;animation:bullet-up 1.2s linear infinite;}
+.game-bullet.b1{left:49%;bottom:45%;animation-delay:0s;}
+.game-bullet.b2{left:47%;bottom:55%;animation-delay:0.6s;}
+@keyframes bullet-up{from{transform:translateY(0);opacity:1}to{transform:translateY(-120px);opacity:0}}
+.game-level{position:absolute;top:3.5rem;left:50%;transform:translateX(-50%);font-family:var(--font-code);font-size:0.6rem;color:rgba(0,212,255,0.5);letter-spacing:0.3em;}
+
+/* ESCENA 2: WEB */
+.escena-web{background:#0a0a1f;--e-glow:rgba(123,47,255,0.25);}
+.browser-chrome{position:absolute;top:0;left:0;right:0;height:36px;background:#16163a;display:flex;align-items:center;padding:0 1rem;gap:0.5rem;border-bottom:1px solid rgba(123,47,255,0.2);z-index:4;}
+.b-dot{width:10px;height:10px;border-radius:50%;}
+.b-dot.r{background:#ff5f56;}.b-dot.y{background:#ffbd2e;}.b-dot.g{background:#27c93f;}
+.b-url{flex:1;margin:0 0.8rem;height:20px;background:#0d0d2e;border-radius:4px;display:flex;align-items:center;padding:0 0.8rem;}
+.b-url span{font-family:var(--font-code);font-size:0.6rem;color:rgba(0,212,255,0.6);}
+.web-content{position:absolute;top:36px;left:0;right:0;bottom:0;overflow:hidden;}
+.web-hero-block{height:55%;background:linear-gradient(135deg,#0d0d2e,#1a0a3e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.6rem;padding:1.2rem;}
+.web-nav{position:absolute;top:36px;left:0;right:0;height:32px;background:rgba(10,10,31,0.95);display:flex;align-items:center;padding:0 1.2rem;gap:1.2rem;z-index:3;border-bottom:1px solid rgba(123,47,255,0.15);}
+.web-nav-logo{width:40px;height:8px;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:2px;}
+.web-nav-item{width:28px;height:6px;background:rgba(255,255,255,0.12);border-radius:2px;}
+.web-nav-btn{width:36px;height:16px;background:linear-gradient(135deg,var(--cyan),var(--purple));border-radius:3px;margin-left:auto;}
+.web-hero-title{width:180px;height:14px;background:linear-gradient(90deg,rgba(255,255,255,0.8),rgba(255,255,255,0.4));border-radius:3px;}
+.web-hero-sub{width:140px;height:8px;background:rgba(255,255,255,0.25);border-radius:2px;}
+.web-hero-cta{width:80px;height:22px;background:linear-gradient(135deg,var(--cyan),var(--purple));border-radius:4px;margin-top:0.3rem;box-shadow:0 0 20px rgba(0,212,255,0.4);}
+.web-cards-row{display:flex;gap:0.6rem;padding:0.8rem 1rem;position:absolute;bottom:0;left:0;right:0;}
+.web-card{flex:1;height:60px;background:#16163a;border-radius:6px;border:1px solid rgba(123,47,255,0.2);display:flex;align-items:center;justify-content:center;}
+.web-card-dot{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));opacity:0.6;}
+
+/* ESCENA 3: APP MÓVIL */
+.escena-app{background:#080818;display:flex;align-items:center;justify-content:center;--e-glow:rgba(255,0,110,0.25);}
+.phone-frame{width:140px;height:240px;background:#0d0d22;border-radius:24px;border:2px solid rgba(255,0,110,0.3);position:relative;overflow:hidden;box-shadow:0 0 40px rgba(255,0,110,0.15),inset 0 0 20px rgba(0,0,0,0.5);}
+.phone-notch{width:50px;height:12px;background:#080818;border-radius:0 0 8px 8px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;}
+.phone-screen{position:absolute;inset:0;padding-top:18px;}
+.app-topbar{display:flex;align-items:center;padding:0.4rem 0.7rem;gap:0.4rem;}
+.app-avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));flex-shrink:0;}
+.app-name{width:50px;height:7px;background:rgba(255,255,255,0.5);border-radius:2px;}
+.app-feed{padding:0 0.5rem;display:flex;flex-direction:column;gap:0.4rem;}
+.app-post{background:#16163a;border-radius:8px;padding:0.4rem;border:1px solid rgba(255,0,110,0.1);}
+.app-post-img{height:36px;background:linear-gradient(135deg,rgba(255,0,110,0.3),rgba(123,47,255,0.3));border-radius:4px;margin-bottom:0.3rem;}
+.app-post-line{height:5px;background:rgba(255,255,255,0.15);border-radius:2px;margin-bottom:0.2rem;}
+.app-post-line.short{width:60%;}
+.app-bottomnav{position:absolute;bottom:0;left:0;right:0;height:32px;background:#0a0a1e;border-top:1px solid rgba(255,0,110,0.15);display:flex;align-items:center;justify-content:space-around;padding:0 0.5rem;}
+.app-nav-icon{font-size:0.85rem;opacity:0.5;}
+.app-nav-icon.active{opacity:1;filter:drop-shadow(0 0 4px var(--pink));}
+.phone-glow{position:absolute;inset:0;border-radius:24px;border:1px solid rgba(255,0,110,0.4);animation:phone-pulse 3s ease-in-out infinite;}
+@keyframes phone-pulse{0%,100%{box-shadow:0 0 20px rgba(255,0,110,0.2)}50%{box-shadow:0 0 40px rgba(255,0,110,0.4)}}
+
+/* ESCENA 4: DISEÑO */
+.escena-design{background:#090912;--e-glow:rgba(255,160,0,0.25);}
+.design-toolbar{position:absolute;top:0;left:0;bottom:0;width:40px;background:#111128;border-right:1px solid rgba(255,160,0,0.15);display:flex;flex-direction:column;align-items:center;padding:0.8rem 0;gap:0.6rem;z-index:3;}
+.tool-btn{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;background:rgba(255,255,255,0.05);}
+.tool-btn.active{background:rgba(255,160,0,0.2);box-shadow:0 0 8px rgba(255,160,0,0.3);}
+.design-canvas{position:absolute;top:0;left:40px;right:0;bottom:40px;background:#0d0d20;overflow:hidden;}
+.design-shape{position:absolute;border-radius:50%;}
+.ds1{width:100px;height:100px;background:linear-gradient(135deg,var(--cyan),var(--purple));top:20%;left:20%;opacity:0.8;animation:ds-spin 8s linear infinite;}
+.ds2{width:70px;height:70px;background:linear-gradient(135deg,var(--pink),var(--purple2));top:40%;right:25%;opacity:0.7;animation:ds-spin 6s linear infinite reverse;}
+.ds3{width:50px;height:50px;background:linear-gradient(135deg,#ff9900,var(--cyan));bottom:20%;left:40%;opacity:0.9;border-radius:8px;animation:ds-spin 10s linear infinite;}
+@keyframes ds-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.design-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:20px 20px;}
+.design-palette{position:absolute;bottom:0;left:40px;right:0;height:40px;background:#111128;border-top:1px solid rgba(255,160,0,0.15);display:flex;align-items:center;padding:0 1rem;gap:0.5rem;}
+.swatch{width:20px;height:20px;border-radius:50%;}
+
+/* ESCENA 5: IA / CÓDIGO */
+.escena-ai{background:#00000a;--e-glow:rgba(0,212,255,0.3);}
+.matrix-rain{position:absolute;inset:0;overflow:hidden;opacity:0.15;}
+.matrix-col{position:absolute;top:-100%;font-family:var(--font-code);font-size:0.75rem;color:#00ff66;line-height:1.4;animation:rain-fall linear infinite;}
+@keyframes rain-fall{from{top:-100%}to{top:100%}}
+.ai-terminal{position:absolute;inset:1rem;background:rgba(0,5,0,0.85);border:1px solid rgba(0,212,255,0.3);border-radius:8px;padding:0.8rem;backdrop-filter:blur(4px);z-index:2;overflow:hidden;}
+.ai-cursor-line{font-family:var(--font-code);font-size:0.68rem;color:#00ff66;margin-bottom:0.4rem;}
+.ai-response{font-family:var(--font-code);font-size:0.68rem;color:var(--cyan);margin-bottom:0.3rem;animation:type-in 3s steps(40,end) infinite;}
+@keyframes type-in{from{width:0;overflow:hidden}to{width:100%}}
+.ai-code-block{background:rgba(0,0,0,0.4);border-left:2px solid var(--cyan);padding:0.4rem 0.6rem;margin-top:0.4rem;border-radius:0 4px 4px 0;}
+.ai-code-block span{font-family:var(--font-code);font-size:0.62rem;display:block;line-height:1.5;}
+.ai-kw{color:var(--purple2)}.ai-fn{color:var(--cyan)}.ai-str{color:#98ff98}.ai-cm{color:#555}
+
+/* ESCENA 6: STREAMING */
+.escena-stream{background:#080010;--e-glow:rgba(123,47,255,0.3);}
+.stream-main{position:absolute;inset:0;display:flex;flex-direction:column;}
+.stream-topbar{height:32px;background:#100020;display:flex;align-items:center;padding:0 1rem;gap:0.8rem;border-bottom:1px solid rgba(123,47,255,0.2);}
+.live-badge{font-family:var(--font-code);font-size:0.55rem;background:#ff0000;color:#fff;padding:0.15rem 0.4rem;border-radius:3px;font-weight:700;animation:live-pulse 2s infinite;}
+@keyframes live-pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+.stream-title{font-family:var(--font-code);font-size:0.6rem;color:rgba(255,255,255,0.6);}
+.stream-viewers{font-family:var(--font-code);font-size:0.6rem;color:var(--purple2);margin-left:auto;}
+.stream-body{flex:1;display:flex;overflow:hidden;}
+.stream-preview{flex:1;background:linear-gradient(135deg,#0d0028,#1a004a);position:relative;display:flex;align-items:center;justify-content:center;}
+.stream-avatar-big{font-size:3rem;filter:drop-shadow(0 0 20px var(--purple));animation:game-float 3s ease-in-out infinite;}
+.stream-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,0,16,0.8));display:flex;align-items:flex-end;padding:0.5rem;}
+.stream-name-badge{font-family:var(--font-code);font-size:0.6rem;background:rgba(123,47,255,0.8);padding:0.2rem 0.5rem;border-radius:3px;color:#fff;}
+.stream-chat{width:100px;background:#0c001c;border-left:1px solid rgba(123,47,255,0.2);display:flex;flex-direction:column;padding:0.4rem;}
+.chat-title{font-family:var(--font-code);font-size:0.55rem;color:var(--purple2);margin-bottom:0.4rem;padding-bottom:0.3rem;border-bottom:1px solid rgba(123,47,255,0.15);}
+.chat-msg{font-family:var(--font-code);font-size:0.55rem;margin-bottom:0.3rem;line-height:1.4;}
+.chat-msg .cn{font-weight:700;}
+.chat-msg .ct{color:rgba(255,255,255,0.5);}
+.stream-alert{position:absolute;top:40px;left:0;right:100px;background:linear-gradient(90deg,rgba(123,47,255,0.9),transparent);padding:0.3rem 0.8rem;font-family:var(--font-code);font-size:0.6rem;color:#fff;animation:alert-slide 4s ease-in-out infinite;opacity:0;}
+@keyframes alert-slide{0%{opacity:0;transform:translateX(-20px)}10%{opacity:1;transform:translateX(0)}80%{opacity:1}100%{opacity:0}}
+
+/* ── SCROLL HORIZONTAL ── */
+#universo{background:var(--black);border-top:1px solid rgba(0,212,255,0.06);}
+.hscroll-outer{height:500vh;}
+.hscroll-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
+.hscroll-header{text-align:center;padding:2rem 2rem 1.5rem;flex-shrink:0;}
+.hscroll-track{display:flex;width:fit-content;gap:2rem;padding:0 5vw;will-change:transform;transition:transform 0.05s linear;}
+.hscroll-panel{width:80vw;max-width:700px;flex-shrink:0;background:var(--dark2);border:1px solid var(--gray);border-radius:20px;padding:3rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.hscroll-panel::before{content:'';position:absolute;inset:0;border-radius:20px;background:radial-gradient(ellipse at 30% 50%,var(--panel-glow,rgba(0,212,255,0.06)),transparent 70%);pointer-events:none;}
+.hp-num{font-family:var(--font-tech);font-size:6rem;font-weight:900;opacity:0.04;position:absolute;top:1rem;right:2rem;line-height:1;color:var(--white);}
+.hp-tag{font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.4em;color:var(--cyan);margin-bottom:1rem;}
+.hp-icon{font-size:3.5rem;margin-bottom:1.2rem;filter:drop-shadow(0 0 20px var(--panel-accent,var(--cyan)));}
+.hp-title{font-family:var(--font-tech);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;color:var(--white);}
+.hp-desc{font-size:1rem;color:var(--gray2);line-height:1.7;margin-bottom:1.5rem;}
+.hp-tags{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.hp-tag-item{font-family:var(--font-code);font-size:0.65rem;padding:0.3rem 0.8rem;border:1px solid var(--panel-accent,var(--cyan));color:var(--panel-accent,var(--cyan));border-radius:100px;opacity:0.7;}
+.hscroll-progress{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;}
+.hp-dot{width:8px;height:8px;border-radius:50%;background:var(--gray);transition:all 0.3s;}
+.hp-dot.active{background:var(--cyan);width:24px;border-radius:4px;}
+
+/* ── TERMINAL ── */
+#terminal-section{padding:8rem 0;background:var(--dark);border-top:1px solid rgba(0,212,255,0.06);text-align:center;}
+.terminal-wrap{max-width:760px;margin:3rem auto 0;border-radius:12px;overflow:hidden;box-shadow:0 0 60px rgba(0,212,255,0.12),0 30px 80px rgba(0,0,0,0.6);border:1px solid rgba(0,212,255,0.2);}
+.term-bar{background:#1a1a2e;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:0.6rem;border-bottom:1px solid rgba(0,212,255,0.1);}
+.term-dot{width:12px;height:12px;border-radius:50%;}
+.term-dot.red{background:#ff5f56;}.term-dot.yellow{background:#ffbd2e;}.term-dot.green{background:#27c93f;}
+.term-title{font-family:var(--font-code);font-size:0.7rem;color:var(--gray2);margin:0 auto;letter-spacing:0.2em;}
+.term-body{background:#080814;padding:1.5rem;min-height:320px;max-height:400px;overflow-y:auto;font-family:var(--font-code);font-size:0.82rem;line-height:1.8;text-align:left;}
+.term-body::-webkit-scrollbar{width:3px;}.term-body::-webkit-scrollbar-thumb{background:var(--cyan);}
+.term-line{margin-bottom:0.2rem;}
+.term-line.prompt::before{content:'> ';color:var(--cyan);}
+.term-line.out{color:var(--gray2);}
+.term-line.success{color:#27c93f;}
+.term-line.warn{color:#ffbd2e;}
+.term-line.cyan{color:var(--cyan);}
+.term-line.purple{color:var(--purple2);}
+.term-line.err{color:var(--pink);}
+.term-input-row{display:flex;align-items:center;gap:0.5rem;padding:0.8rem 1.5rem;background:#080814;border-top:1px solid rgba(0,212,255,0.1);}
+.term-prompt-symbol{font-family:var(--font-code);color:var(--cyan);font-size:0.85rem;flex-shrink:0;}
+.term-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--font-code);font-size:0.85rem;color:var(--white);caret-color:var(--cyan);}
+.term-hint{font-family:var(--font-code);font-size:0.6rem;color:var(--gray);text-align:center;padding:0.5rem;background:#080814;}
+[data-theme="light"] .term-body,[data-theme="light"] .term-bar,[data-theme="light"] .term-input-row,[data-theme="light"] .term-hint{background:#0d0d2a;}
+
 /* FOOTER */
 footer{position:relative;z-index:1;padding:2rem 3rem;border-top:1px solid var(--gray);display:flex;justify-content:space-between;align-items:center;background:var(--dark);}
 footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter-spacing:0.2em;}
@@ -300,13 +480,14 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
 </div>
 
 <canvas id="canvas-bg"></canvas>
+<canvas id="trail-canvas"></canvas>
 
 <nav id="main-nav">
   <div class="nav-logo">TIC <span>· CEB 5/4</span></div>
   <ul class="nav-links">
-    <li><a href="#que-es">¿Qué es?</a></li>
+    <li><a href="#escenas">Preview</a></li>
     <li><a href="#materias">Materias</a></li>
-    <li><a href="#crear">Proyectos</a></li>
+    <li><a href="#universo">Universo</a></li>
     <li><a href="#futuro">Futuro</a></li>
   </ul>
   <a href="#final" class="nav-cta">ELIGE TIC</a>
@@ -325,7 +506,7 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
     <span class="line-cyan"><span class="glitch-wrap" data-text="tecnología">tecnología</span></span>
     <span class="line-white" style="font-size:0.6em;font-weight:400;color:var(--gray2);margin-top:0.2em;">créala.</span>
   </h1>
-  <p class="hero-sub">La capacitación donde aprendes a <strong>diseñar, programar, crear y construir</strong> el mundo digital desde cero.</p>
+  <p class="hero-sub">Aquí te conviertes en <span class="typewriter-wrap"><span class="tw-word" id="tw-word">programador</span><span class="tw-cursor"></span></span> — y en mucho más.</p>
   <div class="hero-actions">
     <a href="#materias" class="btn-primary"><span>Explorar capacitación</span></a>
     <a href="#final" class="btn-secondary">Elegir TIC</a>
@@ -375,13 +556,13 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
       <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;">Cada semestre desbloqueas habilidades nuevas. Al final, tienes todo el stack para crear lo que imagines.</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-card cyan reveal reveal-delay-1"><div class="skill-card-top"><span class="skill-icon">💻</span><span class="skill-level">LVL 5 — CORE</span></div><h3>Programación</h3><p>Crea apps, scripts, automatizaciones, videojuegos, bots e interfaces interactivas.</p><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Apps</span><span class="skill-tag">Videojuegos</span></div></div>
-      <div class="skill-card purple reveal reveal-delay-2"><div class="skill-card-top"><span class="skill-icon">🌐</span><span class="skill-level">LVL 4 — CORE</span></div><h3>Páginas Web</h3><p>Diseña sitios que parecen hechos por agencias reales. HTML, CSS, efectos modernos.</p><div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive</span><span class="skill-tag">UI/UX</span></div></div>
-      <div class="skill-card pink reveal reveal-delay-3"><div class="skill-card-top"><span class="skill-icon">🎨</span><span class="skill-level">LVL 4 — CREATIVE</span></div><h3>Diseño Digital</h3><p>Edita fotos cinematográficas, crea publicidad, logos y animaciones profesionales.</p><div class="skill-tags"><span class="skill-tag">Photoshop</span><span class="skill-tag">Illustrator</span><span class="skill-tag">Canva Pro</span><span class="skill-tag">Branding</span></div></div>
-      <div class="skill-card green reveal reveal-delay-4"><div class="skill-card-top"><span class="skill-icon">🖥️</span><span class="skill-level">LVL 3 — TECH</span></div><h3>Redes y Mantenimiento</h3><p>Entiende cómo funciona el internet por dentro. Configura redes y sistemas reales.</p><div class="skill-tags"><span class="skill-tag">Redes</span><span class="skill-tag">Hardware</span><span class="skill-tag">Internet</span><span class="skill-tag">Servidores</span></div></div>
-      <div class="skill-card cyan reveal reveal-delay-5"><div class="skill-card-top"><span class="skill-icon">📊</span><span class="skill-level">LVL 3 — DATA</span></div><h3>Hoja de Cálculo</h3><p>Automatiza tareas, analiza datos y crea dashboards que toda empresa necesita.</p><div class="skill-tags"><span class="skill-tag">Excel avanzado</span><span class="skill-tag">Automatización</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Datos</span></div></div>
-      <div class="skill-card orange reveal reveal-delay-6"><div class="skill-card-top"><span class="skill-icon">🔐</span><span class="skill-level">LVL 3 — SYS</span></div><h3>Sistemas de Información</h3><p>Gestiona, organiza y protege datos. La base de toda empresa digital.</p><div class="skill-tags"><span class="skill-tag">Bases de datos</span><span class="skill-tag">Seguridad</span><span class="skill-tag">Sistemas</span><span class="skill-tag">Cloud</span></div></div>
-      <div class="skill-card purple reveal reveal-delay-1"><div class="skill-card-top"><span class="skill-icon">🌍</span><span class="skill-level">LVL 2 — SOCIAL</span></div><h3>Comunidades Virtuales</h3><p>Crea contenido, podcasts, streaming y construye presencia digital real en internet.</p><div class="skill-tags"><span class="skill-tag">Redes sociales</span><span class="skill-tag">Streaming</span><span class="skill-tag">Podcast</span><span class="skill-tag">Contenido</span></div></div>
+      <div class="skill-card cyan tilt-card reveal reveal-delay-1"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">💻</span><span class="skill-level">LVL 5 — CORE</span></div><h3>Programación</h3><p>Crea apps, scripts, automatizaciones, videojuegos, bots e interfaces interactivas.</p><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Apps</span><span class="skill-tag">Videojuegos</span></div></div>
+      <div class="skill-card purple tilt-card reveal reveal-delay-2"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">🌐</span><span class="skill-level">LVL 4 — CORE</span></div><h3>Páginas Web</h3><p>Diseña sitios que parecen hechos por agencias reales. HTML, CSS, efectos modernos.</p><div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive</span><span class="skill-tag">UI/UX</span></div></div>
+      <div class="skill-card pink tilt-card reveal reveal-delay-3"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">🎨</span><span class="skill-level">LVL 4 — CREATIVE</span></div><h3>Diseño Digital</h3><p>Edita fotos cinematográficas, crea publicidad, logos y animaciones profesionales.</p><div class="skill-tags"><span class="skill-tag">Photoshop</span><span class="skill-tag">Illustrator</span><span class="skill-tag">Canva Pro</span><span class="skill-tag">Branding</span></div></div>
+      <div class="skill-card green tilt-card reveal reveal-delay-4"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">🖥️</span><span class="skill-level">LVL 3 — TECH</span></div><h3>Redes y Mantenimiento</h3><p>Entiende cómo funciona el internet por dentro. Configura redes y sistemas reales.</p><div class="skill-tags"><span class="skill-tag">Redes</span><span class="skill-tag">Hardware</span><span class="skill-tag">Internet</span><span class="skill-tag">Servidores</span></div></div>
+      <div class="skill-card cyan tilt-card reveal reveal-delay-5"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">📊</span><span class="skill-level">LVL 3 — DATA</span></div><h3>Hoja de Cálculo</h3><p>Automatiza tareas, analiza datos y crea dashboards que toda empresa necesita.</p><div class="skill-tags"><span class="skill-tag">Excel avanzado</span><span class="skill-tag">Automatización</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Datos</span></div></div>
+      <div class="skill-card orange tilt-card reveal reveal-delay-6"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">🔐</span><span class="skill-level">LVL 3 — SYS</span></div><h3>Sistemas de Información</h3><p>Gestiona, organiza y protege datos. La base de toda empresa digital.</p><div class="skill-tags"><span class="skill-tag">Bases de datos</span><span class="skill-tag">Seguridad</span><span class="skill-tag">Sistemas</span><span class="skill-tag">Cloud</span></div></div>
+      <div class="skill-card purple tilt-card reveal reveal-delay-1"><div class="holo-shine"></div><div class="skill-card-top"><span class="skill-icon">🌍</span><span class="skill-level">LVL 2 — SOCIAL</span></div><h3>Comunidades Virtuales</h3><p>Crea contenido, podcasts, streaming y construye presencia digital real en internet.</p><div class="skill-tags"><span class="skill-tag">Redes sociales</span><span class="skill-tag">Streaming</span><span class="skill-tag">Podcast</span><span class="skill-tag">Contenido</span></div></div>
     </div>
   </div>
 </section>
@@ -406,6 +587,216 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
       <div class="crear-card reveal reveal-delay-4"><span class="c-icon">✨</span><h4>Animaciones Digitales</h4><p>Motion graphics, intros y efectos para cualquier pantalla.</p></div>
       <div class="crear-card reveal reveal-delay-5"><span class="c-icon">🔒</span><h4>Sistemas Seguros</h4><p>Bases de datos, autenticación y seguridad. La capa que protege todo.</p></div>
       <div class="crear-card reveal reveal-delay-6"><span class="c-icon">📣</span><h4>Campañas Digitales</h4><p>Publicidad y estrategia para redes sociales con herramientas reales.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="escenas">
+  <div class="section-inner">
+    <div class="escenas-header">
+      <span class="section-tag reveal">// PREVIEW DEL FUTURO</span>
+      <h2 class="section-title reveal reveal-delay-1">Esto lo harás <span style="color:var(--cyan)">tú.</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto">No en el futuro. Durante la capacitación.</p>
+    </div>
+    <div class="escenas-grid">
+
+      <!-- VIDEOJUEGO -->
+      <div class="escena escena-game reveal reveal-delay-1">
+        <div class="game-stars"></div>
+        <div class="game-hud-top">
+          <div class="game-score">SCORE: 09840&nbsp;&nbsp;NIVEL: 04</div>
+          <div class="game-lives">❤️❤️❤️</div>
+          <div class="game-hp"><span>HP</span><div class="game-hp-bar"><div class="game-hp-fill"></div></div></div>
+        </div>
+        <div class="game-level">— STAGE 4 —</div>
+        <div class="game-arena">
+          <div class="game-enemy e1">👾</div>
+          <div class="game-enemy e2">👾</div>
+          <div class="game-enemy e3">🛸</div>
+          <div class="game-bullet b1"></div>
+          <div class="game-bullet b2"></div>
+          <div class="game-player">🚀</div>
+        </div>
+        <div class="escena-label"><h4>🎮 Videojuego</h4><p>Mecánicas, niveles, HUD y lógica — tú lo creas todo</p></div>
+      </div>
+
+      <!-- PÁGINA WEB -->
+      <div class="escena escena-web reveal reveal-delay-2">
+        <div class="browser-chrome">
+          <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
+          <div class="b-url"><span>tuproyecto.vercel.app</span></div>
+        </div>
+        <div class="web-content">
+          <div class="web-nav">
+            <div class="web-nav-logo"></div>
+            <div class="web-nav-item"></div><div class="web-nav-item"></div><div class="web-nav-item"></div>
+            <div class="web-nav-btn"></div>
+          </div>
+          <div class="web-hero-block" style="margin-top:32px">
+            <div class="web-hero-title"></div>
+            <div class="web-hero-sub"></div>
+            <div class="web-hero-cta"></div>
+          </div>
+          <div class="web-cards-row">
+            <div class="web-card"><div class="web-card-dot"></div></div>
+            <div class="web-card"><div class="web-card-dot" style="background:linear-gradient(135deg,var(--pink),var(--purple))"></div></div>
+            <div class="web-card"><div class="web-card-dot" style="background:linear-gradient(135deg,#ff9900,var(--cyan))"></div></div>
+          </div>
+        </div>
+        <div class="escena-label"><h4>🌐 Página Web</h4><p>Diseñas la interfaz, el código y la experiencia completa</p></div>
+      </div>
+
+      <!-- APP MÓVIL -->
+      <div class="escena escena-app reveal reveal-delay-3">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-glow"></div>
+          <div class="phone-screen">
+            <div class="app-topbar">
+              <div class="app-avatar"></div>
+              <div class="app-name"></div>
+            </div>
+            <div class="app-feed">
+              <div class="app-post"><div class="app-post-img"></div><div class="app-post-line"></div><div class="app-post-line short"></div></div>
+              <div class="app-post"><div class="app-post-img" style="background:linear-gradient(135deg,rgba(0,212,255,0.3),rgba(0,255,231,0.2))"></div><div class="app-post-line"></div></div>
+            </div>
+            <div class="app-bottomnav">
+              <span class="app-nav-icon active">🏠</span>
+              <span class="app-nav-icon">🔍</span>
+              <span class="app-nav-icon">➕</span>
+              <span class="app-nav-icon">💬</span>
+              <span class="app-nav-icon">👤</span>
+            </div>
+          </div>
+        </div>
+        <div class="escena-label"><h4>📱 App Móvil</h4><p>Tu app, en cualquier teléfono, con tu diseño y lógica</p></div>
+      </div>
+
+      <!-- DISEÑO DIGITAL -->
+      <div class="escena escena-design reveal reveal-delay-4">
+        <div class="design-toolbar">
+          <div class="tool-btn active">🖊</div>
+          <div class="tool-btn">⬜</div>
+          <div class="tool-btn">⭕</div>
+          <div class="tool-btn">✂️</div>
+          <div class="tool-btn">🪣</div>
+          <div class="tool-btn">🔍</div>
+        </div>
+        <div class="design-canvas">
+          <div class="design-grid"></div>
+          <div class="design-shape ds1"></div>
+          <div class="design-shape ds2"></div>
+          <div class="design-shape ds3"></div>
+        </div>
+        <div class="design-palette">
+          <div class="swatch" style="background:#00d4ff"></div>
+          <div class="swatch" style="background:#7b2fff"></div>
+          <div class="swatch" style="background:#ff006e"></div>
+          <div class="swatch" style="background:#ff9900"></div>
+          <div class="swatch" style="background:#00ff80"></div>
+          <div class="swatch" style="background:#ffffff"></div>
+          <div class="swatch" style="background:#111"></div>
+        </div>
+        <div class="escena-label"><h4>🎨 Diseño Digital</h4><p>Composición, color y forma — tu visión en pantalla</p></div>
+      </div>
+
+      <!-- IA / CÓDIGO -->
+      <div class="escena escena-ai reveal reveal-delay-5">
+        <div class="matrix-rain" id="matrix-rain"></div>
+        <div class="ai-terminal">
+          <div class="ai-cursor-line">$ python3 main.py ▋</div>
+          <div class="ai-response">→ Modelo entrenado con 98.4% de precisión</div>
+          <div class="ai-code-block">
+            <span><span class="ai-kw">import</span> torch, transformers</span>
+            <span><span class="ai-fn">model</span> = GPT(<span class="ai-str">'tic-v1'</span>)</span>
+            <span><span class="ai-fn">result</span> = model.<span class="ai-fn">predict</span>(input) <span class="ai-cm"># 🔥</span></span>
+            <span><span class="ai-kw">print</span>(<span class="ai-str">"IA lista."</span>)</span>
+          </div>
+          <div class="ai-response" style="animation-delay:1.5s;color:#27c93f">✓ Deploy exitoso en producción</div>
+        </div>
+        <div class="escena-label"><h4>🤖 Inteligencia Artificial</h4><p>Entrenas modelos, escribes código y despliegas IA real</p></div>
+      </div>
+
+      <!-- STREAMING -->
+      <div class="escena escena-stream reveal reveal-delay-6">
+        <div class="stream-main">
+          <div class="stream-topbar">
+            <div class="live-badge">● LIVE</div>
+            <span class="stream-title">Programando en vivo — EP 12</span>
+            <span class="stream-viewers">👁 1,247</span>
+          </div>
+          <div class="stream-body">
+            <div class="stream-preview">
+              <div class="stream-avatar-big">🧑‍💻</div>
+              <div class="stream-alert">🎉 TecnoFan se suscribió</div>
+              <div class="stream-overlay">
+                <div class="stream-name-badge">Prof_Felipe • TIC_CEB54</div>
+              </div>
+            </div>
+            <div class="stream-chat">
+              <div class="chat-title">Chat en vivo</div>
+              <div class="chat-msg"><span class="cn" style="color:var(--cyan)">Alex:</span><span class="ct"> pro! 🔥</span></div>
+              <div class="chat-msg"><span class="cn" style="color:var(--purple2)">Sofi:</span><span class="ct"> quiero eso!</span></div>
+              <div class="chat-msg"><span class="cn" style="color:#ff9900">Luis:</span><span class="ct"> magia 😱</span></div>
+              <div class="chat-msg"><span class="cn" style="color:var(--pink)">Ana:</span><span class="ct"> wow!!!</span></div>
+              <div class="chat-msg"><span class="cn" style="color:var(--cyan)">Dani:</span><span class="ct"> cómo?</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="escena-label"><h4>🎙️ Streaming & Contenido</h4><p>Transmites, conectas y construyes tu audiencia digital</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="universo">
+  <div class="hscroll-outer">
+    <div class="hscroll-sticky">
+      <div class="hscroll-header">
+        <span class="section-tag">// EL UNIVERSO TIC</span>
+        <h2 class="section-title" style="margin-bottom:0">Cinco mundos.<br><span style="color:var(--cyan)">Tú eliges cuál explorar.</span></h2>
+      </div>
+      <div class="hscroll-track" id="htrack">
+        <div class="hscroll-panel" style="--panel-glow:rgba(0,212,255,0.08);--panel-accent:var(--cyan)">
+          <span class="hp-num">01</span><span class="hp-tag">// MUNDO 01</span>
+          <span class="hp-icon">💻</span>
+          <h3 class="hp-title">Programación & Apps</h3>
+          <p class="hp-desc">Escribes código y aparece magia. Apps que millones usan, bots que trabajan solos, videojuegos que entretienen al mundo. El poder de crear algo de la nada.</p>
+          <div class="hp-tags"><span class="hp-tag-item">Python</span><span class="hp-tag-item">JavaScript</span><span class="hp-tag-item">Apps</span><span class="hp-tag-item">Bots</span><span class="hp-tag-item">IA</span></div>
+        </div>
+        <div class="hscroll-panel" style="--panel-glow:rgba(123,47,255,0.1);--panel-accent:var(--purple2)">
+          <span class="hp-num">02</span><span class="hp-tag">// MUNDO 02</span>
+          <span class="hp-icon">🌐</span>
+          <h3 class="hp-title">Diseño Web & UI/UX</h3>
+          <p class="hp-desc">Lo que ves en pantalla, tú lo diseñas. Sitios que parecen de Silicon Valley, interfaces que enamoran, experiencias que la gente no olvida.</p>
+          <div class="hp-tags"><span class="hp-tag-item">HTML/CSS</span><span class="hp-tag-item">Figma</span><span class="hp-tag-item">Animaciones</span><span class="hp-tag-item">UX</span></div>
+        </div>
+        <div class="hscroll-panel" style="--panel-glow:rgba(255,0,110,0.08);--panel-accent:var(--pink)">
+          <span class="hp-num">03</span><span class="hp-tag">// MUNDO 03</span>
+          <span class="hp-icon">🎨</span>
+          <h3 class="hp-title">Diseño & Multimedia</h3>
+          <p class="hp-desc">Fotos que parecen portadas de revista. Videos nivel Netflix. Logos que valen millones. El arte digital no tiene límites — y tú aprendes a dominarlo.</p>
+          <div class="hp-tags"><span class="hp-tag-item">Photoshop</span><span class="hp-tag-item">Illustrator</span><span class="hp-tag-item">Video</span><span class="hp-tag-item">Branding</span></div>
+        </div>
+        <div class="hscroll-panel" style="--panel-glow:rgba(0,255,128,0.07);--panel-accent:#00cc66">
+          <span class="hp-num">04</span><span class="hp-tag">// MUNDO 04</span>
+          <span class="hp-icon">🖥️</span>
+          <h3 class="hp-title">Redes & Infraestructura</h3>
+          <p class="hp-desc">El internet no existe solo. Alguien lo construye, lo mantiene, lo protege. Ese alguien podrías ser tú. La capa invisible que mueve el mundo digital.</p>
+          <div class="hp-tags"><span class="hp-tag-item">Redes</span><span class="hp-tag-item">Servidores</span><span class="hp-tag-item">Cloud</span><span class="hp-tag-item">Seguridad</span></div>
+        </div>
+        <div class="hscroll-panel" style="--panel-glow:rgba(255,160,0,0.08);--panel-accent:#ff9900">
+          <span class="hp-num">05</span><span class="hp-tag">// MUNDO 05</span>
+          <span class="hp-icon">🎙️</span>
+          <h3 class="hp-title">Contenido & Comunidades</h3>
+          <p class="hp-desc">Streaming, podcasts, comunidades, marcas digitales. La economía del creador vale billones. Y empieza exactamente donde estás tú ahora mismo.</p>
+          <div class="hp-tags"><span class="hp-tag-item">Streaming</span><span class="hp-tag-item">Podcast</span><span class="hp-tag-item">Social</span><span class="hp-tag-item">Marca</span></div>
+        </div>
+      </div>
+      <div class="hscroll-progress" id="hprogress">
+        <div class="hp-dot active"></div><div class="hp-dot"></div><div class="hp-dot"></div><div class="hp-dot"></div><div class="hp-dot"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -462,6 +853,30 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
   </div>
 </section>
 
+<section id="terminal-section">
+  <div class="section-inner">
+    <span class="section-tag reveal" style="text-align:center;display:block">// SISTEMA INTERACTIVO</span>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">Prueba el<br><span style="color:var(--cyan)">sistema TIC.</span></h2>
+    <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;text-align:center">Escribe un comando y descubre qué te espera.</p>
+    <div class="terminal-wrap reveal reveal-delay-3">
+      <div class="term-bar">
+        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
+        <span class="term-title">tic-shell v1.0 — CEB 5/4</span>
+      </div>
+      <div class="term-body" id="term-body">
+        <div class="term-line cyan">Sistema TIC iniciado. Bienvenido.</div>
+        <div class="term-line out">Escribe <span style="color:var(--cyan)">help</span> para ver los comandos disponibles.</div>
+        <div class="term-line out">─────────────────────────────────────</div>
+      </div>
+      <div class="term-input-row">
+        <span class="term-prompt-symbol">›</span>
+        <input class="term-input" id="term-input" type="text" placeholder="escribe un comando..." autocomplete="off" spellcheck="false">
+      </div>
+      <div class="term-hint">Comandos: help · careers · skills · enroll · matrix · secret</div>
+    </div>
+  </div>
+</section>
+
 <section id="docente">
   <div class="section-inner">
     <span class="docente-label reveal">CAPACITACIÓN PRESENTADA POR</span>
@@ -511,6 +926,45 @@ const cursorRing = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-5+'px';cursor.style.top=my-5+'px';});
 (function animC(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;cursorRing.style.left=rx-18+'px';cursorRing.style.top=ry-18+'px';requestAnimationFrame(animC);})();
+// ── CURSOR TRAIL ──────────────────────────────────────────────
+const trailCanvas=document.getElementById('trail-canvas');
+const tctx=trailCanvas.getContext('2d');
+trailCanvas.width=window.innerWidth;trailCanvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{trailCanvas.width=window.innerWidth;trailCanvas.height=window.innerHeight;});
+const trailDots=[];
+const TRAIL_COLORS=['rgba(0,212,255,','rgba(123,47,255,','rgba(0,255,231,','rgba(168,85,247,'];
+document.addEventListener('mousemove',e=>{
+  trailDots.push({x:e.clientX,y:e.clientY,r:7,alpha:0.8,color:TRAIL_COLORS[Math.floor(Math.random()*TRAIL_COLORS.length)]});
+  if(trailDots.length>60)trailDots.shift();
+});
+(function animTrail(){
+  tctx.clearRect(0,0,trailCanvas.width,trailCanvas.height);
+  trailDots.forEach((d,i)=>{
+    d.alpha*=0.88;d.r*=0.95;
+    tctx.beginPath();tctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+    tctx.fillStyle=d.color+d.alpha+')';tctx.fill();
+  });
+  requestAnimationFrame(animTrail);
+})();
+
+// ── TYPEWRITER ────────────────────────────────────────────────
+const twWords=['programador','diseñador web','creador de apps','hacker ético','dev de videojuegos','artista digital','experto en IA'];
+let twIdx=0,twChar=0,twDeleting=false;
+const twEl=document.getElementById('tw-word');
+function typeWriter(){
+  if(!twEl)return;
+  const word=twWords[twIdx];
+  if(!twDeleting){
+    twEl.textContent=word.slice(0,++twChar);
+    if(twChar===word.length){twDeleting=true;setTimeout(typeWriter,1800);return;}
+  }else{
+    twEl.textContent=word.slice(0,--twChar);
+    if(twChar===0){twDeleting=false;twIdx=(twIdx+1)%twWords.length;}
+  }
+  setTimeout(typeWriter,twDeleting?60:110);
+}
+setTimeout(typeWriter,5000);
+
 document.querySelectorAll('a,button,.skill-card,.crear-card,.career-card,.pillar,#theme-toggle').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2)';cursorRing.style.transform='scale(1.5)';});
   el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';cursorRing.style.transform='scale(1)';});
@@ -541,7 +995,139 @@ function animCount(el,target){const s=performance.now();(function u(now){const p
 const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animCount(e.target,+e.target.dataset.target);so.unobserve(e.target);}}),{threshold:0.5});
 document.querySelectorAll('.stat-number').forEach(el=>so.observe(el));
 
+// ── TERMINAL ─────────────────────────────────────────────────
+const termBody=document.getElementById('term-body');
+const termInput=document.getElementById('term-input');
+const CMD={
+  help:{lines:[
+    {t:'cyan',v:'Comandos disponibles:'},
+    {t:'out',v:'  help     → esta lista'},
+    {t:'out',v:'  careers  → carreras y salarios'},
+    {t:'out',v:'  skills   → habilidades que aprenderás'},
+    {t:'out',v:'  enroll   → cómo elegir TIC'},
+    {t:'out',v:'  matrix   → 👀'},
+    {t:'out',v:'  secret   → easter egg'},
+  ]},
+  careers:{lines:[
+    {t:'cyan',v:'── CARRERAS EN TECNOLOGÍA ──'},
+    {t:'success',v:'  Desarrollador Web       $15k–$50k MXN/mes'},
+    {t:'success',v:'  Diseñador UX/UI         $12k–$45k MXN/mes'},
+    {t:'success',v:'  Ciberseguridad          $20k–$70k MXN/mes'},
+    {t:'success',v:'  Inteligencia Artificial  $25k–$80k MXN/mes'},
+    {t:'warn',v:'  → Todas empiezan con TIC.'},
+  ]},
+  skills:{lines:[
+    {t:'cyan',v:'── HABILIDADES QUE DESBLOQUEARÁS ──'},
+    {t:'purple',v:'  [LVL 5] Programación — Python, JS, Apps'},
+    {t:'purple',v:'  [LVL 4] Páginas Web — HTML, CSS, UI/UX'},
+    {t:'purple',v:'  [LVL 4] Diseño Digital — PS, AI, Video'},
+    {t:'purple',v:'  [LVL 3] Redes y Mantenimiento'},
+    {t:'purple',v:'  [LVL 3] Datos y Sistemas'},
+    {t:'warn',v:'  Stack completo en 3 años.'},
+  ]},
+  enroll:{lines:[
+    {t:'cyan',v:'── CÓMO ELEGIR TIC ──'},
+    {t:'out',v:'  1. Estás en segundo semestre.'},
+    {t:'out',v:'  2. La capacitación se elige ahora.'},
+    {t:'success',v:'  3. Elige TIC. Sin dudarlo.'},
+    {t:'warn',v:'  Prof. Felipe López Salazar te espera.'},
+    {t:'cyan',v:'  → El futuro lo programan los que aprenden hoy.'},
+  ]},
+  matrix:{lines:[
+    {t:'warn',v:'Iniciando protocolo MATRIX...'},
+    {t:'cyan',v:'01001101 01000001 01010100 01010010 01001001 01011000'},
+    {t:'success',v:'Acceso concedido.'},
+    {t:'out',v:'Wake up, Neo...'},
+    {t:'cyan',v:'The Matrix has you.'},
+    {t:'warn',v:'(En TIC aprendes a crear la Matrix, no a escapar de ella)'},
+  ]},
+  secret:{lines:[
+    {t:'warn',v:'Acceso a archivo clasificado...'},
+    {t:'err',v:'ADVERTENCIA: Información ultra secreta.'},
+    {t:'cyan',v:'El profe Felipe es en realidad un cyborg del futuro'},
+    {t:'cyan',v:'enviado para enseñarte a programar.'},
+    {t:'success',v:'Misión: hacer que elijas TIC.'},
+    {t:'warn',v:'Archivo autodestruido en 3... 2... 1...'},
+  ]},
+};
+function termPrint(lines,i=0){
+  if(i>=lines.length)return;
+  const d=document.createElement('div');
+  d.className='term-line '+lines[i].t;
+  d.textContent=lines[i].v;
+  termBody.appendChild(d);
+  termBody.scrollTop=termBody.scrollHeight;
+  setTimeout(()=>termPrint(lines,i+1),80);
+}
+if(termInput){
+  termInput.addEventListener('keydown',e=>{
+    if(e.key!=='Enter')return;
+    const val=termInput.value.trim().toLowerCase();
+    termInput.value='';
+    const echo=document.createElement('div');
+    echo.className='term-line prompt';echo.textContent=val;
+    termBody.appendChild(echo);
+    if(CMD[val])termPrint(CMD[val].lines);
+    else{
+      const err=document.createElement('div');
+      err.className='term-line err';
+      err.textContent=`Comando '${val}' no encontrado. Escribe 'help'.`;
+      termBody.appendChild(err);
+    }
+    termBody.scrollTop=termBody.scrollHeight;
+  });
+}
+
+// ── SCROLL HORIZONTAL ─────────────────────────────────────────
+const hOuter=document.querySelector('.hscroll-outer');
+const hTrack=document.getElementById('htrack');
+const hDots=document.querySelectorAll('.hp-dot');
+if(hOuter&&hTrack){
+  window.addEventListener('scroll',()=>{
+    const rect=hOuter.getBoundingClientRect();
+    const progress=Math.max(0,Math.min(1,-rect.top/(rect.height-window.innerHeight)));
+    const maxX=hTrack.scrollWidth-window.innerWidth+window.innerWidth*0.1;
+    hTrack.style.transform=`translateX(${-progress*maxX}px)`;
+    const panel=Math.min(4,Math.floor(progress*5));
+    hDots.forEach((d,i)=>d.classList.toggle('active',i===panel));
+  });
+}
+
+// ── TILT 3D ───────────────────────────────────────────────────
+document.querySelectorAll('.tilt-card').forEach(card=>{
+  const shine=card.querySelector('.holo-shine');
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(900px) rotateY(${x*18}deg) rotateX(${-y*18}deg) scale(1.04) translateY(-4px)`;
+    if(shine)shine.style.background=`radial-gradient(circle at ${e.clientX-r.left}px ${e.clientY-r.top}px,rgba(255,255,255,0.18) 0%,rgba(0,212,255,0.08) 40%,transparent 70%)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+    if(shine)shine.style.background='';
+  });
+});
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
+
+// ── MATRIX RAIN ───────────────────────────────────────────────
+(function(){
+  const rain=document.getElementById('matrix-rain');
+  if(!rain)return;
+  const chars='アイウエオカキクケコサシスセソタチツテトナニヌネノ01ハヒフヘホマミムメモ';
+  for(let i=0;i<12;i++){
+    const col=document.createElement('div');
+    col.className='matrix-col';
+    col.style.left=i*8.5+'%';
+    col.style.animationDuration=(3+Math.random()*4)+'s';
+    col.style.animationDelay=Math.random()*3+'s';
+    let txt='';
+    for(let j=0;j<20;j++)txt+=chars[Math.floor(Math.random()*chars.length)]+'\n';
+    col.textContent=txt;
+    rain.appendChild(col);
+  }
+})();
 </script>
 </body>
 </html>
