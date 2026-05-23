@@ -210,6 +210,11 @@ section{position:relative;z-index:1;}
 .crear-card .c-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
 .crear-card h4{font-family:var(--font-tech);font-size:0.85rem;font-weight:700;margin-bottom:0.5rem;color:var(--white);}
 .crear-card p{font-size:0.82rem;color:var(--gray2);line-height:1.5;}
+/* Hover en modo claro — contraste fuerte */
+[data-theme="light"] .crear-card:hover{background:#ffffff;transform:translateY(-4px) scale(1.02);box-shadow:0 12px 40px rgba(0,85,204,0.18),0 0 0 2px #0055cc;}
+[data-theme="light"] .crear-card:hover::after{opacity:0;}
+[data-theme="light"] .crear-card:hover h4{color:#0055cc;}
+[data-theme="light"] .crear-card:hover .c-icon{filter:drop-shadow(0 0 8px rgba(0,85,204,0.5));}
 
 /* NO SOLO */
 #no-solo{padding:10rem 0;background:var(--dark);border-top:1px solid rgba(0,212,255,0.06);text-align:center;}
