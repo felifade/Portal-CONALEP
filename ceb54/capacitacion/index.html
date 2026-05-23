@@ -288,6 +288,30 @@ section{position:relative;z-index:1;}
 @keyframes ring-pulse{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.04);opacity:0}}
 .school-tag{margin-top:5rem;font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.3em;color:var(--gray);opacity:0.6;}
 
+/* ── TIC PARA TODOS ── */
+#tic-todos{padding:8rem 0;background:var(--black);border-top:1px solid rgba(0,212,255,0.06);}
+.todos-header{text-align:center;margin-bottom:1.5rem;}
+.todos-intro{text-align:center;max-width:700px;margin:0 auto 4rem;font-size:1.1rem;color:var(--gray2);line-height:1.7;}
+.todos-intro strong{color:var(--white);}
+.todos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;}
+.todos-card{background:var(--dark2);border:1px solid var(--gray);border-radius:14px;padding:1.8rem;position:relative;overflow:hidden;cursor:default;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s;}
+.todos-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tc-gradient,linear-gradient(90deg,var(--cyan),var(--purple)));border-radius:3px 3px 0 0;}
+.todos-card:hover{transform:translateY(-6px);border-color:var(--tc-color,var(--cyan));box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 30px var(--tc-shadow,rgba(0,212,255,0.12));}
+.tc-top{display:flex;align-items:flex-start;gap:1.1rem;margin-bottom:1.1rem;}
+.tc-icon{font-size:2.4rem;flex-shrink:0;filter:drop-shadow(0 0 12px var(--tc-color,var(--cyan)));}
+.tc-head{}
+.tc-field{font-family:var(--font-tech);font-size:0.8rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;letter-spacing:0.04em;}
+.tc-badge{font-family:var(--font-code);font-size:0.58rem;letter-spacing:0.2em;color:var(--tc-color,var(--cyan));opacity:0.8;}
+.tc-desc{font-size:0.88rem;color:var(--gray2);line-height:1.65;margin-bottom:1.1rem;}
+.tc-skills{display:flex;flex-direction:column;gap:0.4rem;}
+.tc-skill-item{display:flex;align-items:center;gap:0.6rem;font-family:var(--font-code);font-size:0.68rem;color:var(--gray2);}
+.tc-skill-item::before{content:'→';color:var(--tc-color,var(--cyan));flex-shrink:0;}
+.tc-skill-item strong{color:var(--white);margin-right:0.3rem;}
+.todos-footer{margin-top:4rem;text-align:center;padding:3rem 2rem;background:var(--dark2);border:1px solid var(--gray);border-radius:16px;max-width:800px;margin-left:auto;margin-right:auto;}
+.todos-footer-title{font-family:var(--font-tech);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;}
+.todos-footer-title span{color:var(--cyan);}
+.todos-footer p{font-size:1rem;color:var(--gray2);line-height:1.7;}
+
 /* ── ESCENAS VISUALES ── */
 #escenas{padding:8rem 0;background:linear-gradient(180deg,var(--black),var(--dark));border-top:1px solid rgba(123,47,255,0.08);}
 .escenas-header{text-align:center;margin-bottom:4rem;}
@@ -487,7 +511,7 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
   <ul class="nav-links">
     <li><a href="#escenas">Preview</a></li>
     <li><a href="#materias">Materias</a></li>
-    <li><a href="#universo">Universo</a></li>
+    <li><a href="#tic-todos">Para todos</a></li>
     <li><a href="#futuro">Futuro</a></li>
   </ul>
   <a href="#final" class="nav-cta">ELIGE TIC</a>
@@ -833,6 +857,191 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
       <div class="stat-item"><span class="stat-number" data-target="3500000">0</span><span class="stat-label">empleos tech en MX para 2030</span></div>
       <div class="stat-item"><span class="stat-number" data-target="47">0</span><span class="stat-label">% salario mayor que otras carreras</span></div>
       <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label">% trabajo desde cualquier lugar</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tic-todos">
+  <div class="section-inner">
+    <div class="todos-header">
+      <span class="section-tag reveal">// TIC + CUALQUIER CARRERA</span>
+      <h2 class="section-title reveal reveal-delay-1">TIC no es solo<br><span style="color:var(--cyan)">para tecnólogos.</span></h2>
+    </div>
+    <p class="todos-intro reveal reveal-delay-2">
+      Sin importar qué elijas hacer en la vida — medicina, administración, arte, medio ambiente —
+      <strong>saber tecnología te pone años adelante</strong> de quien no la conoce.
+      Aquí te mostramos exactamente cómo.
+    </p>
+
+    <div class="todos-grid">
+
+      <!-- SALUD -->
+      <div class="todos-card reveal reveal-delay-1" style="--tc-color:#00ffb3;--tc-shadow:rgba(0,255,179,0.12);--tc-gradient:linear-gradient(90deg,#00ffb3,#00d4ff)">
+        <div class="tc-top">
+          <span class="tc-icon">🏥</span>
+          <div class="tc-head">
+            <div class="tc-field">Salud y Enfermería</div>
+            <div class="tc-badge">MEDICINA · ENFERMERÍA · FARMACIA</div>
+          </div>
+        </div>
+        <p class="tc-desc">El hospital del futuro es digital. Expedientes electrónicos, telemedicina, apps de diagnóstico y sensores inteligentes ya son realidad — y los operan personas como tú.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Hojas de cálculo</strong> para control de medicamentos y estadísticas de pacientes</div>
+          <div class="tc-skill-item"><strong>Bases de datos</strong> para expedientes clínicos digitales</div>
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para material de educación médica visual</div>
+          <div class="tc-skill-item"><strong>Redes</strong> para conectar equipos médicos y telesalud</div>
+        </div>
+      </div>
+
+      <!-- ADMINISTRACIÓN -->
+      <div class="todos-card reveal reveal-delay-2" style="--tc-color:#ffa500;--tc-shadow:rgba(255,165,0,0.12);--tc-gradient:linear-gradient(90deg,#ffa500,#ff6600)">
+        <div class="tc-top">
+          <span class="tc-icon">💼</span>
+          <div class="tc-head">
+            <div class="tc-field">Administración</div>
+            <div class="tc-badge">EMPRESAS · CONTABILIDAD · RECURSOS HUMANOS</div>
+          </div>
+        </div>
+        <p class="tc-desc">El 90% de los trabajos administrativos usan tecnología a diario. Quien sabe automatizar, analizar datos y gestionar sistemas digitales consigue los mejores puestos y salarios.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Excel avanzado</strong> para reportes, nóminas y análisis financiero automático</div>
+          <div class="tc-skill-item"><strong>Sistemas de información</strong> para gestión de inventarios y CRM</div>
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para presentaciones ejecutivas y material corporativo</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para presencia digital del negocio</div>
+        </div>
+      </div>
+
+      <!-- MEDIO AMBIENTE -->
+      <div class="todos-card reveal reveal-delay-3" style="--tc-color:#00e676;--tc-shadow:rgba(0,230,118,0.12);--tc-gradient:linear-gradient(90deg,#00e676,#00bfa5)">
+        <div class="tc-top">
+          <span class="tc-icon">🌿</span>
+          <div class="tc-head">
+            <div class="tc-field">Medio Ambiente</div>
+            <div class="tc-badge">ECOLOGÍA · SUSTENTABILIDAD · RECURSOS NATURALES</div>
+          </div>
+        </div>
+        <p class="tc-desc">El cambio climático se combate con datos. Los ambientalistas modernos usan sensores, apps de monitoreo, análisis satelital y plataformas digitales para salvar ecosistemas.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Análisis de datos</strong> para monitoreo de temperatura, agua y biodiversidad</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para campañas de concientización ambiental</div>
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para infografías y material de impacto social</div>
+          <div class="tc-skill-item"><strong>Redes y sensores</strong> para sistemas de alerta temprana ecológica</div>
+        </div>
+      </div>
+
+      <!-- EDUCACIÓN -->
+      <div class="todos-card reveal reveal-delay-4" style="--tc-color:#e040fb;--tc-shadow:rgba(224,64,251,0.12);--tc-gradient:linear-gradient(90deg,#e040fb,#7b2fff)">
+        <div class="tc-top">
+          <span class="tc-icon">🎓</span>
+          <div class="tc-head">
+            <div class="tc-field">Educación</div>
+            <div class="tc-badge">DOCENCIA · PEDAGOGÍA · FORMACIÓN</div>
+          </div>
+        </div>
+        <p class="tc-desc">El maestro que domina tecnología crea experiencias que los alumnos recuerdan toda la vida. Plataformas interactivas, gamificación y contenido digital son el aula del futuro.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para materiales didácticos visuales e interactivos</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para portales educativos y plataformas de clase</div>
+          <div class="tc-skill-item"><strong>Comunidades virtuales</strong> para gestionar grupos y comunicación</div>
+          <div class="tc-skill-item"><strong>Programación</strong> para crear juegos educativos y apps de aprendizaje</div>
+        </div>
+      </div>
+
+      <!-- GASTRONOMÍA -->
+      <div class="todos-card reveal reveal-delay-5" style="--tc-color:#ff6b6b;--tc-shadow:rgba(255,107,107,0.12);--tc-gradient:linear-gradient(90deg,#ff6b6b,#ff9900)">
+        <div class="tc-top">
+          <span class="tc-icon">🍳</span>
+          <div class="tc-head">
+            <div class="tc-field">Gastronomía</div>
+            <div class="tc-badge">COCINA · RESTAURANTES · FOOD BUSINESS</div>
+          </div>
+        </div>
+        <p class="tc-desc">Los mejores restaurantes del mundo son empresas digitales que también cocinan. Menús digitales, apps de pedidos, marketing en redes y presencia online hacen la diferencia entre sobrevivir y triunfar.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para menús, branding y fotografía gastronómica</div>
+          <div class="tc-skill-item"><strong>Redes sociales</strong> para crecer una audiencia hambrienta de contenido</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para reservaciones, delivery y presencia en línea</div>
+          <div class="tc-skill-item"><strong>Hoja de cálculo</strong> para control de costos, recetas y proveedores</div>
+        </div>
+      </div>
+
+      <!-- CONSTRUCCIÓN -->
+      <div class="todos-card reveal reveal-delay-6" style="--tc-color:#80d8ff;--tc-shadow:rgba(128,216,255,0.12);--tc-gradient:linear-gradient(90deg,#80d8ff,#00d4ff)">
+        <div class="tc-top">
+          <span class="tc-icon">🏗️</span>
+          <div class="tc-head">
+            <div class="tc-field">Construcción y Arquitectura</div>
+            <div class="tc-badge">INGENIERÍA · DISEÑO · OBRA</div>
+          </div>
+        </div>
+        <p class="tc-desc">Los edificios modernos se diseñan primero en software 3D y se gestionan con plataformas digitales. Quien conoce tecnología puede diseñar, presentar y administrar proyectos de construcción desde una pantalla.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Diseño digital</strong> como base para aprender CAD, renders y visualización</div>
+          <div class="tc-skill-item"><strong>Hoja de cálculo</strong> para presupuestos, materiales y cronogramas de obra</div>
+          <div class="tc-skill-item"><strong>Sistemas de información</strong> para gestión de proyectos y contratos</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para portafolios de arquitectura y captación de clientes</div>
+        </div>
+      </div>
+
+      <!-- ARTE Y MÚSICA -->
+      <div class="todos-card reveal reveal-delay-1" style="--tc-color:#ff80ab;--tc-shadow:rgba(255,128,171,0.12);--tc-gradient:linear-gradient(90deg,#ff80ab,#ff006e)">
+        <div class="tc-top">
+          <span class="tc-icon">🎵</span>
+          <div class="tc-head">
+            <div class="tc-field">Arte y Música</div>
+            <div class="tc-badge">CREACIÓN · EXPRESIÓN · INDUSTRIA CULTURAL</div>
+          </div>
+        </div>
+        <p class="tc-desc">Artistas y músicos que no saben tecnología dependen de otros para distribuir, promocionar y monetizar su arte. Los que sí saben, lo controlan todo y ganan mucho más.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para portadas, posters, merch y contenido visual</div>
+          <div class="tc-skill-item"><strong>Comunidades virtuales</strong> para distribución en Spotify, YouTube, redes</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para sitio oficial, tienda y agenda de shows</div>
+          <div class="tc-skill-item"><strong>Multimedia</strong> para producción, mezcla y edición de audio y video</div>
+        </div>
+      </div>
+
+      <!-- DEPORTE -->
+      <div class="todos-card reveal reveal-delay-2" style="--tc-color:#ffcc00;--tc-shadow:rgba(255,204,0,0.12);--tc-gradient:linear-gradient(90deg,#ffcc00,#ff9900)">
+        <div class="tc-top">
+          <span class="tc-icon">⚽</span>
+          <div class="tc-head">
+            <div class="tc-field">Deporte y Actividad Física</div>
+            <div class="tc-badge">ENTRENAMIENTO · FITNESS · GESTIÓN DEPORTIVA</div>
+          </div>
+        </div>
+        <p class="tc-desc">El deporte moderno vive en pantallas. Wearables, apps de entrenamiento, análisis de rendimiento con datos y plataformas de coaching virtual son el presente — y el futuro sigue llegando.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Análisis de datos</strong> para estadísticas de rendimiento y planes de entrenamiento</div>
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para contenido en redes, marca personal de atleta</div>
+          <div class="tc-skill-item"><strong>Páginas web</strong> para academias, registros de competencia y resultados</div>
+          <div class="tc-skill-item"><strong>Comunidades</strong> para gestionar equipos, fans y patrocinadores</div>
+        </div>
+      </div>
+
+      <!-- DERECHO / SEGURIDAD PÚBLICA -->
+      <div class="todos-card reveal reveal-delay-3" style="--tc-color:#b388ff;--tc-shadow:rgba(179,136,255,0.12);--tc-gradient:linear-gradient(90deg,#b388ff,#7b2fff)">
+        <div class="tc-top">
+          <span class="tc-icon">⚖️</span>
+          <div class="tc-head">
+            <div class="tc-field">Derecho y Seguridad</div>
+            <div class="tc-badge">LEY · JUSTICIA · SEGURIDAD PÚBLICA</div>
+          </div>
+        </div>
+        <p class="tc-desc">El sistema legal ya es digital. Expedientes electrónicos, cámaras inteligentes, análisis forense digital y bases de datos jurídicas son herramientas de trabajo cotidiano en juzgados, fiscalías y corporaciones.</p>
+        <div class="tc-skills">
+          <div class="tc-skill-item"><strong>Bases de datos</strong> para gestión de casos, expedientes y antecedentes</div>
+          <div class="tc-skill-item"><strong>Redes y ciberseguridad</strong> para proteger información confidencial</div>
+          <div class="tc-skill-item"><strong>Hoja de cálculo</strong> para análisis estadístico de delitos y recursos</div>
+          <div class="tc-skill-item"><strong>Diseño digital</strong> para presentación de evidencias y reportes visuales</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="todos-footer reveal">
+      <h3 class="todos-footer-title">La tecnología no reemplaza tu vocación.<br><span>La hace más poderosa.</span></h3>
+      <p>No importa si quieres ser médico, chef, arquitecto o artista. Con TIC no cambias tu camino — le agregas un turbo. Los profesionales del futuro no son solo expertos en su área: son expertos que además saben usar la tecnología para multiplicar su impacto.</p>
     </div>
   </div>
 </section>
