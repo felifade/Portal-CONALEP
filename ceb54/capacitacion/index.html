@@ -570,6 +570,34 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
   <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-arrow"></div></div>
 </section>
 
+<!-- QR — ACCESO MÓVIL -->
+<section id="qr-hero" style="padding:4rem 0 5rem;background:var(--dark);border-bottom:1px solid rgba(0,212,255,0.08);text-align:center;">
+  <div class="section-inner">
+    <div class="qr-inner">
+      <div>
+        <span class="section-tag" style="display:block;text-align:center;margin-bottom:0.6rem;">// ÁBRELO EN TU CELULAR</span>
+        <h2 style="font-family:var(--font-tech);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:0.5rem;">Escanea y llévate el sitio<br><span style="color:var(--cyan)">a donde quieras.</span></h2>
+        <p style="font-family:var(--font-body);color:var(--gray2);font-size:0.95rem;margin-bottom:1.8rem;">Sin descargas. Sin apps. Solo tu cámara.</p>
+      </div>
+      <div class="qr-box">
+        <div class="qr-corner tl"></div><div class="qr-corner tr"></div>
+        <div class="qr-corner bl"></div><div class="qr-corner br"></div>
+        <div class="qr-canvas-wrap">
+          <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/&bgcolor=0d0d22&color=00d4ff&margin=1" width="220" height="220" alt="QR TIC CEB 5/4" style="border-radius:6px;display:block;">
+          <div class="qr-scan-line"></div>
+        </div>
+      </div>
+      <div class="qr-label">APUNTA TU CÁMARA AQUÍ</div>
+      <div class="qr-url"><span>felifade.github.io/Portal-CONALEP/<br><span style="color:var(--cyan)">ceb54/capacitacion/</span></span></div>
+      <div class="qr-actions">
+        <button class="qr-btn primary" onclick="compartir()">📤 Compartir</button>
+        <button class="qr-btn secondary" onclick="copiarLink()">📋 Copiar enlace</button>
+      </div>
+      <div class="qr-copied" id="qr-copied">✓ ENLACE COPIADO</div>
+    </div>
+  </div>
+</section>
+
 <section id="que-es">
   <div class="section-inner">
     <div class="que-es-grid">
@@ -1143,40 +1171,6 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
   <p class="school-tag reveal reveal-delay-4">CEB 5/4 "PROFR. RAFAEL RAMÍREZ" · CAPACITACIÓN TIC · SEGUNDO SEMESTRE</p>
 </section>
 
-<section id="qr-section">
-  <div class="section-inner">
-    <div class="qr-inner">
-      <div>
-        <span class="section-tag" style="display:block;text-align:center;margin-bottom:0.8rem;">// ACCESO DIRECTO</span>
-        <h2 class="section-title reveal" style="text-align:center">Ábrelo en tu celular.<br><span style="color:var(--cyan)">Ahora mismo.</span></h2>
-        <p class="section-subtitle reveal reveal-delay-1" style="margin:0.8rem auto 0;text-align:center">Escanea el código QR y comparte el sitio con quien quieras.</p>
-      </div>
-
-      <div class="qr-box reveal reveal-delay-2">
-        <div class="qr-corner tl"></div>
-        <div class="qr-corner tr"></div>
-        <div class="qr-corner bl"></div>
-        <div class="qr-corner br"></div>
-        <div class="qr-canvas-wrap">
-          <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/&bgcolor=0d0d22&color=00d4ff&margin=1" width="220" height="220" alt="QR TIC CEB 5/4" style="border-radius:6px;display:block;">
-          <div class="qr-scan-line"></div>
-        </div>
-      </div>
-      <div class="qr-label reveal">ESCANEA CON TU CÁMARA</div>
-
-      <div class="qr-url reveal reveal-delay-1">
-        <span>felifade.github.io/Portal-CONALEP/<br><span style="color:var(--cyan)">ceb54/capacitacion/</span></span>
-      </div>
-
-      <div class="qr-actions reveal reveal-delay-2">
-        <button class="qr-btn primary" onclick="compartir()">📤 Compartir</button>
-        <button class="qr-btn secondary" onclick="copiarLink()">📋 Copiar enlace</button>
-      </div>
-      <div class="qr-copied" id="qr-copied">✓ ENLACE COPIADO</div>
-    </div>
-  </div>
-</section>
-
 <footer>
   <p>TIC · CEB 5/4 · Tecnologías de la Información y la Comunicación</p>
   <p style="color:var(--cyan);opacity:0.4;">EL FUTURO LO PROGRAMAN LOS QUE APRENDEN HOY</p>
@@ -1323,6 +1317,38 @@ const CMD={
     {t:'cyan',v:'enviado para enseñarte a programar.'},
     {t:'success',v:'Misión: hacer que elijas TIC.'},
     {t:'warn',v:'Archivo autodestruido en 3... 2... 1...'},
+  ]},
+  cd2:{lines:[
+    {t:'warn', v:'· · · · · · · · · · · · · · · · · · · · · · · · ·'},
+    {t:'cyan', v:''},
+    {t:'cyan', v:'  Para mis estudiantes del CEB 5/4 —'},
+    {t:'cyan', v:'  los que se atrevieron a crear, a fallar,'},
+    {t:'cyan', v:'  a intentarlo otra vez y a sorprenderse.'},
+    {t:'out',  v:''},
+    {t:'success',v:'  Los quiero mucho.'},
+    {t:'out',  v:''},
+    {t:'out',  v:'  No es fácil decirlo, pero es verdad:'},
+    {t:'out',  v:'  cada clase, cada pregunta rara,'},
+    {t:'out',  v:'  cada "profe, no me jala el código"...'},
+    {t:'out',  v:'  fue el mejor momento de mi día.'},
+    {t:'out',  v:''},
+    {t:'purple',v:'  Verlos crecer me recuerda por qué elegí esto.'},
+    {t:'purple',v:'  No la tecnología — ustedes.'},
+    {t:'out',  v:''},
+    {t:'warn', v:'  Los voy a extrañar más de lo que imaginan.'},
+    {t:'warn', v:'  Mucho más.'},
+    {t:'out',  v:''},
+    {t:'cyan', v:'  Dondequiera que vayan:'},
+    {t:'success',v:'  recuerden que pueden construir'},
+    {t:'success',v:'  cualquier cosa que se imaginen.'},
+    {t:'out',  v:''},
+    {t:'out',  v:'  El mundo los necesita.'},
+    {t:'out',  v:'  Yo ya los admiro.'},
+    {t:'out',  v:''},
+    {t:'cyan', v:'  — Prof. Felipe López Salazar'},
+    {t:'warn', v:'  Con todo mi cariño, siempre.  ❤️'},
+    {t:'cyan', v:''},
+    {t:'warn', v:'· · · · · · · · · · · · · · · · · · · · · · · · ·'},
   ]},
 };
 function termPrint(lines,i=0){
