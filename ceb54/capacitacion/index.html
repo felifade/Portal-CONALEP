@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIC — CEB 5/4 · El Futuro Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#06060e;--dark:#09091a;--dark2:#0d0d22;
+  --cyan:#00d4ff;--cyan2:#00ffe7;--cyan-dim:rgba(0,212,255,0.15);--cyan-glow:rgba(0,212,255,0.5);
+  --purple:#7b2fff;--purple2:#a855f7;--purple-dim:rgba(123,47,255,0.2);
+  --pink:#ff006e;--pink-dim:rgba(255,0,110,0.2);
+  --white:#e8e8ff;--gray:#3a3a5c;--gray2:#5a5a80;
+  --font-tech:'Orbitron',monospace;--font-body:'Rajdhani',sans-serif;--font-code:'JetBrains Mono',monospace;
+  --shadow-card:0 20px 60px rgba(0,0,0,0.5);
+}
+[data-theme="light"] {
+  --black:#f5f6ff;--dark:#eaecf8;--dark2:#ffffff;
+  --cyan:#0055cc;--cyan2:#0077ff;--cyan-dim:rgba(0,85,204,0.08);--cyan-glow:rgba(0,85,204,0.3);
+  --purple:#5500bb;--purple2:#7700ee;--purple-dim:rgba(85,0,187,0.08);
+  --pink:#cc0044;--pink-dim:rgba(204,0,68,0.08);
+  --white:#06061e;--gray:#c0c8e8;--gray2:#5a5a90;
+  --shadow-card:0 8px 30px rgba(0,0,50,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;
+  transition:background-color 0.45s ease,color 0.45s ease,border-color 0.45s ease,box-shadow 0.45s ease;}
+canvas,.loader-bar,.hud-bar-fill,.code-float,.scroll-arrow,.hero-badge::before{transition:none!important;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none;}
+[data-theme="light"] body{cursor:default;}
+a{color:inherit;text-decoration:none;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--dark);}::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:2px;}
+
+/* TOGGLE */
+#theme-toggle{position:fixed;bottom:2rem;right:2rem;z-index:600;display:flex;align-items:center;gap:0.6rem;
+  padding:0.7rem 1.2rem;background:var(--dark2);border:1px solid var(--gray);border-radius:100px;
+  cursor:pointer;font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.2em;color:var(--gray2);
+  box-shadow:var(--shadow-card);user-select:none;-webkit-user-select:none;}
+#theme-toggle:hover{border-color:var(--cyan);color:var(--cyan);}
+.toggle-icon{font-size:1rem;transition:transform 0.5s ease!important;}
+[data-theme="light"] .toggle-icon{transform:rotate(180deg);}
+.toggle-label{display:none;}
+@media(min-width:600px){.toggle-label{display:inline;}}
+
+[data-theme="light"] #canvas-bg{opacity:0.25;}
+[data-theme="light"] .final-glow{opacity:0.3;}
+[data-theme="light"] .code-float{opacity:0.07;}
+[data-theme="light"] .hud-card-content{color:#3a3a6a;}
+[data-theme="light"] .hud-card-content .kw{color:var(--purple);}
+[data-theme="light"] .hud-card-content .str{color:#006600;}
+[data-theme="light"] .hud-card-content .fn{color:var(--cyan);}
+
+/* CURSOR */
+#cursor{position:fixed;width:10px;height:10px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;box-shadow:0 0 15px var(--cyan),0 0 30px var(--cyan-glow);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--cyan-glow);border-radius:50%;pointer-events:none;z-index:9998;transition:all 0.15s ease!important;}
+[data-theme="light"] #cursor,[data-theme="light"] #cursor-ring{display:none;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#06060e;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity 0.8s ease,visibility 0.8s ease!important;}
+#loader.hidden{opacity:0;visibility:hidden;}
+.loader-logo{font-family:var(--font-tech);font-size:clamp(4rem,10vw,8rem);font-weight:900;letter-spacing:0.2em;color:transparent;-webkit-text-stroke:2px #00d4ff;animation:loader-pulse 1.5s ease-in-out infinite;position:relative;}
+.loader-logo::after{content:'TIC';position:absolute;inset:0;color:#00d4ff;filter:blur(20px);opacity:0.5;animation:loader-pulse 1.5s ease-in-out infinite reverse;}
+@keyframes loader-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(0.98);}}
+.loader-text{font-family:var(--font-code);font-size:0.75rem;color:#00d4ff;letter-spacing:0.3em;opacity:0.7;animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+.loader-bar-wrap{width:min(320px,80vw);height:2px;background:#3a3a5c;border-radius:1px;overflow:hidden;}
+.loader-bar{height:100%;background:linear-gradient(90deg,#7b2fff,#00d4ff,#00ffe7);animation:load 2.8s ease forwards;box-shadow:0 0 12px #00d4ff;}
+@keyframes load{from{width:0}to{width:100%}}
+.loader-scanline{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,0.02) 2px,rgba(0,212,255,0.02) 4px);pointer-events:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(6,6,14,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,0.08);}
+[data-theme="light"] nav{background:rgba(245,246,255,0.92);border-bottom-color:rgba(0,85,204,0.1);}
+nav.scrolled{padding:0.8rem 3rem;}
+.nav-logo{font-family:var(--font-tech);font-size:1.1rem;font-weight:700;color:var(--cyan);letter-spacing:0.2em;display:flex;align-items:center;gap:0.5rem;}
+.nav-logo span{color:var(--white);opacity:0.5;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:var(--font-body);font-weight:500;font-size:0.85rem;letter-spacing:0.1em;color:var(--gray2);text-transform:uppercase;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{font-family:var(--font-tech);font-size:0.7rem;padding:0.5rem 1.2rem;border:1px solid var(--cyan);color:var(--cyan);border-radius:2px;letter-spacing:0.15em;cursor:pointer;}
+.nav-cta:hover{background:var(--cyan);color:var(--black);box-shadow:0 0 20px var(--cyan-glow);}
+
+/* CANVAS */
+#canvas-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.6;transition:opacity 0.5s ease!important;}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;overflow:hidden;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--font-code);font-size:0.7rem;letter-spacing:0.3em;color:var(--cyan);border:1px solid var(--cyan-dim);background:var(--cyan-dim);padding:0.4rem 1.2rem;border-radius:100px;margin-bottom:2.5rem;opacity:0;transform:translateY(20px);animation:fade-up 0.8s 3.2s forwards;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 6px var(--cyan);animation:blink 1.2s infinite;}
+@keyframes fade-up{to{opacity:1;transform:translateY(0);}}
+.hero-teacher{font-family:var(--font-code);font-size:clamp(0.75rem,1.5vw,0.9rem);letter-spacing:0.35em;color:var(--gray2);margin-bottom:1.5rem;opacity:0;transform:translateY(10px);animation:fade-up 0.8s 3.35s forwards;}
+.hero-teacher strong{color:var(--cyan);font-weight:700;}
+.hero-title{font-family:var(--font-tech);font-size:clamp(2.5rem,7vw,6.5rem);font-weight:900;line-height:1.05;max-width:1100px;opacity:0;transform:translateY(30px);animation:fade-up 1s 3.5s forwards;}
+.hero-title .line-cyan{color:var(--cyan);display:block;}
+.hero-title .line-white{color:var(--white);display:block;}
+.glitch-wrap{position:relative;display:inline-block;}
+.glitch-wrap::before,.glitch-wrap::after{content:attr(data-text);position:absolute;inset:0;font-family:var(--font-tech);font-weight:900;}
+.glitch-wrap::before{color:var(--cyan);animation:glitch-1 5s infinite;clip-path:polygon(0 0,100% 0,100% 38%,0 38%);}
+.glitch-wrap::after{color:var(--pink);animation:glitch-2 5s infinite;clip-path:polygon(0 62%,100% 62%,100% 100%,0 100%);}
+@keyframes glitch-1{0%,90%,100%{transform:none;opacity:0}91%{transform:translateX(-3px) skewX(-2deg);opacity:0.8}93%{transform:translateX(3px) skewX(2deg);opacity:0.8}95%{transform:translateX(-1px);opacity:0}}
+@keyframes glitch-2{0%,88%,100%{transform:none;opacity:0}89%{transform:translateX(3px) skewX(1deg);opacity:0.8}91%{transform:translateX(-3px);opacity:0.8}93%{transform:none;opacity:0}}
+.hero-sub{font-family:var(--font-body);font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--gray2);max-width:600px;margin:1.8rem auto 0;line-height:1.6;opacity:0;transform:translateY(20px);animation:fade-up 0.9s 3.9s forwards;}
+.hero-sub strong{color:var(--white);font-weight:600;}
+.hero-actions{display:flex;gap:1.2rem;margin-top:3rem;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(20px);animation:fade-up 0.9s 4.2s forwards;}
+.btn-primary{font-family:var(--font-tech);font-size:0.75rem;letter-spacing:0.2em;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#06060e;font-weight:700;border-radius:3px;cursor:pointer;box-shadow:0 0 30px rgba(0,212,255,0.3);position:relative;overflow:hidden;}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan2),var(--purple2));opacity:0;}
+.btn-primary:hover::before{opacity:1;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px var(--cyan-glow);}
+.btn-secondary{font-family:var(--font-tech);font-size:0.75rem;letter-spacing:0.15em;padding:1rem 2.5rem;background:transparent;color:var(--white);border:1px solid var(--gray);border-radius:3px;cursor:pointer;}
+.btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:inset 0 0 20px var(--cyan-dim);}
+.scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fade-up 1s 4.8s forwards;}
+.scroll-indicator span{font-family:var(--font-code);font-size:0.6rem;letter-spacing:0.25em;color:var(--gray2);}
+.scroll-arrow{width:24px;height:24px;border-right:1.5px solid var(--cyan);border-bottom:1.5px solid var(--cyan);transform:rotate(45deg);animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+.code-float{position:absolute;font-family:var(--font-code);font-size:0.65rem;color:var(--cyan);opacity:0.15;pointer-events:none;white-space:nowrap;animation:float-code 20s linear infinite;}
+@keyframes float-code{from{transform:translateY(0) translateX(0) rotate(-5deg);opacity:0}10%{opacity:0.15}90%{opacity:0.15}to{transform:translateY(-120vh) translateX(60px) rotate(5deg);opacity:0}}
+
+/* SECTIONS */
+section{position:relative;z-index:1;}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 2rem;}
+.section-tag{font-family:var(--font-code);font-size:0.7rem;letter-spacing:0.4em;color:var(--cyan);opacity:0.8;margin-bottom:1rem;display:block;}
+.section-title{font-family:var(--font-tech);font-size:clamp(1.8rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;}
+.section-subtitle{font-family:var(--font-body);font-size:1.15rem;color:var(--gray2);line-height:1.7;max-width:600px;}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease!important;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s!important}.reveal-delay-2{transition-delay:0.2s!important}
+.reveal-delay-3{transition-delay:0.3s!important}.reveal-delay-4{transition-delay:0.4s!important}
+.reveal-delay-5{transition-delay:0.5s!important}.reveal-delay-6{transition-delay:0.6s!important}
+
+/* QUÉ ES */
+#que-es{padding:8rem 0;background:linear-gradient(180deg,var(--black) 0%,var(--dark) 50%,var(--black) 100%);border-top:1px solid rgba(0,212,255,0.06);}
+.que-es-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-top:5rem;}
+.que-es-text .big-statement{font-family:var(--font-tech);font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:2rem;}
+.que-es-text .big-statement em{font-style:normal;color:var(--cyan);}
+.que-es-text p{font-size:1.1rem;color:var(--gray2);line-height:1.8;margin-bottom:1rem;}
+.que-es-text p strong{color:var(--white);}
+.que-es-features{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.feature-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:var(--dark2);border:1px solid var(--gray);border-left:3px solid var(--cyan);border-radius:4px;}
+.feature-item:hover{border-color:var(--cyan);background:var(--cyan-dim);transform:translateX(4px);}
+.feature-item .fi-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem;}
+.feature-item .fi-text strong{display:block;font-family:var(--font-body);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0.2rem;}
+.feature-item .fi-text span{font-size:0.85rem;color:var(--gray2);}
+.que-es-visual{display:flex;flex-direction:column;gap:1rem;}
+.hud-card{background:var(--dark2);border:1px solid var(--cyan-dim);border-radius:8px;padding:1.2rem 1.5rem;position:relative;overflow:hidden;}
+.hud-card:hover{border-color:var(--cyan);box-shadow:0 0 20px var(--cyan-dim);}
+.hud-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--cyan),transparent);}
+.hud-card-title{font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.25em;color:var(--cyan);margin-bottom:0.8rem;opacity:0.8;}
+.hud-card-content{font-family:var(--font-code);font-size:0.8rem;color:var(--gray2);line-height:1.7;}
+.hud-card-content .kw{color:var(--purple2);}.hud-card-content .str{color:#98ff98;}.hud-card-content .fn{color:var(--cyan);}
+.hud-bar-label{font-family:var(--font-code);font-size:0.65rem;color:var(--gray2);display:flex;justify-content:space-between;margin-bottom:0.4rem;}
+.hud-bar{height:4px;background:var(--gray);border-radius:2px;margin-bottom:0.8rem;overflow:hidden;}
+.hud-bar-fill{height:100%;border-radius:2px;width:0;}
+.hud-bar-fill.cyan{background:linear-gradient(90deg,var(--cyan),var(--cyan2));box-shadow:0 0 6px var(--cyan);}
+.hud-bar-fill.purple{background:linear-gradient(90deg,var(--purple),var(--purple2));box-shadow:0 0 6px var(--purple);}
+.hud-bar-fill.pink{background:linear-gradient(90deg,var(--pink),#ff6eb4);box-shadow:0 0 6px var(--pink);}
+
+/* MATERIAS */
+#materias{padding:8rem 0;background:var(--black);}
+.materias-header{text-align:center;margin-bottom:5rem;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.5rem;}
+.skill-card{background:var(--dark2);border:1px solid var(--gray);border-radius:12px;padding:2rem;position:relative;overflow:hidden;cursor:pointer;}
+.skill-card::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;background:radial-gradient(ellipse at 50% 0%,var(--glow-color,var(--cyan-dim)) 0%,transparent 70%);}
+.skill-card:hover::before{opacity:1;}
+.skill-card:hover{border-color:var(--glow-color-solid,var(--cyan));transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 30px var(--glow-color,var(--cyan-dim));}
+.skill-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;}
+.skill-icon{font-size:2.5rem;line-height:1;}
+.skill-level{font-family:var(--font-code);font-size:0.6rem;letter-spacing:0.2em;padding:0.3rem 0.7rem;border-radius:100px;border:1px solid;opacity:0.8;}
+.skill-card h3{font-family:var(--font-tech);font-size:1rem;font-weight:700;margin-bottom:0.6rem;letter-spacing:0.05em;}
+.skill-card p{font-size:0.9rem;color:var(--gray2);line-height:1.6;margin-bottom:1.2rem;}
+.skill-tags{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.skill-tag{font-family:var(--font-code);font-size:0.6rem;padding:0.2rem 0.6rem;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);color:var(--gray2);border-radius:3px;}
+.skill-card.cyan{--glow-color:rgba(0,212,255,0.12);--glow-color-solid:var(--cyan);}
+.skill-card.purple{--glow-color:rgba(123,47,255,0.15);--glow-color-solid:var(--purple2);}
+.skill-card.pink{--glow-color:rgba(255,0,110,0.12);--glow-color-solid:var(--pink);}
+.skill-card.green{--glow-color:rgba(0,255,128,0.12);--glow-color-solid:#00cc66;}
+.skill-card.orange{--glow-color:rgba(255,160,0,0.12);--glow-color-solid:#ff9900;}
+.skill-card.cyan .skill-level{color:var(--cyan);border-color:var(--cyan);}
+.skill-card.purple .skill-level{color:var(--purple2);border-color:var(--purple2);}
+.skill-card.pink .skill-level{color:var(--pink);border-color:var(--pink);}
+.skill-card.green .skill-level{color:#00cc66;border-color:#00cc66;}
+.skill-card.orange .skill-level{color:#ff9900;border-color:#ff9900;}
+
+/* CREAR */
+#crear{padding:8rem 0;background:linear-gradient(180deg,var(--black) 0%,var(--dark) 100%);border-top:1px solid rgba(123,47,255,0.08);}
+.crear-header{text-align:center;margin-bottom:5rem;}
+.crear-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;}
+.crear-card{background:var(--dark2);border:1px solid var(--gray);border-radius:10px;padding:1.8rem 1.5rem;position:relative;overflow:hidden;cursor:pointer;}
+.crear-card::after{content:'';position:absolute;inset:-1px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));z-index:-1;opacity:0;}
+.crear-card:hover::after{opacity:1;}
+.crear-card:hover{background:var(--dark);transform:translateY(-4px) scale(1.02);}
+.crear-card .c-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.crear-card h4{font-family:var(--font-tech);font-size:0.85rem;font-weight:700;margin-bottom:0.5rem;color:var(--white);}
+.crear-card p{font-size:0.82rem;color:var(--gray2);line-height:1.5;}
+
+/* NO SOLO */
+#no-solo{padding:10rem 0;background:var(--dark);border-top:1px solid rgba(0,212,255,0.06);text-align:center;}
+.no-solo-quote{font-family:var(--font-tech);font-size:clamp(1.6rem,4vw,3rem);font-weight:700;line-height:1.3;max-width:900px;margin:0 auto 4rem;}
+.no-solo-quote .hl{color:var(--cyan);}.no-solo-quote .hl2{color:var(--purple2);}.no-solo-quote .hl3{color:var(--pink);}
+.no-solo-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;}
+.pillar{padding:2rem 1.5rem;background:var(--dark2);border:1px solid var(--gray);border-radius:10px;cursor:pointer;}
+.pillar:hover{border-color:var(--cyan);background:var(--cyan-dim);transform:translateY(-4px);}
+.pillar .p-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.pillar h4{font-family:var(--font-tech);font-size:0.9rem;font-weight:700;margin-bottom:0.5rem;color:var(--cyan);}
+.pillar p{font-size:0.82rem;color:var(--gray2);line-height:1.5;}
+
+/* FUTURO */
+#futuro{padding:8rem 0;background:var(--black);border-top:1px solid rgba(123,47,255,0.08);}
+.futuro-header{text-align:center;margin-bottom:5rem;}
+.careers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;}
+.career-card{background:var(--dark2);border:1px solid var(--gray);border-radius:12px;padding:1.8rem;cursor:pointer;position:relative;overflow:hidden;}
+.career-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));transform:scaleX(0);}
+.career-card:hover::before{transform:scaleX(1);}
+.career-card:hover{border-color:var(--gray2);transform:translateY(-4px);box-shadow:var(--shadow-card);}
+.career-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.career-card h4{font-family:var(--font-tech);font-size:0.85rem;font-weight:700;margin-bottom:0.4rem;}
+.career-card p{font-size:0.82rem;color:var(--gray2);margin-bottom:1.2rem;line-height:1.5;}
+.career-salary{display:flex;flex-direction:column;gap:0.3rem;}
+.salary-label{font-family:var(--font-code);font-size:0.6rem;letter-spacing:0.2em;color:var(--gray2);}
+.salary-amount{font-family:var(--font-tech);font-size:1.1rem;font-weight:700;color:var(--cyan);}
+.salary-amount .unit{font-size:0.7rem;color:var(--gray2);margin-left:0.3rem;font-family:var(--font-code);}
+.demand-bar{display:flex;align-items:center;gap:0.8rem;margin-top:0.8rem;}
+.demand-label{font-family:var(--font-code);font-size:0.6rem;color:var(--gray2);white-space:nowrap;}
+.demand-track{flex:1;height:3px;background:var(--gray);border-radius:2px;overflow:hidden;}
+.demand-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:2px;}
+.stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:5rem auto 0;padding:3rem 2rem;max-width:900px;background:var(--dark2);border:1px solid var(--gray);border-radius:16px;}
+.stat-item{text-align:center;}
+.stat-number{font-family:var(--font-tech);font-size:clamp(2rem,4vw,3rem);font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:0.4rem;}
+.stat-label{font-size:0.85rem;color:var(--gray2);letter-spacing:0.05em;}
+
+/* IMAGINA */
+#imagina{padding:10rem 0;text-align:center;background:linear-gradient(180deg,var(--black) 0%,var(--dark) 50%,var(--black) 100%);border-top:1px solid rgba(0,212,255,0.06);}
+.imagina-lines{font-family:var(--font-tech);font-size:clamp(1.5rem,3.5vw,2.8rem);font-weight:700;line-height:1.5;max-width:850px;margin:0 auto;}
+.imagina-lines .il{display:block;opacity:0;transform:translateY(20px);transition:all 0.6s ease!important;}
+.imagina-lines .il.visible{opacity:1;transform:translateY(0);}
+.imagina-lines .il:nth-child(1){transition-delay:0.0s!important;color:var(--gray2);font-size:0.85em}
+.imagina-lines .il:nth-child(2){transition-delay:0.15s!important;color:var(--white)}
+.imagina-lines .il:nth-child(3){transition-delay:0.3s!important;color:var(--cyan)}
+.imagina-lines .il:nth-child(4){transition-delay:0.45s!important;color:var(--purple2)}
+.imagina-lines .il:nth-child(5){transition-delay:0.6s!important;color:var(--white)}
+.imagina-lines .il:nth-child(6){transition-delay:0.75s!important;color:var(--cyan)}
+.imagina-lines .il:nth-child(7){transition-delay:0.9s!important;color:var(--gray2);font-size:0.85em;margin-top:0.5em}
+.imagina-lines .il:nth-child(8){transition-delay:1.05s!important;color:var(--white)}
+
+/* NOMBRE DOCENTE */
+#docente{padding:6rem 0;background:var(--dark);border-top:1px solid rgba(0,212,255,0.06);text-align:center;position:relative;overflow:hidden;}
+#docente::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,var(--cyan-dim) 0%,transparent 70%);pointer-events:none;}
+.docente-label{font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.5em;color:var(--gray2);margin-bottom:1.5rem;display:block;}
+.docente-nombre{font-family:var(--font-tech);font-size:clamp(2.2rem,6vw,5rem);font-weight:900;line-height:1.05;background:linear-gradient(135deg,var(--cyan) 0%,var(--purple2) 50%,var(--cyan2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.02em;margin-bottom:1rem;}
+.docente-cargo{font-family:var(--font-body);font-size:1rem;letter-spacing:0.3em;color:var(--gray2);text-transform:uppercase;}
+
+/* FINAL */
+#final{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;background:var(--black);border-top:1px solid rgba(123,47,255,0.08);position:relative;overflow:hidden;}
+.final-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,255,0.15) 0%,transparent 70%);pointer-events:none;left:50%;top:50%;transform:translate(-50%,-50%);animation:glow-pulse 4s ease-in-out infinite;}
+.final-glow.glow2{background:radial-gradient(circle,rgba(0,212,255,0.1) 0%,transparent 70%);width:400px;height:400px;animation-delay:2s;}
+@keyframes glow-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}50%{transform:translate(-50%,-50%) scale(1.2);opacity:0.6}}
+.final-kicker{font-family:var(--font-code);font-size:0.7rem;letter-spacing:0.4em;color:var(--purple2);margin-bottom:2rem;opacity:0.8;}
+.final-title{font-family:var(--font-tech);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;line-height:1.05;margin-bottom:1.5rem;max-width:900px;}
+.final-title .t1{display:block;color:var(--white);}
+.final-title .t2{display:block;color:var(--cyan);}
+.final-title .t3{display:block;font-size:0.5em;color:var(--gray2);font-family:var(--font-body);font-weight:400;letter-spacing:0.1em;margin-top:0.8em;}
+.final-subtitle{font-size:1.1rem;color:var(--gray2);max-width:550px;line-height:1.7;margin-bottom:4rem;}
+.btn-epic-wrap{position:relative;display:inline-block;}
+.btn-epic{font-family:var(--font-tech);font-size:clamp(0.85rem,1.5vw,1rem);letter-spacing:0.25em;padding:1.4rem 4rem;background:transparent;color:var(--white);border:2px solid var(--cyan);cursor:pointer;position:relative;overflow:hidden;}
+.btn-epic::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--purple));opacity:0;}
+.btn-epic:hover::before{opacity:1;}
+.btn-epic:hover{color:var(--black);transform:scale(1.03);}
+.btn-epic span{position:relative;z-index:1;}
+.btn-epic-ring{position:absolute;inset:-8px;border:1px solid var(--cyan-glow);border-radius:4px;animation:ring-pulse 3s ease-in-out infinite;pointer-events:none;}
+@keyframes ring-pulse{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.04);opacity:0}}
+.school-tag{margin-top:5rem;font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.3em;color:var(--gray);opacity:0.6;}
+
+/* FOOTER */
+footer{position:relative;z-index:1;padding:2rem 3rem;border-top:1px solid var(--gray);display:flex;justify-content:space-between;align-items:center;background:var(--dark);}
+footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter-spacing:0.2em;}
+
+/* RESPONSIVE */
+@media(max-width:900px){nav{padding:1rem 1.5rem;}.nav-links,.nav-cta{display:none;}.que-es-grid{grid-template-columns:1fr;gap:3rem;}.stat-strip{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.code-float{display:none;}.stat-strip{grid-template-columns:1fr;}#cursor,#cursor-ring{display:none;}body{cursor:default;}#theme-toggle{bottom:1rem;right:1rem;}}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<div id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+  <span class="toggle-icon">☀️</span>
+  <span class="toggle-label">MODO CLARO</span>
+</div>
+
+<div id="loader">
+  <div class="loader-scanline"></div>
+  <div class="loader-logo">TIC</div>
+  <div class="loader-text">INICIANDO SISTEMA...</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text" style="opacity:0.4;margin-top:0.5rem;font-size:0.6rem;">CEB 5/4 · CAPACITACIÓN DIGITAL</div>
+</div>
+
+<canvas id="canvas-bg"></canvas>
+
+<nav id="main-nav">
+  <div class="nav-logo">TIC <span>· CEB 5/4</span></div>
+  <ul class="nav-links">
+    <li><a href="#que-es">¿Qué es?</a></li>
+    <li><a href="#materias">Materias</a></li>
+    <li><a href="#crear">Proyectos</a></li>
+    <li><a href="#futuro">Futuro</a></li>
+  </ul>
+  <a href="#final" class="nav-cta">ELIGE TIC</a>
+</nav>
+
+<section id="hero">
+  <div class="code-float" style="left:5%;top:30%;animation-duration:18s;animation-delay:5s;">const future = createWith(you);</div>
+  <div class="code-float" style="left:75%;top:45%;animation-duration:22s;animation-delay:6s;">function build(idea) { return reality; }</div>
+  <div class="code-float" style="left:15%;top:60%;animation-duration:25s;animation-delay:7s;">import { creativity } from 'TIC';</div>
+  <div class="code-float" style="left:60%;top:20%;animation-duration:20s;animation-delay:8s;">design.launch() → 🚀</div>
+  <div class="code-float" style="left:40%;top:70%;animation-duration:28s;animation-delay:9s;">while(alive) { learn(); create(); repeat(); }</div>
+  <div class="hero-badge"><span>SEGUNDO SEMESTRE · CEB 5/4 · 2025–2026</span></div>
+  <p class="hero-teacher">Presenta: <strong>Prof. Felipe López Salazar</strong></p>
+  <h1 class="hero-title">
+    <span class="line-white">No solo uses</span>
+    <span class="line-cyan"><span class="glitch-wrap" data-text="tecnología">tecnología</span></span>
+    <span class="line-white" style="font-size:0.6em;font-weight:400;color:var(--gray2);margin-top:0.2em;">créala.</span>
+  </h1>
+  <p class="hero-sub">La capacitación donde aprendes a <strong>diseñar, programar, crear y construir</strong> el mundo digital desde cero.</p>
+  <div class="hero-actions">
+    <a href="#materias" class="btn-primary"><span>Explorar capacitación</span></a>
+    <a href="#final" class="btn-secondary">Elegir TIC</a>
+  </div>
+  <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-arrow"></div></div>
+</section>
+
+<section id="que-es">
+  <div class="section-inner">
+    <div class="que-es-grid">
+      <div class="que-es-text">
+        <span class="section-tag reveal">// SOBRE LA CAPACITACIÓN</span>
+        <div class="big-statement reveal reveal-delay-1">La academia donde<br>aprendes a <em>construir</em><br>el mundo digital.</div>
+        <p class="reveal reveal-delay-2">No es memorizar. No es copiar. Es <strong>crear, experimentar y resolver</strong> problemas reales con herramientas que usan los profesionales hoy.</p>
+        <div class="que-es-features">
+          <div class="feature-item reveal reveal-delay-3"><span class="fi-icon">🎮</span><div class="fi-text"><strong>Aprenderás haciendo</strong><span>Proyectos reales desde el primer semestre. No teoría vacía.</span></div></div>
+          <div class="feature-item reveal reveal-delay-4"><span class="fi-icon">🌐</span><div class="fi-text"><strong>Herramientas del mundo real</strong><span>Las mismas que usan empresas, estudios y startups.</span></div></div>
+          <div class="feature-item reveal reveal-delay-5"><span class="fi-icon">🚀</span><div class="fi-text"><strong>Portafolio al terminar</strong><span>Sal con proyectos para mostrar, no solo un certificado.</span></div></div>
+        </div>
+      </div>
+      <div class="que-es-visual">
+        <div class="hud-card reveal reveal-delay-2">
+          <div class="hud-card-title">SISTEMA_ACTIVO.exe</div>
+          <div class="hud-card-content"><span class="kw">const</span> alumno = <span class="fn">TIC</span>(<span class="str">"tú"</span>);<br>alumno.<span class="fn">aprende</span>(<span class="str">"diseño, código, redes"</span>);<br>alumno.<span class="fn">crea</span>(<span class="str">"apps, webs, juegos"</span>);<br><span class="kw">return</span> alumno.<span class="fn">futuro</span>(); <span style="color:#555">// 🔥</span></div>
+        </div>
+        <div class="hud-card reveal reveal-delay-3">
+          <div class="hud-card-title">NIVEL DE HABILIDADES</div>
+          <div class="hud-bar-label"><span>Programación</span><span>→ Alta demanda</span></div>
+          <div class="hud-bar"><div class="hud-bar-fill cyan" style="--target-width:88%"></div></div>
+          <div class="hud-bar-label"><span>Diseño Digital</span><span>→ Alta demanda</span></div>
+          <div class="hud-bar"><div class="hud-bar-fill purple" style="--target-width:82%"></div></div>
+          <div class="hud-bar-label"><span>Páginas Web</span><span>→ Muy alta demanda</span></div>
+          <div class="hud-bar"><div class="hud-bar-fill cyan" style="--target-width:95%"></div></div>
+          <div class="hud-bar-label"><span>Redes &amp; Sistemas</span><span>→ Esencial</span></div>
+          <div class="hud-bar"><div class="hud-bar-fill pink" style="--target-width:79%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="materias">
+  <div class="section-inner">
+    <div class="materias-header">
+      <span class="section-tag reveal">// SKILLS DESBLOQUEABLES</span>
+      <h2 class="section-title reveal reveal-delay-1">Tus materias,<br><span style="color:var(--cyan)">tus superpoderes.</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;">Cada semestre desbloqueas habilidades nuevas. Al final, tienes todo el stack para crear lo que imagines.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card cyan reveal reveal-delay-1"><div class="skill-card-top"><span class="skill-icon">💻</span><span class="skill-level">LVL 5 — CORE</span></div><h3>Programación</h3><p>Crea apps, scripts, automatizaciones, videojuegos, bots e interfaces interactivas.</p><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Apps</span><span class="skill-tag">Videojuegos</span></div></div>
+      <div class="skill-card purple reveal reveal-delay-2"><div class="skill-card-top"><span class="skill-icon">🌐</span><span class="skill-level">LVL 4 — CORE</span></div><h3>Páginas Web</h3><p>Diseña sitios que parecen hechos por agencias reales. HTML, CSS, efectos modernos.</p><div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive</span><span class="skill-tag">UI/UX</span></div></div>
+      <div class="skill-card pink reveal reveal-delay-3"><div class="skill-card-top"><span class="skill-icon">🎨</span><span class="skill-level">LVL 4 — CREATIVE</span></div><h3>Diseño Digital</h3><p>Edita fotos cinematográficas, crea publicidad, logos y animaciones profesionales.</p><div class="skill-tags"><span class="skill-tag">Photoshop</span><span class="skill-tag">Illustrator</span><span class="skill-tag">Canva Pro</span><span class="skill-tag">Branding</span></div></div>
+      <div class="skill-card green reveal reveal-delay-4"><div class="skill-card-top"><span class="skill-icon">🖥️</span><span class="skill-level">LVL 3 — TECH</span></div><h3>Redes y Mantenimiento</h3><p>Entiende cómo funciona el internet por dentro. Configura redes y sistemas reales.</p><div class="skill-tags"><span class="skill-tag">Redes</span><span class="skill-tag">Hardware</span><span class="skill-tag">Internet</span><span class="skill-tag">Servidores</span></div></div>
+      <div class="skill-card cyan reveal reveal-delay-5"><div class="skill-card-top"><span class="skill-icon">📊</span><span class="skill-level">LVL 3 — DATA</span></div><h3>Hoja de Cálculo</h3><p>Automatiza tareas, analiza datos y crea dashboards que toda empresa necesita.</p><div class="skill-tags"><span class="skill-tag">Excel avanzado</span><span class="skill-tag">Automatización</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Datos</span></div></div>
+      <div class="skill-card orange reveal reveal-delay-6"><div class="skill-card-top"><span class="skill-icon">🔐</span><span class="skill-level">LVL 3 — SYS</span></div><h3>Sistemas de Información</h3><p>Gestiona, organiza y protege datos. La base de toda empresa digital.</p><div class="skill-tags"><span class="skill-tag">Bases de datos</span><span class="skill-tag">Seguridad</span><span class="skill-tag">Sistemas</span><span class="skill-tag">Cloud</span></div></div>
+      <div class="skill-card purple reveal reveal-delay-1"><div class="skill-card-top"><span class="skill-icon">🌍</span><span class="skill-level">LVL 2 — SOCIAL</span></div><h3>Comunidades Virtuales</h3><p>Crea contenido, podcasts, streaming y construye presencia digital real en internet.</p><div class="skill-tags"><span class="skill-tag">Redes sociales</span><span class="skill-tag">Streaming</span><span class="skill-tag">Podcast</span><span class="skill-tag">Contenido</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="crear">
+  <div class="section-inner">
+    <div class="crear-header">
+      <span class="section-tag reveal">// OUTPUT</span>
+      <h2 class="section-title reveal reveal-delay-1">Lo que <span style="color:var(--purple2)">vas a crear.</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;">Esto no es lo que harás "algún día". Es lo que crearás durante la capacitación.</p>
+    </div>
+    <div class="crear-grid">
+      <div class="crear-card reveal reveal-delay-1"><span class="c-icon">🎮</span><h4>Videojuegos 2D</h4><p>Desde tu primera idea hasta un juego jugable con mecánicas y niveles.</p></div>
+      <div class="crear-card reveal reveal-delay-2"><span class="c-icon">📱</span><h4>Apps Móviles</h4><p>Aplicaciones que funcionan en cualquier teléfono. Tu idea, tu app.</p></div>
+      <div class="crear-card reveal reveal-delay-3"><span class="c-icon">🌐</span><h4>Páginas Web Modernas</h4><p>Sitios con animaciones y diseño nivel agencia profesional.</p></div>
+      <div class="crear-card reveal reveal-delay-4"><span class="c-icon">🎨</span><h4>Branding y Logotipos</h4><p>Identidad visual completa para marcas reales: logos, colores, tipografía.</p></div>
+      <div class="crear-card reveal reveal-delay-5"><span class="c-icon">🤖</span><h4>Bots e IA</h4><p>Automatizaciones inteligentes, chatbots y proyectos con inteligencia artificial.</p></div>
+      <div class="crear-card reveal reveal-delay-6"><span class="c-icon">🎬</span><h4>Edición Cinematográfica</h4><p>Fotos y videos con edición nivel película. Color grading y efectos.</p></div>
+      <div class="crear-card reveal reveal-delay-1"><span class="c-icon">📡</span><h4>Infraestructura de Red</h4><p>Configura redes reales. Entiende cómo fluye el internet por dentro.</p></div>
+      <div class="crear-card reveal reveal-delay-2"><span class="c-icon">🎙️</span><h4>Podcast y Streaming</h4><p>Setup profesional de audio, video y distribución digital.</p></div>
+      <div class="crear-card reveal reveal-delay-3"><span class="c-icon">📊</span><h4>Dashboards de Datos</h4><p>Visualiza información compleja como un analista profesional.</p></div>
+      <div class="crear-card reveal reveal-delay-4"><span class="c-icon">✨</span><h4>Animaciones Digitales</h4><p>Motion graphics, intros y efectos para cualquier pantalla.</p></div>
+      <div class="crear-card reveal reveal-delay-5"><span class="c-icon">🔒</span><h4>Sistemas Seguros</h4><p>Bases de datos, autenticación y seguridad. La capa que protege todo.</p></div>
+      <div class="crear-card reveal reveal-delay-6"><span class="c-icon">📣</span><h4>Campañas Digitales</h4><p>Publicidad y estrategia para redes sociales con herramientas reales.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="no-solo">
+  <div class="section-inner">
+    <span class="section-tag reveal" style="display:block;text-align:center;margin-bottom:2rem;">// FILOSOFÍA</span>
+    <div class="no-solo-quote reveal">Esta capacitación no es <span class="hl">memorizar.</span> Es <span class="hl2">crear.</span> Es <span class="hl3">imaginar.</span><br>Es construir cosas que antes no existían.</div>
+    <div class="no-solo-pillars">
+      <div class="pillar reveal reveal-delay-1"><span class="p-icon">🔥</span><h4>Creatividad</h4><p>No hay respuesta correcta única. Diseña, propone y sorprende.</p></div>
+      <div class="pillar reveal reveal-delay-2"><span class="p-icon">⚡</span><h4>Velocidad</h4><p>La tecnología avanza rápido. Aquí aprendes a aprender.</p></div>
+      <div class="pillar reveal reveal-delay-3"><span class="p-icon">🤝</span><h4>Colaboración</h4><p>Los mejores proyectos nacen en equipo. Como una startup real.</p></div>
+      <div class="pillar reveal reveal-delay-4"><span class="p-icon">🎯</span><h4>Impacto</h4><p>Crea cosas que resuelvan problemas reales. Puede cambiar vidas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="futuro">
+  <div class="section-inner">
+    <div class="futuro-header">
+      <span class="section-tag reveal">// TRAYECTORIA</span>
+      <h2 class="section-title reveal reveal-delay-1">Tu futuro en<br><span style="color:var(--cyan)">tecnología.</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;">TIC es el primer paso hacia las carreras más demandadas y mejor pagadas del mundo.</p>
+    </div>
+    <div class="careers-grid">
+      <div class="career-card reveal reveal-delay-1"><span class="career-icon">👨‍💻</span><h4>Desarrollador Web</h4><p>Construye sitios y aplicaciones que millones de personas usan.</p><div class="career-salary"><span class="salary-label">SALARIO MENSUAL MX</span><span class="salary-amount">$15k – $50k<span class="unit">MXN</span></span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:95%"></div></div></div></div>
+      <div class="career-card reveal reveal-delay-2"><span class="career-icon">🎨</span><h4>Diseñador UX/UI</h4><p>Diseña experiencias digitales que la gente ama usar.</p><div class="career-salary"><span class="salary-label">SALARIO MENSUAL MX</span><span class="salary-amount">$12k – $45k<span class="unit">MXN</span></span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:88%"></div></div></div></div>
+      <div class="career-card reveal reveal-delay-3"><span class="career-icon">🕹️</span><h4>Desarrollador de Videojuegos</h4><p>Diseña mundos y mecánicas que entretienen al planeta.</p><div class="career-salary"><span class="salary-label">SALARIO MENSUAL MX</span><span class="salary-amount">$15k – $55k<span class="unit">MXN</span></span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:82%"></div></div></div></div>
+      <div class="career-card reveal reveal-delay-4"><span class="career-icon">🔐</span><h4>Ciberseguridad</h4><p>Protege sistemas, redes y datos de ataques digitales.</p><div class="career-salary"><span class="salary-label">SALARIO MENSUAL MX</span><span class="salary-amount">$20k – $70k<span class="unit">MXN</span></span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:97%"></div></div></div></div>
+      <div class="career-card reveal reveal-delay-5"><span class="career-icon">🤖</span><h4>Inteligencia Artificial</h4><p>El campo más explosivo del siglo. Crea sistemas que piensan.</p><div class="career-salary"><span class="salary-label">SALARIO MENSUAL MX</span><span class="salary-amount">$25k – $80k<span class="unit">MXN</span></span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:99%"></div></div></div></div>
+      <div class="career-card reveal reveal-delay-6"><span class="career-icon">🎙️</span><h4>Creador Digital</h4><p>Podcasts, streaming y contenido. Un estudio desde tu cuarto.</p><div class="career-salary"><span class="salary-label">INGRESO MENSUAL</span><span class="salary-amount">Ilimitado</span></div><div class="demand-bar"><span class="demand-label">DEMANDA</span><div class="demand-track"><div class="demand-fill" style="width:91%"></div></div></div></div>
+    </div>
+    <div class="stat-strip reveal">
+      <div class="stat-item"><span class="stat-number" data-target="3500000">0</span><span class="stat-label">empleos tech en MX para 2030</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="47">0</span><span class="stat-label">% salario mayor que otras carreras</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label">% trabajo desde cualquier lugar</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="imagina">
+  <div class="section-inner">
+    <span class="section-tag" style="display:block;text-align:center;margin-bottom:3rem;">// VISUALIZA</span>
+    <div class="imagina-lines">
+      <span class="il">Hoy eres estudiante de segundo semestre.</span>
+      <span class="il">Mañana podrías crear la app que millones usen.</span>
+      <span class="il">Diseñar videojuegos que el mundo juegue.</span>
+      <span class="il">Construir páginas web para empresas reales.</span>
+      <span class="il">Lanzar tu propia startup digital.</span>
+      <span class="il">Programar IA que cambie industrias enteras.</span>
+      <span class="il">O simplemente...</span>
+      <span class="il">trabajar desde cualquier parte del planeta.</span>
+    </div>
+  </div>
+</section>
+
+<section id="docente">
+  <div class="section-inner">
+    <span class="docente-label reveal">CAPACITACIÓN PRESENTADA POR</span>
+    <div class="docente-nombre reveal reveal-delay-1">Felipe López Salazar</div>
+    <p class="docente-cargo reveal reveal-delay-2">Docente · TIC · CEB 5/4 "Profr. Rafael Ramírez"</p>
+  </div>
+</section>
+
+<section id="final">
+  <div class="final-glow"></div>
+  <div class="final-glow glow2"></div>
+  <p class="final-kicker reveal">// EL FUTURO DIGITAL NECESITA CREADORES</p>
+  <h2 class="final-title reveal reveal-delay-1">
+    <span class="t1">¿Vas a verlo…</span>
+    <span class="t2">o vas a construirlo?</span>
+    <span class="t3">La decisión es tuya. Ahora mismo.</span>
+  </h2>
+  <p class="final-subtitle reveal reveal-delay-2">Elige la capacitación TIC y empieza a construir el futuro digital desde el segundo semestre.</p>
+  <div class="btn-epic-wrap reveal reveal-delay-3">
+    <div class="btn-epic-ring"></div>
+    <a href="#" class="btn-epic"><span>🚀 &nbsp; ELEGIR TIC</span></a>
+  </div>
+  <p class="school-tag reveal reveal-delay-4">CEB 5/4 "PROFR. RAFAEL RAMÍREZ" · CAPACITACIÓN TIC · SEGUNDO SEMESTRE</p>
+</section>
+
+<footer>
+  <p>TIC · CEB 5/4 · Tecnologías de la Información y la Comunicación</p>
+  <p style="color:var(--cyan);opacity:0.4;">EL FUTURO LO PROGRAMAN LOS QUE APRENDEN HOY</p>
+</footer>
+
+<script>
+const html = document.documentElement;
+function toggleTheme() {
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.querySelector('.toggle-icon').textContent  = isDark ? '🌙' : '☀️';
+  document.querySelector('.toggle-label').textContent = isDark ? 'MODO OSCURO' : 'MODO CLARO';
+  lightMode = !isDark;
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 3000);
+});
+
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-5+'px';cursor.style.top=my-5+'px';});
+(function animC(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;cursorRing.style.left=rx-18+'px';cursorRing.style.top=ry-18+'px';requestAnimationFrame(animC);})();
+document.querySelectorAll('a,button,.skill-card,.crear-card,.career-card,.pillar,#theme-toggle').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2)';cursorRing.style.transform='scale(1.5)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';cursorRing.style.transform='scale(1)';});
+});
+
+const canvas=document.getElementById('canvas-bg'),ctx=canvas.getContext('2d');
+let particles=[],W,H,lightMode=false;
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',()=>{resize();initP();});
+class P{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;const c=Math.random();this.cd=c<.5?'rgba(0,212,255,':c<.8?'rgba(123,47,255,':'rgba(168,85,247,';this.cl=c<.5?'rgba(0,85,204,':c<.8?'rgba(85,0,187,':'rgba(119,0,238,';this.a=Math.random()*.5+.2;}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1;}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=(lightMode?this.cl:this.cd)+this.a+')';ctx.fill();}}
+function initP(){particles=Array.from({length:Math.min(Math.floor(W/12),120)},()=>new P());}
+initP();
+function connect(){const m=130;for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<m){const a=(1-d/m)*(lightMode?.1:.18);ctx.strokeStyle=lightMode?`rgba(0,85,204,${a})`:`rgba(0,212,255,${a})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}}}
+(function anim(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});connect();requestAnimationFrame(anim);})();
+
+window.addEventListener('scroll',()=>document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>80));
+
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.imagina-lines .il').forEach((l,i)=>setTimeout(()=>l.classList.add('visible'),i*180));io.disconnect();}}),{threshold:0.3});
+const il=document.querySelector('.imagina-lines');if(il)io.observe(il);
+
+const bo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const f=e.target.querySelector('.hud-bar-fill');if(f)f.style.width=f.style.getPropertyValue('--target-width');}}),{threshold:0.5});
+document.querySelectorAll('.hud-bar').forEach(b=>bo.observe(b));
+
+function animCount(el,target){const s=performance.now();(function u(now){const p=Math.min((now-s)/2000,1),e2=1-Math.pow(1-p,3),v=Math.floor(e2*target);if(target>=1000000)el.textContent=(v/1000000).toFixed(1)+'M+';else if(target===47)el.textContent='+'+v+'%';else el.textContent=v+'%';if(p<1)requestAnimationFrame(u);else el.textContent=target>=1000000?'3.5M+':target===47?'+47%':'100%';})(s);}
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animCount(e.target,+e.target.dataset.target);so.unobserve(e.target);}}),{threshold:0.5});
+document.querySelectorAll('.stat-number').forEach(el=>so.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
+</script>
+</body>
+</html>
