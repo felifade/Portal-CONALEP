@@ -6,6 +6,7 @@
 <title>TIC — CEB 5/4 · El Futuro Digital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -480,6 +481,33 @@ section{position:relative;z-index:1;}
 .term-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--font-code);font-size:0.85rem;color:var(--white);caret-color:var(--cyan);}
 .term-hint{font-family:var(--font-code);font-size:0.6rem;color:var(--gray);text-align:center;padding:0.5rem;background:#080814;}
 [data-theme="light"] .term-body,[data-theme="light"] .term-bar,[data-theme="light"] .term-input-row,[data-theme="light"] .term-hint{background:#0d0d2a;}
+
+/* ── QR SECTION ── */
+#qr-section{padding:7rem 0;background:var(--dark);border-top:1px solid rgba(0,212,255,0.08);text-align:center;}
+.qr-inner{display:flex;flex-direction:column;align-items:center;gap:2.5rem;}
+.qr-box{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:1.5rem;background:var(--dark2);border:1px solid var(--cyan-dim);border-radius:20px;box-shadow:0 0 60px rgba(0,212,255,0.15),0 20px 60px rgba(0,0,0,0.5);}
+[data-theme="light"] .qr-box{background:#fff;border-color:rgba(0,85,204,0.2);box-shadow:0 0 40px rgba(0,85,204,0.12),0 8px 30px rgba(0,0,50,0.1);}
+.qr-corner{position:absolute;width:22px;height:22px;border-color:var(--cyan);border-style:solid;}
+.qr-corner.tl{top:-1px;left:-1px;border-width:3px 0 0 3px;border-radius:6px 0 0 0;}
+.qr-corner.tr{top:-1px;right:-1px;border-width:3px 3px 0 0;border-radius:0 6px 0 0;}
+.qr-corner.bl{bottom:-1px;left:-1px;border-width:0 0 3px 3px;border-radius:0 0 0 6px;}
+.qr-corner.br{bottom:-1px;right:-1px;border-width:0 3px 3px 0;border-radius:0 0 6px 0;}
+.qr-canvas-wrap{position:relative;overflow:hidden;border-radius:8px;width:220px;height:220px;display:flex;align-items:center;justify-content:center;}
+#qr-canvas{border-radius:6px;display:block;}
+.qr-scan-line{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 8px var(--cyan),0 0 20px var(--cyan-glow);animation:scan 2.5s ease-in-out infinite;pointer-events:none;}
+@keyframes scan{0%{top:0;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+.qr-label{font-family:var(--font-code);font-size:0.65rem;letter-spacing:0.4em;color:var(--cyan);margin-top:0.5rem;}
+.qr-url{font-family:var(--font-code);font-size:0.72rem;color:var(--gray2);letter-spacing:0.05em;padding:0.6rem 1.2rem;background:var(--dark2);border:1px solid var(--gray);border-radius:8px;word-break:break-all;max-width:400px;line-height:1.6;}
+[data-theme="light"] .qr-url{background:#f0f2ff;border-color:#c0c8e8;}
+.qr-url span{color:var(--cyan);}
+.qr-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.qr-btn{font-family:var(--font-tech);font-size:0.68rem;letter-spacing:0.15em;padding:0.7rem 1.6rem;border-radius:6px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:0.5rem;}
+.qr-btn.primary{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#06060e;font-weight:700;border:none;box-shadow:0 0 20px rgba(0,212,255,0.25);}
+.qr-btn.primary:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(0,212,255,0.45);}
+.qr-btn.secondary{background:transparent;color:var(--white);border:1px solid var(--gray);}
+.qr-btn.secondary:hover{border-color:var(--cyan);color:var(--cyan);}
+.qr-copied{font-family:var(--font-code);font-size:0.65rem;color:#27c93f;opacity:0;transition:opacity 0.3s;letter-spacing:0.2em;}
+.qr-copied.show{opacity:1;}
 
 /* FOOTER */
 footer{position:relative;z-index:1;padding:2rem 3rem;border-top:1px solid var(--gray);display:flex;justify-content:space-between;align-items:center;background:var(--dark);}
@@ -1116,6 +1144,40 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
   <p class="school-tag reveal reveal-delay-4">CEB 5/4 "PROFR. RAFAEL RAMÍREZ" · CAPACITACIÓN TIC · SEGUNDO SEMESTRE</p>
 </section>
 
+<section id="qr-section">
+  <div class="section-inner">
+    <div class="qr-inner">
+      <div>
+        <span class="section-tag" style="display:block;text-align:center;margin-bottom:0.8rem;">// ACCESO DIRECTO</span>
+        <h2 class="section-title reveal" style="text-align:center">Ábrelo en tu celular.<br><span style="color:var(--cyan)">Ahora mismo.</span></h2>
+        <p class="section-subtitle reveal reveal-delay-1" style="margin:0.8rem auto 0;text-align:center">Escanea el código QR y comparte el sitio con quien quieras.</p>
+      </div>
+
+      <div class="qr-box reveal reveal-delay-2">
+        <div class="qr-corner tl"></div>
+        <div class="qr-corner tr"></div>
+        <div class="qr-corner bl"></div>
+        <div class="qr-corner br"></div>
+        <div class="qr-canvas-wrap">
+          <canvas id="qr-canvas"></canvas>
+          <div class="qr-scan-line"></div>
+        </div>
+      </div>
+      <div class="qr-label reveal">ESCANEA CON TU CÁMARA</div>
+
+      <div class="qr-url reveal reveal-delay-1">
+        <span>felifade.github.io/Portal-CONALEP/<br><span style="color:var(--cyan)">ceb54/capacitacion/</span></span>
+      </div>
+
+      <div class="qr-actions reveal reveal-delay-2">
+        <button class="qr-btn primary" onclick="compartir()">📤 Compartir</button>
+        <button class="qr-btn secondary" onclick="copiarLink()">📋 Copiar enlace</button>
+      </div>
+      <div class="qr-copied" id="qr-copied">✓ ENLACE COPIADO</div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p>TIC · CEB 5/4 · Tecnologías de la Información y la Comunicación</p>
   <p style="color:var(--cyan);opacity:0.4;">EL FUTURO LO PROGRAMAN LOS QUE APRENDEN HOY</p>
@@ -1324,6 +1386,35 @@ document.querySelectorAll('.tilt-card').forEach(card=>{
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
+
+// ── QR CODE ───────────────────────────────────────────────────
+const QR_URL='https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/';
+function renderQR(){
+  const isDark=document.documentElement.dataset.theme!=='light';
+  QRCode.toCanvas(document.getElementById('qr-canvas'),QR_URL,{
+    width:220,margin:1,
+    color:{dark:isDark?'#00d4ff':'#0055cc',light:isDark?'#0d0d22':'#ffffff'}
+  });
+}
+if(typeof QRCode!=='undefined')renderQR();
+else window.addEventListener('load',renderQR);
+
+// Re-renderizar QR al cambiar tema
+const _origToggle=toggleTheme;
+toggleTheme=function(){_origToggle();setTimeout(renderQR,500);};
+
+const SITE_URL='https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/';
+function compartir(){
+  if(navigator.share){navigator.share({title:'TIC — CEB 5/4',text:'Capacitación TIC — el futuro digital',url:SITE_URL});}
+  else{copiarLink();}
+}
+function copiarLink(){
+  navigator.clipboard.writeText(SITE_URL).then(()=>{
+    const el=document.getElementById('qr-copied');
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'),2500);
+  });
+}
 
 // ── MATRIX RAIN ───────────────────────────────────────────────
 (function(){
