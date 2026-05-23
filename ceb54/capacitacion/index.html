@@ -6,7 +6,6 @@
 <title>TIC — CEB 5/4 · El Futuro Digital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -1159,7 +1158,7 @@ footer p{font-family:var(--font-code);font-size:0.65rem;color:var(--gray);letter
         <div class="qr-corner bl"></div>
         <div class="qr-corner br"></div>
         <div class="qr-canvas-wrap">
-          <canvas id="qr-canvas"></canvas>
+          <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/&bgcolor=0d0d22&color=00d4ff&margin=1" width="220" height="220" alt="QR TIC CEB 5/4" style="border-radius:6px;display:block;">
           <div class="qr-scan-line"></div>
         </div>
       </div>
@@ -1388,22 +1387,20 @@ document.querySelectorAll('.tilt-card').forEach(card=>{
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
 
 // ── QR CODE ───────────────────────────────────────────────────
-const QR_URL='https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/';
-function renderQR(){
-  const isDark=document.documentElement.dataset.theme!=='light';
-  QRCode.toCanvas(document.getElementById('qr-canvas'),QR_URL,{
-    width:220,margin:1,
-    color:{dark:isDark?'#00d4ff':'#0055cc',light:isDark?'#0d0d22':'#ffffff'}
-  });
+const SITE_URL='https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/';
+const QR_BASE='https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=1&data='+encodeURIComponent(SITE_URL);
+const QR_DARK=QR_BASE+'&bgcolor=0d0d22&color=00d4ff';
+const QR_LIGHT=QR_BASE+'&bgcolor=ffffff&color=0055cc';
+
+function updateQRTheme(){
+  const img=document.getElementById('qr-img');
+  if(!img)return;
+  img.src=document.documentElement.dataset.theme==='light'?QR_LIGHT:QR_DARK;
 }
-if(typeof QRCode!=='undefined')renderQR();
-else window.addEventListener('load',renderQR);
 
 // Re-renderizar QR al cambiar tema
 const _origToggle=toggleTheme;
-toggleTheme=function(){_origToggle();setTimeout(renderQR,500);};
-
-const SITE_URL='https://felifade.github.io/Portal-CONALEP/ceb54/capacitacion/';
+toggleTheme=function(){_origToggle();setTimeout(updateQRTheme,50);};
 function compartir(){
   if(navigator.share){navigator.share({title:'TIC — CEB 5/4',text:'Capacitación TIC — el futuro digital',url:SITE_URL});}
   else{copiarLink();}
