@@ -1936,7 +1936,799 @@ Guarda, recarga el index.html en el navegador. Deben aparecer:
 Reto opcional (si terminas rápido): cambia el rango a "Cadete" si la edad es menor de 18 PERO mayor de 13, y a "Recluta" si es menor de 13. Esto requiere un else if — lo formalizamos en la H3.`,product:`script.js extendido del H1 que pregunta nombre y edad, asigna rango con if/else (Agente o Cadete), y muestra mensaje de bienvenida personalizado con template literal. Guardar como 'Programa_Bienvenida'.`,teacherNotes:"👨‍🏫 NOTA DOCENTE: Esta es LA hora donde el alumno SIENTE el poder de JavaScript — pide algo, decide, responde. Tres conceptos nuevos a la vez (prompt/alert, Number(), if/else) — vigila quién se está perdiendo. La trampa de 'string vs number' es la fuente #1 de errores: si alguien dice 'no me suma bien', probablemente olvidó el Number(). El template literal con backticks puede confundir vs comillas dobles — recordar que el carácter ` está a la izquierda del 1. La H3 formalizará if/else if/else con más rangos."}],cierre:`Dos horas, dos pasos: conectar el archivo y hacerlo hablar. El viernes le ponemos más músculo al programa.`,frase_docente:`Primero que conecte, luego que decida — la lógica viene después del cableado.`},{id:`fri`,label:`Viernes — 🚧 Por planear`,purpose:`Sesión pendiente de planeación. Se confirmará después del jueves.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Esta sesión se planeará después del jueves. Probablemente cerraremos la semana con una práctica integradora corta o una mini-evaluación de lo visto.
 
 📌 PARA EL ALUMNO
-Guarda todo lo que hagas en tu carpeta del proyecto — el viernes podría ser día de revisión.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria — sesión por confirmar.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Cerrar la semana 12 con una integración o repaso, según el ritmo del grupo.`}],cierre:`Sesión por definir.`,frase_docente:`El cierre de semana es momento para mirar atrás antes de seguir.`},{id:`dual`,label:`Repositorio de Actividades Duales (Semana 12)`,activities:[{title:`Lunes H1 — Variables y Tipos en JavaScript`,instruction:`Cheat-sheet de referencia rápida para la primera hora del lunes. Tenla abierta mientras escribes en la consola: let vs const, los 5 tipos básicos, template literals y la trampa de prompt() devolviendo siempre string.`,image:`dewe_w12_info01.png`},{title:`Jueves H1 — Conectar JS al HTML`,instruction:`Cheat-sheet para la primera hora del jueves (sesión reprogramada del lunes por lluvia). Cubre: estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer programa interactivo. Tenla abierta mientras armas tu archivo .js.`,image:`dewe_w12_info02.png`}]}]},W13:{days:[]},W14:{days:[]}}},Oe=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),M=o(((e,t)=>{t.exports=Oe()}))(),ke=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ae=()=>{let[e,t]=(0,_.useState)(!1);return(0,M.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,M.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,M.jsx)(A,{size:13,className:`pond-icon`}),(0,M.jsx)(`span`,{children:`Ponderación`}),(0,M.jsx)(fe,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,M.jsxs)(`div`,{className:`ponderacion-body`,children:[ke.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-unit`,children:[(0,M.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,M.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,M.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,M.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,M.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,M.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,M.jsxs)(`div`,{className:`pond-total`,children:[(0,M.jsx)(`span`,{children:`Total del módulo`}),(0,M.jsx)(`span`,{children:`100%`})]})]})]})},je=De.ras.flatMap(e=>e.weeks.map(e=>e.id)),Me=Object.fromEntries(De.cortes.map(e=>[e.id,e])),Ne=De.ras,Pe=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=je.indexOf(i),u=e=>!(je.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return De.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,M.jsxs)(M.Fragment,{children:[s&&(0,M.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,M.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,M.jsxs)(`div`,{className:`sidebar-header`,children:[(0,M.jsxs)(`div`,{className:`school-brand`,children:[(0,M.jsx)(`div`,{className:`brand-icon`,children:(0,M.jsx)(ge,{size:18,color:`white`,strokeWidth:2.5})}),(0,M.jsxs)(`div`,{className:`school-info`,children:[(0,M.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,M.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,M.jsxs)(`div`,{className:`author-credits`,children:[(0,M.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,M.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,M.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,M.jsxs)(`nav`,{className:`nav-container`,children:[(0,M.jsxs)(`div`,{className:`main-nav-section`,children:[(0,M.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,M.jsx)(he,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,M.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,M.jsx)(pe,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,M.jsx)(Ae,{}),(0,M.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Ne.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Me[n.corte];return(0,M.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,M.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,M.jsx)(fe,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,M.jsx)(ue,{size:13,className:`ra-icon`}),(0,M.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,M.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,M.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,M.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,M.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,M.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,M.jsx)(ye,{size:10,className:`lock-icon`}),s&&(0,M.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,M.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Fe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ie=({text:e})=>{if(!e)return null;let t=e.split(`
+Guarda todo lo que hagas en tu carpeta del proyecto — el viernes podría ser día de revisión.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria — sesión por confirmar.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Cerrar la semana 12 con una integración o repaso, según el ritmo del grupo.`}],cierre:`Sesión por definir.`,frase_docente:`El cierre de semana es momento para mirar atrás antes de seguir.`},{id:`dual`,label:`Repositorio de Actividades Duales (Semana 12)`,activities:[{title:`Lunes H1 — Variables y Tipos en JavaScript`,instruction:`Cheat-sheet de referencia rápida para la primera hora del lunes. Tenla abierta mientras escribes en la consola: let vs const, los 5 tipos básicos, template literals y la trampa de prompt() devolviendo siempre string.`,image:`dewe_w12_info01.png`},{title:`Jueves H1 — Conectar JS al HTML`,instruction:`Cheat-sheet para la primera hora del jueves (sesión reprogramada del lunes por lluvia). Cubre: estructura de carpetas js/script.js, etiqueta <script src defer>, timeline de carga del navegador y esqueleto del primer programa interactivo. Tenla abierta mientras armas tu archivo .js.`,image:`dewe_w12_info02.png`}]}]},W13:{materia:`dewe`,weekId:`W13`,days:[{id:`mon`,label:`Lunes — 🎨 El sitio responde sin recargar: DOM, Eventos y Funciones`,purpose:`Salir definitivamente de prompt/alert/console. Aprender a modificar el sitio Resident Evil EN VIVO desde JavaScript usando el DOM. Conectar botones reales a acciones. Construir un mini-proyecto integrador (sistema de vida del personaje) que use todo lo aprendido.`,hours:[{time:`Hora 1`,title:`🔬 El DOM — la página es un árbol que puedes modificar`,theory:`🌳 ¿QUÉ ES EL DOM?
+DOM significa Document Object Model — el HTML convertido en una estructura de objetos que JavaScript puede leer y modificar. Cada etiqueta HTML (h1, p, div, button...) es un objeto con propiedades que puedes cambiar en tiempo real.
+
+🎯 EL SELECTOR FUNDAMENTAL
+document.querySelector(selector) — busca el PRIMER elemento que coincida con un selector CSS y lo devuelve. Si no lo encuentra, devuelve null.
+
+  document.querySelector('h1')          // primer <h1> del documento
+  document.querySelector('.titulo')     // primer elemento con clase 'titulo'
+  document.querySelector('#menu')       // elemento con id 'menu'
+  document.querySelector('button')      // primer <button>
+
+✏️ PROPIEDADES QUE PUEDES CAMBIAR
+• .textContent  → el texto dentro del elemento
+• .innerHTML    → el HTML dentro del elemento (cuidado: ejecuta etiquetas)
+• .style.color, .style.background, .style.fontSize ... → cualquier propiedad CSS
+• .src          → para <img>: la URL de la imagen
+• .classList    → manipular clases (add, remove, toggle)
+
+🪟 SIN RECARGAR LA PÁGINA
+Lo más importante: estos cambios pasan AL INSTANTE en el navegador. No hay que recargar nada. El usuario los ve en tiempo real.
+
+💡 LA CONSOLA ES TU SANDBOX
+F12 → Console es perfecto para experimentar. Cada línea que escribes y ejecutas con Enter modifica la página viva.`,notebook:`Título: El DOM — la página como objeto.
+1. ¿Qué significan las letras D, O, M?
+2. ¿Qué hace document.querySelector()?
+3. ¿Cuál es la diferencia entre .textContent y .innerHTML?
+4. ¿Qué pasa si querySelector no encuentra el elemento?
+5. Da 3 ejemplos de propiedades de .style que se pueden modificar.
+6. ¿Por qué los cambios al DOM no requieren recargar la página?`,practice:`🧪 LABORATORIO EN CONSOLA — abre TU sitio Resident Evil (el index.html), pulsa F12 → Console, y ejecuta línea por línea:
+
+\`\`\`js
+// 1. Cambiar el título principal
+document.querySelector('h1').textContent = '🧟 VIRUS T ACTIVADO';
+
+// 2. Pintar el fondo de sangre
+document.body.style.background = '#1a0000';
+
+// 3. Cambiar el color de todos los párrafos (solo el primero por ahora)
+document.querySelector('p').style.color = '#ff4444';
+
+// 4. Hacer el título gigante
+document.querySelector('h1').style.fontSize = '60px';
+
+// 5. Ocultar un elemento (cambia .menu por una clase que tengas)
+document.querySelector('nav').style.display = 'none';
+
+// 6. Mostrarlo de nuevo
+document.querySelector('nav').style.display = 'block';
+
+// 7. Cambiar todo el texto del body (¡cuidado, borra TODO!)
+document.body.innerHTML = '<h1 style="color:red">RACCOON CITY DESTRUIDA</h1>';
+
+// 8. Recargar la página (F5) para volver al original
+\`\`\`
+
+🎯 RETO INDIVIDUAL — convierte tu sitio en 'MODO APOCALIPSIS' en máximo 5 líneas de consola:
+• Fondo negro o rojo oscuro
+• Título gigante en rojo brillante
+• Algún elemento oculto o cambiado
+• Toma captura del resultado
+
+🚫 IMPORTANTE — estos cambios desde la consola NO se guardan. Al recargar todo vuelve al original. Para que sean permanentes hay que escribirlos en script.js — eso es la Hora 2.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; letter-spacing: 0.3px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  /* Browser mockup */
+  .browser { background: #21262d; border-radius: 8px; border: 1px solid #30363d; overflow: hidden; margin-bottom: 12px; }
+  .browser-bar { background: #161b22; padding: 6px 10px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #30363d; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #f85149; } .dot.y { background: #d29922; } .dot.g { background: #3fb950; }
+  .url { flex: 1; background: #0d1117; padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #8b949e; font-family: monospace; }
+  .page-before, .page-after { padding: 18px 14px; min-height: 100px; }
+  .page-before { background: #fff; color: #222; }
+  .page-after { background: #1a0000; color: #ff4444; }
+  .page-before h4 { color: #222; margin-bottom: 6px; }
+  .page-after h4 { color: #ff4444; font-size: 22px; margin-bottom: 6px; text-shadow: 0 0 8px #ff0000; }
+  .page-before p, .page-after p { font-size: 12px; }
+
+  .code { font-family: 'Consolas','Monaco',monospace; font-size: 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 10px 12px; color: #e6edf3; line-height: 1.7; overflow-x: auto; white-space: pre; margin-bottom: 8px; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-prop { color: #79c0ff; }
+  .arrow-down { text-align: center; color: #f7df1e; font-size: 22px; font-weight: 800; margin: 4px 0; }
+  .label { font-size: 10px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+  /* Tree */
+  .tree-row { display: flex; align-items: center; gap: 8px; font-family: 'Consolas',monospace; font-size: 13px; padding: 4px 0; }
+  .tree-tag { color: #79c0ff; }
+  .tree-text { color: #c9d1d9; }
+  .tree-indent { color: #6e7681; }
+  .tree-prop { display: flex; gap: 6px; font-size: 11px; color: #8b949e; padding-left: 28px; margin-bottom: 6px; }
+  .tree-prop .k { color: #d2a8ff; }
+  .tree-prop .v { color: #a5d6ff; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+  .note code { color: #79c0ff; font-family: monospace; }
+  .full { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<h2>🔬 El DOM en vivo — antes y después de modificarlo</h2>
+<div class="layout">
+
+  <div class="panel">
+    <h3>📄 Antes — la página original</h3>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <div class="url">🌐 file:///index.html</div>
+      </div>
+      <div class="page-before">
+        <h4>Resident Evil — Inicio</h4>
+        <p>Bienvenido a Raccoon City.</p>
+      </div>
+    </div>
+    <div class="label">Estructura DOM (vista de árbol)</div>
+    <div class="tree-row"><span class="tree-tag">&lt;body&gt;</span></div>
+    <div class="tree-row"><span class="tree-indent">└─</span><span class="tree-tag">&lt;h1&gt;</span><span class="tree-text">"Resident Evil — Inicio"</span></div>
+    <div class="tree-prop"><span class="k">.textContent</span> = <span class="v">"Resident Evil — Inicio"</span></div>
+    <div class="tree-prop"><span class="k">.style.color</span> = <span class="v">"black"</span></div>
+  </div>
+
+  <div class="panel">
+    <h3>✏️ Después — JS modificó el DOM</h3>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <div class="url">🌐 file:///index.html</div>
+      </div>
+      <div class="page-after">
+        <h4>🧟 VIRUS T ACTIVADO</h4>
+        <p>Bienvenido a Raccoon City.</p>
+      </div>
+    </div>
+    <div class="label">Mismo árbol, propiedades cambiadas</div>
+    <div class="tree-row"><span class="tree-tag">&lt;body&gt;</span></div>
+    <div class="tree-row"><span class="tree-indent">└─</span><span class="tree-tag">&lt;h1&gt;</span><span class="tree-text">"🧟 VIRUS T ACTIVADO"</span></div>
+    <div class="tree-prop"><span class="k">.textContent</span> = <span class="v">"🧟 VIRUS T ACTIVADO"</span></div>
+    <div class="tree-prop"><span class="k">.style.color</span> = <span class="v">"#ff4444"</span></div>
+  </div>
+
+  <div class="panel full">
+    <h3>⚡ El código que hace la magia</h3>
+    <div class="code">
+<span class="c-com">// Seleccionar el título y cambiar su texto</span>
+<span class="c-fn">document</span>.<span class="c-fn">querySelector</span>(<span class="c-str">'h1'</span>).<span class="c-prop">textContent</span> = <span class="c-str">'🧟 VIRUS T ACTIVADO'</span>;
+
+<span class="c-com">// Pintar el fondo de la página de rojo oscuro</span>
+<span class="c-fn">document</span>.<span class="c-prop">body</span>.<span class="c-prop">style</span>.<span class="c-prop">background</span> = <span class="c-str">'#1a0000'</span>;
+
+<span class="c-com">// Cambiar el color del primer párrafo</span>
+<span class="c-fn">document</span>.<span class="c-fn">querySelector</span>(<span class="c-str">'p'</span>).<span class="c-prop">style</span>.<span class="c-prop">color</span> = <span class="c-str">'#ff4444'</span>;
+    </div>
+    <div class="note">
+      <strong>Patrón clave:</strong> <code>document.querySelector(selector).propiedad = valor</code>. Selecciona, accede a la propiedad, asigna nuevo valor. <strong>Todo cambia al instante</strong> en el navegador sin recargar.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+`,product:`Capturas del sitio modificado vía consola en modo apocalipsis (mínimo 3 cambios visibles). Libreta con las 6 respuestas de teoría + los 5 selectores que probaron + qué hicieron en el reto.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es 100% consola — nadie toca script.js todavía. Hace falta que los alumnos VEAN que el cambio es instantáneo (sin F5) para que internalicen el modelo mental del DOM. Si un alumno se asusta porque 'rompió' su sitio: F5 vuelve todo al original — los cambios en consola son volátiles. Aprovechar el paso 7 (innerHTML que borra todo) para discutir la diferencia entre textContent (texto) e innerHTML (HTML — peligroso si viene de usuario por XSS, pero eso es de seguridad para más adelante). El reto 'modo apocalipsis' es deliberadamente abierto — los más creativos sorprenden.`},{time:`Hora 2`,title:`🖱️ Eventos — el sitio escucha al usuario`,theory:`🎧 LA IDEA: HASTA AHORA JS CORRÍA UNA VEZ
+Todo el código que han escrito se ejecuta cuando carga la página y se acabó. Si el usuario hace clic en un botón, no pasa nada — porque nadie está ESCUCHANDO.
+
+Hoy aprenderemos a hacer que el código se ejecute SOLO cuando el usuario hace algo: clic, mover el mouse, pulsar una tecla, etc.
+
+🎯 addEventListener — EL VERBO MÁGICO
+La sintaxis es:
+
+  elemento.addEventListener('tipo-evento', function() {
+    // código que se ejecuta cuando pasa el evento
+  });
+
+Los tres ingredientes:
+• elemento  → qué se está escuchando (un botón, un div, todo el documento...)
+• 'tipo-evento' → qué acción esperamos ('click', 'mouseover', 'keydown'...)
+• function() {...} → qué hacer cuando ocurre el evento
+
+🔥 EVENTOS COMUNES
+• 'click'       → el usuario hace clic
+• 'mouseover'   → el mouse entra al elemento (hover)
+• 'mouseout'    → el mouse sale del elemento
+• 'keydown'     → el usuario presiona una tecla
+• 'submit'      → se envía un formulario
+• 'input'       → cambió el contenido de un input
+
+💡 FUNCIONES ANÓNIMAS
+La function() { ... } que va dentro de addEventListener se llama 'función anónima' — no tiene nombre, solo existe para responder a ese evento. Es totalmente normal en JS.
+
+📦 VARIABLES PARA NO REPETIR
+En lugar de escribir document.querySelector('#btn-alarma') tres veces, lo guardas en una variable:
+
+  const btnAlarma = document.querySelector('#btn-alarma');
+  btnAlarma.addEventListener('click', function() { ... });
+  btnAlarma.style.background = 'red';
+
+Más corto, más legible, menos errores.`,notebook:`Título: Eventos — el sitio escucha.
+1. ¿Qué hace addEventListener?
+2. Lista los 3 ingredientes que necesita addEventListener.
+3. ¿Qué es una función anónima?
+4. Da 4 tipos de eventos diferentes a 'click'.
+5. ¿Por qué conviene guardar el resultado de querySelector en una variable?
+6. ¿Qué pasaría si añades dos addEventListener al mismo botón?`,practice:`🧪 LABORATORIO — esta vez SÍ tocas tu script.js (vamos a hacer cambios permanentes).
+
+Paso 1 — Agregar HTML al index.html (donde quieras):
+
+\`\`\`html
+<div class="controles">
+  <button id="btn-alarma">🚨 Activar alarma</button>
+  <button id="btn-calma">😌 Desactivar</button>
+  <div id="estado">Estado: 🟢 tranquilo</div>
+</div>
+\`\`\`
+
+Paso 2 — Escribir en js/script.js:
+
+\`\`\`js
+// =====================================================
+// Sistema de alarma — DEWE Semana 13 Hora 2
+// =====================================================
+
+// 1. Guardar los elementos en variables
+const btnAlarma = document.querySelector('#btn-alarma');
+const btnCalma  = document.querySelector('#btn-calma');
+const estado    = document.querySelector('#estado');
+
+// 2. Conectar el botón ALARMA al evento click
+btnAlarma.addEventListener('click', function() {
+  document.body.style.background = '#660000';
+  estado.textContent = 'Estado: 🔴 PELIGRO INMINENTE';
+  estado.style.color = 'white';
+});
+
+// 3. Conectar el botón CALMA al evento click
+btnCalma.addEventListener('click', function() {
+  document.body.style.background = '';
+  estado.textContent = 'Estado: 🟢 tranquilo';
+  estado.style.color = '';
+});
+
+console.log('✅ Sistema de alarma cargado');
+\`\`\`
+
+Paso 3 — Guardar todo, abrir index.html en el navegador y probar:
+• Click en 'Activar alarma' → el sitio se vuelve rojo, mensaje cambia.
+• Click en 'Desactivar' → vuelve al normal.
+• Recargar página → vuelve al normal.
+
+🎯 RETO — agregar un tercer botón '🔊 Sonido de zombi' que al hacer hover (mouseover) cambie su texto a '🧟 GROOOAARRR' y al salir (mouseout) vuelva al original.
+
+\`\`\`js
+btnSonido.addEventListener('mouseover', function() {
+  btnSonido.textContent = '🧟 GROOOAARRR';
+});
+
+btnSonido.addEventListener('mouseout', function() {
+  btnSonido.textContent = '🔊 Sonido de zombi';
+});
+\`\`\``,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .full { grid-column: 1 / -1; }
+
+  /* Demo interactivo */
+  .demo { padding: 24px 18px; border-radius: 8px; transition: background 0.3s; background: #f0f0f0; color: #222; text-align: center; }
+  .demo.alerta { background: #660000; color: white; }
+  .demo h4 { font-size: 18px; margin-bottom: 12px; }
+  .estado-box { font-family: 'Consolas',monospace; font-size: 13px; padding: 8px 12px; background: rgba(0,0,0,0.15); border-radius: 4px; margin: 12px 0; }
+  .btn-demo { padding: 10px 18px; border-radius: 6px; border: none; font-weight: 700; cursor: pointer; font-size: 13px; margin: 4px; transition: transform 0.1s; }
+  .btn-demo:hover { transform: scale(1.05); }
+  .btn-alarma { background: #f85149; color: white; }
+  .btn-calma  { background: #3fb950; color: white; }
+
+  .code { font-family: 'Consolas','Monaco',monospace; font-size: 12px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.7; overflow-x: auto; white-space: pre; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-prop { color: #79c0ff; }
+
+  /* Flujo de evento */
+  .flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+  .flow-step { padding: 8px 12px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; font-size: 11px; }
+  .flow-step.user { color: #f7df1e; border-color: #f7df1e; background: #2a2510; }
+  .flow-step.event { color: #79c0ff; border-color: #79c0ff; background: #102030; }
+  .flow-step.action { color: #3fb950; border-color: #3fb950; background: #1a3a1a; }
+  .flow-arrow { color: #f7df1e; font-weight: 800; font-size: 16px; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+  .note code { color: #79c0ff; font-family: monospace; }
+</style>
+</head>
+<body>
+<h2>🖱️ Demo en vivo — haz clic y mira cómo reacciona</h2>
+
+<div class="layout">
+
+  <div class="panel">
+    <h3>🎮 Pruébalo aquí mismo</h3>
+    <div id="demo-box" class="demo">
+      <h4>🌆 Raccoon City</h4>
+      <div id="demo-estado" class="estado-box">Estado: 🟢 tranquilo</div>
+      <button id="demo-alarma" class="btn-demo btn-alarma">🚨 Activar alarma</button>
+      <button id="demo-calma" class="btn-demo btn-calma">😌 Desactivar</button>
+    </div>
+    <div class="note">
+      ↑ Este demo es <strong>JavaScript real corriendo</strong>. Haz clic en los botones y verás que el ambiente cambia sin recargar.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ El código detrás del demo</h3>
+    <div class="code">
+<span class="c-com">// Guardar elementos en variables</span>
+<span class="c-key">const</span> btn = <span class="c-fn">document</span>.<span class="c-fn">querySelector</span>(<span class="c-str">'#alarma'</span>);
+<span class="c-key">const</span> estado = <span class="c-fn">document</span>.<span class="c-fn">querySelector</span>(<span class="c-str">'#estado'</span>);
+
+<span class="c-com">// Escuchar el clic</span>
+btn.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, <span class="c-key">function</span>() {
+  <span class="c-fn">document</span>.<span class="c-prop">body</span>.<span class="c-prop">style</span>.<span class="c-prop">background</span> = <span class="c-str">'#660000'</span>;
+  estado.<span class="c-prop">textContent</span> = <span class="c-str">'🔴 PELIGRO'</span>;
+});
+    </div>
+    <div class="flow">
+      <span class="flow-step user">👤 Usuario hace clic</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step event">📡 Evento 'click'</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step action">⚡ Función se ejecuta</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Demo interactivo del propio diagrama
+  var demoBox = document.getElementById('demo-box');
+  var demoEstado = document.getElementById('demo-estado');
+  var demoAlarma = document.getElementById('demo-alarma');
+  var demoCalma = document.getElementById('demo-calma');
+
+  demoAlarma.addEventListener('click', function() {
+    demoBox.classList.add('alerta');
+    demoEstado.textContent = 'Estado: 🔴 PELIGRO INMINENTE';
+  });
+
+  demoCalma.addEventListener('click', function() {
+    demoBox.classList.remove('alerta');
+    demoEstado.textContent = 'Estado: 🟢 tranquilo';
+  });
+<\/script>
+</body>
+</html>
+`,product:`Sistema de alarma funcionando en su sitio Resident Evil — dos botones reales que cambian el ambiente al hacer clic + el reto de hover en el tercer botón. Captura del estado 'PELIGRO' visible.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta es la PRIMERA VEZ que los alumnos ven código que se ejecuta 'cuando el usuario haga algo' — antes todo corría una vez. Es un cambio mental grande. Insistir en el orden: PRIMERO seleccionar el elemento (con querySelector), DESPUÉS añadirle el listener. Errores típicos:
+• Querer agregar listener antes de que el HTML cargue → usar defer (ya está desde W12).
+• Olvidar las comillas en 'click'.
+• Confundir mouseover (entra) con mouseout (sale).
+• Hacer btnAlarma.click() en vez de addEventListener — el primero EJECUTA el click ahora mismo, no espera al usuario.
+El reto de mouseover/mouseout es bueno para discutir hover puro CSS vs hover con JS (cuándo usar cada uno).`},{time:`Hora 3`,title:`❤️ Mini-proyecto: Sistema de vida del personaje (todo junto)`,theory:`🎯 LO QUE VAMOS A CONSTRUIR
+Un pequeño 'panel de personaje' en su sitio Resident Evil con:
+• Un número de vida visible (empieza en 100)
+• Botón 'Curar (+10)' que aumenta la vida
+• Botón 'Recibir daño (-15)' que disminuye la vida
+• Cuando la vida llega a 0 → aparece 'GAME OVER' gigante en rojo
+• Botón 'Resetear' para volver a 100
+
+Esto es UN MINI-JUEGO funcional integrado a su sitio. Usa TODO lo aprendido hoy: querySelector, eventos, y un concepto nuevo: FUNCIONES.
+
+🧩 LA PIEZA NUEVA: FUNCIONES
+Una función es un bloque de código con nombre que se puede llamar varias veces. La sintaxis básica:
+
+  function actualizar() {
+    // código que hace algo
+  }
+
+  actualizar();  // llamar a la función → ejecuta el código de adentro
+
+🤔 ¿POR QUÉ NECESITAMOS FUNCIONES HOY?
+Cada vez que cambia la vida (curar, dañar, resetear) hay que:
+  1. Mostrar el nuevo número en pantalla
+  2. Revisar si vida ≤ 0 → mostrar GAME OVER
+  3. Limitar a máximo 100
+
+Si no usamos función, tendríamos que copiar y pegar esa lógica en CADA evento. Mal idea: si después cambias algo, hay que cambiarlo en 3 lugares.
+
+Con una función actualizar(), escribimos esa lógica UNA SOLA VEZ y la llamamos desde donde la necesitemos. Es el concepto fundamental de 'reutilización de código' — el primer paso para pensar como programador.
+
+📐 ESTRUCTURA DEL PROGRAMA
+  1. Variable: let vida = 100
+  2. Variables para los elementos (querySelector)
+  3. Función actualizar()
+  4. Listeners para los 3 botones (cada uno modifica vida y llama actualizar)
+  5. Llamada inicial a actualizar() para mostrar el estado inicial`,notebook:`Título: Mini-proyecto Sistema de Vida.
+1. ¿Qué es una función en JavaScript?
+2. ¿Por qué conviene usar una función en lugar de copiar y pegar código?
+3. En el sistema de vida, lista los 3 eventos que vamos a escuchar.
+4. ¿Qué pasa si vida queda negativa? ¿Cómo lo evitamos?
+5. ¿Por qué llamamos actualizar() al final del programa (antes de los listeners)?
+6. Reflexión: si después quisieras agregar 'envenenamiento' (resta 5 cada segundo), ¿qué tendrías que añadir al código?`,practice:`🛠️ LABORATORIO INTEGRADOR
+
+Paso 1 — Agregar al HTML del index.html (dentro del body):
+
+\`\`\`html
+<section class="panel-vida">
+  <h2>🦹 Leon S. Kennedy</h2>
+  <div class="barra-fondo">
+    <div id="barra-fill"></div>
+  </div>
+  <p>❤️ Vida: <span id="num-vida">100</span> / 100</p>
+  <button id="btn-curar">💊 Curar (+10)</button>
+  <button id="btn-danio">💥 Daño (-15)</button>
+  <button id="btn-reset">🔄 Resetear</button>
+  <h3 id="game-over"></h3>
+</section>
+\`\`\`
+
+Paso 2 — Estilos mínimos en style.css:
+
+\`\`\`css
+.panel-vida {
+  background: #1a1a1a; color: #fff;
+  padding: 20px; border-radius: 10px;
+  margin: 20px 0; max-width: 400px;
+}
+.barra-fondo {
+  background: #333; height: 20px;
+  border-radius: 10px; overflow: hidden;
+  margin: 12px 0;
+}
+#barra-fill {
+  background: #3fb950; height: 100%;
+  width: 100%; transition: all 0.3s;
+}
+.panel-vida button {
+  padding: 8px 14px; margin: 4px; border: none;
+  border-radius: 6px; cursor: pointer; font-weight: bold;
+}
+#game-over {
+  color: red; font-size: 30px; margin-top: 16px;
+  text-shadow: 0 0 10px red;
+}
+\`\`\`
+
+Paso 3 — JavaScript completo en script.js (a continuación del código de la H2):
+
+\`\`\`js
+// =====================================================
+// Sistema de vida — DEWE Semana 13 Hora 3
+// =====================================================
+
+// 1. Variable principal
+let vida = 100;
+
+// 2. Capturar elementos
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+// 3. Función que actualiza la pantalla con el valor actual de vida
+function actualizar() {
+  // Limitar entre 0 y 100
+  if (vida < 0)   vida = 0;
+  if (vida > 100) vida = 100;
+
+  // Mostrar número
+  numVida.textContent = vida;
+
+  // Actualizar barra (ancho proporcional)
+  barraFill.style.width = vida + '%';
+
+  // Color según vida
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';   // verde
+  } else if (vida > 30) {
+    barraFill.style.background = '#d29922';   // amarillo
+  } else {
+    barraFill.style.background = '#f85149';   // rojo
+  }
+
+  // Game over
+  if (vida === 0) {
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+// 4. Conectar eventos
+btnCurar.addEventListener('click', function() {
+  vida = vida + 10;
+  actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = 100;
+  actualizar();
+});
+
+// 5. Llamada inicial para mostrar estado de arranque
+actualizar();
+\`\`\`
+
+Paso 4 — Probar en el navegador:
+• La barra arranca en 100% verde.
+• 'Daño' baja la vida y eventualmente la barra se pone amarilla, luego roja.
+• 'Curar' la sube de regreso (sin pasar de 100).
+• A los 7 clicks de daño llega a -5 → se limita a 0 → aparece GAME OVER gigante.
+• 'Resetear' vuelve a 100.
+
+🎯 RETOS OPCIONALES (para los rápidos):
+• A. Cuando GAME OVER, desactivar el botón 'Daño' (btnDanio.disabled = true) hasta resetear.
+• B. Añadir un contador de cuántas veces te han curado vs dañado.
+• C. Cambiar el nombre del personaje al inicio con un prompt y mostrarlo en el h2.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  /* Demo funcional */
+  .panel-vida-demo { background: linear-gradient(180deg, #1a1a1a, #0a0a0a); color: #fff; padding: 22px; border-radius: 10px; border: 2px solid #333; }
+  .panel-vida-demo h4 { font-size: 17px; margin-bottom: 14px; color: #f7df1e; text-shadow: 0 0 8px rgba(247,223,30,0.3); }
+  .barra-fondo { background: #333; height: 24px; border-radius: 12px; overflow: hidden; margin: 14px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+  #demo-barra { background: #3fb950; height: 100%; width: 100%; transition: width 0.4s, background 0.4s; }
+  .vida-text { font-size: 14px; margin: 10px 0; font-family: 'Consolas',monospace; }
+  .vida-text span { color: #3fb950; font-weight: bold; font-size: 18px; }
+  .btn-demo { padding: 9px 14px; margin: 4px 3px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 12px; transition: transform 0.1s; color: white; }
+  .btn-demo:hover { transform: scale(1.05); }
+  .btn-curar  { background: #3fb950; }
+  .btn-danio  { background: #f85149; }
+  .btn-reset  { background: #58a6ff; }
+  #demo-gameover { color: #f85149; font-size: 22px; font-weight: 900; text-align: center; margin-top: 16px; text-shadow: 0 0 12px #f85149; min-height: 30px; }
+
+  .code { font-family: 'Consolas',monospace; font-size: 11.5px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.65; overflow-x: auto; white-space: pre; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-prop { color: #79c0ff; }
+  .c-num { color: #f7df1e; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h2>❤️ Sistema de vida — DEMO FUNCIONAL (juega con él)</h2>
+
+<div class="layout">
+
+  <div class="panel">
+    <h3>🎮 Pruébalo — haz clic en los botones</h3>
+    <div class="panel-vida-demo">
+      <h4>🦹 Leon S. Kennedy</h4>
+      <div class="barra-fondo">
+        <div id="demo-barra"></div>
+      </div>
+      <div class="vida-text">❤️ Vida: <span id="demo-num">100</span> / 100</div>
+      <button id="demo-curar" class="btn-demo btn-curar">💊 Curar (+10)</button>
+      <button id="demo-danio" class="btn-demo btn-danio">💥 Daño (-15)</button>
+      <button id="demo-reset" class="btn-demo btn-reset">🔄 Resetear</button>
+      <div id="demo-gameover"></div>
+    </div>
+    <div class="note">
+      ↑ <strong>Esto es exactamente lo que vas a construir hoy.</strong> Pruébalo: dale clic a 'Daño' varias veces hasta llegar a 0 y observa cómo la barra cambia de color y aparece GAME OVER.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ El corazón del programa: la función actualizar()</h3>
+    <div class="code">
+<span class="c-key">let</span> vida = <span class="c-num">100</span>;
+
+<span class="c-key">function</span> <span class="c-fn">actualizar</span>() {
+  <span class="c-com">// Limitar entre 0 y 100</span>
+  <span class="c-key">if</span> (vida &lt; <span class="c-num">0</span>)   vida = <span class="c-num">0</span>;
+  <span class="c-key">if</span> (vida &gt; <span class="c-num">100</span>) vida = <span class="c-num">100</span>;
+
+  <span class="c-com">// Mostrar número en pantalla</span>
+  numVida.<span class="c-prop">textContent</span> = vida;
+  barraFill.<span class="c-prop">style</span>.<span class="c-prop">width</span> = vida + <span class="c-str">'%'</span>;
+
+  <span class="c-com">// Color según nivel de vida</span>
+  <span class="c-key">if</span> (vida &gt; <span class="c-num">60</span>) {
+    barraFill.<span class="c-prop">style</span>.<span class="c-prop">background</span> = <span class="c-str">'#3fb950'</span>;
+  } <span class="c-key">else if</span> (vida &gt; <span class="c-num">30</span>) {
+    barraFill.<span class="c-prop">style</span>.<span class="c-prop">background</span> = <span class="c-str">'#d29922'</span>;
+  } <span class="c-key">else</span> {
+    barraFill.<span class="c-prop">style</span>.<span class="c-prop">background</span> = <span class="c-str">'#f85149'</span>;
+  }
+
+  <span class="c-com">// Game over</span>
+  <span class="c-key">if</span> (vida === <span class="c-num">0</span>) gameOver.<span class="c-prop">textContent</span> = <span class="c-str">'💀 GAME OVER'</span>;
+  <span class="c-key">else</span>             gameOver.<span class="c-prop">textContent</span> = <span class="c-str">''</span>;
+}
+    </div>
+    <div class="note">
+      <strong>Por qué función:</strong> esta misma lógica se llama desde los 3 botones (curar, dañar, resetear). Sin función habría que copiar/pegar 3 veces. Mantener UNA fuente de la verdad es el corazón del buen código.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var demoVida = 100;
+  var demoBarra = document.getElementById('demo-barra');
+  var demoNum = document.getElementById('demo-num');
+  var demoGameOver = document.getElementById('demo-gameover');
+
+  function demoActualizar() {
+    if (demoVida < 0) demoVida = 0;
+    if (demoVida > 100) demoVida = 100;
+    demoNum.textContent = demoVida;
+    demoBarra.style.width = demoVida + '%';
+    if (demoVida > 60)      demoBarra.style.background = '#3fb950';
+    else if (demoVida > 30) demoBarra.style.background = '#d29922';
+    else                    demoBarra.style.background = '#f85149';
+    if (demoVida === 0) demoGameOver.textContent = '💀 GAME OVER';
+    else                demoGameOver.textContent = '';
+  }
+
+  document.getElementById('demo-curar').addEventListener('click', function() {
+    demoVida = demoVida + 10;
+    demoActualizar();
+  });
+  document.getElementById('demo-danio').addEventListener('click', function() {
+    demoVida = demoVida - 15;
+    demoActualizar();
+  });
+  document.getElementById('demo-reset').addEventListener('click', function() {
+    demoVida = 100;
+    demoActualizar();
+  });
+
+  demoActualizar();
+<\/script>
+</body>
+</html>
+`,code:`// =====================================================
+// Sistema de vida — DEWE Semana 13 Hora 3
+// Completa los espacios en blanco
+// =====================================================
+
+let vida = 100;
+
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+function actualizar() {
+  if (vida < 0)   vida = 0;
+  if (vida > 100) vida = ;          // ¿a qué valor lo limitamos?
+
+  numVida.textContent = vida;
+  barraFill.style.width = vida + '%';
+
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';
+  } else if (vida > 30) {
+    barraFill.style.background = '';   // ¿qué color para nivel medio?
+  } else {
+    barraFill.style.background = '#f85149';
+  }
+
+  if (vida === 0) {
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+btnCurar.addEventListener('click', function() {
+  vida = vida + ;                       // ¿cuánto cura?
+  actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  ();                                   // ¿qué función llamamos?
+});
+
+btnReset.addEventListener('click', function() {
+  vida = ;                              // ¿valor inicial?
+  actualizar();
+});
+
+actualizar();   // mostrar estado inicial`,codeRef:`// =====================================================
+// Sistema de vida — DEWE Semana 13 Hora 3 — VERSIÓN COMPLETA
+// =====================================================
+
+let vida = 100;
+
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+function actualizar() {
+  if (vida < 0)   vida = 0;
+  if (vida > 100) vida = 100;
+
+  numVida.textContent = vida;
+  barraFill.style.width = vida + '%';
+
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';   // verde
+  } else if (vida > 30) {
+    barraFill.style.background = '#d29922';   // amarillo
+  } else {
+    barraFill.style.background = '#f85149';   // rojo
+  }
+
+  if (vida === 0) {
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+btnCurar.addEventListener('click', function() {
+  vida = vida + 10;
+  actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = 100;
+  actualizar();
+});
+
+actualizar();`,product:`Mini-juego de sistema de vida funcionando dentro del sitio Resident Evil. Captura mostrando los 3 estados: vida alta (verde), vida media (amarillo), GAME OVER (rojo). Subir a Classroom.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: ESTA es LA hora más importante del corte. Los alumnos integran TODO lo aprendido en un mini-proyecto que funciona, se ve bien y pueden enseñarle a su mamá. Pasos pedagógicos:
+
+1. Mostrar el demo del diagrama PRIMERO (que jueguen 2 minutos con él). Esto da la motivación.
+2. Después construir paso a paso. NO darles el código completo de un jalón — agregar feature por feature: primero solo el botón curar+actualizar texto, luego dañar, luego la barra visual, luego los colores, luego GAME OVER.
+3. La función actualizar() es donde aparece el concepto de FUNCIÓN. No introducirlo de seco — dejar que duplican código primero, sufran, y propongan ellos solos 'esto se podría reutilizar'. Ahí entra la función como solución.
+4. El reto C (cambiar nombre con prompt) conecta con W12 — buen cierre de RA2.2.
+
+Errores típicos:
+• Olvidar llamar actualizar() después de cambiar vida → la pantalla no se mueve aunque la variable cambie.
+• Confundir = (asignación) con === (comparación) en if (vida === 0).
+• Poner los listeners DENTRO de la función actualizar — solo deben registrarse UNA VEZ al cargar.
+• Olvidar la llamada inicial actualizar() al final → al cargar la página no se ven los datos iniciales (técnicamente sí porque el HTML los muestra, pero el patrón es siempre llamar al final).`}],cierre:`Tres horas, tres saltos: leer el DOM, hacerlo escuchar, hacerlo reaccionar con lógica reutilizable. Hoy su sitio dejó de ser una página estática.`,frase_docente:`Cuando una función se llama desde tres lugares, esa función ya te ahorró tres bugs.`},{id:`thu`,label:`Jueves — 🚧 Por planear`,purpose:`Sesión pendiente. Se planeará en función del avance del lunes y de lo que el grupo necesite reforzar antes del cierre del corte.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Esta sesión se planeará después del lunes. Direcciones probables:
+
+• Formularios HTML + .value para reemplazar prompt() por inputs reales.
+• Arrays y bucles (for, forEach) para manejar colecciones (galería, inventario).
+• Local Storage para guardar el progreso del juego entre recargas.
+• Refactorizar el sistema de vida con más features (envenenamiento, items recogidos).`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decidir el viernes anterior según avance del grupo. Si terminaron sistema de vida con holgura → arrays/bucles. Si batallaron → reforzar DOM + eventos con otro mini-proyecto.`}],cierre:`Sesión por definir.`,frase_docente:`El plan se ajusta a lo que el aula dice — no al revés.`},{id:`fri`,label:`Viernes — 🚧 Por planear`,purpose:`Sesión de viernes con grupo completo (incluye los del dual). Se planeará tras el jueves.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Posibles direcciones para esta sesión integradora con grupo completo:
+
+• Mini-proyecto final del RA2.2 que integre DOM + Eventos + Funciones.
+• Práctica colaborativa con IA donde cada equipo agrega una feature al sitio.
+• Showcase y crítica entre alumnos del trabajo de la semana.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Recordar que el viernes llegan los del dual — diseñar la sesión asumiendo que parte del grupo NO estuvo entre semana. Repaso + extensión es el patrón que funcionó la W12.`}],cierre:`Sesión por definir.`,frase_docente:`Una clase con audiencia mixta enseña dos veces — y ese es buen entrenamiento docente.`}]},W14:{days:[]}}},Oe=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),M=o(((e,t)=>{t.exports=Oe()}))(),ke=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ae=()=>{let[e,t]=(0,_.useState)(!1);return(0,M.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,M.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,M.jsx)(A,{size:13,className:`pond-icon`}),(0,M.jsx)(`span`,{children:`Ponderación`}),(0,M.jsx)(fe,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,M.jsxs)(`div`,{className:`ponderacion-body`,children:[ke.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-unit`,children:[(0,M.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,M.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,M.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,M.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,M.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,M.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,M.jsxs)(`div`,{className:`pond-total`,children:[(0,M.jsx)(`span`,{children:`Total del módulo`}),(0,M.jsx)(`span`,{children:`100%`})]})]})]})},je=De.ras.flatMap(e=>e.weeks.map(e=>e.id)),Me=Object.fromEntries(De.cortes.map(e=>[e.id,e])),Ne=De.ras,Pe=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=je.indexOf(i),u=e=>!(je.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return De.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,M.jsxs)(M.Fragment,{children:[s&&(0,M.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,M.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,M.jsxs)(`div`,{className:`sidebar-header`,children:[(0,M.jsxs)(`div`,{className:`school-brand`,children:[(0,M.jsx)(`div`,{className:`brand-icon`,children:(0,M.jsx)(ge,{size:18,color:`white`,strokeWidth:2.5})}),(0,M.jsxs)(`div`,{className:`school-info`,children:[(0,M.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,M.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,M.jsxs)(`div`,{className:`author-credits`,children:[(0,M.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,M.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,M.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,M.jsxs)(`nav`,{className:`nav-container`,children:[(0,M.jsxs)(`div`,{className:`main-nav-section`,children:[(0,M.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,M.jsx)(he,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,M.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,M.jsx)(pe,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,M.jsx)(Ae,{}),(0,M.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Ne.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Me[n.corte];return(0,M.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,M.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,M.jsx)(fe,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,M.jsx)(ue,{size:13,className:`ra-icon`}),(0,M.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,M.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,M.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,M.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,M.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,M.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,M.jsx)(ye,{size:10,className:`lock-icon`}),s&&(0,M.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,M.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Fe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ie=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,M.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,M.jsx)(`p`,{children:e}):(0,M.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,M.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,M.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,M.jsx)(`pre`,{className:`smart-code`,children:(0,M.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,M.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,M.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,M.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,M.jsx)(`li`,{children:e},t))},t):null)})},Le={theory:{icon:(0,M.jsx)(ue,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,M.jsx)(we,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,M.jsx)(Ee,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,M.jsx)(Ce,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,M.jsx)(ge,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,M.jsx)(de,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Re=({type:e,children:t})=>{let n=Le[e];return(0,M.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,M.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,M.jsx)(`div`,{className:`block-body`,children:t})]})},ze=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,M.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,M.jsxs)(`div`,{className:`block-header-row`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,M.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,M.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,M.jsx)(`pre`,{className:`code-editor`,children:(0,M.jsx)(`code`,{children:e})})})]})},Be=({html:e})=>(0,M.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,M.jsx)(`div`,{className:`block-body diagram-body`,children:(0,M.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Ve=({src:e,alt:t,className:n})=>(0,M.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),He=({activity:e,assetUrl:t})=>(0,M.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,M.jsxs)(`div`,{className:`dual-header`,children:[(0,M.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,M.jsx)(`h4`,{children:e.title})]}),(0,M.jsxs)(`div`,{className:`dual-body`,children:[(0,M.jsx)(`div`,{className:`dual-instruction`,children:(0,M.jsx)(Ie,{text:e.instruction})}),e.image&&t&&(0,M.jsx)(`div`,{className:`infographic-container`,children:(0,M.jsx)(Ve,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Ue=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,M.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,M.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,M.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,M.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,M.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,M.jsxs)(`div`,{className:`gallery-item`,children:[(0,M.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,M.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,M.jsx)(Ve,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,M.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,M.jsx)(Ie,{text:e.instruction})})]},n))})]})},We=({days:e,activeIndex:t,onSelect:n})=>(0,M.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,M.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Ge=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,M.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,M.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Ke=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,M.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,M.jsxs)(`div`,{className:`breadcrumb`,children:[(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,M.jsxs)(`div`,{className:`page-header-nav`,children:[(0,M.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,M.jsx)(j,{size:13}),` Anterior`]}),(0,M.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,M.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,M.jsx)(fe,{size:13})]})]}),(0,M.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,M.jsxs)(`div`,{className:`sheet-header`,children:[(0,M.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,M.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,M.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,M.jsx)(Re,{type:`theory`,children:(0,M.jsx)(Ie,{text:e.theory})}),(0,M.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,M.jsx)(Re,{type:`notebook`,children:(0,M.jsx)(Ie,{text:e.notebook})}),e.practice&&(0,M.jsx)(Re,{type:`practice`,children:(0,M.jsx)(Ie,{text:e.practice})})]}),e.diagram&&(0,M.jsx)(Be,{html:e.diagram}),e.code&&(0,M.jsx)(ze,{code:e.code}),r&&e.codeRef&&(0,M.jsx)(ze,{code:e.codeRef,isRef:!0}),e.product&&(0,M.jsx)(Re,{type:`product`,children:(0,M.jsx)(Ie,{text:e.product})}),u&&(e.image||e.images)&&(0,M.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,M.jsxs)(`h4`,{className:`block-title`,children:[Le.screenshot.icon,` `,Le.screenshot.label]}),(0,M.jsx)(`div`,{className:`block-body`,children:(0,M.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,M.jsx)(`div`,{className:`screenshot-container`,children:(0,M.jsx)(Ve,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,M.jsx)(`div`,{className:`screenshot-container`,children:(0,M.jsx)(Ve,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,M.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,M.jsx)(`div`,{className:`block-header-row`,children:(0,M.jsxs)(`h4`,{className:`block-title`,children:[Le.teacher.icon,` `,Le.teacher.label]})}),(0,M.jsx)(`div`,{className:`block-body`,children:(0,M.jsx)(Ie,{text:e.teacherNotes})})]})]})]})]}),qe=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=Fe(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,M.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,M.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,M.jsxs)(`header`,{className:`week-portada`,children:[(0,M.jsxs)(`div`,{className:`portada-inner`,children:[(0,M.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,M.jsxs)(`div`,{className:`portada-week-number`,children:[(0,M.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,M.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,M.jsx)(`span`,{className:`portada-date`,children:v}),(0,M.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,M.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,M.jsx)(`span`,{className:`portada-line`},t))})]}),(0,M.jsx)(`div`,{className:`notebook-container`,children:(0,M.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,M.jsxs)(`div`,{className:`empty-message-content`,children:[(0,M.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,M.jsx)(`h2`,{children:`Contenido en preparación`}),(0,M.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,M.jsx)(`strong`,{children:v||h.label}),`.`,(0,M.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},S=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},C=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,M.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,M.jsxs)(`header`,{className:`week-portada`,children:[(0,M.jsxs)(`div`,{className:`portada-inner`,children:[(0,M.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,M.jsxs)(`div`,{className:`portada-week-number`,children:[(0,M.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,M.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,M.jsx)(`span`,{className:`portada-date`,children:v}),(0,M.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,M.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,M.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,M.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,M.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,M.jsxs)(`div`,{className:`preview-text`,children:[(0,M.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,M.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,M.jsx)(We,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,M.jsx)(Ge,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,M.jsx)(`div`,{className:`notebook-container`,children:r?(0,M.jsx)(Ue,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,M.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,M.jsx)(`div`,{className:`sheet-header`,children:(0,M.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,M.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,M.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,M.jsx)(He,{activity:e,assetUrl:o},t))}):(0,M.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,M.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,M.jsx)(`pre`,{className:`code-editor`,children:(0,M.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,M.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,M.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,M.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,M.jsxs)(`div`,{className:`purpose-text`,children:[(0,M.jsx)(`strong`,{children:`Propósito de hoy`}),(0,M.jsx)(Ie,{text:y.purpose})]})]}),(0,M.jsx)(Ke,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:C,onNext:S,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,M.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,M.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,M.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,M.jsx)(Ie,{text:y.cierre})]}),y.frase_docente&&(0,M.jsx)(`div`,{className:`day-quote-block`,children:(0,M.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},Je={html:`<h1>¡Hola Grupo 601!</h1>
