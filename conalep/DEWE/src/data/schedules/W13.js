@@ -4,8 +4,8 @@ export const W13 = {
   days: [
     {
       id: "mon",
-      label: "Lunes — 🎨 El sitio responde sin recargar: DOM, Eventos y Funciones",
-      purpose: "Salir definitivamente de prompt/alert/console. Aprender a modificar el sitio Resident Evil EN VIVO desde JavaScript usando el DOM. Conectar botones reales a acciones. Construir un mini-proyecto integrador (sistema de vida del personaje) que use todo lo aprendido.",
+      label: "Lunes — 🎨 El DOM: la página es un árbol que puedes modificar",
+      purpose: "Primera hora del salto al DOM: salir del prompt/alert/console y aprender a modificar el sitio Resident Evil EN VIVO desde JavaScript. Los eventos (botones que reaccionan) y el mini-proyecto integrador del Sistema de Vida se pasan al jueves.",
       hours: [
         {
           time: "Hora 1",
@@ -128,8 +128,17 @@ export const W13 = {
           product: "Capturas del sitio modificado vía consola en modo apocalipsis (mínimo 3 cambios visibles). Libreta con las 6 respuestas de teoría + los 5 selectores que probaron + qué hicieron en el reto.",
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta hora es 100% consola — nadie toca script.js todavía. Hace falta que los alumnos VEAN que el cambio es instantáneo (sin F5) para que internalicen el modelo mental del DOM. Si un alumno se asusta porque 'rompió' su sitio: F5 vuelve todo al original — los cambios en consola son volátiles. Aprovechar el paso 7 (innerHTML que borra todo) para discutir la diferencia entre textContent (texto) e innerHTML (HTML — peligroso si viene de usuario por XSS, pero eso es de seguridad para más adelante). El reto 'modo apocalipsis' es deliberadamente abierto — los más creativos sorprenden."
         },
+      ],
+      cierre: "Primer asalto al DOM: una página que se modifica desde JS, sin recargar. El jueves le ponemos botones y un mini-juego.",
+      frase_docente: "Aprender el DOM es darle a tu sitio un teclado para hablarte."
+    },
+    {
+      id: "thu",
+      label: "Jueves — 🖱️ Eventos + Mini-proyecto Sistema de Vida (continuación)",
+      purpose: "Retomar lo que no alcanzamos el lunes. H1: addEventListener y botones que reaccionan al usuario. H2: Mini-proyecto integrador del Sistema de Vida (barra de vida, daño/curación, GAME OVER) que une todo lo aprendido en DOM, eventos y funciones.",
+      hours: [
         {
-          time: "Hora 2",
+          time: "Hora 1",
           title: "🖱️ Eventos — el sitio escucha al usuario",
           theory: "🎧 LA IDEA: HASTA AHORA JS CORRÍA UNA VEZ\nTodo el código que han escrito se ejecuta cuando carga la página y se acabó. Si el usuario hace clic en un botón, no pasa nada — porque nadie está ESCUCHANDO.\n\nHoy aprenderemos a hacer que el código se ejecute SOLO cuando el usuario hace algo: clic, mover el mouse, pulsar una tecla, etc.\n\n🎯 addEventListener — EL VERBO MÁGICO\nLa sintaxis es:\n\n  elemento.addEventListener('tipo-evento', function() {\n    // código que se ejecuta cuando pasa el evento\n  });\n\nLos tres ingredientes:\n• elemento  → qué se está escuchando (un botón, un div, todo el documento...)\n• 'tipo-evento' → qué acción esperamos ('click', 'mouseover', 'keydown'...)\n• function() {...} → qué hacer cuando ocurre el evento\n\n🔥 EVENTOS COMUNES\n• 'click'       → el usuario hace clic\n• 'mouseover'   → el mouse entra al elemento (hover)\n• 'mouseout'    → el mouse sale del elemento\n• 'keydown'     → el usuario presiona una tecla\n• 'submit'      → se envía un formulario\n• 'input'       → cambió el contenido de un input\n\n💡 FUNCIONES ANÓNIMAS\nLa function() { ... } que va dentro de addEventListener se llama 'función anónima' — no tiene nombre, solo existe para responder a ese evento. Es totalmente normal en JS.\n\n📦 VARIABLES PARA NO REPETIR\nEn lugar de escribir document.querySelector('#btn-alarma') tres veces, lo guardas en una variable:\n\n  const btnAlarma = document.querySelector('#btn-alarma');\n  btnAlarma.addEventListener('click', function() { ... });\n  btnAlarma.style.background = 'red';\n\nMás corto, más legible, menos errores.",
           notebook: "Título: Eventos — el sitio escucha.\n1. ¿Qué hace addEventListener?\n2. Lista los 3 ingredientes que necesita addEventListener.\n3. ¿Qué es una función anónima?\n4. Da 4 tipos de eventos diferentes a 'click'.\n5. ¿Por qué conviene guardar el resultado de querySelector en una variable?\n6. ¿Qué pasaría si añades dos addEventListener al mismo botón?",
@@ -243,7 +252,7 @@ btn.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span
           teacherNotes: "👨‍🏫 NOTA DOCENTE: Esta es la PRIMERA VEZ que los alumnos ven código que se ejecuta 'cuando el usuario haga algo' — antes todo corría una vez. Es un cambio mental grande. Insistir en el orden: PRIMERO seleccionar el elemento (con querySelector), DESPUÉS añadirle el listener. Errores típicos:\n• Querer agregar listener antes de que el HTML cargue → usar defer (ya está desde W12).\n• Olvidar las comillas en 'click'.\n• Confundir mouseover (entra) con mouseout (sale).\n• Hacer btnAlarma.click() en vez de addEventListener — el primero EJECUTA el click ahora mismo, no espera al usuario.\nEl reto de mouseover/mouseout es bueno para discutir hover puro CSS vs hover con JS (cuándo usar cada uno)."
         },
         {
-          time: "Hora 3",
+          time: "Hora 2",
           title: "❤️ Mini-proyecto: Sistema de vida del personaje (todo junto)",
           theory: "🎯 LO QUE VAMOS A CONSTRUIR\nUn pequeño 'panel de personaje' en su sitio Resident Evil con:\n• Un número de vida visible (empieza en 100)\n• Botón 'Curar (+10)' que aumenta la vida\n• Botón 'Recibir daño (-15)' que disminuye la vida\n• Cuando la vida llega a 0 → aparece 'GAME OVER' gigante en rojo\n• Botón 'Resetear' para volver a 100\n\nEsto es UN MINI-JUEGO funcional integrado a su sitio. Usa TODO lo aprendido hoy: querySelector, eventos, y un concepto nuevo: FUNCIONES.\n\n🧩 LA PIEZA NUEVA: FUNCIONES\nUna función es un bloque de código con nombre que se puede llamar varias veces. La sintaxis básica:\n\n  function actualizar() {\n    // código que hace algo\n  }\n\n  actualizar();  // llamar a la función → ejecuta el código de adentro\n\n🤔 ¿POR QUÉ NECESITAMOS FUNCIONES HOY?\nCada vez que cambia la vida (curar, dañar, resetear) hay que:\n  1. Mostrar el nuevo número en pantalla\n  2. Revisar si vida ≤ 0 → mostrar GAME OVER\n  3. Limitar a máximo 100\n\nSi no usamos función, tendríamos que copiar y pegar esa lógica en CADA evento. Mal idea: si después cambias algo, hay que cambiarlo en 3 lugares.\n\nCon una función actualizar(), escribimos esa lógica UNA SOLA VEZ y la llamamos desde donde la necesitemos. Es el concepto fundamental de 'reutilización de código' — el primer paso para pensar como programador.\n\n📐 ESTRUCTURA DEL PROGRAMA\n  1. Variable: let vida = 100\n  2. Variables para los elementos (querySelector)\n  3. Función actualizar()\n  4. Listeners para los 3 botones (cada uno modifica vida y llama actualizar)\n  5. Llamada inicial a actualizar() para mostrar el estado inicial",
           notebook: "Título: Mini-proyecto Sistema de Vida.\n1. ¿Qué es una función en JavaScript?\n2. ¿Por qué conviene usar una función en lugar de copiar y pegar código?\n3. En el sistema de vida, lista los 3 eventos que vamos a escuchar.\n4. ¿Qué pasa si vida queda negativa? ¿Cómo lo evitamos?\n5. ¿Por qué llamamos actualizar() al final del programa (antes de los listeners)?\n6. Reflexión: si después quisieras agregar 'envenenamiento' (resta 5 cada segundo), ¿qué tendrías que añadir al código?",
@@ -386,26 +395,8 @@ btn.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span
           teacherNotes: "👨‍🏫 NOTA DOCENTE: ESTA es LA hora más importante del corte. Los alumnos integran TODO lo aprendido en un mini-proyecto que funciona, se ve bien y pueden enseñarle a su mamá. Pasos pedagógicos:\n\n1. Mostrar el demo del diagrama PRIMERO (que jueguen 2 minutos con él). Esto da la motivación.\n2. Después construir paso a paso. NO darles el código completo de un jalón — agregar feature por feature: primero solo el botón curar+actualizar texto, luego dañar, luego la barra visual, luego los colores, luego GAME OVER.\n3. La función actualizar() es donde aparece el concepto de FUNCIÓN. No introducirlo de seco — dejar que duplican código primero, sufran, y propongan ellos solos 'esto se podría reutilizar'. Ahí entra la función como solución.\n4. El reto C (cambiar nombre con prompt) conecta con W12 — buen cierre de RA2.2.\n\nErrores típicos:\n• Olvidar llamar actualizar() después de cambiar vida → la pantalla no se mueve aunque la variable cambie.\n• Confundir = (asignación) con === (comparación) en if (vida === 0).\n• Poner los listeners DENTRO de la función actualizar — solo deben registrarse UNA VEZ al cargar.\n• Olvidar la llamada inicial actualizar() al final → al cargar la página no se ven los datos iniciales (técnicamente sí porque el HTML los muestra, pero el patrón es siempre llamar al final)."
         }
       ],
-      cierre: "Tres horas, tres saltos: leer el DOM, hacerlo escuchar, hacerlo reaccionar con lógica reutilizable. Hoy su sitio dejó de ser una página estática.",
-      frase_docente: "Cuando una función se llama desde tres lugares, esa función ya te ahorró tres bugs."
-    },
-    {
-      id: "thu",
-      label: "Jueves — 🚧 Por planear",
-      purpose: "Sesión pendiente. Se planeará en función del avance del lunes y de lo que el grupo necesite reforzar antes del cierre del corte.",
-      hours: [
-        {
-          time: "🚧 Por planear",
-          title: "🚧 Sesión por planear",
-          theory: "Esta sesión se planeará después del lunes. Direcciones probables:\n\n• Formularios HTML + .value para reemplazar prompt() por inputs reales.\n• Arrays y bucles (for, forEach) para manejar colecciones (galería, inventario).\n• Local Storage para guardar el progreso del juego entre recargas.\n• Refactorizar el sistema de vida con más features (envenenamiento, items recogidos).",
-          notebook: "Sin libreta — sesión por confirmar.",
-          practice: "Sin práctica obligatoria.",
-          product: "Por definir.",
-          teacherNotes: "👨‍🏫 NOTA DOCENTE: Decidir el viernes anterior según avance del grupo. Si terminaron sistema de vida con holgura → arrays/bucles. Si batallaron → reforzar DOM + eventos con otro mini-proyecto."
-        }
-      ],
-      cierre: "Sesión por definir.",
-      frase_docente: "El plan se ajusta a lo que el aula dice — no al revés."
+      cierre: "Dos horas, dos saltos: el sitio escucha al usuario y el primer mini-juego cobra vida. Cierre fuerte del corte 3.",
+      frase_docente: "Cuando un alumno hace clic y la página responde lo que ÉL escribió, el aprendizaje deja huella."
     },
     {
       id: "fri",
