@@ -3119,7 +3119,7 @@ Es el mismo concepto (alguien externo manda un dato, el ESP32 lo procesa) por do
 
 (5) IMPORTANTE — Si NO funciona BLE en algún alumno: opciones de fallback: (a) verificar que el celular tiene Bluetooth activado (sí, suena obvio), (b) cerrar y volver a abrir BLE Controller, (c) reiniciar el ESP32 (botón EN), (d) instalar otra app (nRF Connect o LightBlue), (e) si nada funciona, el alumno puede trabajar TODA la hora desde Serial — el código y el análisis siguen siendo válidos. La meta es que ENTIENDAN el programa, no necesariamente que controlen el LED desde el celular.
 
-(6) EXTENSIÓN A DOS LEDs — POSPUESTA A W13: el ejercicio de extender el Programa 04 para controlar un segundo LED se realiza la siguiente semana (W13 Martes Hora 2) como actividad principal de la sesión, NO como reto opcional aquí. Esto evita presión innecesaria sobre los alumnos que apenas terminaron BLE Controller y deja una sesión completa para que TODOS hagan el ejercicio.`}],cierre:`Hoy controlaron un dispositivo físico desde su celular sin tocarlo — eso es lo que llaman 'Internet de las Cosas' en una de sus formas más puras. Y el código que lo hace posible NO es magia: cada línea tiene una función específica que ahora pueden explicar con palabras propias.`,frase_docente:`La diferencia entre copiar código y entender código es la libreta. La IA acelera el aprendizaje, pero solo cuando reformulas lo que te explicó.`}]},W13:{materia:`mths`,weekId:`W13`,days:[{id:`tue`,label:`Martes — 📝 Reporte de práctica BLE + 🚀 Extender Programa 04 con segundo LED`,purpose:`Cerrar formalmente la práctica BLE de W12: Hora 1 dedicada a redactar y entregar el reporte (fotos de libreta, conexión y funcionamiento). Hora 2 retomamos el reto que no alcanzamos el jueves pasado — agregar un segundo LED al Programa 04 y controlarlo desde BLE Controller.`,hours:[{time:`Hora 1`,title:`📝 Reporte de práctica BLE — recopilar evidencias y entregar`,theory:`La práctica de la semana pasada (Programa 04: ESP32 + BLE + Serial + Botón) funcionó — el LED respondió a comandos desde el celular vía BLE Controller. Pero NO entregaron el reporte de esa práctica. Hoy lo escribimos completo, con evidencias fotográficas de lo que vivieron.
+(6) EXTENSIÓN A DOS LEDs — POSPUESTA A W13: el ejercicio de extender el Programa 04 para controlar un segundo LED se realiza la siguiente semana (W13 Martes Hora 2) como actividad principal de la sesión, NO como reto opcional aquí. Esto evita presión innecesaria sobre los alumnos que apenas terminaron BLE Controller y deja una sesión completa para que TODOS hagan el ejercicio.`}],cierre:`Hoy controlaron un dispositivo físico desde su celular sin tocarlo — eso es lo que llaman 'Internet de las Cosas' en una de sus formas más puras. Y el código que lo hace posible NO es magia: cada línea tiene una función específica que ahora pueden explicar con palabras propias.`,frase_docente:`La diferencia entre copiar código y entender código es la libreta. La IA acelera el aprendizaje, pero solo cuando reformulas lo que te explicó.`}]},W13:{materia:`mths`,weekId:`W13`,days:[{id:`tue`,label:`Martes — 📝 Reporte de práctica BLE (2 horas dedicadas a entregar)`,purpose:`Dedicar las 2 horas del martes al reporte formal de la práctica BLE de W12. Hora 1 inicia el documento, recopila evidencias y comienza la redacción; Hora 2 lo completa y entrega en Classroom. La modificación del Programa 04 con un segundo LED se mueve al jueves Hora 1.`,hours:[{time:`Hora 1`,title:`📝 Reporte de práctica BLE — recopilar evidencias y entregar`,theory:`La práctica de la semana pasada (Programa 04: ESP32 + BLE + Serial + Botón) funcionó — el LED respondió a comandos desde el celular vía BLE Controller. Pero NO entregaron el reporte de esa práctica. Hoy lo escribimos completo, con evidencias fotográficas de lo que vivieron.
 
 📋 ¿QUÉ ES UN REPORTE DE PRÁCTICA Y POR QUÉ IMPORTA?
 Un reporte de práctica NO es solo una lista de pasos — es un documento profesional que demuestra:
@@ -3372,7 +3372,265 @@ Mencionar las fuentes:
 • Conclusión personal honesta (1.0).
 • Bibliografía con IA mencionada (0.5).
 • Formato y ortografía (0.5).
-Total: 10.`},{time:`Hora 2`,title:`🚀 Extender el Programa 04 — agregar un segundo LED controlado por BLE`,theory:`Esta es la actividad que el jueves pasado quedamos como 'reto opcional' y no alcanzamos. Hoy es la actividad PRINCIPAL. Vamos a modificar el código del Programa 04 (BLE + Serial + Botón) para que controle UN SEGUNDO LED con comandos nuevos. El primer LED sigue funcionando con '1' y '0'; el nuevo LED responde a comandos '2' y '3'.
+Total: 10.`},{time:`Hora 2`,title:`📝 Reporte de práctica BLE — completar y entregar (continuación)`,theory:`La práctica de la semana pasada (Programa 04: ESP32 + BLE + Serial + Botón) funcionó — el LED respondió a comandos desde el celular vía BLE Controller. Pero NO entregaron el reporte de esa práctica. Hoy lo escribimos completo, con evidencias fotográficas de lo que vivieron.
+
+📋 ¿QUÉ ES UN REPORTE DE PRÁCTICA Y POR QUÉ IMPORTA?
+Un reporte de práctica NO es solo una lista de pasos — es un documento profesional que demuestra:
+• QUÉ hiciste (el procedimiento real, no el ideal del manual).
+• POR QUÉ funciona (entendimiento del programa, no copia de código).
+• CÓMO lo verificaste (evidencia visual del resultado).
+• QUÉ aprendiste (conclusión personal, no genérica).
+
+En la industria de sistemas embebidos, los reportes son la principal manera en que los técnicos comunican lo que hicieron a sus líderes y a otros equipos. Saber escribirlos es tan importante como saber programar.
+
+📐 ESTRUCTURA OBLIGATORIA DEL REPORTE (8 SECCIONES)
+
+1️⃣ PORTADA
+• CONALEP Plantel Pachuca II.
+• Carrera: Informática (PT).
+• Módulo: Manejo de Tecnologías de Hardware y Software (MTHS).
+• Práctica: 'Control de LED por Bluetooth Low Energy con ESP32'.
+• Nombre completo, grupo, fecha.
+• Docente: Dr. Felipe López Salazar.
+
+2️⃣ INTRODUCCIÓN (½ página)
+¿Qué es BLE y para qué se usa? Mencionar al menos 2 ejemplos reales (pulseras inteligentes, sensores médicos, audífonos, beacons en tiendas).
+
+3️⃣ MARCO TEÓRICO — DESGLOSE DEL PROGRAMA (1-2 páginas)
+Aquí van las fotografías de tu LIBRETA con el análisis línea por línea que hiciste con IA en W12. Incluir:
+• Foto de la página donde desglosaste las 4 secciones (#include, UUIDs, MyCallbacks, procesarComando).
+• Foto de las respuestas a las preguntas 8, 9 y 10 escritas con tus propias palabras.
+• Breve descripción debajo de cada foto: '¿qué muestra esta página?' (1-2 líneas).
+
+4️⃣ MATERIALES UTILIZADOS
+• ESP32 DevKit.
+• Protoboard.
+• 1 LED + resistencia 220Ω.
+• 1 botón táctil (4 patas).
+• Cables jumper macho-macho (4 mínimo).
+• Cable USB de datos.
+• Computadora con Arduino IDE (o tablet con ArduinoDroid).
+• Celular con app BLE Controller.
+
+5️⃣ PROCEDIMIENTO
+Narrar EN PASADO lo que TÚ hiciste — no copiar el manual. Mínimo 8 pasos:
+1. Armé el circuito en la protoboard (LED en GPIO 2, botón en GPIO 4)...
+2. Conecté el ESP32 por USB y lo identifiqué en COM__...
+3. Pegué el código del Programa 04 en Arduino IDE...
+... etc, hasta enviar comandos desde BLE Controller.
+
+6️⃣ EVIDENCIAS FOTOGRÁFICAS (las 3 categorías obligatorias)
+📔 LIBRETA — fotos del desglose con IA (mínimo 2).
+🔌 CONEXIÓN — foto del circuito armado en la protoboard, donde se vea claramente el ESP32, el LED, la resistencia, el botón y los cables (mínimo 1).
+⚡ FUNCIONAMIENTO — foto o serie de fotos del LED respondiendo a los comandos: encendido (después de enviar '1'), apagado (después de '0'), capturas del Serial Monitor con los '[BLE] Comando: x' (mínimo 2-3 fotos / capturas).
+Cada foto debe tener pie de imagen ('Figura 1: Circuito armado en protoboard', 'Figura 2: LED respondiendo al comando 1 desde BLE Controller', etc.).
+
+7️⃣ CONCLUSIONES (½ página)
+Responder en párrafo (no en lista):
+• ¿Qué fue lo más difícil de la práctica?
+• ¿Qué entendiste del programa después de desglosarlo con IA?
+• ¿En qué situación de la vida real usarías lo que aprendiste?
+• ¿Qué te falta entender (sé honesto)?
+
+8️⃣ BIBLIOGRAFÍA / REFERENCIAS
+Mencionar las fuentes:
+• La IA que usaste (ChatGPT/Claude/Gemini/Copilot — versión y fecha de consulta).
+• Tutorial o video que viste (si aplica) — URL completa.
+• Documentación oficial: arduino.cc, randomnerdtutorials.com, etc.
+• Formato libre — lo importante es que estén las fuentes.
+
+📤 FORMATO Y ENTREGA
+• Word (.docx) o PDF.
+• Mínimo 4 páginas, máximo 10.
+• Letra Arial o Calibri, tamaño 11 o 12.
+• Interlineado 1.15 o 1.5.
+• Subir a Classroom en la sección 'Reporte Programa 04 BLE'.
+• Fecha límite: HOY al finalizar la clase del martes.`,notebook:`Hoy NO se escribe en libreta nueva — la libreta es la FUENTE PRINCIPAL de las fotografías de la sección 'Marco Teórico' del reporte. Antes de fotografiarla:
+
+1. Verifica que las 4 secciones del análisis con IA están legibles y completas: #include, UUIDs, MyCallbacks, procesarComando.
+2. Verifica que las preguntas 8, 9 y 10 (sin IA) están contestadas con tus palabras.
+3. Si una página está borrosa o desordenada, REESCRÍBELA limpia ANTES de fotografiarla.
+4. Buena iluminación para las fotos — natural si es posible, sin sombras de tu mano.
+5. Fotos rectas (no torcidas) — el celular tiene cuadrícula, úsala.`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (5 min) — Recopilar evidencias
+  • Tener a la mano:
+    - Tu libreta de MTHS con el análisis de W12.
+    - Tu celular con las fotos del circuito y del LED funcionando (si ya las tienes — si no, las tomarás hoy).
+    - Tu PC o tablet para escribir el reporte.
+  • Si NO tienes fotos del circuito armado, llama al docente — vamos a re-armar y fotografiar.
+
+2️⃣ PASO 2 (10 min) — Tomar las fotos faltantes
+  • LIBRETA: fotografiar las páginas del desglose con IA (mínimo 2 páginas — las 4 secciones + las preguntas 8-10).
+  • CIRCUITO: si lo tienes armado, fotografiar ahora mismo. Si lo desarmaste, vuelve a armarlo (LED GPIO 2 + R 220Ω, botón GPIO 4 + GND) y fotografía.
+  • FUNCIONAMIENTO: con el ESP32 conectado, abrir Serial Monitor, enviar '1' por BLE Controller y fotografiar: (a) LED encendido en la protoboard, (b) pantalla del celular con BLE Controller mostrando el comando enviado, (c) Serial Monitor con '[BLE] Comando: 1' y '✓ LED encendido'.
+
+3️⃣ PASO 3 (5 min) — Crear el documento
+  • Abrir Word / Google Docs / LibreOffice.
+  • Configurar: letra Arial 11, interlineado 1.15, márgenes normales.
+  • Crear la portada (sección 1) primero.
+  • Guardar el archivo: 'Reporte_BLE_NombreApellido.docx'.
+
+4️⃣ PASO 4 (30 min) — Escribir las secciones
+  Recomendación de orden:
+  • Portada (5 min).
+  • Materiales + Bibliografía (5 min — son listas, lo más rápido).
+  • Introducción (5 min — ½ página sobre qué es BLE).
+  • Procedimiento (8 min — narra en pasado lo que hiciste).
+  • Marco teórico — insertar fotos de libreta y describirlas (5 min).
+  • Evidencias fotográficas — insertar fotos del circuito + funcionamiento (4 min).
+  • Conclusiones (5 min — respuesta personal, sin clichés).
+
+5️⃣ PASO 5 (10 min) — Revisión + entrega
+  • Leer todo el reporte de principio a fin.
+  • Verificar que las fotos tengan pie de imagen ('Figura X: descripción').
+  • Verificar que ninguna foto esté borrosa.
+  • Convertir a PDF si lo prefieres (Archivo → Exportar como PDF).
+  • Subir a Classroom.
+
+💡 TIP DE EFICIENCIA: si tienes computadora rápida, escribir en Word es más fluido que en Google Docs. Si trabajas en celular, Google Docs funciona mejor.
+
+💡 TIP DE FOTOS: para insertar foto de la libreta, en Word: Insertar → Imagen → Este dispositivo → seleccionar archivo. Redimensionar a media página máximo.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 18px 0 12px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* Sections grid */
+  .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sec-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 12px; position: relative;
+  }
+  .sec-card .num {
+    position: absolute; top: -10px; left: 12px;
+    background: #1f6feb; color: white; font-size: 11px; font-weight: 700;
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sec-card h4 { font-size: 12px; color: #e6edf3; margin: 6px 0 6px 28px; }
+  .sec-card p { font-size: 10px; color: #8b949e; line-height: 1.5; margin-left: 28px; }
+
+  /* Photos categories */
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .photo-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 14px; text-align: center;
+  }
+  .photo-icon { font-size: 30px; display: block; margin-bottom: 8px; }
+  .photo-card h4 { font-size: 11px; color: #58a6ff; margin-bottom: 4px; }
+  .photo-card.libreta h4 { color: #d29922; }
+  .photo-card.circuito h4 { color: #3fb950; }
+  .photo-card.funcion h4 { color: #ff7b72; }
+  .photo-card p { font-size: 10px; color: #c9d1d9; line-height: 1.5; }
+  .photo-card .count {
+    display: inline-block;
+    background: #21262d; padding: 2px 8px; border-radius: 10px;
+    font-size: 9px; color: #79c0ff; margin-top: 6px;
+  }
+
+  /* Checklist */
+  .check-card {
+    background: #1f1700; border: 1px solid #d29922; border-radius: 10px;
+    padding: 12px;
+  }
+  .check-card h4 { font-size: 11px; color: #f0c040; margin-bottom: 10px; }
+  .check-row {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 11px; color: #c9d1d9; padding: 4px 0;
+  }
+  .box-icon {
+    width: 16px; height: 16px; border: 2px solid #d29922; border-radius: 3px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<p class="sec-title">📐 Estructura del reporte (8 secciones)</p>
+<div class="sections">
+  <div class="sec-card"><span class="num">1</span><h4>Portada</h4><p>Nombre, grupo, materia, fecha, docente</p></div>
+  <div class="sec-card"><span class="num">2</span><h4>Introducción</h4><p>¿Qué es BLE? 2 ejemplos reales</p></div>
+  <div class="sec-card"><span class="num">3</span><h4>Marco teórico</h4><p>Fotos del análisis de tu libreta</p></div>
+  <div class="sec-card"><span class="num">4</span><h4>Materiales</h4><p>Lista de componentes y software</p></div>
+  <div class="sec-card"><span class="num">5</span><h4>Procedimiento</h4><p>8+ pasos narrados en pasado</p></div>
+  <div class="sec-card"><span class="num">6</span><h4>Evidencias</h4><p>Fotos: libreta, conexión, funcionamiento</p></div>
+  <div class="sec-card"><span class="num">7</span><h4>Conclusiones</h4><p>4 preguntas en párrafo personal</p></div>
+  <div class="sec-card"><span class="num">8</span><h4>Bibliografía</h4><p>IA usada + tutoriales consultados</p></div>
+</div>
+
+<p class="sec-title">📸 Las 3 categorías obligatorias de fotos</p>
+<div class="photos">
+  <div class="photo-card libreta">
+    <span class="photo-icon">📔</span>
+    <h4>LIBRETA</h4>
+    <p>Páginas del análisis con IA: 4 secciones del código + preguntas 8-10</p>
+    <span class="count">mínimo 2 fotos</span>
+  </div>
+  <div class="photo-card circuito">
+    <span class="photo-icon">🔌</span>
+    <h4>CIRCUITO</h4>
+    <p>Protoboard con ESP32 + LED + R 220Ω + botón armados</p>
+    <span class="count">mínimo 1 foto</span>
+  </div>
+  <div class="photo-card funcion">
+    <span class="photo-icon">⚡</span>
+    <h4>FUNCIONAMIENTO</h4>
+    <p>LED encendido por BLE + BLE Controller + Serial Monitor</p>
+    <span class="count">mínimo 2-3 fotos</span>
+  </div>
+</div>
+
+<p class="sec-title">✅ Checklist antes de entregar</p>
+<div class="check-card">
+  <h4>Verificar antes de subir a Classroom:</h4>
+  <div class="check-row"><div class="box-icon"></div><span>Portada con tu nombre completo, grupo y fecha</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Mínimo 5 fotografías en total (libreta + circuito + funcionamiento)</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Cada foto tiene pie de imagen ('Figura X: ...')</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Procedimiento narrado en pasado (NO copiado del manual)</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Conclusión personal (NO genérica tipo 'fue muy bueno')</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Bibliografía menciona la IA usada</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Archivo guardado como 'Reporte_BLE_NombreApellido.pdf' o .docx</span></div>
+  <div class="check-row"><div class="box-icon"></div><span>Subido a Classroom ANTES de finalizar la clase</span></div>
+</div>
+
+</body>
+</html>
+`,product:`Reporte de práctica BLE en formato Word o PDF (mínimo 4 páginas), con las 8 secciones obligatorias y mínimo 5 fotografías categorizadas (libreta + conexión + funcionamiento). Subido a Classroom antes de finalizar la hora.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es BIPRODUCTIVA — calificación pendiente del jueves W12 + práctica de comunicación técnica. Estrategias:
+
+(1) RECORDATORIO INICIAL: anunciar al iniciar la hora 'NO se va a tocar código hoy en la primera hora — la meta es ENTREGAR el reporte de la práctica del jueves'. Esto evita que algunos quieran adelantar a la hora 2 ignorando el reporte.
+
+(2) ARMAR CIRCUITOS PARA QUIENES NO TIENEN FOTOS: probablemente la mitad del grupo no fotografió el circuito en su momento. Tener listas 2-3 estaciones con todo armado (ESP32 + LED + botón) para que pasen, fotografíen y envíen comandos desde su celular para fotografiar el funcionamiento. Esto se puede hacer en paralelo mientras escriben.
+
+(3) PLANTILLA OPCIONAL: si los alumnos están perdidos con el formato, ofrecer una plantilla de Word con las 8 secciones ya estructuradas (encabezados, espacios para fotos, instrucciones en cada sección). Subirla a Classroom como adjunto. NO obligatorio, pero ayuda a los más perdidos.
+
+(4) VIGILAR EL COPY-PASTE: el procedimiento NO debe ser el manual copiado — debe estar narrado en primera persona pasado ('armé', 'conecté', 'envié'). Si detectas copia, regresarles el reporte con observación.
+
+(5) FOTOGRAFÍAS DE LIBRETA: muchos no van a tener la libreta porque no la trajeron. Recordarles a TODOS desde la clase anterior (avisar el lunes por Classroom) 'mañana traigan su libreta de MTHS'. Si aún así no la traen, pueden pedirla prestada a un compañero que sí la trajo y fotografiar las páginas equivalentes — pero anotar el nombre del compañero en la bibliografía.
+
+(6) CRITERIOS DE CALIFICACIÓN (sugerencia):
+• Portada + estructura completa (1.0).
+• Marco teórico con fotos de libreta legibles (2.5).
+• Procedimiento narrado, no copiado (2.0).
+• Evidencias completas (libreta + circuito + funcionamiento) (2.5).
+• Conclusión personal honesta (1.0).
+• Bibliografía con IA mencionada (0.5).
+• Formato y ortografía (0.5).
+Total: 10.`}],cierre:`Las 2 horas del martes fueron para CERRAR formalmente lo que aprendieron del Programa 04 BLE. Sin código nuevo — solo articular en palabras y evidencias lo que hicieron en W12. Ese ejercicio de comunicación técnica los acompañará toda su carrera.`,frase_docente:`Lo que escribes (el reporte) es lo que queda. Las prácticas que no se documentan, no se aprenden a profundidad.`},{id:`wed`,label:`Miércoles — 📅 Sin sesión (docente ausente)`,purpose:`El docente no pudo asistir esta jornada. La sesión queda CANCELADA. Quienes no terminaron el reporte del martes pueden aprovechar este tiempo en casa para completar la entrega — el ESP32 con el Programa 04 sigue funcionando con sus circuitos armados.`,hours:[{time:`📅 Sin sesión`,title:`📅 Sin sesión — docente ausente`,theory:`Hoy no hubo clase de MTHS porque el docente no pudo asistir. No es una pérdida — quien no terminó el reporte del martes tiene HOY como ventana para completarlo en casa y subirlo a Classroom antes del jueves.
+
+📌 RECORDATORIO
+• Reporte de práctica BLE → entregado ANTES de la sesión del jueves.
+• El jueves NO se evalúa quien no entregó el reporte — se descuenta puntaje conforme a los criterios anunciados (ver Hora 1 del martes).
+• El jueves Hora 1 es la actividad nueva: extender el Programa 04 con un segundo LED. Llegar con el circuito y el código del martes listo.`,notebook:`Sin libreta hoy.`,practice:`Para quien no entregó el reporte del martes: aprovechar hoy en casa para subirlo a Classroom. Para todos: llegar el jueves con el ESP32 + circuito armado del W12 (LED en GPIO 2, botón en GPIO 4), porque vamos a extenderlo en clase.`,product:`Sin entregable hoy (excepto el reporte pendiente del martes, si aplica).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Ausencia justificada del docente. Avisar al grupo por Classroom el día anterior o ese mismo día temprano para que no se presenten en vano. Si la ausencia se confirma con anticipación (>24h), considerar subir un video corto o un recurso a Classroom como 'compensación' para que el día no quede vacío.`}],cierre:`Un día sin sesión es un día de espacio — quien lo aprovecha para ponerse al corriente, gana.`,frase_docente:`El tiempo no se gasta — se invierte.`},{id:`thu`,label:`Jueves — 🚀 Extender el Programa 04 con segundo LED (movido del martes)`,purpose:`Hora 1: actividad principal — modificar el código del Programa 04 (BLE + Serial + Botón) para que controle DOS LEDs independientes con comandos nuevos ('2', '3', 'b'). Hora 2: pendiente de planeación según cómo fluya la modificación.`,hours:[{time:`Hora 1`,title:`🚀 Extender el Programa 04 — agregar un segundo LED controlado por BLE`,theory:`Esta es la actividad que el jueves pasado quedamos como 'reto opcional' y no alcanzamos. Hoy es la actividad PRINCIPAL. Vamos a modificar el código del Programa 04 (BLE + Serial + Botón) para que controle UN SEGUNDO LED con comandos nuevos. El primer LED sigue funcionando con '1' y '0'; el nuevo LED responde a comandos '2' y '3'.
 
 🎯 ¿POR QUÉ ESTE EJERCICIO ES IMPORTANTE?
 Hasta ahora SOLO han copiado y pegado código. Hoy MODIFICAN código. Esto es radicalmente distinto:
@@ -3945,13 +4203,12 @@ void loop() {
 • Archivo .ino con las modificaciones limpias y comentadas: 2.0.
 • Bonus 'b' funcionando: +1.0 (extra crédito, sobre 10).
 • Demostración en vivo al docente: 4.0.
-Total base: 10. Con bonus: 11.`}],cierre:`Hora 1 entregó la práctica formalmente — los reportes son la cara profesional de lo que aprenden. Hora 2 amplió el Programa 04 para controlar DOS LEDs en lugar de uno — ese pequeño cambio prueba que entendieron la estructura del código. La semana próxima usaremos lo aprendido para proyectos más ambiciosos.`,frase_docente:`Lo que escribes (el reporte) es lo que queda. Lo que modificas (el código) es lo que demuestra. Hoy hicieron ambas.`},{id:`wed`,label:`Miércoles — 📅 Pendiente de planeación`,purpose:`Día con sesión disponible (1 hora estándar de MTHS los miércoles). Plan a definir según avance de la hora del martes — posibles temas: presentaciones, retroalimentación de reportes, o continuación del Programa 04 extendido.`,hours:[{time:`📅 Por definir`,title:`📅 Pendiente de planeación`,theory:`Esta hora aún no tiene plan formal. Posibles direcciones según el avance del martes:
-
-• OPCIÓN A — Retroalimentación de reportes: el docente comparte observaciones generales de los reportes de la hora 1 del martes y muestra ejemplos buenos para que el grupo aprenda.
-• OPCIÓN B — Continuación con un tercer LED: si el martes hora 2 fluyó bien, agregar un tercer LED en GPIO 18 con comandos '4', '5' y profundizar en patrones de extensión.
-• OPCIÓN C — Introducción a sensores: aprovechar el circuito existente para integrar un sensor analógico (potenciómetro, fotorresistencia LDR) en preparación para W14.
-
-El plan se confirmará después del martes según cómo avance el grupo.`,notebook:`Pendiente — la libreta de hoy depende del plan que se confirme.`,practice:`Pendiente de planeación. Estar listos con el circuito de los 2 LEDs armado por si la opción elegida lo requiere.`,product:`Sin entregable fijo aún.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora se confirma después de cerrar la sesión del martes. Decisión rápida basada en: (a) cuántos terminaron el reporte (Hora 1 del martes), (b) cuántos lograron los 2 LEDs (Hora 2). Si ambas cosas se cumplieron en >70%, vamos por OPCIÓN B (tercer LED) o C (sensor analógico). Si no, OPCIÓN A (retroalimentación y consolidación).`}],cierre:`Plan pendiente — se cierra una vez confirmado.`,frase_docente:`Adaptarse al ritmo del grupo es parte del oficio docente.`},{id:`thu`,label:`Jueves — 📅 Pendiente de planeación`,purpose:`Día con 2 horas de MTHS estándar. Plan a definir junto con la sesión del miércoles. Probablemente integración de sensores o introducción a proyecto final de RA 3.2.`,hours:[{time:`📅 Por definir`,title:`📅 Pendiente de planeación`,theory:`Esta sesión cierra la semana 13 y abre la transición a W14 (cierre de RA 3.2). El plan se confirmará junto con el plan del miércoles según el avance del grupo.`,notebook:`Pendiente.`,practice:`Pendiente — probablemente integración de sensor o anteproyecto final.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta sesión se planea junto con la del miércoles. Posibles temas: (a) integración de sensor analógico (LDR o potenciómetro) con los 2 LEDs, (b) introducción al proyecto final de RA 3.2 (sistema multi-sensor con BLE), (c) recuperación para quienes quedaron pendientes en martes.`}],cierre:`Plan pendiente — se cierra junto con la decisión del miércoles.`,frase_docente:`El cierre de un RA es tan importante como su apertura — define lo que se llevan.`}]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
+Total base: 10. Con bonus: 11.`},{time:`Hora 2`,title:`📅 Pendiente de planeación`,theory:`Esta hora se confirma según el avance de la Hora 1. Opciones probables:
+• OPCIÓN A — Continuación del LED2: para quienes no alcanzaron a hacer las 4 modificaciones del Programa 04, esta hora les permite terminarlo.
+• OPCIÓN B — Bonus 'b' (ambos LEDs) o variante alternada con millis() para los más rápidos.
+• OPCIÓN C — Tercer LED en GPIO 18: agregar un LED MÁS y comandos '4' y '5'.
+• OPCIÓN D — Cierre de W13 con una breve introducción al proyecto final de RA 3.2 (W14).
+El docente decide al iniciar la hora según cómo terminó la Hora 1.`,notebook:`Pendiente.`,practice:`Pendiente — depende de la opción elegida al inicio de la hora.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decisión rápida al iniciar la hora basada en: (a) ¿cuántos terminaron la modificación de los 2 LEDs en la Hora 1?, (b) ¿qué retroalimentación dieron los alumnos? Si >70% terminó → OPCIÓN B o C. Si <70% terminó → OPCIÓN A (continuación). Si toda la clase fue muy rápida → OPCIÓN D (anticipar W14).`}],cierre:`El jueves cierra W13 y abre la pista hacia W14 — última semana de RA 3.2. El paso de 1 LED a 2 LEDs es la primera modificación real que hacen al código, y eso vale más que cualquier examen.`,frase_docente:`Cuando puedes modificar código existente, dejas de ser usuario y empiezas a ser autor.`}]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,k.jsx)(`p`,{children:e}):(0,k.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,k.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,k.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,k.jsx)(`pre`,{className:`smart-code`,children:(0,k.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):null)})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({html:e})=>(0,k.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,k.jsx)(`div`,{className:`block-body diagram-body`,children:(0,k.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Fe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ie=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Le=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Re=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),ze=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,k.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.diagram&&(0,k.jsx)(Pe,{html:e.diagram}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Re,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,k.jsx)(ze,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Le,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Ie,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He=`2024`,Ue=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===He?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},We=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ge(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:t===11?`W09`:t===12?`W10`:t===13?`W11`:t===14?`W12`:t===15?`W13`:`W14`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(Ve,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:We},i)]}),u&&(0,k.jsx)(Ue,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ge,{})}));
