@@ -4208,7 +4208,755 @@ Total base: 10. Con bonus: 11.`},{time:`Hora 2`,title:`📅 Pendiente de planeac
 • OPCIÓN B — Bonus 'b' (ambos LEDs) o variante alternada con millis() para los más rápidos.
 • OPCIÓN C — Tercer LED en GPIO 18: agregar un LED MÁS y comandos '4' y '5'.
 • OPCIÓN D — Cierre de W13 con una breve introducción al proyecto final de RA 3.2 (W14).
-El docente decide al iniciar la hora según cómo terminó la Hora 1.`,notebook:`Pendiente.`,practice:`Pendiente — depende de la opción elegida al inicio de la hora.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decisión rápida al iniciar la hora basada en: (a) ¿cuántos terminaron la modificación de los 2 LEDs en la Hora 1?, (b) ¿qué retroalimentación dieron los alumnos? Si >70% terminó → OPCIÓN B o C. Si <70% terminó → OPCIÓN A (continuación). Si toda la clase fue muy rápida → OPCIÓN D (anticipar W14).`}],cierre:`El jueves cierra W13 y abre la pista hacia W14 — última semana de RA 3.2. El paso de 1 LED a 2 LEDs es la primera modificación real que hacen al código, y eso vale más que cualquier examen.`,frase_docente:`Cuando puedes modificar código existente, dejas de ser usuario y empiezas a ser autor.`}]},W14:{days:[]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
+El docente decide al iniciar la hora según cómo terminó la Hora 1.`,notebook:`Pendiente.`,practice:`Pendiente — depende de la opción elegida al inicio de la hora.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decisión rápida al iniciar la hora basada en: (a) ¿cuántos terminaron la modificación de los 2 LEDs en la Hora 1?, (b) ¿qué retroalimentación dieron los alumnos? Si >70% terminó → OPCIÓN B o C. Si <70% terminó → OPCIÓN A (continuación). Si toda la clase fue muy rápida → OPCIÓN D (anticipar W14).`}],cierre:`El jueves cierra W13 y abre la pista hacia W14 — última semana de RA 3.2. El paso de 1 LED a 2 LEDs es la primera modificación real que hacen al código, y eso vale más que cualquier examen.`,frase_docente:`Cuando puedes modificar código existente, dejas de ser usuario y empiezas a ser autor.`}]},W14:{materia:`mths`,weekId:`W14`,days:[{id:`tue`,label:`Martes — 📘 Conocer la Bitácora + llenar lo que ya tienen avanzado`,purpose:`Cada equipo ya tiene su proyecto definido y empezó a trabajar (casas inteligentes, sistemas de riego, autos, alarmas, etc.). Esta semana es trabajo de TALLER + documentación. El martes conocemos la estructura de la Bitácora de Proyecto y llenamos lo que ya tenemos avanzado de forma retroactiva. Miércoles y jueves son tiempo de trabajo donde cada sesión cierra con una nueva entrada de bitácora. Viernes... no hay clase. Cierre el jueves Hora 2 con presentaciones y entrega final.`,hours:[{time:`Hora 1`,title:`📘 Conocer la Bitácora de Proyecto — anatomía completa del documento`,theory:`Cada equipo eligió su propio proyecto: casas inteligentes, sistemas de riego, autos con luces y alarmas, estaciones climáticas, sistemas de acceso con servo, etc. Los proyectos son DIFERENTES, pero TODOS llenan el mismo formato de documentación: la Bitácora de Proyecto.
+
+📐 ¿POR QUÉ UNA BITÁCORA Y NO UN REPORTE?
+El reporte de W13 era CERRADO — algo que pasó y se documentó después. La bitácora es ABIERTA — un documento VIVO que crece cada día de trabajo. La diferencia importa:
+
+• Reporte: foto fija de una práctica terminada.
+• Bitácora: video del proceso de construir un proyecto.
+
+En la industria, las bitácoras de proyecto son el documento más leído por gerentes y clientes — porque muestran el TRABAJO REAL del equipo, no solo el resultado.
+
+📄 ESTRUCTURA DE LA BITÁCORA (3 PARTES, 11 SECCIONES)
+
+🅰️ PARTE A — INFORMACIÓN GENERAL (se llena HOY y queda fija)
+1. Portada — nombre del proyecto, integrantes, grupo, fecha de inicio, docente.
+2. Introducción — ½–1 página: qué es el proyecto, por qué lo eligieron, qué problema resuelve, a quién va dirigido.
+3. Objetivos — 1 general + 2-3 específicos.
+4. Marco teórico breve — ½ página: qué tecnologías usarán (ESP32, BLE, sensores específicos, actuadores).
+5. Materiales y componentes — lista completa con cantidades.
+6. Diseño del sistema — diagrama de bloques + esquema de pines + pseudocódigo del ESP32.
+
+🅱️ PARTE B — BITÁCORA DE AVANCES (crece cada sesión de trabajo)
+Cada día agregan UNA entrada nueva siguiendo esta plantilla:
+
+  📅 Día X — fecha
+  🎯 Objetivo de la sesión: ___
+  🛠️ Actividades realizadas:
+    - actividad 1
+    - actividad 2
+  📸 Evidencias: [insertar fotos]
+  ⚠️ Problemas encontrados: ___
+  ✅ Soluciones aplicadas: ___
+  ➡️ Siguiente paso: ___
+
+🅲 PARTE C — CIERRE (se llena el jueves Hora 2)
+7. Código final completo con comentarios.
+8. Pruebas y resultados — tabla con qué probaron y qué pasó.
+9. Conclusiones — ½ página en párrafo (sin lista).
+10. Mejoras futuras — qué harían con más tiempo.
+11. Bibliografía — IA usada, tutoriales, documentación.
+
+📌 LO ÚNICO IMPORTANTE HOY (Hora 1)
+NO se trata de empezar a escribir todavía — eso es la Hora 2. Hoy es para CONOCER el formato, ENTENDER qué va en cada sección, e IDENTIFICAR qué de eso ya tienen avanzado en su proyecto y qué les falta.
+
+En el diagrama de abajo verán: (a) la anatomía visual completa del documento, y (b) un EJEMPLO REAL de una entrada de bitácora ya rellenada para que vean cómo se ve.`,notebook:`Título: Conocer la Bitácora de Proyecto.
+
+Antes de empezar a llenar nada — diagnóstico de equipo:
+
+1. ¿Cómo se llama nuestro proyecto?
+2. ¿Quiénes somos los integrantes?
+3. ¿Qué problema resuelve nuestro proyecto?
+4. ¿Cuáles son las 2-3 funciones principales que va a tener?
+5. De las 6 secciones de la Parte A — ¿cuáles ya tenemos pensadas y cuáles no?
+   - ☐ Portada (datos del equipo)
+   - ☐ Introducción (descripción del proyecto)
+   - ☐ Objetivos (qué queremos lograr)
+   - ☐ Marco teórico (qué tecnologías usaremos)
+   - ☐ Materiales (lista de componentes)
+   - ☐ Diseño del sistema (cómo se conecta todo)
+6. ¿Qué hemos hecho HASTA HOY en el proyecto? Lista en bullets — esto se vuelve la primera entrada de la Bitácora en la Hora 2.
+7. ¿Qué problemas hemos encontrado? ¿Cómo los hemos resuelto (si ya lo logramos)?
+8. ¿Cuál es el siguiente paso que tenemos planeado para el proyecto?`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (10 min) — Presentación general del docente
+  • El docente proyecta el diagrama 'Anatomía de la Bitácora' (sección de abajo).
+  • Explica las 3 partes (A, B, C) y las 11 secciones.
+  • Muestra el ejemplo de bitácora rellenada (sección de abajo).
+  • Aclara dudas del grupo.
+
+2️⃣ PASO 2 (5 min) — Descargar plantilla
+  • El docente sube a Classroom una plantilla de Word con las 11 secciones ya estructuradas (encabezados, espacios para texto y fotos).
+  • Cada equipo descarga la plantilla a UN dispositivo del equipo (laptop / tablet de uno de los integrantes).
+  • Guardar como 'Bitacora_NombreDelProyecto_Equipo.docx'.
+
+3️⃣ PASO 3 (20 min) — Diagnóstico interno del equipo
+  • Cada equipo responde las 8 preguntas de la libreta JUNTOS (no individual).
+  • Anotar en la libreta de UN integrante (el secretario del equipo).
+  • El docente pasa por las mesas haciendo preguntas tipo: '¿qué problema resuelve su proyecto?', '¿quién lo va a usar?' — provocando que articulen su idea más claro.
+
+4️⃣ PASO 4 (15 min) — Recorrido por la plantilla
+  • Cada equipo abre la plantilla Word.
+  • Lee CADA encabezado de las 11 secciones.
+  • Marca con un comentario lateral: ☑️ 'esto ya lo sabemos' o ❓ 'esto necesitamos pensar/discutir'.
+  • NO se llena nada todavía — solo se identifica qué está claro y qué no.
+
+5️⃣ PASO 5 (10 min) — Cierre y compromiso
+  • Cada equipo (representante) comparte al grupo en 30 segundos:
+    - Nombre del proyecto.
+    - Qué hace.
+    - Qué tienen ya avanzado.
+    - Qué les falta entender de la bitácora.
+  • El docente toma nota de los proyectos del grupo para vigilancia individual durante la semana.
+
+📸 EVIDENCIA DE LA HORA
+• Foto de la libreta del equipo con las 8 preguntas contestadas.
+• Captura del Word con la plantilla descargada y guardada con el nombre del proyecto.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 20px; }
+  .sec-title {
+    font-size: 11px; font-weight: 700; color: #58a6ff;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 6px; margin: 22px 0 14px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* Document anatomy */
+  .doc {
+    background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+    overflow: hidden;
+  }
+  .part {
+    border-bottom: 1px solid #30363d;
+    padding: 12px;
+  }
+  .part:last-child { border-bottom: none; }
+  .part-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .part-badge {
+    font-size: 14px; font-weight: 700;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; flex-shrink: 0;
+  }
+  .part-a .part-badge { background: #1f6feb; }
+  .part-b .part-badge { background: #d29922; }
+  .part-c .part-badge { background: #3fb950; }
+  .part-name {
+    font-size: 12px; font-weight: 700; color: #e6edf3;
+  }
+  .part-tag {
+    font-size: 9px; color: #8b949e;
+    background: #0d1117; padding: 2px 8px; border-radius: 10px;
+    margin-left: auto;
+  }
+  .part-a .part-name { color: #79c0ff; }
+  .part-b .part-name { color: #f0c040; }
+  .part-c .part-name { color: #56d364; }
+
+  .sec-list {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+  }
+  .sec-row {
+    background: #0d1117; border: 1px solid #30363d; border-radius: 6px;
+    padding: 6px 10px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; color: #c9d1d9;
+  }
+  .sec-num {
+    background: #21262d; color: #79c0ff;
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .part-a .sec-num { color: #79c0ff; }
+  .part-c .sec-num { color: #56d364; }
+
+  .bita-template {
+    background: #1f1700; border: 1px solid #d29922; border-radius: 8px;
+    padding: 10px 12px;
+    font-family: 'Consolas', monospace; font-size: 10px;
+    color: #f0c040; line-height: 1.7;
+  }
+  .bita-template .empty {
+    background: #0d1117; color: #6e7681;
+    padding: 1px 8px; border-radius: 3px;
+    font-style: italic;
+  }
+
+  /* Example bitacora */
+  .example-card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 14px; position: relative;
+  }
+  .example-tag {
+    position: absolute; top: -10px; left: 14px;
+    background: #3fb950; color: white;
+    padding: 2px 10px; border-radius: 4px;
+    font-size: 10px; font-weight: 700;
+  }
+  .example-title {
+    font-size: 11px; color: #58a6ff; font-weight: 700;
+    margin-bottom: 12px; padding-top: 4px;
+  }
+  .example-row {
+    display: flex; gap: 10px; padding: 4px 0;
+    font-size: 10px; line-height: 1.5;
+    border-bottom: 1px dashed #21262d;
+  }
+  .example-row:last-child { border-bottom: none; }
+  .example-row b {
+    color: #79c0ff; min-width: 18px; flex-shrink: 0;
+  }
+  .example-row span { color: #c9d1d9; flex: 1; }
+  .example-row ul { margin: 4px 0 0 0; padding-left: 16px; }
+  .example-row li { color: #8b949e; margin: 2px 0; }
+  .example-row em { color: #56d364; font-style: normal; }
+  .example-row .warn { color: #f0c040; }
+  .example-row .err { color: #ff7b72; }
+</style>
+</head>
+<body>
+
+<p class="sec-title">📐 Anatomía del documento — 3 partes, 11 secciones</p>
+<div class="doc">
+
+  <div class="part part-a">
+    <div class="part-header">
+      <div class="part-badge">A</div>
+      <div class="part-name">PARTE A — Información general</div>
+      <div class="part-tag">se llena el martes y queda fija</div>
+    </div>
+    <div class="sec-list">
+      <div class="sec-row"><span class="sec-num">1</span>Portada</div>
+      <div class="sec-row"><span class="sec-num">2</span>Introducción</div>
+      <div class="sec-row"><span class="sec-num">3</span>Objetivos</div>
+      <div class="sec-row"><span class="sec-num">4</span>Marco teórico breve</div>
+      <div class="sec-row"><span class="sec-num">5</span>Materiales y componentes</div>
+      <div class="sec-row"><span class="sec-num">6</span>Diseño del sistema</div>
+    </div>
+  </div>
+
+  <div class="part part-b">
+    <div class="part-header">
+      <div class="part-badge">B</div>
+      <div class="part-name">PARTE B — Bitácora de avances</div>
+      <div class="part-tag">crece cada día (3 entradas)</div>
+    </div>
+    <div class="bita-template">
+      📅 Día X — <span class="empty">fecha</span><br>
+      🎯 Objetivo: <span class="empty">qué buscan lograr hoy</span><br>
+      🛠️ Actividades: <span class="empty">lista</span><br>
+      📸 Evidencias: <span class="empty">fotos</span><br>
+      ⚠️ Problemas: <span class="empty">qué salió mal</span><br>
+      ✅ Soluciones: <span class="empty">cómo lo arreglaron</span><br>
+      ➡️ Siguiente paso: <span class="empty">para mañana</span>
+    </div>
+  </div>
+
+  <div class="part part-c">
+    <div class="part-header">
+      <div class="part-badge">C</div>
+      <div class="part-name">PARTE C — Cierre</div>
+      <div class="part-tag">se llena el jueves Hora 2</div>
+    </div>
+    <div class="sec-list">
+      <div class="sec-row"><span class="sec-num">7</span>Código final completo</div>
+      <div class="sec-row"><span class="sec-num">8</span>Pruebas y resultados</div>
+      <div class="sec-row"><span class="sec-num">9</span>Conclusiones</div>
+      <div class="sec-row"><span class="sec-num">10</span>Mejoras futuras</div>
+      <div class="sec-row"><span class="sec-num">11</span>Bibliografía</div>
+    </div>
+  </div>
+
+</div>
+
+<p class="sec-title">📝 Ejemplo — entrada de bitácora ya rellenada</p>
+<div class="example-card">
+  <span class="example-tag">EJEMPLO</span>
+  <div class="example-title">Proyecto ficticio: Sistema de Riego Automático con ESP32 + BLE</div>
+
+  <div class="example-row">
+    <b>📅</b>
+    <span><b>Día 2 (Miércoles W14) — fecha 27/05/2026</b></span>
+  </div>
+  <div class="example-row">
+    <b>🎯</b>
+    <span><em>Objetivo:</em> Conectar el sensor de humedad de suelo YL-69 al ESP32 y leer valores estables por el Serial Monitor.</span>
+  </div>
+  <div class="example-row">
+    <b>🛠️</b>
+    <span><em>Actividades realizadas:</em>
+      <ul>
+        <li>Conectamos el sensor YL-69 al ESP32: VCC→3V3, GND→GND, A0→GPIO 34.</li>
+        <li>Cargamos un sketch que lee analogRead(34) e imprime el valor cada 500 ms.</li>
+        <li>Probamos el sensor en tierra seca y luego con agua para identificar el rango.</li>
+        <li>Calibramos: valor 3500 ≈ seco, valor 1500 ≈ húmedo.</li>
+      </ul>
+    </span>
+  </div>
+  <div class="example-row">
+    <b>📸</b>
+    <span><em>Evidencias:</em> Foto del sensor enterrado en la maceta de prueba. Captura del Serial Monitor mostrando los valores cambiando.</span>
+  </div>
+  <div class="example-row">
+    <b>⚠️</b>
+    <span class="warn">Problemas encontrados: las lecturas variaban mucho cuando había sol directo sobre el sensor. También un cable jumper del sensor se aflojó durante la prueba.</span>
+  </div>
+  <div class="example-row">
+    <b>✅</b>
+    <span><em>Soluciones aplicadas:</em>
+      <ul>
+        <li>Modificamos el código para promediar 10 lecturas y estabilizar el valor.</li>
+        <li>Soldamos los pines del sensor a los cables para que no se aflojen.</li>
+      </ul>
+    </span>
+  </div>
+  <div class="example-row">
+    <b>➡️</b>
+    <span><em>Siguiente paso (Jueves H1):</em> agregar la bomba de agua DC con un relé controlado por GPIO 25. Programar comando BLE 'r' para activar riego manual, y lógica automática: si el valor del sensor &gt; 3000 (suelo seco) durante 5 segundos, encender la bomba 3 segundos.</span>
+  </div>
+</div>
+
+</body>
+</html>
+`,code:`# 📋 PLANTILLA DE LA BITÁCORA — copiar a Word para empezar
+# (Esto NO es código Arduino — es la estructura del documento que cada equipo llenará)
+
+================================================================
+  BITÁCORA DE PROYECTO — [NOMBRE DEL PROYECTO AQUÍ]
+================================================================
+
+----------------------------------------------------------------
+  PARTE A — INFORMACIÓN GENERAL (se llena el Martes y queda fija)
+----------------------------------------------------------------
+
+1. PORTADA
+   • Nombre del proyecto: ___
+   • Integrantes: ___
+   • Grupo: 401
+   • Fecha de inicio: ___
+   • Docente: Dr. Felipe López Salazar
+
+2. INTRODUCCIÓN (½ a 1 página)
+   • ¿Qué es el proyecto?
+   • ¿Por qué lo elegimos?
+   • ¿Qué problema resuelve?
+   • ¿A quién va dirigido?
+
+3. OBJETIVOS
+   • Objetivo general: ___
+   • Objetivos específicos:
+     1. ___
+     2. ___
+     3. ___
+
+4. MARCO TEÓRICO BREVE (½ página)
+   • Tecnologías a usar: ESP32, BLE, [sensores específicos], [actuadores]
+   • Breve explicación de cómo funcionan
+
+5. MATERIALES Y COMPONENTES
+   • ESP32 DevKit                   1 pza
+   • Protoboard                     1 pza
+   • [resto del material aquí]
+
+6. DISEÑO DEL SISTEMA
+   • Diagrama de bloques (insertar imagen o dibujo)
+   • Esquema de pines (qué componente va en cada GPIO)
+   • Pseudocódigo del ESP32 (qué hará paso a paso)
+
+----------------------------------------------------------------
+  PARTE B — BITÁCORA DE AVANCES (crece cada día)
+----------------------------------------------------------------
+
+📅 DÍA 1 — Martes [fecha]
+   🎯 Objetivo: ___
+   🛠️ Actividades realizadas:
+      - ___
+      - ___
+   📸 Evidencias: [insertar fotos]
+   ⚠️ Problemas encontrados: ___
+   ✅ Soluciones aplicadas: ___
+   ➡️ Siguiente paso: ___
+
+📅 DÍA 2 — Miércoles [fecha]
+   (mismo formato — se llena el miércoles)
+
+📅 DÍA 3 — Jueves [fecha]
+   (mismo formato — se llena el jueves)
+
+----------------------------------------------------------------
+  PARTE C — CIERRE (se llena el Jueves Hora 2)
+----------------------------------------------------------------
+
+7. CÓDIGO FINAL COMPLETO
+   (pegar aquí el código del ESP32 con comentarios)
+
+8. PRUEBAS Y RESULTADOS
+   | # | Qué probamos              | Resultado esperado | Resultado obtenido |
+   |---|---------------------------|--------------------|--------------------|
+   | 1 |                           |                    |                    |
+   | 2 |                           |                    |                    |
+
+9. CONCLUSIONES (½ página en párrafo)
+   ___
+
+10. MEJORAS FUTURAS
+    • ___
+    • ___
+
+11. BIBLIOGRAFÍA / REFERENCIAS
+    • IA usada: [ChatGPT/Claude/Gemini/Copilot — versión, fecha]
+    • Tutoriales: [URLs]
+    • Documentación oficial: [URLs]
+
+================================================================`,codeRef:`# 📋 PLANTILLA DE LA BITÁCORA — referencia (igual al campo 'code' de arriba)
+# Subir a Classroom una versión Word con esta estructura ya formateada.`,product:`Cada equipo tiene: (a) la plantilla Word descargada y guardada como 'Bitacora_NombreProyecto_Equipo.docx', (b) las 8 preguntas de diagnóstico contestadas en la libreta de un integrante, (c) identificado qué de las 11 secciones ya saben llenar y qué les falta pensar. NO se llena nada del documento todavía — eso es la Hora 2.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es PEDAGÓGICA, no de trabajo. Es para que ENTIENDAN la estructura antes de meterse a llenarla. Estrategias:
+
+(1) PRESENTACIÓN VISUAL EN PROYECTOR: usar el diagrama de la anatomía + el ejemplo de bitácora rellenada para que TODOS vean lo mismo. NO leerlo punto por punto — apuntar a las secciones, explicar de qué se trata, mostrar el ejemplo concreto.
+
+(2) EL EJEMPLO ES CLAVE: el ejemplo del sistema de riego está deliberadamente DETALLADO con problemas reales (sol directo, cable suelto) y soluciones concretas (promediar lecturas, soldar). Esto les muestra que la bitácora NO es 'todo salió bien siempre' — es honesta sobre los problemas. Reforzar esto en voz alta: 'la bitácora más valiosa es la que muestra los problemas y cómo los resolvieron, no la que solo dice todo perfecto'.
+
+(3) PLANTILLA WORD EN CLASSROOM: subir la plantilla con anticipación (idealmente el lunes nocturno) para que no consuma tiempo de clase en la descarga. Tener un USB con la plantilla por si algún equipo tiene problemas de WiFi.
+
+(4) DIAGNÓSTICO HONESTO: insistir que en las 8 preguntas de diagnóstico de la libreta NO se vale 'todo'. Si responden 'sí' a las 6 secciones de la Parte A pero no han escrito una sola línea, están mintiendo o malentendiendo. Decirles: 'tener pensado NO es lo mismo que tener escrito — sé honesto'.
+
+(5) PASO 5 (cierre del minuto a minuto): el ejercicio de que cada equipo comparta al grupo en 30 segundos lo que tiene es CRUCIAL — te permite identificar dos cosas: (a) qué equipos están bien encaminados y cuáles están atorados, (b) qué proyectos son ambiciosos vs. cuáles son seguros. Anotar a los equipos que se ven débiles para apoyarlos individualmente en Hora 2.
+
+(6) NO PROYECTOS COPIADOS: si dos equipos vienen con proyectos muy parecidos (ej. dos casas inteligentes con los mismos sensores), retarlos a diferenciarlos — un equipo con LDR para luces, otro con DHT11 para temperatura. La diversidad de proyectos hace el cierre del jueves más rico.
+
+(7) CRITERIOS DE CALIFICACIÓN DEL DOCUMENTO COMPLETO (al final de W14, escala /10):
+• Información general completa (Parte A): 1.5
+• Bitácora de los 3 días con fotos legibles: 3.0
+• Diseño del sistema (diagramas/pseudocódigo): 1.5
+• Código final con comentarios: 1.5
+• Pruebas y conclusiones: 1.5
+• Presentación oral 3-5 min al grupo: 1.0
+Total: 10.`},{time:`Hora 2`,title:`📝 Llenar la Parte A retroactiva + primera entrada de Bitácora`,theory:`Ahora que ya conocen el formato, es hora de llenar lo que YA TIENEN avanzado del proyecto. Esta hora es ESCRIBIR, no diseñar de nuevo.
+
+📌 IDEA CLAVE — LLENADO RETROACTIVO
+Como ya empezaron a trabajar antes de W14, la primera entrada de la Bitácora (Día 1) NO documenta solo lo que hicieron hoy — documenta TODO el avance previo. Es un 'punto cero' que captura el camino recorrido hasta ahora, para que de aquí en adelante la bitácora siga normal día a día.
+
+📋 OBJETIVO DE LA HORA
+Al final de la hora, cada equipo debe tener llenas:
+
+✅ PARTE A completa (secciones 1-6):
+• Sección 1 (Portada) — datos del equipo.
+• Sección 2 (Introducción) — ½ página.
+• Sección 3 (Objetivos) — 1 general + 2-3 específicos.
+• Sección 4 (Marco teórico) — ½ página sobre las tecnologías que usarán.
+• Sección 5 (Materiales) — lista con cantidades.
+• Sección 6 (Diseño del sistema) — diagrama de bloques + esquema de pines + pseudocódigo (puede ser dibujado a mano y fotografiado, o hecho en draw.io).
+
+✅ Bitácora Día 1 (entrada retroactiva):
+• Fecha del día.
+• Objetivo: 'Documentar el avance previo del proyecto + revisar estado actual'.
+• Actividades realizadas: lista de TODO lo que han hecho antes de hoy (resumido en 3-6 puntos).
+• Evidencias: fotos del prototipo actual.
+• Problemas hasta ahora.
+• Soluciones aplicadas.
+• Siguiente paso (lo que harán mañana miércoles).
+
+⏱️ ADMINISTRAR EL TIEMPO
+60 minutos para llenar 6 secciones + bitácora. Distribución:
+• Portada + Objetivos: 5 min (lo más rápido).
+• Materiales + Marco teórico: 10 min.
+• Introducción: 15 min (¡no se demoren más, no es la sección más importante!).
+• Diseño del sistema (diagramas): 15 min.
+• Bitácora Día 1: 15 min.`,notebook:`Esta hora la libreta es solo para apoyar la escritura del documento — no se piden respuestas formales nuevas. Útil para:
+
+• Pre-redactar la introducción en libreta antes de pasarla a Word.
+• Bocetar el diagrama de bloques a mano antes de redibujarlo digital.
+• Listar los problemas que recuerdan haber tenido (para la bitácora retroactiva).
+
+Si te ayuda escribir primero a mano y luego pasar al documento, hazlo. Si prefieres ir directo al Word, también está bien.`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (3 min) — Abrir la plantilla
+  • Abrir el Word del equipo guardado en la Hora 1.
+  • Tener listas las respuestas de las 8 preguntas de diagnóstico (libreta).
+
+2️⃣ PASO 2 (5 min) — Llenar Portada + Objetivos (rápido, son listas)
+  • Sección 1: datos del equipo.
+  • Sección 3: 1 objetivo general + 2-3 específicos. Tip — el general empieza con verbo en infinitivo: 'Diseñar...', 'Construir...', 'Implementar...'. Los específicos son los pasos que llevan al general.
+
+3️⃣ PASO 3 (10 min) — Llenar Materiales + Marco teórico
+  • Sección 5: lista de TODO el material físico con cantidades exactas.
+  • Sección 4: ½ página explicando QUÉ tecnologías usarán y POR QUÉ las eligieron. Tip — la IA puede ayudar aquí: 'explícame brevemente qué es un sensor LDR' (o el componente que uses).
+
+4️⃣ PASO 4 (15 min) — Llenar Introducción
+  • Sección 2: ½ a 1 página respondiendo:
+    - ¿Qué es el proyecto? (descripción en 2-3 frases).
+    - ¿Por qué lo eligieron? (motivación personal del equipo).
+    - ¿Qué problema resuelve? (situación real que mejora).
+    - ¿A quién va dirigido? (usuario objetivo).
+  • NO COPIAR DE INTERNET ni de la IA. Si usan IA para inspirarse, parafrasear con palabras propias.
+
+5️⃣ PASO 5 (15 min) — Llenar Diseño del sistema
+  • Sección 6 — la más visual:
+    - Diagrama de bloques: dibujo a mano (foto luego pegada en Word) o draw.io. Cajitas conectadas mostrando: ESP32 + sensores + actuadores + celular con BLE.
+    - Esquema de pines: una tabla con 'Componente → GPIO del ESP32'.
+    - Pseudocódigo: 10-15 líneas describiendo en español lo que hará el ESP32 (sin código Arduino, solo lógica).
+
+6️⃣ PASO 6 (10 min) — Bitácora Día 1 RETROACTIVA
+  • Llenar la entrada del Día 1 documentando TODO el avance previo (no solo lo de hoy):
+    - Fecha: hoy (martes).
+    - Objetivo: 'Documentar el avance previo + revisar estado actual'.
+    - Actividades: lista de qué hicieron antes de W14 + qué hicieron HOY (llenar la Parte A).
+    - Evidencias: foto del prototipo actual (aunque sea incompleto).
+    - Problemas: si han tenido alguno hasta ahora.
+    - Soluciones aplicadas.
+    - Siguiente paso: qué harán mañana miércoles.
+
+7️⃣ PASO 7 (2 min) — Guardar y subir a Classroom (versión Día 1)
+  • Guardar el Word.
+  • Subir a Classroom como 'Bitacora_NombreProyecto_Dia1.docx' (versión parcial del martes — NO es la final).
+
+📸 EVIDENCIA OBLIGATORIA DE LA HORA
+• Archivo Word con la Parte A completa + Bitácora Día 1 subido a Classroom.`,product:`Documento Word con: Parte A (secciones 1-6) completamente llenas + Bitácora Día 1 con entrada retroactiva. Subido a Classroom como versión 'Día 1'. Las siguientes 2 sesiones agregarán Bitácora Día 2 y Día 3, y la sesión final agregará Parte C.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es ESCRITURA INTENSIVA. Estrategias:
+
+(1) SUPERVISIÓN ACTIVA: pasar mesa por mesa cada 10 min para revisar avance. Si un equipo lleva 20 min en la introducción y aún no termina, intervenir — está sobre-pensando. Decirles: 'cierra con lo que tienes y avanza, lo puedes mejorar después'.
+
+(2) DIAGRAMA DE BLOQUES — TRAMPA COMÚN: muchos equipos lo van a hacer demasiado complicado o demasiado simple. Lo correcto: 5-8 cajitas máximo (ESP32, sensores, actuadores, fuente de poder, celular con BLE Controller). Conectadas con flechas. NO es un esquema eléctrico.
+
+(3) PSEUDOCÓDIGO — ENSEÑANZA RÁPIDA: si nunca lo han hecho, mostrar en pizarra un ejemplo de 5 líneas:
+  'Inicializar pines como salida'
+  'Si el sensor detecta humedad < umbral:'
+  '   Encender bomba 3 segundos'
+  '   Imprimir alerta'
+  'Si recibe comando BLE r: encender bomba manualmente'
+No es código Arduino — es la lógica en español. Suficiente para que se entienda lo que el ESP32 hará.
+
+(4) FOTOS DEL PROTOTIPO ACTUAL: si el equipo no trajo el prototipo a clase (lo dejó en casa), pueden usar una foto que ya tengan en el celular, o tomar una foto rápida del esquema dibujado en libreta. Si NO tienen NADA, anotar al equipo para vigilancia — no han empezado realmente y eso es un problema.
+
+(5) ENTREGA PARCIAL EN CLASSROOM: insistir que se suba HOY al final de la clase, no mañana. Razón: si surge un problema técnico, lo detectan ahora, no el jueves al cierre.
+
+(6) IA USADA: si están usando IA para escribir secciones, está PERMITIDO siempre y cuando parafraseen con palabras propias. Si detecto un párrafo idéntico a una respuesta típica de ChatGPT, regresarles el documento con observación. La IA acelera la redacción, no la reemplaza.
+
+(7) EQUIPOS REZAGADOS: si al final de la hora un equipo no terminó la Parte A, ofrecer 20 min extras de tutoría (recreo / horario de oficina). NO continuar a la Hora del miércoles sin que la Parte A esté cerrada.`}],cierre:`El martes presentamos la estructura de la Bitácora y la llenamos con lo que ya tienen avanzado. De ahora en adelante, cada sesión agrega una entrada nueva. El miércoles y el jueves son tiempo de TALLER — trabajo de proyecto + bitácora al final.`,frase_docente:`Documentar mientras se construye es lo que distingue al técnico profesional del aficionado — el profesional siempre puede explicar qué hizo y por qué.`},{id:`wed`,label:`Miércoles — 🔧 Taller de proyecto + Bitácora Día 2`,purpose:`Hora de trabajo libre en el proyecto. Cada equipo avanza a su ritmo según el plan que definieron el martes (sección 'Siguiente paso' de la Bitácora Día 1). Últimos 10 min: cierre con entrada de Bitácora Día 2.`,hours:[{time:`Hora 1`,title:`🔧 Taller de proyecto + Bitácora Día 2`,theory:`Hoy es 100% TALLER. No hay teoría nueva — el conocimiento que necesitas ya lo tienes del trabajo previo y del análisis con IA que han venido haciendo.
+
+🎯 META DE LA SESIÓN
+Avanzar el proyecto un paso significativo siguiendo el plan que escribiste el martes en 'Siguiente paso' de la Bitácora Día 1.
+
+📌 REGLA DE ORO PARA HOY
+Los últimos 10 minutos de la sesión NO son de trabajo — son de documentación. Detenerse, abrir el Word del equipo, escribir la Bitácora Día 2 EN CALIENTE (cuando los detalles aún están frescos). Si lo dejan para 'mañana en casa', los detalles se olvidan y la bitácora se vuelve genérica.
+
+💡 SUGERENCIAS DURANTE EL TALLER
+• Trabajar EN PAREJAS dentro del equipo — uno arma, otro programa. Después intercambian.
+• Tomar FOTOS conforme avanzan, no solo al final. La bitácora se nutre de fotos.
+• Cuando algo NO funciona, anotar QUÉ probaste — eso es valioso para la sección 'Problemas y soluciones' de la bitácora.
+• La IA está permitida — úsenla como tutor cuando se atoren.
+
+⚠️ SI EL EQUIPO QUEDA ATORADO
+• Llamar al docente — no perder 30 min sin pedir ayuda.
+• Si un componente físico no funciona, pedir uno de respaldo.
+• Si el código no compila, pegar el error en la IA + pedir explicación.`,notebook:`Esta hora la libreta NO es obligatoria — todo lo escrito va directo al Word de la bitácora. Pero puede ser útil para:
+
+• Anotar el error EXACTO cuando algo falla (sirve para la sección 'Problemas' de la bitácora).
+• Bocetar conexiones nuevas antes de cablearlas.
+• Tomar nota de qué le preguntaste a la IA y qué respondió (para la bibliografía final).`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (3 min) — Repaso del 'Siguiente paso' de ayer
+  • Cada equipo abre la Bitácora Día 1 del martes.
+  • Lee la sección 'Siguiente paso' que escribió.
+  • Confirma que eso es lo que va a hacer hoy.
+  • Si las prioridades cambiaron, anotar por qué (eso entra en la Bitácora Día 2).
+
+2️⃣ PASO 2 (45 min) — Trabajo de TALLER
+  • Avanzar el proyecto siguiendo el plan.
+  • Tomar 3-5 fotos durante el avance (no al final — durante).
+  • Anotar problemas conforme aparecen.
+  • Pedir ayuda al docente cuando algo se trabe más de 15 min.
+
+3️⃣ PASO 3 (10 min) — Bitácora Día 2 EN CALIENTE
+  • Abrir el Word del equipo.
+  • Crear la entrada del Día 2 (debajo del Día 1).
+  • Llenar las 7 partes del formato:
+    - Fecha (hoy miércoles).
+    - Objetivo de la sesión.
+    - Actividades realizadas (3-6 bullets).
+    - Evidencias (insertar 2-3 fotos del avance).
+    - Problemas encontrados (sé honesto — los problemas son lo más valioso).
+    - Soluciones aplicadas.
+    - Siguiente paso (qué harán el jueves H1).
+
+4️⃣ PASO 4 (2 min) — Guardar y subir versión Día 2 a Classroom
+  • Guardar el archivo.
+  • Subir como 'Bitacora_NombreProyecto_Dia2.docx' a Classroom.
+
+📸 EVIDENCIA OBLIGATORIA
+• Archivo Word con Bitácora Día 2 (la anterior + esta nueva entrada) subido a Classroom al final de la sesión.`,product:`Avance significativo del proyecto + entrada de Bitácora Día 2 documentada con fotos del avance. Documento Word actualizado y subido a Classroom como versión 'Día 2'.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es de SUPERVISIÓN ACTIVA, no de presentación. Estrategias:
+
+(1) CIRCULAR ENTRE EQUIPOS: pasar mesa por mesa cada 15 min. Preguntar: '¿qué están haciendo? ¿qué problema tienen?'. Identificar a tiempo a los equipos atorados.
+
+(2) NO DAR LA RESPUESTA: cuando un equipo se atora, hacer pregunta socrática: '¿qué dice el error?' '¿qué pasa si cambias esto por esto otro?'. La meta es que aprendan a depurar, no que tú depures por ellos.
+
+(3) TIMEKEEPING EN EL MINUTO 50: anunciar al grupo '10 minutos para empezar la Bitácora Día 2'. Forzar la parada de trabajo a tiempo es la única manera de que la bitácora se llene en caliente.
+
+(4) ALUMNOS QUE NO TRAJERON MATERIAL: si un equipo llegó sin su prototipo, NO regresarlos — sentarlos junto a otro equipo en calidad de 'observadores' y que documenten lo que ven en la bitácora del compañero (con permiso). NO se vale 'no traje nada, no participo'.
+
+(5) FOTOS DEL DOCENTE: tomar 1-2 fotos del grupo trabajando con tu propio celular. Sirven para tu evaluación al final del semestre + para mostrar evidencia al plantel del trabajo realizado.
+
+(6) EQUIPOS MUY RÁPIDOS: si un equipo termina su plan en 30 min, retarlos con: '¿qué le agregarían si tuvieran 1 hora más?'. Que lo intenten. La bitácora Día 2 puede ser larga si avanzaron mucho — eso es bueno.`}],cierre:`Una sesión de taller bien aprovechada vale más que 3 de teoría. La bitácora capturada en caliente es lo que diferencia este día de uno olvidado.`,frase_docente:`Los detalles del trabajo se olvidan en 24 horas — por eso la bitácora se escribe HOY, no mañana.`},{id:`thu`,label:`Jueves — 🔧 Taller (Hora 1) + 🎤 Cierre con presentación (Hora 2)`,purpose:`Hora 1: última sesión de TALLER para integrar y dejar el proyecto funcionando + Bitácora Día 3. Hora 2: completar Parte C del documento (código, pruebas, conclusiones), preparar y dar presentación de 3-5 minutos al grupo, y entregar la versión FINAL de la Bitácora en Classroom.`,hours:[{time:`Hora 1`,title:`🔧 Taller final + Bitácora Día 3 — dejar el proyecto en estado demo`,theory:`Esta es la ÚLTIMA hora de construcción. Después de esto no hay más sesiones de trabajo — solo el cierre con presentación. Por eso la meta de hoy es DEJAR EL PROYECTO EN ESTADO DEMOSTRABLE.
+
+🎯 META DE LA HORA
+El proyecto debe poder ENCENDERSE Y FUNCIONAR de principio a fin, aunque no esté perfecto. Es preferible un proyecto con 3 funciones que funcionen al 100% que uno con 5 funciones que fallan a la mitad.
+
+📌 PRIORIZACIÓN — APLICAR HOY
+1. Lo que YA funciona → mantenerlo funcionando (no romperlo intentando mejorarlo).
+2. Lo que CASI funciona → terminar de afinarlo (probablemente es lo que más vale la pena).
+3. Lo que aún NO funciona → decidir: ¿lo dejamos fuera para presentar lo que sí funciona, o nos arriesgamos a debugearlo?
+4. Funciones nuevas que íbamos a agregar → SOLO si tenemos al menos 30 min restantes.
+
+📋 LISTA DE COSAS A TENER LISTAS PARA EL CIERRE DE MAÑANA (Hora 2)
+• El proyecto físico armado y funcional.
+• El código final guardado en el equipo (USB, drive, Classroom).
+• Las fotos para la Bitácora Día 3 (tomar HOY, no mañana).
+• Una idea clara de quién va a decir qué en la presentación de 3-5 min.`,notebook:`Esta hora la libreta es opcional. Lo importante es que cualquier nota relevante termine en la Bitácora Día 3 del Word.`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+1️⃣ PASO 1 (3 min) — Diagnóstico rápido del estado del proyecto
+  • Cada equipo responde 3 preguntas EN VOZ ALTA dentro del equipo:
+    - ¿Qué funciones ya están al 100%?
+    - ¿Cuáles están a medias?
+    - ¿Cuáles aún no están iniciadas?
+  • Decidir prioridades para esta hora basado en eso.
+
+2️⃣ PASO 2 (45 min) — Trabajo final
+  • Aplicar la regla: TERMINAR lo que ya está medio hecho > EMPEZAR lo nuevo.
+  • Probar el proyecto COMPLETO al menos una vez al final del paso 2 — encenderlo desde cero, probar todas las funciones, ver que todo responde.
+  • Tomar las fotos finales del proyecto FUNCIONANDO (varias, en diferentes ángulos).
+  • Si algo se rompe en una prueba final, intentar recuperar — pero no perder más de 15 min en eso.
+
+3️⃣ PASO 3 (10 min) — Bitácora Día 3 (en caliente)
+  • Crear entrada del Día 3 en el Word.
+  • Llenar el formato estándar.
+  • Para 'Siguiente paso' poner: 'Mañana Hora 2: completar Parte C + presentación al grupo + entrega final en Classroom'.
+
+4️⃣ PASO 4 (2 min) — Guardar y subir versión Día 3 a Classroom
+  • Subir como 'Bitacora_NombreProyecto_Dia3.docx'.
+
+📸 EVIDENCIA DE LA HORA
+• Bitácora Día 3 actualizada con fotos del proyecto en estado funcional.
+• Versión Día 3 subida a Classroom.`,product:`Proyecto físico en estado demostrable (funciona de principio a fin) + Bitácora Día 3 con fotos del proyecto funcionando. Documento Word con las 3 entradas de bitácora completas, subido a Classroom como versión 'Día 3'.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es DE EMERGENCIA — la última oportunidad de que las cosas funcionen. Estrategias:
+
+(1) PRESIÓN POSITIVA: anunciar al inicio 'hoy es la última hora de trabajo. Mañana es solo presentar. Lo que no funcione hoy, no funcionará mañana'. Esto los obliga a priorizar.
+
+(2) EQUIPOS EN CRISIS: si un equipo claramente no va a tener nada funcionando, ayudar a 'salvar' algo — al menos UN sensor leyendo, o UN LED respondiendo por BLE. La meta no es perfección sino entregar ALGO demostrable.
+
+(3) NO PERMITIR DESARMAR: durante la última hora, prohibir desarmar circuitos para 'rearmar bonitos'. Lo que funciona se queda como está. Estética se sacrifica por funcionalidad.
+
+(4) FOTO PROFESIONAL DEL PROYECTO: en los últimos 5 min de trabajo, ayudar a cada equipo a tomar UNA foto bonita del proyecto en una superficie limpia. Esta foto va en la portada o introducción del documento final.`},{time:`Hora 2`,title:`🎤 Cierre del proyecto — completar Parte C, presentar y entregar`,theory:`Esta es la última hora de W14 y el cierre de RA 3.2. Hoy ya no hay construcción — es CONSOLIDACIÓN. La hora se divide en 3 bloques:
+
+📝 BLOQUE 1 (20 min) — Completar Parte C del documento
+• Sección 7: Código final completo con comentarios.
+• Sección 8: Pruebas y resultados (tabla).
+• Sección 9: Conclusiones (½ página en párrafo).
+• Sección 10: Mejoras futuras.
+• Sección 11: Bibliografía (incluir IA usada).
+
+🎤 BLOQUE 2 (30 min) — Presentaciones al grupo (3-5 min cada equipo)
+• Estructura sugerida para cada equipo:
+  - 30 seg: presentación del equipo y nombre del proyecto.
+  - 1 min: qué hace, para quién (problema que resuelve).
+  - 1-2 min: DEMOSTRACIÓN en vivo (mostrar el proyecto funcionando).
+  - 30-60 seg: aprendizajes principales + cosas que mejorarían.
+  - Preguntas del grupo o del docente (1 min máximo).
+
+📤 BLOQUE 3 (10 min) — Entrega final en Classroom
+• Subir la versión FINAL del documento (con Parte C completa) como 'Bitacora_NombreProyecto_FINAL.docx'.
+• Confirmar que se subió correctamente.
+• Llenar una breve encuesta de autoevaluación (opcional pero recomendada).
+
+💡 RECOMENDACIONES PARA LA PRESENTACIÓN
+• HABLAR FUERTE Y CLARO — todos los del salón deben oírte.
+• MOSTRAR el proyecto FUNCIONANDO (no solo describirlo).
+• REPARTIR LOS ROLES — si son 3, que cada uno hable de algo distinto (uno la intro, otro la demo, otro las conclusiones).
+• SI ALGO FALLA EN LA DEMO — no entrar en pánico. Decir 'normalmente esto funciona así, hoy no quiere' y seguir. Sucede en el mundo real todo el tiempo.`,notebook:`Hoy NO se usa libreta — todo es Word + presentación oral.
+
+Útil tener a mano: una hoja con la lista de los puntos que cada integrante del equipo va a decir durante los 3-5 min de presentación (script mínimo).`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+
+📝 BLOQUE 1 — COMPLETAR PARTE C (20 min)
+
+1️⃣ PASO 1 (5 min) — Sección 7: Código final
+  • Copiar el código del Arduino IDE al documento Word.
+  • Agregar comentarios donde sea necesario.
+  • Formato: usar fuente monoespaciada (Consolas, Courier New) para que se vea como código.
+
+2️⃣ PASO 2 (5 min) — Sección 8: Pruebas y resultados
+  • Llenar la tabla:
+    | # | Qué probamos | Resultado esperado | Resultado obtenido | Estado |
+  • Estado: ✓ Exitosa / ⚠️ Parcial / ✗ Falló.
+  • Mínimo 4 pruebas registradas.
+
+3️⃣ PASO 3 (5 min) — Secciones 9, 10, 11
+  • Conclusiones: ½ página en párrafo (NO bullets) respondiendo: ¿qué aprendimos? ¿qué fue lo más difícil? ¿qué fue lo más satisfactorio?
+  • Mejoras futuras: 3-5 cosas que harían con más tiempo.
+  • Bibliografía: lista de fuentes (IA usada, tutoriales con URL, documentación).
+
+4️⃣ PASO 4 (3 min) — Guardar el documento FINAL
+  • Guardar como 'Bitacora_NombreProyecto_FINAL.docx'.
+  • NO subir todavía — primero presentación.
+
+5️⃣ PASO 5 (2 min) — Preparar la presentación (5 min)
+  • Decidir QUIÉN dice QUÉ (script mínimo).
+  • Tener el proyecto físico LISTO (no en una caja, no desarmado).
+  • Tener el celular con BLE Controller conectado al ESP32.
+
+🎤 BLOQUE 2 — PRESENTACIONES (30 min, 3-5 min por equipo)
+
+  • Orden de presentación al azar (el docente saca un papelito).
+  • Cada equipo pasa al frente:
+    - Intro (30 s)
+    - Descripción del proyecto (1 min)
+    - DEMOSTRACIÓN en vivo (1-2 min)
+    - Aprendizajes y mejoras (30-60 s)
+    - Preguntas (1 min máximo)
+  • Total por equipo: 4-5 minutos máximo.
+  • Aplausos al final de cada presentación.
+
+📤 BLOQUE 3 — ENTREGA FINAL (10 min)
+
+6️⃣ PASO 6 (5 min) — Subir a Classroom
+  • Cada equipo sube 'Bitacora_NombreProyecto_FINAL.docx'.
+  • Verificar que se subió correctamente.
+
+7️⃣ PASO 7 (3 min) — Autoevaluación rápida (opcional pero recomendada)
+  • Cada equipo responde en una encuesta corta:
+    - ¿Qué tan satisfecho está con el resultado? (1-10)
+    - ¿Qué fue lo más valioso que aprendió en el proyecto?
+    - ¿Qué le mejoraría a la metodología para la próxima vez?
+
+8️⃣ PASO 8 (2 min) — Cierre del docente
+  • Felicitaciones al grupo.
+  • Anuncio de calificaciones aproximadas para la siguiente semana.
+  • Cierre formal de RA 3.2.
+
+📸 EVIDENCIA FINAL
+• Documento Word FINAL en Classroom.
+• Presentación oral dada al grupo.
+• Proyecto físico mostrado funcionando.`,product:`Documento 'Bitacora_NombreProyecto_FINAL.docx' completo (11 secciones + 3 entradas de bitácora) en Classroom. Presentación oral de 3-5 minutos dada al grupo con demostración en vivo del proyecto funcionando. Cierre formal de RA 3.2 y del semestre de MTHS.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es CEREMONIAL — celebra el cierre del semestre y del módulo MTHS. Estrategias:
+
+(1) GRABAR LAS PRESENTACIONES: pedir permiso al grupo al inicio para grabar las presentaciones (cada equipo). Las grabaciones sirven para: (a) tu evaluación posterior con más calma, (b) muestra al plantel del trabajo realizado, (c) los alumnos pueden usarlas en su portafolio profesional.
+
+(2) CALIFICAR EN VIVO con rúbrica corta: tener impresa una hoja por equipo con los criterios (escala /10):
+• Documento completo y ordenado (3 pts)
+• Bitácora con honestidad sobre problemas/soluciones (2 pts)
+• Proyecto funcional en demo (3 pts)
+• Presentación clara y bien repartida (1.5 pts)
+• Capacidad de responder preguntas (0.5 pts)
+Llenar mientras presentan — al final tienes calificaciones casi listas.
+
+(3) PREGUNTAS DEL DOCENTE: tener 2-3 preguntas preparadas para cada equipo según su proyecto:
+• 'Si el sensor de humedad se desconectara, ¿qué pasaría con la bomba?'
+• 'Si dos personas mandaran el comando al mismo tiempo desde BLE, ¿qué pasaría?'
+• '¿Cuál fue el momento más difícil del proyecto y cómo lo resolvieron?'
+Las respuestas miden si REALMENTE entienden su proyecto o si lo hicieron mecánicamente.
+
+(4) ORDEN DE PRESENTACIONES — AL AZAR: sacar papelitos para que nadie se 'esconda' al final. Si presentan en orden, los del final ven los errores de los del principio y mejoran su presentación injustamente.
+
+(5) EQUIPOS QUE FALLAN LA DEMO: si la demo en vivo falla, NO descalificar al equipo — preguntar QUÉ debería pasar y POR QUÉ creen que no pasó. La capacidad de explicar el fallo vale tanto como el éxito.
+
+(6) CIERRE EMOCIONAL: este es el último día del módulo MTHS para muchos alumnos. Tomarse 2 min al final para reconocer el camino del semestre — empezaron con conceptos básicos de electrónica y terminan presentando proyectos integrados con BLE. Eso es notable. Felicitarlos en voz alta.
+
+(7) APLAUSOS: pedir aplausos al final de CADA presentación. Genera ambiente positivo y ayuda a los más nerviosos.`}],cierre:`Esta semana cierra RA 3.2 y el módulo MTHS del semestre. Lo que demostraron NO es teoría — son sistemas físicos funcionando que cada equipo diseñó, construyó y documentó. Esa capacidad de pasar de una idea a un sistema físico es lo que les diferencia profesionalmente.`,frase_docente:`Un proyecto que entregas con su documentación completa habla de ti más que cualquier currículum — porque demuestra cómo trabajas, no solo qué sabes.`}]}}},Se=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Se()}))(),Ce=[{label:`Identificación de vulnerabilidades en línea`,peso:`30%`,ras:[{id:`1.1`,desc:`Malwares y ataques tecnológicos`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`Transformación digital e industria`,act:`1.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de dispositivos en PC`,peso:`35%`,ras:[{id:`2.1`,desc:`Instalación y configuración de PCs`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Configuración de dispositivos tecnológicos`,act:`2.2.1`,peso:`15%`}]},{label:`Configuración tecnológica de sistemas operativos`,peso:`35%`,ras:[{id:`3.1`,desc:`Sistemas operativos y dispositivos de red`,act:`3.1.1`,peso:`15%`},{id:`3.2`,desc:`Seguridad básica de red`,act:`3.2.1`,peso:`20%`}]}],we=()=>{let[e,t]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,k.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,k.jsx)(pe,{size:13,className:`pond-icon`}),(0,k.jsx)(`span`,{children:`Ponderación`}),(0,k.jsx)(D,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,k.jsxs)(`div`,{className:`ponderacion-body`,children:[Ce.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-unit`,children:[(0,k.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,k.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,k.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,k.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,k.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,k.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,k.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,k.jsxs)(`div`,{className:`pond-total`,children:[(0,k.jsx)(`span`,{children:`Total del módulo`}),(0,k.jsx)(`span`,{children:`100%`})]})]})]})},Te=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),Ee=Object.fromEntries(xe.cortes.map(e=>[e.id,e])),De=xe.ras,Oe=({activeWeek:e,onWeekSelect:t,currentWeek:n,nextWeek:r,isTeacherMode:i,isMobileOpen:a,onMobileClose:o})=>{let s=Te.indexOf(n),c=e=>!(Te.indexOf(e)<=s||i),[l,u]=(0,_.useState)(()=>{let t={};return xe.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),d=e=>u(t=>({...t,[e]:!t[e]})),f=e=>{c(e)||(t(e),o&&o())};return(0,k.jsxs)(k.Fragment,{children:[a&&(0,k.jsx)(`div`,{className:`sidebar-overlay`,onClick:o}),(0,k.jsxs)(`aside`,{className:`sidebar ${a?`mobile-open`:``}`,children:[(0,k.jsxs)(`div`,{className:`sidebar-header`,children:[(0,k.jsxs)(`div`,{className:`school-brand`,children:[(0,k.jsx)(`div`,{className:`brand-icon`,children:(0,k.jsx)(O,{size:18,color:`white`,strokeWidth:2.5})}),(0,k.jsxs)(`div`,{className:`school-info`,children:[(0,k.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,k.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,k.jsxs)(`div`,{className:`author-credits`,children:[(0,k.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,k.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,k.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,k.jsxs)(`nav`,{className:`nav-container`,children:[(0,k.jsx)(we,{}),(0,k.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),De.map(t=>{let a=l[t.id],o=t.weeks.some(t=>t.id===e),s=Ee[t.corte];return(0,k.jsxs)(`div`,{className:`ra-card ${o?`ra-card-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>d(t.id),children:[(0,k.jsx)(D,{size:11,className:`ra-chevron`,style:{transform:a?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,k.jsx)(de,{size:13,className:`ra-icon`}),(0,k.jsx)(`span`,{className:`ra-card-title`,children:t.title}),(0,k.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${t.corte}`,children:[s.label,` · `,t.peso??s.peso]})]}),a&&(0,k.jsx)(`div`,{className:`ra-weeks-list`,children:t.weeks.map(t=>{let a=e===t.id,o=n===t.id,s=c(t.id),l=i&&t.id===r;return(0,k.jsxs)(`div`,{className:`week-item ${a?`active`:``} ${s?`locked`:``}`,onClick:()=>f(t.id),children:[(0,k.jsx)(`span`,{className:`week-item-label`,children:t.label}),(0,k.jsxs)(`span`,{className:`week-item-badges`,children:[s&&(0,k.jsx)(he,{size:10,className:`lock-icon`}),o&&(0,k.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,k.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},t.id)})})]},t.id)})]})]})]})},ke=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ae=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,k.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,k.jsx)(`p`,{children:e}):(0,k.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,k.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,k.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,k.jsx)(`pre`,{className:`smart-code`,children:(0,k.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,k.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,k.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,k.jsx)(`li`,{children:e},t))},t):null)})},je={theory:{icon:(0,k.jsx)(de,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,k.jsx)(ye,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,k.jsx)(be,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,k.jsx)(ve,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,k.jsx)(O,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,k.jsx)(fe,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Me=({type:e,children:t})=>{let n=je[e];return(0,k.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:t})]})},Ne=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,k.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,k.jsxs)(`div`,{className:`block-header-row`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,k.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,k.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e})})})]})},Pe=({html:e})=>(0,k.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,k.jsx)(`div`,{className:`block-body diagram-body`,children:(0,k.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Fe=({src:e,alt:t,className:n})=>(0,k.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),Ie=({activity:e,assetUrl:t})=>(0,k.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,k.jsxs)(`div`,{className:`dual-header`,children:[(0,k.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,k.jsx)(`h4`,{children:e.title})]}),(0,k.jsxs)(`div`,{className:`dual-body`,children:[(0,k.jsx)(`div`,{className:`dual-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})}),e.image&&t&&(0,k.jsx)(`div`,{className:`infographic-container`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Le=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,k.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,k.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,k.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,k.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,k.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,k.jsxs)(`div`,{className:`gallery-item`,children:[(0,k.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,k.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,k.jsx)(Fe,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,k.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,k.jsx)(Ae,{text:e.instruction})})]},n))})]})},Re=({days:e,activeIndex:t,onSelect:n})=>(0,k.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),ze=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,k.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,k.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Be=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,k.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,k.jsxs)(`div`,{className:`breadcrumb`,children:[(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,k.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,k.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,k.jsxs)(`div`,{className:`page-header-nav`,children:[(0,k.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,k.jsx)(me,{size:13}),` Anterior`]}),(0,k.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,k.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,k.jsx)(D,{size:13})]})]}),(0,k.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,k.jsxs)(`div`,{className:`sheet-header`,children:[(0,k.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,k.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,k.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,k.jsx)(Me,{type:`theory`,children:(0,k.jsx)(Ae,{text:e.theory})}),(0,k.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,k.jsx)(Me,{type:`notebook`,children:(0,k.jsx)(Ae,{text:e.notebook})}),e.practice&&(0,k.jsx)(Me,{type:`practice`,children:(0,k.jsx)(Ae,{text:e.practice})})]}),e.diagram&&(0,k.jsx)(Pe,{html:e.diagram}),e.code&&(0,k.jsx)(Ne,{code:e.code}),r&&e.codeRef&&(0,k.jsx)(Ne,{code:e.codeRef,isRef:!0}),e.product&&(0,k.jsx)(Me,{type:`product`,children:(0,k.jsx)(Ae,{text:e.product})}),u&&(e.image||e.images)&&(0,k.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.screenshot.icon,` `,je.screenshot.label]}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,k.jsx)(`div`,{className:`screenshot-container`,children:(0,k.jsx)(Fe,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,k.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,k.jsx)(`div`,{className:`block-header-row`,children:(0,k.jsxs)(`h4`,{className:`block-title`,children:[je.teacher.icon,` `,je.teacher.label]})}),(0,k.jsx)(`div`,{className:`block-body`,children:(0,k.jsx)(Ae,{text:e.teacherNotes})})]})]})]})]}),Ve=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=ke(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,k.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,k.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),(0,k.jsx)(`div`,{className:`notebook-container`,children:(0,k.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,k.jsxs)(`div`,{className:`empty-message-content`,children:[(0,k.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,k.jsx)(`h2`,{children:`Contenido en preparación`}),(0,k.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,k.jsx)(`strong`,{children:v||h.label}),`.`,(0,k.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},ee=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},S=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,k.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,k.jsxs)(`header`,{className:`week-portada`,children:[(0,k.jsxs)(`div`,{className:`portada-inner`,children:[(0,k.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,k.jsxs)(`div`,{className:`portada-week-number`,children:[(0,k.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,k.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,k.jsx)(`span`,{className:`portada-date`,children:v}),(0,k.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,k.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,k.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,k.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,k.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,k.jsxs)(`div`,{className:`preview-text`,children:[(0,k.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,k.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,k.jsx)(Re,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,k.jsx)(ze,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,k.jsx)(`div`,{className:`notebook-container`,children:r?(0,k.jsx)(Le,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,k.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,k.jsx)(`div`,{className:`sheet-header`,children:(0,k.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,k.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,k.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,k.jsx)(Ie,{activity:e,assetUrl:o},t))}):(0,k.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,k.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,k.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,k.jsx)(`pre`,{className:`code-editor`,children:(0,k.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,k.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,k.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,k.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,k.jsxs)(`div`,{className:`purpose-text`,children:[(0,k.jsx)(`strong`,{children:`Propósito de hoy`}),(0,k.jsx)(Ae,{text:y.purpose})]})]}),(0,k.jsx)(Be,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:S,onNext:ee,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,k.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,k.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,k.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,k.jsx)(Ae,{text:y.cierre})]}),y.frase_docente&&(0,k.jsx)(`div`,{className:`day-quote-block`,children:(0,k.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},He=`2024`,Ue=({onSuccess:e,onCancel:t})=>{let[n,r]=(0,_.useState)(``),[i,a]=(0,_.useState)(!1),o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{o.current?.focus()},[]),(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card ${i?`shake`:``}`,onClick:e=>e.stopPropagation(),children:[(0,k.jsxs)(`div`,{className:`pin-modal-header`,children:[(0,k.jsxs)(`h3`,{children:[(0,k.jsx)(he,{size:20}),` Acceso Docente`]}),(0,k.jsx)(`p`,{children:`Ingresa el PIN de seguridad`})]}),(0,k.jsxs)(`form`,{onSubmit:t=>{t.preventDefault(),n===He?e():(a(!0),r(``),setTimeout(()=>a(!1),500))},className:`pin-modal-form`,children:[(0,k.jsx)(`input`,{ref:o,type:`password`,maxLength:`4`,placeholder:`••••`,value:n,onChange:e=>r(e.target.value.replace(/[^0-9]/g,``)),className:i?`input-error`:``}),(0,k.jsxs)(`div`,{className:`pin-modal-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-secondary`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-primary`,children:`Verificar`})]})]}),i&&(0,k.jsx)(`p`,{className:`error-text`,children:`PIN incorrecto. Intenta de nuevo.`})]})})},We=e=>new URL(Object.assign({"./assets/contra.png":y,"./assets/eva1.png":b,"./assets/hero.png":x,"./assets/infografia_jueves.png":ee,"./assets/infografia_lunes.png":S,"./assets/react.svg":C,"./assets/riesgos.png":te,"./assets/vite.svg":ne,"./assets/wifi.png":re})[`./assets/${e}`],import.meta.url).href;function Ge(){let e=(()=>{let e=new Date-new Date(`2026-02-09`),t=Math.floor(e/(10080*60*1e3));return t<0?`W00`:t<=6?`W0${t}`:t<=8?`W06`:t===9?`W07`:t===10?`W08`:t===11?`W09`:t===12?`W10`:t===13?`W11`:t===14?`W12`:t===15?`W13`:`W14`})(),t=xe.ras.flatMap(e=>e.weeks.map(e=>e.id)),n=t.indexOf(e),r=n<t.length-1?t[n+1]:null,[i,a]=(0,_.useState)(e),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(!1),[f,p]=(0,_.useState)(!1);return(0,k.jsxs)(`div`,{className:`app-container ${o?`class-mode-active`:``}`,children:[(0,k.jsxs)(`div`,{className:`mobile-header`,children:[(0,k.jsx)(`button`,{className:`hamburger-btn`,onClick:()=>p(!0),children:(0,k.jsx)(ge,{size:18})}),(0,k.jsx)(`span`,{className:`mobile-brand`,children:`CONALEP · MTHS`})]}),(0,k.jsx)(Oe,{activeWeek:i,onWeekSelect:a,currentWeek:e,nextWeek:r,isTeacherMode:c,isMobileOpen:f,onMobileClose:()=>p(!1)}),(0,k.jsxs)(`main`,{className:`main-content`,children:[(0,k.jsxs)(`div`,{className:`class-mode-toggle-container`,children:[(0,k.jsxs)(`button`,{className:`class-mode-btn ${o?`active`:``}`,onClick:()=>s(!o),children:[(0,k.jsx)(_e,{size:14}),o?`Salir de Clase`:`Modo Clase`]}),(0,k.jsxs)(`button`,{className:`teacher-mode-btn ${c?`active`:``}`,onClick:()=>{c?l(!1):d(!0)},children:[(0,k.jsx)(O,{size:14}),c?`Salir Docente`:`Modo Docente`]})]}),(0,k.jsx)(Ve,{weekId:i,isClassMode:o,isTeacherMode:c,isPreviewWeek:c&&i===r,curriculumData:xe,assetUrl:We},i)]}),u&&(0,k.jsx)(Ue,{onSuccess:()=>{l(!0),d(!1)},onCancel:()=>d(!1)})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(Ge,{})}));
