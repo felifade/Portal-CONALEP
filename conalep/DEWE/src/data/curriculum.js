@@ -7,6 +7,7 @@ import { W10 } from './schedules/W10.js';
 import { W11 } from './schedules/W11.js';
 import { W12 } from './schedules/W12.js';
 import { W13 } from './schedules/W13.js';
+import { W14 } from './schedules/W14.js';
 
 export const curriculumData = {
   subject: "Elaboración de Páginas Web (DEWE-20)",
@@ -88,6 +89,6 @@ export const curriculumData = {
     "W11": W11,
     "W12": W12,
     "W13": W13,
-    "W14": { days: [] }
+    "W14": W14
   }
 };
