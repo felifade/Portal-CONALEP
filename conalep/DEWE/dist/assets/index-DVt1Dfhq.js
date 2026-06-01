@@ -2723,7 +2723,1058 @@ Errores típicos:
 
 • Mini-proyecto final del RA2.2 que integre DOM + Eventos + Funciones.
 • Práctica colaborativa con IA donde cada equipo agrega una feature al sitio.
-• Showcase y crítica entre alumnos del trabajo de la semana.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Recordar que el viernes llegan los del dual — diseñar la sesión asumiendo que parte del grupo NO estuvo entre semana. Repaso + extensión es el patrón que funcionó la W12.`}],cierre:`Sesión por definir.`,frase_docente:`Una clase con audiencia mixta enseña dos veces — y ese es buen entrenamiento docente.`}]},W14:{days:[]}}},Oe=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),M=o(((e,t)=>{t.exports=Oe()}))(),ke=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ae=()=>{let[e,t]=(0,_.useState)(!1);return(0,M.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,M.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,M.jsx)(A,{size:13,className:`pond-icon`}),(0,M.jsx)(`span`,{children:`Ponderación`}),(0,M.jsx)(fe,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,M.jsxs)(`div`,{className:`ponderacion-body`,children:[ke.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-unit`,children:[(0,M.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,M.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,M.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,M.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,M.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,M.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,M.jsxs)(`div`,{className:`pond-total`,children:[(0,M.jsx)(`span`,{children:`Total del módulo`}),(0,M.jsx)(`span`,{children:`100%`})]})]})]})},je=De.ras.flatMap(e=>e.weeks.map(e=>e.id)),Me=Object.fromEntries(De.cortes.map(e=>[e.id,e])),Ne=De.ras,Pe=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=je.indexOf(i),u=e=>!(je.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return De.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,M.jsxs)(M.Fragment,{children:[s&&(0,M.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,M.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,M.jsxs)(`div`,{className:`sidebar-header`,children:[(0,M.jsxs)(`div`,{className:`school-brand`,children:[(0,M.jsx)(`div`,{className:`brand-icon`,children:(0,M.jsx)(ge,{size:18,color:`white`,strokeWidth:2.5})}),(0,M.jsxs)(`div`,{className:`school-info`,children:[(0,M.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,M.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,M.jsxs)(`div`,{className:`author-credits`,children:[(0,M.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,M.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,M.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,M.jsxs)(`nav`,{className:`nav-container`,children:[(0,M.jsxs)(`div`,{className:`main-nav-section`,children:[(0,M.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,M.jsx)(he,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,M.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,M.jsx)(pe,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,M.jsx)(Ae,{}),(0,M.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Ne.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Me[n.corte];return(0,M.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,M.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,M.jsx)(fe,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,M.jsx)(ue,{size:13,className:`ra-icon`}),(0,M.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,M.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,M.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,M.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,M.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,M.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,M.jsx)(ye,{size:10,className:`lock-icon`}),s&&(0,M.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,M.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Fe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ie=({text:e})=>{if(!e)return null;let t=e.split(`
+• Showcase y crítica entre alumnos del trabajo de la semana.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Recordar que el viernes llegan los del dual — diseñar la sesión asumiendo que parte del grupo NO estuvo entre semana. Repaso + extensión es el patrón que funcionó la W12.`}],cierre:`Sesión por definir.`,frase_docente:`Una clase con audiencia mixta enseña dos veces — y ese es buen entrenamiento docente.`}]},W14:{materia:`dewe`,weekId:`W14`,days:[{id:`mon`,label:`Lunes — 🎮 El juego cobra vida: reconstrucción + funciones con parámetros + setInterval`,purpose:`Cierre del semestre. H1: reconstruir el Sistema de Vida desde cero (para que TODOS lo tengan funcionando, incluyendo duales que no estuvieron). H2: refactor a funciones con parámetros — agregar daño crítico y poción sin reescribir lógica. H3: setInterval — el zombi ataca solo cada cierto tiempo, con botón para huir. Al final del día tienen un mini-juego de verdad.`,hours:[{time:`Hora 1`,title:`🔄 Reconstruir el Sistema de Vida desde cero`,theory:`🎯 OBJETIVO DE LA HORA
+Que TODOS los alumnos terminen con un Sistema de Vida funcionando en su sitio Resident Evil. Quienes ya lo tenían lo limpian. Quienes no lo terminaron, lo construyen desde cero. Quienes no estuvieron (los del dual), lo aprenden ahora.
+
+📐 ESTRUCTURA DEL SISTEMA DE VIDA
+Es el patrón que ya conocemos:
+
+  1. Variable de estado:        let vida = 100
+  2. Variables de referencia:   const numVida = document.querySelector('#num-vida')
+  3. Función que refresca:      function actualizar() { ... }
+  4. Listeners para cada botón: btnCurar.addEventListener('click', function() { ... })
+  5. Llamada inicial:           actualizar()
+
+🧠 ¿POR QUÉ ESTA ESTRUCTURA?
+• La variable vida es la 'única fuente de la verdad'. Si cambia, la pantalla debe reflejarlo.
+• La función actualizar() centraliza TODO lo visual. Si después agregas algo nuevo (color, sonido, texto), va dentro de actualizar() y se aplica solito.
+• Cada listener solo MODIFICA la variable y luego LLAMA a actualizar(). No tiene lógica visual propia.
+
+📋 LO QUE CONSTRUIMOS HOY (versión limpia):
+• HTML: panel del personaje + barra de vida + 3 botones (Curar, Daño, Resetear) + zona GAME OVER.
+• CSS: panel oscuro tipo videojuego, barra con transición suave.
+• JS: variable vida, función actualizar(), 3 listeners.
+• Comportamiento: barra cambia de color (verde > 60, amarillo, rojo), GAME OVER al llegar a 0.
+
+💡 NOTA IMPORTANTE
+Si ya tenían el código del jueves W13, lo REVISAN y LIMPIAN — no lo borran. Quienes empiezan de cero, copian el código completo desde la sección de práctica.`,notebook:`Título: Sistema de Vida — versión definitiva.
+1. ¿Cuál es la 'única fuente de la verdad' en el Sistema de Vida?
+2. ¿Por qué la función actualizar() centraliza toda la lógica visual?
+3. ¿Qué tarea tiene cada listener de los botones?
+4. ¿Por qué se llama actualizar() al final del archivo (antes de hacer clic en algo)?
+5. ¿Qué pasaría si olvidas llamar actualizar() después de modificar la variable vida?
+6. ¿Qué pasa con la barra de vida cuando vida llega a 0?`,practice:`🛠️ RECONSTRUCCIÓN PASO A PASO
+
+Paso 1 — HTML (dentro del body del index.html):
+
+\`\`\`html
+<section class="panel-vida">
+  <h2>🦹 Leon S. Kennedy</h2>
+  <div class="barra-fondo">
+    <div id="barra-fill"></div>
+  </div>
+  <p>❤️ Vida: <span id="num-vida">100</span> / 100</p>
+  <div class="botones">
+    <button id="btn-curar">💊 Curar (+10)</button>
+    <button id="btn-danio">💥 Daño (-15)</button>
+    <button id="btn-reset">🔄 Resetear</button>
+  </div>
+  <h3 id="game-over"></h3>
+</section>
+\`\`\`
+
+Paso 2 — CSS (en style.css):
+
+\`\`\`css
+.panel-vida {
+  background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+  color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 400px;
+  border: 2px solid #333;
+}
+.panel-vida h2 {
+  color: #f7df1e;
+  margin-bottom: 14px;
+}
+.barra-fondo {
+  background: #333;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+#barra-fill {
+  background: #3fb950;
+  height: 100%;
+  width: 100%;
+  transition: width 0.4s, background 0.4s;
+}
+.botones button {
+  padding: 10px 14px;
+  margin: 4px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+#btn-curar { background: #3fb950; }
+#btn-danio { background: #f85149; }
+#btn-reset { background: #58a6ff; }
+#game-over {
+  color: #f85149;
+  font-size: 28px;
+  text-align: center;
+  text-shadow: 0 0 12px #f85149;
+  min-height: 30px;
+}
+\`\`\`
+
+Paso 3 — JavaScript (en js/script.js):
+
+\`\`\`js
+// =====================================================
+// Sistema de Vida v2 — DEWE Semana 14 Hora 1
+// Versión limpia, comentada, lista para extender
+// =====================================================
+
+// 1. Estado del juego
+let vida = 100;
+
+// 2. Referencias al DOM
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+// 3. Función que refresca la pantalla con el valor actual de vida
+function actualizar() {
+  // Limitar entre 0 y 100
+  if (vida < 0)   vida = 0;
+  if (vida > 100) vida = 100;
+
+  // Mostrar número y ancho de barra
+  numVida.textContent = vida;
+  barraFill.style.width = vida + '%';
+
+  // Color de la barra según nivel de vida
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';   // verde
+  } else if (vida > 30) {
+    barraFill.style.background = '#d29922';   // amarillo
+  } else {
+    barraFill.style.background = '#f85149';   // rojo
+  }
+
+  // GAME OVER cuando vida es 0
+  if (vida === 0) {
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+// 4. Listeners para los 3 botones
+btnCurar.addEventListener('click', function() {
+  vida = vida + 10;
+  actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = 100;
+  actualizar();
+});
+
+// 5. Llamada inicial — muestra el estado al cargar la página
+actualizar();
+\`\`\`
+
+Paso 4 — Probar:
+• Cargar el sitio. La barra arranca al 100% en verde.
+• Click en Daño varias veces → la barra baja, cambia a amarillo y luego rojo.
+• A los ~7 clicks de daño aparece GAME OVER.
+• Resetear vuelve a 100.
+• Recargar la página vuelve a 100 también (porque la variable se inicializa).`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  .panel-vida-demo { background: linear-gradient(180deg, #1a1a1a, #0a0a0a); color: #fff; padding: 22px; border-radius: 10px; border: 2px solid #333; }
+  .panel-vida-demo h4 { font-size: 17px; margin-bottom: 14px; color: #f7df1e; }
+  .barra-fondo { background: #333; height: 22px; border-radius: 11px; overflow: hidden; margin: 12px 0; }
+  #d1-barra { background: #3fb950; height: 100%; width: 100%; transition: all 0.4s; }
+  .vida-text { font-size: 14px; margin: 8px 0; font-family: 'Consolas',monospace; }
+  .vida-text span { color: #3fb950; font-weight: bold; font-size: 18px; }
+  .btn-demo { padding: 9px 14px; margin: 4px 3px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 12px; color: white; transition: transform 0.1s; }
+  .btn-demo:hover { transform: scale(1.05); }
+  .btn-curar { background: #3fb950; }
+  .btn-danio { background: #f85149; }
+  .btn-reset { background: #58a6ff; }
+  #d1-gameover { color: #f85149; font-size: 22px; font-weight: 900; text-align: center; margin-top: 14px; text-shadow: 0 0 10px #f85149; min-height: 28px; }
+
+  .code { font-family: 'Consolas',monospace; font-size: 11.5px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.65; overflow-x: auto; white-space: pre; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-prop { color: #79c0ff; }
+  .c-num { color: #f7df1e; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h2>🔄 Sistema de Vida v2 — versión definitiva (interactivo)</h2>
+
+<div class="layout">
+
+  <div class="panel">
+    <h3>🎮 Demo funcional — haz clic</h3>
+    <div class="panel-vida-demo">
+      <h4>🦹 Leon S. Kennedy</h4>
+      <div class="barra-fondo"><div id="d1-barra"></div></div>
+      <div class="vida-text">❤️ Vida: <span id="d1-num">100</span> / 100</div>
+      <button id="d1-curar" class="btn-demo btn-curar">💊 Curar (+10)</button>
+      <button id="d1-danio" class="btn-demo btn-danio">💥 Daño (-15)</button>
+      <button id="d1-reset" class="btn-demo btn-reset">🔄 Resetear</button>
+      <div id="d1-gameover"></div>
+    </div>
+    <div class="note">
+      ↑ <strong>Reconstruyan ESTO en su sitio.</strong> Quienes ya lo tenían del jueves W13: limpien y comenten su código. Quienes no: copien el código del laboratorio paso a paso.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ Estructura clave — los 5 elementos</h3>
+    <div class="code">
+<span class="c-com">// 1. Estado</span>
+<span class="c-key">let</span> vida = <span class="c-num">100</span>;
+
+<span class="c-com">// 2. Referencias al DOM</span>
+<span class="c-key">const</span> numVida = <span class="c-fn">document</span>.<span class="c-fn">querySelector</span>(<span class="c-str">'#num-vida'</span>);
+<span class="c-com">// (... otros elementos)</span>
+
+<span class="c-com">// 3. Función central</span>
+<span class="c-key">function</span> <span class="c-fn">actualizar</span>() {
+  <span class="c-com">// limita, muestra, colorea, game over</span>
+}
+
+<span class="c-com">// 4. Listeners</span>
+btnCurar.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, <span class="c-key">function</span>() {
+  vida = vida + <span class="c-num">10</span>;
+  <span class="c-fn">actualizar</span>();
+});
+
+<span class="c-com">// 5. Llamada inicial</span>
+<span class="c-fn">actualizar</span>();
+    </div>
+    <div class="note">
+      <strong>Patrón:</strong> los listeners SOLO modifican la variable y llaman <code style="color:#79c0ff;font-family:monospace;">actualizar()</code>. NO tienen lógica visual. Eso vive todo dentro de la función central. Si después cambias el diseño, lo cambias en UN solo lugar.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var v1 = 100;
+  var d1Num = document.getElementById('d1-num');
+  var d1Barra = document.getElementById('d1-barra');
+  var d1GameOver = document.getElementById('d1-gameover');
+
+  function d1Actualizar() {
+    if (v1 < 0) v1 = 0;
+    if (v1 > 100) v1 = 100;
+    d1Num.textContent = v1;
+    d1Barra.style.width = v1 + '%';
+    if (v1 > 60)      d1Barra.style.background = '#3fb950';
+    else if (v1 > 30) d1Barra.style.background = '#d29922';
+    else              d1Barra.style.background = '#f85149';
+    if (v1 === 0) d1GameOver.textContent = '💀 GAME OVER';
+    else          d1GameOver.textContent = '';
+  }
+
+  document.getElementById('d1-curar').addEventListener('click', function() { v1 = v1 + 10; d1Actualizar(); });
+  document.getElementById('d1-danio').addEventListener('click', function() { v1 = v1 - 15; d1Actualizar(); });
+  document.getElementById('d1-reset').addEventListener('click', function() { v1 = 100; d1Actualizar(); });
+  d1Actualizar();
+<\/script>
+</body>
+</html>
+`,code:`// =====================================================
+// Sistema de Vida v2 — completa los espacios en blanco
+// =====================================================
+
+let vida = 100;
+
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+function actualizar() {
+  if (vida < 0)   vida = 0;
+  if (vida > )   vida = 100;            // ¿límite superior?
+
+  numVida.textContent = vida;
+  barraFill.style.width = vida + '%';
+
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';
+  } else if (vida > ) {                  // ¿umbral medio?
+    barraFill.style.background = '#d29922';
+  } else {
+    barraFill.style.background = '#f85149';
+  }
+
+  if (vida ===  ) {                       // ¿condición de game over?
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+btnCurar.addEventListener('click', function() {
+  vida = vida + ;                         // ¿cuánto cura?
+  ();                                     // ¿qué función llamamos?
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = ;                                // ¿valor inicial?
+  actualizar();
+});
+
+actualizar();`,codeRef:`// =====================================================
+// Sistema de Vida v2 — VERSIÓN COMPLETA
+// =====================================================
+
+let vida = 100;
+
+const numVida   = document.querySelector('#num-vida');
+const barraFill = document.querySelector('#barra-fill');
+const gameOver  = document.querySelector('#game-over');
+const btnCurar  = document.querySelector('#btn-curar');
+const btnDanio  = document.querySelector('#btn-danio');
+const btnReset  = document.querySelector('#btn-reset');
+
+function actualizar() {
+  if (vida < 0)   vida = 0;
+  if (vida > 100) vida = 100;
+
+  numVida.textContent = vida;
+  barraFill.style.width = vida + '%';
+
+  if (vida > 60) {
+    barraFill.style.background = '#3fb950';
+  } else if (vida > 30) {
+    barraFill.style.background = '#d29922';
+  } else {
+    barraFill.style.background = '#f85149';
+  }
+
+  if (vida === 0) {
+    gameOver.textContent = '💀 GAME OVER';
+  } else {
+    gameOver.textContent = '';
+  }
+}
+
+btnCurar.addEventListener('click', function() {
+  vida = vida + 10;
+  actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  vida = vida - 15;
+  actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = 100;
+  actualizar();
+});
+
+actualizar();`,product:`Sistema de Vida v2 funcionando en el sitio Resident Evil — barra de vida con cambio de color, 3 botones (curar/dañar/resetear), GAME OVER al llegar a 0. Captura del sitio mostrando vida media (amarillo). Subir a Classroom.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es de NIVELACIÓN. Asume que la mitad del grupo NO tiene el sistema funcionando (duales que llegan + los que se atoraron en W13). Pasos prácticos:
+• Mostrar el demo del diagrama PRIMERO — eso da la motivación y deja claro a qué se llega.
+• Construir paso a paso EN PIZARRA — html, css, js cada uno con su tiempo.
+• Hacer pausas para que verifiquen que su barra arranque al 100%.
+• Quienes ya tenían el código del jueves: tarea pasiva — comentarlo y verificar que funciona. Mientras los demás avanzan, ellos repasan.
+Al final de la hora, hacer ronda rápida: cada alumno dice 'mi vida arranca en X y baja a Y al dar daño'. Si alguien no llegó, identifica el error con el de al lado.`},{time:`Hora 2`,title:`🧰 Funciones con parámetros — agregar features sin reescribir lógica`,theory:`📌 EL PROBLEMA QUE TENEMOS
+Mira tu código de la H1. ¿Notas algo? Los listeners son MUY similares:
+
+  btnCurar.addEventListener('click', function() {
+    vida = vida + 10;
+    actualizar();
+  });
+
+  btnDanio.addEventListener('click', function() {
+    vida = vida - 15;
+    actualizar();
+  });
+
+Cambia 'vida + 10' por 'vida - 15' y ya. Si quisieras agregar 'Poción +50' tendrías que copiar TODO el bloque otra vez. Mal. Esa es la señal de que necesitamos una función.
+
+🧰 FUNCIONES CON PARÁMETROS — LA SOLUCIÓN
+Una función con parámetros recibe valores entre paréntesis cuando la llamas:
+
+  function curar(cantidad) {
+    vida = vida + cantidad;
+    actualizar();
+  }
+
+  curar(10);   // suma 10
+  curar(50);   // suma 50
+  curar(100);  // suma 100
+
+La palabra 'cantidad' dentro de los paréntesis es el PARÁMETRO — un nombre que toma el valor que le pases al llamar. Es como una variable temporal que solo existe dentro de la función.
+
+📐 LO QUE HACEMOS HOY
+1. Crear función curar(cantidad).
+2. Crear función recibirDanio(cantidad).
+3. Refactorizar los listeners para que solo llamen a esas funciones.
+4. Agregar 2 botones nuevos:
+   • Daño crítico (-40)
+   • Poción mágica (+50)
+   Y verás que NO necesitas reescribir lógica nueva — solo llamas a las funciones existentes con otro número.
+
+💡 EL MOMENTO 'AHA'
+Cuando agregues el botón #5 y solo tengas que escribir UNA LÍNEA (curar(50)) en vez de tres, vas a ENTENDER por qué existen los parámetros. Es uno de los conceptos más importantes de toda la programación.
+
+🎁 BONUS — FUNCIONES PUEDEN DEVOLVER VALOR
+Una función puede DEVOLVER un valor con la palabra return:
+
+  function calcularDanio(arma) {
+    if (arma === 'cuchillo') return 5;
+    if (arma === 'pistola')  return 15;
+    if (arma === 'escopeta') return 40;
+    return 0;
+  }
+
+  const danio = calcularDanio('pistola');  // danio = 15
+
+No lo usamos hoy, pero queda como dato para el viernes/próxima semana.`,notebook:`Título: Funciones con parámetros.
+1. ¿Qué es un parámetro en una función?
+2. ¿Cuál es la diferencia entre 'function curar()' y 'function curar(cantidad)'?
+3. Si llamas curar(25), ¿qué valor toma la variable 'cantidad' dentro de la función?
+4. Antes del refactor, ¿cuántas líneas tenía cada listener? Después del refactor, ¿cuántas?
+5. Da 3 ejemplos de cuándo conviene usar parámetros en lugar de valores fijos.
+6. ¿Qué ventaja tiene agregar un botón nuevo con funciones vs sin funciones?`,practice:`🛠️ REFACTOR + EXTENSIÓN
+
+Paso 1 — Crear las dos nuevas funciones (después de la función actualizar()):
+
+\`\`\`js
+// Función con parámetro: recibe cuánto curar
+function curar(cantidad) {
+  vida = vida + cantidad;
+  actualizar();
+}
+
+// Función con parámetro: recibe cuánto daño hacer
+function recibirDanio(cantidad) {
+  vida = vida - cantidad;
+  actualizar();
+}
+\`\`\`
+
+Paso 2 — Refactorizar los 3 listeners existentes para que usen las funciones:
+
+\`\`\`js
+btnCurar.addEventListener('click', function() {
+  curar(10);          // ← antes era: vida = vida + 10; actualizar();
+});
+
+btnDanio.addEventListener('click', function() {
+  recibirDanio(15);   // ← antes era: vida = vida - 15; actualizar();
+});
+
+btnReset.addEventListener('click', function() {
+  vida = 100;
+  actualizar();
+});
+\`\`\`
+
+Paso 3 — Agregar 2 botones nuevos al HTML (junto a los otros):
+
+\`\`\`html
+<button id="btn-critico">⚔️ Daño crítico (-40)</button>
+<button id="btn-pocion">🧪 Poción mágica (+50)</button>
+\`\`\`
+
+Paso 4 — Conectar los 2 botones nuevos en el JS (al final, antes de actualizar()):
+
+\`\`\`js
+const btnCritico = document.querySelector('#btn-critico');
+const btnPocion  = document.querySelector('#btn-pocion');
+
+btnCritico.addEventListener('click', function() {
+  recibirDanio(40);   // ← MISMA FUNCIÓN, otro valor
+});
+
+btnPocion.addEventListener('click', function() {
+  curar(50);          // ← MISMA FUNCIÓN, otro valor
+});
+\`\`\`
+
+🎯 EL PUNTO PEDAGÓGICO
+Fíjate que los 2 botones nuevos se agregaron con UNA LÍNEA cada uno. NO tuviste que reescribir la lógica de 'vida = vida + ...' ni el 'actualizar()'. Esa es la magia de las funciones con parámetros.
+
+Paso 5 — Probar:
+• Curar normal +10, Curar mágica +50.
+• Daño normal -15, Daño crítico -40 (dos críticos seguidos te mandan al rojo).
+• Mezcla los botones libremente — todo debe funcionar consistentemente.
+
+🚀 RETO OPCIONAL — agregar un 6° botón 'Suero milagroso' que cure 999 (lo cual quedará limitado a 100 por la función actualizar()). Con UNA LÍNEA: curar(999).`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  .panel-vida-demo { background: linear-gradient(180deg, #1a1a1a, #0a0a0a); color: #fff; padding: 22px; border-radius: 10px; border: 2px solid #333; }
+  .panel-vida-demo h4 { font-size: 17px; margin-bottom: 14px; color: #f7df1e; }
+  .barra-fondo { background: #333; height: 22px; border-radius: 11px; overflow: hidden; margin: 12px 0; }
+  #d2-barra { background: #3fb950; height: 100%; width: 100%; transition: all 0.4s; }
+  .vida-text { font-size: 14px; margin: 8px 0; font-family: 'Consolas',monospace; }
+  .vida-text span { color: #3fb950; font-weight: bold; font-size: 18px; }
+  .btn-demo { padding: 8px 12px; margin: 3px 2px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 11px; color: white; transition: transform 0.1s; }
+  .btn-demo:hover { transform: scale(1.05); }
+  .btn-curar  { background: #3fb950; }
+  .btn-pocion { background: #6a9955; }
+  .btn-danio  { background: #f85149; }
+  .btn-crit   { background: #8b0000; }
+  .btn-reset  { background: #58a6ff; }
+  #d2-gameover { color: #f85149; font-size: 22px; font-weight: 900; text-align: center; margin-top: 14px; text-shadow: 0 0 10px #f85149; min-height: 28px; }
+
+  .code { font-family: 'Consolas',monospace; font-size: 11.5px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.65; overflow-x: auto; white-space: pre; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-prop { color: #79c0ff; }
+  .c-num { color: #f7df1e; }
+  .c-param { color: #ffa657; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h2>🧰 Funciones con parámetros — 5 botones, UNA función curar() y UNA recibirDanio()</h2>
+
+<div class="layout">
+
+  <div class="panel">
+    <h3>🎮 5 botones, comportamiento distinto, MISMA función</h3>
+    <div class="panel-vida-demo">
+      <h4>🦹 Leon S. Kennedy</h4>
+      <div class="barra-fondo"><div id="d2-barra"></div></div>
+      <div class="vida-text">❤️ Vida: <span id="d2-num">100</span> / 100</div>
+      <button id="d2-curar"  class="btn-demo btn-curar">💊 Curar (+10)</button>
+      <button id="d2-pocion" class="btn-demo btn-pocion">🧪 Poción (+50)</button>
+      <br>
+      <button id="d2-danio"  class="btn-demo btn-danio">💥 Daño (-15)</button>
+      <button id="d2-crit"   class="btn-demo btn-crit">⚔️ Crítico (-40)</button>
+      <br>
+      <button id="d2-reset"  class="btn-demo btn-reset">🔄 Resetear</button>
+      <div id="d2-gameover"></div>
+    </div>
+    <div class="note">
+      ↑ Prueba <strong>Poción</strong> y <strong>Crítico</strong>. Esos 2 botones nuevos se agregaron con UNA LÍNEA de código cada uno gracias a las funciones con parámetros.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ El código — funciones reutilizables</h3>
+    <div class="code">
+<span class="c-com">// Las DOS funciones con parámetro</span>
+<span class="c-key">function</span> <span class="c-fn">curar</span>(<span class="c-param">cantidad</span>) {
+  vida = vida + <span class="c-param">cantidad</span>;
+  <span class="c-fn">actualizar</span>();
+}
+
+<span class="c-key">function</span> <span class="c-fn">recibirDanio</span>(<span class="c-param">cantidad</span>) {
+  vida = vida - <span class="c-param">cantidad</span>;
+  <span class="c-fn">actualizar</span>();
+}
+
+<span class="c-com">// Los 5 listeners — UNA LÍNEA cada uno</span>
+btnCurar.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, () =&gt; <span class="c-fn">curar</span>(<span class="c-num">10</span>));
+btnPocion.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, () =&gt; <span class="c-fn">curar</span>(<span class="c-num">50</span>));
+btnDanio.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, () =&gt; <span class="c-fn">recibirDanio</span>(<span class="c-num">15</span>));
+btnCrit.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, () =&gt; <span class="c-fn">recibirDanio</span>(<span class="c-num">40</span>));
+    </div>
+    <div class="note">
+      <strong>El momento "aha":</strong> agregar el 6° botón solo requiere UNA línea. <code style="color:#79c0ff;font-family:monospace;">curar(999)</code> ya está. Esa es la potencia de los parámetros.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var v2 = 100;
+  var d2Num = document.getElementById('d2-num');
+  var d2Barra = document.getElementById('d2-barra');
+  var d2GameOver = document.getElementById('d2-gameover');
+
+  function d2Actualizar() {
+    if (v2 < 0) v2 = 0;
+    if (v2 > 100) v2 = 100;
+    d2Num.textContent = v2;
+    d2Barra.style.width = v2 + '%';
+    if (v2 > 60)      d2Barra.style.background = '#3fb950';
+    else if (v2 > 30) d2Barra.style.background = '#d29922';
+    else              d2Barra.style.background = '#f85149';
+    d2GameOver.textContent = (v2 === 0) ? '💀 GAME OVER' : '';
+  }
+
+  function d2Curar(cantidad)   { v2 = v2 + cantidad; d2Actualizar(); }
+  function d2RecibirDanio(c)   { v2 = v2 - c;        d2Actualizar(); }
+
+  document.getElementById('d2-curar').addEventListener('click',  function() { d2Curar(10); });
+  document.getElementById('d2-pocion').addEventListener('click', function() { d2Curar(50); });
+  document.getElementById('d2-danio').addEventListener('click',  function() { d2RecibirDanio(15); });
+  document.getElementById('d2-crit').addEventListener('click',   function() { d2RecibirDanio(40); });
+  document.getElementById('d2-reset').addEventListener('click',  function() { v2 = 100; d2Actualizar(); });
+  d2Actualizar();
+<\/script>
+</body>
+</html>
+`,code:`// =====================================================
+// Funciones con parámetros — completa los blancos
+// =====================================================
+
+// (Asume que ya tienes vida, querySelectors y función actualizar() del H1)
+
+// 1. Crear las funciones con parámetro
+function curar(cantidad) {
+  vida = vida + ;          // ¿qué sumamos a vida?
+  actualizar();
+}
+
+function recibirDanio(cantidad) {
+  vida = vida -  ;         // ¿qué restamos?
+  actualizar();
+}
+
+// 2. Refactorizar listeners existentes
+btnCurar.addEventListener('click', function() {
+  (10);                   // ¿qué función llamamos?
+});
+
+btnDanio.addEventListener('click', function() {
+  recibirDanio( );        // ¿cuánto daño?
+});
+
+// 3. Conectar botones nuevos (necesitas querySelectors antes)
+const btnCritico = document.querySelector('#btn-critico');
+const btnPocion  = document.querySelector('#btn-pocion');
+
+btnCritico.addEventListener('click', function() {
+  recibirDanio(40);
+});
+
+btnPocion.addEventListener('click', function() {
+  curar( );              // ¿cuánto cura la poción?
+});`,codeRef:`// =====================================================
+// Funciones con parámetros — VERSIÓN COMPLETA
+// =====================================================
+
+function curar(cantidad) {
+  vida = vida + cantidad;
+  actualizar();
+}
+
+function recibirDanio(cantidad) {
+  vida = vida - cantidad;
+  actualizar();
+}
+
+btnCurar.addEventListener('click', function() {
+  curar(10);
+});
+
+btnDanio.addEventListener('click', function() {
+  recibirDanio(15);
+});
+
+const btnCritico = document.querySelector('#btn-critico');
+const btnPocion  = document.querySelector('#btn-pocion');
+
+btnCritico.addEventListener('click', function() {
+  recibirDanio(40);
+});
+
+btnPocion.addEventListener('click', function() {
+  curar(50);
+});`,product:`Sistema de Vida con 5 botones funcionando: Curar +10, Poción +50, Daño -15, Crítico -40, Resetear. Demostrar que agregar un 6° botón solo requiere una línea (escribir el reto del Suero +999 en libreta).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: ESTA hora es donde aterriza el concepto de PARÁMETROS — uno de los más fundamentales de toda la programación. Pasos pedagógicos:
+
+1. Mostrar PRIMERO el diagrama. Que toquen los 5 botones del demo. Que vean que Poción y Crítico hacen lo mismo que los otros pero con otro número.
+2. En su código: identificar la repetición primero. 'Mira las dos líneas vida = vida + 10 y vida = vida - 15. Casi idénticas.' Que ELLOS lo digan.
+3. Introducir el parámetro como 'el número que va dentro de los paréntesis es como un casillero — toma el valor que le pases al llamar'.
+4. El reto del 6° botón es ORO didáctico: 'agreguen Suero milagroso +999 en UNA línea'. Cuando lo hagan, hacer pausa. Recalcar: 'Antes hubiera sido un bloque de 3 líneas. Ahora es 1. Eso es el poder de las funciones con parámetros.'
+5. Errores típicos:
+   • Olvidar el parámetro en la declaración: function curar() { vida = vida + cantidad; } → cantidad no existe.
+   • Cambiar el nombre del parámetro y luego usar otro adentro: function curar(x) { vida = vida + cantidad; } → cantidad no está definida.
+   • Pasar string en vez de número: curar('10') → concatena en vez de sumar.`},{time:`Hora 3`,title:`🧟 setInterval — el zombi ataca solo cada cierto tiempo`,theory:`🕐 EL TIEMPO EN JAVASCRIPT
+Hasta ahora todo el código se ejecuta cuando ocurre un evento (click, mouseover...) o al cargar la página. Hoy aprendemos a que algo pase SOLO cada cierto tiempo, sin que el usuario haga nada.
+
+Eso lo logra setInterval.
+
+📐 setInterval — LA SINTAXIS
+setInterval(función, milisegundos) — ejecuta la función UNA Y OTRA VEZ con un intervalo de X milisegundos.
+
+  setInterval(function() {
+    console.log('Pasó un segundo');
+  }, 1000);   // 1000 ms = 1 segundo
+
+Esto imprime 'Pasó un segundo' cada segundo, para siempre.
+
+💡 IMPORTANTE — setInterval DEVUELVE UN ID
+Cuando creas un interval, devuelve un identificador. Lo guardamos en una variable porque después lo necesitaremos para DETENERLO:
+
+  let miInterval = setInterval(function() { ... }, 3000);
+
+🛑 clearInterval — PARA DETENERLO
+  clearInterval(miInterval);   // detiene ese interval específico
+
+Sin clearInterval, el setInterval corre HASTA QUE recargas la página. Es importante poder pararlo.
+
+🧟 LO QUE HACEMOS HOY
+Agregamos al Sistema de Vida:
+• Un botón 'Aparece un zombi' que inicia el ataque.
+• Una variable zombiInterval para guardar el ID del setInterval.
+• Cada 3 segundos, el zombi te quita 8 puntos de vida (llamando a recibirDanio(8) de la H2).
+• Un botón 'Huir' que detiene el ataque con clearInterval.
+• Un texto de alerta visible: '🧟 Un zombi te muerde'.
+
+🎮 ESTO ES UN JUEGO DE VERDAD
+Por primera vez, el sitio HACE algo solo. La vida baja sin que nadie haga clic. Tienen que reaccionar — curarse rápido, o huir. Es el momento en que JavaScript deja de ser 'el lenguaje que ejecuta cuando hago algo' y se vuelve 'el lenguaje que controla un mundo vivo'.
+
+⚠️ CUIDADO con MULTIPLES INTERVALS
+Si presionan 'Aparece zombi' varias veces sin huir, se acumulan varios intervals corriendo a la vez (cada uno restando 8 cada 3s). Para evitarlo, antes de crear uno nuevo, podemos verificar si ya existe.`,notebook:`Título: setInterval — el tiempo en JS.
+1. ¿Qué hace setInterval?
+2. ¿Qué unidad usan los milisegundos? ¿Cuántos ms son 5 segundos?
+3. ¿Por qué setInterval devuelve un valor que guardamos en una variable?
+4. ¿Qué hace clearInterval?
+5. ¿Qué pasa si presionas 'Aparece zombi' 3 veces seguidas sin huir?
+6. Reflexión: nombra 3 cosas en una página real que usen setInterval (animaciones, relojes, etc.).`,practice:`🧟 EL ZOMBI APARECE
+
+Paso 1 — Agregar al HTML (al final de los botones):
+
+\`\`\`html
+<div class="zombi-zone">
+  <button id="btn-zombi">🧟 Aparece un zombi</button>
+  <button id="btn-huir">🏃 Huir</button>
+  <p id="alerta-zombi"></p>
+</div>
+\`\`\`
+
+Paso 2 — CSS opcional para que se vea distinto:
+
+\`\`\`css
+.zombi-zone { margin-top: 16px; padding-top: 12px; border-top: 1px solid #444; }
+#btn-zombi { background: #8b0000; }
+#btn-huir  { background: #d29922; }
+#alerta-zombi { color: #ff6b6b; font-weight: bold; margin-top: 8px; min-height: 20px; }
+\`\`\`
+
+Paso 3 — JavaScript (al final de tu script.js):
+
+\`\`\`js
+// =====================================================
+// El zombi ataca — DEWE Semana 14 Hora 3
+// =====================================================
+
+const btnZombi  = document.querySelector('#btn-zombi');
+const btnHuir   = document.querySelector('#btn-huir');
+const alerta    = document.querySelector('#alerta-zombi');
+
+// Variable global para guardar el ID del intervalo
+let zombiInterval = null;
+
+btnZombi.addEventListener('click', function() {
+  // Evitar que se cree un segundo zombi si ya hay uno
+  if (zombiInterval !== null) return;
+
+  alerta.textContent = '🧟 ¡Un zombi te ataca! Corre o cúrate.';
+
+  // El zombi muerde cada 3 segundos
+  zombiInterval = setInterval(function() {
+    recibirDanio(8);   // ← REUSAMOS la función de la H2
+    console.log('🧟 Mordida. Vida: ' + vida);
+  }, 3000);
+});
+
+btnHuir.addEventListener('click', function() {
+  if (zombiInterval === null) {
+    alerta.textContent = 'No hay zombis cerca.';
+    return;
+  }
+  clearInterval(zombiInterval);
+  zombiInterval = null;   // resetear para poder volver a invocar
+  alerta.textContent = '🏃 Lograste huir. Por ahora.';
+});
+\`\`\`
+
+Paso 4 — Probar:
+• Click en 'Aparece un zombi' → cada 3 segundos pierdes 8 de vida.
+• Mientras tanto, puedes seguir usando Curar/Poción para resistir.
+• Si la vida llega a 0 → GAME OVER (gracias a la función actualizar de la H1).
+• Click en 'Huir' → el ataque se detiene.
+• Vuelves a clickar 'Zombi' → empieza otra ronda.
+
+🎯 RETO FINAL DEL SEMESTRE
+Intentar sobrevivir 30 segundos contra el zombi usando solo el botón Curar (+10). Hay que clickar rápido — el zombi quita 8 cada 3s, tú curas 10 al instante. Pero si lo clickeas muy seguido tu vida no pasa de 100. Estrategia.
+
+🚀 BONUS — agregar un segundo zombi MÁS RÁPIDO (cada 1.5s pero -5) — combinándolos hace la dificultad real.`,diagram:`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; font-family: 'Segoe UI', sans-serif; color: #e6edf3; padding: 24px; }
+  h2 { font-size: 15px; color: #f7df1e; margin-bottom: 18px; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+  .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; }
+  .panel h3 { font-size: 11px; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  .panel-vida-demo { background: linear-gradient(180deg, #1a1a1a, #0a0a0a); color: #fff; padding: 22px; border-radius: 10px; border: 2px solid #333; }
+  .panel-vida-demo h4 { font-size: 17px; margin-bottom: 14px; color: #f7df1e; }
+  .barra-fondo { background: #333; height: 22px; border-radius: 11px; overflow: hidden; margin: 12px 0; }
+  #d3-barra { background: #3fb950; height: 100%; width: 100%; transition: all 0.4s; }
+  .vida-text { font-size: 14px; margin: 8px 0; font-family: 'Consolas',monospace; }
+  .vida-text span { color: #3fb950; font-weight: bold; font-size: 18px; }
+  .btn-demo { padding: 8px 12px; margin: 3px 2px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 11px; color: white; transition: transform 0.1s; }
+  .btn-demo:hover { transform: scale(1.05); }
+  .btn-curar { background: #3fb950; }
+  .btn-zombi { background: #8b0000; }
+  .btn-huir  { background: #d29922; }
+  .btn-reset { background: #58a6ff; }
+  #d3-gameover { color: #f85149; font-size: 22px; font-weight: 900; text-align: center; margin-top: 14px; text-shadow: 0 0 10px #f85149; min-height: 28px; }
+  .zombi-zone { margin-top: 14px; padding-top: 12px; border-top: 1px solid #444; }
+  #d3-alerta { color: #ff6b6b; font-weight: bold; font-size: 12px; margin-top: 8px; min-height: 18px; }
+
+  .code { font-family: 'Consolas',monospace; font-size: 11.5px; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; color: #e6edf3; line-height: 1.65; overflow-x: auto; white-space: pre; }
+  .c-com { color: #6e7681; font-style: italic; }
+  .c-key { color: #ff7b72; }
+  .c-fn  { color: #d2a8ff; }
+  .c-str { color: #a5d6ff; }
+  .c-num { color: #f7df1e; }
+  .c-param { color: #ffa657; }
+  .note { background: #1a1f29; border-left: 3px solid #f7df1e; padding: 10px 12px; font-size: 11px; color: #8b949e; margin-top: 12px; border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .note strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h2>🧟 El zombi ataca SOLO — setInterval en vivo</h2>
+
+<div class="layout">
+
+  <div class="panel">
+    <h3>🎮 Sobrevive — el zombi muerde cada 1.5 segundos</h3>
+    <div class="panel-vida-demo">
+      <h4>🦹 Leon S. Kennedy</h4>
+      <div class="barra-fondo"><div id="d3-barra"></div></div>
+      <div class="vida-text">❤️ Vida: <span id="d3-num">100</span> / 100</div>
+      <button id="d3-curar" class="btn-demo btn-curar">💊 Curar (+10)</button>
+      <button id="d3-reset" class="btn-demo btn-reset">🔄 Resetear</button>
+      <div class="zombi-zone">
+        <button id="d3-zombi" class="btn-demo btn-zombi">🧟 Aparece un zombi</button>
+        <button id="d3-huir"  class="btn-demo btn-huir">🏃 Huir</button>
+        <p id="d3-alerta"></p>
+      </div>
+      <div id="d3-gameover"></div>
+    </div>
+    <div class="note">
+      ↑ Click <strong>🧟 Aparece un zombi</strong>. La vida bajará SOLA. Cura rápido o huye. Es el primer JS que actúa por su cuenta sin que tú hagas clic.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>⚡ setInterval + clearInterval</h3>
+    <div class="code">
+<span class="c-com">// Variable para guardar el ID del intervalo</span>
+<span class="c-key">let</span> zombiInterval = <span class="c-key">null</span>;
+
+btnZombi.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, <span class="c-key">function</span>() {
+  <span class="c-com">// Evitar duplicados</span>
+  <span class="c-key">if</span> (zombiInterval !== <span class="c-key">null</span>) <span class="c-key">return</span>;
+
+  <span class="c-com">// El zombi muerde cada 3 segundos (3000 ms)</span>
+  zombiInterval = <span class="c-fn">setInterval</span>(<span class="c-key">function</span>() {
+    <span class="c-fn">recibirDanio</span>(<span class="c-num">8</span>);
+  }, <span class="c-num">3000</span>);
+});
+
+btnHuir.<span class="c-fn">addEventListener</span>(<span class="c-str">'click'</span>, <span class="c-key">function</span>() {
+  <span class="c-fn">clearInterval</span>(zombiInterval);
+  zombiInterval = <span class="c-key">null</span>;
+});
+    </div>
+    <div class="note">
+      <strong>Reutilización:</strong> el zombi solo llama <code style="color:#79c0ff;font-family:monospace;">recibirDanio(8)</code> — la función con parámetro que hicimos en la H2. NO duplica lógica. El sistema crece sin reescribirse.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var v3 = 100;
+  var d3Num = document.getElementById('d3-num');
+  var d3Barra = document.getElementById('d3-barra');
+  var d3GameOver = document.getElementById('d3-gameover');
+  var d3Alerta = document.getElementById('d3-alerta');
+  var d3ZombiInterval = null;
+
+  function d3Actualizar() {
+    if (v3 < 0) v3 = 0;
+    if (v3 > 100) v3 = 100;
+    d3Num.textContent = v3;
+    d3Barra.style.width = v3 + '%';
+    if (v3 > 60)      d3Barra.style.background = '#3fb950';
+    else if (v3 > 30) d3Barra.style.background = '#d29922';
+    else              d3Barra.style.background = '#f85149';
+    if (v3 === 0) {
+      d3GameOver.textContent = '💀 GAME OVER';
+      if (d3ZombiInterval !== null) {
+        clearInterval(d3ZombiInterval);
+        d3ZombiInterval = null;
+        d3Alerta.textContent = '';
+      }
+    } else {
+      d3GameOver.textContent = '';
+    }
+  }
+
+  function d3Curar(cantidad) { v3 = v3 + cantidad; d3Actualizar(); }
+  function d3RecibirDanio(c) { v3 = v3 - c; d3Actualizar(); }
+
+  document.getElementById('d3-curar').addEventListener('click', function() { d3Curar(10); });
+  document.getElementById('d3-reset').addEventListener('click', function() {
+    v3 = 100;
+    if (d3ZombiInterval !== null) {
+      clearInterval(d3ZombiInterval);
+      d3ZombiInterval = null;
+    }
+    d3Alerta.textContent = '';
+    d3Actualizar();
+  });
+  document.getElementById('d3-zombi').addEventListener('click', function() {
+    if (d3ZombiInterval !== null) return;
+    d3Alerta.textContent = '🧟 ¡Un zombi te ataca! Corre o cúrate.';
+    d3ZombiInterval = setInterval(function() {
+      d3RecibirDanio(8);
+    }, 1500);
+  });
+  document.getElementById('d3-huir').addEventListener('click', function() {
+    if (d3ZombiInterval === null) {
+      d3Alerta.textContent = 'No hay zombis cerca.';
+      return;
+    }
+    clearInterval(d3ZombiInterval);
+    d3ZombiInterval = null;
+    d3Alerta.textContent = '🏃 Lograste huir. Por ahora.';
+  });
+  d3Actualizar();
+<\/script>
+</body>
+</html>
+`,code:`// =====================================================
+// El zombi ataca — completa los blancos
+// =====================================================
+
+const btnZombi = document.querySelector('#btn-zombi');
+const btnHuir  = document.querySelector('#btn-huir');
+const alerta   = document.querySelector('#alerta-zombi');
+
+let zombiInterval = null;
+
+btnZombi.addEventListener('click', function() {
+  if (zombiInterval !== null) return;
+  alerta.textContent = '🧟 ¡Un zombi te ataca!';
+
+  zombiInterval = setInterval(function() {
+    recibirDanio( );           // ¿cuánto daño hace?
+  },  );                       // ¿cada cuántos ms? (3 segundos)
+});
+
+btnHuir.addEventListener('click', function() {
+  if (zombiInterval === null) return;
+   (zombiInterval);            // ¿qué función detiene el intervalo?
+  zombiInterval = null;
+  alerta.textContent = '🏃 Lograste huir.';
+});`,codeRef:`// =====================================================
+// El zombi ataca — VERSIÓN COMPLETA
+// =====================================================
+
+const btnZombi = document.querySelector('#btn-zombi');
+const btnHuir  = document.querySelector('#btn-huir');
+const alerta   = document.querySelector('#alerta-zombi');
+
+let zombiInterval = null;
+
+btnZombi.addEventListener('click', function() {
+  if (zombiInterval !== null) return;
+  alerta.textContent = '🧟 ¡Un zombi te ataca! Corre o cúrate.';
+
+  zombiInterval = setInterval(function() {
+    recibirDanio(8);
+    console.log('🧟 Mordida. Vida: ' + vida);
+  }, 3000);
+});
+
+btnHuir.addEventListener('click', function() {
+  if (zombiInterval === null) {
+    alerta.textContent = 'No hay zombis cerca.';
+    return;
+  }
+  clearInterval(zombiInterval);
+  zombiInterval = null;
+  alerta.textContent = '🏃 Lograste huir. Por ahora.';
+});`,product:`Mini-juego completo en el sitio Resident Evil: vida + 5 botones de la H2 + zombi que ataca solo cada 3s + botón de huir. Captura mostrando vida bajando sola con el mensaje del zombi visible. Subir a Classroom. CIERRE DEL SEMESTRE.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: ESTE es EL momento del semestre. La primera vez que el sitio actúa SOLO sin esperar al usuario es un parteaguas mental. Pasos:
+
+1. Mostrar el demo PRIMERO. Que jueguen 3 minutos contra el zombi del diagrama. Que pierdan, ganen, huyan.
+2. Explicar setInterval con la analogía del despertador: 'cada cuántos minutos suena, hasta que lo apagues'.
+3. La parte del 'evitar duplicados' (if zombiInterval !== null) es importante — sin ella, presionar el botón 5 veces crea 5 zombis simultáneos. Demostrarlo es divertido.
+4. Recalcar la reutilización de recibirDanio(8) — el zombi no escribe lógica nueva, USA lo que hicieron en la H2.
+
+RETO DE CIERRE DEL SEMESTRE: 'Sobrevive 30 segundos contra el zombi usando solo Curar +10'. Quien lo logre, presenta su estrategia.
+
+Al FIN DE LA HORA: hacer una reflexión rápida. '¿Qué sabías de JavaScript hace 4 semanas? ¿Y ahora?'. La diferencia entre el alumno de hoy y el de la W11 (donde apenas escribía console.log) es enorme. Es justo cierre del semestre.
+
+Errores típicos:
+• Olvidar guardar el ID del setInterval → no se puede detener.
+• Pasar la función con paréntesis: setInterval(recibirDanio(8), 3000) — eso EJECUTA recibirDanio(8) UNA VEZ inmediatamente, no cada 3s. La sintaxis correcta es setInterval(function() { recibirDanio(8); }, 3000).
+• No limpiar zombiInterval = null después de clearInterval — el botón de aparecer ya no funcionará (la verificación falla).`}],cierre:`Cierre del semestre. Tres horas, tres saltos: nivelaron a todos en el Sistema de Vida, descubrieron las funciones con parámetros como herramienta de no-repetición, y vieron por primera vez código que se ejecuta solo en el tiempo. El sitio ya no es una página — es un mundo vivo.`,frase_docente:`Cuando la página actúa sin que tú la toques, ya estás programando juegos.`},{id:`thu`,label:`Jueves — 🚧 Por planear`,purpose:`Sesión pendiente. Posibles direcciones: arrays + inventario, refactor con localStorage, o repaso integrador para evaluación final.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Esta sesión se planeará después del lunes según el avance del grupo. Direcciones probables:
+
+• Arrays + inventario de items recogibles (pistola, hierba, llave).
+• localStorage para guardar progreso entre recargas.
+• Repaso integrador con vistas a la evaluación final del semestre.
+• Práctica libre y atención a casos que se atoraron.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decidir en función del avance del lunes y la cercanía a la evaluación final del semestre.`}],cierre:`Sesión por definir.`,frase_docente:`Las dos últimas sesiones del semestre son momento de mirar atrás antes de mirar adelante.`},{id:`fri`,label:`Viernes — 🚧 Por planear`,purpose:`Última sesión del semestre con grupo completo (incluye duales). Probable showcase / exposición de los mini-juegos personales + evaluación final.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Última sesión del semestre. Direcciones probables:
+
+• Showcase: cada alumno presenta su mini-juego (Sistema de Vida + funciones + zombi) en 2 minutos.
+• Evaluación final: rúbrica del semestre, autoevaluación.
+• Despedida y reflexión sobre lo aprendido.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria — posible showcase.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Última sesión. Asegurar que TODOS los alumnos tengan algún mini-juego que mostrar (aunque sea la versión básica de la H1 del lunes).`}],cierre:`Sesión por definir — última del semestre.`,frase_docente:`El semestre que termina es solo el principio del programador.`}]}}},Oe=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),M=o(((e,t)=>{t.exports=Oe()}))(),ke=[{label:`Desarrollo de páginas web estáticas`,peso:`60%`,ras:[{id:`1.1`,desc:`Estructura del sitio web`,act:`1.1.1`,peso:`15%`},{id:`1.2`,desc:`HTML estático`,act:`1.2.1`,peso:`20%`},{id:`1.3`,desc:`Hojas de estilo CSS`,act:`1.3.1`,peso:`25%`}]},{label:`Desarrollo de páginas web dinámicas`,peso:`40%`,ras:[{id:`2.1`,desc:`Interactividad con JavaScript`,act:`2.1.1`,peso:`20%`},{id:`2.2`,desc:`Acceso a bases de datos`,act:`2.2.1`,peso:`20%`}]}],Ae=()=>{let[e,t]=(0,_.useState)(!1);return(0,M.jsxs)(`div`,{className:`ponderacion-panel`,children:[(0,M.jsxs)(`div`,{className:`ponderacion-header`,onClick:()=>t(e=>!e),children:[(0,M.jsx)(A,{size:13,className:`pond-icon`}),(0,M.jsx)(`span`,{children:`Ponderación`}),(0,M.jsx)(fe,{size:12,style:{transform:e?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}})]}),e&&(0,M.jsxs)(`div`,{className:`ponderacion-body`,children:[ke.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-unit`,children:[(0,M.jsxs)(`div`,{className:`pond-unit-header`,children:[(0,M.jsxs)(`span`,{className:`pond-unit-title`,children:[t+1,`. `,e.label]}),(0,M.jsx)(`span`,{className:`pond-unit-peso`,children:e.peso})]}),e.ras.map((e,t)=>(0,M.jsxs)(`div`,{className:`pond-ra-row`,children:[(0,M.jsx)(`span`,{className:`pond-ra-id`,children:e.id}),(0,M.jsx)(`span`,{className:`pond-ra-desc`,children:e.desc}),(0,M.jsx)(`span`,{className:`pond-ra-peso`,children:e.peso})]},t))]},t)),(0,M.jsxs)(`div`,{className:`pond-total`,children:[(0,M.jsx)(`span`,{children:`Total del módulo`}),(0,M.jsx)(`span`,{children:`100%`})]})]})]})},je=De.ras.flatMap(e=>e.weeks.map(e=>e.id)),Me=Object.fromEntries(De.cortes.map(e=>[e.id,e])),Ne=De.ras,Pe=({activeWeek:e,activeView:t,onWeekSelect:n,onViewSelect:r,currentWeek:i,nextWeek:a,isTeacherMode:o,isMobileOpen:s,onMobileClose:c})=>{let l=je.indexOf(i),u=e=>!(je.indexOf(e)<=l||o),[d,f]=(0,_.useState)(()=>{let t={};return De.ras.forEach(n=>{t[n.id]=n.weeks.some(t=>t.id===e)}),t}),p=e=>f(t=>({...t,[e]:!t[e]})),m=e=>{u(e)||(n(e),r(`curriculum`),c&&c())};return(0,M.jsxs)(M.Fragment,{children:[s&&(0,M.jsx)(`div`,{className:`sidebar-overlay`,onClick:c}),(0,M.jsxs)(`aside`,{className:`sidebar ${s?`mobile-open`:``}`,children:[(0,M.jsxs)(`div`,{className:`sidebar-header`,children:[(0,M.jsxs)(`div`,{className:`school-brand`,children:[(0,M.jsx)(`div`,{className:`brand-icon`,children:(0,M.jsx)(ge,{size:18,color:`white`,strokeWidth:2.5})}),(0,M.jsxs)(`div`,{className:`school-info`,children:[(0,M.jsx)(`h1`,{className:`school-title`,children:`CONALEP`}),(0,M.jsx)(`p`,{className:`school-subtitle`,children:`Pachuca II`})]})]}),(0,M.jsxs)(`div`,{className:`author-credits`,children:[(0,M.jsx)(`p`,{className:`author-label`,children:`Realizado por`}),(0,M.jsx)(`p`,{className:`author-name`,children:`Dr. Felipe López Salazar`})]}),(0,M.jsx)(`div`,{style:{fontSize:`11px`,color:`#facc15`,textAlign:`right`,paddingRight:`12px`,paddingBottom:`6px`,fontWeight:`bold`,letterSpacing:`1px`},children:`v48-diag`})]}),(0,M.jsxs)(`nav`,{className:`nav-container`,children:[(0,M.jsxs)(`div`,{className:`main-nav-section`,children:[(0,M.jsxs)(`a`,{className:`main-nav-link ${t===`codelab`?`active`:``}`,onClick:()=>{r(`codelab`),c&&c()},children:[(0,M.jsx)(he,{size:15,className:`doc-icon`}),`Laboratorio de Código`]}),(0,M.jsxs)(`a`,{className:`main-nav-link proyecto-nav-link ${t===`proyecto`?`active`:``}`,onClick:()=>{r(`proyecto`),c&&c()},children:[(0,M.jsx)(pe,{size:15,className:`doc-icon`}),`Proyecto — Resident Evil`]})]}),(0,M.jsx)(Ae,{}),(0,M.jsx)(`p`,{className:`portal-title`,children:`Contenido del Curso`}),Ne.map(n=>{let r=d[n.id],s=n.weeks.some(t=>t.id===e),c=Me[n.corte];return(0,M.jsxs)(`div`,{className:`ra-card ${s?`ra-card-active`:``}`,children:[(0,M.jsxs)(`div`,{className:`ra-card-header`,onClick:()=>p(n.id),children:[(0,M.jsx)(fe,{size:11,className:`ra-chevron`,style:{transform:r?`rotate(90deg)`:`rotate(0deg)`,transition:`transform 0.2s ease`,flexShrink:0}}),(0,M.jsx)(ue,{size:13,className:`ra-icon`}),(0,M.jsx)(`span`,{className:`ra-card-title`,children:n.title}),(0,M.jsxs)(`span`,{className:`ra-badge-corte ra-badge-corte-${n.corte}`,children:[c.label,` · `,n.peso??c.peso]})]}),r&&(0,M.jsx)(`div`,{className:`ra-weeks-list`,children:n.weeks.map(n=>{let r=e===n.id&&t===`curriculum`,s=i===n.id,c=u(n.id),l=o&&n.id===a;return(0,M.jsxs)(`div`,{className:`week-item ${r?`active`:``} ${c?`locked`:``}`,onClick:()=>m(n.id),children:[(0,M.jsx)(`span`,{className:`week-item-label`,children:n.label}),(0,M.jsxs)(`span`,{className:`week-item-badges`,children:[c&&(0,M.jsx)(ye,{size:10,className:`lock-icon`}),s&&(0,M.jsx)(`span`,{className:`badge-hoy`,children:`HOY`}),l&&(0,M.jsx)(`span`,{className:`badge-preview`,children:`PREVIA`})]})]},n.id)})})]},n.id)})]})]})]})},Fe=(e,t)=>{for(let n of t.ras){let t=n.weeks?.find(t=>t.id===e);if(t)return{label:t.label,raTitle:n.title}}return{label:`Semana ${e.replace(`W`,``)}`,raTitle:``}},Ie=({text:e})=>{if(!e)return null;let t=e.split(`
 `).map(e=>e.trim()).filter(e=>e.length>0);if(t.length<=1)return(0,M.jsx)(`p`,{children:e});let n=[],r=null,i=!1,a=[],o=()=>{r&&=(n.push(r),null)};for(let e of t){if(e==="```"){i?(o(),n.push({type:`code`,content:a.join(`
 `)}),a=[],i=!1):(o(),i=!0);continue}if(i){a.push(e);continue}let t=/^[-•]\s/.test(e),s=/^[0-9]+\.\s/.test(e),c=!t&&!s&&/^[\u{1F300}-\u{1FAFF}⚡⚠️✅❌📖🔌🔄🔑🧠📌🎯]/u.test(e);if(t||s){let t=s?`ol`:`ul`;(!r||r.type!==t)&&(o(),r={type:t,items:[]}),r.items.push(e.replace(/^[-•]\s*/,``).replace(/^[0-9]+\.\s*/,``))}else o(),n.push({type:c?`heading`:`p`,content:e})}return o(),i&&a.length&&n.push({type:`code`,content:a.join(`
 `)}),n.length===0?(0,M.jsx)(`p`,{children:e}):(0,M.jsx)(`div`,{className:`smart-content`,children:n.map((e,t)=>e.type===`heading`?(0,M.jsx)(`div`,{className:`smart-heading`,children:e.content},t):e.type===`p`?(0,M.jsx)(`p`,{children:e.content},t):e.type===`code`?(0,M.jsx)(`pre`,{className:`smart-code`,children:(0,M.jsx)(`code`,{children:e.content})},t):e.type===`ul`?(0,M.jsx)(`ul`,{className:`smart-list bulleted`,children:e.items.map((e,t)=>(0,M.jsx)(`li`,{children:e},t))},t):e.type===`ol`?(0,M.jsx)(`ol`,{className:`smart-list numbered`,children:e.items.map((e,t)=>(0,M.jsx)(`li`,{children:e},t))},t):null)})},Le={theory:{icon:(0,M.jsx)(ue,{size:13}),label:`Teoría (10 min)`,cls:`theory`},notebook:{icon:(0,M.jsx)(we,{size:13}),label:`Actividad en libreta`,cls:`notebook`},practice:{icon:(0,M.jsx)(Ee,{size:13}),label:`Práctica en PC`,cls:`practice`},product:{icon:(0,M.jsx)(Ce,{size:13}),label:`Producto de la sesión`,cls:`product-block`},teacher:{icon:(0,M.jsx)(ge,{size:13}),label:`Solo Docente — Notas`,cls:`teacher-only`},screenshot:{icon:(0,M.jsx)(de,{size:13}),label:`Vista previa del diseño`,cls:`screenshot-preview`}},Re=({type:e,children:t})=>{let n=Le[e];return(0,M.jsxs)(`div`,{className:`pedagogical-block ${n.cls}`,children:[(0,M.jsxs)(`h4`,{className:`block-title`,children:[n.icon,` `,n.label]}),(0,M.jsx)(`div`,{className:`block-body`,children:t})]})},ze=({code:e,isRef:t=!1})=>{let[n,r]=(0,_.useState)(`Copiar`);return(0,M.jsxs)(`div`,{className:`pedagogical-block code-section ${t?`code-ref`:``}`,children:[(0,M.jsxs)(`div`,{className:`block-header-row`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:t?`🔑 Código completo (solo docente)`:`📟 Código base`}),(0,M.jsx)(`button`,{className:`copy-btn`,onClick:()=>{navigator.clipboard.writeText(e).then(()=>{r(`¡Copiado!`),setTimeout(()=>r(`Copiar`),2e3)})},children:n})]}),(0,M.jsx)(`div`,{className:`code-editor-container allow-copy`,children:(0,M.jsx)(`pre`,{className:`code-editor`,children:(0,M.jsx)(`code`,{children:e})})})]})},Be=({html:e})=>(0,M.jsxs)(`div`,{className:`pedagogical-block diagram-block`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:`🔌 Diagrama de referencia`}),(0,M.jsx)(`div`,{className:`block-body diagram-body`,children:(0,M.jsx)(`iframe`,{srcDoc:e,title:`Diagrama de circuito`,className:`diagram-iframe`,scrolling:`no`,style:{width:`100%`,border:`none`,borderRadius:`8px`,display:`block`},onLoad:e=>{let t=e.target;setTimeout(()=>{try{let e=t.contentDocument.body.scrollHeight;e>0&&(t.style.height=e+`px`)}catch{}},200)}})})]}),Ve=({src:e,alt:t,className:n})=>(0,M.jsx)(`img`,{src:e,alt:t,className:n,loading:`lazy`,onError:e=>{e.target.parentElement.style.display=`none`}}),He=({activity:e,assetUrl:t})=>(0,M.jsxs)(`div`,{className:`dual-activity-block`,children:[(0,M.jsxs)(`div`,{className:`dual-header`,children:[(0,M.jsx)(`span`,{className:`dual-icon`,children:`🚀`}),(0,M.jsx)(`h4`,{children:e.title})]}),(0,M.jsxs)(`div`,{className:`dual-body`,children:[(0,M.jsx)(`div`,{className:`dual-instruction`,children:(0,M.jsx)(Ie,{text:e.instruction})}),e.image&&t&&(0,M.jsx)(`div`,{className:`infographic-container`,children:(0,M.jsx)(Ve,{src:t(e.image),alt:e.title,className:`infographic-img`})})]})]}),Ue=({activities:e,assetUrl:t})=>{let n=e?.filter(e=>e.image)||[];return n.length===0?(0,M.jsx)(`div`,{className:`dual-gallery-empty`,children:(0,M.jsx)(`p`,{children:`No hay infografías disponibles para esta semana.`})}):(0,M.jsxs)(`div`,{className:`dual-gallery-view`,children:[(0,M.jsx)(`h2`,{className:`gallery-title`,children:`🖼️ Galería de Infografías`}),(0,M.jsx)(`div`,{className:`gallery-grid`,children:n.map((e,n)=>(0,M.jsxs)(`div`,{className:`gallery-item`,children:[(0,M.jsx)(`h3`,{className:`gallery-item-title`,children:e.title}),(0,M.jsx)(`div`,{className:`gallery-img-wrapper`,children:(0,M.jsx)(Ve,{src:t(e.image),alt:e.title,className:`gallery-img`})}),(0,M.jsx)(`div`,{className:`gallery-item-instruction`,children:(0,M.jsx)(Ie,{text:e.instruction})})]},n))})]})},We=({days:e,activeIndex:t,onSelect:n})=>(0,M.jsx)(`div`,{className:`day-tabs-container`,children:e.map((e,r)=>(0,M.jsx)(`button`,{className:`day-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.label.split(` — `)[0]},e.id))}),Ge=({hours:e,activeIndex:t,onSelect:n})=>!e||e.length<2?null:(0,M.jsx)(`div`,{className:`hour-tabs-container`,children:e.map((e,r)=>(0,M.jsx)(`button`,{className:`hour-tab-btn ${t===r?`active`:``}`,onClick:()=>n(r),children:e.time},r))}),Ke=({hour:e,index:t,total:n,isTeacherMode:r,onPrev:i,onNext:a,flipDir:o,weekMeta:s,weekNumber:c,dayLabel:l,assetUrl:u})=>(0,M.jsxs)(`div`,{className:`notebook-page-wrapper nocopy flip-${o||`fwd`}`,children:[(0,M.jsxs)(`div`,{className:`breadcrumb`,children:[(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:s.raTitle}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsxs)(`span`,{className:`breadcrumb-item`,children:[`Semana `,c]}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:l}),(0,M.jsx)(`span`,{className:`breadcrumb-sep`,children:`›`}),(0,M.jsx)(`span`,{className:`breadcrumb-item`,children:e.time})]}),(0,M.jsxs)(`div`,{className:`page-header-nav`,children:[(0,M.jsxs)(`button`,{className:`nav-page-btn prev`,onClick:i,disabled:t===0,children:[(0,M.jsx)(j,{size:13}),` Anterior`]}),(0,M.jsxs)(`span`,{className:`page-indicator`,children:[`Hoja `,t+1,` de `,n]}),(0,M.jsxs)(`button`,{className:`nav-page-btn next`,onClick:a,disabled:t===n-1,children:[`Siguiente `,(0,M.jsx)(fe,{size:13})]})]}),(0,M.jsxs)(`div`,{className:`notebook-sheet`,children:[(0,M.jsxs)(`div`,{className:`sheet-header`,children:[(0,M.jsx)(`span`,{className:`sheet-time`,children:e.time}),(0,M.jsx)(`h2`,{className:`sheet-title`,children:e.title||`Tema del día`})]}),(0,M.jsxs)(`div`,{className:`sheet-body`,children:[e.theory&&(0,M.jsx)(Re,{type:`theory`,children:(0,M.jsx)(Ie,{text:e.theory})}),(0,M.jsxs)(`div`,{className:`pedagogical-grid`,children:[e.notebook&&(0,M.jsx)(Re,{type:`notebook`,children:(0,M.jsx)(Ie,{text:e.notebook})}),e.practice&&(0,M.jsx)(Re,{type:`practice`,children:(0,M.jsx)(Ie,{text:e.practice})})]}),e.diagram&&(0,M.jsx)(Be,{html:e.diagram}),e.code&&(0,M.jsx)(ze,{code:e.code}),r&&e.codeRef&&(0,M.jsx)(ze,{code:e.codeRef,isRef:!0}),e.product&&(0,M.jsx)(Re,{type:`product`,children:(0,M.jsx)(Ie,{text:e.product})}),u&&(e.image||e.images)&&(0,M.jsxs)(`div`,{className:`pedagogical-block screenshot-preview`,children:[(0,M.jsxs)(`h4`,{className:`block-title`,children:[Le.screenshot.icon,` `,Le.screenshot.label]}),(0,M.jsx)(`div`,{className:`block-body`,children:(0,M.jsx)(`div`,{className:`screenshot-gallery`,children:e.images?e.images.map((e,t)=>(0,M.jsx)(`div`,{className:`screenshot-container`,children:(0,M.jsx)(Ve,{src:u(e),alt:`Referencia ${t+1}`,className:`screenshot-img`})},t)):(0,M.jsx)(`div`,{className:`screenshot-container`,children:(0,M.jsx)(Ve,{src:u(e.image),alt:`Referencia de diseño`,className:`screenshot-img`})})})})]}),r&&e.teacherNotes&&(0,M.jsxs)(`div`,{className:`pedagogical-block teacher-only`,children:[(0,M.jsx)(`div`,{className:`block-header-row`,children:(0,M.jsxs)(`h4`,{className:`block-title`,children:[Le.teacher.icon,` `,Le.teacher.label]})}),(0,M.jsx)(`div`,{className:`block-body`,children:(0,M.jsx)(Ie,{text:e.teacherNotes})})]})]})]})]}),qe=({weekId:e,isClassMode:t,isTeacherMode:n,isDualMode:r,isPreviewWeek:i,curriculumData:a,assetUrl:o})=>{let s=a.schedules[e],[c,l]=(0,_.useState)(0),[u,d]=(0,_.useState)(0),[f,p]=(0,_.useState)(0),m=(0,_.useRef)(`fwd`),h=Fe(e,a),g=e.replace(`W`,``),v=h.label.match(/\(([^)]+)\)/)?.[1]||``;if(!s)return(0,M.jsx)(`div`,{className:`no-data`,children:`No se encontró información para esta semana.`});if(!s.days||s.days.length===0)return(0,M.jsxs)(`div`,{className:`week-view notebook-view empty-week-state`,children:[(0,M.jsxs)(`header`,{className:`week-portada`,children:[(0,M.jsxs)(`div`,{className:`portada-inner`,children:[(0,M.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,M.jsxs)(`div`,{className:`portada-week-number`,children:[(0,M.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,M.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,M.jsx)(`span`,{className:`portada-date`,children:v}),(0,M.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,M.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,M.jsx)(`span`,{className:`portada-line`},t))})]}),(0,M.jsx)(`div`,{className:`notebook-container`,children:(0,M.jsx)(`div`,{className:`notebook-sheet empty-sheet`,children:(0,M.jsxs)(`div`,{className:`empty-message-content`,children:[(0,M.jsx)(`span`,{className:`empty-icon`,children:`📅`}),(0,M.jsx)(`h2`,{children:`Contenido en preparación`}),(0,M.jsxs)(`p`,{children:[`Esta semana corresponde al período `,(0,M.jsx)(`strong`,{children:v||h.label}),`.`,(0,M.jsx)(`br`,{}),`El Dr. Felipe López está preparando el material. ¡Vuelve pronto!`]})]})})})]});let y=s.days[c],b=y.id===`dual`||y.id===`key`,x=e=>{l(e),d(0),p(e=>e+1)},S=()=>{u<y.hours.length-1&&(m.current=`fwd`,d(u+1))},C=()=>{u>0&&(m.current=`bwd`,d(u-1))};return(0,M.jsxs)(`div`,{className:`week-view notebook-view ${t?`class-mode`:``}`,children:[(0,M.jsxs)(`header`,{className:`week-portada`,children:[(0,M.jsxs)(`div`,{className:`portada-inner`,children:[(0,M.jsx)(`span`,{className:`portada-course`,children:a.subject}),(0,M.jsxs)(`div`,{className:`portada-week-number`,children:[(0,M.jsx)(`span`,{className:`portada-week-label`,children:`Semana`}),(0,M.jsx)(`span`,{className:`portada-week-digit`,children:g})]}),v&&(0,M.jsx)(`span`,{className:`portada-date`,children:v}),(0,M.jsxs)(`span`,{className:`portada-group`,children:[`Grupo `,a.group,` · Dr. Felipe López`]})]}),(0,M.jsx)(`div`,{className:`portada-lines`,"aria-hidden":`true`,children:[...[,,,,,]].map((e,t)=>(0,M.jsx)(`span`,{className:`portada-line`},t))})]}),i&&(0,M.jsxs)(`div`,{className:`preview-week-banner`,children:[(0,M.jsx)(`span`,{className:`preview-icon`,children:`👁️`}),(0,M.jsxs)(`div`,{className:`preview-text`,children:[(0,M.jsx)(`strong`,{children:`Vista Previa Docente`}),(0,M.jsx)(`span`,{children:`Esta semana aún no está disponible para los estudiantes`})]})]}),(0,M.jsx)(We,{days:s.days,activeIndex:c,onSelect:x}),!b&&(0,M.jsx)(Ge,{hours:y.hours,activeIndex:u,onSelect:e=>{m.current=e>u?`fwd`:`bwd`,d(e)}}),(0,M.jsx)(`div`,{className:`notebook-container`,children:r?(0,M.jsx)(Ue,{activities:s.days.find(e=>e.id===`dual`)?.activities,assetUrl:o}):b?(0,M.jsxs)(`div`,{className:`notebook-sheet special day-enter`,children:[(0,M.jsx)(`div`,{className:`sheet-header`,children:(0,M.jsx)(`h2`,{className:`sheet-title`,children:y.label})}),(0,M.jsx)(`div`,{className:`sheet-body`,children:y.id===`dual`?(0,M.jsx)(`div`,{className:`dual-repository-view`,children:y.activities?.map((e,t)=>(0,M.jsx)(He,{activity:e,assetUrl:o},t))}):(0,M.jsx)(`div`,{className:`key-code-view`,children:y.hours?.map((e,t)=>(0,M.jsxs)(`div`,{className:`pedagogical-block code-section`,children:[(0,M.jsx)(`h4`,{className:`block-title`,children:e.time}),(0,M.jsx)(`pre`,{className:`code-editor`,children:(0,M.jsx)(`code`,{children:e.code})})]},t))})})]}):(0,M.jsxs)(`div`,{className:`day-notebook-content`,children:[y.purpose&&u===0&&(0,M.jsxs)(`div`,{className:`day-purpose-banner`,children:[(0,M.jsx)(`span`,{className:`purpose-icon`,children:`🎯`}),(0,M.jsxs)(`div`,{className:`purpose-text`,children:[(0,M.jsx)(`strong`,{children:`Propósito de hoy`}),(0,M.jsx)(Ie,{text:y.purpose})]})]}),(0,M.jsx)(Ke,{hour:y.hours[u],index:u,total:y.hours.length,isTeacherMode:n,onPrev:C,onNext:S,flipDir:m.current,weekMeta:h,weekNumber:g,dayLabel:y.label.split(` — `)[0],assetUrl:o},u),u===y.hours.length-1&&(0,M.jsxs)(`div`,{className:`day-closure-notebook`,children:[y.cierre&&(0,M.jsxs)(`div`,{className:`day-conclusion-block`,children:[(0,M.jsx)(`p`,{className:`conclusion-title`,children:`✅ Cierre de Clase`}),(0,M.jsx)(Ie,{text:y.cierre})]}),y.frase_docente&&(0,M.jsx)(`div`,{className:`day-quote-block`,children:(0,M.jsxs)(`p`,{className:`quote-text`,children:[`"`,y.frase_docente,`"`]})})]})]})},f)]})},Je={html:`<h1>¡Hola Grupo 601!</h1>
