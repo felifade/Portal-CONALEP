@@ -3765,12 +3765,175 @@ Al FIN DE LA HORA: hacer una reflexión rápida. '¿Qué sabías de JavaScript h
 Errores típicos:
 • Olvidar guardar el ID del setInterval → no se puede detener.
 • Pasar la función con paréntesis: setInterval(recibirDanio(8), 3000) — eso EJECUTA recibirDanio(8) UNA VEZ inmediatamente, no cada 3s. La sintaxis correcta es setInterval(function() { recibirDanio(8); }, 3000).
-• No limpiar zombiInterval = null después de clearInterval — el botón de aparecer ya no funcionará (la verificación falla).`}],cierre:`Cierre del semestre. Tres horas, tres saltos: nivelaron a todos en el Sistema de Vida, descubrieron las funciones con parámetros como herramienta de no-repetición, y vieron por primera vez código que se ejecuta solo en el tiempo. El sitio ya no es una página — es un mundo vivo.`,frase_docente:`Cuando la página actúa sin que tú la toques, ya estás programando juegos.`},{id:`thu`,label:`Jueves — 🚧 Por planear`,purpose:`Sesión pendiente. Posibles direcciones: arrays + inventario, refactor con localStorage, o repaso integrador para evaluación final.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Esta sesión se planeará después del lunes según el avance del grupo. Direcciones probables:
+• No limpiar zombiInterval = null después de clearInterval — el botón de aparecer ya no funcionará (la verificación falla).`}],cierre:`Cierre del semestre. Tres horas, tres saltos: nivelaron a todos en el Sistema de Vida, descubrieron las funciones con parámetros como herramienta de no-repetición, y vieron por primera vez código que se ejecuta solo en el tiempo. El sitio ya no es una página — es un mundo vivo.`,frase_docente:`Cuando la página actúa sin que tú la toques, ya estás programando juegos.`},{id:`thu`,label:`Jueves — 🚀 Inicio del proyecto del Maestro Guarneros — sitio desde cero`,purpose:`Arrancar el proyecto integrador asignado por el Maestro Guarneros. Cada alumno construye su propio sitio web desde cero — HTML, CSS y JS — aplicando TODO lo aprendido en el semestre. El tema específico del sitio se definirá según las indicaciones del Maestro Guarneros (pendiente al momento de planear).`,hours:[{time:`Hora 1`,title:`🚀 Arranque del proyecto — definición del tema y estructura HTML`,theory:`🎯 ESTE ES EL PROYECTO INTEGRADOR
+El Maestro Guarneros indica el tema del sitio. Cada alumno construye SU propio sitio desde cero — no es una copia del Resident Evil que veníamos usando como playground.
 
-• Arrays + inventario de items recogibles (pistola, hierba, llave).
-• localStorage para guardar progreso entre recargas.
-• Repaso integrador con vistas a la evaluación final del semestre.
-• Práctica libre y atención a casos que se atoraron.`,notebook:`Sin libreta — sesión por confirmar.`,practice:`Sin práctica obligatoria.`,product:`Por definir.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decidir en función del avance del lunes y la cercanía a la evaluación final del semestre.`}],cierre:`Sesión por definir.`,frase_docente:`Las dos últimas sesiones del semestre son momento de mirar atrás antes de mirar adelante.`},{id:`fri`,label:`Viernes — 🚧 Por planear`,purpose:`Última sesión del semestre con grupo completo (incluye duales). Probable showcase / exposición de los mini-juegos personales + evaluación final.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Última sesión del semestre. Direcciones probables:
+📋 LO QUE APLICAN DEL SEMESTRE
+Todo lo que hemos hecho desde la W05:
+• HTML semántico (header, nav, section, article, footer)
+• CSS para diseño completo (selectores, flex, grid, colores, tipografía)
+• JavaScript: variables, funciones, DOM, eventos, setInterval (W11-W14)
+
+📁 ESTRUCTURA DE CARPETAS QUE YA CONOCEN
+  mi-proyecto-guarneros/
+  ├── index.html
+  ├── css/
+  │   └── style.css
+  └── js/
+      └── script.js
+
+📝 PASOS DEL ARRANQUE
+1. Definir el tema del sitio (según indicación del Maestro Guarneros).
+2. Hacer un boceto rápido en libreta: ¿qué secciones tendrá?
+3. Crear la carpeta del proyecto + estructura básica.
+4. Escribir el HTML base con secciones vacías.
+
+💡 PARA EL DOCENTE
+Este contenido es ESQUEMÁTICO. El tema y los requisitos los define el Maestro Guarneros. Cuando se confirme, esta hora se actualizará con detalles específicos.`,notebook:`Título: Arranque del proyecto Guarneros.
+1. ¿Cuál es el tema del sitio que vas a construir?
+2. Dibuja un boceto rápido: ¿qué secciones tendrá tu sitio?
+3. Lista los archivos y carpetas que necesitas crear.
+4. ¿Qué elementos HTML semánticos usarás en cada sección?`,practice:`📂 SETUP INICIAL — paso a paso (independiente del tema):
+
+Paso 1 — Crear la carpeta del proyecto.
+  mi-proyecto-guarneros/
+
+Paso 2 — Crear las subcarpetas y archivos vacíos:
+  mi-proyecto-guarneros/
+  ├── index.html
+  ├── css/style.css
+  └── js/script.js
+
+Paso 3 — Escribir el HTML base mínimo en index.html:
+
+\`\`\`html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Tu tema aquí]</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer><\/script>
+</head>
+<body>
+  <header>
+    <h1>[Título del sitio]</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>Bienvenida</h2>
+      <p>...</p>
+    </section>
+
+    <section id="contenido">
+      <h2>Contenido principal</h2>
+      <p>...</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 — Proyecto del Maestro Guarneros</p>
+  </footer>
+</body>
+</html>
+\`\`\`
+
+Paso 4 — Verificar abriendo en el navegador.
+
+⚠️ PENDIENTE: cuando el Maestro Guarneros confirme el tema y requisitos específicos, esta sección se actualiza con el contenido concreto.`,product:`Carpeta del proyecto creada con estructura completa, HTML base con secciones semánticas y CSS+JS vinculados. Sitio abierto en navegador (vacío pero estructurado).`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta sesión es ESQUEMÁTICA porque el tema lo asigna el Maestro Guarneros. Cuando se confirme:
+• Actualizar el theory con la descripción específica del proyecto.
+• Ajustar las secciones del HTML base al tema.
+• Definir requisitos puntuales (cuántas secciones, qué JS debe tener, paleta de colores).
+• Si el tema involucra interactividad, planear qué features de JS aplicar (Sistema de Vida fue el patrón en W14 — aquí podrían aplicar otro).`},{time:`Hora 2`,title:`🎨 Maquetación inicial: CSS base + primera estructura visual`,theory:`🎨 ESTILO BASE
+Una vez con el HTML base armado, le damos la primera capa de estilo. No es el diseño final — es para que el sitio se vea estructurado y legible.
+
+📐 PILARES DEL CSS INICIAL
+• Reset / normalize: márgenes a 0, box-sizing border-box.
+• Tipografía: una fuente principal + tamaños base.
+• Paleta de colores: definir 3-5 colores que respeten el tema.
+• Layout principal: header arriba, main en el centro, footer abajo.
+• Nav: enlaces horizontales con espaciado.
+
+💡 PARA EL DOCENTE
+Igual que la H1, esto es ESQUEMÁTICO. La paleta y el estilo concreto dependen del tema del Maestro Guarneros.`,notebook:`Título: CSS inicial del proyecto.
+1. ¿Qué paleta de 3-5 colores elegiste? ¿Por qué encajan con el tema?
+2. ¿Qué fuente principal usarás? ¿Sans-serif o serif?
+3. Boceto del layout principal: ¿cómo distribuyes header / main / footer?
+4. ¿Tu sitio tendrá modo oscuro o solo modo claro?`,practice:`🎨 CSS BASE — punto de partida (ajustar al tema):
+
+\`\`\`css
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f5f5f5;
+}
+
+/* Header */
+header {
+  background: #1a1a1a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+header h1 { font-size: 32px; margin-bottom: 10px; }
+nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+}
+nav a:hover { color: #f7df1e; }
+
+/* Main */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+section {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+section h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  margin-top: 40px;
+}
+\`\`\`
+
+Reto: personalizar la paleta de colores según el tema asignado por el Maestro Guarneros.
+
+⚠️ PENDIENTE: cuando se confirme el tema, este CSS se ajusta con la identidad visual concreta.`,product:`Sitio del proyecto Guarneros con CSS base aplicado, layout funcional y paleta de colores inicial. Captura del sitio mostrando header/main/footer estructurados.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta sesión también es esquemática. Cuando se defina el tema:
+• Concretar la paleta de colores que combine con el tema.
+• Decidir si el sitio incluye imágenes, videos, interactividad JS.
+• Si involucra JS, planear si reutilizan el patrón del Sistema de Vida o aplican algo nuevo (formularios, galería, etc.).
+IDEA OPCIONAL: si el tema lo permite, los alumnos pueden incluir su mini-juego del lunes como sección 'extra' del sitio.`}],cierre:`Arrancamos el proyecto del Maestro Guarneros. La estructura está, falta el contenido específico que define él.`,frase_docente:`Todo proyecto grande empieza con una carpeta vacía y un index.html.`},{id:`fri`,label:`Viernes — 🚧 Por planear`,purpose:`Última sesión del semestre con grupo completo (incluye duales). Probable showcase / exposición de los mini-juegos personales + evaluación final.`,hours:[{time:`🚧 Por planear`,title:`🚧 Sesión por planear`,theory:`Última sesión del semestre. Direcciones probables:
 
 • Showcase: cada alumno presenta su mini-juego (Sistema de Vida + funciones + zombi) en 2 minutos.
 • Evaluación final: rúbrica del semestre, autoevaluación.
