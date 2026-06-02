@@ -4208,50 +4208,35 @@ Total base: 10. Con bonus: 11.`},{time:`Hora 2`,title:`📅 Pendiente de planeac
 • OPCIÓN B — Bonus 'b' (ambos LEDs) o variante alternada con millis() para los más rápidos.
 • OPCIÓN C — Tercer LED en GPIO 18: agregar un LED MÁS y comandos '4' y '5'.
 • OPCIÓN D — Cierre de W13 con una breve introducción al proyecto final de RA 3.2 (W14).
-El docente decide al iniciar la hora según cómo terminó la Hora 1.`,notebook:`Pendiente.`,practice:`Pendiente — depende de la opción elegida al inicio de la hora.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decisión rápida al iniciar la hora basada en: (a) ¿cuántos terminaron la modificación de los 2 LEDs en la Hora 1?, (b) ¿qué retroalimentación dieron los alumnos? Si >70% terminó → OPCIÓN B o C. Si <70% terminó → OPCIÓN A (continuación). Si toda la clase fue muy rápida → OPCIÓN D (anticipar W14).`}],cierre:`El jueves cierra W13 y abre la pista hacia W14 — última semana de RA 3.2. El paso de 1 LED a 2 LEDs es la primera modificación real que hacen al código, y eso vale más que cualquier examen.`,frase_docente:`Cuando puedes modificar código existente, dejas de ser usuario y empiezas a ser autor.`}]},W14:{materia:`mths`,weekId:`W14`,days:[{id:`tue`,label:`Martes — 📘 Conocer la Bitácora + llenar lo que ya tienen avanzado`,purpose:`Cada equipo ya tiene su proyecto definido y empezó a trabajar (casas inteligentes, sistemas de riego, autos, alarmas, etc.). Esta semana es trabajo de TALLER + documentación. El martes conocemos la estructura de la Bitácora de Proyecto y llenamos lo que ya tenemos avanzado de forma retroactiva. Miércoles y jueves son tiempo de trabajo donde cada sesión cierra con una nueva entrada de bitácora. Viernes... no hay clase. Cierre el jueves Hora 2 con presentaciones y entrega final.`,hours:[{time:`Hora 1`,title:`📘 Conocer la Bitácora de Proyecto — anatomía completa del documento`,theory:`Cada equipo eligió su propio proyecto: casas inteligentes, sistemas de riego, autos con luces y alarmas, estaciones climáticas, sistemas de acceso con servo, etc. Los proyectos son DIFERENTES, pero TODOS llenan el mismo formato de documentación: la Bitácora de Proyecto.
+El docente decide al iniciar la hora según cómo terminó la Hora 1.`,notebook:`Pendiente.`,practice:`Pendiente — depende de la opción elegida al inicio de la hora.`,product:`Pendiente.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Decisión rápida al iniciar la hora basada en: (a) ¿cuántos terminaron la modificación de los 2 LEDs en la Hora 1?, (b) ¿qué retroalimentación dieron los alumnos? Si >70% terminó → OPCIÓN B o C. Si <70% terminó → OPCIÓN A (continuación). Si toda la clase fue muy rápida → OPCIÓN D (anticipar W14).`}],cierre:`El jueves cierra W13 y abre la pista hacia W14 — última semana de RA 3.2. El paso de 1 LED a 2 LEDs es la primera modificación real que hacen al código, y eso vale más que cualquier examen.`,frase_docente:`Cuando puedes modificar código existente, dejas de ser usuario y empiezas a ser autor.`}]},W14:{materia:`mths`,weekId:`W14`,days:[{id:`tue`,label:`Martes — 📘 Conocer la Bitácora + llenar lo que ya tienen avanzado`,purpose:`Cada equipo ya tiene su proyecto definido y empezó a trabajar (casas inteligentes, sistemas de riego, autos, alarmas, etc.). Esta semana es trabajo de TALLER + documentación. El martes conocemos la estructura de la Bitácora de Proyecto y llenamos lo que ya tenemos avanzado de forma retroactiva. Miércoles y jueves son tiempo de trabajo donde cada sesión cierra con una nueva entrada de bitácora. Viernes... no hay clase. Cierre el jueves Hora 2 con presentaciones y entrega final.`,hours:[{time:`Hora 1`,title:`📘 Conocer la Bitácora de Proyecto — anatomía completa del documento`,theory:`Cada equipo tiene su propio proyecto — casas inteligentes, sistemas de riego, autos, alarmas, estaciones climáticas, etc. Los proyectos son distintos, pero TODOS usan el mismo formato de documentación: la Bitácora de Proyecto.
 
-📐 ¿POR QUÉ UNA BITÁCORA Y NO UN REPORTE?
-El reporte de W13 era CERRADO — algo que pasó y se documentó después. La bitácora es ABIERTA — un documento VIVO que crece cada día de trabajo. La diferencia importa:
+📄 ESTRUCTURA DE LA BITÁCORA (3 PARTES)
 
-• Reporte: foto fija de una práctica terminada.
-• Bitácora: video del proceso de construir un proyecto.
+🅰️ PARTE A — Información general (se llena hoy Hora 2 y queda fija)
+1. Portada
+2. Introducción — ½ pág: qué es, por qué lo eligieron, qué problema resuelve
+3. Objetivos — 1 general + 2-3 específicos
+4. Marco teórico breve — ½ pág: tecnologías que usarán
+5. Materiales — lista con cantidades
+6. Diseño del sistema — diagrama de bloques + tabla de pines
 
-En la industria, las bitácoras de proyecto son el documento más leído por gerentes y clientes — porque muestran el TRABAJO REAL del equipo, no solo el resultado.
-
-📄 ESTRUCTURA DE LA BITÁCORA (3 PARTES, 11 SECCIONES)
-
-🅰️ PARTE A — INFORMACIÓN GENERAL (se llena HOY y queda fija)
-1. Portada — nombre del proyecto, integrantes, grupo, fecha de inicio, docente.
-2. Introducción — ½–1 página: qué es el proyecto, por qué lo eligieron, qué problema resuelve, a quién va dirigido.
-3. Objetivos — 1 general + 2-3 específicos.
-4. Marco teórico breve — ½ página: qué tecnologías usarán (ESP32, BLE, sensores específicos, actuadores).
-5. Materiales y componentes — lista completa con cantidades.
-6. Diseño del sistema — diagrama de bloques + esquema de pines + pseudocódigo del ESP32.
-
-🅱️ PARTE B — BITÁCORA DE AVANCES (crece cada sesión de trabajo)
-Cada día agregan UNA entrada nueva siguiendo esta plantilla:
-
+🅱️ PARTE B — Bitácora de avances (1 entrada por día de trabajo)
   📅 Día X — fecha
-  🎯 Objetivo de la sesión: ___
-  🛠️ Actividades realizadas:
-    - actividad 1
-    - actividad 2
-  📸 Evidencias: [insertar fotos]
-  ⚠️ Problemas encontrados: ___
-  ✅ Soluciones aplicadas: ___
+  🎯 Objetivo: ___
+  🛠️ Actividades: ___
+  📸 Evidencias: fotos
+  ⚠️ Problemas: ___
+  ✅ Soluciones: ___
   ➡️ Siguiente paso: ___
 
-🅲 PARTE C — CIERRE (se llena el jueves Hora 2)
-7. Código final completo con comentarios.
-8. Pruebas y resultados — tabla con qué probaron y qué pasó.
-9. Conclusiones — ½ página en párrafo (sin lista).
-10. Mejoras futuras — qué harían con más tiempo.
-11. Bibliografía — IA usada, tutoriales, documentación.
+🅲 PARTE C — Cierre (se llena el jueves Hora 2)
+7. Código final comentado
+8. Tabla de pruebas y resultados
+9. Conclusiones
+10. Mejoras futuras
+11. Bibliografía (incluir IA usada)
 
-📌 LO ÚNICO IMPORTANTE HOY (Hora 1)
-NO se trata de empezar a escribir todavía — eso es la Hora 2. Hoy es para CONOCER el formato, ENTENDER qué va en cada sección, e IDENTIFICAR qué de eso ya tienen avanzado en su proyecto y qué les falta.
-
-En el diagrama de abajo verán: (a) la anatomía visual completa del documento, y (b) un EJEMPLO REAL de una entrada de bitácora ya rellenada para que vean cómo se ve.`,notebook:`Título: Conocer la Bitácora de Proyecto.
+Hoy Hora 1 es solo para CONOCER la estructura. La Hora 2 es para crear el documento propio y empezar a llenarlo.`,notebook:`Título: Conocer la Bitácora de Proyecto.
 
 Antes de empezar a llenar nada — diagnóstico de equipo:
 
@@ -4268,41 +4253,17 @@ Antes de empezar a llenar nada — diagnóstico de equipo:
    - ☐ Diseño del sistema (cómo se conecta todo)
 6. ¿Qué hemos hecho HASTA HOY en el proyecto? Lista en bullets — esto se vuelve la primera entrada de la Bitácora en la Hora 2.
 7. ¿Qué problemas hemos encontrado? ¿Cómo los hemos resuelto (si ya lo logramos)?
-8. ¿Cuál es el siguiente paso que tenemos planeado para el proyecto?`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+8. ¿Cuál es el siguiente paso que tenemos planeado para el proyecto?`,practice:`1️⃣ El docente proyecta el diagrama de anatomía de la Bitácora y explica las 3 partes (A, B, C). Después muestra el ejemplo ya rellenado para que vean cómo se ve en la práctica.
 
-1️⃣ PASO 1 (10 min) — Presentación general del docente
-  • El docente proyecta el diagrama 'Anatomía de la Bitácora' (sección de abajo).
-  • Explica las 3 partes (A, B, C) y las 11 secciones.
-  • Muestra el ejemplo de bitácora rellenada (sección de abajo).
-  • Aclara dudas del grupo.
+2️⃣ Cada equipo discute internamente (10 min):
+  • ¿Cómo se llama su proyecto y qué hace?
+  • ¿Qué de las 6 secciones de la Parte A ya tienen pensado?
+  • ¿Qué han hecho hasta hoy en el proyecto? (eso entra en la Bitácora Día 1 de la Hora 2)
+  Anotar en la libreta de un integrante.
 
-2️⃣ PASO 2 (5 min) — Descargar plantilla
-  • El docente sube a Classroom una plantilla de Word con las 11 secciones ya estructuradas (encabezados, espacios para texto y fotos).
-  • Cada equipo descarga la plantilla a UN dispositivo del equipo (laptop / tablet de uno de los integrantes).
-  • Guardar como 'Bitacora_NombreDelProyecto_Equipo.docx'.
+3️⃣ Cada equipo (representante) comparte al grupo en 30 segundos: nombre del proyecto, qué hace, qué tan avanzado está.
 
-3️⃣ PASO 3 (20 min) — Diagnóstico interno del equipo
-  • Cada equipo responde las 8 preguntas de la libreta JUNTOS (no individual).
-  • Anotar en la libreta de UN integrante (el secretario del equipo).
-  • El docente pasa por las mesas haciendo preguntas tipo: '¿qué problema resuelve su proyecto?', '¿quién lo va a usar?' — provocando que articulen su idea más claro.
-
-4️⃣ PASO 4 (15 min) — Recorrido por la plantilla
-  • Cada equipo abre la plantilla Word.
-  • Lee CADA encabezado de las 11 secciones.
-  • Marca con un comentario lateral: ☑️ 'esto ya lo sabemos' o ❓ 'esto necesitamos pensar/discutir'.
-  • NO se llena nada todavía — solo se identifica qué está claro y qué no.
-
-5️⃣ PASO 5 (10 min) — Cierre y compromiso
-  • Cada equipo (representante) comparte al grupo en 30 segundos:
-    - Nombre del proyecto.
-    - Qué hace.
-    - Qué tienen ya avanzado.
-    - Qué les falta entender de la bitácora.
-  • El docente toma nota de los proyectos del grupo para vigilancia individual durante la semana.
-
-📸 EVIDENCIA DE LA HORA
-• Foto de la libreta del equipo con las 8 preguntas contestadas.
-• Captura del Word con la plantilla descargada y guardada con el nombre del proyecto.`,diagram:`<!DOCTYPE html>
+📸 Evidencia: foto de la libreta con las notas del equipo.`,diagram:`<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -4610,128 +4571,58 @@ Antes de empezar a llenar nada — diagnóstico de equipo:
     • Documentación oficial: [URLs]
 
 ================================================================`,codeRef:`# 📋 PLANTILLA DE LA BITÁCORA — referencia (igual al campo 'code' de arriba)
-# Subir a Classroom una versión Word con esta estructura ya formateada.`,product:`Cada equipo tiene: (a) la plantilla Word descargada y guardada como 'Bitacora_NombreProyecto_Equipo.docx', (b) las 8 preguntas de diagnóstico contestadas en la libreta de un integrante, (c) identificado qué de las 11 secciones ya saben llenar y qué les falta pensar. NO se llena nada del documento todavía — eso es la Hora 2.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es PEDAGÓGICA, no de trabajo. Es para que ENTIENDAN la estructura antes de meterse a llenarla. Estrategias:
+# Subir a Classroom una versión Word con esta estructura ya formateada.`,product:`Cada equipo entiende la estructura de la Bitácora y tiene identificado qué secciones ya puede llenar. Notas del diagnóstico en libreta de un integrante.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es para presentar el formato — NO para que los alumnos construyan nada todavía.
 
-(1) PRESENTACIÓN VISUAL EN PROYECTOR: usar el diagrama de la anatomía + el ejemplo de bitácora rellenada para que TODOS vean lo mismo. NO leerlo punto por punto — apuntar a las secciones, explicar de qué se trata, mostrar el ejemplo concreto.
+• Proyectar el diagrama de anatomía y el ejemplo de bitácora rellenada. Señalar las secciones, no leerlas palabra por palabra.
+• El ejemplo del riego muestra problemas REALES (sol, cables sueltos) — recalcar que una bitácora honesta vale más que una perfecta.
+• Los alumnos crean su propio documento en la Hora 2, desde cero — NO se les da plantilla.
+• Anotar mentalmente qué equipos se ven débiles durante el diagnóstico para apoyarlos en la Hora 2.
 
-(2) EL EJEMPLO ES CLAVE: el ejemplo del sistema de riego está deliberadamente DETALLADO con problemas reales (sol directo, cable suelto) y soluciones concretas (promediar lecturas, soldar). Esto les muestra que la bitácora NO es 'todo salió bien siempre' — es honesta sobre los problemas. Reforzar esto en voz alta: 'la bitácora más valiosa es la que muestra los problemas y cómo los resolvieron, no la que solo dice todo perfecto'.
+CRITERIOS DE CALIFICACIÓN (escala /10):
+• Parte A completa: 1.5 · Bitácora 3 días con fotos: 3.0 · Diseño del sistema: 1.5 · Código final comentado: 1.5 · Pruebas y conclusiones: 1.5 · Presentación oral: 1.0`},{time:`Hora 2`,title:`📝 Llenar la Parte A retroactiva + primera entrada de Bitácora`,theory:`Ya conocen la estructura — ahora la construyen. Cada equipo abre un documento Word nuevo desde cero y escribe sus propias secciones.
 
-(3) PLANTILLA WORD EN CLASSROOM: subir la plantilla con anticipación (idealmente el lunes nocturno) para que no consuma tiempo de clase en la descarga. Tener un USB con la plantilla por si algún equipo tiene problemas de WiFi.
+Meta de la hora: Parte A completa (secciones 1-6) + Bitácora Día 1 retroactiva.
 
-(4) DIAGNÓSTICO HONESTO: insistir que en las 8 preguntas de diagnóstico de la libreta NO se vale 'todo'. Si responden 'sí' a las 6 secciones de la Parte A pero no han escrito una sola línea, están mintiendo o malentendiendo. Decirles: 'tener pensado NO es lo mismo que tener escrito — sé honesto'.
+💡 Bitácora Día 1 retroactiva — como ya avanzaron en el proyecto antes de hoy, esta primera entrada documenta TODO lo que hicieron hasta ahora, no solo lo de hoy. Es el 'punto cero' del registro.
 
-(5) PASO 5 (cierre del minuto a minuto): el ejercicio de que cada equipo comparta al grupo en 30 segundos lo que tiene es CRUCIAL — te permite identificar dos cosas: (a) qué equipos están bien encaminados y cuáles están atorados, (b) qué proyectos son ambiciosos vs. cuáles son seguros. Anotar a los equipos que se ven débiles para apoyarlos individualmente en Hora 2.
-
-(6) NO PROYECTOS COPIADOS: si dos equipos vienen con proyectos muy parecidos (ej. dos casas inteligentes con los mismos sensores), retarlos a diferenciarlos — un equipo con LDR para luces, otro con DHT11 para temperatura. La diversidad de proyectos hace el cierre del jueves más rico.
-
-(7) CRITERIOS DE CALIFICACIÓN DEL DOCUMENTO COMPLETO (al final de W14, escala /10):
-• Información general completa (Parte A): 1.5
-• Bitácora de los 3 días con fotos legibles: 3.0
-• Diseño del sistema (diagramas/pseudocódigo): 1.5
-• Código final con comentarios: 1.5
-• Pruebas y conclusiones: 1.5
-• Presentación oral 3-5 min al grupo: 1.0
-Total: 10.`},{time:`Hora 2`,title:`📝 Llenar la Parte A retroactiva + primera entrada de Bitácora`,theory:`Ahora que ya conocen el formato, es hora de llenar lo que YA TIENEN avanzado del proyecto. Esta hora es ESCRIBIR, no diseñar de nuevo.
-
-📌 IDEA CLAVE — LLENADO RETROACTIVO
-Como ya empezaron a trabajar antes de W14, la primera entrada de la Bitácora (Día 1) NO documenta solo lo que hicieron hoy — documenta TODO el avance previo. Es un 'punto cero' que captura el camino recorrido hasta ahora, para que de aquí en adelante la bitácora siga normal día a día.
-
-📋 OBJETIVO DE LA HORA
-Al final de la hora, cada equipo debe tener llenas:
-
-✅ PARTE A completa (secciones 1-6):
-• Sección 1 (Portada) — datos del equipo.
-• Sección 2 (Introducción) — ½ página.
-• Sección 3 (Objetivos) — 1 general + 2-3 específicos.
-• Sección 4 (Marco teórico) — ½ página sobre las tecnologías que usarán.
-• Sección 5 (Materiales) — lista con cantidades.
-• Sección 6 (Diseño del sistema) — diagrama de bloques + esquema de pines + pseudocódigo (puede ser dibujado a mano y fotografiado, o hecho en draw.io).
-
-✅ Bitácora Día 1 (entrada retroactiva):
-• Fecha del día.
-• Objetivo: 'Documentar el avance previo del proyecto + revisar estado actual'.
-• Actividades realizadas: lista de TODO lo que han hecho antes de hoy (resumido en 3-6 puntos).
-• Evidencias: fotos del prototipo actual.
-• Problemas hasta ahora.
-• Soluciones aplicadas.
-• Siguiente paso (lo que harán mañana miércoles).
-
-⏱️ ADMINISTRAR EL TIEMPO
-60 minutos para llenar 6 secciones + bitácora. Distribución:
-• Portada + Objetivos: 5 min (lo más rápido).
-• Materiales + Marco teórico: 10 min.
-• Introducción: 15 min (¡no se demoren más, no es la sección más importante!).
-• Diseño del sistema (diagramas): 15 min.
-• Bitácora Día 1: 15 min.`,notebook:`Esta hora la libreta es solo para apoyar la escritura del documento — no se piden respuestas formales nuevas. Útil para:
+Distribución de tiempo sugerida:
+• Portada + Objetivos: 5 min
+• Materiales + Marco teórico: 10 min
+• Introducción: 15 min
+• Diseño del sistema: 15 min
+• Bitácora Día 1: 15 min`,notebook:`Esta hora la libreta es solo para apoyar la escritura del documento — no se piden respuestas formales nuevas. Útil para:
 
 • Pre-redactar la introducción en libreta antes de pasarla a Word.
 • Bocetar el diagrama de bloques a mano antes de redibujarlo digital.
 • Listar los problemas que recuerdan haber tenido (para la bitácora retroactiva).
 
-Si te ayuda escribir primero a mano y luego pasar al documento, hazlo. Si prefieres ir directo al Word, también está bien.`,practice:`🕐 ESTRUCTURA DE LA HORA (60 min)
+Si te ayuda escribir primero a mano y luego pasar al documento, hazlo. Si prefieres ir directo al Word, también está bien.`,practice:`1️⃣ Crear un documento Word nuevo. Poner de título: 'Bitácora de Proyecto — [Nombre del proyecto]'. Crear los 11 encabezados de las secciones según la estructura vista en Hora 1.
 
-1️⃣ PASO 1 (3 min) — Abrir la plantilla
-  • Abrir el Word del equipo guardado en la Hora 1.
-  • Tener listas las respuestas de las 8 preguntas de diagnóstico (libreta).
+2️⃣ Llenar secciones 1, 3 y 5 (Portada, Objetivos, Materiales) — 10 min. Son listas, se llenan rápido.
 
-2️⃣ PASO 2 (5 min) — Llenar Portada + Objetivos (rápido, son listas)
-  • Sección 1: datos del equipo.
-  • Sección 3: 1 objetivo general + 2-3 específicos. Tip — el general empieza con verbo en infinitivo: 'Diseñar...', 'Construir...', 'Implementar...'. Los específicos son los pasos que llevan al general.
+3️⃣ Llenar sección 2 (Introducción) — 15 min. Responder: qué es el proyecto, por qué lo eligieron, qué problema resuelve, a quién va dirigido. ½ página es suficiente. Pueden apoyarse en la IA pero con palabras propias.
 
-3️⃣ PASO 3 (10 min) — Llenar Materiales + Marco teórico
-  • Sección 5: lista de TODO el material físico con cantidades exactas.
-  • Sección 4: ½ página explicando QUÉ tecnologías usarán y POR QUÉ las eligieron. Tip — la IA puede ayudar aquí: 'explícame brevemente qué es un sensor LDR' (o el componente que uses).
+4️⃣ Llenar secciones 4 y 6 (Marco teórico + Diseño del sistema) — 15 min.
+  • Marco teórico: ½ pág sobre las tecnologías que usan.
+  • Diseño: dibujar el diagrama de bloques a mano y fotografiarlo para pegarlo, más la tabla de pines.
 
-4️⃣ PASO 4 (15 min) — Llenar Introducción
-  • Sección 2: ½ a 1 página respondiendo:
-    - ¿Qué es el proyecto? (descripción en 2-3 frases).
-    - ¿Por qué lo eligieron? (motivación personal del equipo).
-    - ¿Qué problema resuelve? (situación real que mejora).
-    - ¿A quién va dirigido? (usuario objetivo).
-  • NO COPIAR DE INTERNET ni de la IA. Si usan IA para inspirarse, parafrasear con palabras propias.
+5️⃣ Llenar Bitácora Día 1 (retroactiva) — 15 min.
+  • Fecha: hoy.
+  • Objetivo: documentar el avance previo del proyecto.
+  • Actividades: lista de lo que han hecho ANTES de hoy + lo de esta sesión.
+  • Evidencias: foto del prototipo en su estado actual.
+  • Problemas encontrados hasta ahora / soluciones aplicadas.
+  • Siguiente paso: qué harán el miércoles.
 
-5️⃣ PASO 5 (15 min) — Llenar Diseño del sistema
-  • Sección 6 — la más visual:
-    - Diagrama de bloques: dibujo a mano (foto luego pegada en Word) o draw.io. Cajitas conectadas mostrando: ESP32 + sensores + actuadores + celular con BLE.
-    - Esquema de pines: una tabla con 'Componente → GPIO del ESP32'.
-    - Pseudocódigo: 10-15 líneas describiendo en español lo que hará el ESP32 (sin código Arduino, solo lógica).
+6️⃣ Guardar como 'Bitacora_NombreProyecto_Dia1.docx' y subir a Classroom.
 
-6️⃣ PASO 6 (10 min) — Bitácora Día 1 RETROACTIVA
-  • Llenar la entrada del Día 1 documentando TODO el avance previo (no solo lo de hoy):
-    - Fecha: hoy (martes).
-    - Objetivo: 'Documentar el avance previo + revisar estado actual'.
-    - Actividades: lista de qué hicieron antes de W14 + qué hicieron HOY (llenar la Parte A).
-    - Evidencias: foto del prototipo actual (aunque sea incompleto).
-    - Problemas: si han tenido alguno hasta ahora.
-    - Soluciones aplicadas.
-    - Siguiente paso: qué harán mañana miércoles.
+📸 Evidencia: Word con Parte A + Bitácora Día 1 subido a Classroom.`,product:`Documento Word con: Parte A (secciones 1-6) completamente llenas + Bitácora Día 1 con entrada retroactiva. Subido a Classroom como versión 'Día 1'. Las siguientes 2 sesiones agregarán Bitácora Día 2 y Día 3, y la sesión final agregará Parte C.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Escritura intensiva — pasar mesa por mesa cada 10 min.
 
-7️⃣ PASO 7 (2 min) — Guardar y subir a Classroom (versión Día 1)
-  • Guardar el Word.
-  • Subir a Classroom como 'Bitacora_NombreProyecto_Dia1.docx' (versión parcial del martes — NO es la final).
-
-📸 EVIDENCIA OBLIGATORIA DE LA HORA
-• Archivo Word con la Parte A completa + Bitácora Día 1 subido a Classroom.`,product:`Documento Word con: Parte A (secciones 1-6) completamente llenas + Bitácora Día 1 con entrada retroactiva. Subido a Classroom como versión 'Día 1'. Las siguientes 2 sesiones agregarán Bitácora Día 2 y Día 3, y la sesión final agregará Parte C.`,teacherNotes:`👨‍🏫 NOTA DOCENTE: Esta hora es ESCRITURA INTENSIVA. Estrategias:
-
-(1) SUPERVISIÓN ACTIVA: pasar mesa por mesa cada 10 min para revisar avance. Si un equipo lleva 20 min en la introducción y aún no termina, intervenir — está sobre-pensando. Decirles: 'cierra con lo que tienes y avanza, lo puedes mejorar después'.
-
-(2) DIAGRAMA DE BLOQUES — TRAMPA COMÚN: muchos equipos lo van a hacer demasiado complicado o demasiado simple. Lo correcto: 5-8 cajitas máximo (ESP32, sensores, actuadores, fuente de poder, celular con BLE Controller). Conectadas con flechas. NO es un esquema eléctrico.
-
-(3) PSEUDOCÓDIGO — ENSEÑANZA RÁPIDA: si nunca lo han hecho, mostrar en pizarra un ejemplo de 5 líneas:
-  'Inicializar pines como salida'
-  'Si el sensor detecta humedad < umbral:'
-  '   Encender bomba 3 segundos'
-  '   Imprimir alerta'
-  'Si recibe comando BLE r: encender bomba manualmente'
-No es código Arduino — es la lógica en español. Suficiente para que se entienda lo que el ESP32 hará.
-
-(4) FOTOS DEL PROTOTIPO ACTUAL: si el equipo no trajo el prototipo a clase (lo dejó en casa), pueden usar una foto que ya tengan en el celular, o tomar una foto rápida del esquema dibujado en libreta. Si NO tienen NADA, anotar al equipo para vigilancia — no han empezado realmente y eso es un problema.
-
-(5) ENTREGA PARCIAL EN CLASSROOM: insistir que se suba HOY al final de la clase, no mañana. Razón: si surge un problema técnico, lo detectan ahora, no el jueves al cierre.
-
-(6) IA USADA: si están usando IA para escribir secciones, está PERMITIDO siempre y cuando parafraseen con palabras propias. Si detecto un párrafo idéntico a una respuesta típica de ChatGPT, regresarles el documento con observación. La IA acelera la redacción, no la reemplaza.
-
-(7) EQUIPOS REZAGADOS: si al final de la hora un equipo no terminó la Parte A, ofrecer 20 min extras de tutoría (recreo / horario de oficina). NO continuar a la Hora del miércoles sin que la Parte A esté cerrada.`}],cierre:`El martes presentamos la estructura de la Bitácora y la llenamos con lo que ya tienen avanzado. De ahora en adelante, cada sesión agrega una entrada nueva. El miércoles y el jueves son tiempo de TALLER — trabajo de proyecto + bitácora al final.`,frase_docente:`Documentar mientras se construye es lo que distingue al técnico profesional del aficionado — el profesional siempre puede explicar qué hizo y por qué.`},{id:`wed`,label:`Miércoles — 🔧 Taller de proyecto + Bitácora Día 2`,purpose:`Hora de trabajo libre en el proyecto. Cada equipo avanza a su ritmo según el plan que definieron el martes (sección 'Siguiente paso' de la Bitácora Día 1). Últimos 10 min: cierre con entrada de Bitácora Día 2.`,hours:[{time:`Hora 1`,title:`🔧 Taller de proyecto + Bitácora Día 2`,theory:`Hoy es 100% TALLER. No hay teoría nueva — el conocimiento que necesitas ya lo tienes del trabajo previo y del análisis con IA que han venido haciendo.
+• Si un equipo lleva 20 min en la introducción, intervenir: 'cierra con lo que tienes y avanza'.
+• Diagrama de bloques: 5-8 cajitas máximo (ESP32, sensores, actuadores, celular BLE). No es un esquema eléctrico.
+• Si alguien no trajo el prototipo, puede usar fotos que ya tenga en el celular para la bitácora.
+• Insistir que se suba a Classroom al final de la sesión, no mañana.
+• La IA está permitida para inspirarse en la redacción, no para copiar y pegar.`}],cierre:`El martes presentamos la estructura de la Bitácora y la llenamos con lo que ya tienen avanzado. De ahora en adelante, cada sesión agrega una entrada nueva. El miércoles y el jueves son tiempo de TALLER — trabajo de proyecto + bitácora al final.`,frase_docente:`Documentar mientras se construye es lo que distingue al técnico profesional del aficionado — el profesional siempre puede explicar qué hizo y por qué.`},{id:`wed`,label:`Miércoles — 🔧 Taller de proyecto + Bitácora Día 2`,purpose:`Hora de trabajo libre en el proyecto. Cada equipo avanza a su ritmo según el plan que definieron el martes (sección 'Siguiente paso' de la Bitácora Día 1). Últimos 10 min: cierre con entrada de Bitácora Día 2.`,hours:[{time:`Hora 1`,title:`🔧 Taller de proyecto + Bitácora Día 2`,theory:`Hoy es 100% TALLER. No hay teoría nueva — el conocimiento que necesitas ya lo tienes del trabajo previo y del análisis con IA que han venido haciendo.
 
 🎯 META DE LA SESIÓN
 Avanzar el proyecto un paso significativo siguiendo el plan que escribiste el martes en 'Siguiente paso' de la Bitácora Día 1.
