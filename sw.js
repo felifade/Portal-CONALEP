@@ -6,7 +6,7 @@
 
 <<<<<<< HEAD
 =======
-const CACHE_NAME   = 'conalep-portal-v77';
+const CACHE_NAME   = 'conalep-portal-v78';
 >>>>>>> 228a3c7 (chore: deploy SW v69 — rebuild MTHS + DEWE)
 const BASE         = '/Portal-CONALEP';
 

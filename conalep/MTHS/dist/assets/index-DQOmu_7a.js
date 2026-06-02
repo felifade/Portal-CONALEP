@@ -3358,7 +3358,7 @@ Mencionar las fuentes:
 
 (2) ARMAR CIRCUITOS PARA QUIENES NO TIENEN FOTOS: probablemente la mitad del grupo no fotografió el circuito en su momento. Tener listas 2-3 estaciones con todo armado (ESP32 + LED + botón) para que pasen, fotografíen y envíen comandos desde su celular para fotografiar el funcionamiento. Esto se puede hacer en paralelo mientras escriben.
 
-(3) PLANTILLA OPCIONAL: si los alumnos están perdidos con el formato, ofrecer una plantilla de Word con las 8 secciones ya estructuradas (encabezados, espacios para fotos, instrucciones en cada sección). Subirla a Classroom como adjunto. NO obligatorio, pero ayuda a los más perdidos.
+(3) FORMATO DEL REPORTE: cada alumno construye su propio Word con las 8 secciones. Si alguien no sabe por dónde empezar, orientarlo mostrando la estructura en el proyector — sin dar un archivo preconstruido.
 
 (4) VIGILAR EL COPY-PASTE: el procedimiento NO debe ser el manual copiado — debe estar narrado en primera persona pasado ('armé', 'conecté', 'envié'). Si detectas copia, regresarles el reporte con observación.
 
@@ -3611,7 +3611,7 @@ Mencionar las fuentes:
 
 (2) ARMAR CIRCUITOS PARA QUIENES NO TIENEN FOTOS: probablemente la mitad del grupo no fotografió el circuito en su momento. Tener listas 2-3 estaciones con todo armado (ESP32 + LED + botón) para que pasen, fotografíen y envíen comandos desde su celular para fotografiar el funcionamiento. Esto se puede hacer en paralelo mientras escriben.
 
-(3) PLANTILLA OPCIONAL: si los alumnos están perdidos con el formato, ofrecer una plantilla de Word con las 8 secciones ya estructuradas (encabezados, espacios para fotos, instrucciones en cada sección). Subirla a Classroom como adjunto. NO obligatorio, pero ayuda a los más perdidos.
+(3) FORMATO DEL REPORTE: cada alumno construye su propio Word con las 8 secciones. Si alguien no sabe por dónde empezar, orientarlo mostrando la estructura en el proyector — sin dar un archivo preconstruido.
 
 (4) VIGILAR EL COPY-PASTE: el procedimiento NO debe ser el manual copiado — debe estar narrado en primera persona pasado ('armé', 'conecté', 'envié'). Si detectas copia, regresarles el reporte con observación.
 
