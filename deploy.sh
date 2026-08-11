@@ -21,8 +21,8 @@ echo "Build DEWE..."
 
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
-git add sw.js conalep/MTHS conalep/DEWE
-git commit -m "chore: deploy SW v${NEXT} — rebuild MTHS + DEWE
+git add sw.js conalep/MTHS conalep/DEWE ceb54
+git commit -m "chore: deploy SW v${NEXT} — rebuild MTHS + DEWE + ceb54
 
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
 git push
