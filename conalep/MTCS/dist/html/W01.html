@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTCS Semana 01 · Inicializando Sistema</title>
+  <style>
+    :root {
+      --green: #006b54;
+      --ink: #17211d;
+      --muted: #647067;
+      --paper: #fffdf7;
+      --line: #b9d9ea;
+      --redline: #ef8f8f;
+      --gold: #eab308;
+      --blue: #2563eb;
+      --soft: #eef7f4;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #dfe9e5; color: var(--ink); font-family: Inter, "Helvetica Neue", Arial, sans-serif; overflow: hidden; }
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+      gap: 28px;
+      padding: 42px 50px;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(234,179,8,.18), transparent 30%),
+        linear-gradient(135deg, #f7fbf9 0%, #e7f1ee 100%);
+    }
+    .slide.active { display: grid; }
+    .slide-main, .slide-side { min-width: 0; }
+    .slide-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-left: 8px solid var(--green);
+      padding: 8px 0 0 26px;
+    }
+    .kicker { margin: 0 0 10px; color: var(--green); font-size: 15px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    h1 { margin: 0 0 20px; font-size: clamp(36px, 5.5vh, 62px); line-height: 1.02; letter-spacing: 0; color: #0f2d26; }
+    h2 { color: var(--green); font-size: 23px; margin: 0 0 8px; letter-spacing: 0; }
+    h3 { color: #23433a; font-size: 22px; margin: 14px 0 6px; letter-spacing: 0; }
+    p, li { font-size: clamp(17px, 2.1vh, 24px); line-height: 1.35; }
+    ul { padding-left: 26px; }
+    li { margin: 7px 0; }
+    code { background: #e5ece9; color: #0f2d26; padding: 2px 7px; border-radius: 5px; font-family: Menlo, Consolas, monospace; font-size: .88em; }
+    aside { border-left: 5px solid var(--gold); background: rgba(255,255,255,.72); padding: 10px 14px; margin: 12px 0; }
+    .content { max-height: 72vh; overflow: auto; padding-right: 8px; }
+    .content h1 { font-size: 32px; margin-top: 0; }
+    .content h2 { font-size: 27px; }
+    .meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .meta-grid p { margin: 0; padding: 16px; background: rgba(255,255,255,.72); border: 1px solid #cbd9d4; border-radius: 8px; font-size: 20px; }
+    .product-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .product-card {
+      display: grid;
+      grid-template-columns: 42px 1fr 26px;
+      align-items: center;
+      gap: 10px;
+      min-height: 58px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid #cbd9d4;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+    }
+    .product-card p { margin: 0; font-size: 17px; line-height: 1.2; }
+    .product-hour {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-weight: 850;
+      font-size: 16px;
+    }
+    .product-box { width: 20px; height: 20px; border: 2px solid #6b7c75; border-radius: 4px; background: white; }
+    .rubric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .rubric-card {
+      min-height: 92px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.74);
+      border: 1px solid #cbd9d4;
+      border-left: 6px solid var(--gold);
+      border-radius: 8px;
+    }
+    .rubric-card strong { display: block; color: var(--green); font-size: 25px; line-height: 1; margin-bottom: 8px; }
+    .rubric-card p { margin: 0 0 5px; font-size: 18px; line-height: 1.2; font-weight: 750; }
+    .rubric-card span { display: block; color: #4b5a52; font-size: 14px; font-weight: 700; }
+    .slide-side { display: grid; grid-template-rows: minmax(190px, .48fr) minmax(260px, .52fr); gap: 22px; }
+    .visual {
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.72);
+      border: 1px solid #cbd9d4;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(20, 55, 45, .15);
+      overflow: hidden;
+    }
+    .concept-art { width: min(82%, 360px); height: auto; }
+    .hero-art { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .notebook {
+      position: relative;
+      background-color: var(--paper);
+      background-image: linear-gradient(transparent 92%, var(--line) 92%);
+      background-size: 100% 30px;
+      border-radius: 8px;
+      border: 1px solid #eadfc9;
+      box-shadow: 0 22px 48px rgba(60, 43, 24, .22);
+      padding: 24px 24px 22px 64px;
+      overflow: auto;
+    }
+    .notebook::before { content: ""; position: absolute; inset: 0 auto 0 46px; width: 2px; background: var(--redline); }
+    .rings { position: absolute; left: 14px; top: 18px; bottom: 18px; width: 18px; background: repeating-linear-gradient(to bottom, #a8b2b8 0 8px, transparent 8px 32px); border-radius: 20px; opacity: .75; }
+    .notebook h1, .notebook h2, .notebook h3 { font-family: "Trebuchet MS", Arial, sans-serif; color: #0f766e; font-size: 24px; margin-top: 0; }
+    .notebook p, .notebook li { font-size: clamp(17px, 2.05vh, 22px); line-height: 30px; margin: 0 0 7px; color: #1e4b77; }
+    footer { margin-top: auto; color: var(--muted); font-size: 13px; font-weight: 700; padding-top: 12px; }
+    .controls { position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,.82); padding: 8px 10px; border-radius: 999px; border: 1px solid #ccd8d4; font-size: 14px; }
+    button { border: 0; background: var(--green); color: white; border-radius: 999px; width: 36px; height: 30px; font-size: 18px; cursor: pointer; }
+    @media (max-width: 850px) {
+      body { overflow: auto; }
+      .deck { height: auto; }
+      .slide, .slide.active { min-height: 100vh; height: auto; grid-template-columns: 1fr; padding: 26px 20px; }
+      .slide-side { grid-template-rows: auto auto; }
+      .controls { position: sticky; margin: 12px auto; width: max-content; }
+    }
+    @media print {
+      @page { size: 13.333in 7.5in; margin: 0; }
+      body { background: white; overflow: visible; }
+      .deck { height: auto; }
+      .slide {
+        display: grid !important;
+        width: 13.333in;
+        height: 7.5in;
+        page-break-after: always;
+        break-after: page;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      .slide:last-of-type { page-break-after: auto; break-after: auto; }
+      h1 { font-size: 43px; line-height: 1.02; margin-bottom: 14px; }
+      h3 { font-size: 20px; margin: 10px 0 5px; }
+      p, li { font-size: 18px; line-height: 1.24; }
+      li { margin: 4px 0; }
+      .product-checklist { gap: 8px; }
+      .product-card { min-height: 48px; padding: 8px 10px; grid-template-columns: 36px 1fr 22px; }
+      .product-card p { font-size: 15px; line-height: 1.15; }
+      .product-hour { width: 29px; height: 29px; font-size: 14px; }
+      .product-box { width: 17px; height: 17px; }
+      .rubric-grid { gap: 9px; }
+      .rubric-card { min-height: 70px; padding: 10px 12px; }
+      .rubric-card strong { font-size: 20px; margin-bottom: 5px; }
+      .rubric-card p { font-size: 15px; line-height: 1.12; }
+      .rubric-card span { font-size: 12px; }
+      .content { max-height: none; overflow: hidden; }
+      .notebook { overflow: hidden; }
+      .notebook h2 { font-size: 22px; }
+      .notebook p, .notebook li { font-size: 18px; line-height: 27px; }
+      .controls { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide">
+    <div class="slide-main">
+      <p class="kicker">MTCS</p>
+      <h1>Semana 01: Inicializando Sistema</h1>
+      <div class="content"><div class="meta-grid"><p><strong>Docente</strong><br>Dr. Felipe López Salazar | <strong>Grupo:</strong> 501</p><p><strong>Etapa</strong><br>Diagnóstico y Conceptos Base (5 Horas)</p></div></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Laboratorio autorizado">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M164 42l104 42v80c0 70-43 119-104 146C103 283 60 234 60 164V84z" fill="#15803d"/><path d="M116 164l34 34 68-82" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Laboratorio autorizado</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p>Anota el tema, el resultado de aprendizaje y una pregunta personal que quieras resolver durante la semana.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 1: Reglas de Enganche (Ética)</h1>
+      <div class="content"><h1>Hora 1: Reglas de Enganche (Ética)</h1>
+<h2>Inicio (10 min)</h2>
+<p><strong>El Lado Blanco y el Lado Oscuro:</strong></p>
+<p>En este módulo usaremos herramientas que permiten analizar tráfico, revisar configuraciones y comprender riesgos. Por ley y por ética, solo podemos usarlas en ambientes de laboratorio controlados.</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Ética y alcance">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M92 252h144" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M164 70v182" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116h120" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116l-44 78h88zM224 116l-44 78h88z" fill="#fff" stroke="#007a5e" stroke-width="8" stroke-linejoin="round"/><path d="M126 62h76" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Ética y alcance</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>El Lado Blanco y el Lado Oscuro:</strong></p>
+<p>En este módulo usaremos herramientas que permiten analizar tráfico, revisar configuraciones y comprender riesgos. Por ley y por ética, solo podemos usarlas en ambientes de laboratorio controlados.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 1: Reglas de Enganche</h1>
+      <div class="content"><h1>Hora 1: Reglas de Enganche</h1>
+<h2>Desarrollo (30 min)</h2>
+<h3>Dictado: El Código de Ética</h3>
+<ul>
+<li><strong>Especialista ético:</strong> Profesional autorizado por una organización para encontrar debilidades, documentarlas y corregirlas antes de que causen daños.</li>
+<li><strong>Black Hat (Sombrero Negro):</strong> Cibercriminales que explotan vulnerabilidades para beneficio económico, espionaje o destrucción.</li>
+<li><em>&quot;Con gran poder, viene una gran pena de cárcel si rompes la Ley Federal de Protección de Datos.&quot;</em></li>
+</ul></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Riesgo y mitigación">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M164 52l112 204H52z" fill="#fef3c7" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/><path d="M164 112v66" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="216" r="10" fill="#1f2937"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Riesgo y mitigación</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <h3>Dictado: El Código de Ética</h3>
+<ul>
+<li><strong>Especialista ético:</strong> Profesional autorizado por una organización para encontrar debilidades, documentarlas y corregirlas antes de que causen daños.</li>
+<li><strong>Black Hat (Sombrero Negro):</strong> Cibercriminales que explotan vulnerabilidades para beneficio económico, espionaje o destrucción.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 1: Reglas de Enganche</h1>
+      <div class="content"><h1>Hora 1: Reglas de Enganche</h1>
+<h2>Cierre (10 min)</h2>
+<p><strong>Firma del Acuerdo:</strong></p>
+<p>Copia en la primera hoja de tu libreta el siguiente texto y fírmalo:</p>
+<p><em>&quot;Me comprometo a utilizar los conocimientos de Ciberseguridad adquiridos en esta clase única y exclusivamente con fines defensivos y académicos. Comprendo que vulnerar redes ajenas es un delito.&quot;</em></p>
+<p><em>(Solicita el sello del docente al terminar)</em></p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Red observada con criterio">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <circle cx="88" cy="88" r="32" fill="#16a34a"/><circle cx="232" cy="98" r="32" fill="#2563eb"/><circle cx="156" cy="232" r="38" fill="#f59e0b"/><path d="M116 98l86 0M102 116l42 82M218 126l-44 74" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Red observada con criterio</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>Firma del Acuerdo:</strong></p>
+<p>Copia en la primera hoja de tu libreta el siguiente texto y fírmalo:</p>
+<p><em>&quot;Me comprometo a utilizar los conocimientos de Ciberseguridad adquiridos en esta clase única y exclusivamente con fines defensivos y académicos. Comprendo que vulnerar redes ajenas es un delito.&quot;</em></p>
+<p><em>(Solicita el sello del docente al terminar)</em></p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 2: Diagnóstico Teórico</h1>
+      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
+<h2>Inicio (10 min)</h2>
+<p><strong>Desmitificando el Internet:</strong></p>
+<p>La mayoría de los usuarios creen que el internet está &quot;en el aire&quot; o en &quot;una nube&quot;. Vamos a romper ese mito para entender dónde vive realmente la información.</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>Desmitificando el Internet:</strong></p>
+<p>La mayoría de los usuarios creen que el internet está &quot;en el aire&quot; o en &quot;una nube&quot;. Vamos a romper ese mito para entender dónde vive realmente la información.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 2: Diagnóstico Teórico</h1>
+      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
+<h2>Desarrollo (30 min)</h2>
+<h3>Cuestionario Diagnóstico</h3>
+<p>Responde en tu libreta con tus propias palabras (sin usar el celular):</p>
+<ul>
+<li>¿Físicamente, cómo viajan los mensajes de WhatsApp desde México hasta España? (¿Satélite, Antenas, Cables Submarinos?)</li>
+<li>¿Cuál es la diferencia entre HTTP y HTTPS?</li>
+<li>¿Qué crees que es una Dirección IP y para qué sirve?</li>
+</ul></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <h3>Cuestionario Diagnóstico</h3>
+<p>Responde en tu libreta con tus propias palabras (sin usar el celular):</p>
+<ul>
+<li>¿Físicamente, cómo viajan los mensajes de WhatsApp desde México hasta España? (¿Satélite, Antenas, Cables Submarinos?)</li>
+</ul>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 2: Diagnóstico Teórico</h1>
+      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
+<h2>Cierre (10 min)</h2>
+<p><strong>Debate Grupal:</strong></p>
+<p>Discutiremos las respuestas. Descubriremos que el 99% del internet mundial viaja por cables submarinos de fibra óptica, y que la &quot;S&quot; en HTTPS significa Secure (Cifrado). Si entras a un HTTP, tu contraseña viaja en texto plano.</p>
+<p><em>(Solicita el sello del docente al terminar)</em></p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>Debate Grupal:</strong></p>
+<p>Discutiremos las respuestas. Descubriremos que el 99% del internet mundial viaja por cables submarinos de fibra óptica, y que la &quot;S&quot; en HTTPS significa Secure (Cifrado). Si entras a un HTTP, tu contraseña viaja en texto plano.</p>
+<p><em>(Solicita el sello del docente al terminar)</em></p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 3: Análisis de Riesgos</h1>
+      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
+<h2>Inicio (10 min)</h2>
+<p><strong>El Peligro del WiFi Gratis:</strong></p>
+<p>Todos hemos celebrado llegar a un parque o un café y ver una red que dice &quot;WiFi Gratis Sin Contraseña&quot;. Para un especialista en ciberseguridad, eso no es un regalo, es una trampa.</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>El Peligro del WiFi Gratis:</strong></p>
+<p>Todos hemos celebrado llegar a un parque o un café y ver una red que dice &quot;WiFi Gratis Sin Contraseña&quot;. Para un especialista en ciberseguridad, eso no es un regalo, es una trampa.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 3: Análisis de Riesgos</h1>
+      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
+<h2>Desarrollo (30 min)</h2>
+<h3>Dictado: Redes Abiertas</h3>
+<ul>
+<li>En una red sin contraseña, el tráfico de red viaja sin cifrar por el aire.</li>
+<li>En redes no confiables puede haber exposición de sesiones o datos. Por eso se recomienda usar HTTPS, datos móviles para operaciones sensibles y cerrar sesiones en equipos compartidos.</li>
+<li>Esto se conoce como el ataque <strong>Man in the Middle (El hombre en el medio)</strong>.</li>
+</ul></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <h3>Dictado: Redes Abiertas</h3>
+<ul>
+<li>En una red sin contraseña, el tráfico de red viaja sin cifrar por el aire.</li>
+<li>En redes no confiables puede haber exposición de sesiones o datos. Por eso se recomienda usar HTTPS, datos móviles para operaciones sensibles y cerrar sesiones en equipos compartidos.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 3: Análisis de Riesgos</h1>
+      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
+<h2>Cierre (10 min)</h2>
+<p><strong>Medidas de Mitigación:</strong></p>
+<p>Anota en tu libreta 2 soluciones para reducir riesgos en una red pública. Ejemplo: usar una VPN cuando aplique, revisar HTTPS o usar datos móviles al entrar a servicios sensibles.</p>
+<p><em>(Solicita el sello del docente al terminar)</em></p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Riesgo y mitigación">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M164 52l112 204H52z" fill="#fef3c7" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/><path d="M164 112v66" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="216" r="10" fill="#1f2937"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Riesgo y mitigación</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>Medidas de Mitigación:</strong></p>
+<p>Anota en tu libreta 2 soluciones para reducir riesgos en una red pública. Ejemplo: usar una VPN cuando aplique, revisar HTTPS o usar datos móviles al entrar a servicios sensibles.</p>
+<p><em>(Solicita el sello del docente al terminar)</em></p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 4: Phishing vs Malware</h1>
+      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
+<h2>Inicio (10 min)</h2>
+<p><strong>El Eslabón más Débil:</strong></p>
+<p>Puedes comprar el Firewall más caro del mundo, pero si tu empleado abre un correo falso y entrega sus credenciales, todo el sistema cae. El humano es el eslabón más débil.</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Credenciales seguras">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <rect x="74" y="126" width="180" height="112" rx="18" fill="#fff" stroke="#7c3aed" stroke-width="10"/><path d="M116 126v-22a48 48 0 0196 0v22" fill="none" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="178" r="16" fill="#f59e0b"/><path d="M164 194v24" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Credenciales seguras</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>El Eslabón más Débil:</strong></p>
+<p>Puedes comprar el Firewall más caro del mundo, pero si tu empleado abre un correo falso y entrega sus credenciales, todo el sistema cae. El humano es el eslabón más débil.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 4: Phishing vs Malware</h1>
+      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
+<h2>Desarrollo (30 min)</h2>
+<h3>Dictado: Vectores de Ataque Comunes</h3>
+<ul>
+<li><strong>Phishing (Suplantación):</strong> Ingeniería social. Engañar al usuario con un correo falso (&quot;Tu cuenta de Netflix ha sido bloqueada, haz clic aquí&quot;) para que introduzca sus datos voluntariamente en una página clonada.</li>
+<li><strong>Malware (Software Malicioso):</strong> Un programa que infecta el equipo al descargar un archivo infectado (Ej. Un PDF con un troyano, o un Ransomware que secuestra tus archivos exigiendo dinero).</li>
+</ul></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Mini SOC simulado">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <rect x="58" y="72" width="212" height="150" rx="16" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M86 112h48v72H86zM146 142h48v42h-48zM206 96h36v88h-36z" fill="#dbeafe" stroke="#2563eb" stroke-width="6"/><path d="M92 252h144" stroke="#1f2937" stroke-width="12" stroke-linecap="round"/><circle cx="244" cy="88" r="18" fill="#dc2626"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Mini SOC simulado</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <h3>Dictado: Vectores de Ataque Comunes</h3>
+<ul>
+<li><strong>Phishing (Suplantación):</strong> Ingeniería social. Engañar al usuario con un correo falso (&quot;Tu cuenta de Netflix ha sido bloqueada, haz clic aquí&quot;) para que introduzca sus datos voluntariamente en una página clonada.</li>
+<li><strong>Malware (Software Malicioso):</strong> Un programa que infecta el equipo al descargar un archivo infectado (Ej. Un PDF con un troyano, o un Ransomware que secuestra tus archivos exigiendo dinero).</li>
+</ul>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 4: Phishing vs Malware</h1>
+      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
+<h2>Cierre (10 min)</h2>
+<p><strong>Identificación Forense:</strong></p>
+<p>En tu libreta, explica cuál es la diferencia fundamental entre Phishing y Malware.</p>
+<p><em>(Pista: Uno ataca a la psicología humana y el otro ataca directamente al sistema operativo).</em></p>
+<p><em>(Solicita el sello del docente al terminar)</em></p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Mensaje sospechoso">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <rect x="58" y="88" width="212" height="132" rx="16" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M76 108l88 66 88-66" fill="none" stroke="#dc2626" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M222 52l40 70M262 52l-40 70" stroke="#f59e0b" stroke-width="12" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Mensaje sospechoso</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p><strong>Identificación Forense:</strong></p>
+<p>En tu libreta, explica cuál es la diferencia fundamental entre Phishing y Malware.</p>
+<p><em>(Pista: Uno ataca a la psicología humana y el otro ataca directamente al sistema operativo).</em></p>
+<p><em>(Solicita el sello del docente al terminar)</em></p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 5: Cierre Semanal</h1>
+      <div class="content"><h1>Hora 5: Cierre Semanal</h1>
+<h2>Inicio (5 min)</h2>
+<p>Hemos terminado la primera evaluación diagnóstica. El panorama es claro: usamos la tecnología todos los días, pero rara vez entendemos los peligros invisibles que nos rodean.</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Topología de red">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <rect x="126" y="126" width="76" height="54" rx="12" fill="#0f766e"/><circle cx="72" cy="76" r="28" fill="#2563eb"/><circle cx="256" cy="76" r="28" fill="#f59e0b"/><circle cx="72" cy="244" r="28" fill="#16a34a"/><circle cx="256" cy="244" r="28" fill="#dc2626"/><path d="M98 88l44 44M230 88l-44 44M98 232l44-54M230 232l-44-54" stroke="#1f2937" stroke-width="9" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Topología de red</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p>Hemos terminado la primera evaluación diagnóstica. El panorama es claro: usamos la tecnología todos los días, pero rara vez entendemos los peligros invisibles que nos rodean.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 5: Cierre Semanal</h1>
+      <div class="content"><h1>Hora 5: Cierre Semanal</h1>
+<h2>Desarrollo (35 min)</h2>
+<h3>� Retroalimentación Grupal</h3>
+<p>Revisaremos las libretas para verificar que todos cuenten con los conceptos clave de esta semana:</p>
+<ul>
+<li>White Hat vs Black Hat.</li>
+<li>Infraestructura Real del Internet (Cables, no Nubes).</li>
+<li>El riesgo de las Redes Abiertas (Man in the Middle).</li>
+<li>Phishing vs Malware.</li>
+</ul>
+<p>A partir de la próxima semana, entraremos de lleno a la arquitectura técnica (Unidad 1).</p></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <h3>� Retroalimentación Grupal</h3>
+<p>Revisaremos las libretas para verificar que todos cuenten con los conceptos clave de esta semana:</p>
+<ul>
+<li>White Hat vs Black Hat.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Secuencia didactica</p>
+      <h1>Hora 5: Cierre Semanal</h1>
+      <div class="content"><h1>Hora 5: Cierre Semanal</h1></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Laboratorio autorizado">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M164 42l104 42v80c0 70-43 119-104 146C103 283 60 234 60 164V84z" fill="#15803d"/><path d="M116 164l34 34 68-82" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Laboratorio autorizado</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p>Escribe una idea clave, una duda y una aplicacion profesional de la clase.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="slide-main">
+      <p class="kicker">Criterios</p>
+      <h1>Evaluacion y cierre</h1>
+      <div class="content"><h3>Rúbrica Semanal</h3>
+<p>El docente sellará la primera etapa del semestre validando:</p>
+<ul>
+<li>Cuestionario diagnóstico completo (sin importar si las respuestas originales eran erróneas, se evalúa la corrección grupal).</li>
+<li>Acuerdo de Confidencialidad y Ética firmado en la libreta.</li>
+</ul></div>
+      <footer>CONALEP · MTCS</footer>
+    </div>
+    <div class="slide-side">
+      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Ética y alcance">
+    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
+    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
+    <path d="M92 252h144" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M164 70v182" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116h120" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116l-44 78h88zM224 116l-44 78h88z" fill="#fff" stroke="#007a5e" stroke-width="8" stroke-linejoin="round"/><path d="M126 62h76" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
+    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Ética y alcance</text>
+  </svg></div>
+      <div class="notebook">
+        <div class="rings" aria-hidden="true"></div>
+        <h2>Ejemplo de apunte</h2>
+        <p>Cierra con tres frases: que aprendi, como lo aplique y que debo mejorar en la siguiente practica.</p>
+      </div>
+    </div>
+  </section>
+  </main>
+  <div class="controls" aria-label="Controles">
+    <button id="prev" title="Anterior">‹</button>
+    <span id="count">1 / 17</span>
+    <button id="next" title="Siguiente">›</button>
+  </div>
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    let index = 0;
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      document.getElementById("count").textContent = (index + 1) + " / " + slides.length;
+    }
+    document.getElementById("prev").addEventListener("click", () => show(index - 1));
+    document.getElementById("next").addEventListener("click", () => show(index + 1));
+    document.addEventListener("keydown", (event) => {
+      if (["ArrowRight", "PageDown", " "].includes(event.key)) show(index + 1);
+      if (["ArrowLeft", "PageUp"].includes(event.key)) show(index - 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>

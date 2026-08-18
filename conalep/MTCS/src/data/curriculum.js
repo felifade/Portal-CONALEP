@@ -76,7 +76,7 @@ export const curriculumData = {
   ],
   schedules: {
     "W00": { days: [] },
-    "W01": { days: [] },
+    "W01": { isHtml: true, url: "./html/W01.html" },
     "W02": { days: [] },
     "W03": { days: [] },
     "W04": { days: [] },

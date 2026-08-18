@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CONALEP · Radar Operativo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">CONALEP · Semestre 1.26.27</p>
+      <h1>Radar Operativo</h1>
+      <p class="subtitle">Fechas, pendientes, avisos y evidencias desde tus notas de Obsidian.</p>
+    </div>
+    <div class="status-card">
+      <span class="status-label">Actualizado</span>
+      <strong id="updatedAt">--</strong>
+      <span id="sourceCount">Notas enlazadas</span>
+      <a class="update-button" href="Actualizar%20Dashboard%20CONALEP.command">Actualizar dashboard</a>
+      <span class="update-hint">Si macOS pide permiso, abre el archivo .command de esta carpeta.</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary-grid" id="summaryGrid"></section>
+
+    <div class="dashboard-layout">
+      <section class="panel month-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Agenda</p>
+          <h2>Por hacer · por mes</h2>
+        </div>
+        <div id="monthTabs" class="month-tabs" role="tablist" aria-label="Meses"></div>
+        <div id="monthContent" class="month-content"></div>
+      </section>
+
+      <aside class="panel critical-panel" aria-label="Fechas clave">
+        <div class="section-heading">
+          <p class="eyebrow">Siempre visible</p>
+          <h2>Fechas clave</h2>
+        </div>
+        <div id="criticalDates" class="critical-list"></div>
+      </aside>
+    </div>
+
+    <section class="panel notes-panel">
+      <div class="section-heading">
+        <p class="eyebrow">Base viva</p>
+        <h2>Notas fuente</h2>
+      </div>
+      <div id="sourceLinks" class="source-links"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

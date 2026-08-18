@@ -124,6 +124,15 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
               Laboratorio de Código
             </a>
             <a
+              className="main-nav-link"
+              href="../Anuncios/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Clapperboard size={15} className="doc-icon" />
+              Radar Operativo (Anuncios)
+            </a>
+            <a
               className={`main-nav-link proyecto-nav-link ${activeView === 'proyecto' ? 'active' : ''}`}
               onClick={() => { onViewSelect('proyecto'); if (onMobileClose) onMobileClose(); }}
             >
