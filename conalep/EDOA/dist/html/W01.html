@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Σ EDOA · Semana 01</title>
+  <style>
+    :root {
+      --ink:#12211f; --muted:#56645f; --paper:#f7faf8; --line:#d8e3dd;
+      --green:#0f766e; --green2:#0b5f58; --blue:#2563eb; --gold:#c77700;
+      --soft:#e9f5f1; --softblue:#eaf2ff; --softgold:#fff5df; --white:#fff;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:100%; height:100%; background:#dfe9e5; color:var(--ink); font-family:Arial, Helvetica, sans-serif; overflow:hidden; }
+    .deck { width:100vw; height:100vh; position:relative; }
+    .slide { width:100vw; height:100vh; padding:4.8vh 5.4vw 6.2vh; display:none; background:var(--paper); overflow:hidden; }
+    .slide.active { display:block; }
+    h1,h2,h3,p { margin:0; }
+    h1 { font-size:clamp(52px,6.2vw,90px); line-height:.96; max-width:1120px; letter-spacing:0; color:var(--green2); }
+    h2 { font-size:clamp(34px,4.2vw,58px); line-height:1.04; margin-bottom:14px; max-width:1120px; color:var(--green2); letter-spacing:0; }
+    h3 { font-size:clamp(22px,2vw,30px); margin-bottom:8px; color:var(--green2); }
+    p, li, td, th { font-size:clamp(19px,1.65vw,25px); line-height:1.34; }
+    .badge,.eyebrow { display:inline-block; font-size:clamp(15px,1.2vw,18px); font-weight:800; color:var(--green); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; }
+    .cover { min-height:83vh; display:flex; flex-direction:column; justify-content:center; gap:22px; }
+    .cover p { max-width:900px; color:var(--muted); font-size:clamp(24px,2.4vw,34px); }
+    .teacher { margin-top:12px; color:var(--green) !important; font-weight:800; }
+    .class-code { display:flex; align-items:center; gap:22px; width:max-content; max-width:100%; padding:16px 22px; border:2px solid var(--line); background:var(--white); border-radius:8px; }
+    .class-code span { color:var(--muted); font-weight:800; font-size:clamp(17px,1.3vw,21px); }
+    .class-code strong { font-size:clamp(34px,4vw,50px); color:var(--blue); letter-spacing:.06em; }
+    .topline { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; margin-bottom:18px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .meta span { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:9px 12px; font-weight:800; color:var(--green2); font-size:clamp(16px,1.2vw,19px); }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px; }
+    .cards.two { grid-template-columns:repeat(2,1fr); }
+    .card,.panel,.note { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:20px; }
+    .card p,.panel p { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:34% 1fr; gap:18px; align-items:start; }
+    .grid.even { grid-template-columns:1fr 1fr; }
+    .panel.dictado { background:var(--softblue); border-color:#cfe0fb; }
+    .panel.obj { background:var(--soft); }
+    .panel.gold { background:var(--softgold); border-color:#ecd59e; }
+    .chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:13px; }
+    .chips span { padding:7px 10px; background:#dff3ee; color:#0f5f58; font-weight:800; border-radius:6px; font-size:clamp(14px,1.05vw,16px); }
+    table { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; background:var(--white); }
+    th,td { border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; }
+    th { background:#e8f1ee; color:#143d38; font-size:clamp(17px,1.35vw,21px); }
+    td { font-size:clamp(16px,1.22vw,20px); line-height:1.26; }
+    td:first-child { width:104px; font-weight:900; color:var(--blue); }
+    .timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:24px; }
+    .timeline div { background:var(--white); border:2px solid var(--line); border-left:8px solid var(--green); border-radius:8px; padding:16px; min-height:126px; }
+    .timeline strong { display:block; font-size:clamp(30px,3vw,42px); color:var(--blue); }
+    .timeline span { display:block; font-size:clamp(16px,1.35vw,21px); font-weight:800; line-height:1.2; }
+    .reading { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+    .reading .text { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:20px; }
+    .reading p { font-size:clamp(17px,1.33vw,22px); line-height:1.35; color:var(--ink); margin-bottom:12px; }
+    .reading h3 { color:var(--blue); }
+    .products { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px; }
+    .products p { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:16px; font-weight:800; }
+    .products p::before { content:"✓ "; color:var(--green); }
+    .hour-layout { display:grid; grid-template-columns:31% 1fr; gap:16px; align-items:start; }
+    .ra-box { background:var(--soft); border:2px solid var(--line); border-radius:8px; padding:16px; margin-bottom:14px; }
+    .ra-box strong { color:var(--green2); }
+    .stack { display:grid; gap:14px; }
+    .mini-title { font-size:clamp(15px,1.15vw,18px); font-weight:900; color:var(--green2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:7px; }
+    .questions { margin:10px 0 0; padding-left:22px; }
+    .questions li { font-size:clamp(16px,1.25vw,20px); margin-bottom:5px; }
+    footer { position:absolute; left:5.4vw; right:5.4vw; bottom:1.6vh; padding-top:9px; border-top:2px solid var(--line); font-size:clamp(16px,1.45vw,20px); color:var(--muted); }
+    footer strong { color:var(--green); }
+    .timer { position:fixed; right:18px; top:18px; z-index:20; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:9px; display:flex; gap:8px; align-items:center; box-shadow:0 8px 26px #0002; }
+    .timer.min { width:48px; height:48px; padding:0; justify-content:center; overflow:hidden; cursor:pointer; }
+    .timer.min::before { content:"⏱"; font-size:25px; line-height:1; }
+    .timer.min .time,.timer.min button { display:none; }
+    .timer button,.nav button { border:0; background:var(--green); color:white; border-radius:6px; padding:8px 10px; font-weight:800; cursor:pointer; }
+    .timer .time { font-size:22px; font-weight:900; min-width:72px; text-align:center; color:var(--ink); }
+    .nav { position:fixed; right:18px; bottom:18px; z-index:20; display:flex; align-items:center; gap:8px; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:10px; }
+    .count { font-weight:900; min-width:76px; text-align:center; }
+    @media (max-width:900px) {
+      html,body { overflow:auto; }
+      .slide { padding:4vh 4vw 9vh; overflow:auto; min-height:100vh; height:auto; }
+      .cards,.cards.two,.grid,.grid.even,.timeline,.reading,.products,.hour-layout { grid-template-columns:1fr; }
+      .timer { transform:scale(.86); transform-origin:top right; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide cover-slide">
+      <div class="cover">
+        <span class="badge">Σ EDOA · Semana 01</span>
+        <h1>Mini manual en Google Docs</h1>
+        <p>Presentación viva de clase: lo que hacemos por hora, los textos de trabajo y los productos que quedan como evidencia.</p>
+        <div class="class-code"><span>Código Classroom</span><strong>mawiuwaj</strong></div>
+        <p class="teacher">Dr. Felipe Lopez Salazar</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Estructura fija por hora</span>
+      <h2>Así se trabajará cada bloque</h2>
+      <div class="cards">
+        <article><h3>Resultado</h3><p>RA/CRA visible para saber qué aprendizaje se está atendiendo.</p></article>
+        <article><h3>Inicio</h3><p>Dictado breve para libreta y propósito de la hora.</p></article>
+        <article><h3>Desarrollo</h3><p>Instrucciones concretas que realiza el estudiante.</p></article>
+      </div>
+      <div class="cards two">
+        <article><h3>Cierre</h3><p>Producto que se entrega al final de la hora.</p></article>
+        <article><h3>Libreta</h3><p>Preguntas copiadas y respondidas como evidencia de comprensión.</p></article>
+      </div>
+      <footer><strong>Regla:</strong> cada hora debe poder leerse como guion de clase y como evidencia para plataforma.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 1</span>
+      <h2>Classroom, Drive y carpeta de evidencias</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>Classroom será el espacio donde se publicarán indicaciones, evidencias y avisos del módulo. La organización digital inicia antes de escribir: empieza con saber dónde guardar, cómo nombrar y cómo entregar.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
+            <table><tbody>
+              <tr><td>1</td><td>Entrar a Google Classroom con la cuenta correcta.</td></tr>
+              <tr><td>2</td><td>Unirse con el código <strong>mawiuwaj</strong>.</td></tr>
+              <tr><td>3</td><td>Abrir Google Drive y crear la carpeta <strong>EDOA_Practicas_Nombre_Apellido</strong>.</td></tr>
+              <tr><td>4</td><td>Crear la subcarpeta <strong>Evidencias_Semana_01</strong>.</td></tr>
+              <tr><td>5</td><td>Registrar código, carpeta y subcarpeta en libreta.</td></tr>
+            </tbody></table>
+          </article>
+          <article class="panel gold">
+            <div class="mini-title">Cierre · producto y preguntas</div>
+            <p><strong>Producto:</strong> Classroom activo, carpeta creada, subcarpeta de evidencias y registro en libreta.</p>
+            <ol class="questions"><li>¿Por qué es importante usar la cuenta correcta?</li><li>¿Qué problema evita nombrar bien una carpeta?</li></ol>
+          </article>
+        </section>
+      </div>
+      <footer><strong>Evidencia:</strong> captura de Classroom o Drive si el tiempo lo permite.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 2</span>
+      <h2>Práctica 01: mini manual en Google Docs</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>Un mini manual es un documento breve, ordenado y útil que explica cómo realizar un procedimiento. En esta práctica registraremos cómo entrar a Classroom, organizar Drive, crear un documento y comenzar a darle formato profesional.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
+            <table><tbody>
+              <tr><td>1</td><td>Crear un documento nuevo dentro de la carpeta del módulo.</td></tr>
+              <tr><td>2</td><td>Nombrarlo <strong>Practica_01_Mini_Manual_Google_Docs_Nombre_Apellido</strong>.</td></tr>
+              <tr><td>3</td><td>Escribir el título de la práctica y crear secciones: portada, propósito, pasos, evidencias y cierre.</td></tr>
+              <tr><td>4</td><td>Agregar las primeras capturas con una frase que explique qué muestran.</td></tr>
+              <tr><td>5</td><td>Hacer en libreta un boceto rápido de la estructura final.</td></tr>
+            </tbody></table>
+          </article>
+          <article class="panel gold">
+            <div class="mini-title">Cierre · producto y preguntas</div>
+            <p><strong>Producto:</strong> mini manual creado, nombrado correctamente y con estructura inicial.</p>
+            <ol class="questions"><li>¿Por qué un mini manual ayuda a recordar un procedimiento?</li><li>¿Qué sección no debe faltar para demostrar evidencia?</li></ol>
+          </article>
+        </section>
+      </div>
+      <footer><strong>Avance real:</strong> esta parte ya se trabajó como base del producto.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 3</span>
+      <h2>Portada y prueba de escritura rápida</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>La velocidad de escritura ayuda a trabajar mejor en documentos digitales, pero no debe separarse de la precisión. En un documento formal, la presentación y la corrección también son parte de la evidencia.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
+            <table><tbody>
+              <tr><td>1</td><td>Revisar que la portada tenga institución, módulo, alumno, grupo, docente, ciclo escolar y título.</td></tr>
+              <tr><td>2</td><td>Entrar a la prueba: <strong>typing.com/es/student/typing-test/1-minute/es</strong>.</td></tr>
+              <tr><td>3</td><td>Registrar palabras por minuto, precisión y fecha.</td></tr>
+              <tr><td>4</td><td>Tomar captura del resultado.</td></tr>
+              <tr><td>5</td><td>Insertar la captura en <strong>Evidencias del procedimiento</strong> y explicar qué demuestra.</td></tr>
+            </tbody></table>
+          </article>
+          <article class="panel gold">
+            <div class="mini-title">Cierre · producto y preguntas</div>
+            <p><strong>Producto:</strong> portada revisada, prueba registrada, captura insertada y explicación breve.</p>
+            <ol class="questions"><li>¿Qué es más importante al escribir: velocidad, precisión o presentación?</li><li>¿Qué dato de la prueba te ayuda a mejorar?</li></ol>
+          </article>
+        </section>
+      </div>
+      <footer><strong>Avance real:</strong> llegamos hasta esta hora.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 4</span>
+      <h2>Dictado y lectura para aplicar estilos</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>Dar formato a un documento no significa decorarlo. Significa organizarlo para que otra persona pueda leerlo, comprenderlo y revisarlo sin confundirse. Un texto con título, subtítulos, párrafos justificados, palabras clave, listas e imágenes comunica mejor sus ideas.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
+            <table><tbody>
+              <tr><td>1</td><td>Abrir el mini manual y crear la sección <strong>Lectura con formato profesional</strong>.</td></tr>
+              <tr><td>2</td><td>Copiar la lectura <strong>El documento que evitó la confusión</strong> sin formato.</td></tr>
+              <tr><td>3</td><td>Aplicar título 18-20, subtítulos 16-18, texto 14 y párrafos justificados.</td></tr>
+              <tr><td>4</td><td>Usar negritas, viñetas, color con intención e imagen centrada.</td></tr>
+              <tr><td>5</td><td>Tomar captura del antes y del después.</td></tr>
+            </tbody></table>
+          </article>
+          <article class="panel gold">
+            <div class="mini-title">Cierre · producto y preguntas</div>
+            <p><strong>Producto:</strong> lectura con formato profesional, captura antes/después y conclusión en libreta.</p>
+            <ol class="questions"><li>¿Cómo cambia la lectura cuando se aplican títulos y subtítulos?</li><li>¿Por qué las capturas necesitan explicación?</li></ol>
+          </article>
+        </section>
+      </div>
+      <footer><strong>Siguiente clase:</strong> esta hora inicia con dictado y luego trabajo en Google Docs.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Lectura base · Hora 4</span>
+      <h2>El documento que evitó la confusión</h2>
+      <div class="reading">
+        <article class="text">
+          <h3>Parte 1</h3>
+          <p>En el laboratorio de cómputo, el grupo recibió una indicación sencilla: crear un documento para explicar lo que habían aprendido durante la semana. Al principio parecía una tarea fácil, pero pronto aparecieron problemas. Algunos archivos no tenían nombre claro, otros estaban fuera de la carpeta correcta y varias capturas no explicaban qué demostraban.</p>
+          <p>La maestra pidió detenerse un momento y observar el trabajo como si fuera revisado por alguien que no estuvo en clase. Entonces el grupo descubrió algo importante: un documento puede tener información, pero si no está ordenado, se vuelve difícil de entender.</p>
+        </article>
+        <article class="text">
+          <h3>Parte 2</h3>
+          <p>Después reorganizaron el contenido. Agregaron un título visible, subtítulos para separar ideas, párrafos justificados, palabras clave en negritas y una lista de recomendaciones. También centraron las capturas y escribieron debajo una frase breve para explicar cada evidencia.</p>
+          <p>Al final, el documento ya no parecía una tarea improvisada. Parecía un mini manual que otra persona podía seguir. La lección fue clara: el formato profesional ayuda a pensar, comunicar y demostrar el proceso de trabajo.</p>
+        </article>
+      </div>
+      <footer><strong>Uso:</strong> copiar sin formato y transformar en Google Docs.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Productos acumulados</span>
+      <h2>Lo que debe quedar hasta la Hora 4</h2>
+      <div class="products">
+        <p>Carpeta de Drive y subcarpeta de evidencias.</p>
+        <p>Mini manual creado y nombrado correctamente.</p>
+        <p>Portada con datos principales.</p>
+        <p>Prueba de escritura rápida registrada.</p>
+        <p>Lectura con formato profesional.</p>
+        <p>Capturas explicadas como evidencia.</p>
+      </div>
+      <footer><strong>Regla:</strong> el HTML crecerá cuando se confirme el siguiente avance real.</footer>
+    </section>
+  </main>
+
+  <div class="timer min" id="timer" title="Clic para ampliar temporizador">
+    <span class="time" id="time">10:00</span>
+    <button onclick="event.stopPropagation(); toggleRun()">▶</button>
+    <button onclick="event.stopPropagation(); resetTimer(600)">10</button>
+    <button onclick="event.stopPropagation(); resetTimer(300)">5</button>
+    <button onclick="event.stopPropagation(); resetTimer(900)">15</button>
+    <button onclick="event.stopPropagation(); resetTimer(0)">↺</button>
+  </div>
+  <div class="nav">
+    <button onclick="prev()">←</button>
+    <span class="count" id="count">1 / 1</span>
+    <button onclick="next()">→</button>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    let current=0, seconds=600, running=false, interval=null;
+    const timer=document.getElementById('timer');
+    timer.addEventListener('click',()=>timer.classList.toggle('min'));
+    function show(i){ current=(i+slides.length)%slides.length; slides.forEach((s,n)=>s.classList.toggle('active',n===current)); document.getElementById('count').textContent=(current+1)+' / '+slides.length; }
+    function next(){ show(current+1); }
+    function prev(){ show(current-1); }
+    function paintTime(){ const m=String(Math.floor(seconds/60)).padStart(2,'0'); const s=String(seconds%60).padStart(2,'0'); document.getElementById('time').textContent=m+':'+s; }
+    function resetTimer(v){ seconds=v; running=false; clearInterval(interval); paintTime(); }
+    function toggleRun(){ running=!running; if(running){ interval=setInterval(()=>{ if(seconds>0){ seconds--; paintTime(); } else { running=false; clearInterval(interval); }},1000); } else { clearInterval(interval); } }
+    document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); if(e.key===' ') { e.preventDefault(); toggleRun(); } });
+    show(0); paintTime();
+  </script>
+</body>
+</html>
