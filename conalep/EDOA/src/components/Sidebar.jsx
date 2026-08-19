@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, FlaskConical, LayoutDashboard } from 'lucide-react';
+import { GraduationCap, LayoutDashboard } from 'lucide-react';
 
 const Sidebar = ({ activeView, onViewSelect, isMobileOpen, onMobileClose }) => {
   return (
@@ -23,7 +23,7 @@ const Sidebar = ({ activeView, onViewSelect, isMobileOpen, onMobileClose }) => {
             <p className="author-name">Dr. Felipe López Salazar</p>
           </div>
           <div style={{ fontSize: '11px', color: '#facc15', textAlign: 'right', paddingRight: '12px', paddingBottom: '6px', fontWeight: 'bold', letterSpacing: '1px' }}>
-            v81-dash
+            v86-dash
           </div>
         </div>
 
@@ -35,13 +35,6 @@ const Sidebar = ({ activeView, onViewSelect, isMobileOpen, onMobileClose }) => {
             >
               <LayoutDashboard size={15} className="doc-icon" />
               Dashboard Principal
-            </a>
-            <a
-              className={`main-nav-link ${activeView === 'codelab' ? 'active' : ''}`}
-              onClick={() => { onViewSelect('codelab'); if (onMobileClose) onMobileClose(); }}
-            >
-              <FlaskConical size={15} className="doc-icon" />
-              Laboratorio de Código
             </a>
           </div>
         </nav>

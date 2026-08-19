@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
-import CodeLab from './components/CodeLab';
 import DashboardView from './components/DashboardView';
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
@@ -81,8 +80,6 @@ function App() {
             allOrderedWeeks={allOrderedWeeks}
           />
         )}
-
-        {activeView === 'codelab' && <CodeLab />}
       </main>
 
       {showPinModal && (
