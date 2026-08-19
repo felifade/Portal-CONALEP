@@ -102,7 +102,7 @@ const DashboardView = ({ currentWeek, isTeacherMode, nextWeek, allOrderedWeeks }
         </div>
         <div className="dashboard-iframe-container">
           <iframe 
-            src="/Portal-CONALEP/conalep/Anuncios/index.html" 
+            src="../../Anuncios/index.html" 
             title="Radar Operativo"
             className="anuncios-iframe"
           />
