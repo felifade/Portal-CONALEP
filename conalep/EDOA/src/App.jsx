@@ -3,7 +3,7 @@ import { Monitor, GraduationCap, Layers, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from '@shared/components/WeekView';
 import CodeLab from './components/CodeLab';
-import ProyectoView from './components/ProyectoView';
+
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
@@ -59,7 +59,7 @@ function App() {
         <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
           <Menu size={18} />
         </button>
-        <span className="mobile-brand">CONALEP · DEWE</span>
+        <span className="mobile-brand">CONALEP · EDOA</span>
       </div>
 
       <Sidebar
@@ -108,8 +108,7 @@ function App() {
               assetUrl={assetUrl}
             />
           )
-        ) : activeView === 'proyecto' ? (
-          <ProyectoView isTeacherMode={isTeacherMode} />
+        
         ) : (
           <CodeLab />
         )}
