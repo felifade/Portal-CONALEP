@@ -3273,3 +3273,245 @@
 .app-container.class-mode-active .iframe-wrapper {
   height: calc(100vh - 90px);
 }
+
+/* ── NUEVO DASHBOARD PRINCIPAL ── */
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.corte-section {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.corte-header {
+  background: #f8fafc;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.corte-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.corte-peso {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.corte-ras {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ra-dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.ra-dashboard-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.ra-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ra-title-group {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.ra-icon-main {
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.ra-title-group h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ra-peso-badge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ra-dashboard-weeks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dashboard-week-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dashboard-week-btn:hover:not(.locked) {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateX(2px);
+}
+
+.dashboard-week-btn.current {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.dashboard-week-btn.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+.week-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ext-icon {
+  color: #94a3b8;
+}
+
+.dashboard-week-btn:hover:not(.locked) .ext-icon {
+  color: var(--primary-color);
+}
+
+.badge-hoy {
+  background: #22c55e;
+  color: white;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.badge-preview {
+  background: #f59e0b;
+  color: white;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* Radar Operativo / Sidebar Derecho */
+.dashboard-sidebar {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 40px);
+  position: sticky;
+  top: 20px;
+}
+
+.dashboard-sidebar-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: #0f172a;
+  border-radius: 12px 12px 0 0;
+}
+
+.dashboard-sidebar-header h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.dashboard-sidebar-header p {
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 0;
+}
+
+.dashboard-iframe-container {
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.anuncios-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
