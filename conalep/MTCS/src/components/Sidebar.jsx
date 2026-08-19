@@ -132,7 +132,7 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
             </a>
             <a
               className="main-nav-link"
-              href="../Anuncios/index.html"
+              href="../../Anuncios/index.html"
               target="_blank"
               rel="noopener noreferrer"
             >
