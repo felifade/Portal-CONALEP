@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Monitor, GraduationCap, Layers, Menu } from 'lucide-react';
+import { Monitor, GraduationCap, Layers, Menu, ExternalLink } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from '@shared/components/WeekView';
 import CodeLab from './components/CodeLab';
@@ -93,8 +93,25 @@ function App() {
 
         {activeView === 'curriculum' ? (
           scheduleData?.isHtml ? (
-            <div className="iframe-container">
-              <iframe src={scheduleData.url} title="Content" />
+            <div className="iframe-wrapper">
+              <div className="iframe-topbar">
+                <div className="iframe-topbar-info">
+                  <span className="iframe-badge">Presentación Interactiva</span>
+                  <span className="iframe-title">{curriculumData.subject} · {activeWeek}</span>
+                </div>
+                <a
+                  href={scheduleData.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="iframe-open-btn"
+                >
+                  <ExternalLink size={14} />
+                  Abrir en pantalla completa
+                </a>
+              </div>
+              <div className="iframe-container">
+                <iframe src={scheduleData.url} title="Presentación de Clase" />
+              </div>
             </div>
           ) : (
             <WeekView
