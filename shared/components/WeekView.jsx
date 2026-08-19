@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { BookOpen, PenLine, Wrench, Package, Camera, GraduationCap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, PenLine, Wrench, Package, Camera, GraduationCap, ChevronLeft, ChevronRight, Monitor } from 'lucide-react';
 
 const getWeekMeta = (weekId, curriculumData) => {
   for (const ra of curriculumData.ras) {
@@ -70,10 +70,13 @@ const SmartText = ({ text }) => {
 };
 
 const BLOCK_META = {
+  inicio:     { icon: <BookOpen size={13} />,    label: '🟢 Inicio (10 min)',      cls: 'theory' },
+  desarrollo: { icon: <Wrench size={13} />,      label: '🟡 Desarrollo (30 min)',  cls: 'practice' },
+  cierre:     { icon: <PenLine size={13} />,     label: '🔴 Cierre (10 min)',      cls: 'notebook' },
   theory:     { icon: <BookOpen size={13} />,    label: 'Teoría (10 min)',         cls: 'theory' },
   notebook:   { icon: <PenLine size={13} />,     label: 'Actividad en libreta',    cls: 'notebook' },
   practice:   { icon: <Wrench size={13} />,      label: 'Práctica en PC',          cls: 'practice' },
-  product:    { icon: <Package size={13} />,     label: 'Producto de la sesión',   cls: 'product-block' },
+  product:    { icon: <Package size={13} />,     label: '📦 Producto de la sesión', cls: 'product-block' },
   teacher:    { icon: <GraduationCap size={13}/>,label: 'Solo Docente — Notas',    cls: 'teacher-only' },
   screenshot: { icon: <Camera size={13} />,      label: 'Vista previa del diseño', cls: 'screenshot-preview' },
 };
@@ -271,6 +274,24 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, 
       </div>
 
       <div className="sheet-body">
+        {hour.inicio && (
+          <PedBlock type="inicio">
+            <SmartText text={hour.inicio} />
+          </PedBlock>
+        )}
+        
+        {hour.desarrollo && (
+          <PedBlock type="desarrollo">
+            <SmartText text={hour.desarrollo} />
+          </PedBlock>
+        )}
+
+        {hour.cierre && (
+          <PedBlock type="cierre">
+            <SmartText text={hour.cierre} />
+          </PedBlock>
+        )}
+
         {hour.theory && (
           <PedBlock type="theory">
             <SmartText text={hour.theory} />
@@ -289,16 +310,24 @@ const HourPage = ({ hour, index, total, isTeacherMode, onPrev, onNext, flipDir, 
             </PedBlock>
           )}
         </div>
-
-        {hour.diagram && <DiagramBlock html={hour.diagram} />}
-        {hour.code && <CodeBlock code={hour.code} />}
-        {isTeacherMode && hour.codeRef && <CodeBlock code={hour.codeRef} isRef />}
-
+        
         {hour.product && (
           <PedBlock type="product">
             <SmartText text={hour.product} />
           </PedBlock>
         )}
+
+        {hour.presentation && (
+          <div className="pedagogical-block presentation-block" style={{ marginTop: '15px' }}>
+            <a href={hour.presentation} target="_blank" rel="noopener noreferrer" className="materia-cta" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 15px', background: '#3b82f6', color: 'white', textDecoration: 'none', borderRadius: '8px', fontWeight: 'bold' }}>
+              <Monitor size={16} /> Ver Presentación Interactiva
+            </a>
+          </div>
+        )}
+
+        {hour.diagram && <DiagramBlock html={hour.diagram} />}
+        {hour.code && <CodeBlock code={hour.code} />}
+        {isTeacherMode && hour.codeRef && <CodeBlock code={hour.codeRef} isRef />}
 
         {assetUrl && (hour.image || hour.images) && (
           <div className="pedagogical-block screenshot-preview">

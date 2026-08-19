@@ -4,20 +4,27 @@ import { curriculumData } from '../data/curriculum';
 
 const POND_DATA = [
   {
-    label: "Desarrollo de páginas web estáticas",
-    peso: "60%",
+    label: "Identificación de conceptos básicos de redes",
+    peso: "35%",
     ras: [
-      { id: "1.1", desc: "Estructura del sitio web", act: "1.1.1", peso: "15%" },
-      { id: "1.2", desc: "HTML estático",            act: "1.2.1", peso: "20%" },
-      { id: "1.3", desc: "Hojas de estilo CSS",      act: "1.3.1", peso: "25%" },
+      { id: "1.1", desc: "Conexiones de red",             act: "1.1.1", peso: "15%" },
+      { id: "1.2", desc: "Direccionamiento y enrutamiento", act: "1.2.1", peso: "20%" },
     ],
   },
   {
-    label: "Desarrollo de páginas web dinámicas",
-    peso: "40%",
+    label: "Aplicación de fundamentos de ciberseguridad",
+    peso: "35%",
     ras: [
-      { id: "2.1", desc: "Interactividad con JavaScript", act: "2.1.1", peso: "20%" },
-      { id: "2.2", desc: "Acceso a bases de datos",       act: "2.2.1", peso: "20%" },
+      { id: "2.1", desc: "Fundamentos y principios",       act: "2.1.1", peso: "15%" },
+      { id: "2.2", desc: "Protocolos y confidencialidad",   act: "2.2.1", peso: "20%" },
+    ],
+  },
+  {
+    label: "Programación y uso de lenguajes informáticos",
+    peso: "30%",
+    ras: [
+      { id: "3.1", desc: "Fundamentos y optimización",     act: "3.1.1", peso: "15%" },
+      { id: "3.2", desc: "Estructuras de control",         act: "3.2.1", peso: "15%" },
     ],
   },
 ];
@@ -131,13 +138,6 @@ const Sidebar = ({ activeWeek, activeView, onWeekSelect, onViewSelect, currentWe
             >
               <Clapperboard size={15} className="doc-icon" />
               Radar Operativo (Anuncios)
-            </a>
-            <a
-              className={`main-nav-link proyecto-nav-link ${activeView === 'proyecto' ? 'active' : ''}`}
-              onClick={() => { onViewSelect('proyecto'); if (onMobileClose) onMobileClose(); }}
-            >
-              <Clapperboard size={15} className="doc-icon" />
-              Proyecto — Resident Evil
             </a>
           </div>
 

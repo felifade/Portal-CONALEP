@@ -1,94 +1,101 @@
-import { W05 } from './schedules/W05.js';
-import { W06 } from './schedules/W06.js';
-import { W07 } from './schedules/W07.js';
-import { W08 } from './schedules/W08.js';
-import { W09 } from './schedules/W09.js';
-import { W10 } from './schedules/W10.js';
-import { W11 } from './schedules/W11.js';
-import { W12 } from './schedules/W12.js';
-import { W13 } from './schedules/W13.js';
-import { W14 } from './schedules/W14.js';
-
 export const curriculumData = {
-  subject: "Elaboración de Páginas Web (DEWE-20)",
-  group: "601",
+  subject: "Manejo de Tecnologías de Ciberseguridad (MTCS-20)",
+  group: "501",
   cortes: [
     { id: 1, label: "1er Corte", peso: "35%" },
-    { id: 2, label: "2do Corte", peso: "25%" },
-    { id: 3, label: "3er Corte", peso: "40%" },
+    { id: 2, label: "2do Corte", peso: "35%" },
+    { id: 3, label: "3er Corte", peso: "30%" },
   ],
   ras: [
     {
       id: "RA1.1",
-      title: "1.1 RA (15%)",
+      title: "1.1 Conexiones de red",
       peso: "15%",
       corte: 1,
       weeks: [
-        { id: "W00", label: "Semana 00 (09-13 Feb)" },
-        { id: "W01", label: "Semana 01 (16-20 Feb)" },
-        { id: "W02", label: "Semana 02 (23-27 Feb)" }
+        { id: "W00", label: "Semana 00 (10-14 Ago)" },
+        { id: "W01", label: "Semana 01 (17-21 Ago)" },
+        { id: "W02", label: "Semana 02 (24-28 Ago)" },
+        { id: "W03", label: "Semana 03 (31 Ago-04 Sep)" },
+        { id: "W04", label: "Semana 04 (07-11 Sep)" }
       ]
     },
     {
       id: "RA1.2",
-      title: "1.2 RA (20%)",
+      title: "1.2 Direccionamiento y enrutamiento",
       peso: "20%",
       corte: 1,
       weeks: [
-        { id: "W03", label: "Semana 03 (02-06 Mar)" },
-        { id: "W04", label: "Semana 04 (09-13 Mar)" },
-        { id: "W05", label: "Semana 05 (16-20 Mar)" }
-      ]
-    },
-    {
-      id: "RA1.3",
-      title: "1.3 RA (25%)",
-      peso: "25%",
-      corte: 2,
-      weeks: [
-        { id: "W06", label: "Semana 06 (23-27 Mar)" },
-        { id: "W07", label: "Semana 07 (13-17 Abr)" },
-        { id: "W08", label: "Semana 08 (20-24 Abr)" }
+        { id: "W05", label: "Semana 05 (14-18 Sep)" },
+        { id: "W06", label: "Semana 06 (21-25 Sep)" },
+        { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" }
       ]
     },
     {
       id: "RA2.1",
-      title: "2.1 RA (20%)",
-      peso: "20%",
-      corte: 3,
+      title: "2.1 Fundamentos y principios",
+      peso: "15%",
+      corte: 2,
       weeks: [
-        { id: "W09", label: "Semana 09 (27 Abr-01 May)" },
-        { id: "W10", label: "Semana 10 (04-08 May)" },
-        { id: "W11", label: "Semana 11 (11-15 May)" }
+        { id: "W08", label: "Semana 08 (05-09 Oct)" },
+        { id: "W09", label: "Semana 09 (12-16 Oct)" },
+        { id: "W10", label: "Semana 10 (19-23 Oct)" }
       ]
     },
     {
       id: "RA2.2",
-      title: "2.2 RA (20%)",
+      title: "2.2 Protocolos y confidencialidad",
       peso: "20%",
+      corte: 2,
+      weeks: [
+        { id: "W11", label: "Semana 11 (26-30 Oct)" },
+        { id: "W12", label: "Semana 12 (02-06 Nov)" },
+        { id: "W13", label: "Semana 13 (09-13 Nov)" }
+      ]
+    },
+    {
+      id: "RA3.1",
+      title: "3.1 Fundamentos y optimización",
+      peso: "15%",
       corte: 3,
       weeks: [
-        { id: "W12", label: "Semana 12 (18-22 May)" },
-        { id: "W13", label: "Semana 13 (25-29 May)" },
-        { id: "W14", label: "Semana 14 (01-05 Jun)" }
+        { id: "W14", label: "Semana 14 (16-20 Nov)" },
+        { id: "W15", label: "Semana 15 (23-27 Nov)" },
+        { id: "W16", label: "Semana 16 (30 Nov-04 Dic)" }
+      ]
+    },
+    {
+      id: "RA3.2",
+      title: "3.2 Estructuras de control",
+      peso: "15%",
+      corte: 3,
+      weeks: [
+        { id: "W17", label: "Semana 17 (07-11 Dic)" },
+        { id: "W18", label: "Semana 18 (14-18 Dic)" },
+        { id: "W19", label: "Semana 19 (04-08 Ene)" }
       ]
     }
   ],
   schedules: {
-    "W00": { days: [] },
+    "W00": { isHtml: true, url: "./html/W00.html" },
     "W01": { isHtml: true, url: "./html/W01.html" },
     "W02": { days: [] },
     "W03": { days: [] },
     "W04": { days: [] },
-    "W05": W05,
-    "W06": W06,
-    "W07": W07,
-    "W08": W08,
-    "W09": W09,
-    "W10": W10,
-    "W11": W11,
-    "W12": W12,
-    "W13": W13,
-    "W14": W14
+    "W05": { days: [] },
+    "W06": { days: [] },
+    "W07": { days: [] },
+    "W08": { days: [] },
+    "W09": { days: [] },
+    "W10": { days: [] },
+    "W11": { days: [] },
+    "W12": { days: [] },
+    "W13": { days: [] },
+    "W14": { days: [] },
+    "W15": { days: [] },
+    "W16": { days: [] },
+    "W17": { days: [] },
+    "W18": { days: [] },
+    "W19": { days: [] }
   }
 };
