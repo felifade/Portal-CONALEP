@@ -95,10 +95,10 @@ const ProEditor = ({ value, onChange, type, fontSize }) => {
 
 const CodeLab = () => {
   const [activeTab, setActiveTab] = useState('html');
-  const [htmlCode, setHtmlCode] = useState(() => localStorage.getItem('dewe-codelab-html') || BOILERPLATE.html);
-  const [jsCode, setJsCode]     = useState(() => localStorage.getItem('dewe-codelab-js')   || BOILERPLATE.js);
+  const [htmlCode, setHtmlCode] = useState(() => localStorage.getItem('mtcs-codelab-html') || BOILERPLATE.html);
+  const [jsCode, setJsCode]     = useState(() => localStorage.getItem('mtcs-codelab-js')   || BOILERPLATE.js);
   const [cssFiles, setCssFiles] = useState(() => {
-    const saved = localStorage.getItem('dewe-codelab-css');
+    const saved = localStorage.getItem('mtcs-codelab-css');
     return saved ? JSON.parse(saved) : [{ id: 'm', name: 'main.css', content: BOILERPLATE.cssDefault }];
   });
   const [activeCssFileId, setActiveCssFileId] = useState('m');
@@ -115,9 +115,9 @@ const CodeLab = () => {
 
   const autoRunTimer = useRef(null);
 
-  useEffect(() => { localStorage.setItem('dewe-codelab-html', htmlCode); }, [htmlCode]);
-  useEffect(() => { localStorage.setItem('dewe-codelab-js',   jsCode);   }, [jsCode]);
-  useEffect(() => { localStorage.setItem('dewe-codelab-css',  JSON.stringify(cssFiles)); }, [cssFiles]);
+  useEffect(() => { localStorage.setItem('mtcs-codelab-html', htmlCode); }, [htmlCode]);
+  useEffect(() => { localStorage.setItem('mtcs-codelab-js',   jsCode);   }, [jsCode]);
+  useEffect(() => { localStorage.setItem('mtcs-codelab-css',  JSON.stringify(cssFiles)); }, [cssFiles]);
 
   const addToast = (m, t = 'success') => {
     const id = Date.now();

@@ -3,7 +3,6 @@ import { Monitor, GraduationCap, Layers, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import WeekView from '@shared/components/WeekView';
 import CodeLab from './components/CodeLab';
-import ProyectoView from './components/ProyectoView';
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
@@ -12,22 +11,16 @@ const assetUrl = (filename) => new URL(`./assets/${filename}`, import.meta.url).
 
 function App() {
   const getAutoWeek = () => {
-    const startDate = new Date('2026-02-09');
+    // MTCS-20 Starts on August 10, 2026
+    const startDate = new Date('2026-08-10T00:00:00-06:00');
     const now = new Date();
     const diffMs = now - startDate;
     const diffWeeks = Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000));
 
-    if (diffWeeks < 0)    return 'W00';
-    if (diffWeeks <= 6)   return `W0${diffWeeks}`;
-    if (diffWeeks <= 8)   return 'W06';
-    if (diffWeeks === 9)  return 'W07';
-    if (diffWeeks === 10) return 'W08';
-    if (diffWeeks === 11) return 'W09';
-    if (diffWeeks === 12) return 'W10';
-    if (diffWeeks === 13) return 'W11';
-    if (diffWeeks === 14) return 'W12';
-    if (diffWeeks === 15) return 'W13';
-    return 'W14';
+    if (diffWeeks <= 0) return 'W00';
+    if (diffWeeks >= 19) return 'W19';
+    
+    return `W${diffWeeks.toString().padStart(2, '0')}`;
   };
 
   const currentWeek = getAutoWeek();
@@ -39,7 +32,6 @@ function App() {
   const [activeView, setActiveView]       = useState('curriculum');
   const [isClassMode, setIsClassMode]     = useState(false);
   const [isTeacherMode, setIsTeacherMode] = useState(false);
-  const [isDualMode, setIsDualMode]       = useState(false);
   const [showPinModal, setShowPinModal]   = useState(false);
   const [sidebarOpen, setSidebarOpen]     = useState(false);
 
@@ -56,6 +48,8 @@ function App() {
     setActiveView('curriculum');
   };
 
+  const scheduleData = curriculumData.schedules[activeWeek] || {};
+
   return (
     <div className={`app-container ${isClassMode ? 'class-mode-active' : ''}`}>
 
@@ -64,7 +58,7 @@ function App() {
         <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
           <Menu size={18} />
         </button>
-        <span className="mobile-brand">CONALEP · DEWE</span>
+        <span className="mobile-brand">CONALEP · MTCS</span>
       </div>
 
       <Sidebar
@@ -89,13 +83,6 @@ function App() {
             {isClassMode ? 'Salir de Clase' : 'Modo Clase'}
           </button>
           <button
-            className={`dual-mode-btn ${isDualMode ? 'active' : ''}`}
-            onClick={() => setIsDualMode(!isDualMode)}
-          >
-            <Layers size={14} />
-            {isDualMode ? 'Salir Dual' : 'Modo Dual'}
-          </button>
-          <button
             className={`teacher-mode-btn ${isTeacherMode ? 'active' : ''}`}
             onClick={handleTeacherToggle}
           >
@@ -105,18 +92,21 @@ function App() {
         </div>
 
         {activeView === 'curriculum' ? (
-          <WeekView
-            key={activeWeek}
-            weekId={activeWeek}
-            isClassMode={isClassMode}
-            isTeacherMode={isTeacherMode}
-            isDualMode={isDualMode}
-            isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
-            curriculumData={curriculumData}
-            assetUrl={assetUrl}
-          />
-        ) : activeView === 'proyecto' ? (
-          <ProyectoView isTeacherMode={isTeacherMode} />
+          scheduleData?.isHtml ? (
+            <div className="iframe-container">
+              <iframe src={scheduleData.url} title="Content" />
+            </div>
+          ) : (
+            <WeekView
+              key={activeWeek}
+              weekId={activeWeek}
+              isClassMode={isClassMode}
+              isTeacherMode={isTeacherMode}
+              isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
+              curriculumData={curriculumData}
+              assetUrl={assetUrl}
+            />
+          )
         ) : (
           <CodeLab />
         )}

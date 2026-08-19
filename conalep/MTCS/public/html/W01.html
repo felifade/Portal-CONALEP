@@ -1,659 +1,485 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTCS Semana 01 · Inicializando Sistema</title>
+  <title>MTCS Semana 01 · Seguridad Digital</title>
   <style>
     :root {
-      --green: #006b54;
-      --ink: #17211d;
-      --muted: #647067;
-      --paper: #fffdf7;
-      --line: #b9d9ea;
-      --redline: #ef8f8f;
-      --gold: #eab308;
-      --blue: #2563eb;
-      --soft: #eef7f4;
+      --ink:#17212b; --muted:#5d6875; --paper:#f7faf8; --white:#fff;
+      --green:#0b6b57; --blue:#245b8f; --gold:#d99b2b; --red:#c84f3d;
+      --line:#d9e2dd; --shadow:0 20px 60px rgba(23,33,43,.16);
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #dfe9e5; color: var(--ink); font-family: Inter, "Helvetica Neue", Arial, sans-serif; overflow: hidden; }
-    .deck { width: 100vw; height: 100vh; position: relative; }
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      display: none;
-      grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
-      gap: 28px;
-      padding: 42px 50px;
-      background:
-        radial-gradient(circle at 8% 12%, rgba(234,179,8,.18), transparent 30%),
-        linear-gradient(135deg, #f7fbf9 0%, #e7f1ee 100%);
+    * { box-sizing:border-box; }
+    html, body { margin:0; height:100%; overflow:hidden; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:#e7ece8; letter-spacing:0; }
+    button { font:inherit; }
+    .deck { width:100vw; height:100vh; position:relative; }
+    .slide { position:absolute; inset:0; display:none; padding:clamp(22px,3vw,44px); background:var(--paper); overflow:hidden; }
+    .slide.active { display:block; }
+    .slide::after { content:"CONALEP · MTCS-20 · Dr. Felipe López Salazar"; position:absolute; right:28px; bottom:18px; color:#7a817b; font-size:12px; font-weight:800; text-transform:uppercase; }
+    .cover.active { display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:center; }
+    .hero-left { display:flex; flex-direction:column; gap:16px; }
+    .hero-right { display:grid; place-items:center; min-height:70vh; }
+    .kicker { margin:0 0 12px; color:var(--green); font-weight:900; letter-spacing:.12em; text-transform:uppercase; font-size:14px; }
+    h1 { margin:0; font-size:clamp(62px,8vw,116px); line-height:.9; color:var(--green); }
+    h2 { margin:0 0 18px; font-size:clamp(36px,4.4vw,66px); line-height:1.03; max-width:1150px; }
+    h3 { margin:0 0 10px; font-size:clamp(22px,2vw,32px); line-height:1.1; }
+    p, li, td, th, span { font-size:clamp(17px,1.35vw,24px); line-height:1.34; }
+    ul { margin:0; padding-left:24px; }
+    li { margin:8px 0; }
+    .lead { max-width:780px; color:var(--muted); font-size:clamp(22px,2.2vw,32px); }
+    .teacher { color:var(--muted); font-weight:800; }
+    .class-code { display:flex; align-items:center; gap:16px; width:max-content; max-width:100%; padding:14px 18px; border-radius:8px; background:#102d27; color:white; box-shadow:var(--shadow); }
+    .class-code span { font-size:16px; text-transform:uppercase; letter-spacing:.12em; color:#c9ded8; font-weight:900; }
+    .class-code strong { font-size:clamp(34px,4vw,58px); letter-spacing:.08em; }
+    .device-visual { width:min(42vw,580px); display:grid; gap:16px; }
+    .monitor { padding:18px; border-radius:24px; background:#142331; box-shadow:var(--shadow); }
+    .topbar { height:34px; display:flex; align-items:center; gap:8px; }
+    .topbar span { width:12px; height:12px; border-radius:50%; background:var(--red); display:block; }
+    .topbar span:nth-child(2) { background:var(--gold); }
+    .topbar span:nth-child(3) { background:var(--green); }
+    .screen-grid { min-height:300px; border-radius:12px; background:linear-gradient(135deg,#f9fffd,#edf6f3); padding:26px; display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; }
+    .screen-grid b { grid-column:1/3; color:var(--green); font-size:46px; }
+    .screen-grid p { grid-column:1/3; margin:0; padding:10px 14px; background:#102d27; color:white; border-radius:8px; font-size:44px; font-weight:950; letter-spacing:.08em; }
+    .screen-grid i { height:70px; border:1px solid var(--line); border-left:7px solid var(--blue); border-radius:8px; background:white; box-shadow:0 8px 20px rgba(0,0,0,.06); }
+    .keyboard { height:32px; border-radius:0 0 28px 28px; background:#26384b; margin:0 44px; box-shadow:0 12px 28px rgba(23,33,43,.18); }
+    .two, .three, .block-grid, .product-layout { display:grid; gap:18px; }
+    .two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .three, .block-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .panel, .reading, .questions, .table-card, .notebook { background:white; border:1px solid var(--line); border-radius:8px; padding:22px; box-shadow:var(--shadow); border-left:8px solid var(--green); min-height:0; overflow:auto; }
+    .panel.blue { border-left-color:var(--blue); }
+    .panel.gold { border-left-color:var(--gold); }
+    .panel.red { border-left-color:var(--red); }
+    .panel h3 { color:var(--green); }
+    .panel.blue h3 { color:var(--blue); }
+    .panel.gold h3 { color:var(--gold); }
+    .panel.red h3 { color:var(--red); }
+    .icon { width:64px; height:64px; margin-bottom:12px; fill:none; stroke:currentColor; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; color:var(--green); }
+    .blue .icon { color:var(--blue); }
+    .gold .icon { color:var(--gold); }
+    .red .icon { color:var(--red); }
+    .session-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px; }
+    .session-strip span, .session-meta span, .notice, .pill, .big-question { display:block; border-radius:8px; background:white; border:1px solid var(--line); padding:14px 16px; box-shadow:0 10px 24px rgba(23,33,43,.08); }
+    .session-strip b { display:block; color:var(--green); font-size:18px; margin-bottom:4px; }
+    .notice { margin-top:18px; border-left:8px solid var(--gold); font-weight:900; color:var(--ink); }
+    .reading-slide.active { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(340px,.82fr); grid-template-rows:auto 1fr; gap:18px 22px; }
+    .reading-slide .kicker, .reading-slide h2 { grid-column:1/3; }
+    .reading { border-left-color:var(--gold); }
+    .reading p { margin:0 0 16px; font-size:clamp(19px,1.55vw,27px); }
+    .questions { border-left-color:var(--blue); }
+    .session-meta { display:grid; grid-template-columns:.7fr 1.3fr; gap:14px; margin:6px 0 18px; }
+    .session-meta b { color:var(--green); }
+    .session-slide .block-grid { height:calc(100vh - 260px); }
+    .product-layout { grid-template-columns:1.1fr .9fr; height:calc(100vh - 190px); }
+    .notebook { position:relative; background:repeating-linear-gradient(#fffdf8 0 34px,#e8eef3 35px 36px); padding-left:56px; border-left:0; }
+    .notebook::before { content:""; position:absolute; left:34px; top:0; bottom:0; width:2px; background:#e56d64; opacity:.7; }
+    .notebook span { display:block; margin-bottom:8px; color:var(--blue); font-size:14px; font-weight:900; text-transform:uppercase; letter-spacing:.08em; }
+    .notebook p { margin:11px 0; }
+    .pill { margin-top:20px; background:#edf7f3; color:var(--green); font-weight:950; }
+    .table-card { border-left-color:var(--blue); padding:18px; }
+    table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:8px; }
+    th, td { border:1px solid var(--line); padding:13px; text-align:left; vertical-align:top; }
+    th { background:#0b6b57; color:white; font-size:18px; }
+    td { background:#fff; font-size:18px; }
+    .small { margin-top:18px; grid-template-columns:1fr 1fr; }
+    .checklist { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:1120px; }
+    .checklist p { margin:0; display:flex; gap:12px; align-items:flex-start; background:white; border:1px solid var(--line); border-radius:8px; padding:14px; box-shadow:0 8px 20px rgba(23,33,43,.07); }
+    .checklist span { flex:0 0 auto; width:26px; height:26px; border:3px solid var(--green); border-radius:6px; }
+    .big-question { margin-top:18px; background:#102d27; color:white; font-size:clamp(24px,2.4vw,38px); font-weight:950; }
+    .nav { position:fixed; right:22px; top:18px; z-index:20; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:999px; padding:8px; box-shadow:0 10px 30px rgba(23,33,43,.14); }
+    .nav button { width:38px; height:38px; border:0; border-radius:50%; background:#132b37; color:white; font-weight:900; cursor:pointer; }
+    .nav .count { min-width:72px; text-align:center; font-size:13px; font-weight:900; color:var(--muted); }
+    .timer-panel { position:fixed; left:18px; bottom:18px; z-index:22; display:grid; gap:7px; width:238px; padding:10px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.9); box-shadow:0 12px 34px rgba(0,0,0,.14); opacity:.36; transition:opacity .18s ease; }
+    .timer-panel:hover, .timer-panel:focus-within { opacity:1; }
+    .timer-top, .timer-mode, .timer-presets, .timer-actions { display:flex; gap:5px; align-items:center; justify-content:center; flex-wrap:wrap; }
+    .timer-top { justify-content:space-between; }
+    .timer-mode button, .timer-actions button, .timer-presets button, .timer-hide { border:0; border-radius:999px; cursor:pointer; font-weight:900; }
+    .timer-mode button { padding:6px 9px; background:#eef2f0; color:var(--muted); font-size:11px; }
+    .timer-mode button.active { background:var(--green); color:#fff; }
+    .timer-display { font-variant-numeric:tabular-nums; font-size:38px; line-height:1; font-weight:950; color:var(--ink); text-align:center; border:0; background:transparent; cursor:pointer; }
+    .timer-presets button { min-width:38px; padding:6px 8px; background:#fff7e8; color:#815313; border:1px solid #ead6ad; font-size:11px; }
+    .timer-actions button { min-width:54px; padding:7px 9px; background:var(--ink); color:#fff; font-size:12px; }
+    .timer-actions button.secondary, .timer-hide { background:#fff; color:var(--ink); border:1px solid var(--line); }
+    .timer-hide { width:28px; height:28px; }
+    body.timer-minimized .timer-panel { width:auto; padding:7px 9px; opacity:.42; }
+    body.timer-minimized .timer-top, body.timer-minimized .timer-presets, body.timer-minimized .timer-actions { display:none; }
+    body.timer-minimized .timer-display { font-size:22px; }
+    @media (max-width:900px) {
+      html, body { overflow:auto; }
+      .slide { position:relative; min-height:100vh; overflow:auto; }
+      .cover.active, .reading-slide.active, .two, .three, .block-grid, .product-layout, .session-strip, .session-meta, .checklist { grid-template-columns:1fr; }
+      .session-slide .block-grid, .product-layout { height:auto; }
+      .device-visual { width:100%; }
+      .slide::after { display:none; }
     }
-    .slide.active { display: grid; }
-    .slide-main, .slide-side { min-width: 0; }
-    .slide-main {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      border-left: 8px solid var(--green);
-      padding: 8px 0 0 26px;
+  
+    /* --- MEJORAS VISUALES PROPUESTAS --- */
+    /* 1. Transición suave al cambiar de diapositiva */
+    @keyframes slideFadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .kicker { margin: 0 0 10px; color: var(--green); font-size: 15px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
-    h1 { margin: 0 0 20px; font-size: clamp(36px, 5.5vh, 62px); line-height: 1.02; letter-spacing: 0; color: #0f2d26; }
-    h2 { color: var(--green); font-size: 23px; margin: 0 0 8px; letter-spacing: 0; }
-    h3 { color: #23433a; font-size: 22px; margin: 14px 0 6px; letter-spacing: 0; }
-    p, li { font-size: clamp(17px, 2.1vh, 24px); line-height: 1.35; }
-    ul { padding-left: 26px; }
-    li { margin: 7px 0; }
-    code { background: #e5ece9; color: #0f2d26; padding: 2px 7px; border-radius: 5px; font-family: Menlo, Consolas, monospace; font-size: .88em; }
-    aside { border-left: 5px solid var(--gold); background: rgba(255,255,255,.72); padding: 10px 14px; margin: 12px 0; }
-    .content { max-height: 72vh; overflow: auto; padding-right: 8px; }
-    .content h1 { font-size: 32px; margin-top: 0; }
-    .content h2 { font-size: 27px; }
-    .meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
-    .meta-grid p { margin: 0; padding: 16px; background: rgba(255,255,255,.72); border: 1px solid #cbd9d4; border-radius: 8px; font-size: 20px; }
-    .product-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-    .product-card {
-      display: grid;
-      grid-template-columns: 42px 1fr 26px;
-      align-items: center;
-      gap: 10px;
-      min-height: 58px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid #cbd9d4;
-      border-left: 5px solid var(--green);
-      border-radius: 8px;
+    .slide.active { display: block; animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* 2. Glassmorphism (efecto cristal) para controles flotantes */
+    .nav, .timer-panel {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.65) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 15px 35px rgba(23,33,43,.1) !important;
     }
-    .product-card p { margin: 0; font-size: 17px; line-height: 1.2; }
-    .product-hour {
-      display: inline-flex;
-      width: 34px;
-      height: 34px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      font-weight: 850;
-      font-size: 16px;
+
+    /* 3. Redondeo más moderno y efecto hover en paneles */
+    .panel, .reading, .questions, .table-card, .notebook, .session-strip span, .session-meta span, .notice, .pill, .big-question {
+      border-radius: 14px !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .product-box { width: 20px; height: 20px; border: 2px solid #6b7c75; border-radius: 4px; background: white; }
-    .rubric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .rubric-card {
-      min-height: 92px;
-      padding: 14px 16px;
-      background: rgba(255,255,255,.74);
-      border: 1px solid #cbd9d4;
-      border-left: 6px solid var(--gold);
-      border-radius: 8px;
+    .panel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(23,33,43,.08);
     }
-    .rubric-card strong { display: block; color: var(--green); font-size: 25px; line-height: 1; margin-bottom: 8px; }
-    .rubric-card p { margin: 0 0 5px; font-size: 18px; line-height: 1.2; font-weight: 750; }
-    .rubric-card span { display: block; color: #4b5a52; font-size: 14px; font-weight: 700; }
-    .slide-side { display: grid; grid-template-rows: minmax(190px, .48fr) minmax(260px, .52fr); gap: 22px; }
-    .visual {
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,.72);
-      border: 1px solid #cbd9d4;
-      border-radius: 8px;
-      box-shadow: 0 20px 50px rgba(20, 55, 45, .15);
-      overflow: hidden;
+
+    /* 4. Fondos sutiles en paneles (tintes de color) */
+    .panel:not(.blue):not(.gold):not(.red):not(.green) { background: linear-gradient(135deg, #ffffff, #fbfcfc); }
+    .panel.green { background: linear-gradient(135deg, #ffffff, #f2fbf7); }
+    .panel.blue { background: linear-gradient(135deg, #ffffff, #f2f7fb); }
+    .panel.gold { background: linear-gradient(135deg, #ffffff, #fdfaf2); }
+    .panel.red { background: linear-gradient(135deg, #ffffff, #fdf4f3); }
+
+    /* 5. Sombra suave para los iconos */
+    .icon {
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.06));
     }
-    .concept-art { width: min(82%, 360px); height: auto; }
-    .hero-art { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .notebook {
-      position: relative;
-      background-color: var(--paper);
-      background-image: linear-gradient(transparent 92%, var(--line) 92%);
-      background-size: 100% 30px;
-      border-radius: 8px;
-      border: 1px solid #eadfc9;
-      box-shadow: 0 22px 48px rgba(60, 43, 24, .22);
-      padding: 24px 24px 22px 64px;
-      overflow: auto;
+
+    /* 6. Mejora de lectura en tabla */
+    table {
+      border-collapse: separate !important;
+      border-spacing: 0;
+      border-radius: 10px;
+      border: 1px solid var(--line);
     }
-    .notebook::before { content: ""; position: absolute; inset: 0 auto 0 46px; width: 2px; background: var(--redline); }
-    .rings { position: absolute; left: 14px; top: 18px; bottom: 18px; width: 18px; background: repeating-linear-gradient(to bottom, #a8b2b8 0 8px, transparent 8px 32px); border-radius: 20px; opacity: .75; }
-    .notebook h1, .notebook h2, .notebook h3 { font-family: "Trebuchet MS", Arial, sans-serif; color: #0f766e; font-size: 24px; margin-top: 0; }
-    .notebook p, .notebook li { font-size: clamp(17px, 2.05vh, 22px); line-height: 30px; margin: 0 0 7px; color: #1e4b77; }
-    footer { margin-top: auto; color: var(--muted); font-size: 13px; font-weight: 700; padding-top: 12px; }
-    .controls { position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,.82); padding: 8px 10px; border-radius: 999px; border: 1px solid #ccd8d4; font-size: 14px; }
-    button { border: 0; background: var(--green); color: white; border-radius: 999px; width: 36px; height: 30px; font-size: 18px; cursor: pointer; }
-    @media (max-width: 850px) {
-      body { overflow: auto; }
-      .deck { height: auto; }
-      .slide, .slide.active { min-height: 100vh; height: auto; grid-template-columns: 1fr; padding: 26px 20px; }
-      .slide-side { grid-template-rows: auto auto; }
-      .controls { position: sticky; margin: 12px auto; width: max-content; }
+    th:first-child { border-top-left-radius: 10px; }
+    th:last-child { border-top-right-radius: 10px; }
+    tbody tr:nth-child(even) td { background: #fafcfa !important; }
+    
+    /* 7. Pequeño glow al dispositivo de la portada */
+    .device-visual::before {
+      content: ""; position: absolute; width: 60%; height: 60%; 
+      background: var(--green); filter: blur(100px); opacity: 0.15; z-index: -1;
+      border-radius: 50%; top: 20%; left: 20%;
     }
-    @media print {
-      @page { size: 13.333in 7.5in; margin: 0; }
-      body { background: white; overflow: visible; }
-      .deck { height: auto; }
-      .slide {
-        display: grid !important;
-        width: 13.333in;
-        height: 7.5in;
-        page-break-after: always;
-        break-after: page;
-        break-inside: avoid;
-        overflow: hidden;
-      }
-      .slide:last-of-type { page-break-after: auto; break-after: auto; }
-      h1 { font-size: 43px; line-height: 1.02; margin-bottom: 14px; }
-      h3 { font-size: 20px; margin: 10px 0 5px; }
-      p, li { font-size: 18px; line-height: 1.24; }
-      li { margin: 4px 0; }
-      .product-checklist { gap: 8px; }
-      .product-card { min-height: 48px; padding: 8px 10px; grid-template-columns: 36px 1fr 22px; }
-      .product-card p { font-size: 15px; line-height: 1.15; }
-      .product-hour { width: 29px; height: 29px; font-size: 14px; }
-      .product-box { width: 17px; height: 17px; }
-      .rubric-grid { gap: 9px; }
-      .rubric-card { min-height: 70px; padding: 10px 12px; }
-      .rubric-card strong { font-size: 20px; margin-bottom: 5px; }
-      .rubric-card p { font-size: 15px; line-height: 1.12; }
-      .rubric-card span { font-size: 12px; }
-      .content { max-height: none; overflow: hidden; }
-      .notebook { overflow: hidden; }
-      .notebook h2 { font-size: 22px; }
-      .notebook p, .notebook li { font-size: 18px; line-height: 27px; }
-      .controls { display: none; }
-    }
+    .hero-right { position: relative; z-index: 1; }
+    /* --- FIN DE MEJORAS --- */
+    
   </style>
 </head>
-<body>
+<body class="timer-minimized">
   <main class="deck">
-    <section class="slide">
-    <div class="slide-main">
-      <p class="kicker">MTCS</p>
-      <h1>Semana 01: Inicializando Sistema</h1>
-      <div class="content"><div class="meta-grid"><p><strong>Docente</strong><br>Dr. Felipe López Salazar | <strong>Grupo:</strong> 501</p><p><strong>Etapa</strong><br>Diagnóstico y Conceptos Base (5 Horas)</p></div></div>
-      <footer>CONALEP · MTCS</footer>
+    <section class="slide active cover">
+    <div class="hero-left">
+      <p class="kicker">CONALEP · MTCS-20 · Grupo 501</p>
+      <h1>Semana 01</h1>
+      <h2>Seguridad digital personal y hábitos básicos</h2>
+      <p class="lead">Classroom, documento de trabajo, laboratorio, parejas y evidencias individuales.</p>
+      <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
+      <p class="teacher">Dr. Felipe López Salazar</p>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Laboratorio autorizado">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M164 42l104 42v80c0 70-43 119-104 146C103 283 60 234 60 164V84z" fill="#15803d"/><path d="M116 164l34 34 68-82" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Laboratorio autorizado</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p>Anota el tema, el resultado de aprendizaje y una pregunta personal que quieras resolver durante la semana.</p>
+    <div class="hero-right"><div class="device-visual" aria-hidden="true">
+    <div class="monitor">
+      <div class="topbar"><span></span><span></span><span></span></div>
+      <div class="screen-grid">
+        <b>Classroom</b>
+        <p>j6bnku3j</p>
+        <i></i><i></i><i></i><i></i>
       </div>
+    </div>
+    <div class="keyboard"></div>
+  </div></div>
+  </section>
+<section class="slide ">
+    <p class="kicker">Resultado de aprendizaje</p>
+    <h2>Aplicar hábitos básicos de seguridad digital</h2>
+    <div class="two">
+      <article class="panel green">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l32 12v23c0 23-13 38-32 45-19-7-32-22-32-45V22l32-12z"/><path d="M36 50l9 9 20-24"/></svg>
+        <h3>Qué vamos a lograr</h3>
+        <p>Identificar riesgos digitales cotidianos y aplicar medidas básicas para proteger información, cuentas y dispositivos.</p>
+      </article>
+      <article class="panel blue">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M34 12h32"/><path d="M42 12v26L22 77c-4 8 2 17 11 17h34c9 0 15-9 11-17L58 38V12"/><path d="M31 70h38"/></svg>
+        <h3>Cómo trabajaremos</h3>
+        <p>En laboratorio se trabajará por parejas, pero cada alumno conserva su propio avance en su cuenta y en su libreta.</p>
+      </article>
+    </div>
+    <div class="session-strip">
+      <span><b>Sesión 01</b>1 hora</span><span><b>Sesión 02</b>2 horas</span><span><b>Sesión 03</b>2 horas</span>
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 1: Reglas de Enganche (Ética)</h1>
-      <div class="content"><h1>Hora 1: Reglas de Enganche (Ética)</h1>
-<h2>Inicio (10 min)</h2>
-<p><strong>El Lado Blanco y el Lado Oscuro:</strong></p>
-<p>En este módulo usaremos herramientas que permiten analizar tráfico, revisar configuraciones y comprender riesgos. Por ley y por ética, solo podemos usarlas en ambientes de laboratorio controlados.</p></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide ">
+    <p class="kicker">Antes de iniciar</p>
+    <h2>Cuenta de trabajo y responsabilidad</h2>
+    <div class="three">
+      <article class="panel gold"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="35" r="16"/><path d="M22 84c5-19 20-29 28-29s23 10 28 29"/></svg><h3>Misma cuenta</h3><p>Usa una cuenta de Google para Classroom y Drive. Debe ser siempre la misma durante el módulo.</p></article>
+      <article class="panel blue"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M28 10h32l18 18v62H28z"/><path d="M60 10v20h18"/><path d="M38 48h28M38 60h28M38 72h18"/></svg><h3>Avance propio</h3><p>Aunque trabajes en pareja, tu documento, libreta y evidencias deben tener avance individual.</p></article>
+      <article class="panel red"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="42" width="56" height="44" rx="8"/><path d="M34 42V30a16 16 0 0 1 32 0v12"/><path d="M50 58v14"/></svg><h3>Responsabilidad</h3><p>Cuida correo, contraseña, archivos y espacio disponible. Cambiar de cuenta puede perder evidencias.</p></article>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Ética y alcance">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M92 252h144" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M164 70v182" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116h120" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116l-44 78h88zM224 116l-44 78h88z" fill="#fff" stroke="#007a5e" stroke-width="8" stroke-linejoin="round"/><path d="M126 62h76" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Ética y alcance</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>El Lado Blanco y el Lado Oscuro:</strong></p>
-<p>En este módulo usaremos herramientas que permiten analizar tráfico, revisar configuraciones y comprender riesgos. Por ley y por ética, solo podemos usarlas en ambientes de laboratorio controlados.</p>
-      </div>
+    <div class="notice">El docente asignará equipos de cómputo y parejas cuando se use laboratorio.</div>
+  </section>
+<section class="slide reading-slide">
+    <p class="kicker">Lectura de introducción</p>
+    <h2>Antes de dar clic</h2>
+    <div class="reading">
+      <p>Todos los días usamos internet sin pensarlo demasiado. Abrimos mensajes, revisamos redes sociales, entramos a cuentas, descargamos archivos, compartimos fotos y usamos enlaces que alguien más nos envía.</p>
+      <p>La seguridad digital empieza justo en ese momento: antes de dar clic, antes de escribir una contraseña, antes de compartir un dato personal. No se trata de tener miedo a todo, sino de aprender a observar.</p>
+      <p>Cuidarse en internet es parecido a cuidar una mochila, una credencial o una llave. La diferencia es que en el mundo digital muchas cosas no se ven a simple vista. Por eso necesitamos hábitos: revisar, pensar, confirmar y actuar con calma.</p>
+    </div>
+    <div class="questions">
+      <ul><li>¿Qué significa pensar antes de dar clic?</li><li>¿Qué acción digital haces todos los días sin revisar demasiado?</li><li>¿Por qué la seguridad digital debe verse como hábito?</li><li>¿Qué dato personal deberías cuidar más?</li></ul>
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 1: Reglas de Enganche</h1>
-      <div class="content"><h1>Hora 1: Reglas de Enganche</h1>
-<h2>Desarrollo (30 min)</h2>
-<h3>Dictado: El Código de Ética</h3>
-<ul>
-<li><strong>Especialista ético:</strong> Profesional autorizado por una organización para encontrar debilidades, documentarlas y corregirlas antes de que causen daños.</li>
-<li><strong>Black Hat (Sombrero Negro):</strong> Cibercriminales que explotan vulnerabilidades para beneficio económico, espionaje o destrucción.</li>
-<li><em>&quot;Con gran poder, viene una gran pena de cárcel si rompes la Ley Federal de Protección de Datos.&quot;</em></li>
-</ul></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide session-slide">
+    <p class="kicker">Sesión 01 · 1 hora · Aula o laboratorio</p>
+    <h2>Entrada a Classroom y documento de trabajo</h2>
+    <div class="session-meta">
+      <span><b>Trabajo:</b> Individual con apoyo del grupo</span>
+      <span><b>Producto:</b> Documento en Classroom con portada completa, cuenta fija y lectura inicial.</span>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Riesgo y mitigación">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M164 52l112 204H52z" fill="#fef3c7" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/><path d="M164 112v66" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="216" r="10" fill="#1f2937"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Riesgo y mitigación</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <h3>Dictado: El Código de Ética</h3>
-<ul>
-<li><strong>Especialista ético:</strong> Profesional autorizado por una organización para encontrar debilidades, documentarlas y corregirlas antes de que causen daños.</li>
-<li><strong>Black Hat (Sombrero Negro):</strong> Cibercriminales que explotan vulnerabilidades para beneficio económico, espionaje o destrucción.</li>
-</ul>
-      </div>
+    <div class="block-grid">
+      
+        <article class="panel">
+          <h3>Inicio</h3>
+          <ul><li>Entrar a Classroom con el código j6bnku3j.</li><li>Confirmar que todos estén dentro de la clase.</li><li>Recordar que se usará siempre la misma cuenta de Google.</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Desarrollo</h3>
+          <ul><li>Crear o abrir el documento de trabajo desde Classroom.</li><li>Nombrar el archivo: Semana 01 · Seguridad Digital Personal.</li><li>Crear portada con nombre, grupo, módulo, docente, fecha y título.</li><li>Escribir la frase: Para mí, cuidarme en internet significa...</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Cierre</h3>
+          <ul><li>Verificar que el documento esté en la cuenta correcta.</li><li>Registrar en libreta el correo usado, sin escribir contraseña.</li><li>Responder las preguntas de lectura.</li></ul>
+        </article>
+      
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 1: Reglas de Enganche</h1>
-      <div class="content"><h1>Hora 1: Reglas de Enganche</h1>
-<h2>Cierre (10 min)</h2>
-<p><strong>Firma del Acuerdo:</strong></p>
-<p>Copia en la primera hoja de tu libreta el siguiente texto y fírmalo:</p>
-<p><em>&quot;Me comprometo a utilizar los conocimientos de Ciberseguridad adquiridos en esta clase única y exclusivamente con fines defensivos y académicos. Comprendo que vulnerar redes ajenas es un delito.&quot;</em></p>
-<p><em>(Solicita el sello del docente al terminar)</em></p></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Red observada con criterio">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <circle cx="88" cy="88" r="32" fill="#16a34a"/><circle cx="232" cy="98" r="32" fill="#2563eb"/><circle cx="156" cy="232" r="38" fill="#f59e0b"/><path d="M116 98l86 0M102 116l42 82M218 126l-44 74" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Red observada con criterio</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>Firma del Acuerdo:</strong></p>
-<p>Copia en la primera hoja de tu libreta el siguiente texto y fírmalo:</p>
-<p><em>&quot;Me comprometo a utilizar los conocimientos de Ciberseguridad adquiridos en esta clase única y exclusivamente con fines defensivos y académicos. Comprendo que vulnerar redes ajenas es un delito.&quot;</em></p>
-<p><em>(Solicita el sello del docente al terminar)</em></p>
-      </div>
+<section class="slide ">
+    <p class="kicker">Sesión 01 · Producto</p>
+    <h2>Portada y documento listos</h2>
+    <div class="product-layout">
+      <article class="notebook">
+        <span>Debe verse así de claro</span>
+        <h3>Semana 01 · Seguridad Digital Personal</h3>
+        <p><b>Alumno:</b> ____________________</p>
+        <p><b>Grupo:</b> 501</p>
+        <p><b>Módulo:</b> MTCS-20</p>
+        <p><b>Docente:</b> Dr. Felipe López Salazar</p>
+        <p><b>Frase:</b> Para mí, cuidarme en internet significa...</p>
+      </article>
+      <article class="panel green">
+        <h3>Producto breve</h3>
+        <p>Documento en Classroom con portada completa, frase personal y preguntas de lectura.</p>
+        <div class="pill">Cuenta fija: misma cuenta todo el módulo</div>
+      </article>
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 2: Diagnóstico Teórico</h1>
-      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
-<h2>Inicio (10 min)</h2>
-<p><strong>Desmitificando el Internet:</strong></p>
-<p>La mayoría de los usuarios creen que el internet está &quot;en el aire&quot; o en &quot;una nube&quot;. Vamos a romper ese mito para entender dónde vive realmente la información.</p></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide session-slide">
+    <p class="kicker">Sesión 02 · 2 horas · Laboratorio</p>
+    <h2>Riesgos digitales y contraseñas</h2>
+    <div class="session-meta">
+      <span><b>Trabajo:</b> Parejas con avance individual</span>
+      <span><b>Producto:</b> Tabla digital de riesgos y análisis personal de tres riesgos en libreta.</span>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>Desmitificando el Internet:</strong></p>
-<p>La mayoría de los usuarios creen que el internet está &quot;en el aire&quot; o en &quot;una nube&quot;. Vamos a romper ese mito para entender dónde vive realmente la información.</p>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 2: Diagnóstico Teórico</h1>
-      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
-<h2>Desarrollo (30 min)</h2>
-<h3>Cuestionario Diagnóstico</h3>
-<p>Responde en tu libreta con tus propias palabras (sin usar el celular):</p>
-<ul>
-<li>¿Físicamente, cómo viajan los mensajes de WhatsApp desde México hasta España? (¿Satélite, Antenas, Cables Submarinos?)</li>
-<li>¿Cuál es la diferencia entre HTTP y HTTPS?</li>
-<li>¿Qué crees que es una Dirección IP y para qué sirve?</li>
-</ul></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <h3>Cuestionario Diagnóstico</h3>
-<p>Responde en tu libreta con tus propias palabras (sin usar el celular):</p>
-<ul>
-<li>¿Físicamente, cómo viajan los mensajes de WhatsApp desde México hasta España? (¿Satélite, Antenas, Cables Submarinos?)</li>
-</ul>
-      </div>
+    <div class="block-grid">
+      
+        <article class="panel">
+          <h3>Inicio</h3>
+          <ul><li>Formar parejas de trabajo.</li><li>Ubicarse en el equipo asignado por el docente.</li><li>Abrir Classroom y continuar el documento personal.</li><li>Confirmar que cada alumno use su propia cuenta.</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Riesgos digitales</h3>
+          <ul><li>Identificar ejemplos cotidianos: enlaces falsos, Wi-Fi público, descargas desconocidas y publicación de datos personales.</li><li>Comentar en parejas cuáles riesgos han visto con más frecuencia.</li><li>Registrar ideas útiles, no solo copiar definiciones.</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Contraseñas</h3>
+          <ul><li>Explicar longitud, combinación, no usar datos personales y no repetir contraseñas.</li><li>Crear una regla personal para contraseñas seguras.</li><li>Escribir tres ejemplos ficticios, nunca contraseñas reales.</li></ul>
+        </article>
+      
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 2: Diagnóstico Teórico</h1>
-      <div class="content"><h1>Hora 2: Diagnóstico Teórico</h1>
-<h2>Cierre (10 min)</h2>
-<p><strong>Debate Grupal:</strong></p>
-<p>Discutiremos las respuestas. Descubriremos que el 99% del internet mundial viaja por cables submarinos de fibra óptica, y que la &quot;S&quot; en HTTPS significa Secure (Cifrado). Si entras a un HTTP, tu contraseña viaja en texto plano.</p>
-<p><em>(Solicita el sello del docente al terminar)</em></p></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide ">
+    <p class="kicker">Sesión 02 · Actividad central</p>
+    <h2>Tabla con análisis propio</h2>
+    <div class="table-card">
+      <table>
+        <thead><tr><th>Riesgo digital</th><th>Consecuencia</th><th>Prevención</th><th>Ejemplo real</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr><td>Enlace falso</td><td>Robo de cuenta</td><td>Verificar antes de abrir</td><td>Mensaje de premio</td><td>Protege mi identidad</td></tr>
+          <tr><td colspan="5">Completar mínimo cinco riesgos con explicación propia.</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>Debate Grupal:</strong></p>
-<p>Discutiremos las respuestas. Descubriremos que el 99% del internet mundial viaja por cables submarinos de fibra óptica, y que la &quot;S&quot; en HTTPS significa Secure (Cifrado). Si entras a un HTTP, tu contraseña viaja en texto plano.</p>
-<p><em>(Solicita el sello del docente al terminar)</em></p>
-      </div>
+    <div class="two small">
+      <article class="panel gold"><h3>En libreta</h3><ul><li>Riesgo</li><li>Ejemplo de mi vida diaria</li><li>Consecuencia</li><li>Cómo lo prevengo</li><li>Por qué es importante cuidarlo</li></ul></article>
+      <article class="panel red"><h3>No cuenta como análisis</h3><p>Copiar y pegar una tabla sin poder explicar por qué importa cada riesgo.</p></article>
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 3: Análisis de Riesgos</h1>
-      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
-<h2>Inicio (10 min)</h2>
-<p><strong>El Peligro del WiFi Gratis:</strong></p>
-<p>Todos hemos celebrado llegar a un parque o un café y ver una red que dice &quot;WiFi Gratis Sin Contraseña&quot;. Para un especialista en ciberseguridad, eso no es un regalo, es una trampa.</p></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide session-slide">
+    <p class="kicker">Sesión 03 · 2 horas · Laboratorio</p>
+    <h2>Phishing y decálogo personal</h2>
+    <div class="session-meta">
+      <span><b>Trabajo:</b> Parejas con evidencia individual</span>
+      <span><b>Producto:</b> Análisis de mensajes sospechosos y decálogo con diez reglas justificadas.</span>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>El Peligro del WiFi Gratis:</strong></p>
-<p>Todos hemos celebrado llegar a un parque o un café y ver una red que dice &quot;WiFi Gratis Sin Contraseña&quot;. Para un especialista en ciberseguridad, eso no es un regalo, es una trampa.</p>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 3: Análisis de Riesgos</h1>
-      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
-<h2>Desarrollo (30 min)</h2>
-<h3>Dictado: Redes Abiertas</h3>
-<ul>
-<li>En una red sin contraseña, el tráfico de red viaja sin cifrar por el aire.</li>
-<li>En redes no confiables puede haber exposición de sesiones o datos. Por eso se recomienda usar HTTPS, datos móviles para operaciones sensibles y cerrar sesiones en equipos compartidos.</li>
-<li>Esto se conoce como el ataque <strong>Man in the Middle (El hombre en el medio)</strong>.</li>
-</ul></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <h3>Dictado: Redes Abiertas</h3>
-<ul>
-<li>En una red sin contraseña, el tráfico de red viaja sin cifrar por el aire.</li>
-<li>En redes no confiables puede haber exposición de sesiones o datos. Por eso se recomienda usar HTTPS, datos móviles para operaciones sensibles y cerrar sesiones en equipos compartidos.</li>
-</ul>
-      </div>
+    <div class="block-grid">
+      
+        <article class="panel">
+          <h3>Inicio</h3>
+          <ul><li>Abrir Classroom y continuar el mismo documento.</li><li>Confirmar que se usa la misma cuenta de Google.</li><li>Leer dos mensajes ficticios: premio falso, banco simulado, cuenta bloqueada o paquetería sospechosa.</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Phishing</h3>
+          <ul><li>Identificar urgencia, enlaces raros, remitente desconocido, errores y solicitud de datos.</li><li>Marcar señales de alerta en dos mensajes.</li><li>Escribir qué harían antes de dar clic.</li></ul>
+        </article>
+      
+        <article class="panel">
+          <h3>Decálogo</h3>
+          <ul><li>Recuperar lo visto: riesgos, contraseñas, autenticación y phishing.</li><li>Crear diez reglas personales de seguridad digital.</li><li>Agregar una razón breve por cada regla.</li></ul>
+        </article>
+      
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 3: Análisis de Riesgos</h1>
-      <div class="content"><h1>Hora 3: Análisis de Riesgos</h1>
-<h2>Cierre (10 min)</h2>
-<p><strong>Medidas de Mitigación:</strong></p>
-<p>Anota en tu libreta 2 soluciones para reducir riesgos en una red pública. Ejemplo: usar una VPN cuando aplique, revisar HTTPS o usar datos móviles al entrar a servicios sensibles.</p>
-<p><em>(Solicita el sello del docente al terminar)</em></p></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Riesgo y mitigación">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M164 52l112 204H52z" fill="#fef3c7" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/><path d="M164 112v66" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="216" r="10" fill="#1f2937"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Riesgo y mitigación</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>Medidas de Mitigación:</strong></p>
-<p>Anota en tu libreta 2 soluciones para reducir riesgos en una red pública. Ejemplo: usar una VPN cuando aplique, revisar HTTPS o usar datos móviles al entrar a servicios sensibles.</p>
-<p><em>(Solicita el sello del docente al terminar)</em></p>
+
+<section class="slide reading-slide">
+    <p class="kicker">Ejemplos de análisis · Sesión 03</p>
+    <h2>Mensajes sospechosos (Phishing)</h2>
+    <div class="reading" style="border-left-color: var(--red);">
+      <div style="background: #fff5f5; padding: 18px; border-radius: 12px; border: 1px solid #ffcccc; margin-bottom: 20px;">
+        <strong style="color: var(--red); font-size: 20px;">📲 SMS de Paquetería:</strong><br><br>
+        "Su paquete no pudo ser entregado debido a tarifas de aduana pendientes. Pague $25.00 MXN en el siguiente enlace antes de 24 hrs o su paquete será devuelto a remitente: <br><span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
       </div>
+      <div style="background: #fff5f5; padding: 18px; border-radius: 12px; border: 1px solid #ffcccc;">
+        <strong style="color: var(--red); font-size: 20px;">📧 Correo Bancario:</strong><br><br>
+        "BANCOMER INFORMA: Hemos detectado un cargo no reconocido por $4,500 en su tarjeta. Si no reconoce este cargo ingrese de inmediato para cancelar la operación:<br> <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
+      </div>
+    </div>
+    <div class="questions" style="border-left-color: var(--gold);">
+      <h3 style="color: var(--gold); margin-bottom: 12px;">Señales a marcar:</h3>
+      <ul>
+        <li>¿Dónde está el sentido de <strong>urgencia</strong> o miedo?</li>
+        <li>¿Qué tiene de extraño el <strong>enlace (URL)</strong> si lo analizas a detalle?</li>
+        <li>¿Qué acción impulsiva te pide realizar?</li>
+        <li><strong>Decisión segura:</strong> ¿Qué debes hacer en lugar de dar clic en el mensaje?</li>
+      </ul>
     </div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 4: Phishing vs Malware</h1>
-      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
-<h2>Inicio (10 min)</h2>
-<p><strong>El Eslabón más Débil:</strong></p>
-<p>Puedes comprar el Firewall más caro del mundo, pero si tu empleado abre un correo falso y entrega sus credenciales, todo el sistema cae. El humano es el eslabón más débil.</p></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide ">
+    <p class="kicker">Uso responsable de herramientas digitales</p>
+    <h2>La respuesta debe tener pensamiento propio</h2>
+    <div class="three">
+      <article class="panel green"><h3>Puede apoyar</h3><p>Buscar ideas o aclarar conceptos puede servir como punto de partida.</p></article>
+      <article class="panel gold"><h3>Debe explicarse</h3><p>El alumno debe escribir con sus palabras y justificar por qué importa.</p></article>
+      <article class="panel red"><h3>No sustituye</h3><p>Copiar y pegar sin análisis, libreta o defensa breve no cuenta como trabajo completo.</p></article>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Credenciales seguras">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <rect x="74" y="126" width="180" height="112" rx="18" fill="#fff" stroke="#7c3aed" stroke-width="10"/><path d="M116 126v-22a48 48 0 0196 0v22" fill="none" stroke="#1f2937" stroke-width="14" stroke-linecap="round"/><circle cx="164" cy="178" r="16" fill="#f59e0b"/><path d="M164 194v24" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Credenciales seguras</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>El Eslabón más Débil:</strong></p>
-<p>Puedes comprar el Firewall más caro del mundo, pero si tu empleado abre un correo falso y entrega sus credenciales, todo el sistema cae. El humano es el eslabón más débil.</p>
-      </div>
-    </div>
+    <div class="notice">Pregunta docente rápida: ¿por qué elegiste ese riesgo y cómo lo aplicarías en tu celular?</div>
   </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 4: Phishing vs Malware</h1>
-      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
-<h2>Desarrollo (30 min)</h2>
-<h3>Dictado: Vectores de Ataque Comunes</h3>
-<ul>
-<li><strong>Phishing (Suplantación):</strong> Ingeniería social. Engañar al usuario con un correo falso (&quot;Tu cuenta de Netflix ha sido bloqueada, haz clic aquí&quot;) para que introduzca sus datos voluntariamente en una página clonada.</li>
-<li><strong>Malware (Software Malicioso):</strong> Un programa que infecta el equipo al descargar un archivo infectado (Ej. Un PDF con un troyano, o un Ransomware que secuestra tus archivos exigiendo dinero).</li>
-</ul></div>
-      <footer>CONALEP · MTCS</footer>
+<section class="slide ">
+    <p class="kicker">Cierre de Semana 01</p>
+    <h2>Checklist de evidencias</h2>
+    <div class="checklist" style="grid-template-columns: 1fr; gap: 14px;">
+      <p><span></span><strong>Producto 1 (Hora 1):</strong> Documento base en Classroom, portada y preguntas de lectura.</p>
+      <p><span></span><strong>Producto 2 (Hora 2):</strong> Tabla digital de 5 riesgos cotidianos y prevenciones.</p>
+      <p><span></span><strong>Producto 3 (Hora 3):</strong> Análisis manuscrito en libreta (3 riesgos y regla de contraseña).</p>
+      <p><span></span><strong>Producto 4 (Hora 4):</strong> Análisis de mensajes sospechosos (Phishing marcado).</p>
+      <p><span></span><strong>Producto 5 (Hora 5):</strong> Decálogo personal de seguridad (10 reglas justificadas).</p>
     </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Mini SOC simulado">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <rect x="58" y="72" width="212" height="150" rx="16" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M86 112h48v72H86zM146 142h48v42h-48zM206 96h36v88h-36z" fill="#dbeafe" stroke="#2563eb" stroke-width="6"/><path d="M92 252h144" stroke="#1f2937" stroke-width="12" stroke-linecap="round"/><circle cx="244" cy="88" r="18" fill="#dc2626"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Mini SOC simulado</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <h3>Dictado: Vectores de Ataque Comunes</h3>
-<ul>
-<li><strong>Phishing (Suplantación):</strong> Ingeniería social. Engañar al usuario con un correo falso (&quot;Tu cuenta de Netflix ha sido bloqueada, haz clic aquí&quot;) para que introduzca sus datos voluntariamente en una página clonada.</li>
-<li><strong>Malware (Software Malicioso):</strong> Un programa que infecta el equipo al descargar un archivo infectado (Ej. Un PDF con un troyano, o un Ransomware que secuestra tus archivos exigiendo dinero).</li>
-</ul>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 4: Phishing vs Malware</h1>
-      <div class="content"><h1>Hora 4: Phishing vs Malware</h1>
-<h2>Cierre (10 min)</h2>
-<p><strong>Identificación Forense:</strong></p>
-<p>En tu libreta, explica cuál es la diferencia fundamental entre Phishing y Malware.</p>
-<p><em>(Pista: Uno ataca a la psicología humana y el otro ataca directamente al sistema operativo).</em></p>
-<p><em>(Solicita el sello del docente al terminar)</em></p></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Mensaje sospechoso">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <rect x="58" y="88" width="212" height="132" rx="16" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M76 108l88 66 88-66" fill="none" stroke="#dc2626" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M222 52l40 70M262 52l-40 70" stroke="#f59e0b" stroke-width="12" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Mensaje sospechoso</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p><strong>Identificación Forense:</strong></p>
-<p>En tu libreta, explica cuál es la diferencia fundamental entre Phishing y Malware.</p>
-<p><em>(Pista: Uno ataca a la psicología humana y el otro ataca directamente al sistema operativo).</em></p>
-<p><em>(Solicita el sello del docente al terminar)</em></p>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 5: Cierre Semanal</h1>
-      <div class="content"><h1>Hora 5: Cierre Semanal</h1>
-<h2>Inicio (5 min)</h2>
-<p>Hemos terminado la primera evaluación diagnóstica. El panorama es claro: usamos la tecnología todos los días, pero rara vez entendemos los peligros invisibles que nos rodean.</p></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Topología de red">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <rect x="126" y="126" width="76" height="54" rx="12" fill="#0f766e"/><circle cx="72" cy="76" r="28" fill="#2563eb"/><circle cx="256" cy="76" r="28" fill="#f59e0b"/><circle cx="72" cy="244" r="28" fill="#16a34a"/><circle cx="256" cy="244" r="28" fill="#dc2626"/><path d="M98 88l44 44M230 88l-44 44M98 232l44-54M230 232l-44-54" stroke="#1f2937" stroke-width="9" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Topología de red</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p>Hemos terminado la primera evaluación diagnóstica. El panorama es claro: usamos la tecnología todos los días, pero rara vez entendemos los peligros invisibles que nos rodean.</p>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 5: Cierre Semanal</h1>
-      <div class="content"><h1>Hora 5: Cierre Semanal</h1>
-<h2>Desarrollo (35 min)</h2>
-<h3>� Retroalimentación Grupal</h3>
-<p>Revisaremos las libretas para verificar que todos cuenten con los conceptos clave de esta semana:</p>
-<ul>
-<li>White Hat vs Black Hat.</li>
-<li>Infraestructura Real del Internet (Cables, no Nubes).</li>
-<li>El riesgo de las Redes Abiertas (Man in the Middle).</li>
-<li>Phishing vs Malware.</li>
-</ul>
-<p>A partir de la próxima semana, entraremos de lleno a la arquitectura técnica (Unidad 1).</p></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Datos en tránsito">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M96 206h142a46 46 0 006-92 70 70 0 00-132-22 56 56 0 00-16 114z" fill="#fff" stroke="#2563eb" stroke-width="10"/><path d="M104 230h116M128 256h68" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M132 150l28 28 54-64" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Datos en tránsito</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <h3>� Retroalimentación Grupal</h3>
-<p>Revisaremos las libretas para verificar que todos cuenten con los conceptos clave de esta semana:</p>
-<ul>
-<li>White Hat vs Black Hat.</li>
-</ul>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Secuencia didactica</p>
-      <h1>Hora 5: Cierre Semanal</h1>
-      <div class="content"><h1>Hora 5: Cierre Semanal</h1></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Laboratorio autorizado">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M164 42l104 42v80c0 70-43 119-104 146C103 283 60 234 60 164V84z" fill="#15803d"/><path d="M116 164l34 34 68-82" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Laboratorio autorizado</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p>Escribe una idea clave, una duda y una aplicacion profesional de la clase.</p>
-      </div>
-    </div>
-  </section>
-<section class="slide">
-    <div class="slide-main">
-      <p class="kicker">Criterios</p>
-      <h1>Evaluacion y cierre</h1>
-      <div class="content"><h3>Rúbrica Semanal</h3>
-<p>El docente sellará la primera etapa del semestre validando:</p>
-<ul>
-<li>Cuestionario diagnóstico completo (sin importar si las respuestas originales eran erróneas, se evalúa la corrección grupal).</li>
-<li>Acuerdo de Confidencialidad y Ética firmado en la libreta.</li>
-</ul></div>
-      <footer>CONALEP · MTCS</footer>
-    </div>
-    <div class="slide-side">
-      <div class="visual"><svg class="concept-art" viewBox="0 0 328 328" role="img" aria-label="Ética y alcance">
-    <rect x="10" y="10" width="308" height="308" rx="34" fill="#f8fafc"/>
-    <circle cx="260" cy="62" r="34" fill="#fde68a"/>
-    <path d="M92 252h144" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M164 70v182" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116h120" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/><path d="M104 116l-44 78h88zM224 116l-44 78h88z" fill="#fff" stroke="#007a5e" stroke-width="8" stroke-linejoin="round"/><path d="M126 62h76" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>
-    <text x="164" y="312" text-anchor="middle" font-family="Inter, Arial" font-size="16" font-weight="700" fill="#334155">Ética y alcance</text>
-  </svg></div>
-      <div class="notebook">
-        <div class="rings" aria-hidden="true"></div>
-        <h2>Ejemplo de apunte</h2>
-        <p>Cierra con tres frases: que aprendi, como lo aplique y que debo mejorar en la siguiente practica.</p>
-      </div>
-    </div>
+    <div class="big-question">¿Qué hábito de seguridad digital puedes empezar a practicar desde hoy?</div>
   </section>
   </main>
-  <div class="controls" aria-label="Controles">
+  <nav class="nav" aria-label="Navegación">
     <button id="prev" title="Anterior">‹</button>
-    <span id="count">1 / 17</span>
+    <span class="count" id="count">1/11</span>
     <button id="next" title="Siguiente">›</button>
-  </div>
+    <button id="full" title="Pantalla completa">⛶</button>
+  </nav>
+  <aside class="timer-panel" aria-label="Cronómetro">
+    <div class="timer-top">
+      <div class="timer-mode">
+        <button id="modeStopwatch" class="active">Crono</button>
+        <button id="modeTimer">Temp</button>
+      </div>
+      <button class="timer-hide" id="timerHide">–</button>
+    </div>
+    <button class="timer-display" id="timerDisplay">00:00</button>
+    <div class="timer-presets">
+      <button data-minutes="5">5m</button><button data-minutes="10">10m</button><button data-minutes="15">15m</button><button data-minutes="20">20m</button>
+    </div>
+    <div class="timer-actions">
+      <button id="timerStart">Iniciar</button><button class="secondary" id="timerReset">Reiniciar</button>
+    </div>
+  </aside>
   <script>
     const slides = [...document.querySelectorAll(".slide")];
-    let index = 0;
-    function show(next) {
-      index = Math.max(0, Math.min(slides.length - 1, next));
-      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
-      document.getElementById("count").textContent = (index + 1) + " / " + slides.length;
+    const count = document.getElementById("count");
+    let current = 0;
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+      count.textContent = (current + 1) + "/" + slides.length;
     }
-    document.getElementById("prev").addEventListener("click", () => show(index - 1));
-    document.getElementById("next").addEventListener("click", () => show(index + 1));
-    document.addEventListener("keydown", (event) => {
-      if (["ArrowRight", "PageDown", " "].includes(event.key)) show(index + 1);
-      if (["ArrowLeft", "PageUp"].includes(event.key)) show(index - 1);
+    document.getElementById("prev").addEventListener("click", () => show(current - 1));
+    document.getElementById("next").addEventListener("click", () => show(current + 1));
+    document.getElementById("full").addEventListener("click", () => {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
     });
-    show(0);
+    window.addEventListener("keydown", (event) => {
+      if (["ArrowRight", "PageDown", " "].includes(event.key)) { event.preventDefault(); show(current + 1); }
+      if (["ArrowLeft", "PageUp"].includes(event.key)) { event.preventDefault(); show(current - 1); }
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(slides.length - 1);
+    });
+    const timerDisplay = document.getElementById("timerDisplay");
+    const timerStart = document.getElementById("timerStart");
+    const timerReset = document.getElementById("timerReset");
+    const modeStopwatch = document.getElementById("modeStopwatch");
+    const modeTimer = document.getElementById("modeTimer");
+    let timerMode = "stopwatch", timerRunning = false, timerSeconds = 0, timerTarget = 0, timerTick = null;
+    function formatTime(total) {
+      const safe = Math.max(0, total);
+      return String(Math.floor(safe / 60)).padStart(2, "0") + ":" + String(safe % 60).padStart(2, "0");
+    }
+    function renderTimer() {
+      timerDisplay.textContent = formatTime(timerMode === "timer" ? timerTarget - timerSeconds : timerSeconds);
+      modeStopwatch.classList.toggle("active", timerMode === "stopwatch");
+      modeTimer.classList.toggle("active", timerMode === "timer");
+      timerStart.textContent = timerRunning ? "Pausar" : "Iniciar";
+    }
+    function stopTimer() { timerRunning = false; clearInterval(timerTick); timerTick = null; renderTimer(); }
+    function startTimer() {
+      if (timerRunning) return stopTimer();
+      timerRunning = true;
+      timerTick = setInterval(() => {
+        timerSeconds += 1;
+        if (timerMode === "timer" && timerSeconds >= timerTarget) stopTimer();
+        renderTimer();
+      }, 1000);
+      renderTimer();
+    }
+    modeStopwatch.addEventListener("click", () => { stopTimer(); timerMode = "stopwatch"; timerSeconds = 0; renderTimer(); });
+    modeTimer.addEventListener("click", () => { stopTimer(); timerMode = "timer"; timerSeconds = 0; timerTarget = timerTarget || 600; renderTimer(); });
+    document.querySelectorAll("[data-minutes]").forEach((button) => button.addEventListener("click", () => {
+      stopTimer(); timerMode = "timer"; timerSeconds = 0; timerTarget = Number(button.dataset.minutes) * 60; renderTimer();
+    }));
+    timerStart.addEventListener("click", startTimer);
+    timerReset.addEventListener("click", () => { stopTimer(); timerSeconds = 0; renderTimer(); });
+    document.getElementById("timerHide").addEventListener("click", () => document.body.classList.toggle("timer-minimized"));
+    timerDisplay.addEventListener("click", () => document.body.classList.remove("timer-minimized"));
+    renderTimer();
   </script>
 </body>
 </html>
