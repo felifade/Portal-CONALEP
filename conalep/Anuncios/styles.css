@@ -543,3 +543,49 @@ input[type="search"] {
   .month-cards { grid-template-columns: 1fr; }
   .done-inline-cards { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MODO INCORPORADO (IFRAME) - PORTAL CONALEP
+═══════════════════════════════════════════════════════════════ */
+body.is-embedded {
+  background: transparent;
+}
+body.is-embedded .topbar {
+  display: none;
+}
+body.is-embedded main {
+  padding: 10px;
+}
+body.is-embedded .notes-panel {
+  display: none;
+}
+body.is-embedded .dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+body.is-embedded .panel {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid var(--line);
+}
+body.is-embedded h2 {
+  font-size: 15px;
+}
+body.is-embedded .eyebrow {
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+body.is-embedded .critical-list,
+body.is-embedded .month-content,
+body.is-embedded .summary-grid {
+  font-size: 13px;
+}
+body.is-embedded .event-row {
+  padding-block: 8px;
+}
+body.is-embedded .month-tabs button {
+  padding: 6px 10px;
+  font-size: 12px;
+}

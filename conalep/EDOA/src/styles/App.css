@@ -3515,3 +3515,30 @@
   height: 100%;
   border: none;
 }
+
+/* ── OVERFLOW Y TEXTO COMPACTO PARA DASHBOARD ── */
+.ra-dashboard-card h4 {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+.dashboard-header h2 {
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: 1.2;
+}
+
+.dashboard-week-btn {
+  padding: 8px 10px;
+}
+
+.week-label {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
