@@ -4,10 +4,7 @@
                Network-first para calendar.ics (datos en vivo)
    ============================================================ */
 
-<<<<<<< HEAD
-=======
-const CACHE_NAME   = 'conalep-portal-v80';
->>>>>>> 228a3c7 (chore: deploy SW v69 — rebuild MTHS + DEWE)
+const CACHE_NAME   = 'conalep-portal-v81';
 const BASE         = '/Portal-CONALEP';
 
 // Recursos a cachear en la instalación
