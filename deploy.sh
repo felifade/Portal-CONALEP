@@ -19,10 +19,14 @@ echo "Build MTHS..."
 echo "Build DEWE..."
 (cd "$PORTAL/conalep/DEWE" && npm run build --silent)
 
+# ── 3.5 Build EDOA ────────────────────────────────────────────
+echo "Build EDOA..."
+(cd "$PORTAL/conalep/EDOA" && npm run build --silent)
+
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
-git add sw.js conalep/MTHS conalep/DEWE ceb54
-git commit -m "chore: deploy SW v${NEXT} — rebuild MTHS + DEWE + ceb54
+git add sw.js conalep/MTHS conalep/DEWE conalep/EDOA ceb54
+git commit -m "chore: deploy SW v${NEXT} — rebuild MTHS + DEWE + EDOA + ceb54
 
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
 git push
