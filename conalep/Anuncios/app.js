@@ -183,3 +183,8 @@ renderSummary();
 renderMonthTabs();
 renderCriticalDates();
 renderSources();
+
+// ── Modo incrustado (Iframe) ──
+if (window.self !== window.top) {
+  document.body.classList.add('is-embedded');
+}
