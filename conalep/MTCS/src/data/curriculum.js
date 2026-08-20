@@ -27,8 +27,7 @@ export const curriculumData = {
       corte: 1,
       weeks: [
         { id: "W05", label: "Semana 05 (14-18 Sep)" },
-        { id: "W06", label: "Semana 06 (21-25 Sep)" },
-        { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" }
+        { id: "W06", label: "Semana 06 (21-25 Sep)" }
       ]
     },
     {
@@ -37,6 +36,7 @@ export const curriculumData = {
       peso: "15%",
       corte: 2,
       weeks: [
+        { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" },
         { id: "W08", label: "Semana 08 (05-09 Oct)" },
         { id: "W09", label: "Semana 09 (12-16 Oct)" },
         { id: "W10", label: "Semana 10 (19-23 Oct)" }
