@@ -6,21 +6,22 @@
   <title>MTCS · Semana 01 · Presentación de Clase</title>
   <style>
     :root {
-      --ink: #111e1c;
-      --muted: #495652;
-      --paper: #f9fbf9;
-      --line: #cdd9d2;
+      --ink: #0f1917;
+      --muted: #41514c;
+      --paper: #f8faf8;
+      --line: #c6d5cd;
       --green: #025940;
-      --green2: #013626;
+      --green2: #013324;
       --blue: #1d4ed8;
+      --blue-dark: #1e3a8a;
       --gold: #b45309;
       --red: #b91c1c;
-      --soft: #e6f3ec;
+      --soft: #eaf4ee;
       --softblue: #eff6ff;
       --softgold: #fef3c7;
       --softred: #fee2e2;
       --white: #ffffff;
-      --shadow: 0 16px 40px rgba(18, 33, 31, 0.08);
+      --shadow: 0 12px 32px rgba(15, 25, 23, 0.07);
     }
     * { box-sizing: border-box; }
     html, body {
@@ -28,7 +29,7 @@
       padding: 0;
       width: 100vw;
       height: 100vh;
-      background: #d8e4df;
+      background: #d4e2dc;
       color: var(--ink);
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow: hidden;
@@ -43,139 +44,172 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: clamp(24px, 4vh, 44px) clamp(30px, 5vw, 64px) 80px;
+      padding: clamp(20px, 3.5vh, 36px) clamp(24px, 4.5vw, 54px) 75px;
       display: none;
       background: var(--paper);
       overflow-y: auto;
       box-sizing: border-box;
+      flex-direction: column;
+      gap: 14px;
     }
-    .slide.active { display: flex; flex-direction: column; }
+    .slide.active { display: flex; }
     h1, h2, h3, h4, p { margin: 0; }
     h1 {
-      font-size: clamp(52px, 6.8vw, 94px);
-      line-height: 0.98;
+      font-size: clamp(44px, 5.8vw, 80px);
+      line-height: 1.0;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.03em;
     }
     h2 {
-      font-size: clamp(36px, 4.6vw, 64px);
-      line-height: 1.05;
-      margin-bottom: 16px;
+      font-size: clamp(28px, 3.6vw, 48px);
+      line-height: 1.1;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     h3 {
-      font-size: clamp(24px, 2.5vw, 34px);
-      margin-bottom: 8px;
+      font-size: clamp(20px, 2.2vw, 28px);
       color: var(--green2);
       font-weight: 800;
     }
     p, li, td, th {
-      font-size: clamp(20px, 1.85vw, 27px);
+      font-size: clamp(17px, 1.45vw, 22px);
       line-height: 1.42;
     }
     .badge, .eyebrow {
       display: inline-block;
-      font-size: clamp(16px, 1.35vw, 20px);
+      font-size: clamp(14px, 1.15vw, 17px);
       font-weight: 900;
       color: var(--green);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 10px;
     }
-    .cover {
+    .cover-layout {
       flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 950px) {
+      .cover-layout { grid-template-columns: 1fr; }
+    }
+    .cover-left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 24px;
+      gap: 16px;
     }
-    .cover p {
-      max-width: 1050px;
+    .cover-left p {
       color: var(--muted);
-      font-size: clamp(25px, 2.7vw, 38px);
+      font-size: clamp(20px, 2vw, 28px);
       line-height: 1.35;
     }
     .teacher {
-      margin-top: 10px;
       color: var(--green) !important;
       font-weight: 900;
-      font-size: clamp(22px, 2vw, 30px);
+      font-size: clamp(19px, 1.6vw, 24px);
     }
     .class-code {
       display: flex;
       align-items: center;
-      gap: 24px;
-      width: max-content;
-      max-width: 100%;
-      padding: 16px 28px;
+      gap: 18px;
+      padding: 14px 22px;
       border: 3px solid var(--line);
       background: var(--white);
       border-radius: 12px;
       box-shadow: var(--shadow);
+      width: max-content;
+      max-width: 100%;
     }
     .class-code span {
       color: var(--muted);
       font-weight: 900;
-      font-size: clamp(18px, 1.5vw, 24px);
+      font-size: clamp(16px, 1.25vw, 20px);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
     .class-code strong {
-      font-size: clamp(40px, 4.8vw, 64px);
+      font-size: clamp(34px, 4vw, 52px);
       color: var(--blue);
       letter-spacing: 0.08em;
     }
-    .main-grid-fill {
-      flex: 1;
-      display: grid;
-      gap: 20px;
-      min-height: 0;
+    .cover-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      flex: 1;
-    }
-    .cards.two { grid-template-columns: repeat(2, 1fr); }
-    .card, .panel, .note {
+    .info-card {
       background: var(--white);
       border: 2px solid var(--line);
-      border-radius: 12px;
-      padding: 22px 26px;
+      border-radius: 10px;
+      padding: 16px 20px;
       box-shadow: var(--shadow);
     }
-    .card p, .panel p { color: var(--muted); font-size: clamp(19px, 1.7vw, 25px); }
-    .hour-layout {
+    .info-card h4 {
+      font-size: clamp(16px, 1.3vw, 20px);
+      color: var(--green2);
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .info-card p {
+      font-size: clamp(15px, 1.2vw, 18px);
+      color: var(--muted);
+      line-height: 1.38;
+    }
+    .full-grid-3 {
       flex: 1;
       display: grid;
-      grid-template-columns: 36% 1fr;
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      min-height: 0;
+    }
+    .full-grid-2 {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
       min-height: 0;
     }
     @media (max-width: 900px) {
-      .hour-layout, .cards.two, .cards { grid-template-columns: 1fr; }
+      .full-grid-3, .full-grid-2 { grid-template-columns: 1fr; }
+    }
+    .card, .panel, .note {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .card p, .panel p { color: var(--muted); font-size: clamp(16px, 1.3vw, 20px); }
+    .hour-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 38% 1fr;
+      gap: 20px;
+      align-items: stretch;
+      min-height: 0;
+    }
+    @media (max-width: 950px) {
+      .hour-layout { grid-template-columns: 1fr; }
     }
     .ra-box {
       background: var(--soft);
       border: 2px solid var(--line);
-      border-radius: 10px;
-      padding: 18px 22px;
-      margin-bottom: 16px;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
     }
-    .ra-box strong { color: var(--green2); font-size: clamp(21px, 1.9vw, 28px); font-weight: 900; }
-    .stack { display: flex; flex-direction: column; gap: 16px; height: 100%; }
+    .ra-box strong { color: var(--green2); font-size: clamp(18px, 1.5vw, 22px); font-weight: 900; }
     .mini-title {
-      font-size: clamp(16px, 1.35vw, 21px);
+      font-size: clamp(15px, 1.2vw, 18px);
       font-weight: 900;
       color: var(--green2);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .panel.dictado { background: var(--softblue); border-color: #93c5fd; }
     .panel.obj { background: var(--soft); }
@@ -185,42 +219,42 @@
       width: 100%;
       height: 100%;
       border-collapse: collapse;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
       background: var(--white);
     }
     th, td {
       border: 1px solid var(--line);
-      padding: 14px 18px;
+      padding: 11px 14px;
       text-align: left;
       vertical-align: middle;
     }
     th {
       background: #e2ede7;
       color: var(--green2);
-      font-size: clamp(18px, 1.55vw, 24px);
+      font-size: clamp(16px, 1.35vw, 20px);
       font-weight: 900;
     }
     td {
-      font-size: clamp(18px, 1.6vw, 23px);
-      line-height: 1.4;
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.38;
     }
-    td:first-child { width: 50px; font-weight: 900; color: var(--green); text-align: center; font-size: clamp(20px, 1.8vw, 26px); }
+    td:first-child { width: 44px; font-weight: 900; color: var(--green); text-align: center; font-size: clamp(18px, 1.5vw, 22px); }
     .six-grid {
       flex: 1;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 10px;
+      gap: 14px;
+      min-height: 0;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .six-grid { grid-template-columns: 1fr; }
     }
     .ra-item {
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 10px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -230,52 +264,49 @@
     .ra-item.blue { border-color: #93c5fd; background: var(--softblue); }
     .ra-item.red { border-color: #fca5a5; background: var(--softred); }
     .ra-item h4 {
-      font-size: clamp(18px, 1.5vw, 23px);
+      font-size: clamp(16px, 1.3vw, 20px);
       color: var(--green2);
       font-weight: 900;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .ra-item p {
-      font-size: clamp(16px, 1.35vw, 20px);
+      font-size: clamp(14.5px, 1.15vw, 17.5px);
       color: var(--muted);
-      line-height: 1.38;
+      line-height: 1.35;
     }
-    .grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
-    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
     .checklist-list {
       flex: 1;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
+      gap: 10px;
     }
     .checklist-list div {
       background: var(--white);
       border: 2px solid var(--line);
-      border-radius: 10px;
-      padding: 16px 24px;
+      border-radius: 8px;
+      padding: 14px 20px;
       font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: clamp(18px, 1.6vw, 24px);
+      gap: 14px;
+      font-size: clamp(16px, 1.35vw, 20px);
       box-shadow: var(--shadow);
     }
     .checklist-list div::before {
       content: "✓";
       color: var(--green);
       font-weight: 900;
-      font-size: clamp(24px, 2.2vw, 32px);
+      font-size: clamp(22px, 1.8vw, 26px);
       flex-shrink: 0;
     }
     footer {
       position: absolute;
-      left: clamp(30px, 5vw, 64px);
-      right: clamp(30px, 5vw, 64px);
-      bottom: 16px;
-      padding-top: 8px;
+      left: clamp(24px, 4.5vw, 54px);
+      right: clamp(24px, 4.5vw, 54px);
+      bottom: 14px;
+      padding-top: 6px;
       border-top: 2px solid var(--line);
-      font-size: clamp(15px, 1.3vw, 19px);
+      font-size: clamp(14px, 1.15vw, 17px);
       color: var(--muted);
       display: flex;
       justify-content: space-between;
@@ -284,440 +315,531 @@
     footer strong { color: var(--green); font-weight: 900; }
     .timer {
       position: fixed;
-      right: 24px;
-      top: 22px;
+      right: 22px;
+      top: 18px;
       z-index: 50;
       background: #ffffffed;
       backdrop-filter: blur(10px);
       border: 2px solid var(--line);
-      border-radius: 10px;
-      padding: 10px 16px;
+      border-radius: 8px;
+      padding: 8px 12px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
     .timer.min {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       padding: 0;
       justify-content: center;
       overflow: hidden;
       cursor: pointer;
     }
-    .timer.min::before { content: "⏱"; font-size: 24px; line-height: 1; }
+    .timer.min::before { content: "⏱"; font-size: 22px; line-height: 1; }
     .timer.min .time, .timer.min button { display: none; }
     .timer button, .nav button {
       border: 0;
       background: var(--green);
       color: white;
-      border-radius: 8px;
-      padding: 8px 14px;
+      border-radius: 6px;
+      padding: 7px 12px;
       font-weight: 900;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
     }
     .timer .time {
-      font-size: 22px;
+      font-size: 19px;
       font-weight: 900;
-      min-width: 76px;
+      min-width: 68px;
       text-align: center;
       color: var(--ink);
       font-family: monospace;
     }
     .nav {
       position: fixed;
-      right: 24px;
-      bottom: 16px;
+      right: 22px;
+      bottom: 14px;
       z-index: 50;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: #ffffffed;
       backdrop-filter: blur(10px);
       border: 2px solid var(--line);
-      border-radius: 10px;
-      padding: 8px 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      padding: 7px 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
-    .count { font-weight: 900; min-width: 80px; text-align: center; font-size: 18px; color: var(--green2); }
+    .count { font-weight: 900; min-width: 72px; text-align: center; font-size: 16px; color: var(--green2); }
   </style>
 </head>
 <body>
   <main class="deck">
 
-    <!-- SLIDE 1: PORTADA -->
+    <!-- SLIDE 1: PORTADA COMPLETA Y FICHA TÉCNICA -->
     <section class="slide active">
-      <div class="cover">
-        <span class="badge">CONALEP · MTCS-20 · Grupo 501</span>
-        <h1>Semana 01: Seguridad Digital Personal</h1>
-        <p>Presentación viva de clase: lo que hacemos por hora, el dictado del propósito del módulo, mapa de RAs y 5 productos individuales.</p>
-        <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
-        <p class="teacher">Dr. Felipe López Salazar</p>
+      <div class="cover-layout">
+        <div class="cover-left">
+          <span class="badge">CONALEP · Ciclo 2026-2027 · Semestre 1.26.27</span>
+          <h1>MTCS-20: Ciberseguridad</h1>
+          <p><strong>Manejo de Tecnologías de Ciberseguridad</strong> · Presentación viva de clase con propósito formativo, mapa de 6 RAs, análisis de amenazas y 5 productos individuales.</p>
+          <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
+          <p class="teacher">Docente: Dr. Felipe López Salazar · Grupo 501</p>
+        </div>
+        <div class="cover-right">
+          <div class="info-card" style="border-left: 6px solid var(--green);">
+            <h4>🎯 Perfil de Egreso</h4>
+            <p>Capacidad para diagnosticar redes de datos, mitigar vulnerabilidades, aplicar protocolos de confidencialidad y programar respuestas defensivas.</p>
+          </div>
+          <div class="info-card" style="border-left: 6px solid var(--blue); background: var(--softblue);">
+            <h4>⚙️ Dinámica de Trabajo</h4>
+            <p>Laboratorio en <strong>parejas para debatir</strong>, pero cada estudiante es responsable de conservar su <strong>evidencia digital en cuenta fija de Google</strong> y su libreta física.</p>
+          </div>
+          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
+            <h4>⚖️ Ética Defensiva Estricta</h4>
+            <p>Todas las herramientas, comandos y prácticas son <strong>estrictamente defensivos</strong> y se ejecutan exclusivamente en entornos simulados y autorizados.</p>
+          </div>
+        </div>
       </div>
-      <footer><span>Manejo de Tecnologías de Ciberseguridad</span><strong>5 Horas · 3 Sesiones</strong></footer>
+      <footer><span>Semana 01 · Seguridad Digital Personal</span><strong>5 Horas · 3 Sesiones · 5 Productos</strong></footer>
     </section>
 
-    <!-- SLIDE 2: ENCUADRE FORMATIVO -->
+    <!-- SLIDE 2: ENCUADRE FORMATIVO Y METODOLOGÍA -->
     <section class="slide">
       <span class="eyebrow">Encuadre Formativo</span>
       <h2>Propósito y Metodología MTCS-20</h2>
-      <div class="cards two">
-        <article class="card">
-          <div class="mini-title">Qué aprenderás a dominar</div>
-          <p>Identificar la arquitectura y funcionamiento de <strong>redes de datos</strong>, implementar <strong>protocolos de ciberseguridad y confidencialidad</strong>, y programar <strong>lógica defensiva</strong> para proteger sistemas e información.</p>
+      <div class="full-grid-3">
+        <article class="card" style="border-top: 8px solid var(--green);">
+          <div class="mini-title" style="color: var(--green);">1. Redes de Datos</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 6px;">El soporte de la ciberseguridad</p>
+          <p>Aprenderás a cablear, configurar y diagnosticar <strong>redes PAN, LAN y WAN</strong>, asignar direcciones IPv4/IPv6 y administrar permisos en <strong>Linux</strong>.</p>
         </article>
-        <article class="card" style="background: var(--soft);">
-          <div class="mini-title">Forma de trabajo y regla de cuenta</div>
-          <p>En laboratorio se trabajará en <strong>parejas para compartir ideas y debatir</strong>, pero cada estudiante es responsable de conservar y entregar su <strong>propia evidencia en su cuenta fija de Google</strong>.</p>
+        <article class="card" style="border-top: 8px solid var(--gold); background: var(--softgold);">
+          <div class="mini-title" style="color: var(--gold);">2. Ciberseguridad Defensiva</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 6px;">Protección y confidencialidad</p>
+          <p>Dominarás la <strong>tríada CIA</strong> (Confidencialidad, Integridad y Disponibilidad), auditoría de contraseñas, protocolos HTTPS/SSH y detección de <strong>Phishing</strong>.</p>
+        </article>
+        <article class="card" style="border-top: 8px solid var(--blue); background: var(--softblue);">
+          <div class="mini-title" style="color: var(--blue);">3. Lógica Defensiva & SOC</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 6px;">Automatización de seguridad</p>
+          <p>Programarás scripts con condicionales y ciclos para <strong>analizar registros (logs)</strong> y simular la operación de un <strong>Centro de Seguridad (SOC)</strong>.</p>
         </article>
       </div>
-      <div class="cards" style="margin-top: 16px;">
-        <div class="panel"><strong>Sesión 01 (1h):</strong> Classroom, Dictado del Propósito, Mapa y RAs</div>
-        <div class="panel"><strong>Sesión 02 (2h):</strong> Riesgos Cotidianos y Contraseñas</div>
-        <div class="panel"><strong>Sesión 03 (2h):</strong> Phishing y Decálogo Personal</div>
+      <div class="card" style="background: var(--soft); padding: 14px 20px; border-left: 8px solid var(--green);">
+        <p style="color: var(--green2); font-size: clamp(16px, 1.3vw, 19px);">
+          <strong>📌 Organización Semanal:</strong> Sesión 01 (1h - Classroom y Mapa) · Sesión 02 (2h - Riesgos y Claves) · Sesión 03 (2h - Phishing y Decálogo).
+        </p>
       </div>
       <footer><span>Estructura General</span><strong>MTCS · Grupo 501</strong></footer>
     </section>
 
-    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO + DICTADO AMPLIADO + PASOS) -->
+    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO, DICTADO Y PASOS COMPLETOS) -->
     <section class="slide">
       <span class="eyebrow">Sesión 01 · Hora 1</span>
       <h2>Classroom, Propósito y Mapa del Módulo</h2>
       <div class="hour-layout">
-        <aside style="display: flex; flex-direction: column;">
-          <div class="ra-box"><strong>RA 1.1 (15%)</strong><br>Conexiones de red y fundamentos de ciberseguridad.</div>
+        <aside style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="ra-box">
+            <strong>RA 1.1 (15% - 1er Corte)</strong><br>
+            <span style="font-size: 15px; color: var(--muted);">Conexiones de red y fundamentos de ciberseguridad.</span>
+          </div>
           <article class="panel dictado" style="flex: 1;">
-            <div class="mini-title">Inicio · Dictado Inicial de Clase</div>
-            <p style="font-size: clamp(17px, 1.4vw, 21px); line-height: 1.45; color: #1e3a8a;">
+            <div class="mini-title">Inicio · Dictado Oficial de Clase</div>
+            <p style="font-size: clamp(16px, 1.25vw, 19px); line-height: 1.45; color: #1e3a8a;">
               <em>"La ciberseguridad no comienza programando ni configurando cortafuegos, sino comprendiendo la arquitectura de las redes y la importancia de proteger la información que viaja por ellas. En este módulo aprenderemos desde cómo viajan los paquetes de datos y se asignan las direcciones IP en una red, hasta cómo auditar contraseñas, prevenir fraudes digitales y programar scripts de defensa para salvaguardar sistemas y usuarios."</em>
             </p>
           </article>
         </aside>
-        <section class="stack">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
           <article class="panel" style="flex: 1;">
             <div class="mini-title">Desarrollo · Transcripción y Pasos del Estudiante (Producto 1)</div>
             <table><tbody>
-              <tr><td>1</td><td>Ingresar a Classroom <strong>j6bnku3j</strong> y crear documento: <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
-              <tr><td>2</td><td>Elaborar portada completa (Nombre, Grupo 501, MTCS-20, Docente, Fecha).</td></tr>
-              <tr><td>3</td><td><strong>Transcribir el Propósito Oficial del Módulo</strong> dictado en clase.</td></tr>
-              <tr><td>4</td><td><strong>Transcribir el Mapa del Módulo</strong> (Unidades 1, 2 y 3 con sus 6 RAs y porcentajes).</td></tr>
-              <tr><td>5</td><td>Redactar <strong>un ejemplo de aplicación en la vida real para cada uno de los 6 RAs</strong>.</td></tr>
+              <tr><td>1</td><td>Ingresar a Classroom <strong>j6bnku3j</strong> con tu cuenta fija de Google.</td></tr>
+              <tr><td>2</td><td>Crear documento en Google Docs: <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
+              <tr><td>3</td><td>Elaborar portada formal (Nombre, Grupo 501, MTCS-20, Docente, Fecha y Frase).</td></tr>
+              <tr><td>4</td><td><strong>Transcribir el Propósito Oficial del Módulo</strong> dictado por el docente.</td></tr>
+              <tr><td>5</td><td><strong>Transcribir el Mapa Curricular</strong> (3 Unidades, 6 RAs y porcentajes oficiales).</td></tr>
+              <tr><td>6</td><td>Redactar <strong>un ejemplo de aplicación real para cada uno de los 6 RAs</strong>.</td></tr>
             </tbody></table>
           </article>
+          <div class="note" style="background: var(--soft); padding: 10px 16px; border-left: 6px solid var(--green);">
+            <p style="font-size: 15px; color: var(--green2);"><strong>Criterio P1:</strong> Portada completa + texto del propósito + mapa curricular + 6 ejemplos reales redactados con palabras propias.</p>
+          </div>
         </section>
       </div>
       <footer><span>Producto 1</span><strong>Documento Base + Portada + Dictado del Propósito + Mapa y 6 Ejemplos de RAs</strong></footer>
     </section>
 
-    <!-- SLIDE 4: MAPA CURRICULAR OFICIAL A TRANSCRIBIR -->
+    <!-- SLIDE 4: MAPA CURRICULAR OFICIAL PARA TRANSCRIPCIÓN -->
     <section class="slide">
       <span class="eyebrow">Mapa Curricular · Hora 1</span>
-      <h2>Mapa de Unidades y RAs (Para Transcripción)</h2>
-      <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+      <h2>Mapa de Unidades, RAs y Ponderaciones (100%)</h2>
+      <div class="full-grid-3">
         <article class="panel" style="border-left: 8px solid var(--green);">
           <div class="mini-title" style="color: var(--green);">Unidad 1 · 30 hrs (30% - 1er Corte)</div>
-          <p style="font-weight: 800; color: var(--ink);">Conceptos Básicos de Redes</p>
-          <ul style="padding-left: 24px; margin-top: 12px; font-size: clamp(17px, 1.4vw, 22px);">
-            <li style="margin: 10px 0;"><strong>RA 1.1 (15%):</strong> Conexiones de red y funcionamiento óptimo.</li>
-            <li style="margin: 10px 0;"><strong>RA 1.2 (15%):</strong> Direccionamiento IP y enrutamiento seguro (Linux).</li>
+          <p style="font-weight: 900; color: var(--ink); font-size: 18px; margin-bottom: 6px;">Conceptos Básicos de Redes</p>
+          <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 10px;">Fundamentos de hardware, medios físicos y protocolos de comunicación.</p>
+          <ul style="padding-left: 20px; font-size: clamp(15.5px, 1.25vw, 18px);">
+            <li style="margin: 8px 0;"><strong>RA 1.1 (15%):</strong> Conexiones de red y funcionamiento óptimo (W00 - W04).</li>
+            <li style="margin: 8px 0;"><strong>RA 1.2 (15%):</strong> Direccionamiento IP y consola Linux (W05 - W06).</li>
           </ul>
         </article>
         <article class="panel" style="border-left: 8px solid var(--gold); background: var(--softgold);">
           <div class="mini-title" style="color: var(--gold);">Unidad 2 · 30 hrs (35% - 2do Corte)</div>
-          <p style="font-weight: 800; color: var(--ink);">Fundamentos de Ciberseguridad</p>
-          <ul style="padding-left: 24px; margin-top: 12px; font-size: clamp(17px, 1.4vw, 22px);">
-            <li style="margin: 10px 0;"><strong>RA 2.1 (20%):</strong> Principios y tecnologías de confidencialidad.</li>
-            <li style="margin: 10px 0;"><strong>RA 2.2 (15%):</strong> Protocolos tecnológicos y mitigación de amenazas.</li>
+          <p style="font-weight: 900; color: var(--ink); font-size: 18px; margin-bottom: 6px;">Fundamentos de Ciberseguridad</p>
+          <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 10px;">Seguridad de la información, auditoría y mitigación de amenazas.</p>
+          <ul style="padding-left: 20px; font-size: clamp(15.5px, 1.25vw, 18px);">
+            <li style="margin: 8px 0;"><strong>RA 2.1 (20%):</strong> Principios y tecnologías de confidencialidad (W07 - W10).</li>
+            <li style="margin: 8px 0;"><strong>RA 2.2 (15%):</strong> Protocolos tecnológicos y Phishing (W11 - W13).</li>
           </ul>
         </article>
         <article class="panel" style="border-left: 8px solid var(--blue); background: var(--softblue);">
           <div class="mini-title" style="color: var(--blue);">Unidad 3 · 30 hrs (35% - 3er Corte)</div>
-          <p style="font-weight: 800; color: var(--ink);">Programación Informática</p>
-          <ul style="padding-left: 24px; margin-top: 12px; font-size: clamp(17px, 1.4vw, 22px);">
-            <li style="margin: 10px 0;"><strong>RA 3.1 (20%):</strong> Fundamentos de código aplicados a la seguridad.</li>
-            <li style="margin: 10px 0;"><strong>RA 3.2 (15%):</strong> Estructuras de flujo de control (Mini SOC).</li>
+          <p style="font-weight: 900; color: var(--ink); font-size: 18px; margin-bottom: 6px;">Programación Informática</p>
+          <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 10px;">Lógica algorítmica y automatización de defensa y análisis de logs.</p>
+          <ul style="padding-left: 20px; font-size: clamp(15.5px, 1.25vw, 18px);">
+            <li style="margin: 8px 0;"><strong>RA 3.1 (20%):</strong> Fundamentos de código en seguridad (W14 - W16).</li>
+            <li style="margin: 8px 0;"><strong>RA 3.2 (15%):</strong> Estructuras de control y Mini SOC (W17 - W19).</li>
           </ul>
         </article>
       </div>
-      <div class="note" style="margin-top: 16px; background: var(--soft); font-size: clamp(18px, 1.5vw, 23px);">
-        📋 <strong>Instrucción:</strong> Transcribe este mapa en tu documento de trabajo junto con el propósito del módulo.
+      <div class="note" style="background: var(--soft); padding: 12px 18px; border-left: 6px solid var(--green);">
+        <p style="font-size: 16px; color: var(--green2);">📋 <strong>Instrucción en Docs:</strong> Transcribe el mapa curricular completo registrando el nombre de la unidad, horas, ponderación de corte y porcentajes de cada RA.</p>
       </div>
-      <footer><span>Estructura Oficial</span><strong>Ponderaciones Oficiales MTCS-20 (100%)</strong></footer>
+      <footer><span>Estructura Curricular</span><strong>Ponderaciones Oficiales MTCS-20 (100%)</strong></footer>
     </section>
 
-    <!-- SLIDE 5: EJEMPLO VISUAL DE LOS 6 RAs EN LA VIDA REAL -->
+    <!-- SLIDE 5: EJEMPLOS REALES DE APLICACIÓN DE LOS 6 RAs -->
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 1</span>
       <h2>¿Cómo se aplica cada RA en la vida real? (P1)</h2>
       <div class="six-grid">
         <div class="ra-item">
           <h4>RA 1.1 · Conexiones (15%)</h4>
-          <p>Diseñar y cablear la red de una casa, oficina o aula sin puntos ciegos ni caídas.</p>
+          <p><strong>Escenario:</strong> Diseñar y cablear la red de una oficina o aula escolar con switches y routers, eliminando puntos ciegos y caídas de señal.</p>
         </div>
         <div class="ra-item blue">
           <h4>RA 1.2 · Enrutamiento (15%)</h4>
-          <p>Asignar IPs fijas a cámaras de seguridad y administrar servidores con Linux.</p>
+          <p><strong>Escenario:</strong> Asignar IPs fijas a servidores y cámaras de seguridad, verificando rutas y puertos mediante comandos de terminal Linux.</p>
         </div>
         <div class="ra-item gold">
           <h4>RA 2.1 · Confidencialidad (20%)</h4>
-          <p>Auditar contraseñas débiles y blindar el Wi-Fi contra vecinos e intrusos.</p>
+          <p><strong>Escenario:</strong> Auditar la fortaleza de contraseñas de los usuarios y blindar el Wi-Fi doméstico o empresarial con WPA3 contra intrusos.</p>
         </div>
         <div class="ra-item red">
           <h4>RA 2.2 · Mitigación (15%)</h4>
-          <p>Detectar fraudes por WhatsApp/SMS (Phishing) y cifrar documentos sensibles.</p>
+          <p><strong>Escenario:</strong> Identificar fraudes por correo/SMS (Phishing), capacitar al personal y cifrar discos o carpetas con información sensible.</p>
         </div>
         <div class="ra-item">
           <h4>RA 3.1 · Automatización (20%)</h4>
-          <p>Crear scripts que revisen automáticamente registros (logs) de accesos sospechosos.</p>
+          <p><strong>Escenario:</strong> Programar un script en Python/Bash que analice miles de líneas de registros (logs) en busca de accesos fuera de horario.</p>
         </div>
         <div class="ra-item blue">
           <h4>RA 3.2 · Control / SOC (15%)</h4>
-          <p>Programar un filtro que bloquee IPs automáticamente tras 3 intentos fallidos.</p>
+          <p><strong>Escenario:</strong> Diseñar un algoritmo que bloquee automáticamente una dirección IP sospechosa tras detectar 3 intentos fallidos de clave.</p>
         </div>
       </div>
-      <div class="panel" style="margin-top: 16px; background: var(--soft); font-size: clamp(18px, 1.5vw, 23px);">
-        <strong>💡 Verificación Producto 1:</strong> En tu documento debes incluir la explicación personal de estos 6 ejemplos.
+      <div class="note" style="background: var(--soft); padding: 12px 18px; border-left: 6px solid var(--green);">
+        <p style="font-size: 16px; color: var(--green2);">💡 <strong>Evidencia Producto 1:</strong> En tu documento de Google Docs, redacta con tus propias palabras cómo se aplica cada uno de estos 6 RAs en el mundo laboral.</p>
       </div>
       <footer><span>Aplicación Real</span><strong>Guía de Redacción Producto 1</strong></footer>
     </section>
 
-    <!-- SLIDE 6: SESIÓN 02 · HORA 2 -->
+    <!-- SLIDE 6: SESIÓN 02 · HORA 2 (LECTURA COMPLETA Y RIESGOS) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 2</span>
       <h2>Lectura "Antes de dar clic" y Riesgos Cotidianos</h2>
       <div class="hour-layout">
-        <aside style="display: flex; flex-direction: column;">
-          <div class="ra-box"><strong>RA 1.1</strong><br>Identificación de riesgos digitales cotidianos.</div>
+        <aside style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="ra-box">
+            <strong>RA 1.1</strong><br>
+            <span style="font-size: 15px; color: var(--muted);">Identificación de riesgos digitales cotidianos.</span>
+          </div>
           <article class="panel dictado" style="flex: 1;">
-            <div class="mini-title">Inicio · Lectura</div>
-            <p style="font-size: clamp(18px, 1.5vw, 24px); line-height: 1.45;">La seguridad digital no es miedo, es hábito: pensar, observar y verificar antes de hacer clic o ingresar contraseñas.</p>
+            <div class="mini-title">Texto de Lectura y Análisis</div>
+            <p style="font-size: clamp(15.5px, 1.2vw, 18px); line-height: 1.45; color: #1e3a8a;">
+              <em>"La seguridad digital no es miedo, es consciencia. El 90% de los incidentes de ciberseguridad ocurren por descuido humano o engaño, no por fallas del sistema. Pensar antes de hacer clic, verificar remitentes, desconfiar de ofertas urgentes y no compartir credenciales son hábitos que protegen tu identidad y tu información."</em>
+            </p>
           </article>
         </aside>
-        <section class="stack">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
           <article class="panel" style="flex: 1;">
             <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 2)</div>
             <table><tbody>
-              <tr><td>1</td><td>Abrir el documento de trabajo en Classroom y continuar en la página 2.</td></tr>
-              <tr><td>2</td><td>Identificar 5 riesgos cotidianos (enlaces falsos, Wi-Fi público, descargas raras, etc.).</td></tr>
-              <tr><td>3</td><td>Construir una tabla digital de 5 columnas con análisis personal.</td></tr>
-              <tr><td>4</td><td>Completar la columna reflexiva: <em>"Por qué me importa cuidar esto"</em>.</td></tr>
+              <tr><td>1</td><td>Abrir el documento de trabajo en Google Docs y colocarse en la página 2.</td></tr>
+              <tr><td>2</td><td>Identificar <strong>5 riesgos digitales cotidianos</strong> a los que estás expuesto.</td></tr>
+              <tr><td>3</td><td>Construir una <strong>tabla digital de 5 columnas</strong> (Riesgo, Consecuencia, Prevención, Ejemplo Real y Por qué me importa).</td></tr>
+              <tr><td>4</td><td>Desarrollar la columna reflexiva: <em>"Por qué me importa cuidar esto en mi vida diaria"</em>.</td></tr>
             </tbody></table>
           </article>
+          <div class="note" style="background: var(--softgold); padding: 10px 16px; border-left: 6px solid var(--gold);">
+            <p style="font-size: 15px; color: var(--gold);"><strong>Riesgos sugeridos:</strong> Enlaces falsos, Wi-Fi público, contraseñas recicladas, descargas no verificadas, permisos excesivos en apps, USBs desconocidas.</p>
+          </div>
         </section>
       </div>
       <footer><span>Producto 2</span><strong>Tabla Digital de 5 Riesgos Cotidianos</strong></footer>
     </section>
 
-    <!-- SLIDE 7: EJEMPLO VISUAL · HORA 2 -->
+    <!-- SLIDE 7: EJEMPLO VISUAL · HORA 2 (TABLA COMPLETA DE RIESGOS) -->
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 2</span>
-      <h2>Tabla digital de riesgos cotidianos (P2)</h2>
-      <article class="panel" style="padding: 14px; flex: 1; display: flex; flex-direction: column;">
+      <h2>Tabla digital modelo de riesgos cotidianos (P2)</h2>
+      <article class="panel" style="padding: 12px; flex: 1; display: flex; flex-direction: column;">
         <table>
           <thead>
             <tr>
-              <th style="width: 20%;">Riesgo Digital</th>
+              <th style="width: 18%;">Riesgo Digital</th>
               <th style="width: 20%;">Consecuencia</th>
-              <th style="width: 20%;">Prevención</th>
+              <th style="width: 22%;">Prevención</th>
               <th style="width: 20%;">Ejemplo Real</th>
               <th style="width: 20%;">Por qué me importa</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="font-weight:bold; color:var(--green);">Enlace falso</td>
-              <td>Robo de cuenta</td>
-              <td>Verificar URL antes de abrir</td>
-              <td>Mensaje SMS de premio</td>
-              <td>Protege mi identidad digital</td>
+              <td style="font-weight:bold; color:var(--green);">Enlace sospechoso</td>
+              <td>Robo de credenciales y cuentas de redes sociales.</td>
+              <td>Verificar la URL oficial antes de ingresar datos.</td>
+              <td>SMS falso de entrega de paquetería o premio.</td>
+              <td>Protege mi identidad e impide suplantaciones.</td>
             </tr>
             <tr>
-              <td style="font-weight:bold; color:var(--green);">Wi-Fi público</td>
-              <td>Intercepción de datos</td>
-              <td>No abrir bancos; usar VPN</td>
-              <td>Red abierta en cafetería</td>
-              <td>Evita que espíen mi tráfico</td>
+              <td style="font-weight:bold; color:var(--green);">Wi-Fi público abierto</td>
+              <td>Intercepción de tráfico y datos de navegación.</td>
+              <td>No hacer compras ni entrar al banco; usar VPN.</td>
+              <td>Red abierta en café, plaza o transporte público.</td>
+              <td>Evita que extraños espíen mis contraseñas.</td>
             </tr>
             <tr>
-              <td style="font-weight:bold; color:var(--green);">Contraseñas iguales</td>
-              <td>Efecto dominó de hackeo</td>
-              <td>Usar contraseñas únicas</td>
-              <td>Misma clave en redes y correo</td>
-              <td>Aísla el daño si una cuenta cae</td>
+              <td style="font-weight:bold; color:var(--green);">Contraseñas idénticas</td>
+              <td>Efecto dominó: si hackean una, caen todas.</td>
+              <td>Usar contraseñas únicas y gestor de claves.</td>
+              <td>Misma clave en Facebook, correo y portal escolar.</td>
+              <td>Aísla el daño si filtran una sola base de datos.</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; color:var(--green);">Descargas piratas</td>
+              <td>Infección por malware, spyware o ransomware.</td>
+              <td>Descargar solo de tiendas y páginas oficiales.</td>
+              <td>Juegos modificados (APKs) o programas crackeados.</td>
+              <td>Mantiene mi dispositivo rápido y sin virus espía.</td>
             </tr>
           </tbody>
         </table>
       </article>
-      <div class="note" style="margin-top: 14px; background: var(--softgold); font-size: clamp(17px, 1.4vw, 22px);">
-        ⚠️ <strong>Criterio:</strong> Completar mínimo 5 riesgos explicados con tus propias palabras (no copiado de internet).
+      <div class="note" style="background: var(--soft); padding: 10px 16px; border-left: 6px solid var(--green);">
+        <p style="font-size: 15px; color: var(--green2);">⚠️ <strong>Estándar de entrega:</strong> Tu tabla debe incluir mínimo 5 riesgos analizados a fondo con tus propias palabras (no copiado de internet).</p>
       </div>
       <footer><span>Estándar de Entrega</span><strong>Tabla de Riesgos · Producto 2</strong></footer>
     </section>
 
-    <!-- SLIDE 8: SESIÓN 02 · HORA 3 -->
+    <!-- SLIDE 8: SESIÓN 02 · HORA 3 (CONTRASEÑAS, 2FA Y LIBRETA) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 3</span>
-      <h2>Contraseñas Seguras y Trabajo en Libreta</h2>
+      <h2>Contraseñas Seguras, 2FA y Trabajo en Libreta</h2>
       <div class="hour-layout">
-        <aside style="display: flex; flex-direction: column;">
-          <div class="ra-box"><strong>RA 1.1</strong><br>Autenticación, fortaleza de claves y 2FA.</div>
+        <aside style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="ra-box">
+            <strong>RA 1.1</strong><br>
+            <span style="font-size: 15px; color: var(--muted);">Autenticación, fortaleza de claves y 2FA.</span>
+          </div>
           <article class="panel dictado" style="flex: 1;">
-            <div class="mini-title">Inicio · Claves</div>
-            <p style="font-size: clamp(18px, 1.5vw, 24px); line-height: 1.45;">Una contraseña fuerte usa longitud, combinaciones, frases clave y autenticación en dos pasos (2FA). Nunca uses datos personales.</p>
+            <div class="mini-title">Criterios de Contraseñas Fuertes</div>
+            <p style="font-size: clamp(15px, 1.15vw, 17.5px); line-height: 1.4; color: #1e3a8a;">
+              <strong>1. Longitud:</strong> Mínimo 14 caracteres.<br>
+              <strong>2. Frase de contraseña:</strong> Combinar 4 palabras memorables pero sin sentido lógico.<br>
+              <strong>3. Unicidad:</strong> Nunca reutilizar la misma clave.<br>
+              <strong>4. 2FA (Doble Factor):</strong> Código temporal en app o SMS.
+            </p>
           </article>
         </aside>
-        <section class="stack">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
           <article class="panel" style="flex: 1;">
             <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 3)</div>
             <table><tbody>
-              <tr><td>1</td><td>Redactar tu <strong>regla personal para crear contraseñas</strong> en el documento digital.</td></tr>
-              <tr><td>2</td><td>Escribir 3 ejemplos ficticios de contraseñas seguras (nunca las reales).</td></tr>
-              <tr><td>3</td><td>Pasar a libreta física: seleccionar 3 riesgos de tu tabla.</td></tr>
-              <tr><td>4</td><td>Analizarlos a mano: Riesgo, Ejemplo diario, Consecuencia y Cómo prevenirlo.</td></tr>
+              <tr><td>1</td><td>Redactar tu <strong>regla personal para crear contraseñas</strong> en Google Docs.</td></tr>
+              <tr><td>2</td><td>Escribir <strong>3 ejemplos ficticios</strong> que cumplan con tu regla (nunca tus claves reales).</td></tr>
+              <tr><td>3</td><td>Pasar a la <strong>libreta física</strong>: seleccionar 3 riesgos de tu tabla digital.</td></tr>
+              <tr><td>4</td><td>Desarrollar el análisis manuscrito: Riesgo, Ejemplo diario, Consecuencia, Prevención y Por qué cuidarlo.</td></tr>
             </tbody></table>
           </article>
+          <div class="note" style="background: var(--softgold); padding: 10px 16px; border-left: 6px solid var(--gold);">
+            <p style="font-size: 15px; color: var(--gold);"><strong>Regla de oro:</strong> Jamás escribas contraseñas reales en documentos o libretas escolares. Usa siempre ejemplos ficticios.</p>
+          </div>
         </section>
       </div>
       <footer><span>Producto 3</span><strong>Análisis Manuscrito en Libreta (3 Riesgos) + Regla 2FA</strong></footer>
     </section>
 
-    <!-- SLIDE 9: EJEMPLO VISUAL · HORA 3 -->
+    <!-- SLIDE 9: EJEMPLO VISUAL · HORA 3 (FORMATO EN LIBRETA Y REGLA 2FA) -->
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 3</span>
-      <h2>Formato manuscrito en libreta (P3)</h2>
-      <div class="grid">
-        <article class="panel" style="background:#fffdfa; border-left: 8px solid var(--gold); display: flex; flex-direction: column; justify-content: space-around;">
-          <div class="mini-title" style="color: var(--gold);">Estructura en Libreta (x3 Riesgos)</div>
-          <p style="font-size: clamp(19px, 1.6vw, 24px);"><strong>1. Riesgo seleccionado:</strong> ____________________</p>
-          <p style="font-size: clamp(19px, 1.6vw, 24px);"><strong>2. Ejemplo en mi vida diaria:</strong> ____________________</p>
-          <p style="font-size: clamp(19px, 1.6vw, 24px);"><strong>3. Consecuencia posible:</strong> ____________________</p>
-          <p style="font-size: clamp(19px, 1.6vw, 24px);"><strong>4. ¿Cómo lo prevengo?:</strong> ____________________</p>
-          <p style="font-size: clamp(19px, 1.6vw, 24px);"><strong>5. ¿Por qué es importante cuidarlo?:</strong> ____________________</p>
+      <h2>Formato manuscrito en libreta y regla 2FA (P3)</h2>
+      <div class="full-grid-2">
+        <article class="panel" style="background:#fffdfa; border-left: 8px solid var(--gold); justify-content: space-around;">
+          <div class="mini-title" style="color: var(--gold);">Estructura en Libreta Física (x3 Riesgos)</div>
+          <p style="font-size: clamp(17px, 1.4vw, 21px);"><strong>1. Riesgo seleccionado:</strong> ____________________</p>
+          <p style="font-size: clamp(17px, 1.4vw, 21px);"><strong>2. Ejemplo en mi vida diaria:</strong> ____________________</p>
+          <p style="font-size: clamp(17px, 1.4vw, 21px);"><strong>3. Consecuencia posible:</strong> ____________________</p>
+          <p style="font-size: clamp(17px, 1.4vw, 21px);"><strong>4. ¿Cómo lo prevengo?:</strong> ____________________</p>
+          <p style="font-size: clamp(17px, 1.4vw, 21px);"><strong>5. ¿Por qué es importante cuidarlo?:</strong> ____________________</p>
         </article>
-        <article class="panel" style="display: flex; flex-direction: column; justify-content: center;">
-          <div class="mini-title">Regla de Contraseñas (Digital)</div>
-          <p style="font-size: clamp(18px, 1.5vw, 23px); margin-bottom: 12px;">Ejemplo de regla personal:</p>
-          <p style="background: var(--soft); padding: 18px; border-radius: 10px; font-style: italic; font-size: clamp(19px, 1.65vw, 25px); line-height: 1.45;">
-            "Mis contraseñas combinan una frase de 4 palabras memorables + 2 números especiales + 1 símbolo, activando siempre 2FA."
+        <article class="panel" style="justify-content: center; gap: 14px;">
+          <div class="mini-title">Regla Personal de Contraseñas (En Docs)</div>
+          <p style="font-size: clamp(16px, 1.3vw, 19px);">Ejemplo de regla justificada:</p>
+          <p style="background: var(--soft); padding: 16px; border-radius: 8px; font-style: italic; font-size: clamp(17px, 1.4vw, 21px); line-height: 1.45;">
+            "Mis contraseñas combinan una frase de 4 palabras memorables + 2 números especiales + 1 símbolo, y activo la verificación en dos pasos (2FA) en mis cuentas principales."
           </p>
+          <p style="font-size: 15px; color: var(--muted);"><strong>Ejemplos ficticios:</strong> <code>Nube#Verde88Limon!</code> · <code>Cafe$Playa99Noche?</code></p>
         </article>
       </div>
-      <footer><span>Evidencia Física</span><strong>Libreta Manuscrita · Producto 3</strong></footer>
+      <footer><span>Evidencia Física y Digital</span><strong>Libreta Manuscrita · Producto 3</strong></footer>
     </section>
 
-    <!-- SLIDE 10: SESIÓN 03 · HORA 4 -->
+    <!-- SLIDE 10: SESIÓN 03 · HORA 4 (DETECCIÓN DE PHISHING) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 4</span>
       <h2>Detección de Phishing y Mensajes Falsos</h2>
       <div class="hour-layout">
-        <aside style="display: flex; flex-direction: column;">
-          <div class="ra-box"><strong>RA 1.1</strong><br>Ingeniería social y análisis de amenazas.</div>
+        <aside style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="ra-box">
+            <strong>RA 1.1</strong><br>
+            <span style="font-size: 15px; color: var(--muted);">Ingeniería social y análisis de amenazas.</span>
+          </div>
           <article class="panel dictado" style="flex: 1;">
-            <div class="mini-title">Inicio · Phishing</div>
-            <p style="font-size: clamp(18px, 1.5vw, 24px); line-height: 1.45;">El phishing busca engañarte con urgencia o miedo para robar tus accesos. La regla de oro: nunca abrir enlaces de mensajes inesperados.</p>
+            <div class="mini-title">Anatomía del Engaño Digital</div>
+            <p style="font-size: clamp(15.5px, 1.2vw, 18px); line-height: 1.45; color: #1e3a8a;">
+              <strong>1. Sentido de urgencia:</strong> "Actúe en 24 hrs o su cuenta se cancelará".<br>
+              <strong>2. Remitente no oficial:</strong> Correos de dominios gratuitos o extraños.<br>
+              <strong>3. Enlace engañoso:</strong> Dominios que imitan marcas reales (ej. <code>bbva-alerta-login.net</code>).<br>
+              <strong>4. Petición de claves:</strong> Ningún banco pide contraseñas por mensaje.
+            </p>
           </article>
         </aside>
-        <section class="stack">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
           <article class="panel" style="flex: 1;">
             <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 4)</div>
             <table><tbody>
-              <tr><td>1</td><td>Analizar los 2 casos sospechosos en pantalla (SMS y Correo bancario).</td></tr>
+              <tr><td>1</td><td>Analizar los 2 casos sospechosos proyectados (SMS y Correo bancario).</td></tr>
               <tr><td>2</td><td>Identificar y transcribir las <strong>señales de alerta</strong> en tu documento.</td></tr>
-              <tr><td>3</td><td>Explicar qué tiene de engañosa la URL en cada caso.</td></tr>
-              <tr><td>4</td><td>Redactar la <strong>decisión segura</strong> que debes tomar en lugar de hacer clic.</td></tr>
+              <tr><td>3</td><td>Explicar qué tiene de falsa o engañosa la URL en cada caso.</td></tr>
+              <tr><td>4</td><td>Redactar la <strong>decisión segura</strong> que debes tomar en lugar de dar clic.</td></tr>
             </tbody></table>
           </article>
+          <div class="note" style="background: var(--softred); padding: 10px 16px; border-left: 6px solid var(--red);">
+            <p style="font-size: 15px; color: var(--red);"><strong>Protocolo defensivo:</strong> Si recibes un mensaje sospechoso: no abrir enlace, no contestar, verificar en la app oficial y bloquear el número.</p>
+          </div>
         </section>
       </div>
       <footer><span>Producto 4</span><strong>Análisis de Phishing con Señales Marcadas</strong></footer>
     </section>
 
-    <!-- SLIDE 11: EJEMPLO VISUAL · HORA 4 -->
+    <!-- SLIDE 11: EJEMPLO VISUAL · HORA 4 (CASOS REALES DE PHISHING) -->
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 4</span>
       <h2>Casos de Phishing para análisis (P4)</h2>
-      <div class="grid">
-        <article class="panel red" style="display: flex; flex-direction: column; justify-content: center;">
-          <div class="mini-title" style="color: var(--red);">📲 Caso 1: SMS de Paquetería</div>
-          <p style="background: #fff; padding: 16px; border-radius: 8px; border: 2px solid #fca5a5; font-size: clamp(18px, 1.5vw, 23px); line-height: 1.4;">
-            "Su paquete no pudo entregarse por tarifas aduanales ($25 MXN). Pague antes de 24 hrs o será devuelto: <span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
+      <div class="full-grid-2">
+        <article class="panel red" style="justify-content: center; gap: 10px;">
+          <div class="mini-title" style="color: var(--red);">📲 Caso 1: SMS de Paquetería Fraudulenta</div>
+          <p style="background: #fff; padding: 14px; border-radius: 8px; border: 2px solid #fca5a5; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.4;">
+            "Su paquete con número de guía MX-8921 no pudo entregarse por tarifas aduanales ($25 MXN). Pague antes de 24 hrs o será devuelto: <span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
           </p>
-          <p style="font-size: clamp(17px, 1.4vw, 22px); margin-top: 12px;"><strong>Señal:</strong> Sentido de urgencia y dominio falso no oficial.</p>
+          <ul style="font-size: 14.5px; padding-left: 18px; margin-top: 6px;">
+            <li><strong>Señal 1:</strong> Sentido de urgencia artificial (24 horas).</li>
+            <li><strong>Señal 2:</strong> Dominio falso (no es <code>correosdemexico.gob.mx</code>).</li>
+            <li><strong>Decisión segura:</strong> Ignorar, borrar y verificar en la página oficial del remitente.</li>
+          </ul>
         </article>
-        <article class="panel red" style="display: flex; flex-direction: column; justify-content: center;">
-          <div class="mini-title" style="color: var(--red);">📧 Caso 2: Correo Bancario</div>
-          <p style="background: #fff; padding: 16px; border-radius: 8px; border: 2px solid #fca5a5; font-size: clamp(18px, 1.5vw, 23px); line-height: 1.4;">
-            "BANCO INFORMA: Cargo no reconocido por $4,500 MXN. Ingrese de inmediato para cancelar la operación: <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
+        <article class="panel red" style="justify-content: center; gap: 10px;">
+          <div class="mini-title" style="color: var(--red);">📧 Caso 2: Correo de Alerta Bancaria</div>
+          <p style="background: #fff; padding: 14px; border-radius: 8px; border: 2px solid #fca5a5; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.4;">
+            "BANCO INFORMA: Cargo no reconocido por $4,500 MXN en Amazon. Ingrese de inmediato para cancelar la operación y desbloquear su tarjeta: <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
           </p>
-          <p style="font-size: clamp(17px, 1.4vw, 22px); margin-top: 12px;"><strong>Señal:</strong> Provoca pánico y pide credenciales en una web externa.</p>
+          <ul style="font-size: 14.5px; padding-left: 18px; margin-top: 6px;">
+            <li><strong>Señal 1:</strong> Provoca miedo y pánico para nublar el juicio.</li>
+            <li><strong>Señal 2:</strong> Enlace externo no oficial (terminación <code>.net</code> no bancaria).</li>
+            <li><strong>Decisión segura:</strong> Abrir la app bancaria oficial del celular para verificar saldos.</li>
+          </ul>
         </article>
       </div>
       <footer><span>Casos Prácticos</span><strong>Señales de Alerta · Producto 4</strong></footer>
     </section>
 
-    <!-- SLIDE 12: SESIÓN 03 · HORA 5 -->
+    <!-- SLIDE 12: SESIÓN 03 · HORA 5 (DECÁLOGO Y COMPROMISO) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 5</span>
       <h2>Decálogo Personal de Seguridad Digital</h2>
       <div class="hour-layout">
-        <aside style="display: flex; flex-direction: column;">
-          <div class="ra-box"><strong>RA 1.1</strong><br>Consolidación de hábitos de protección digital.</div>
+        <aside style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="ra-box">
+            <strong>RA 1.1</strong><br>
+            <span style="font-size: 15px; color: var(--muted);">Consolidación de hábitos de protección digital.</span>
+          </div>
           <article class="panel dictado" style="flex: 1;">
-            <div class="mini-title">Inicio · Síntesis</div>
-            <p style="font-size: clamp(18px, 1.5vw, 24px); line-height: 1.45;">Un decálogo reúne tus 10 reglas de oro para proteger tu vida digital en redes, contraseñas, dispositivos e información personal.</p>
+            <div class="mini-title">Propósito del Decálogo</div>
+            <p style="font-size: clamp(15.5px, 1.2vw, 18px); line-height: 1.45; color: #1e3a8a;">
+              Un decálogo no es una lista de prohibiciones, sino tu <strong>código de conducta digital</strong>. Reúne las 10 reglas clave que aplicarás en tu celular, computadora, redes sociales y cuentas personales para evitar ser víctima de fraudes o hackeos.
+            </p>
           </article>
         </aside>
-        <section class="stack">
+        <section style="display: flex; flex-direction: column; gap: 12px;">
           <article class="panel" style="flex: 1;">
             <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 5)</div>
             <table><tbody>
-              <tr><td>1</td><td>Redactar tu <strong>Decálogo Personal (10 reglas justificadas)</strong>.</td></tr>
-              <tr><td>2</td><td>Cada regla debe incluir su explicación de <em>"por qué la aplico"</em>.</td></tr>
-              <tr><td>3</td><td>Escribir tu compromiso de cierre semanal.</td></tr>
-              <tr><td>4</td><td>Verificar que los 5 productos estén completos y entregar en Classroom.</td></tr>
+              <tr><td>1</td><td>Redactar tu <strong>Decálogo Personal (10 reglas justificadas)</strong> en Google Docs.</td></tr>
+              <tr><td>2</td><td>Cada regla debe explicar <em>"qué acción realizo"</em> y <em>"por qué la aplico"</em>.</td></tr>
+              <tr><td>3</td><td>Escribir tu <strong>compromiso semanal de cierre</strong>.</td></tr>
+              <tr><td>4</td><td>Revisar que los <strong>5 productos de la semana</strong> estén completos en Docs y entregar en Classroom.</td></tr>
             </tbody></table>
           </article>
+          <div class="note" style="background: var(--soft); padding: 10px 16px; border-left: 6px solid var(--green);">
+            <p style="font-size: 15px; color: var(--green2);"><strong>Campos a cubrir:</strong> Contraseñas, doble factor (2FA), redes Wi-Fi, enlaces/phishing, descargas, privacidad en redes y copias de seguridad.</p>
+          </div>
         </section>
       </div>
       <footer><span>Producto 5</span><strong>Decálogo de 10 Reglas Justificadas + Compromiso Semanal</strong></footer>
     </section>
 
-    <!-- SLIDE 13: EJEMPLO VISUAL · HORA 5 -->
+    <!-- SLIDE 13: EJEMPLO VISUAL · HORA 5 (ESTRUCTURA DEL DECÁLOGO) -->
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 5</span>
       <h2>Estructura del Decálogo Personal (P5)</h2>
-      <div class="grid">
-        <article class="panel" style="display: flex; flex-direction: column; justify-content: center;">
+      <div class="full-grid-2">
+        <article class="panel" style="justify-content: center;">
           <div class="mini-title">Ejemplo de Reglas (1 al 5)</div>
-          <ul style="padding-left: 24px; margin-top: 10px; font-size: clamp(17px, 1.45vw, 22px);">
-            <li style="margin: 8px 0;"><strong>1. Activar 2FA:</strong> Protege mis cuentas aunque filtren mi clave.</li>
-            <li style="margin: 8px 0;"><strong>2. Verificar URLs:</strong> Evito caer en páginas clones o phishing.</li>
-            <li style="margin: 8px 0;"><strong>3. Claves únicas:</strong> Impido el efecto dominó en mis redes.</li>
-            <li style="margin: 8px 0;"><strong>4. Cuidar Wi-Fi:</strong> No hago transferencias en redes abiertas.</li>
-            <li style="margin: 8px 0;"><strong>5. No compartir códigos:</strong> Los SMS de verificación son privados.</li>
+          <ul style="padding-left: 20px; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.45;">
+            <li style="margin: 6px 0;"><strong>1. Activar 2FA:</strong> Protege mis cuentas aunque filtren mi contraseña.</li>
+            <li style="margin: 6px 0;"><strong>2. Verificar URLs:</strong> Evito caer en páginas clones o phishing.</li>
+            <li style="margin: 6px 0;"><strong>3. Claves únicas:</strong> Impido el efecto dominó en mis redes.</li>
+            <li style="margin: 6px 0;"><strong>4. Cuidar Wi-Fi:</strong> No hago transferencias en redes abiertas.</li>
+            <li style="margin: 6px 0;"><strong>5. No compartir códigos:</strong> Los SMS de verificación son privados.</li>
           </ul>
         </article>
-        <article class="panel" style="display: flex; flex-direction: column; justify-content: center;">
-          <div class="mini-title">Compromiso Semanal</div>
-          <p style="background: var(--soft); padding: 20px; border-radius: 10px; font-style: italic; margin-top: 12px; font-size: clamp(19px, 1.65vw, 25px); line-height: 1.45;">
-            "El hábito de seguridad digital que empezaré a practicar desde hoy es <strong>activar la verificación en dos pasos en mi correo y WhatsApp</strong>, porque es la principal barrera contra el robo de cuentas."
+        <article class="panel" style="justify-content: center; gap: 14px;">
+          <div class="mini-title">Compromiso Semanal de Cierre</div>
+          <p style="font-size: clamp(15px, 1.2vw, 18px);">Redacción reflexiva final:</p>
+          <p style="background: var(--soft); padding: 16px; border-radius: 8px; font-style: italic; font-size: clamp(16.5px, 1.35vw, 20px); line-height: 1.45;">
+            "El hábito de seguridad digital que empezaré a practicar desde hoy es <strong>activar la verificación en dos pasos en mi correo y WhatsApp</strong>, y nunca abrir enlaces de remitentes desconocidos."
           </p>
         </article>
       </div>
       <footer><span>Consolidación</span><strong>Entrega en Classroom · Producto 5</strong></footer>
     </section>
 
-    <!-- SLIDE 14: CIERRE Y CHECKLIST DE LOS 5 PRODUCTOS -->
+    <!-- SLIDE 14: CIERRE Y CHECKLIST CONSOLIDADO DE 5 PRODUCTOS -->
     <section class="slide">
       <span class="eyebrow">Cierre de Semana 01</span>
-      <h2>Checklist de Evaluación (5 Productos)</h2>
+      <h2>Checklist de Evaluación Semanal (5 Productos)</h2>
       <div class="checklist-list">
-        <div><strong>Producto 1 (Hora 1):</strong> Portada + Dictado del Propósito + Mapa curricular y 6 ejemplos reales de RAs.</div>
+        <div><strong>Producto 1 (Hora 1):</strong> Portada formal + Dictado del Propósito + Mapa curricular y 6 ejemplos reales de RAs.</div>
         <div><strong>Producto 2 (Hora 2):</strong> Tabla digital de 5 riesgos cotidianos con prevenciones y justificación.</div>
         <div><strong>Producto 3 (Hora 3):</strong> Análisis manuscrito en libreta (3 riesgos) + Regla de contraseñas con 2FA.</div>
-        <div><strong>Producto 4 (Hora 4):</strong> Análisis de casos de Phishing con señales de alerta marcadas.</div>
+        <div><strong>Producto 4 (Hora 4):</strong> Análisis de casos de Phishing con señales de alerta y decisiones seguras.</div>
         <div><strong>Producto 5 (Hora 5):</strong> Decálogo personal de seguridad (10 reglas) + Compromiso semanal.</div>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 12px 18px; border-left: 6px solid var(--green); margin-top: 10px;">
+        <p style="font-size: 16px; color: var(--green2);"><strong>📤 Entrega en Classroom:</strong> Verifica que tu documento de Google Docs contenga los 5 productos ordenados y presiona el botón <em>Entregar</em> antes de la fecha límite.</p>
       </div>
       <footer><span>Evaluación Continua</span><strong>Dr. Felipe López Salazar · CONALEP MTCS-20</strong></footer>
     </section>
