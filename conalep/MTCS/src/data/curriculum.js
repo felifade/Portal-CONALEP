@@ -2,9 +2,9 @@ export const curriculumData = {
   subject: "Manejo de Tecnologías de Ciberseguridad (MTCS-20)",
   group: "501",
   cortes: [
-    { id: 1, label: "1er Corte", peso: "35%" },
+    { id: 1, label: "1er Corte", peso: "30%" },
     { id: 2, label: "2do Corte", peso: "35%" },
-    { id: 3, label: "3er Corte", peso: "30%" },
+    { id: 3, label: "3er Corte", peso: "35%" },
   ],
   ras: [
     {
@@ -23,7 +23,7 @@ export const curriculumData = {
     {
       id: "RA1.2",
       title: "1.2 Direccionamiento y enrutamiento",
-      peso: "20%",
+      peso: "15%",
       corte: 1,
       weeks: [
         { id: "W05", label: "Semana 05 (14-18 Sep)" },
@@ -33,7 +33,7 @@ export const curriculumData = {
     {
       id: "RA2.1",
       title: "2.1 Fundamentos y principios",
-      peso: "15%",
+      peso: "20%",
       corte: 2,
       weeks: [
         { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" },
@@ -45,7 +45,7 @@ export const curriculumData = {
     {
       id: "RA2.2",
       title: "2.2 Protocolos y confidencialidad",
-      peso: "20%",
+      peso: "15%",
       corte: 2,
       weeks: [
         { id: "W11", label: "Semana 11 (26-30 Oct)" },
@@ -56,7 +56,7 @@ export const curriculumData = {
     {
       id: "RA3.1",
       title: "3.1 Fundamentos y optimización",
-      peso: "15%",
+      peso: "20%",
       corte: 3,
       weeks: [
         { id: "W14", label: "Semana 14 (16-20 Nov)" },
