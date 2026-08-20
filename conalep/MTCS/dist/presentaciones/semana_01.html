@@ -7,7 +7,7 @@
   <style>
     :root {
       --ink: #12211f;
-      --muted: #52605b;
+      --muted: #4b5853;
       --paper: #f8faf8;
       --line: #d8e3dd;
       --green: #025940;
@@ -41,7 +41,7 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: clamp(18px, 3.5vh, 32px) clamp(22px, 4vw, 44px) 70px;
+      padding: clamp(20px, 3.8vh, 38px) clamp(24px, 4.5vw, 54px) 80px;
       display: none;
       background: var(--paper);
       overflow-y: auto;
@@ -50,65 +50,65 @@
     .slide.active { display: block; }
     h1, h2, h3, h4, p { margin: 0; }
     h1 {
-      font-size: clamp(38px, 5vw, 72px);
-      line-height: 1.02;
+      font-size: clamp(48px, 6.2vw, 88px);
+      line-height: 1.0;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     h2 {
-      font-size: clamp(24px, 3.2vw, 42px);
-      line-height: 1.1;
-      margin-bottom: 10px;
+      font-size: clamp(32px, 4.2vw, 56px);
+      line-height: 1.08;
+      margin-bottom: 14px;
       color: var(--green2);
       font-weight: 800;
       letter-spacing: -0.01em;
     }
     h3 {
-      font-size: clamp(17px, 1.7vw, 22px);
-      margin-bottom: 6px;
+      font-size: clamp(22px, 2.2vw, 30px);
+      margin-bottom: 8px;
       color: var(--green2);
       font-weight: 800;
     }
     p, li, td, th {
-      font-size: clamp(15px, 1.25vw, 19px);
+      font-size: clamp(18px, 1.6vw, 24px);
       line-height: 1.38;
     }
     .badge, .eyebrow {
       display: inline-block;
-      font-size: clamp(13px, 1vw, 15px);
-      font-weight: 800;
+      font-size: clamp(15px, 1.25vw, 19px);
+      font-weight: 900;
       color: var(--green);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .cover {
       min-height: 78vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
     }
     .cover p {
-      max-width: 880px;
+      max-width: 960px;
       color: var(--muted);
-      font-size: clamp(20px, 1.9vw, 26px);
+      font-size: clamp(23px, 2.4vw, 34px);
       line-height: 1.35;
     }
     .teacher {
-      margin-top: 6px;
+      margin-top: 10px;
       color: var(--green) !important;
-      font-weight: 800;
-      font-size: clamp(16px, 1.3vw, 22px);
+      font-weight: 900;
+      font-size: clamp(19px, 1.6vw, 26px);
     }
     .class-code {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       width: max-content;
       max-width: 100%;
-      padding: 12px 18px;
+      padding: 14px 22px;
       border: 2px solid var(--line);
       background: var(--white);
       border-radius: 8px;
@@ -117,34 +117,34 @@
     .class-code span {
       color: var(--muted);
       font-weight: 800;
-      font-size: clamp(14px, 1vw, 17px);
+      font-size: clamp(16px, 1.3vw, 22px);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
     .class-code strong {
-      font-size: clamp(28px, 3.2vw, 42px);
+      font-size: clamp(34px, 4vw, 52px);
       color: var(--blue);
       letter-spacing: 0.08em;
     }
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 12px;
+      gap: 16px;
+      margin-top: 16px;
     }
     .cards.two { grid-template-columns: repeat(2, 1fr); }
     .card, .panel, .note {
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 14px 16px;
+      padding: 18px 22px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
     .card p, .panel p { color: var(--muted); }
     .hour-layout {
       display: grid;
       grid-template-columns: 34% 1fr;
-      gap: 16px;
+      gap: 20px;
       align-items: start;
     }
     @media (max-width: 900px) {
@@ -154,18 +154,18 @@
       background: var(--soft);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
     }
-    .ra-box strong { color: var(--green2); font-size: 16px; }
-    .stack { display: grid; gap: 10px; }
+    .ra-box strong { color: var(--green2); font-size: clamp(18px, 1.6vw, 22px); }
+    .stack { display: grid; gap: 14px; }
     .mini-title {
-      font-size: clamp(13px, 1vw, 15px);
+      font-size: clamp(15px, 1.2vw, 19px);
       font-weight: 900;
       color: var(--green2);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
     .panel.dictado { background: var(--softblue); border-color: #bfdbfe; }
     .panel.obj { background: var(--soft); }
@@ -180,26 +180,26 @@
     }
     th, td {
       border: 1px solid var(--line);
-      padding: 8px 11px;
+      padding: 10px 14px;
       text-align: left;
       vertical-align: top;
     }
     th {
       background: #e2ece7;
       color: var(--green2);
-      font-size: clamp(14px, 1.1vw, 17px);
-      font-weight: 800;
+      font-size: clamp(16px, 1.35vw, 21px);
+      font-weight: 900;
     }
     td {
-      font-size: clamp(14px, 1.05vw, 16px);
-      line-height: 1.35;
+      font-size: clamp(16px, 1.3vw, 20px);
+      line-height: 1.36;
     }
-    td:first-child { width: 36px; font-weight: 900; color: var(--green); text-align: center; }
+    td:first-child { width: 44px; font-weight: 900; color: var(--green); text-align: center; }
     .six-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 8px;
+      gap: 12px;
+      margin-top: 10px;
     }
     @media (max-width: 900px) {
       .six-grid { grid-template-columns: 1fr; }
@@ -208,121 +208,121 @@
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 14px 16px;
     }
     .ra-item.gold { border-color: #fde68a; background: var(--softgold); }
     .ra-item.blue { border-color: #bfdbfe; background: var(--softblue); }
     .ra-item.red { border-color: #fecaca; background: var(--softred); }
     .ra-item h4 {
-      font-size: clamp(14px, 1.05vw, 16px);
+      font-size: clamp(16px, 1.35vw, 20px);
       color: var(--green2);
-      font-weight: 800;
-      margin-bottom: 3px;
+      font-weight: 900;
+      margin-bottom: 4px;
     }
     .ra-item p {
-      font-size: clamp(13px, 0.95vw, 15px);
+      font-size: clamp(15px, 1.2vw, 18px);
       color: var(--muted);
-      line-height: 1.3;
+      line-height: 1.35;
     }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
     @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
     .checklist-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 10px;
+      margin-top: 12px;
     }
     .checklist-list div {
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 13px 18px;
       font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: clamp(14px, 1.1vw, 16px);
+      gap: 12px;
+      font-size: clamp(16px, 1.35vw, 21px);
     }
     .checklist-list div::before {
       content: "✓";
       color: var(--green);
       font-weight: 900;
-      font-size: 18px;
+      font-size: 22px;
       flex-shrink: 0;
     }
     footer {
       position: absolute;
-      left: clamp(22px, 4vw, 44px);
-      right: clamp(22px, 4vw, 44px);
+      left: clamp(24px, 4.5vw, 54px);
+      right: clamp(24px, 4.5vw, 54px);
       bottom: 14px;
       padding-top: 6px;
       border-top: 2px solid var(--line);
-      font-size: clamp(13px, 1vw, 15px);
+      font-size: clamp(14px, 1.2vw, 17px);
       color: var(--muted);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    footer strong { color: var(--green); font-weight: 800; }
+    footer strong { color: var(--green); font-weight: 900; }
     .timer {
       position: fixed;
-      right: 18px;
-      top: 18px;
+      right: 20px;
+      top: 20px;
       z-index: 50;
       background: #ffffffed;
       backdrop-filter: blur(8px);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 6px 10px;
+      padding: 8px 12px;
       display: flex;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
     .timer.min {
-      width: 38px;
-      height: 38px;
+      width: 44px;
+      height: 44px;
       padding: 0;
       justify-content: center;
       overflow: hidden;
       cursor: pointer;
     }
-    .timer.min::before { content: "⏱"; font-size: 18px; line-height: 1; }
+    .timer.min::before { content: "⏱"; font-size: 22px; line-height: 1; }
     .timer.min .time, .timer.min button { display: none; }
     .timer button, .nav button {
       border: 0;
       background: var(--green);
       color: white;
       border-radius: 6px;
-      padding: 6px 10px;
-      font-weight: 800;
+      padding: 7px 12px;
+      font-weight: 900;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 14px;
     }
     .timer .time {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 900;
-      min-width: 58px;
+      min-width: 68px;
       text-align: center;
       color: var(--ink);
       font-family: monospace;
     }
     .nav {
       position: fixed;
-      right: 18px;
+      right: 20px;
       bottom: 14px;
       z-index: 50;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: #ffffffed;
       backdrop-filter: blur(8px);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 6px;
+      padding: 8px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
-    .count { font-weight: 900; min-width: 64px; text-align: center; font-size: 14px; color: var(--green2); }
+    .count { font-weight: 900; min-width: 72px; text-align: center; font-size: 16px; color: var(--green2); }
   </style>
 </head>
 <body>
@@ -354,7 +354,7 @@
           <p>En laboratorio se trabajará en <strong>parejas para compartir ideas y debatir</strong>, pero cada estudiante es responsable de conservar y entregar su <strong>propia evidencia en su cuenta fija de Google</strong>.</p>
         </article>
       </div>
-      <div class="cards" style="margin-top: 12px;">
+      <div class="cards" style="margin-top: 14px;">
         <div class="panel"><strong>Sesión 01 (1h):</strong> Classroom, Dictado del Propósito, Mapa y RAs</div>
         <div class="panel"><strong>Sesión 02 (2h):</strong> Riesgos Cotidianos y Contraseñas</div>
         <div class="panel"><strong>Sesión 03 (2h):</strong> Phishing y Decálogo Personal</div>
@@ -370,8 +370,8 @@
         <aside>
           <div class="ra-box"><strong>RA 1.1 (15%)</strong><br>Conexiones de red y fundamentos de ciberseguridad.</div>
           <article class="panel dictado">
-            <div class="mini-title">Inicio · Dictado Inicial para los alumnos</div>
-            <p style="font-size: 14.5px; line-height: 1.35; color: #1e3a8a;">
+            <div class="mini-title">Inicio · Dictado Inicial de Clase</div>
+            <p style="font-size: clamp(15px, 1.25vw, 18px); line-height: 1.4; color: #1e3a8a;">
               <em>"La ciberseguridad no comienza programando ni configurando cortafuegos, sino comprendiendo la arquitectura de las redes y la importancia de proteger la información que viaja por ellas. En este módulo aprenderemos desde cómo viajan los paquetes de datos y se asignan las direcciones IP en una red, hasta cómo auditar contraseñas, prevenir fraudes digitales y programar scripts de defensa para salvaguardar sistemas y usuarios."</em>
             </p>
           </article>
@@ -396,11 +396,11 @@
     <section class="slide">
       <span class="eyebrow">Mapa Curricular · Hora 1</span>
       <h2>Mapa de Unidades y RAs (Para Transcripción)</h2>
-      <div class="cards" style="grid-template-columns: repeat(3, 1fr); margin-top: 10px;">
+      <div class="cards" style="grid-template-columns: repeat(3, 1fr); margin-top: 12px;">
         <article class="panel" style="border-left: 6px solid var(--green);">
           <div class="mini-title" style="color: var(--green);">Unidad 1 · 30 hrs (30% - 1er Corte)</div>
           <p><strong>Conceptos Básicos de Redes</strong></p>
-          <ul style="padding-left: 18px; margin-top: 8px; font-size: 14.5px;">
+          <ul style="padding-left: 20px; margin-top: 8px; font-size: clamp(15px, 1.25vw, 18px);">
             <li><strong>RA 1.1 (15%):</strong> Conexiones de red y funcionamiento óptimo.</li>
             <li><strong>RA 1.2 (15%):</strong> Direccionamiento IP y enrutamiento seguro (Linux).</li>
           </ul>
@@ -408,7 +408,7 @@
         <article class="panel" style="border-left: 6px solid var(--gold); background: var(--softgold);">
           <div class="mini-title" style="color: var(--gold);">Unidad 2 · 30 hrs (35% - 2do Corte)</div>
           <p><strong>Fundamentos de Ciberseguridad</strong></p>
-          <ul style="padding-left: 18px; margin-top: 8px; font-size: 14.5px;">
+          <ul style="padding-left: 20px; margin-top: 8px; font-size: clamp(15px, 1.25vw, 18px);">
             <li><strong>RA 2.1 (20%):</strong> Principios y tecnologías de confidencialidad.</li>
             <li><strong>RA 2.2 (15%):</strong> Protocolos tecnológicos y mitigación de amenazas.</li>
           </ul>
@@ -416,13 +416,13 @@
         <article class="panel" style="border-left: 6px solid var(--blue); background: var(--softblue);">
           <div class="mini-title" style="color: var(--blue);">Unidad 3 · 30 hrs (35% - 3er Corte)</div>
           <p><strong>Programación Informática</strong></p>
-          <ul style="padding-left: 18px; margin-top: 8px; font-size: 14.5px;">
+          <ul style="padding-left: 20px; margin-top: 8px; font-size: clamp(15px, 1.25vw, 18px);">
             <li><strong>RA 3.1 (20%):</strong> Fundamentos de código aplicados a la seguridad.</li>
             <li><strong>RA 3.2 (15%):</strong> Estructuras de flujo de control (Mini SOC).</li>
           </ul>
         </article>
       </div>
-      <div class="note" style="margin-top: 12px; background: var(--soft);">
+      <div class="note" style="margin-top: 14px; background: var(--soft);">
         📋 <strong>Instrucción:</strong> Transcribe este mapa en tu documento de trabajo junto con el propósito del módulo.
       </div>
       <footer><span>Estructura Oficial</span><strong>Ponderaciones Oficiales MTCS-20 (100%)</strong></footer>
@@ -458,7 +458,7 @@
           <p>Programar un filtro que bloquee IPs automáticamente tras 3 intentos fallidos.</p>
         </div>
       </div>
-      <div class="panel" style="margin-top: 10px; background: var(--soft);">
+      <div class="panel" style="margin-top: 12px; background: var(--soft);">
         <strong>💡 Verificación Producto 1:</strong> En tu documento debes incluir la explicación personal de estos 6 ejemplos.
       </div>
       <footer><span>Aplicación Real</span><strong>Guía de Redacción Producto 1</strong></footer>
@@ -495,7 +495,7 @@
     <section class="slide">
       <span class="eyebrow">Ejemplo Visual · Hora 2</span>
       <h2>Tabla digital de riesgos cotidianos (P2)</h2>
-      <article class="panel" style="padding: 10px;">
+      <article class="panel" style="padding: 12px;">
         <table>
           <thead>
             <tr>
@@ -531,7 +531,7 @@
           </tbody>
         </table>
       </article>
-      <div class="note" style="margin-top: 10px; background: var(--softgold);">
+      <div class="note" style="margin-top: 12px; background: var(--softgold);">
         ⚠️ <strong>Criterio:</strong> Completar mínimo 5 riesgos explicados con tus propias palabras (no copiado de internet).
       </div>
       <footer><span>Estándar de Entrega</span><strong>Tabla de Riesgos · Producto 2</strong></footer>
@@ -580,7 +580,7 @@
         <article class="panel">
           <div class="mini-title">Regla de Contraseñas (Digital)</div>
           <p>Ejemplo de regla personal:</p>
-          <p style="background: var(--soft); padding: 10px; border-radius: 6px; font-style: italic;">
+          <p style="background: var(--soft); padding: 12px; border-radius: 6px; font-style: italic;">
             "Mis contraseñas combinan una frase de 4 palabras memorables + 2 números especiales + 1 símbolo, activando siempre 2FA."
           </p>
         </article>
@@ -622,17 +622,17 @@
       <div class="grid">
         <article class="panel red">
           <div class="mini-title" style="color: var(--red);">📲 Caso 1: SMS de Paquetería</div>
-          <p style="background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #fca5a5; font-size: 15px;">
+          <p style="background: #fff; padding: 12px; border-radius: 6px; border: 1px solid #fca5a5; font-size: clamp(16px, 1.25vw, 19px);">
             "Su paquete no pudo entregarse por tarifas aduanales ($25 MXN). Pague antes de 24 hrs o será devuelto: <span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
           </p>
-          <p style="font-size: 14px; margin-top: 6px;"><strong>Señal:</strong> Sentido de urgencia y dominio falso no oficial.</p>
+          <p style="font-size: clamp(15px, 1.2vw, 18px); margin-top: 8px;"><strong>Señal:</strong> Sentido de urgencia y dominio falso no oficial.</p>
         </article>
         <article class="panel red">
           <div class="mini-title" style="color: var(--red);">📧 Caso 2: Correo Bancario</div>
-          <p style="background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #fca5a5; font-size: 15px;">
+          <p style="background: #fff; padding: 12px; border-radius: 6px; border: 1px solid #fca5a5; font-size: clamp(16px, 1.25vw, 19px);">
             "BANCO INFORMA: Cargo no reconocido por $4,500 MXN. Ingrese de inmediato para cancelar la operación: <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
           </p>
-          <p style="font-size: 14px; margin-top: 6px;"><strong>Señal:</strong> Provoca pánico y pide credenciales en una web externa.</p>
+          <p style="font-size: clamp(15px, 1.2vw, 18px); margin-top: 8px;"><strong>Señal:</strong> Provoca pánico y pide credenciales en una web externa.</p>
         </article>
       </div>
       <footer><span>Casos Prácticos</span><strong>Señales de Alerta · Producto 4</strong></footer>
@@ -672,7 +672,7 @@
       <div class="grid">
         <article class="panel">
           <div class="mini-title">Ejemplo de Reglas (1 al 5)</div>
-          <ul style="padding-left: 18px; margin-top: 6px; font-size: 14.5px;">
+          <ul style="padding-left: 20px; margin-top: 8px; font-size: clamp(15px, 1.2vw, 18px);">
             <li><strong>1. Activar 2FA:</strong> Protege mis cuentas aunque filtren mi clave.</li>
             <li><strong>2. Verificar URLs:</strong> Evito caer en páginas clones o phishing.</li>
             <li><strong>3. Claves únicas:</strong> Impido el efecto dominó en mis redes.</li>
@@ -682,7 +682,7 @@
         </article>
         <article class="panel">
           <div class="mini-title">Compromiso Semanal</div>
-          <p style="background: var(--soft); padding: 12px; border-radius: 8px; font-style: italic; margin-top: 8px; font-size: 14.5px;">
+          <p style="background: var(--soft); padding: 14px; border-radius: 8px; font-style: italic; margin-top: 10px; font-size: clamp(15px, 1.2vw, 18px);">
             "El hábito de seguridad digital que empezaré a practicar desde hoy es <strong>activar la verificación en dos pasos en mi correo y WhatsApp</strong>, porque es la principal barrera contra el robo de cuentas."
           </p>
         </article>
