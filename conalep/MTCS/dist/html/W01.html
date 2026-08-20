@@ -184,23 +184,35 @@
       flex-direction: column;
     }
     .card p, .panel p { color: var(--muted); font-size: clamp(14.5px, 1.15vw, 17.5px); }
-    .hour-split {
+    
+    /* EDOA-STYLE HOUR LAYOUT */
+    .hour-layout {
       flex: 1;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 16px;
+      grid-template-columns: 36% 1fr;
+      gap: 18px;
       align-items: stretch;
       min-height: 0;
     }
     @media (max-width: 950px) {
-      .hour-split { grid-template-columns: 1fr; }
+      .hour-layout { grid-template-columns: 1fr; }
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
     }
     .ra-box {
       background: var(--soft);
       border: 2px solid var(--line);
       border-radius: 8px;
       padding: 10px 14px;
-      margin-bottom: 8px;
     }
     .ra-box strong { color: var(--green2); font-size: clamp(16px, 1.3vw, 19px); font-weight: 900; }
     .mini-title {
@@ -211,7 +223,21 @@
       letter-spacing: 0.06em;
       margin-bottom: 4px;
     }
-    .panel.dictado { background: var(--softblue); border-color: #93c5fd; }
+    .panel.dictado {
+      background: var(--softblue);
+      border: 2px solid #93c5fd;
+      border-left: 6px solid var(--blue);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel.dictado .mini-title { color: var(--blue); }
+    .panel.dictado p {
+      font-size: clamp(14.5px, 1.15vw, 17px);
+      line-height: 1.42;
+      color: #1e3a8a;
+      font-style: italic;
+    }
     .panel.obj { background: var(--soft); }
     .panel.gold { background: var(--softgold); border-color: #fcd34d; }
     .panel.red { background: var(--softred); border-color: #fca5a5; }
@@ -239,7 +265,7 @@
       font-size: clamp(13.5px, 1.05vw, 16px);
       line-height: 1.32;
     }
-    td:first-child { font-weight: 900; color: var(--green); }
+    td:first-child { font-weight: 900; color: var(--green); text-align: center; }
     .six-grid {
       flex: 1;
       display: grid;
@@ -299,33 +325,19 @@
       font-size: clamp(18px, 1.5vw, 22px);
       flex-shrink: 0;
     }
-    .badge-docs {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #93c5fd;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
     .badge-libreta {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       background: #fef3c7;
       color: #92400e;
       border: 1px solid #fcd34d;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11.5px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     footer {
       position: absolute;
@@ -411,22 +423,22 @@
         <div class="cover-left">
           <span class="badge">CONALEP · Ciclo 2026-2027 · Semestre 1.26.27</span>
           <h1>MTCS-20: Ciberseguridad</h1>
-          <p><strong>Manejo de Tecnologías de Ciberseguridad</strong> · Estrategia de 2 Fases: Actividad formal en Google Docs + Reforzamiento reflexivo en Libreta física.</p>
+          <p><strong>Manejo de Tecnologías de Ciberseguridad</strong> · Presentación viva de clase: inicio con dictado reflexivo, actividad en Google Docs y reforzamiento en libreta física.</p>
           <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
           <p class="teacher">Docente: Dr. Felipe López Salazar · Grupo 501</p>
         </div>
         <div class="cover-right">
           <div class="info-card" style="border-left: 6px solid var(--blue); background: var(--softblue);">
-            <h4>💻 Fase 1 · Google Docs (Classroom)</h4>
-            <p>Construcción estructurada de tablas, capturas, casos de phishing y decálogos formales.</p>
-          </div>
-          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
-            <h4>📓 Fase 2 · Reforzamiento en Libreta (Anti-IA)</h4>
-            <p>Esquemas manuscritos, diagramas visuales y preguntas de análisis crítico para garantizar la asimilación real.</p>
+            <h4>🎙️ Inicio · dictado</h4>
+            <p>Cada hora abre con un dictado reflexivo para que el docente dicte el concepto clave y los alumnos tomen nota de apertura.</p>
           </div>
           <div class="info-card" style="border-left: 6px solid var(--green);">
-            <h4>⚖️ Principio Ético Defensivo</h4>
-            <p>Uso estrictamente defensivo y autorizado del conocimiento en entornos controlados de laboratorio.</p>
+            <h4>💻 Desarrollo en Google Docs</h4>
+            <p>Construcción formal de portadas, tablas con imágenes, reglas de contraseñas y decálogos en Classroom.</p>
+          </div>
+          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
+            <h4>📓 Reforzamiento en Libreta (Anti-IA)</h4>
+            <p>Esquemas manuscritos, diagramas visuales y autopsias de fraude dibujadas a mano para asimilar el aprendizaje.</p>
           </div>
         </div>
       </div>
@@ -456,48 +468,36 @@
       </div>
       <div class="card" style="background: var(--soft); padding: 10px 16px; border-left: 8px solid var(--green);">
         <p style="color: var(--green2); font-size: clamp(14.5px, 1.15vw, 17px);">
-          <strong>📌 Dinámica de Clase:</strong> Trabajo en parejas para debatir + Entrega digital en Classroom + <strong>Reforzamiento manuscrito inmediato en libreta</strong>.
+          <strong>📌 Dinámica de Clase:</strong> Apertura con dictado del docente + Google Docs en parejas + Reforzamiento individual en libreta.
         </p>
       </div>
       <footer><span>Estructura General</span><strong>MTCS · Grupo 501</strong></footer>
     </section>
 
-    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (DOCS + REFORZAMIENTO EN LIBRETA) -->
+    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO · DICTADO + DESARROLLO) -->
     <section class="slide">
       <span class="eyebrow">Sesión 01 · Hora 1</span>
       <h2>Classroom, Propósito y Mapa Curricular</h2>
-      <div class="hour-split">
-        <!-- COLUMNA DOCS -->
-        <article class="panel" style="border-left: 6px solid var(--blue);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge-docs">💻 Fase 1 · Google Docs (P1)</span>
-            <span style="font-weight:800; color:var(--blue); font-size:13px;">Classroom: j6bnku3j</span>
-          </div>
-          <p style="font-size:13.5px; color:#1e3a8a; background:var(--softblue); padding:8px; border-radius:6px; margin-bottom:8px;">
-            <strong>Dictado Oficial:</strong> <em>"La ciberseguridad no comienza programando ni configurando cortafuegos, sino comprendiendo la arquitectura de las redes y la importancia de proteger la información que viaja por ellas..."</em>
-          </p>
-          <table><tbody>
-            <tr><td>1</td><td>Crear documento: <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
-            <tr><td>2</td><td>Portada formal + Transcripción del <strong>Propósito Oficial</strong>.</td></tr>
-            <tr><td>3</td><td>Transcripción del <strong>Mapa de 6 RAs</strong> con ponderaciones.</td></tr>
-            <tr><td>4</td><td>Redacción de <strong>6 ejemplos reales</strong> de aplicación.</td></tr>
-          </tbody></table>
-        </article>
-
-        <!-- COLUMNA LIBRETA -->
-        <article class="panel gold" style="border-left: 6px solid var(--gold);">
-          <span class="badge-libreta" style="margin-bottom:6px;">📓 Fase 2 · Reforzamiento en Libreta</span>
-          <p style="font-weight:900; color:var(--gold); margin-bottom:4px;">Mapa Conceptual y Preguntas de Análisis</p>
-          <ul style="padding-left:18px; font-size:14px; margin-bottom:8px;">
-            <li style="margin:4px 0;"><strong>Esquema a mano:</strong> Dibuja en media página el mapa de las 3 Unidades conectadas con flechas y colores.</li>
-            <li style="margin:4px 0;"><strong>Responde a mano en tu libreta:</strong></li>
-          </ul>
-          <div style="background:#fff; border:1px solid #ecd59e; border-radius:6px; padding:8px; font-size:13px; color:var(--ink);">
-            <p><strong>P1:</strong> ¿Por qué la seguridad depende primero de una red física bien hecha?</p>
-            <p><strong>P2:</strong> ¿Cuál de los 6 RAs consideras más urgente para tu vida y por qué?</p>
-            <p><strong>P3:</strong> ¿Cuál es la diferencia entre usar este saber de forma defensiva vs ofensiva?</p>
-          </div>
-        </article>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1 (15% - 1er Corte)</strong><br><span style="font-size:13px; color:var(--muted);">Conexiones de red y fundamentos de ciberseguridad.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"La ciberseguridad no comienza programando ni configurando cortafuegos, sino comprendiendo la arquitectura de las redes y la importancia de proteger la información que viaja por ellas. En este módulo aprenderemos desde cómo viajan los paquetes de datos y se asignan las direcciones IP en una red, hasta cómo auditar contraseñas, prevenir fraudes digitales y programar scripts de defensa para salvaguardar sistemas y usuarios."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 1)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Ingresar a Classroom <strong>j6bnku3j</strong> y crear documento: <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
+              <tr><td>2</td><td>Elaborar portada formal + Transcribir el <strong>Propósito Oficial del Módulo</strong> dictado.</td></tr>
+              <tr><td>3</td><td>Transcribir el <strong>Mapa Curricular de las 3 Unidades y 6 RAs</strong> con ponderaciones.</td></tr>
+              <tr><td>4</td><td>Redactar <strong>6 ejemplos de aplicación en la vida real</strong> (uno por cada RA).</td></tr>
+              <tr><td>5</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar el mapa conceptual de las 3 Unidades y responder a mano las 3 preguntas de reflexión.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
       <footer><span>Producto 1</span><strong>Docs (Portada, Propósito, Mapa, 6 RAs) + Libreta (Mapa Conceptual y 3 Preguntas)</strong></footer>
     </section>
@@ -577,40 +577,29 @@
       <footer><span>Aplicación Real</span><strong>Guía de Redacción Producto 1</strong></footer>
     </section>
 
-    <!-- SLIDE 6: SESIÓN 02 · HORA 2 (TABLA CON IMAGEN + REFORZAMIENTO) -->
+    <!-- SLIDE 6: SESIÓN 02 · HORA 2 (INICIO · DICTADO + DESARROLLO TABLA) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 2</span>
-      <h2>Riesgos Cotidianos: Tabla Digital y Análisis</h2>
-      <div class="hour-split">
-        <!-- COLUMNA DOCS -->
-        <article class="panel" style="border-left: 6px solid var(--blue);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge-docs">💻 Fase 1 · Google Docs (P2)</span>
-            <span style="font-weight:800; color:var(--blue); font-size:13px;">Tabla 6 Columnas</span>
-          </div>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
-            Lectura <em>"Antes de dar clic"</em>: el 90% de los incidentes ocurren por error humano o engaño.
-          </p>
-          <table><tbody>
-            <tr><td>1</td><td>Abrir página 2 de tu Google Docs.</td></tr>
-            <tr><td>2</td><td>Construir tabla de <strong>6 columnas</strong>: <em>Riesgo, Imagen representativa, Consecuencia, Prevención, Ejemplo Real, Por qué me importa</em>.</td></tr>
-            <tr><td>3</td><td>Completar <strong>5 riesgos cotidianos</strong> con capturas/imágenes pegadas en la celda.</td></tr>
-          </tbody></table>
-        </article>
-
-        <!-- COLUMNA LIBRETA -->
-        <article class="panel gold" style="border-left: 6px solid var(--gold);">
-          <span class="badge-libreta" style="margin-bottom:6px;">📓 Fase 2 · Reforzamiento en Libreta</span>
-          <p style="font-weight:900; color:var(--gold); margin-bottom:4px;">Esquema de Amenaza y Análisis Crítico</p>
-          <ul style="padding-left:18px; font-size:14px; margin-bottom:8px;">
-            <li style="margin:4px 0;"><strong>Dibujo de Amenaza:</strong> Selecciona el riesgo más peligroso y dibuja a mano un esquema visual de <em>"Ataque vs Defensa"</em>.</li>
-            <li style="margin:4px 0;"><strong>Preguntas de asimilación (A mano):</strong></li>
-          </ul>
-          <div style="background:#fff; border:1px solid #ecd59e; border-radius:6px; padding:8px; font-size:13px; color:var(--ink);">
-            <p><strong>P1:</strong> ¿Por qué el descuido humano causa más daños que las fallas del software?</p>
-            <p><strong>P2:</strong> Si un familiar recibe un enlace falso hoy, ¿cuáles son los 3 pasos exactos que le dirías que haga?</p>
-          </div>
-        </article>
+      <h2>Riesgos Cotidianos y Tabla Digital con Imagen</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Identificación de riesgos digitales cotidianos.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"La seguridad digital no es miedo, es consciencia y hábito diario. El noventa por ciento de los incidentes de ciberseguridad ocurren por descuido humano o engaño, no por fallas del sistema. Pensar antes de hacer clic, verificar remitentes, desconfiar de ofertas urgentes y no compartir credenciales son hábitos que protegen tu identidad y tu información."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 2)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Abrir la página 2 de tu Google Docs <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
+              <tr><td>2</td><td>Construir tabla de <strong>6 columnas</strong>: <em>Riesgo, Imagen representativa, Consecuencia, Prevención, Ejemplo Real y Por qué me importa</em>.</td></tr>
+              <tr><td>3</td><td>Completar <strong>5 riesgos cotidianos</strong> pegando capturas o imágenes en la celda.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Seleccionar el riesgo más peligroso, dibujar el esquema de <em>Ataque vs Defensa</em> y responder las preguntas de asimilación.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
       <footer><span>Producto 2</span><strong>Docs (Tabla 6 Columnas con Imagen) + Libreta (Esquema de Ataque vs Defensa y 2 Preguntas)</strong></footer>
     </section>
@@ -665,39 +654,29 @@
       <footer><span>Estándar de Entrega</span><strong>Tabla Digital de 6 Columnas · Producto 2</strong></footer>
     </section>
 
-    <!-- SLIDE 8: SESIÓN 02 · HORA 3 (CONTRASEÑAS, 2FA Y DIAGRAMA EN LIBRETA) -->
+    <!-- SLIDE 8: SESIÓN 02 · HORA 3 (INICIO · DICTADO + CONTRASEÑAS) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 3</span>
-      <h2>Contraseñas Seguras, 2FA y Algoritmo Visual</h2>
-      <div class="hour-split">
-        <!-- COLUMNA DOCS -->
-        <article class="panel" style="border-left: 6px solid var(--blue);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge-docs">💻 Fase 1 · Google Docs (P3)</span>
-            <span style="font-weight:800; color:var(--blue); font-size:13px;">Regla y 2FA</span>
-          </div>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
-            <strong>Criterios:</strong> Longitud 14+, frases aleatorias, sin datos personales y 2FA activo.
-          </p>
-          <table><tbody>
-            <tr><td>1</td><td>Redactar <strong>Regla personal para crear contraseñas</strong> en Docs.</td></tr>
-            <tr><td>2</td><td>Registrar <strong>3 ejemplos ficticios</strong> (nunca las reales).</td></tr>
-            <tr><td>3</td><td>Explicar cómo funciona el <strong>Doble Factor (2FA)</strong>.</td></tr>
-          </tbody></table>
-        </article>
-
-        <!-- COLUMNA LIBRETA -->
-        <article class="panel gold" style="border-left: 6px solid var(--gold);">
-          <span class="badge-libreta" style="margin-bottom:6px;">📓 Fase 2 · Reforzamiento en Libreta</span>
-          <p style="font-weight:900; color:var(--gold); margin-bottom:4px;">Diagrama de Flujo y Análisis de 3 Riesgos</p>
-          <ul style="padding-left:18px; font-size:14px; margin-bottom:6px;">
-            <li style="margin:3px 0;"><strong>Diagrama de Flujo Manuscrito:</strong> Dibuja los bloques para crear tu clave: <em>[Frase 4 palabras] ➔ [Números/Símbolos] ➔ [Activar 2FA]</em>.</li>
-            <li style="margin:3px 0;"><strong>Análisis Manuscrito de 3 Riesgos:</strong> Riesgo, Consecuencia, Prevención y Dibujo.</li>
-          </ul>
-          <div style="background:#fff; border:1px solid #ecd59e; border-radius:6px; padding:6px; font-size:12.5px; color:var(--ink);">
-            <strong>Pregunta clave:</strong> ¿Por qué sustituir letras por números (ej. 'e' por '3') ya no detiene los ataques de fuerza bruta modernos?
-          </div>
-        </article>
+      <h2>Contraseñas Seguras, 2FA y Bitácora Manuscrita</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Autenticación, fortaleza de claves y 2FA.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Una contraseña segura no depende de palabras complejas que se olvidan, sino de frases largas combinadas con símbolos y el uso obligatorio del doble factor de autenticación. Las claves personales nunca se reutilizan ni se comparten, porque son la primera línea de defensa de nuestra identidad digital."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 3)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Redactar tu <strong>Regla personal para crear contraseñas</strong> en Google Docs.</td></tr>
+              <tr><td>2</td><td>Registrar <strong>3 ejemplos ficticios</strong> que cumplan con tu regla (nunca tus claves reales).</td></tr>
+              <tr><td>3</td><td>Explicar cómo funciona el <strong>Doble Factor de Autenticación (2FA)</strong>.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar el diagrama de flujo para crear contraseñas y realizar el análisis manuscrito de 3 riesgos con dibujos.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
       <footer><span>Producto 3</span><strong>Docs (Regla y 2FA) + Libreta (Diagrama de Flujo de Claves y 3 Riesgos Manuscritos)</strong></footer>
     </section>
@@ -728,39 +707,29 @@
       <footer><span>Evidencia Física y Digital</span><strong>Libreta Manuscrita · Producto 3</strong></footer>
     </section>
 
-    <!-- SLIDE 10: SESIÓN 03 · HORA 4 (PHISHING Y AUTOPSIA VISUAL EN LIBRETA) -->
+    <!-- SLIDE 10: SESIÓN 03 · HORA 4 (INICIO · DICTADO + PHISHING) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 4</span>
-      <h2>Detección de Phishing y Autopsia Forense</h2>
-      <div class="hour-split">
-        <!-- COLUMNA DOCS -->
-        <article class="panel" style="border-left: 6px solid var(--blue);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge-docs">💻 Fase 1 · Google Docs (P4)</span>
-            <span style="font-weight:800; color:var(--blue); font-size:13px;">Análisis de Casos</span>
-          </div>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
-            <strong>4 Señales:</strong> Urgencia, remitente falso, URL clonada y petición de claves.
-          </p>
-          <table><tbody>
-            <tr><td>1</td><td>Analizar los 2 casos proyectados (SMS y Correo bancario).</td></tr>
-            <tr><td>2</td><td>Transcribir y explicar las <strong>señales de alerta</strong> en Docs.</td></tr>
-            <tr><td>3</td><td>Redactar la <strong>decisión defensiva segura</strong> a tomar.</td></tr>
-          </tbody></table>
-        </article>
-
-        <!-- COLUMNA LIBRETA -->
-        <article class="panel red" style="border-left: 6px solid var(--red);">
-          <span class="badge-libreta" style="margin-bottom:6px; background:#fee2e2; color:#991b1b; border-color:#fca5a5;">📓 Fase 2 · Reforzamiento en Libreta</span>
-          <p style="font-weight:900; color:var(--red); margin-bottom:4px;">Autopsia Visual de un Fraude (Dibujo Forense)</p>
-          <ul style="padding-left:18px; font-size:14px; margin-bottom:6px;">
-            <li style="margin:3px 0;"><strong>Boceto del Mensaje Falso:</strong> Dibuja en tu libreta la burbuja de SMS o ventana de correo del ataque.</li>
-            <li style="margin:3px 0;"><strong>Flechas Rojas Forenses:</strong> Encierra con pluma roja las banderas de engaño y anota al lado por qué son falsas.</li>
-          </ul>
-          <div style="background:#fff; border:1px solid #fca5a5; border-radius:6px; padding:6px; font-size:12.5px; color:var(--ink);">
-            <strong>Regla de los 10 Segundos:</strong> Redacta a mano qué 2 verificaciones harás siempre antes de dar clic a un enlace en tu celular.
-          </div>
-        </article>
+      <h2>Detección de Phishing y Análisis Forense</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Ingeniería social y análisis de amenazas.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"El phishing es la técnica de ingeniería social más utilizada por los atacantes para engañar a las personas mediante el miedo, la urgencia o falsas recompensas. La regla de oro en ciberseguridad es verificar siempre la autenticidad del remitente y la dirección web antes de tocar cualquier enlace o proporcionar información confidencial."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 4)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Analizar los 2 casos sospechosos proyectados (SMS y Correo bancario).</td></tr>
+              <tr><td>2</td><td>Identificar y transcribir las <strong>señales de alerta</strong> en tu documento de Docs.</td></tr>
+              <tr><td>3</td><td>Redactar la <strong>decisión defensiva segura</strong> que debes tomar.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Autopsia visual dibujada del mensaje con flechas rojas hacia las señales y redacción de la <em>Regla de los 10 Segundos</em>.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
       <footer><span>Producto 4</span><strong>Docs (Análisis de Casos) + Libreta (Autopsia Visual con Flechas Rojas y Regla de 10s)</strong></footer>
     </section>
@@ -796,39 +765,31 @@
       <footer><span>Casos Prácticos</span><strong>Señales de Alerta · Producto 4</strong></footer>
     </section>
 
-    <!-- SLIDE 12: SESIÓN 03 · HORA 5 (DECÁLOGO Y FIRMA EN LIBRETA) -->
+    <!-- SLIDE 12: SESIÓN 03 · HORA 5 (INICIO · DICTADO + DECÁLOGO) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 5</span>
       <h2>Decálogo Personal y Firma de Compromiso</h2>
-      <div class="hour-split">
-        <!-- COLUMNA DOCS -->
-        <article class="panel" style="border-left: 6px solid var(--blue);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge-docs">💻 Fase 1 · Google Docs (P5)</span>
-            <span style="font-weight:800; color:var(--blue); font-size:13px;">Decálogo Formal</span>
-          </div>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
-            Tu código de conducta digital: 10 reglas justificadas para blindar tus dispositivos y cuentas.
-          </p>
-          <table><tbody>
-            <tr><td>1</td><td>Redactar <strong>10 reglas de seguridad justificadas</strong> en Docs.</td></tr>
-            <tr><td>2</td><td>Cubrir contraseñas, 2FA, Wi-Fi, phishing, descargas y privacidad.</td></tr>
-            <tr><td>3</td><td>Redactar tu <strong>compromiso semanal de cierre</strong>.</td></tr>
-          </tbody></table>
-        </article>
-
-        <!-- COLUMNA LIBRETA -->
-        <article class="panel gold" style="border-left: 6px solid var(--gold);">
-          <span class="badge-libreta" style="margin-bottom:6px;">📓 Fase 2 · Reforzamiento en Libreta</span>
-          <p style="font-weight:900; color:var(--gold); margin-bottom:4px;">Manifiesto Manuscrito Ilustrado y Firma</p>
-          <ul style="padding-left:18px; font-size:14px; margin-bottom:6px;">
-            <li style="margin:3px 0;"><strong>Transcripción Manuscrita:</strong> Copia de tu puño y letra tus 10 reglas en la libreta con iconos dibujados.</li>
-            <li style="margin:3px 0;"><strong>Compromiso Ético Final:</strong> Escribe tu compromiso de seguridad personal.</li>
-            <li style="margin:3px 0;"><strong>Firma Autógrafa:</strong> Firma con tu nombre y fecha al calce para sellar tu compromiso.</li>
-          </ul>
-        </article>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Consolidación de hábitos de protección digital.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Un decálogo de seguridad digital es un código de conducta y compromiso ético que reúne los principios fundamentales para proteger nuestra información, dispositivos y redes. La verdadera ciberseguridad se construye transformando el conocimiento técnico en hábitos diarios de prevención y responsabilidad."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 5)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Redactar tu <strong>Decálogo Personal (10 reglas justificadas)</strong> en Google Docs.</td></tr>
+              <tr><td>2</td><td>Cubrir contraseñas, 2FA, Wi-Fi, phishing, descargas y privacidad.</td></tr>
+              <tr><td>3</td><td>Redactar tu <strong>compromiso semanal de cierre</strong> y entregar en Classroom.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Transcribir a mano tus 10 reglas con iconos y <strong>firmar de puño y letra</strong> al calce.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
-      <footer><span>Producto 5</span><strong>Docs (Decálogo Formal de 10 Reglas) + Libreta (Manifiesto Manuscrito Ilustrado con Firma)</strong></footer>
+      <footer><span>Producto 5</span><strong>Docs (Decálogo de 10 Reglas) + Libreta (Manifiesto Manuscrito Ilustrado con Firma)</strong></footer>
     </section>
 
     <!-- SLIDE 13: EJEMPLO VISUAL · HORA 5 (DECÁLOGO Y FIRMA) -->
