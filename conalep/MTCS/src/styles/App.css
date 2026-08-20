@@ -3270,3 +3270,224 @@
 .app-container.class-mode-active .iframe-wrapper {
   height: calc(100vh - 90px);
 }
+
+/* ════════════════════════════════════════════════════════════
+   DASHBOARD PRINCIPAL (ESTILO EDOA)
+════════════════════════════════════════════════════════════ */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-900);
+  margin-bottom: 4px;
+}
+.dashboard-header p {
+  color: var(--text-500);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.corte-section {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.corte-header {
+  background: var(--bg-app);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.corte-header h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+
+.corte-peso {
+  background: var(--primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.corte-ras {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ra-dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.ra-dashboard-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.ra-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.ra-title-group {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.ra-icon-main {
+  color: var(--primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ra-title-group h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-900);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ra-peso-badge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ra-dashboard-weeks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dashboard-week-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--bg-app);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-900);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.dashboard-week-btn:hover:not(.locked) {
+  background: var(--primary-50);
+  border-color: var(--primary);
+  transform: translateX(2px);
+}
+
+.dashboard-week-btn.current {
+  background: var(--primary-50);
+  border-color: var(--primary);
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+}
+
+.dashboard-week-btn.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--border-light);
+}
+
+.week-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ext-icon {
+  color: var(--text-400);
+}
+
+.dashboard-week-btn:hover:not(.locked) .ext-icon {
+  color: var(--primary);
+}
+
+/* ── Radar Operativo (Sidebar Derecho) ── */
+.dashboard-sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 20px;
+}
+
+.dashboard-sidebar-header {
+  padding: 16px 20px;
+  background: var(--bg-app);
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard-sidebar-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-900);
+}
+
+.dashboard-sidebar-header p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-500);
+}
+
+.dashboard-iframe-container {
+  height: 650px;
+  width: 100%;
+}
+
+.anuncios-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}

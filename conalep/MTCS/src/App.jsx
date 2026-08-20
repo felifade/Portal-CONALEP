@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Monitor, GraduationCap, Layers, Menu, ExternalLink } from 'lucide-react';
+import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
-import WeekView from '@shared/components/WeekView';
+import DashboardView from './components/DashboardView';
 import CodeLab from './components/CodeLab';
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
-
-const assetUrl = (filename) => new URL(`./assets/${filename}`, import.meta.url).href;
 
 function App() {
   const getAutoWeek = () => {
@@ -24,12 +22,11 @@ function App() {
   };
 
   const currentWeek = getAutoWeek();
-  const allWeeks    = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
-  const currentIdx  = allWeeks.indexOf(currentWeek);
-  const nextWeek    = currentIdx < allWeeks.length - 1 ? allWeeks[currentIdx + 1] : null;
+  const allOrderedWeeks = curriculumData.ras.flatMap(ra => ra.weeks.map(w => w.id));
+  const currentIdx  = allOrderedWeeks.indexOf(currentWeek);
+  const nextWeek    = currentIdx < allOrderedWeeks.length - 1 ? allOrderedWeeks[currentIdx + 1] : null;
 
-  const [activeWeek, setActiveWeek]       = useState(currentWeek);
-  const [activeView, setActiveView]       = useState('curriculum');
+  const [activeView, setActiveView]       = useState('dashboard');
   const [isClassMode, setIsClassMode]     = useState(false);
   const [isTeacherMode, setIsTeacherMode] = useState(false);
   const [showPinModal, setShowPinModal]   = useState(false);
@@ -43,16 +40,8 @@ function App() {
     }
   };
 
-  const handleWeekChange = (weekId) => {
-    setActiveWeek(weekId);
-    setActiveView('curriculum');
-  };
-
-  const scheduleData = curriculumData.schedules[activeWeek] || {};
-
   return (
     <div className={`app-container ${isClassMode ? 'class-mode-active' : ''}`}>
-
       {/* ── Mobile top bar ── */}
       <div className="mobile-header">
         <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
@@ -62,13 +51,8 @@ function App() {
       </div>
 
       <Sidebar
-        activeWeek={activeWeek}
         activeView={activeView}
-        onWeekSelect={handleWeekChange}
         onViewSelect={setActiveView}
-        currentWeek={currentWeek}
-        nextWeek={nextWeek}
-        isTeacherMode={isTeacherMode}
         isMobileOpen={sidebarOpen}
         onMobileClose={() => setSidebarOpen(false)}
       />
@@ -91,40 +75,16 @@ function App() {
           </button>
         </div>
 
-        {activeView === 'curriculum' ? (
-          scheduleData?.isHtml ? (
-            <div className="iframe-wrapper">
-              <div className="iframe-topbar">
-                <div className="iframe-topbar-info">
-                  <span className="iframe-badge">Presentación Interactiva</span>
-                  <span className="iframe-title">{curriculumData.subject} · {activeWeek}</span>
-                </div>
-                <a
-                  href={scheduleData.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="iframe-open-btn"
-                >
-                  <ExternalLink size={14} />
-                  Abrir en pantalla completa
-                </a>
-              </div>
-              <div className="iframe-container">
-                <iframe src={scheduleData.url} title="Presentación de Clase" />
-              </div>
-            </div>
-          ) : (
-            <WeekView
-              key={activeWeek}
-              weekId={activeWeek}
-              isClassMode={isClassMode}
-              isTeacherMode={isTeacherMode}
-              isPreviewWeek={isTeacherMode && activeWeek === nextWeek}
-              curriculumData={curriculumData}
-              assetUrl={assetUrl}
-            />
-          )
-        ) : (
+        {activeView === 'dashboard' && (
+          <DashboardView 
+            currentWeek={currentWeek}
+            isTeacherMode={isTeacherMode}
+            nextWeek={nextWeek}
+            allOrderedWeeks={allOrderedWeeks}
+          />
+        )}
+
+        {activeView === 'codelab' && (
           <CodeLab />
         )}
       </main>
