@@ -27,39 +27,41 @@
     .class-code { display:flex; align-items:center; gap:22px; width:max-content; max-width:100%; padding:16px 22px; border:2px solid var(--line); background:var(--white); border-radius:8px; }
     .class-code span { color:var(--muted); font-weight:800; font-size:clamp(17px,1.3vw,21px); }
     .class-code strong { font-size:clamp(34px,4vw,50px); color:var(--blue); letter-spacing:.06em; }
-    .topline { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; margin-bottom:18px; }
-    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-    .meta span { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:9px 12px; font-weight:800; color:var(--green2); font-size:clamp(16px,1.2vw,19px); }
+    
     .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px; }
     .cards.two { grid-template-columns:repeat(2,1fr); }
     .card,.panel,.note { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:20px; }
     .card p,.panel p { color:var(--muted); }
     .grid { display:grid; grid-template-columns:34% 1fr; gap:18px; align-items:start; }
     .grid.even { grid-template-columns:1fr 1fr; }
+    
     .panel.dictado { background:var(--softblue); border-color:#cfe0fb; }
+    .panel.dictado p { font-size:clamp(20px, 2vw, 30px); line-height: 1.4; color: #1e3a8a; font-weight: 500; }
     .panel.obj { background:var(--soft); }
     .panel.gold { background:var(--softgold); border-color:#ecd59e; }
+    
     table { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; background:var(--white); }
-    th,td { border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; }
+    th,td { border:1px solid var(--line); padding:12px 14px; text-align:left; vertical-align:middle; }
     th { background:#e8f1ee; color:#143d38; font-size:clamp(17px,1.35vw,21px); }
-    td { font-size:clamp(16px,1.22vw,20px); line-height:1.26; }
-    td:first-child { width:104px; font-weight:900; color:var(--blue); }
+    td { font-size:clamp(18px,1.5vw,22px); line-height:1.3; }
+    td:first-child { width:70px; font-weight:900; color:var(--blue); text-align:center; font-size:24px; background:#f8fafc; }
+    
     .reading { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
     .reading .text { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:20px; user-select:none; -webkit-user-select:none; }
     .reading p { font-size:clamp(16px,1.2vw,20px); line-height:1.32; color:var(--ink); margin-bottom:10px; }
     .reading h3 { color:var(--blue); }
+    
     .products { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px; }
     .products p { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:16px; font-weight:800; }
     .products p::before { content:"✓ "; color:var(--green); }
-    .hour-layout { display:grid; grid-template-columns:31% 1fr; gap:16px; align-items:start; }
+    
     .ra-box { background:var(--soft); border:2px solid var(--line); border-radius:8px; padding:16px; margin-bottom:14px; }
     .ra-box strong { color:var(--green2); }
-    .stack { display:grid; gap:14px; }
-    .mini-title { font-size:clamp(15px,1.15vw,18px); font-weight:900; color:var(--green2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:7px; }
-    .questions { margin:10px 0 0; padding-left:22px; }
-    .questions li { font-size:clamp(16px,1.25vw,20px); margin-bottom:5px; }
-    footer { position:absolute; left:5.4vw; right:5.4vw; bottom:1.6vh; padding-top:9px; border-top:2px solid var(--line); font-size:clamp(16px,1.45vw,20px); color:var(--muted); }
-    footer strong { color:var(--green); }
+    
+    .mini-title { font-size:clamp(16px,1.3vw,20px); font-weight:900; color:var(--green2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:12px; }
+    .questions { margin:10px 0 0; padding-left:26px; }
+    .questions li { font-size:clamp(18px,1.5vw,24px); margin-bottom:12px; line-height: 1.4; }
+    
     .timer { position:fixed; right:18px; top:18px; z-index:20; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:9px; display:flex; gap:8px; align-items:center; box-shadow:0 8px 26px #0002; }
     .timer.min { width:48px; height:48px; padding:0; justify-content:center; overflow:hidden; cursor:pointer; }
     .timer.min::before { content:"⏱"; font-size:25px; line-height:1; }
@@ -68,207 +70,236 @@
     .timer .time { font-size:22px; font-weight:900; min-width:72px; text-align:center; color:var(--ink); }
     .nav { position:fixed; right:18px; bottom:18px; z-index:20; display:flex; align-items:center; gap:8px; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:10px; }
     .count { font-weight:900; min-width:76px; text-align:center; }
-    .placeholder-box { background:var(--soft); border:3px dashed var(--green); border-radius:8px; display:flex; align-items:center; justify-content:center; min-height:45vh; color:var(--green); font-weight:800; font-size:clamp(18px,1.5vw,24px); text-align:center; padding:20px; }
   </style>
 </head>
 <body>
   <main class="deck">
     <!-- PORTADA -->
-    <section class="slide cover-slide active">
+    <section class="slide active">
       <div class="cover">
         <span class="badge">Σ EDOA · Semana 01</span>
         <h1>Mini manual en Google Docs</h1>
-        <p>Presentación viva de clase: lo que hacemos por hora, los textos de trabajo y los productos que quedan como evidencia.</p>
-        <div class="class-code"><span>Código Classroom</span><strong>mawiuwaj</strong></div>
-        <p class="teacher">Dr. Felipe Lopez Salazar</p>
+        <p>Aprenderemos a dar formato institucional a un documento en la nube, usando estilos, índices automáticos y compartiendo correctamente la información.</p>
+        <p class="teacher">Dr. Felipe López Salazar</p>
       </div>
     </section>
 
-    <!-- HORA 1 -->
+
     <section class="slide">
       <span class="eyebrow">Sesión 01 · Hora 1</span>
-      <h2>Classroom, Drive y carpeta de evidencias</h2>
-      <div class="hour-layout">
-        <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>Classroom será el espacio donde se publicarán indicaciones y se entregarán todos los productos. La organización digital inicia mucho antes de escribir: saber dónde guardar, cómo estructurar las carpetas, cómo nombrar un archivo de forma lógica y cómo entregar puntualmente, son las habilidades primarias que separan a un aficionado de un profesional. Un entorno digital ordenado previene la pérdida de trabajo y nos hace más eficientes.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Abrir el navegador con cuenta institucional, ingresar a <strong>Classroom</strong> y unirse puntualmente a la clase con el código oficial.</td></tr>
-              <tr><td>2</td><td>Acceder a <strong>Google Drive</strong>, crear una nueva carpeta raíz denominada con la nomenclatura oficial: <em>Módulo_Grupo_Apellidos_Nombres</em>.</td></tr>
-              <tr><td>3</td><td>Entrar a la carpeta raíz y crear la subcarpeta <strong>Evidencias_Semana_01</strong> para resguardar los productos de estas sesiones.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
+      <h2>Organización en la Nube</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>Classroom será el espacio donde se publicarán indicaciones y se entregarán todos los productos. La organización digital inicia mucho antes de escribir: saber dónde guardar, cómo estructurar las carpetas, cómo nombrar un archivo de forma lógica y cómo entregar puntualmente, son las habilidades primarias que separan a un aficionado de un profesional. Un entorno digital ordenado previene la pérdida de trabajo y nos hace más eficientes.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Abrir el navegador con cuenta institucional, ingresar a <strong>Classroom</strong> y unirse puntualmente a la clase con el código oficial.</td></tr>
+            <tr><td>2</td><td>Acceder a <strong>Google Drive</strong>, crear una nueva carpeta raíz denominada con la nomenclatura oficial: <em>Módulo_Grupo_Apellidos_Nombres</em>.</td></tr>
+            <tr><td>3</td><td>Entrar a la carpeta raíz y crear la subcarpeta <strong>Evidencias_Semana_01</strong> para resguardar los productos de estas sesiones.</td></tr>
+          </tbody>
+        </table>
+      </article>
     </section>
 
-    <!-- VIS 1 -->
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
     <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 1</span>
-      <h2>¿Cómo se debe ver tu avance?</h2>
+      <span class="eyebrow">Sesión 01 · Hora 1</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
       <div class="grid even">
+        
         <article class="panel">
           <div class="mini-title">Puntos de verificación</div>
           <ul class="questions">
-            <li>La carpeta principal tiene tu nombre completo.</li>
-            <li>Dentro de ella existe la subcarpeta <strong>Evidencias_Semana_01</strong>.</li>
+            <li>La cuenta activa es la institucional (@dgb.edu.mx / @conalep.edu.mx).</li>
+            <li>La carpeta existe en "Mi unidad" y no está suelta.</li>
+            <li>El nombre respeta guiones y mayúsculas.</li>
           </ul>
         </article>
-        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:flex; flex-direction:column; gap:15px; font-family:sans-serif; align-items:flex-start;">
-          <div style="display:flex; align-items:center; gap:10px; color:#5f6368; font-size:16px;">
-            <span style="font-size:24px;">🗂️</span> Mi unidad > EDOA_Practicas_Felipe_Lopez
-          </div>
-          <div style="display:flex; gap:20px; margin-top:20px;">
-            <div style="width:140px; height:120px; background:#f1f3f4; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; border:1px solid #e0e0e0; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
-               <span style="font-size:42px;">📁</span>
-               <span style="font-size:13px; font-weight:bold; color:#3c4043; text-align:center;">Evidencias_<br>Semana_01</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HORA 2 -->
-    <section class="slide">
-      <span class="eyebrow">Sesión 01 · Hora 2</span>
-      <h2>Práctica 01: mini manual en Google Docs</h2>
-      <div class="hour-layout">
-        <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>Un mini manual de supervivencia digital es un documento breve, técnico y rigurosamente ordenado. A través de esta práctica no solo registraremos los conceptos teóricos aprendidos, sino que los materializaremos aplicando un formato editorial altamente profesional. La documentación clara de un proceso es el principio del desarrollo de proyectos complejos; si no puedes explicarlo paso a paso en un manual, entonces aún no lo dominas.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Ingresar a la carpeta de evidencias en Drive, generar un <strong>Documento de Google</strong> nuevo en blanco.</td></tr>
-              <tr><td>2</td><td>Nombrar inmediatamente el archivo en la esquina superior izquierda como <em>Mini Manual - Apellido Nombre</em> para que inicie el autoguardado.</td></tr>
-              <tr><td>3</td><td>Digitar el gran título principal "Mini Manual de Supervivencia", presionar Enter y definir la estructura inicial de secciones y apartados base.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
-    </section>
-
-    <!-- VIS 2 -->
-    <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 2</span>
-      <h2>Estructura del Mini Manual</h2>
-      <div class="grid even">
-        <article class="panel">
-          <div class="mini-title">Puntos de verificación</div>
-          <ul class="questions">
-            <li>El nombre del archivo es exacto.</li>
-            <li>Se observan los primeros subtítulos.</li>
-          </ul>
-        </article>
-        <div style="background:#f8f9fa; border:1px solid #ddd; border-radius:8px; padding:15px; display:flex; flex-direction:column; align-items:center; font-family:sans-serif;">
-          <div style="width:100%; background:#fff; padding:10px; border-bottom:1px solid #e0e0e0; display:flex; align-items:center; gap:10px; color:#5f6368; border-radius:6px 6px 0 0;">
-            <span style="color:#4285f4; font-size:20px;">📄</span>
-            <span style="font-weight:bold; font-size:14px; color:#202124;">Practica_01_Mini_Manual_Google_Docs_Felipe...</span>
-          </div>
-          <div style="background:#fff; width:90%; height:100%; margin-top:15px; box-shadow:0 1px 3px rgba(0,0,0,0.1); padding:20px; display:flex; flex-direction:column; gap:10px; text-align:left; border:1px solid #eee;">
-            <div style="font-size:22px; font-weight:bold; color:#000; border-bottom:2px solid #f1f3f4; padding-bottom:8px;">Práctica 01: Mini Manual de Docs</div>
-            <div style="font-size:16px; font-weight:bold; color:#1a73e8; margin-top:10px;">Propósito del manual</div>
-            <div style="height:6px; background:#e8eaed; width:90%; border-radius:4px;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HORA 3 -->
-    <section class="slide">
-      <span class="eyebrow">Sesión 01 · Hora 3</span>
-      <h2>Prueba de velocidad y Compartir</h2>
-      <div class="hour-layout">
-        <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br>Establece opciones y da formato al documento.</div>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>La agilidad motriz frente al teclado es clave para la productividad, pero de nada sirve si no sabemos cómo entregar y distribuir el archivo. Compartir documentos en la nube requiere comprender la configuración de accesos; si no se ajustan los permisos a "Cualquier usuario con el enlace" en modo Lector, la información permanecerá bloqueada para el destinatario. Dominar los niveles de privacidad (Lector, Comentador, Editor) es vital en entornos de colaboración remota.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Acceder a la plataforma <strong>typing.com</strong>, seleccionar la prueba cronometrada de 1 minuto y ejecutarla utilizando postura correcta y ambos índices en F y J.</td></tr>
-              <tr><td>2</td><td>Tomar una captura de pantalla del resultado final (Palabras Por Minuto - PPM), recortarla para que se vea legible, e insertarla estratégicamente en el manual.</td></tr>
-              <tr><td>3</td><td>Dar clic en el botón azul de Compartir, modificar el acceso restringido a <strong>Cualquier usuario con el vínculo</strong> con rol de Lector, y copiar el enlace generado.</td></tr>
-              <tr><td>4</td><td>Copiar el enlace en la libreta.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
-    </section>
-
-    <!-- VIS 3 (Share Mockup) -->
-    <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 3</span>
-      <h2>Enlace y Permisos de Entrega</h2>
-      <div class="grid even">
-        <article class="panel">
-          <div class="mini-title">Puntos de verificación</div>
-          <ul class="questions">
-            <li>El botón verde dice "Cualquier usuario...".</li>
-            <li>El rol está asignado como "Lector".</li>
-            <li>El enlace fue copiado para entregarlo.</li>
-          </ul>
-        </article>
-        <div style="background:#f1f3f4; border:1px solid #ddd; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:sans-serif;">
-           <div style="width:85%; background:#fff; border-radius:8px; box-shadow:0 15px 35px rgba(0,0,0,0.15); padding:25px; border:1px solid #e0e0e0; display:flex; flex-direction:column; gap:20px;">
-             <div style="font-size:20px; font-weight:bold; color:#202124;">Compartir "Practica_01_Mini_Manual..."</div>
-             <div style="display:flex; align-items:center; gap:15px; background:#f8f9fa; padding:15px; border-radius:8px; border:1px solid #eee;">
-                <div style="width:45px; height:45px; background:#188038; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px;">🌐</div>
-                <div style="flex:1;">
-                   <div style="font-weight:bold; font-size:15px; color:#202124;">Cualquier usuario que tenga el enlace</div>
-                   <div style="font-size:13px; color:#5f6368;">Cualquier usuario de internet puede ver esto</div>
-                </div>
-                <div style="background:#e8f0fe; color:#1a73e8; padding:8px 12px; border-radius:4px; font-weight:bold; cursor:pointer;">Lector ▾</div>
-             </div>
-             <div style="display:flex; justify-content:flex-end; gap:15px;">
-                <div style="padding:10px 20px; border:1px solid #dadce0; border-radius:20px; color:#1a73e8; font-weight:bold; font-size:14px; cursor:pointer;">🔗 Copiar enlace</div>
-             </div>
+        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; font-family:sans-serif; display:flex; flex-direction:column; gap:10px;">
+           <div style="display:flex; align-items:center; gap:10px; padding:10px; background:#f8f9fa; border-radius:6px;">
+              <span style="font-size:24px;">📁</span>
+              <span style="font-weight:bold; color:#202124;">EDOA_301_Lopez_Felipe</span>
+           </div>
+           <div style="display:flex; align-items:center; gap:10px; padding:10px 10px 10px 30px; border-left:2px solid #dadce0; margin-left:15px;">
+              <span style="font-size:24px;">📁</span>
+              <span style="color:#5f6368;">Evidencias_Semana_01</span>
            </div>
         </div>
+        
       </div>
     </section>
+    
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 2</span>
+      <h2>Creación del Documento</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>Un mini manual de supervivencia digital es un documento breve, técnico y rigurosamente ordenado. A través de esta práctica no solo registraremos los conceptos teóricos aprendidos, sino que los materializaremos aplicando un formato editorial altamente profesional. La documentación clara de un proceso es el principio del desarrollo de proyectos complejos.</p>
+      </article>
 
-    <!-- HORA 4 (Lectura Zombie) -->
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Ingresar a la carpeta de evidencias en Drive, generar un <strong>Documento de Google</strong> nuevo en blanco.</td></tr>
+            <tr><td>2</td><td>Nombrar inmediatamente el archivo en la esquina superior izquierda como <em>Mini Manual - Apellido Nombre</em> para que inicie el autoguardado.</td></tr>
+            <tr><td>3</td><td>Digitar el gran título principal 'Mini Manual de Supervivencia', presionar Enter y definir la estructura inicial de secciones.</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 2</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
+      <div class="grid even">
+        
+        <article class="panel">
+          <div class="mini-title">Puntos de verificación</div>
+          <ul class="questions">
+            <li>El documento está dentro de la subcarpeta correcta, no suelto en Drive.</li>
+            <li>El nombre del archivo (arriba a la izquierda) es correcto.</li>
+          </ul>
+        </article>
+        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:sans-serif;">
+           <div style="background:#e8f0fe; padding:15px 25px; border-radius:30px; font-weight:bold; color:#1a73e8; display:flex; align-items:center; gap:10px;">
+              <span style="font-size:20px;">📄</span> Mini Manual - López Felipe
+           </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 3</span>
+      <h2>Mecanografía y Permisos</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>La agilidad motriz frente al teclado es clave para la productividad, pero de nada sirve si no sabemos cómo entregar el archivo. Compartir documentos en la nube requiere comprender la configuración de accesos; si no se ajustan los permisos a 'Cualquier usuario con el enlace' en modo Lector, la información permanecerá bloqueada. Dominar esto es vital en entornos remotos.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Acceder a la plataforma <strong>typing.com</strong>, seleccionar la prueba cronometrada de 1 minuto y ejecutarla utilizando postura correcta.</td></tr>
+            <tr><td>2</td><td>Tomar una captura de pantalla del resultado final (Palabras Por Minuto - PPM), e insertarla estratégicamente en el manual.</td></tr>
+            <tr><td>3</td><td>Dar clic en el botón azul de Compartir, modificar el acceso restringido a <strong>Cualquier usuario con el vínculo</strong> con rol de Lector.</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 3</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
+      <div class="grid even">
+        
+        <article class="panel">
+          <div class="mini-title">Puntos de verificación</div>
+          <ul class="questions">
+            <li>La imagen del resultado está insertada en el documento.</li>
+            <li>El botón de Compartir tiene el ícono verde de "público".</li>
+          </ul>
+        </article>
+        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; font-family:sans-serif;">
+           <div style="background:#c2e7ff; color:#001d35; padding:10px 20px; border-radius:20px; font-weight:bold; display:flex; align-items:center; gap:8px;">
+              <span>🌐</span> Cualquier usuario que tenga el vínculo
+           </div>
+           <div style="margin-top:10px; color:#5f6368; font-size:14px;">Rol: Lector</div>
+        </div>
+        
+      </div>
+    </section>
+    
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 4</span>
-      <h2>Dictado y lectura Zombie</h2>
-      <div class="hour-layout">
-        <aside>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>Dar formato a un documento no es simplemente "ponerlo bonito"; significa diseñar su arquitectura para que cualquier persona pueda consumirlo sin fatiga visual ni confusión. Un bloque interminable de texto genera rechazo inmediato. Sin embargo, cuando fragmentamos la información utilizando títulos, espaciados generosos, alineación justificada, listas con viñetas e imágenes de apoyo, el texto se transforma en un mensaje que verdaderamente comunica y persuade.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Leer comprensivamente el documento "Protocolo Zombie", seleccionarlo completo (Ctrl+A), copiarlo (Ctrl+C) e inyectarlo en el manual sin heredar formato (Pegar sin formato).</td></tr>
-              <tr><td>2</td><td>Jerarquizar la fuente: Título principal en tamaño 18-20 pts, subtítulos en 16-18 pts, texto normal en 12 pts, aplicar alineación <strong>Justificada</strong> (Ctrl+J) e interlineado de 1.5 líneas.</td></tr>
-              <tr><td>3</td><td>Aplicar <strong>Negritas</strong> (Ctrl+B) únicamente en palabras clave, separar listas usando viñetas o emojis, y anexar al menos dos imágenes representativas centradas en la página.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
+      <h2>Captura y Jerarquía</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>Dar formato a un documento no es simplemente 'ponerlo bonito'; significa diseñar su arquitectura para que cualquier persona pueda consumirlo sin fatiga visual ni confusión. Un bloque interminable de texto genera rechazo. Al fragmentar la información utilizando títulos, alineación justificada y espacios, el texto se transforma en un mensaje que comunica y persuade.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Copiar el texto del 'Protocolo Zombie' proporcionado por el profesor y pegarlo <strong>sin formato</strong> (Ctrl+Shift+V) en tu documento.</td></tr>
+            <tr><td>2</td><td>Jerarquizar la fuente: Título principal en 18-20 pts, subtítulos en 16-18 pts, texto normal en 12 pts, aplicar alineación <strong>Justificada</strong>.</td></tr>
+            <tr><td>3</td><td>Aplicar <strong>Negritas</strong> únicamente en palabras clave y organizar los párrafos para darles respiro visual.</td></tr>
+          </tbody>
+        </table>
+      </article>
     </section>
 
-    <!-- HORA 4 LECTURA COMPLETA -->
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 4</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
+      <div class="grid even">
+        
+        <article class="panel">
+          <div class="mini-title">Puntos de verificación</div>
+          <ul class="questions">
+            <li>No hay texto copiado con fondos grises o letras raras.</li>
+            <li>El borde derecho del texto está perfectamente alineado (Justificado).</li>
+          </ul>
+        </article>
+        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; font-family:sans-serif;">
+           <div style="display:flex; justify-content:center; gap:10px; background:#f1f3f4; padding:10px; border-radius:6px; margin-bottom:15px;">
+              <span style="padding:5px 10px; background:#e8f0fe; border-radius:4px; color:#1a73e8; font-weight:bold;">≡ Justificar</span>
+           </div>
+           <div style="text-align:justify; font-size:10px; color:#5f6368; line-height:1.4;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+           </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 5</span>
+      <h2>Viñetas y Tablas</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>El diseño editorial moderno emplea recursos visuales con estricta intención. Cuando redactas reglas, las listas con viñetas ordenan las ideas paso a paso; cuando manejas variables, las tablas permiten comparar la información de manera ultrarrápida. Aprender a elegir entre un párrafo, una viñeta o una celda es lo que define la madurez académica en ofimática.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Crear la sección <strong>Mis herramientas de supervivencia digital</strong>.</td></tr>
+            <tr><td>2</td><td>Redactar una lista con viñetas (usando símbolos personalizados o emojis) que describa 3 reglas de oro para el trabajo en línea.</td></tr>
+            <tr><td>3</td><td>Trazar una tabla de 2 columnas por 6 filas a través del menú Insertar, sombrear el encabezado y listar 5 atajos vitales del teclado.</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    
+    <!-- LECTURA BASE HORA 4 -->
     <section class="slide">
       <span class="eyebrow">Lectura base · Hora 4</span>
       <h2>El pasillo 13: protocolo zombie en la escuela</h2>
@@ -291,125 +322,65 @@
       </div>
     </section>
 
-    <!-- VIS 4 -->
-    <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 4</span>
-      <h2>Protocolo Zombie Formateado</h2>
-      <div class="grid even">
-        <article class="panel">
-          <div class="mini-title">Puntos de verificación</div>
-          <ul class="questions">
-            <li>El título resalta (18-20 pts) y los subtítulos son claros.</li>
-            <li>El texto base está justificado.</li>
-            <li>Se usaron negritas y emojis con moderación.</li>
-          </ul>
-        </article>
-        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; gap:12px; font-family:sans-serif;">
-          <div style="font-size:26px; font-weight:900; color:#111; text-align:center; border-bottom:2px solid #e0e0e0; padding-bottom:10px;">🧟‍♂️ El pasillo 13: protocolo zombie 🏫</div>
-          <div style="font-size:18px; font-weight:bold; color:#1a73e8; margin-top:15px;">Inicio del relato</div>
-          <div style="font-size:14px; color:#333; text-align:justify; line-height:1.6;">
-            La primera señal apareció durante el cambio de clase. En el <strong>pasillo 13</strong>, las luces parpadearon y las bocinas soltaron un ruido extraño. Nadie se asustó al principio; pensaron que era una broma.
-          </div>
-          <div style="font-size:18px; font-weight:bold; color:#1a73e8; margin-top:15px;">🚨 Protocolo de acción</div>
-          <ul style="font-size:14px; color:#333; margin:0; padding-left:25px;">
-            <li>Mantener la calma total.</li>
-            <li><u>Guardar el documento inmediatamente.</u></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- HORA 5 -->
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 5</span>
-      <h2>Tablas, Listas y Herramientas</h2>
-      <div class="hour-layout">
-        <aside>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>El diseño editorial moderno emplea recursos visuales con estricta intención. Cuando redactas reglas o secuencias, las listas con viñetas ordenan las ideas paso a paso; cuando manejas variables, fechas o comandos, las tablas cuadriculadas permiten comparar la información de manera ultrarrápida. Aprender a elegir entre un párrafo, una viñeta o una celda es lo que define a un creadter de documentos estructurados con madurez académica.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Desplazarse a una nueva página en blanco e introducir el encabezado principal denominado <strong>"Mis herramientas de supervivencia digital"</strong>.</td></tr>
-              <tr><td>2</td><td>Redactar una lista estilizada utilizando viñetas de símbolos personalizados o emojis, que describa 3 reglas de oro inquebrantables para el trabajo en línea.</td></tr>
-              <tr><td>3</td><td>A través del menú Insertar, trazar una tabla de 2 columnas por 6 filas. La primera fila fungirá como encabezado sombreado; las filas inferiores enlistarán 5 atajos vitales del teclado.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
-    </section>
-
-    <!-- VIS 5 -->
-    <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 5</span>
-      <h2>Herramientas de Supervivencia</h2>
+      <h2>Ejemplo Visual de la Actividad</h2>
       <div class="grid even">
+        
         <article class="panel">
           <div class="mini-title">Puntos de verificación</div>
           <ul class="questions">
-            <li>Lista con 3 reglas claras.</li>
-            <li>La tabla (5 atajos) está alineada.</li>
-            <li>El diseño contrasta sin lastimar la vista.</li>
+            <li>La lista tiene viñetas claras y el texto no está amontonado.</li>
+            <li>La tabla tiene la primera fila resaltada (encabezado sombreado).</li>
           </ul>
         </article>
-        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:25px; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:flex; flex-direction:column; gap:20px; font-family:sans-serif;">
-          <div style="font-size:20px; font-weight:900; background:#f1f3f4; padding:10px; border-left:4px solid #1a73e8;">Mis herramientas de supervivencia</div>
-          <table style="width:100%; border-collapse:collapse; font-size:15px; margin-top:5px; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-            <tr style="background:#1a73e8; color:#fff;">
-               <th style="border:1px solid #1a73e8; padding:10px; text-align:left;">Atajo</th>
-               <th style="border:1px solid #1a73e8; padding:10px; text-align:left;">Función</th>
-            </tr>
-            <tr style="background:#f8f9fa;">
-               <td style="border:1px solid #ddd; padding:10px; font-weight:bold;">Ctrl + Z</td>
-               <td style="border:1px solid #ddd; padding:10px;">Deshacer el último cambio</td>
-            </tr>
-            <tr>
-               <td style="border:1px solid #ddd; padding:10px; font-weight:bold;">Ctrl + E</td>
-               <td style="border:1px solid #ddd; padding:10px;">Centrar texto</td>
-            </tr>
-          </table>
+        <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; font-family:sans-serif;">
+           <table style="width:100%; border-collapse:collapse; font-size:14px;">
+              <tr style="background:#e8f0fe; color:#1a73e8;"><th style="padding:8px; border:1px solid #dadce0;">Atajo</th><th style="padding:8px; border:1px solid #dadce0;">Función</th></tr>
+              <tr><td style="padding:8px; border:1px solid #dadce0; font-weight:bold;">Ctrl + C</td><td style="padding:8px; border:1px solid #dadce0;">Copiar</td></tr>
+              <tr><td style="padding:8px; border:1px solid #dadce0; font-weight:bold;">Ctrl + V</td><td style="padding:8px; border:1px solid #dadce0;">Pegar</td></tr>
+              <tr><td style="padding:8px; border:1px solid #dadce0; font-weight:bold;">Ctrl + Z</td><td style="padding:8px; border:1px solid #dadce0;">Deshacer</td></tr>
+           </table>
         </div>
+        
       </div>
     </section>
-
-    <!-- HORA 6 -->
+    
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 6</span>
-      <h2>Estilos de Párrafo y Jerarquía</h2>
-      <div class="hour-layout">
-        <aside>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>Un estilo de párrafo no es solo color; es decirle a la computadora la jerarquía de la información. Al usar "Título 1", estructuramos el documento internamente.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Seleccionar el texto principal en la parte superior y asignar el estilo <strong>Título 1</strong> utilizando la barra de herramientas de estilos.</td></tr>
-              <tr><td>2</td><td>Ubicar las sub-secciones o subtítulos dentro del texto y clasificar su jerarquía aplicando el estilo <strong>Título 2</strong> de manera consistente.</td></tr>
-              <tr><td>3</td><td>Ejecutar la herramienta de revisión ortográfica automática de Docs para pulir cualquier error de captura restante.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
+      <h2>Estilos y Jerarquía</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>Un estilo de párrafo no es solo color o tamaño; es decirle a la computadora la jerarquía estructural de la información. Al aplicar estilos automáticos (como 'Título 1' o 'Título 2') en lugar de aumentar el tamaño manualmente, garantizamos consistencia en todo el archivo y habilitamos funciones avanzadas del procesador de texto.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Seleccionar el texto principal de tu documento y asignarle el estilo <strong>Título 1</strong> utilizando la barra superior.</td></tr>
+            <tr><td>2</td><td>Ubicar las sub-secciones o temas secundarios y aplicarles el estilo <strong>Título 2</strong> de manera consistente.</td></tr>
+            <tr><td>3</td><td>Ejecutar la herramienta de revisión ortográfica automática para pulir cualquier error restante.</td></tr>
+          </tbody>
+        </table>
+      </article>
     </section>
 
-    <!-- VIS 6 -->
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
     <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 6</span>
-      <h2>Aplicando Estilos</h2>
+      <span class="eyebrow">Sesión 03 · Hora 6</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
       <div class="grid even">
+        
         <article class="panel">
           <div class="mini-title">Puntos de verificación</div>
           <ul class="questions">
-            <li>Usaron el selector de estilos en lugar de la barra de tamaño.</li>
-            <li>La jerarquía es lógica.</li>
+            <li>Usaron el selector de estilos reales, no solo la barra de tamaño numérico.</li>
+            <li>Visualmente se nota la diferencia de jerarquía entre Título 1 y 2.</li>
           </ul>
         </article>
         <div style="background:#fff; border:1px solid #ddd; border-radius:8px; display:flex; align-items:center; justify-content:center; padding:20px; font-family:sans-serif; flex-direction:column;">
@@ -423,104 +394,112 @@
              <div style="padding:10px 15px; font-size:18px; font-weight:bold;">Título 2</div>
           </div>
         </div>
+        
       </div>
     </section>
-
-    <!-- HORA 7 -->
+    
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 7</span>
-      <h2>La Magia del Índice Automático</h2>
-      <div class="hour-layout">
-        <aside>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>Intentar construir un índice general de forma manual propicia errores humanos, descuadres y pérdida excesiva de tiempo. El premio a la correcta aplicación de "Estilos" (Títulos) es que el procesador de texto puede mapear todo el documento e inyectar una "Tabla de Contenido" dinámica en cuestión de segundos. Si el documento sufre cambios o crece 100 páginas, el índice se recalcula y se actualiza con un solo clic.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Realizar un salto de página e insertar el cursor limpiamente en la página 2 (inmediatamente después de la portada oficial).</td></tr>
-              <tr><td>2</td><td>Navegar a través del menú superior hacia la ruta: <strong>Insertar > Índice</strong> (o Tabla de contenido).</td></tr>
-              <tr><td>3</td><td>Elegir el modelo tradicional con números de página, y posteriormente probar dar clic en los títulos para saltar de sección.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
+      <h2>Índice Automático</h2>
+      
+      <!-- FASE 1: TEORÍA -->
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría y Fundamento (Dictado)</div>
+        <p>Intentar construir un índice general de forma manual propicia errores humanos y descuadres. El premio a la correcta aplicación de 'Estilos' es que el procesador mapea todo el documento e inyecta una 'Tabla de Contenido' dinámica en cuestión de segundos. Si el documento crece 100 páginas, el índice se recalcula con un solo clic.</p>
+      </article>
+
+      <!-- FASE 2: DESARROLLO -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo y Aplicación (Actividad)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Realizar un salto de página e insertar el cursor en la página 2 (inmediatamente después de la portada oficial).</td></tr>
+            <tr><td>2</td><td>Navegar en el menú superior hacia: <strong>Insertar > Índice</strong> (o Tabla de contenido).</td></tr>
+            <tr><td>3</td><td>Elegir el modelo tradicional con números de página, y probar dar clic en los vínculos para saltar entre secciones.</td></tr>
+          </tbody>
+        </table>
+      </article>
     </section>
 
-    <!-- VIS 7 -->
+    <!-- FASE 3: EJEMPLO VISUAL (Slide 2 de la hora) -->
     <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 7</span>
-      <h2>Índice Automático</h2>
+      <span class="eyebrow">Sesión 03 · Hora 7</span>
+      <h2>Ejemplo Visual de la Actividad</h2>
       <div class="grid even">
+        
         <article class="panel">
           <div class="mini-title">Puntos de verificación</div>
           <ul class="questions">
-            <li>El índice se generó solo (aparece caja gris al tocarlo).</li>
-            <li>Tiene números de página alineados a la derecha.</li>
+            <li>El índice se generó solo (se ilumina de gris al darle clic).</li>
+            <li>Tiene números de página perfectamente alineados a la derecha.</li>
           </ul>
         </article>
         <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.1); font-family:sans-serif;">
            <div style="color:#5f6368; font-size:14px; border:1px solid #4285f4; border-radius:4px; padding:15px; background:#f8f9fa;">
               <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                 <span style="color:#1a73e8; font-weight:bold;">Práctica 01: Mini Manual...</span> <span>1</span>
+                 <span style="color:#1a73e8; font-weight:bold;">Protocolo Zombie...</span> <span>3</span>
               </div>
               <div style="display:flex; justify-content:space-between; margin-bottom:8px; padding-left:15px;">
-                 <span>Paso 1: Entrar a Classroom</span> <span>2</span>
-              </div>
-              <div style="display:flex; justify-content:space-between; margin-bottom:8px; padding-left:15px;">
-                 <span>Protocolo Zombie Formateado</span> <span>3</span>
+                 <span>Herramientas vitales</span> <span>4</span>
               </div>
            </div>
         </div>
+        
       </div>
     </section>
-
-    <!-- HORA 8 -->
+    
+    <!-- HORA 8: TEORÍA Y DESARROLLO -->
     <section class="slide">
       <span class="eyebrow">Sesión 04 · Hora 8</span>
-      <h2>Cierre Semanal y Kahoot!</h2>
-      <div class="hour-layout">
-        <aside>
-          <article class="panel dictado">
-            <div class="mini-title">Inicio · dictado</div>
-            <p>El formato profesional, el orden riguroso en la nube y la claridad de jerarquías visuales no son caprichos estéticos, sino competencias digitales que te acompañarán durante toda tu vida académica y laboral. Finalizamos esta semana demostrando que el dominio de las herramientas ofimáticas nos separa de los aficionados, dándonos el poder de crear documentos con un estándar de calidad que garantiza que nuestro trabajo será valorado y respetado.</p>
-          </article>
-        </aside>
-        <section class="stack">
-          <article class="panel">
-            <div class="mini-title">Desarrollo · lo que hace el estudiante</div>
-            <table><tbody>
-              <tr><td>1</td><td>Verificar el autoguardado en la nube de todas las prácticas, cerrar sesión adecuadamente y alistar su dispositivo móvil.</td></tr>
-              <tr><td>2</td><td>Ingresar desde su navegador o aplicación móvil a <strong>kahoot.it</strong> y esperar indicaciones del profesor.</td></tr>
-              <tr><td>3</td><td>Introducir el PIN oficial de la sala, poner su primer nombre real y competir limpiamente en la evaluación interactiva semanal.</td></tr>
-              <tr><td>4</td><td>Copiar las preguntas de reflexión en la libreta, y responderlas con sus propias palabras mientras se califica su avance.</td></tr>
-            </tbody></table>
-          </article>
-        </section>
-      </div>
-    </section>
+      <h2>Cierre Semanal y Evaluación</h2>
+      
+      <article class="panel dictado" style="margin-bottom: 24px;">
+        <div class="mini-title">FASE 1: Teoría de Cierre (Dictado)</div>
+        <p>El formato profesional, el orden riguroso en la nube y la claridad de jerarquías visuales no son caprichos estéticos, sino competencias digitales que te acompañarán durante toda tu vida académica y laboral. Dominar estas herramientas ofimáticas nos separa de los aficionados, dándonos el poder de crear documentos con un estándar de calidad que garantiza que nuestro trabajo será valorado y respetado.</p>
+      </article>
 
-    <!-- VIS 8 -->
+      <article class="panel obj">
+        <div class="mini-title">FASE 2: Desarrollo (Actividad Interactiva)</div>
+        <table>
+          <tbody>
+            <tr><td>1</td><td>Verificar el autoguardado en la nube de todas las prácticas y preparar el dispositivo móvil.</td></tr>
+            <tr><td>2</td><td>Ingresar a <strong>kahoot.it</strong> e introducir el PIN de la sala de evaluación.</td></tr>
+            <tr><td>3</td><td>Poner su primer nombre real y competir limpiamente en la trivia interactiva de repaso semanal.</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+    
+    <!-- HORA 8: EJEMPLO VISUAL KAHOOT -->
     <section class="slide">
-      <span class="eyebrow">Ejemplo Visual · Hora 8</span>
-      <h2>¡A Jugar!</h2>
-      <div class="grid even">
-        <article class="panel">
-          <div class="mini-title">Responder en la Libreta (Evaluación)</div>
-          <ul class="questions">
-            <li>¿Por qué es un error cambiar el tamaño a mano en vez de usar "Estilos"?</li>
-            <li>¿Qué ventajas te da tener tus archivos ordenados en la nube?</li>
-            <li>¿Qué sucede con el Índice si agregas 5 páginas más al manual?</li>
-          </ul>
-        </article>
-        <div style="background:#46178f; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:900; font-size:48px;">
+      <span class="eyebrow">Sesión 04 · Hora 8</span>
+      <h2>Ejemplo Visual</h2>
+      <div class="grid even" style="height: 60vh;">
+        <div style="background:#46178f; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; font-family:sans-serif; font-weight:900; font-size:48px; width:100%; height:100%;">
            Kahoot!
            <div style="background:#fff; color:#000; font-size:24px; padding:10px 30px; border-radius:4px; margin-top:20px;">Game PIN</div>
         </div>
+        <article class="panel" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
+          <p style="font-size:30px; text-align:center;">¡Prepárate para demostrar tu velocidad y conocimientos!</p>
+        </article>
       </div>
+    </section>
+
+    <!-- HORA 8: FASE 3 - CIERRE (PREGUNTAS EN LIBRETA) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 04 · Hora 8</span>
+      <h2>FASE 3: Cierre y Reflexión</h2>
+      
+      <article class="panel gold">
+        <div class="mini-title" style="color:var(--gold);">Evaluación Final: Responder en la Libreta</div>
+        <p style="margin-bottom: 20px;">Mientras el profesor registra el avance de la semana, copia y responde ampliamente las siguientes preguntas en tu libreta utilizando tus propias palabras:</p>
+        <ul class="questions" style="list-style-type: decimal;">
+          <li>¿Por qué se considera una mala práctica cambiar el tamaño de letra manualmente en vez de utilizar la herramienta "Estilos" (Título 1, Título 2)?</li>
+          <li>Menciona al menos dos ventajas críticas de organizar tus archivos escolares en la nube utilizando una nomenclatura clara y descriptiva.</li>
+          <li>Si el día de mañana agregas 10 páginas más de contenido a tu manual de supervivencia, ¿qué procedimiento seguirías para que tu índice refleje los nuevos cambios?</li>
+          <li>¿Cuál fue el atajo de teclado más útil que aprendiste esta semana y para qué sirve?</li>
+        </ul>
+      </article>
     </section>
 
   </main>
