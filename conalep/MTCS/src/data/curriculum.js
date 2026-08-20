@@ -7,13 +7,22 @@ export const curriculumData = {
     { id: 3, label: "3er Corte", peso: "35%" },
   ],
   ras: [
+    // ─── 1ER CORTE (30%) ───
+    {
+      id: "RA_Diag",
+      title: "Diagnóstico e Inducción",
+      peso: "0%",
+      corte: 1,
+      weeks: [
+        { id: "W00", label: "Semana 00 (10-14 Ago)" }
+      ]
+    },
     {
       id: "RA1.1",
       title: "1.1 Conexiones de red",
       peso: "15%",
       corte: 1,
       weeks: [
-        { id: "W00", label: "Semana 00 (10-14 Ago)" },
         { id: "W01", label: "Semana 01 (17-21 Ago)" },
         { id: "W02", label: "Semana 02 (24-28 Ago)" },
         { id: "W03", label: "Semana 03 (31 Ago-04 Sep)" },
@@ -30,6 +39,8 @@ export const curriculumData = {
         { id: "W06", label: "Semana 06 (21-25 Sep)" }
       ]
     },
+
+    // ─── 2DO CORTE (35%) ───
     {
       id: "RA2.1",
       title: "2.1 Fundamentos y principios",
@@ -53,6 +64,8 @@ export const curriculumData = {
         { id: "W13", label: "Semana 13 (09-13 Nov)" }
       ]
     },
+
+    // ─── 3ER CORTE (35%) ───
     {
       id: "RA3.1",
       title: "3.1 Fundamentos y optimización",
