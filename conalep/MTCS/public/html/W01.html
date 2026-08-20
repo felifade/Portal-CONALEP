@@ -1,469 +1,727 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTCS Semana 01 · Seguridad Digital y Mapa del Módulo</title>
+  <title>MTCS · Semana 01 · Presentación de Clase</title>
   <style>
     :root {
-      --ink:#17212b; --muted:#5d6875; --paper:#f7faf8; --white:#fff;
-      --green:#0b6b57; --blue:#245b8f; --gold:#d99b2b; --red:#c84f3d;
-      --line:#d9e2dd; --shadow:0 20px 60px rgba(23,33,43,.16);
+      --ink: #12211f;
+      --muted: #56645f;
+      --paper: #f7faf8;
+      --line: #d8e3dd;
+      --green: #025940;
+      --green2: #013a29;
+      --blue: #1d4ed8;
+      --gold: #b45309;
+      --red: #b91c1c;
+      --soft: #eaf5f0;
+      --softblue: #eff6ff;
+      --softgold: #fffbeb;
+      --softred: #fef2f2;
+      --white: #ffffff;
     }
-    * { box-sizing:border-box; }
-    html, body { margin:0; height:100%; overflow:hidden; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:#e7ece8; letter-spacing:0; }
-    button { font:inherit; }
-    .deck { width:100vw; height:100vh; position:relative; }
-    .slide { position:absolute; inset:0; display:none; padding:clamp(22px,3vw,44px); background:var(--paper); overflow:hidden; }
-    .slide.active { display:block; }
-    .slide::after { content:"CONALEP · MTCS-20 · Dr. Felipe López Salazar"; position:absolute; right:28px; bottom:18px; color:#7a817b; font-size:12px; font-weight:800; text-transform:uppercase; }
-    .cover.active { display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:center; }
-    .hero-left { display:flex; flex-direction:column; gap:16px; }
-    .hero-right { display:grid; place-items:center; min-height:70vh; position: relative; z-index: 1; }
-    .kicker { margin:0 0 10px; color:var(--green); font-weight:900; letter-spacing:.12em; text-transform:uppercase; font-size:14px; }
-    h1 { margin:0; font-size:clamp(56px,7.5vw,106px); line-height:.9; color:var(--green); }
-    h2 { margin:0 0 16px; font-size:clamp(32px,4vw,58px); line-height:1.03; max-width:1150px; }
-    h3 { margin:0 0 10px; font-size:clamp(20px,1.8vw,28px); line-height:1.1; }
-    p, li, td, th, span { font-size:clamp(16px,1.25vw,22px); line-height:1.34; }
-    ul { margin:0; padding-left:24px; }
-    li { margin:6px 0; }
-    .lead { max-width:780px; color:var(--muted); font-size:clamp(20px,2vw,28px); }
-    .teacher { color:var(--muted); font-weight:800; }
-    .class-code { display:flex; align-items:center; gap:16px; width:max-content; max-width:100%; padding:14px 18px; border-radius:8px; background:#102d27; color:white; box-shadow:var(--shadow); }
-    .class-code span { font-size:16px; text-transform:uppercase; letter-spacing:.12em; color:#c9ded8; font-weight:900; }
-    .class-code strong { font-size:clamp(34px,4vw,58px); letter-spacing:.08em; }
-    .device-visual { width:min(42vw,580px); display:grid; gap:16px; }
-    .device-visual::before {
-      content: ""; position: absolute; width: 60%; height: 60%; 
-      background: var(--green); filter: blur(100px); opacity: 0.15; z-index: -1;
-      border-radius: 50%; top: 20%; left: 20%;
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: #dfe9e5;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
     }
-    .monitor { padding:18px; border-radius:24px; background:#142331; box-shadow:var(--shadow); }
-    .topbar { height:34px; display:flex; align-items:center; gap:8px; }
-    .topbar span { width:12px; height:12px; border-radius:50%; background:var(--red); display:block; }
-    .topbar span:nth-child(2) { background:var(--gold); }
-    .topbar span:nth-child(3) { background:var(--green); }
-    .screen-grid { min-height:300px; border-radius:12px; background:linear-gradient(135deg,#f9fffd,#edf6f3); padding:26px; display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; }
-    .screen-grid b { grid-column:1/3; color:var(--green); font-size:46px; }
-    .screen-grid p { grid-column:1/3; margin:0; padding:10px 14px; background:#102d27; color:white; border-radius:8px; font-size:44px; font-weight:950; letter-spacing:.08em; }
-    .screen-grid i { height:70px; border:1px solid var(--line); border-left:7px solid var(--blue); border-radius:8px; background:white; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .keyboard { height:32px; border-radius:0 0 28px 28px; background:#26384b; margin:0 44px; box-shadow:0 12px 28px rgba(23,33,43,.18); }
-    .two, .three, .block-grid, .product-layout, .six-grid { display:grid; gap:16px; }
-    .two { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .three, .block-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    .six-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
-    .panel, .reading, .questions, .table-card, .notebook, .ra-card-example { background:white; border:1px solid var(--line); border-radius:10px; padding:20px; box-shadow:var(--shadow); border-left:8px solid var(--green); min-height:0; overflow:auto; }
-    .panel.blue, .ra-card-example.blue { border-left-color:var(--blue); }
-    .panel.gold, .ra-card-example.gold { border-left-color:var(--gold); }
-    .panel.red, .ra-card-example.red { border-left-color:var(--red); }
-    .panel h3, .ra-card-example h3 { color:var(--green); }
-    .panel.blue h3, .ra-card-example.blue h3 { color:var(--blue); }
-    .panel.gold h3, .ra-card-example.gold h3 { color:var(--gold); }
-    .panel.red h3, .ra-card-example.red h3 { color:var(--red); }
-    .icon { width:52px; height:52px; margin-bottom:10px; fill:none; stroke:currentColor; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; color:var(--green); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.06)); }
-    .blue .icon { color:var(--blue); }
-    .gold .icon { color:var(--gold); }
-    .red .icon { color:var(--red); }
-    .session-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:20px; }
-    .session-strip span { display:block; padding:16px 20px; border-radius:8px; background:white; border:1px solid var(--line); box-shadow:var(--shadow); }
-    .session-strip b { display:block; color:var(--green); font-size:20px; margin-bottom:4px; }
-    .notice { margin-top:16px; padding:14px 18px; border-radius:8px; background:#fff2df; border:1px solid #f0cf98; color:#784507; font-weight:800; }
-    .reading-slide { display:grid !important; grid-template-columns:1.2fr .8fr; gap:20px; align-content:start; }
-    .reading-slide h2 { grid-column:1/3; }
-    .reading-slide .kicker { grid-column:1/3; }
-    .reading { border-left-color:var(--blue); }
-    .questions { border-left-color:var(--green); }
-    .questions h3 { color:var(--green); }
-    .session-meta { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
-    .session-meta span { padding:8px 14px; border-radius:8px; background:white; border:1px solid var(--line); box-shadow:var(--shadow); }
-    .session-meta b { color:var(--green); margin-right:6px; }
-    .product-layout { grid-template-columns:1.05fr .95fr; }
-    .notebook { border-left-color:var(--blue); background:#fffdf8; }
-    .notebook span { display:block; text-transform:uppercase; letter-spacing:.12em; color:var(--blue); font-size:12px; font-weight:900; margin-bottom:10px; }
-    .pill { display:inline-block; margin-top:14px; padding:8px 14px; border-radius:8px; background:#102d27; color:white; font-weight:800; font-size:14px; }
-    table { width:100%; border-collapse:separate !important; border-spacing:0; border-radius:10px; border:1px solid var(--line); margin-bottom:12px; font-size:clamp(15px,1.1vw,19px); }
-    th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); }
-    th { background:#edf4f0; color:var(--green); font-weight:900; }
-    th:first-child { border-top-left-radius: 10px; }
-    th:last-child { border-top-right-radius: 10px; }
-    tbody tr:nth-child(even) td { background: #fafcfa !important; }
-    .checklist { display:grid; grid-template-columns:1fr; gap:12px; margin-top:14px; }
-    .checklist p { margin:0; padding:12px 18px; border-radius:8px; background:white; border:1px solid var(--line); box-shadow:var(--shadow); display:flex; align-items:center; gap:14px; }
-    .checklist span { width:16px; height:16px; border-radius:4px; border:3px solid var(--green); display:inline-block; flex-shrink:0; }
-    .big-question { margin-top:18px; padding:18px; border-radius:8px; background:#102d27; color:white; font-size:clamp(20px,2vw,30px); font-weight:900; }
-    .nav { position:absolute; left:28px; bottom:18px; display:flex; align-items:center; gap:8px; z-index:20; }
-    .nav button { width:38px; height:38px; border-radius:8px; border:1px solid var(--line); background:white; cursor:pointer; font-weight:900; box-shadow:var(--shadow); }
-    .nav .count { padding:6px 12px; border-radius:8px; background:white; border:1px solid var(--line); font-weight:900; font-size:14px; }
-    .timer-panel { position:absolute; right:28px; top:28px; width:220px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow); z-index:30; }
-    .timer-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-    .timer-mode { display:flex; gap:4px; }
-    .timer-mode button, .timer-presets button, .timer-actions button, .timer-hide { border:1px solid var(--line); background:#f0f4f2; border-radius:6px; padding:4px 8px; cursor:pointer; font-size:11px; font-weight:800; }
-    .timer-mode button.active { background:var(--green); color:white; }
-    .timer-display { width:100%; border:none; background:transparent; font-size:36px; font-weight:900; color:var(--green); text-align:center; padding:4px 0; cursor:pointer; font-family:monospace; }
-    .timer-presets { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-bottom:8px; }
-    .timer-actions { display:grid; grid-template-columns:1.4fr 1fr; gap:4px; }
-    .timer-actions button#timerStart { background:var(--green); color:white; }
-    .timer-minimized .timer-presets, .timer-minimized .timer-actions, .timer-minimized .timer-mode { display:none; }
-    .timer-minimized.timer-panel { width:auto; padding:6px 10px; }
-    .timer-minimized .timer-display { font-size:18px; padding:0; }
-    .ra-badge { display: inline-block; font-size: 11px; font-weight: 900; padding: 2px 6px; border-radius: 4px; background: var(--green); color: white; margin-bottom: 6px; text-transform: uppercase; }
-    .ra-badge.blue { background: var(--blue); }
-    .ra-badge.gold { background: var(--gold); }
-    .ra-badge.red { background: var(--red); }
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 4.5vh 5vw 6vh;
+      display: none;
+      background: var(--paper);
+      overflow: hidden;
+      position: relative;
+    }
+    .slide.active { display: block; }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1 {
+      font-size: clamp(48px, 5.8vw, 84px);
+      line-height: 0.98;
+      max-width: 1120px;
+      color: var(--green2);
+      font-weight: 900;
+    }
+    h2 {
+      font-size: clamp(30px, 3.8vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 14px;
+      max-width: 1120px;
+      color: var(--green2);
+      font-weight: 800;
+    }
+    h3 {
+      font-size: clamp(20px, 1.8vw, 28px);
+      margin-bottom: 8px;
+      color: var(--green2);
+      font-weight: 800;
+    }
+    p, li, td, th {
+      font-size: clamp(17px, 1.4vw, 22px);
+      line-height: 1.35;
+    }
+    .badge, .eyebrow {
+      display: inline-block;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 800;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .cover {
+      min-height: 82vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .cover p {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: clamp(22px, 2.2vw, 32px);
+    }
+    .teacher {
+      margin-top: 10px;
+      color: var(--green) !important;
+      font-weight: 800;
+    }
+    .class-code {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: max-content;
+      max-width: 100%;
+      padding: 14px 20px;
+      border: 2px solid var(--line);
+      background: var(--white);
+      border-radius: 8px;
+    }
+    .class-code span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: clamp(16px, 1.2vw, 20px);
+    }
+    .class-code strong {
+      font-size: clamp(32px, 3.8vw, 48px);
+      color: var(--blue);
+      letter-spacing: 0.06em;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+    .card, .panel, .note {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .card p, .panel p { color: var(--muted); }
+    .hour-layout {
+      display: grid;
+      grid-template-columns: 32% 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .ra-box {
+      background: var(--soft);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .ra-box strong { color: var(--green2); }
+    .stack { display: grid; gap: 14px; }
+    .mini-title {
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 900;
+      color: var(--green2);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .panel.dictado { background: var(--softblue); border-color: #bfdbfe; }
+    .panel.obj { background: var(--soft); }
+    .panel.gold { background: var(--softgold); border-color: #fde68a; }
+    .panel.red { background: var(--softred); border-color: #fecaca; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #e2ece7;
+      color: var(--green2);
+      font-size: clamp(16px, 1.25vw, 19px);
+      font-weight: 800;
+    }
+    td {
+      font-size: clamp(15px, 1.15vw, 18px);
+      line-height: 1.3;
+    }
+    td:first-child { width: 44px; font-weight: 900; color: var(--green); text-align: center; }
+    .six-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .ra-item {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .ra-item.gold { border-color: #fde68a; background: var(--softgold); }
+    .ra-item.blue { border-color: #bfdbfe; background: var(--softblue); }
+    .ra-item.red { border-color: #fecaca; background: var(--softred); }
+    .ra-item h4 {
+      font-size: clamp(15px, 1.2vw, 18px);
+      color: var(--green2);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .ra-item p {
+      font-size: clamp(14px, 1.1vw, 17px);
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .checklist-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .checklist-list div {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .checklist-list div::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      font-size: 20px;
+    }
+    footer {
+      position: absolute;
+      left: 5vw;
+      right: 5vw;
+      bottom: 1.6vh;
+      padding-top: 8px;
+      border-top: 2px solid var(--line);
+      font-size: clamp(14px, 1.2vw, 17px);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+    footer strong { color: var(--green); }
+    .timer {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 20;
+      background: #ffffffed;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.1);
+    }
+    .timer.min {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .timer.min::before { content: "⏱"; font-size: 22px; line-height: 1; }
+    .timer.min .time, .timer.min button { display: none; }
+    .timer button, .nav button {
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .timer .time {
+      font-size: 20px;
+      font-weight: 900;
+      min-width: 68px;
+      text-align: center;
+      color: var(--ink);
+    }
+    .nav {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffffed;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+    }
+    .count { font-weight: 900; min-width: 72px; text-align: center; font-size: 15px; }
   </style>
 </head>
-<body class="timer-minimized">
+<body>
   <main class="deck">
 
     <!-- SLIDE 1: PORTADA -->
-    <section class="slide active cover">
-      <div class="hero-left">
-        <p class="kicker">CONALEP · MTCS-20 · Grupo 501</p>
-        <h1>Semana 01</h1>
-        <h2>Encuadre, propósito del módulo y seguridad digital</h2>
-        <p class="lead">Classroom, mapa del módulo, ejemplos en la vida real, laboratorio y 5 productos individuales.</p>
+    <section class="slide active">
+      <div class="cover">
+        <span class="badge">CONALEP · MTCS-20 · Grupo 501</span>
+        <h1>Semana 01: Seguridad Digital Personal</h1>
+        <p>Presentación viva de clase: lo que hacemos por hora, el propósito del módulo, mapa de RAs, lectura de análisis y 5 productos individuales.</p>
         <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
         <p class="teacher">Dr. Felipe López Salazar</p>
       </div>
-      <div class="hero-right">
-        <div class="device-visual" aria-hidden="true">
-          <div class="monitor">
-            <div class="topbar"><span></span><span></span><span></span></div>
-            <div class="screen-grid">
-              <b>MTCS-20</b>
-              <p>j6bnku3j</p>
-              <i></i><i></i><i></i><i></i>
-            </div>
-          </div>
-          <div class="keyboard"></div>
-        </div>
-      </div>
+      <footer><span>Manejo de Tecnologías de Ciberseguridad</span><strong>5 Horas · 3 Sesiones</strong></footer>
     </section>
 
-    <!-- SLIDE 2: PROPÓSITO DEL MÓDULO -->
+    <!-- SLIDE 2: ENCUADRE FORMATIVO -->
     <section class="slide">
-      <p class="kicker">Encuadre Formativo</p>
+      <span class="eyebrow">Encuadre Formativo</span>
       <h2>Propósito del Módulo MTCS-20</h2>
-      <div class="two">
-        <article class="panel green">
-          <svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10l32 12v23c0 23-13 38-32 45-19-7-32-22-32-45V22l32-12z"/><path d="M36 50l9 9 20-24"/></svg>
-          <h3>Qué aprenderás a dominar</h3>
+      <div class="cards two">
+        <article class="card">
+          <div class="mini-title">Qué aprenderás a dominar</div>
           <p>Identificar la arquitectura y funcionamiento de <strong>redes de datos</strong>, implementar <strong>protocolos de ciberseguridad y confidencialidad</strong>, y programar <strong>lógica defensiva</strong> para proteger sistemas e información.</p>
         </article>
-        <article class="panel blue">
-          <svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M34 12h32"/><path d="M42 12v26L22 77c-4 8 2 17 11 17h34c9 0 15-9 11-17L58 38V12"/><path d="M31 70h38"/></svg>
-          <h3>Cómo trabajaremos</h3>
-          <p>En laboratorio se trabajará en <strong>parejas para compartir ideas y debatir</strong>, pero cada estudiante es responsable de conservar y entregar su <strong>propia evidencia digital y manuscrita</strong>.</p>
+        <article class="card" style="background: var(--soft);">
+          <div class="mini-title">Forma de trabajo y regla de cuenta</div>
+          <p>En laboratorio se trabajará en <strong>parejas para compartir ideas y debatir</strong>, pero cada estudiante es responsable de conservar y entregar su <strong>propia evidencia en su cuenta fija de Google</strong>.</p>
         </article>
       </div>
-      <div class="session-strip">
-        <span><b>Sesión 01 · 1h</b>Encuadre, Propósito y RAs</span>
-        <span><b>Sesión 02 · 2h</b>Riesgos y Contraseñas</span>
-        <span><b>Sesión 03 · 2h</b>Phishing y Decálogo</span>
+      <div class="cards" style="margin-top: 16px;">
+        <div class="panel"><strong>Sesión 01 (1h):</strong> Classroom, Propósito y RAs</div>
+        <div class="panel"><strong>Sesión 02 (2h):</strong> Riesgos y Contraseñas</div>
+        <div class="panel"><strong>Sesión 03 (2h):</strong> Phishing y Decálogo</div>
       </div>
+      <footer><span>Estructura General</span><strong>MTCS · Grupo 501</strong></footer>
     </section>
 
-    <!-- SLIDE 3: MAPA DEL MÓDULO (3 UNIDADES / 6 RAs) -->
+    <!-- SLIDE 3: SESIÓN 01 · HORA 1 -->
     <section class="slide">
-      <p class="kicker">Estructura Curricular</p>
-      <h2>Mapa del Módulo MTCS-20 (90 Horas)</h2>
-      <div class="three">
-        <article class="panel green">
-          <span class="ra-badge">Unidad 1 · 30 hrs</span>
-          <h3>Conceptos Básicos de Redes</h3>
-          <p><strong>RA 1.1:</strong> Conexiones de red, medios de transmisión y funcionamiento óptimo.</p>
-          <p><strong>RA 1.2:</strong> Direccionamiento IP y enrutamiento seguro con terminal Linux.</p>
-        </article>
-        <article class="panel gold">
-          <span class="ra-badge gold">Unidad 2 · 30 hrs</span>
-          <h3>Fundamentos de Ciberseguridad</h3>
-          <p><strong>RA 2.1:</strong> Principios de confidencialidad, contraseñas y auditoría de tráfico.</p>
-          <p><strong>RA 2.2:</strong> Protocolos de protección, detección de phishing y mitigación.</p>
-        </article>
-        <article class="panel blue">
-          <span class="ra-badge blue">Unidad 3 · 30 hrs</span>
-          <h3>Programación Informática</h3>
-          <p><strong>RA 3.1:</strong> Fundamentos de código aplicados a funciones y análisis de seguridad.</p>
-          <p><strong>RA 3.2:</strong> Estructuras de control (condiciones, ciclos) y mini SOC defensivo.</p>
-        </article>
+      <span class="eyebrow">Sesión 01 · Hora 1</span>
+      <h2>Classroom, Propósito y Mapa del Módulo</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1 (15%)</strong><br>Conexiones de red y fundamentos de ciberseguridad.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · Encuadre</div>
+            <p>Classroom será el centro de entregas. La ciberseguridad comienza conociendo la ruta de aprendizaje y organizando tu espacio de trabajo.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 1)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Ingresar a Google Classroom con el código <strong>j6bnku3j</strong> con tu cuenta fija.</td></tr>
+              <tr><td>2</td><td>Crear un documento de trabajo: <strong>Semana 01 · Seguridad Digital</strong>.</td></tr>
+              <tr><td>3</td><td>Elaborar portada completa (Nombre, Grupo 501, Módulo, Docente, Fecha).</td></tr>
+              <tr><td>4</td><td>Registrar el propósito formativo y el mapa de los 6 RAs.</td></tr>
+              <tr><td>5</td><td>Redactar <strong>un ejemplo de aplicación en la vida real para cada RA</strong>.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
-      <div class="notice">Cada unidad combina fundamentos teóricos con prácticas en laboratorio y simuladores.</div>
+      <footer><span>Producto 1</span><strong>Documento Base + Portada + Mapa y Ejemplos de RAs</strong></footer>
     </section>
 
-    <!-- SLIDE 4: DIAPOSITIVA DE EJEMPLOS REALES DE CADA RA (NUEVA) -->
+    <!-- SLIDE 4: EJEMPLO VISUAL · HORA 1 -->
     <section class="slide">
-      <p class="kicker">Aplicación Práctica · Hora 1</p>
+      <span class="eyebrow">Ejemplo Visual · Hora 1</span>
       <h2>¿Cómo se aplica cada RA en la vida real?</h2>
       <div class="six-grid">
-        <div class="ra-card-example">
-          <span class="ra-badge">RA 1.1 · Conexiones</span>
+        <div class="ra-item">
+          <h4>RA 1.1 · Conexiones</h4>
           <p>Diseñar y cablear la red de una casa, oficina o aula sin puntos ciegos ni caídas.</p>
         </div>
-        <div class="ra-card-example blue">
-          <span class="ra-badge blue">RA 1.2 · Direccionamiento</span>
-          <p>Asignar IPs a cámaras de seguridad y administrar servidores con terminal Linux.</p>
+        <div class="ra-item blue">
+          <h4>RA 1.2 · Enrutamiento</h4>
+          <p>Asignar IPs fijas a cámaras de seguridad y administrar servidores con Linux.</p>
         </div>
-        <div class="ra-card-example gold">
-          <span class="ra-badge gold">RA 2.1 · Confidencialidad</span>
-          <p>Auditar contraseñas débiles y blindar la red Wi-Fi contra vecinos e intrusos.</p>
+        <div class="ra-item gold">
+          <h4>RA 2.1 · Confidencialidad</h4>
+          <p>Auditar contraseñas débiles y blindar el Wi-Fi contra vecinos e intrusos.</p>
         </div>
-        <div class="ra-card-example red">
-          <span class="ra-badge red">RA 2.2 · Mitigación</span>
-          <p>Detectar fraudes bancarios por WhatsApp/correo y cifrar archivos confidenciales.</p>
+        <div class="ra-item red">
+          <h4>RA 2.2 · Mitigación</h4>
+          <p>Detectar fraudes por WhatsApp/SMS (Phishing) y cifrar documentos sensibles.</p>
         </div>
-        <div class="ra-card-example">
-          <span class="ra-badge">RA 3.1 · Automatización</span>
+        <div class="ra-item">
+          <h4>RA 3.1 · Automatización</h4>
           <p>Crear scripts que revisen automáticamente registros (logs) de accesos sospechosos.</p>
         </div>
-        <div class="ra-card-example blue">
-          <span class="ra-badge blue">RA 3.2 · Control / Mini SOC</span>
+        <div class="ra-item blue">
+          <h4>RA 3.2 · Control / SOC</h4>
           <p>Programar un filtro que bloquee IPs automáticamente tras 3 intentos fallidos.</p>
         </div>
       </div>
-      <div class="notice" style="background:#e8f4fd; border-color:#b9ddf8; color:#0c4a6e;">
-        💡 <strong>Actividad Producto 1:</strong> En tu documento de Classroom, registra tu portada, el propósito del módulo y redacta un ejemplo real para cada uno de los 6 RAs.
+      <div class="panel" style="margin-top: 14px; background: var(--soft);">
+        <strong>💡 Verificación Producto 1:</strong> En tu documento debes incluir la explicación personal de estos 6 ejemplos.
       </div>
+      <footer><span>Aplicación Real</span><strong>Guía de Redacción Producto 1</strong></footer>
     </section>
 
-    <!-- SLIDE 5: ANTES DE INICIAR / CUENTA FIJA -->
+    <!-- SLIDE 5: SESIÓN 02 · HORA 2 -->
     <section class="slide">
-      <p class="kicker">Reglas de Trabajo</p>
-      <h2>Cuenta de trabajo y responsabilidad</h2>
-      <div class="three">
-        <article class="panel gold"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="35" r="16"/><path d="M22 84c5-19 20-29 28-29s23 10 28 29"/></svg><h3>Misma cuenta</h3><p>Usa la misma cuenta de Google para Classroom y Drive durante todo el módulo para no perder avances.</p></article>
-        <article class="panel blue"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M28 10h32l18 18v62H28z"/><path d="M60 10v20h18"/><path d="M38 48h28M38 60h28M38 72h18"/></svg><h3>Avance individual</h3><p>Aunque trabajes en pareja en el laboratorio, tu documento digital y tu libreta son personales.</p></article>
-        <article class="panel red"><svg class="icon" viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="42" width="56" height="44" rx="8"/><path d="M34 42V30a16 16 0 0 1 32 0v12"/><path d="M50 58v14"/></svg><h3>Responsabilidad</h3><p>Cuida tu correo, contraseña y espacio en la nube. Guarda tu avance antes de salir del aula.</p></article>
+      <span class="eyebrow">Sesión 02 · Hora 2</span>
+      <h2>Lectura "Antes de dar clic" y Riesgos Cotidianos</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Identificación de riesgos digitales cotidianos.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · Lectura</div>
+            <p>La seguridad digital no es miedo, es hábito: pensar, observar y verificar antes de hacer clic o ingresar contraseñas.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 2)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Abrir el documento de trabajo en Classroom y continuar en la página 2.</td></tr>
+              <tr><td>2</td><td>Identificar 5 riesgos cotidianos (enlaces falsos, Wi-Fi público, descargas raras, etc.).</td></tr>
+              <tr><td>3</td><td>Construir una tabla digital de 5 columnas con análisis personal.</td></tr>
+              <tr><td>4</td><td>Completar la columna reflexiva: <em>"Por qué me importa cuidar esto"</em>.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
-      <div class="notice">El docente asignará los equipos de cómputo y las parejas de laboratorio.</div>
+      <footer><span>Producto 2</span><strong>Tabla Digital de 5 Riesgos Cotidianos</strong></footer>
     </section>
 
-    <!-- SLIDE 6: SESIÓN 01 (HORA 1) · ACTIVIDAD Y PRODUCTO -->
-    <section class="slide session-slide">
-      <p class="kicker">Sesión 01 · 1 hora · Aula o laboratorio</p>
-      <h2>Encuadre, Classroom y Documento Base</h2>
-      <div class="session-meta">
-        <span><b>Modalidad:</b> Individual con apoyo del grupo</span>
-        <span><b>Producto 1:</b> Portada, propósito del módulo, mapa y ejemplos reales de los 6 RAs.</span>
-      </div>
-      <div class="block-grid">
-        <article class="panel">
-          <h3>Inicio</h3>
-          <ul><li>Ingresar a Classroom con el código <strong>j6bnku3j</strong>.</li><li>Confirmar acceso con tu cuenta fija de Google.</li><li>Presentación del Propósito del Módulo.</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Desarrollo</h3>
-          <ul><li>Crear documento: <em>Semana 01 · Seguridad Digital</em>.</li><li>Portada con nombre, grupo 501, MTCS-20 y docente.</li><li>Escribir el propósito y el mapa curricular.</li><li>Redactar el <strong>ejemplo real de los 6 RAs</strong>.</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Cierre</h3>
-          <ul><li>Verificar guardado en Google Drive.</li><li>Anotar en libreta el correo exacto de Classroom (sin contraseña).</li><li>Revisar que el Producto 1 esté completo.</li></ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: SESIÓN 02 (HORAS 2 Y 3) · RIESGOS Y CONTRASEÑAS -->
-    <section class="slide session-slide">
-      <p class="kicker">Sesión 02 · 2 horas · Laboratorio</p>
-      <h2>Riesgos digitales y contraseñas seguras</h2>
-      <div class="session-meta">
-        <span><b>Trabajo:</b> Parejas con avance individual</span>
-        <span><b>Productos:</b> Tabla de 5 riesgos (P2) + Análisis manuscrito en libreta y 2FA (P3).</span>
-      </div>
-      <div class="block-grid">
-        <article class="panel">
-          <h3>Hora 2 · Riesgos</h3>
-          <ul><li>Lectura reflexiva: <em>Antes de dar clic</em>.</li><li>Identificar: enlaces falsos, Wi-Fi público, descargas raras y permisos excesivos.</li><li>Elaborar tabla digital de 5 riesgos (Producto 2).</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Hora 3 · Contraseñas</h3>
-          <ul><li>Criterios de robustez, frases clave y autenticación en 2 pasos (2FA).</li><li>Redactar regla personal de contraseñas y 3 ejemplos ficticios (no reales).</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Libreta · Producto 3</h3>
-          <ul><li>Seleccionar 3 riesgos cotidianos y analizarlos a mano en libreta: ejemplo diario, consecuencia y cómo prevenirlo.</li></ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: TABLA DE RIESGOS (DETALLE SESIÓN 02) -->
+    <!-- SLIDE 6: EJEMPLO VISUAL · HORA 2 -->
     <section class="slide">
-      <p class="kicker">Sesión 02 · Actividad central</p>
+      <span class="eyebrow">Ejemplo Visual · Hora 2</span>
       <h2>Tabla digital de riesgos cotidianos (P2)</h2>
-      <div class="table-card">
+      <article class="panel" style="padding: 12px;">
         <table>
-          <thead><tr><th>Riesgo digital</th><th>Consecuencia</th><th>Prevención</th><th>Ejemplo real</th><th>Por qué me importa</th></tr></thead>
+          <thead>
+            <tr>
+              <th style="width: 20%;">Riesgo Digital</th>
+              <th style="width: 20%;">Consecuencia</th>
+              <th style="width: 20%;">Prevención</th>
+              <th style="width: 20%;">Ejemplo Real</th>
+              <th style="width: 20%;">Por qué me importa</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>Enlace falso</td><td>Robo de cuenta</td><td>Verificar URL antes de abrir</td><td>Mensaje de premio SMS</td><td>Protege mi identidad digital</td></tr>
-            <tr><td>Wi-Fi público</td><td>Intercepción de datos</td><td>No abrir bancos; usar VPN</td><td>Red abierta en parque</td><td>Evita que espíen mi tráfico</td></tr>
-            <tr><td colspan="5" style="text-align:center; font-weight:700; color:var(--green);">Completar mínimo 5 riesgos con explicación reflexiva propia.</td></tr>
+            <tr>
+              <td style="font-weight:bold; color:var(--green);">Enlace falso</td>
+              <td>Robo de cuenta</td>
+              <td>Verificar URL antes de abrir</td>
+              <td>Mensaje SMS de premio</td>
+              <td>Protege mi identidad digital</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; color:var(--green);">Wi-Fi público</td>
+              <td>Intercepción de datos</td>
+              <td>No abrir bancos; usar VPN</td>
+              <td>Red abierta en cafetería</td>
+              <td>Evita que espíen mi tráfico</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; color:var(--green);">Contraseñas iguales</td>
+              <td>Efecto dominó de hackeo</td>
+              <td>Usar contraseñas únicas</td>
+              <td>Misma clave en Facebook y Correo</td>
+              <td>Aísla el daño si una cuenta cae</td>
+            </tr>
           </tbody>
         </table>
+      </article>
+      <div class="note" style="margin-top: 12px; background: var(--softgold);">
+        ⚠️ <strong>Criterio:</strong> Completar mínimo 5 riesgos explicados con tus propias palabras (no copiado de internet).
       </div>
-      <div class="two small">
-        <article class="panel gold"><h3>En libreta (Producto 3)</h3><ul><li>Riesgo</li><li>Ejemplo de mi vida diaria</li><li>Consecuencia</li><li>Cómo lo prevengo</li><li>Por qué es importante cuidarlo</li></ul></article>
-        <article class="panel red"><h3>Criterio de evaluación</h3><p>No se acepta copiar tablas de internet sin análisis personal ni justificación de por qué importa.</p></article>
-      </div>
+      <footer><span>Estándar de Entrega</span><strong>Tabla de Riesgos · Producto 2</strong></footer>
     </section>
 
-    <!-- SLIDE 9: SESIÓN 03 (HORAS 4 Y 5) · PHISHING Y DECÁLOGO -->
-    <section class="slide session-slide">
-      <p class="kicker">Sesión 03 · 2 horas · Laboratorio</p>
-      <h2>Detección de Phishing y Decálogo Personal</h2>
-      <div class="session-meta">
-        <span><b>Trabajo:</b> Parejas con evidencia individual</span>
-        <span><b>Productos:</b> Análisis de Phishing (P4) + Decálogo personal de 10 reglas (P5).</span>
-      </div>
-      <div class="block-grid">
-        <article class="panel">
-          <h3>Hora 4 · Phishing</h3>
-          <ul><li>Identificar señales: sentido de urgencia, URLs falsas, remitentes raros.</li><li>Analizar 2 casos de mensajes sospechosos (SMS y Correo).</li><li>Marcar señales de alerta (Producto 4).</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Hora 5 · Decálogo</h3>
-          <ul><li>Integrar todo lo aprendido: redes, riesgos, contraseñas y phishing.</li><li>Redactar <strong>10 reglas personales justificadas</strong> (Producto 5).</li></ul>
-        </article>
-        <article class="panel">
-          <h3>Compromiso</h3>
-          <ul><li>Escribir compromiso de cierre: <em>“El hábito de seguridad que empezaré a aplicar esta semana es...”</em></li><li>Entrega final en Classroom.</li></ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SLIDE 10: EJEMPLOS DE PHISHING (HORA 4) -->
-    <section class="slide reading-slide">
-      <p class="kicker">Casos de análisis · Hora 4</p>
-      <h2>Detección de mensajes sospechosos (Phishing)</h2>
-      <div class="reading" style="border-left-color: var(--red);">
-        <div style="background: #fff5f5; padding: 16px; border-radius: 10px; border: 1px solid #ffcccc; margin-bottom: 16px;">
-          <strong style="color: var(--red); font-size: 19px;">📲 Caso 1: SMS de Paquetería</strong><br><br>
-          "Su paquete no pudo ser entregado por tarifas de aduana pendientes ($25 MXN). Ingrese en menos de 24 hrs o será devuelto: <br><span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
-        </div>
-        <div style="background: #fff5f5; padding: 16px; border-radius: 10px; border: 1px solid #ffcccc;">
-          <strong style="color: var(--red); font-size: 19px;">📧 Caso 2: Correo Bancario</strong><br><br>
-          "BANCO INFORMA: Cargo no reconocido por $4,500 MXN en su cuenta. Ingrese de inmediato para cancelarlo y verificar sus claves:<br> <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
-        </div>
-      </div>
-      <div class="questions" style="border-left-color: var(--gold);">
-        <h3 style="color: var(--gold); margin-bottom: 10px;">Señales a marcar en tu documento:</h3>
-        <ul>
-          <li>¿Dónde está el sentido de <strong>urgencia</strong> o miedo?</li>
-          <li>¿Qué tiene de extraño el <strong>enlace (URL)</strong>?</li>
-          <li>¿Qué dato confidencial te piden ingresar?</li>
-          <li><strong>Decisión segura:</strong> ¿Qué acción correcta debes tomar?</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SLIDE 11: USO ÉTICO DE IA Y HERRAMIENTAS -->
+    <!-- SLIDE 7: SESIÓN 02 · HORA 3 -->
     <section class="slide">
-      <p class="kicker">Uso Responsable de Herramientas e IA</p>
-      <h2>La respuesta debe tener pensamiento crítico propio</h2>
-      <div class="three">
-        <article class="panel green"><h3>Puede apoyar</h3><p>Buscar ideas, investigar terminología o aclarar dudas sirve como punto de partida.</p></article>
-        <article class="panel gold"><h3>Debe explicarse</h3><p>Cada regla y riesgo debe estar explicado con tus propias palabras y ejemplos.</p></article>
-        <article class="panel red"><h3>No sustituye</h3><p>Copiar y pegar sin análisis ni defensa verbal no cumple con los criterios de evaluación.</p></article>
+      <span class="eyebrow">Sesión 02 · Hora 3</span>
+      <h2>Contraseñas Seguras y Trabajo en Libreta</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Autenticación, fortaleza de claves y 2FA.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · Claves</div>
+            <p>Una contraseña fuerte usa longitud, combinaciones, frases clave y autenticación en dos pasos (2FA). Nunca uses datos personales.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 3)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Redactar tu <strong>regla personal para crear contraseñas</strong> en el documento digital.</td></tr>
+              <tr><td>2</td><td>Escribir 3 ejemplos ficticios de contraseñas seguras (nunca las reales).</td></tr>
+              <tr><td>3</td><td>Pasar a libreta física: seleccionar 3 riesgos de tu tabla.</td></tr>
+              <tr><td>4</td><td>Analizarlos a mano: Riesgo, Ejemplo diario, Consecuencia y Cómo prevenirlo.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
       </div>
-      <div class="notice">Pregunta de evaluación docente: ¿Por qué elegiste esa regla y cómo la aplicarías en tu teléfono celular?</div>
+      <footer><span>Producto 3</span><strong>Análisis Manuscrito en Libreta (3 Riesgos) + Regla 2FA</strong></footer>
     </section>
 
-    <!-- SLIDE 12: CHECKLIST FINAL DE EVIDENCIAS -->
+    <!-- SLIDE 8: EJEMPLO VISUAL · HORA 3 -->
     <section class="slide">
-      <p class="kicker">Cierre de Semana 01</p>
-      <h2>Checklist de las 5 Evidencias Semanales</h2>
-      <div class="checklist">
-        <p><span></span><strong>Producto 1 (Hora 1):</strong> Portada, propósito del módulo, mapa curricular y ejemplos reales de los 6 RAs.</p>
-        <p><span></span><strong>Producto 2 (Hora 2):</strong> Tabla digital de 5 riesgos cotidianos y medidas de prevención.</p>
-        <p><span></span><strong>Producto 3 (Hora 3):</strong> Análisis manuscrito en libreta (3 riesgos analizados) y regla de contraseñas.</p>
-        <p><span></span><strong>Producto 4 (Hora 4):</strong> Análisis de casos de Phishing con señales de alerta marcadas.</p>
-        <p><span></span><strong>Producto 5 (Hora 5):</strong> Decálogo personal de seguridad (10 reglas justificadas) y compromiso semanal.</p>
+      <span class="eyebrow">Ejemplo Visual · Hora 3</span>
+      <h2>Formato manuscrito en libreta (P3)</h2>
+      <div class="grid">
+        <article class="panel" style="background:#fffdfa; border-left: 6px solid var(--gold);">
+          <div class="mini-title" style="color: var(--gold);">Estructura en Libreta (x3 Riesgos)</div>
+          <p><strong>1. Riesgo seleccionado:</strong> ____________________</p>
+          <p><strong>2. Ejemplo en mi vida diaria:</strong> ____________________</p>
+          <p><strong>3. Consecuencia posible:</strong> ____________________</p>
+          <p><strong>4. ¿Cómo lo prevengo?:</strong> ____________________</p>
+          <p><strong>5. ¿Por qué es importante cuidarlo?:</strong> ____________________</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Regla de Contraseñas (Digital)</div>
+          <p>Ejemplo de regla personal:</p>
+          <p style="background: var(--soft); padding: 10px; border-radius: 6px; font-style: italic;">
+            "Mis contraseñas combinan una frase de 4 palabras memorables + 2 números especiales + 1 símbolo, activando siempre 2FA."
+          </p>
+        </article>
       </div>
-      <div class="big-question">¿Qué hábito de seguridad digital empezarás a practicar desde hoy?</div>
+      <footer><span>Evidencia Física</span><strong>Libreta Manuscrita · Producto 3</strong></footer>
+    </section>
+
+    <!-- SLIDE 9: SESIÓN 03 · HORA 4 -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 4</span>
+      <h2>Detección de Phishing y Mensajes Falsos</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Ingeniería social y análisis de amenazas.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · Phishing</div>
+            <p>El phishing busca engañarte con urgencia o miedo para robar tus accesos. La regla de oro: nunca abrir enlaces de mensajes inesperados.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 4)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Analizar los 2 casos sospechosos en pantalla (SMS y Correo bancario).</td></tr>
+              <tr><td>2</td><td>Identificar y transcribir las <strong>señales de alerta</strong> en tu documento.</td></tr>
+              <tr><td>3</td><td>Explicar qué tiene de engañosa la URL en cada caso.</td></tr>
+              <tr><td>4</td><td>Redactar la <strong>decisión segura</strong> que debes tomar en lugar de hacer clic.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 4</span><strong>Análisis de Phishing con Señales Marcadas</strong></footer>
+    </section>
+
+    <!-- SLIDE 10: EJEMPLO VISUAL · HORA 4 -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 4</span>
+      <h2>Casos de Phishing para análisis (P4)</h2>
+      <div class="grid">
+        <article class="panel red">
+          <div class="mini-title" style="color: var(--red);">📲 Caso 1: SMS de Paquetería</div>
+          <p style="background: #fff; padding: 12px; border-radius: 6px; border: 1px solid #fca5a5;">
+            "Su paquete no pudo entregarse por tarifas aduanales ($25 MXN). Pague antes de 24 hrs o será devuelto: <span style="color:blue; text-decoration:underline;">http://correos-mx-rastreo-seguro.com/pagos</span>"
+          </p>
+          <p style="font-size: 15px; margin-top: 8px;"><strong>Señal:</strong> Sentido de urgencia y dominio falso no oficial.</p>
+        </article>
+        <article class="panel red">
+          <div class="mini-title" style="color: var(--red);">📧 Caso 2: Correo Bancario</div>
+          <p style="background: #fff; padding: 12px; border-radius: 6px; border: 1px solid #fca5a5;">
+            "BANCO INFORMA: Cargo no reconocido por $4,500 MXN. Ingrese de inmediato para cancelar la operación: <span style="color:blue; text-decoration:underline;">http://alertas-bbva-seguridad.net/login</span>"
+          </p>
+          <p style="font-size: 15px; margin-top: 8px;"><strong>Señal:</strong> Provoca pánico y pide credenciales en una web externa.</p>
+        </article>
+      </div>
+      <footer><span>Casos Prácticos</span><strong>Señales de Alerta · Producto 4</strong></footer>
+    </section>
+
+    <!-- SLIDE 11: SESIÓN 03 · HORA 5 -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 5</span>
+      <h2>Decálogo Personal de Seguridad Digital</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br>Consolidación de hábitos de protección digital.</div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · Síntesis</div>
+            <p>Un decálogo reúne tus 10 reglas de oro para proteger tu vida digital en redes, contraseñas, dispositivos e información personal.</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · Pasos del Estudiante (Producto 5)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Redactar tu <strong>Decálogo Personal (10 reglas justificadas)</strong>.</td></tr>
+              <tr><td>2</td><td>Cada regla debe incluir su explicación de <em>"por qué la aplico"</em>.</td></tr>
+              <tr><td>3</td><td>Escribir tu compromiso de cierre semanal.</td></tr>
+              <tr><td>4</td><td>Verificar que los 5 productos estén completos y entregar en Classroom.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 5</span><strong>Decálogo de 10 Reglas Justificadas + Compromiso Semanal</strong></footer>
+    </section>
+
+    <!-- SLIDE 12: EJEMPLO VISUAL · HORA 5 -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 5</span>
+      <h2>Estructura del Decálogo Personal (P5)</h2>
+      <div class="grid">
+        <article class="panel">
+          <div class="mini-title">Ejemplo de Reglas (1 al 5)</div>
+          <ul style="padding-left: 20px; margin-top: 8px;">
+            <li><strong>1. Activar 2FA:</strong> Protege mis cuentas aunque filtren mi clave.</li>
+            <li><strong>2. Verificar URLs:</strong> Evito caer en páginas clones o phishing.</li>
+            <li><strong>3. Claves únicas:</strong> Impido el efecto dominó en mis redes.</li>
+            <li><strong>4. Cuidar Wi-Fi:</strong> No hago transferencias en redes abiertas.</li>
+            <li><strong>5. No compartir códigos:</strong> Los SMS de verificación son privados.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Compromiso Semanal</div>
+          <p style="background: var(--soft); padding: 14px; border-radius: 8px; font-style: italic; margin-top: 10px;">
+            "El hábito de seguridad digital que empezaré a practicar desde hoy es <strong>activar la verificación en dos pasos en mi correo y WhatsApp</strong>, porque es la principal barrera contra el robo de cuentas."
+          </p>
+        </article>
+      </div>
+      <footer><span>Consolidación</span><strong>Entrega en Classroom · Producto 5</strong></footer>
+    </section>
+
+    <!-- SLIDE 13: CIERRE Y CHECKLIST DE LOS 5 PRODUCTOS -->
+    <section class="slide">
+      <span class="eyebrow">Cierre de Semana 01</span>
+      <h2>Checklist de Evaluación (5 Productos)</h2>
+      <div class="checklist-list">
+        <div><strong>Producto 1 (Hora 1):</strong> Portada + Propósito del módulo + Mapa de 6 RAs con ejemplos reales.</div>
+        <div><strong>Producto 2 (Hora 2):</strong> Tabla digital de 5 riesgos cotidianos con prevenciones y justificación.</div>
+        <div><strong>Producto 3 (Hora 3):</strong> Análisis manuscrito en libreta (3 riesgos) + Regla de contraseñas.</div>
+        <div><strong>Producto 4 (Hora 4):</strong> Análisis de casos de Phishing con señales de alerta marcadas.</div>
+        <div><strong>Producto 5 (Hora 5):</strong> Decálogo personal de seguridad (10 reglas) + Compromiso semanal.</div>
+      </div>
+      <footer><span>Evaluación Continua</span><strong>Dr. Felipe López Salazar · CONALEP MTCS-20</strong></footer>
     </section>
 
   </main>
 
+  <!-- NAVEGACIÓN INFERIOR DERECHA -->
   <nav class="nav" aria-label="Navegación">
     <button id="prev" title="Anterior">‹</button>
-    <span class="count" id="count">1/12</span>
+    <span class="count" id="count">1/13</span>
     <button id="next" title="Siguiente">›</button>
     <button id="full" title="Pantalla completa">⛶</button>
   </nav>
 
-  <aside class="timer-panel" aria-label="Cronómetro">
-    <div class="timer-top">
-      <div class="timer-mode">
-        <button id="modeStopwatch" class="active">Crono</button>
-        <button id="modeTimer">Temp</button>
-      </div>
-      <button class="timer-hide" id="timerHide">–</button>
-    </div>
-    <button class="timer-display" id="timerDisplay">00:00</button>
-    <div class="timer-presets">
-      <button data-minutes="5">5m</button><button data-minutes="10">10m</button><button data-minutes="15">15m</button><button data-minutes="20">20m</button>
-    </div>
-    <div class="timer-actions">
-      <button id="timerStart">Iniciar</button><button class="secondary" id="timerReset">Reiniciar</button>
-    </div>
-  </aside>
+  <!-- CRONÓMETRO SUPERIOR DERECHO -->
+  <div class="timer min" id="timer">
+    <button id="timerToggle">⏱</button>
+    <span class="time" id="timerDisplay">00:00</span>
+    <button id="timerReset" style="background:#555;">↺</button>
+  </div>
 
   <script>
     const slides = [...document.querySelectorAll(".slide")];
     const count = document.getElementById("count");
     let current = 0;
+
     function show(index) {
       current = Math.max(0, Math.min(slides.length - 1, index));
       slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
       count.textContent = (current + 1) + "/" + slides.length;
     }
+
     document.getElementById("prev").addEventListener("click", () => show(current - 1));
     document.getElementById("next").addEventListener("click", () => show(current + 1));
     document.getElementById("full").addEventListener("click", () => {
       if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
       else document.exitFullscreen?.();
     });
+
     window.addEventListener("keydown", (event) => {
       if (["ArrowRight", "PageDown", " "].includes(event.key)) { event.preventDefault(); show(current + 1); }
       if (["ArrowLeft", "PageUp"].includes(event.key)) { event.preventDefault(); show(current - 1); }
       if (event.key === "Home") show(0);
       if (event.key === "End") show(slides.length - 1);
     });
+
+    // Cronómetro
+    const timer = document.getElementById("timer");
     const timerDisplay = document.getElementById("timerDisplay");
-    const timerStart = document.getElementById("timerStart");
+    const timerToggle = document.getElementById("timerToggle");
     const timerReset = document.getElementById("timerReset");
-    const modeStopwatch = document.getElementById("modeStopwatch");
-    const modeTimer = document.getElementById("modeTimer");
-    let timerMode = "stopwatch", timerRunning = false, timerSeconds = 0, timerTarget = 0, timerTick = null;
-    function formatTime(total) {
-      const safe = Math.max(0, total);
-      return String(Math.floor(safe / 60)).padStart(2, "0") + ":" + String(safe % 60).padStart(2, "0");
+    let seconds = 0, running = false, interval = null;
+
+    timer.addEventListener("click", (e) => {
+      if (timer.classList.contains("min")) {
+        timer.classList.remove("min");
+      }
+    });
+
+    function updateTimer() {
+      seconds++;
+      const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
+      timerDisplay.textContent = `${m}:${s}`;
     }
-    function renderTimer() {
-      timerDisplay.textContent = formatTime(timerMode === "timer" ? timerTarget - timerSeconds : timerSeconds);
-      modeStopwatch.classList.toggle("active", timerMode === "stopwatch");
-      modeTimer.classList.toggle("active", timerMode === "timer");
-      timerStart.textContent = timerRunning ? "Pausar" : "Iniciar";
-    }
-    function stopTimer() { timerRunning = false; clearInterval(timerTick); timerTick = null; renderTimer(); }
-    function startTimer() {
-      if (timerRunning) return stopTimer();
-      timerRunning = true;
-      timerTick = setInterval(() => {
-        timerSeconds += 1;
-        if (timerMode === "timer" && timerSeconds >= timerTarget) stopTimer();
-        renderTimer();
-      }, 1000);
-      renderTimer();
-    }
-    modeStopwatch.addEventListener("click", () => { stopTimer(); timerMode = "stopwatch"; timerSeconds = 0; renderTimer(); });
-    modeTimer.addEventListener("click", () => { stopTimer(); timerMode = "timer"; timerSeconds = 0; timerTarget = timerTarget || 600; renderTimer(); });
-    document.querySelectorAll("[data-minutes]").forEach((button) => button.addEventListener("click", () => {
-      stopTimer(); timerMode = "timer"; timerSeconds = 0; timerTarget = Number(button.dataset.minutes) * 60; renderTimer();
-    }));
-    timerStart.addEventListener("click", startTimer);
-    timerReset.addEventListener("click", () => { stopTimer(); timerSeconds = 0; renderTimer(); });
-    document.getElementById("timerHide").addEventListener("click", () => document.body.classList.toggle("timer-minimized"));
-    timerDisplay.addEventListener("click", () => document.body.classList.remove("timer-minimized"));
-    renderTimer();
+
+    timerToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (running) {
+        clearInterval(interval);
+        running = false;
+        timerToggle.textContent = "▶";
+      } else {
+        interval = setInterval(updateTimer, 1000);
+        running = true;
+        timerToggle.textContent = "⏸";
+      }
+    });
+
+    timerReset.addEventListener("click", (e) => {
+      e.stopPropagation();
+      clearInterval(interval);
+      running = false;
+      seconds = 0;
+      timerDisplay.textContent = "00:00";
+      timerToggle.textContent = "▶";
+    });
   </script>
 </body>
 </html>
