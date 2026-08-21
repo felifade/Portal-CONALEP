@@ -68,6 +68,12 @@
     .reading-slide.active { display:grid; grid-template-columns:minmax(0,1fr); align-content:start; }
     .reading { border-left-color:var(--gold); max-width:1100px; }
     .reading p { margin:0 0 16px; font-size:clamp(22px,2vw,32px); }
+    .dictation { max-width:1180px; }
+    .dictation p { font-size:clamp(24px,2.15vw,34px); line-height:1.36; }
+    .instructions-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .instruction { display:grid; grid-template-columns:58px 1fr; gap:12px; align-items:start; min-height:76px; padding:14px; border-radius:8px; background:white; border:1px solid var(--line); box-shadow:0 8px 20px rgba(23,33,43,.07); }
+    .instruction b { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:#102d27; color:white; font-size:18px; }
+    .instruction span { font-size:clamp(16px,1.22vw,22px); font-weight:750; }
     .nav { position:fixed; right:22px; top:18px; z-index:20; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:999px; padding:8px; box-shadow:0 10px 30px rgba(23,33,43,.14); }
     .nav button { width:38px; height:38px; border:0; border-radius:50%; background:#132b37; color:white; font-weight:900; cursor:pointer; }
     .nav .count { min-width:72px; text-align:center; font-size:13px; font-weight:900; color:var(--muted); }
@@ -89,7 +95,7 @@
     @media (max-width:900px) {
       html, body { overflow:auto; }
       .slide { position:relative; min-height:100vh; overflow:auto; }
-      .cover.active, .two, .three, .product-layout, .checklist { grid-template-columns:1fr; }
+      .cover.active, .two, .three, .product-layout, .checklist, .instructions-grid { grid-template-columns:1fr; }
       .product-layout { height:auto; }
       .slide::after { display:none; }
     }
@@ -249,6 +255,48 @@
     </table>
   </div>
   </section>
+<section class="slide reading-slide">
+    <p class="kicker">Sesión 03 · Objetivo</p>
+    <h2>Qué vamos a lograr</h2>
+    <div class="reading">
+      <p>Cerrar la evidencia inicial de Semana 01 y reconocer riesgos digitales cotidianos para proponer acciones básicas de prevención, uso responsable de contraseñas y autenticación en dos pasos.</p>
+    </div>
+    <div class="notice">La evidencia debe quedar en el mismo documento de Semana 01 y en la misma cuenta de Google/Drive.</div>
+  </section>
+<section class="slide reading-slide">
+    <p class="kicker">Sesión 03 · Dictado de inicio</p>
+    <h2>Seguridad digital personal</h2>
+    <div class="reading dictation">
+      <p>La seguridad digital comienza cuando soy capaz de reconocer qué información debo cuidar, qué acciones pueden ponerme en riesgo y qué hábitos me ayudan a proteger mis cuentas. Un riesgo digital no siempre se ve como un ataque complicado; muchas veces aparece como un enlace falso, una contraseña débil, una red pública insegura o una descarga desconocida. Por eso, antes de dar clic, escribir una contraseña o compartir información, debo detenerme, revisar y decidir con responsabilidad.</p>
+    </div>
+  </section>
+<section class="slide ">
+    <p class="kicker">Sesión 03 · Instrucciones</p>
+    <h2>Lo que vas a realizar</h2>
+    <div class="instructions-grid">
+      
+        <article class="instruction"><b>01</b><span>Entrar a Classroom con el código j6bnku3j.</span></article>
+      
+        <article class="instruction"><b>02</b><span>Abrir el mismo documento de Semana 01 desde la misma cuenta de Google/Drive.</span></article>
+      
+        <article class="instruction"><b>03</b><span>Revisar que la portada esté completa y bien presentada.</span></article>
+      
+        <article class="instruction"><b>04</b><span>Terminar la tabla de resultado de aprendizaje, ejemplo e imagen.</span></article>
+      
+        <article class="instruction"><b>05</b><span>Insertar o conservar la foto de evidencia de la clase pasada.</span></article>
+      
+        <article class="instruction"><b>06</b><span>Crear la tabla de riesgos digitales cotidianos.</span></article>
+      
+        <article class="instruction"><b>07</b><span>Completar la tabla con ejemplos propios; no sólo copiar definiciones.</span></article>
+      
+        <article class="instruction"><b>08</b><span>Redactar una regla personal para crear contraseñas seguras.</span></article>
+      
+        <article class="instruction"><b>09</b><span>Explicar brevemente qué es 2FA o autenticación en dos pasos.</span></article>
+      
+        <article class="instruction"><b>10</b><span>Cerrar con una conclusión en libreta.</span></article>
+      
+    </div>
+  </section>
 <section class="slide ">
     <p class="kicker">Sesión 03 · Hora 4</p>
     <h2>Cerrar evidencia inicial</h2>
@@ -310,7 +358,7 @@
   </main>
   <nav class="nav" aria-label="Navegación">
     <button id="prev" title="Anterior">‹</button>
-    <span class="count" id="count">1/13</span>
+    <span class="count" id="count">1/16</span>
     <button id="next" title="Siguiente">›</button>
     <button id="full" title="Pantalla completa">⛶</button>
   </nav>
