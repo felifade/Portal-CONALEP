@@ -46,7 +46,7 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: clamp(16px, 3vh, 28px) clamp(20px, 3.8vw, 46px) 72px;
+      padding: clamp(14px, 2.5vh, 26px) clamp(18px, 3.5vw, 44px) 72px;
       display: none;
       background: var(--paper);
       overflow-y: auto;
@@ -57,31 +57,31 @@
     .slide.active { display: flex; }
     h1, h2, h3, h4, p { margin: 0; }
     h1 {
-      font-size: clamp(36px, 4.8vw, 68px);
+      font-size: clamp(34px, 4.5vw, 64px);
       line-height: 1.0;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.03em;
     }
     h2 {
-      font-size: clamp(24px, 3.2vw, 42px);
+      font-size: clamp(22px, 3vw, 38px);
       line-height: 1.1;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     h3 {
-      font-size: clamp(18px, 1.8vw, 24px);
+      font-size: clamp(17px, 1.7vw, 22px);
       color: var(--green2);
       font-weight: 800;
     }
     p, li, td, th {
-      font-size: clamp(15px, 1.25vw, 19px);
-      line-height: 1.38;
+      font-size: clamp(14px, 1.15vw, 17.5px);
+      line-height: 1.35;
     }
     .badge, .eyebrow {
       display: inline-block;
-      font-size: clamp(13px, 1.05vw, 15px);
+      font-size: clamp(12.5px, 1vw, 14.5px);
       font-weight: 900;
       color: var(--green);
       text-transform: uppercase;
@@ -91,7 +91,7 @@
       flex: 1;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      gap: 20px;
       align-items: center;
     }
     @media (max-width: 950px) {
@@ -100,23 +100,23 @@
     .cover-left {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     .cover-left p {
       color: var(--muted);
-      font-size: clamp(18px, 1.8vw, 24px);
+      font-size: clamp(17px, 1.6vw, 22px);
       line-height: 1.35;
     }
     .teacher {
       color: var(--green) !important;
       font-weight: 900;
-      font-size: clamp(17px, 1.4vw, 22px);
+      font-size: clamp(16px, 1.3vw, 20px);
     }
     .class-code {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 10px 18px;
+      gap: 14px;
+      padding: 8px 16px;
       border: 3px solid var(--line);
       background: var(--white);
       border-radius: 12px;
@@ -127,37 +127,37 @@
     .class-code span {
       color: var(--muted);
       font-weight: 900;
-      font-size: clamp(14px, 1.15vw, 18px);
+      font-size: clamp(13px, 1.1vw, 16px);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
     .class-code strong {
-      font-size: clamp(30px, 3.5vw, 44px);
+      font-size: clamp(28px, 3.2vw, 40px);
       color: var(--blue);
       letter-spacing: 0.08em;
     }
     .cover-right {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .info-card {
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 10px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       box-shadow: var(--shadow);
     }
     .info-card h4 {
-      font-size: clamp(15px, 1.2vw, 18px);
+      font-size: clamp(14.5px, 1.15vw, 17px);
       color: var(--green2);
       font-weight: 900;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .info-card p {
-      font-size: clamp(14px, 1.1vw, 16.5px);
+      font-size: clamp(13px, 1.05vw, 15.5px);
       color: var(--muted);
-      line-height: 1.35;
+      line-height: 1.3;
     }
     .full-grid-3 {
       flex: 1;
@@ -180,19 +180,18 @@
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 10px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
     }
-    .card p, .panel p { color: var(--muted); font-size: clamp(14.5px, 1.15vw, 17.5px); }
     
     /* EDOA-STYLE HOUR LAYOUT */
     .hour-layout {
       flex: 1;
       display: grid;
       grid-template-columns: 36% 1fr;
-      gap: 18px;
+      gap: 16px;
       align-items: stretch;
       min-height: 0;
     }
@@ -202,28 +201,28 @@
     aside {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .stack {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       height: 100%;
     }
     .ra-box {
       background: var(--soft);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 8px 12px;
     }
-    .ra-box strong { color: var(--green2); font-size: clamp(16px, 1.3vw, 19px); font-weight: 900; }
+    .ra-box strong { color: var(--green2); font-size: clamp(15px, 1.2vw, 18px); font-weight: 900; }
     .mini-title {
-      font-size: clamp(14px, 1.1vw, 16px);
+      font-size: clamp(13px, 1.05vw, 15px);
       font-weight: 900;
       color: var(--green2);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .panel.dictado {
       background: var(--softblue);
@@ -232,11 +231,12 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      padding: 10px 14px;
     }
     .panel.dictado .mini-title { color: var(--blue); }
     .panel.dictado p {
-      font-size: clamp(14.5px, 1.15vw, 17px);
-      line-height: 1.42;
+      font-size: clamp(13.5px, 1.1vw, 16px);
+      line-height: 1.38;
       color: #1e3a8a;
       font-style: italic;
     }
@@ -244,13 +244,22 @@
       background: var(--softpurple);
       border: 2px solid #d8b4fe;
       border-left: 6px solid var(--purple);
-      padding: 8px 12px;
+      padding: 7px 12px;
       border-radius: 8px;
-      font-size: 13.5px;
+      font-size: 13px;
       color: #581c87;
-      margin-bottom: 6px;
     }
     .prompt-box strong { color: #3b0764; }
+    .teacher-box {
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-left: 6px solid #d97706;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #78350f;
+    }
+    .teacher-box strong { color: #92400e; }
     table {
       width: 100%;
       height: 100%;
@@ -261,44 +270,44 @@
     }
     th, td {
       border: 1px solid var(--line);
-      padding: 8px 10px;
+      padding: 6px 10px;
       text-align: left;
       vertical-align: middle;
     }
     th {
       background: #e2ede7;
       color: var(--green2);
-      font-size: clamp(14px, 1.1vw, 17px);
+      font-size: clamp(13px, 1.05vw, 15.5px);
       font-weight: 900;
     }
     td {
-      font-size: clamp(13.5px, 1.05vw, 16px);
-      line-height: 1.32;
+      font-size: clamp(13px, 1vw, 15px);
+      line-height: 1.3;
     }
     td:first-child { font-weight: 900; color: var(--green); text-align: center; }
     .checklist-list {
       flex: 1;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 8px;
+      gap: 7px;
     }
     .checklist-list div {
       background: var(--white);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 10px 16px;
+      padding: 8px 14px;
       font-weight: 800;
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: clamp(14.5px, 1.15vw, 17.5px);
+      font-size: clamp(14px, 1.1vw, 16.5px);
       box-shadow: var(--shadow);
     }
     .checklist-list div::before {
       content: "✓";
       color: var(--green);
       font-weight: 900;
-      font-size: clamp(18px, 1.5vw, 22px);
+      font-size: clamp(17px, 1.3vw, 20px);
       flex-shrink: 0;
     }
     .badge-ia {
@@ -308,12 +317,11 @@
       background: #f3e8ff;
       color: #6b21a8;
       border: 1px solid #d8b4fe;
-      padding: 2px 7px;
+      padding: 1px 6px;
       border-radius: 4px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
     }
     .badge-libreta {
       display: inline-flex;
@@ -322,21 +330,33 @@
       background: #fef3c7;
       color: #92400e;
       border: 1px solid #fcd34d;
-      padding: 2px 7px;
+      padding: 1px 6px;
       border-radius: 4px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+    }
+    .badge-teacher {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #f59e0b;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
     footer {
       position: absolute;
-      left: clamp(20px, 3.8vw, 46px);
-      right: clamp(20px, 3.8vw, 46px);
-      bottom: 10px;
-      padding-top: 5px;
+      left: clamp(18px, 3.5vw, 44px);
+      right: clamp(18px, 3.5vw, 44px);
+      bottom: 8px;
+      padding-top: 4px;
       border-top: 2px solid var(--line);
-      font-size: clamp(12.5px, 1vw, 15px);
+      font-size: clamp(12px, 0.95vw, 14px);
       color: var(--muted);
       display: flex;
       justify-content: space-between;
@@ -346,42 +366,42 @@
     .timer {
       position: fixed;
       right: 18px;
-      top: 14px;
+      top: 12px;
       z-index: 50;
       background: #ffffffed;
       backdrop-filter: blur(10px);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 6px 10px;
+      padding: 5px 8px;
       display: flex;
       gap: 6px;
       align-items: center;
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
     .timer.min {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       padding: 0;
       justify-content: center;
       overflow: hidden;
       cursor: pointer;
     }
-    .timer.min::before { content: "⏱"; font-size: 18px; line-height: 1; }
+    .timer.min::before { content: "⏱"; font-size: 17px; line-height: 1; }
     .timer.min .time, .timer.min button { display: none; }
     .timer button, .nav button {
       border: 0;
       background: var(--green);
       color: white;
       border-radius: 6px;
-      padding: 5px 9px;
+      padding: 4px 8px;
       font-weight: 900;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 11px;
     }
     .timer .time {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 900;
-      min-width: 60px;
+      min-width: 55px;
       text-align: center;
       color: var(--ink);
       font-family: monospace;
@@ -389,19 +409,19 @@
     .nav {
       position: fixed;
       right: 18px;
-      bottom: 10px;
+      bottom: 8px;
       z-index: 50;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #ffffffed;
       backdrop-filter: blur(10px);
       border: 2px solid var(--line);
       border-radius: 8px;
-      padding: 5px 8px;
+      padding: 4px 7px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
-    .count { font-weight: 900; min-width: 64px; text-align: center; font-size: 14px; color: var(--green2); }
+    .count { font-weight: 900; min-width: 58px; text-align: center; font-size: 13px; color: var(--green2); }
   </style>
 </head>
 <body>
@@ -413,26 +433,26 @@
         <div class="cover-left">
           <span class="badge">CONALEP · MTCS-20 · Grupo 501</span>
           <h1>Semana 03: Protocolos e Identidad</h1>
-          <p><strong>Ciclo de 3 Fases:</strong> Teoría Asistida con IA (5-10 min) ➔ Misión Forense en PC (25-30 min) ➔ Síntesis Manuscrita en Libreta (10 min).</p>
+          <p><strong>Laboratorio Activo y Forense:</strong> Guía de 3 Fases con investigación rápida en ChatGPT, misiones interactivas en PC y síntesis en libreta física.</p>
           <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
           <p class="teacher">Docente: Dr. Felipe López Salazar · RA 1.1 (15%)</p>
         </div>
         <div class="cover-right">
           <div class="info-card" style="border-left: 6px solid var(--purple); background: var(--softpurple);">
-            <h4>🤖 1. IA como Asistente Teórico</h4>
-            <p>Usamos prompts guiados en ChatGPT para extraer la teoría y pegarla en Docs en solo 5 minutos.</p>
+            <h4>🤖 1. Marco Teórico con IA (5-10 min)</h4>
+            <p>Prompts guiados para que ChatGPT genere la teoría y los alumnos la peguen estructurada en Docs.</p>
           </div>
           <div class="info-card" style="border-left: 6px solid var(--blue); background: var(--softblue);">
-            <h4>🔍 2. Misión Forense en Vivo</h4>
-            <p>Comprobamos la teoría en la práctica con <code>F12</code>, <code>CMD</code>, <code>macvendors</code> y geolocalización.</p>
+            <h4>🔍 2. Misión Forense en PC (25 min)</h4>
+            <p>Comprobamos en vivo con <code>F12 DevTools</code>, <code>packetlosstest</code>, <code>macvendors</code> y <code>CMD</code>.</p>
           </div>
           <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
-            <h4>📓 3. Síntesis en Libreta (Anti-IA)</h4>
+            <h4>📓 3. Síntesis en Libreta (10 min)</h4>
             <p>Esquemas a mano, preguntas de asimilación crítica y conclusiones firmadas de puño y letra.</p>
           </div>
         </div>
       </div>
-      <footer><span>Semana 03 · Identidad y Protocolos</span><strong>5 Horas · 3 Sesiones · 5 Productos</strong></footer>
+      <footer><span>Semana 03 · Identidad y Protocolos</span><strong>5 Horas · 3 Sesiones · 5 Misiones Prácticas</strong></footer>
     </section>
 
     <!-- SLIDE 2: ENCUADRE FORMATIVO -->
@@ -477,18 +497,20 @@
           </article>
         </aside>
         <section class="stack">
+          <div class="teacher-box">
+            <span class="badge-teacher">💡 Guía Docente (Cómo guiar los clics)</span>
+            Diles a los alumnos: <em>"1) Abran una pestaña y entren a <code>neal.fun</code> (o <code>hackertyper.net</code>). 2) Presionen la tecla <strong>F12</strong> en su teclado. 3) Clic arriba en la pestaña <strong>Network</strong>. 4) Presionen <strong>F5</strong> para recargar. 5) Den clic al primer archivo que aparece arriba en la lista para ver los datos."</em>
+          </div>
+          <div class="prompt-box">
+            <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame en una tabla clara las 7 capas del Modelo OSI, indicando el nombre, su función cotidiana y qué riesgo de ciberseguridad ocurre si falla."</strong> ➔ <em>Pegar en Docs.</em>
+          </div>
           <article class="panel">
-            <div class="prompt-box">
-              <span class="badge-ia">🤖 Prompt para ChatGPT</span><br>
-              <strong>"Explícame en una tabla clara las 7 capas del Modelo OSI, indicando el nombre, su función cotidiana y qué riesgo de ciberseguridad ocurre si falla."</strong> ➔ <em>Pegar tabla en Docs.</em>
-            </div>
             <div class="mini-title">Desarrollo · Misión Forense en PC (Producto 1)</div>
             <table><tbody>
               <tr><td>1</td><td>Abrir documento: <strong>Semana 03 · Identidad y Protocolos</strong> en Google Docs.</td></tr>
-              <tr><td>2</td><td>Presionar <strong>`F12`</strong> en el navegador e ir a la pestaña <strong>`Network` (Red)</strong>.</td></tr>
-              <tr><td>3</td><td>Cargar <code>conalep.edu.mx</code> e identificar: <strong>HTTP (Capa 7)</strong>, <strong>TLS (Capa 4)</strong>, <strong>IP remota (Capa 3)</strong> y <strong>Bytes (Capa 1/2)</strong>.</td></tr>
-              <tr><td>4</td><td>Pegar la captura de tu <code>F12</code> en Docs señalando los 4 datos obtenidos.</td></tr>
-              <tr><td>5</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar la pirámide de 7 capas y responder: <em>¿Por qué cortar un cable es Capa 1 y robar contraseñas es Capa 7?</em></td></tr>
+              <tr><td>2</td><td>En <code>neal.fun</code> con <strong>`F12 Network`</strong> identificar: <strong>HTTP (Capa 7)</strong>, <strong>TLS (Capa 4)</strong>, <strong>IP remota (Capa 3)</strong> y <strong>Bytes (Capa 1/2)</strong>.</td></tr>
+              <tr><td>3</td><td>Pegar la captura de tu <code>F12</code> en Docs señalando los 4 datos obtenidos.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar la pirámide de 7 capas y responder: <em>¿Por qué cortar un cable es Capa 1 y robar contraseñas es Capa 7?</em></td></tr>
             </tbody></table>
           </article>
         </section>
@@ -502,25 +524,25 @@
       <h2>¿Cómo encontrar las capas en DevTools (F12)? (P1)</h2>
       <div class="full-grid-2">
         <article class="panel" style="border-left: 8px solid var(--blue); justify-content: center;">
-          <div class="mini-title" style="color:var(--blue);">🔍 Anatomía de la Pestaña Network (F12)</div>
-          <ul style="font-size: 14px; padding-left: 18px;">
-            <li style="margin: 6px 0;"><strong>Request URL & Method:</strong> <code>GET / HTTP/2</code> (Capa 7 - Aplicación).</li>
-            <li style="margin: 6px 0;"><strong>Security Protocol:</strong> <code>TLS 1.3 / Port 443</code> (Capa 4 - Transporte).</li>
-            <li style="margin: 6px 0;"><strong>Remote Address:</strong> <code>187.189.x.x:443</code> (Capa 3 - Red).</li>
-            <li style="margin: 6px 0;"><strong>Transferred Size:</strong> <code>24.5 KB transferred</code> (Capa 1/2 - Física/Enlace).</li>
+          <div class="mini-title" style="color:var(--blue);">🔍 Dónde ver cada dato en la pantalla</div>
+          <ul style="font-size: 13.5px; padding-left: 18px;">
+            <li style="margin: 4px 0;"><strong>1. Capa 7 (Aplicación):</strong> Busca arriba <code>Request URL: https://neal.fun/</code> y <code>Method: GET</code>.</li>
+            <li style="margin: 4px 0;"><strong>2. Capa 4 (Transporte):</strong> Busca <code>Protocol: h2 (HTTP/2)</code> y puerto <code>:443 (TLS)</code>.</li>
+            <li style="margin: 4px 0;"><strong>3. Capa 3 (Red):</strong> Busca <code>Remote Address: 104.21.x.x:443</code> (La IP del servidor).</li>
+            <li style="margin: 4px 0;"><strong>4. Capa 1/2 (Física/Enlace):</strong> Busca abajo <code>Transferred: 15.2 kB</code> y el tiempo en <code>ms</code>.</li>
           </ul>
         </article>
         <article class="panel" style="background:#111827; color:#10b981; font-family:monospace; justify-content:center;">
-          <div style="color:#93c5fd; font-weight:bold; margin-bottom:6px;">// VISTA DE LA CONSOLA DEVTOOLS</div>
-          <p style="color:#f9fafb; font-size:13px;">> Request URL: https://portal.conalep.edu.mx/</p>
-          <p style="color:#f9fafb; font-size:13px;">> Status Code: 200 OK</p>
-          <p style="color:#10b981; font-size:13px;">> Remote Address: 187.189.214.10:443 [IP Capa 3]</p>
-          <p style="color:#fbbf24; font-size:13px;">> Protocol: h2 (HTTP/2) [Capa 7]</p>
-          <p style="color:#60a5fa; font-size:13px;">> Transferred: 32.8 kB over network [Capa 1/2]</p>
+          <div style="color:#93c5fd; font-weight:bold; margin-bottom:4px;">// ASÍ SE VE EN LA PESTAÑA HEADERS</div>
+          <p style="color:#f9fafb; font-size:12.5px;">> Request URL: https://neal.fun/</p>
+          <p style="color:#f9fafb; font-size:12.5px;">> Status Code: 200 OK</p>
+          <p style="color:#10b981; font-size:12.5px;">> Remote Address: 104.21.55.2:443 [IP Capa 3]</p>
+          <p style="color:#fbbf24; font-size:12.5px;">> Protocol: h2 [Transporte Capa 4]</p>
+          <p style="color:#60a5fa; font-size:12.5px;">> Transferred: 18.4 kB [Física Capa 1/2]</p>
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">📸 <strong>Captura Obligatoria:</strong> En Docs debes mostrar la ventana de tu propia máquina escolar con la pestaña Network abierta.</p>
+        <p style="font-size: 14.5px; color: var(--green2);">📸 <strong>Captura de tu PC:</strong> Los alumnos deben tomar captura completa de su pantalla mostrando su navegador con la pestaña Network abierta.</p>
       </div>
       <footer><span>Evidencia Digital</span><strong>Inspección de Tráfico en Vivo · Producto 1</strong></footer>
     </section>
@@ -538,17 +560,19 @@
           </article>
         </aside>
         <section class="stack">
+          <div class="teacher-box">
+            <span class="badge-teacher">💡 Guía Docente (Cómo hacer la prueba de estrés)</span>
+            Indica a los alumnos: <em>"1) Entren a <code>packetlosstest.com</code> en su navegador. 2) En el menú 'Preset Simulation', seleccionen <strong>Fortnite</strong> o <strong>720p 60fps Stream</strong>. 3) Den clic en el botón verde <strong>Start Test</strong>. 4) Observen cómo vuelan los círculos de paquetes y se grafica la latencia en tiempo real."</em>
+          </div>
+          <div class="prompt-box">
+            <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame la diferencia entre TCP y UDP con una analogía y crea una tabla clasificando 6 servicios (bancos, streaming, videollamadas, descargas, correo, juegos online)."</strong> ➔ <em>Pegar en Docs.</em>
+          </div>
           <article class="panel">
-            <div class="prompt-box">
-              <span class="badge-ia">🤖 Prompt para ChatGPT</span><br>
-              <strong>"Explícame la diferencia entre TCP y UDP con una analogía y crea una tabla clasificando 6 servicios (bancos, streaming, videollamadas, descargas, correo, juegos online)."</strong> ➔ <em>Pegar en Docs.</em>
-            </div>
             <div class="mini-title">Desarrollo · Misión Forense en PC (Producto 2)</div>
             <table><tbody>
-              <tr><td>1</td><td>Ingresar a la herramienta de telemetría web <strong>`packetlosstest.com`</strong>.</td></tr>
-              <tr><td>2</td><td>Ejecutar una prueba de <strong>Streaming / Gaming (UDP)</strong> y registrar: <em>Latencia media (ms), Jitter y % de paquetes perdidos</em>.</td></tr>
-              <tr><td>3</td><td>Pegar la captura de tu gráfica de telemetría en Docs.</td></tr>
-              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Responder: <em>Si estás jugando en línea y hay "lag", ¿qué protocolo está operando y qué pasaría si usara TCP?</em></td></tr>
+              <tr><td>1</td><td>En <strong>`packetlosstest.com`</strong> ejecutar la prueba con el preset de <strong>Fortnite / Streaming</strong>.</td></tr>
+              <tr><td>2</td><td>Registrar en Docs: <em>Latencia media (ms), Jitter y % de pérdida de paquetes</em> con la captura de la gráfica.</td></tr>
+              <tr><td>3</td><td><span class="badge-libreta">📓 En Libreta</span> Responder: <em>Si estás jugando en línea y hay 'lag', ¿qué protocolo está operando y qué pasaría si usara TCP?</em></td></tr>
             </tbody></table>
           </article>
         </section>
@@ -599,18 +623,20 @@
           </article>
         </aside>
         <section class="stack">
+          <div class="teacher-box">
+            <span class="badge-teacher">💡 Guía Docente (Cómo buscar la MAC y el fabricante)</span>
+            Indica a los alumnos: <em>"1) Presionen la tecla <strong>Windows + R</strong>, escriban <code>cmd</code> y den Enter. 2) Escriban <code>getmac</code> y den Enter. Verán algo como <code>00-1A-2B-3C-4D-5E</code>. 3) Abran el navegador en <code>macvendors.com</code> y escriban los primeros 6 caracteres (ej. <code>00:1A:2B</code>). 4) La página les dirá la marca del chip."</em>
+          </div>
+          <div class="prompt-box">
+            <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame qué es una dirección MAC, qué significa OUI y NIC en sus 48 bits, y en qué consiste el ataque de MAC Spoofing."</strong> ➔ <em>Pegar en Docs.</em>
+          </div>
           <article class="panel">
-            <div class="prompt-box">
-              <span class="badge-ia">🤖 Prompt para ChatGPT</span><br>
-              <strong>"Explícame qué es una dirección MAC, qué significa OUI y NIC en sus 48 bits, y en qué consiste el ataque de MAC Spoofing."</strong> ➔ <em>Pegar en Docs.</em>
-            </div>
             <div class="mini-title">Desarrollo · Misión Forense en PC (Producto 3)</div>
             <table><tbody>
-              <tr><td>1</td><td>Abrir <code>CMD</code> y escribir el comando: <strong>`getmac`</strong> o <strong>`ipconfig /all`</strong>.</td></tr>
-              <tr><td>2</td><td>Copiar la <strong>Dirección Física</strong> de tu PC escolar (ej. <code>00-1A-2B-3C-4D-5E</code>).</td></tr>
-              <tr><td>3</td><td>Ingresar a <strong>`macvendors.com`</strong> e ingresar los primeros 6 dígitos (OUI).</td></tr>
-              <tr><td>4</td><td>Descubrir el fabricante de tu PC escolar (ej. <em>Intel, Realtek, HP</em>) y pegar captura en Docs.</td></tr>
-              <tr><td>5</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar la anatomía de la MAC y responder: <em>¿Por qué el filtrado MAC no es suficiente si existe el MAC Spoofing?</em></td></tr>
+              <tr><td>1</td><td>Ejecutar <code>getmac</code> en CMD y copiar la <strong>Dirección Física</strong> de tu PC escolar.</td></tr>
+              <tr><td>2</td><td>Consultar en <strong>`macvendors.com`</strong> los primeros 6 dígitos y descubrir la marca del chip (Intel, Realtek, HP).</td></tr>
+              <tr><td>3</td><td>Pegar en Docs la captura de tu CMD y del logo del fabricante encontrado.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar la anatomía de la MAC y responder: <em>¿Por qué el filtrado MAC no es suficiente si existe el MAC Spoofing?</em></td></tr>
             </tbody></table>
           </article>
         </section>
@@ -649,7 +675,7 @@
     <!-- SLIDE 9: SESIÓN 03 · HORA 4 (INICIO · DICTADO + PROMPT + IP GEOLOCALIZACIÓN) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 4</span>
-      <h2>Dirección IP: Teoría con IA y Geolocalización</h2>
+      <h2>Dirección IP: Teoría con IA y Geolocalización Satelital</h2>
       <div class="hour-layout">
         <aside>
           <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Direccionamiento lógico de Capa 3.</span></div>
@@ -659,15 +685,18 @@
           </article>
         </aside>
         <section class="stack">
+          <div class="teacher-box">
+            <span class="badge-teacher">💡 Guía Docente (Cómo ver la IP y el mapa satelital)</span>
+            Indica a los alumnos: <em>"1) En CMD escriban <code>ipconfig</code> y busquen su <strong>Dirección IPv4</strong> (ej. <code>192.168.1.X</code>). 2) Abran <code>iplocation.io</code> (o <code>whatismyipaddress.com</code>) para ver la IP pública del plantel y el mapa satelital. 3) Ingresen en el buscador de la página la IP de <code>google.com</code> o <code>wikipedia.org</code> para ver dónde está el servidor en el mundo."</em>
+          </div>
+          <div class="prompt-box">
+            <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame la diferencia entre IP Pública y Privada, qué hace el protocolo NAT en un router y por qué se crearon las direcciones IPv6."</strong> ➔ <em>Pegar en Docs.</em>
+          </div>
           <article class="panel">
-            <div class="prompt-box">
-              <span class="badge-ia">🤖 Prompt para ChatGPT</span><br>
-              <strong>"Explícame la diferencia entre IP Pública y Privada, qué hace el protocolo NAT en un router y por qué se crearon las direcciones IPv6."</strong> ➔ <em>Pegar en Docs.</em>
-            </div>
             <div class="mini-title">Desarrollo · Misión Forense en PC (Producto 4)</div>
             <table><tbody>
               <tr><td>1</td><td>Identificar tu <strong>IP Privada</strong> en <code>CMD</code> (rango <code>192.168.x.x</code> o <code>10.x.x.x</code>).</td></tr>
-              <tr><td>2</td><td>Entrar a <strong>`whatismyipaddress.com`</strong> y registrar la <strong>IP Pública</strong> del Plantel Pachuca II y el Proveedor (ISP).</td></tr>
+              <tr><td>2</td><td>Entrar a <strong>`iplocation.io`</strong> y registrar la <strong>IP Pública</strong> del Plantel Pachuca II y el Proveedor (ISP).</td></tr>
               <tr><td>3</td><td>Rastrear la ubicación física de 2 servidores internacionales y pegar el mapa satelital en Docs.</td></tr>
               <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar el diagrama de flujo: <em>PC (IP Privada) ➔ Módem NAT (IP Pública) ➔ Servidor Mundial</em>.</td></tr>
             </tbody></table>
@@ -720,11 +749,14 @@
           </article>
         </aside>
         <section class="stack">
+          <div class="teacher-box">
+            <span class="badge-teacher">💡 Guía Docente (Cómo correr los 3 comandos)</span>
+            Indica a los alumnos: <em>"1) En la consola negra CMD escriban <code>ipconfig /all</code> y den Enter. 2) Luego escriban <code>ping 8.8.8.8</code> para ver si responde Google. 3) Por último escriban <code>tracert www.conalep.edu.mx</code> y vean cómo el paquete va saltando de router en router hasta llegar a Toluca/CDMX."</em>
+          </div>
+          <div class="prompt-box">
+            <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Dame una guía rápida de 3 líneas explicando para qué sirven los comandos ipconfig /all, ping y tracert en Windows."</strong> ➔ <em>Pegar en Docs.</em>
+          </div>
           <article class="panel">
-            <div class="prompt-box">
-              <span class="badge-ia">🤖 Prompt para ChatGPT</span><br>
-              <strong>"Dame una guía rápida de 3 líneas explicando para qué sirven los comandos ipconfig /all, ping y tracert en Windows."</strong> ➔ <em>Pegar en Docs.</em>
-            </div>
             <div class="mini-title">Desarrollo · Misión Forense en CMD (Producto 5)</div>
             <table><tbody>
               <tr><td>1</td><td>Ejecutar <strong>`ipconfig /all`</strong>: Registrar IP local, Gateway (Router) y MAC física.</td></tr>
