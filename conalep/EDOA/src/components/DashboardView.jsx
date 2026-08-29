@@ -6,6 +6,8 @@ const DashboardView = ({ currentWeek, isTeacherMode, nextWeek, allOrderedWeeks }
   const currentIdx = allOrderedWeeks.indexOf(currentWeek);
 
   const isWeekLocked = (weekId) => {
+    const scheduleData = curriculumData.schedules[weekId] || {};
+    if (scheduleData.isHtml) return false;
     const weekIdx = allOrderedWeeks.indexOf(weekId);
     if (weekIdx <= currentIdx) return false;
     if (isTeacherMode) return false;
