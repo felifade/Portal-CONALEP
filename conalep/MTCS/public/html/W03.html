@@ -46,7 +46,7 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: clamp(14px, 2.5vh, 26px) clamp(18px, 3.5vw, 44px) 72px;
+      padding: clamp(14px, 2.2vh, 24px) clamp(18px, 3.2vw, 42px) 72px;
       display: none;
       background: var(--paper);
       overflow-y: auto;
@@ -57,31 +57,31 @@
     .slide.active { display: flex; }
     h1, h2, h3, h4, p { margin: 0; }
     h1 {
-      font-size: clamp(34px, 4.5vw, 64px);
+      font-size: clamp(32px, 4.2vw, 60px);
       line-height: 1.0;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.03em;
     }
     h2 {
-      font-size: clamp(22px, 3vw, 38px);
+      font-size: clamp(22px, 2.8vw, 36px);
       line-height: 1.1;
       color: var(--green2);
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     h3 {
-      font-size: clamp(17px, 1.7vw, 22px);
+      font-size: clamp(16px, 1.6vw, 22px);
       color: var(--green2);
       font-weight: 800;
     }
     p, li, td, th {
-      font-size: clamp(14px, 1.15vw, 17.5px);
+      font-size: clamp(13.5px, 1.1vw, 17px);
       line-height: 1.35;
     }
     .badge, .eyebrow {
       display: inline-block;
-      font-size: clamp(12.5px, 1vw, 14.5px);
+      font-size: clamp(12px, 0.95vw, 14px);
       font-weight: 900;
       color: var(--green);
       text-transform: uppercase;
@@ -104,13 +104,13 @@
     }
     .cover-left p {
       color: var(--muted);
-      font-size: clamp(17px, 1.6vw, 22px);
+      font-size: clamp(16px, 1.5vw, 21px);
       line-height: 1.35;
     }
     .teacher {
       color: var(--green) !important;
       font-weight: 900;
-      font-size: clamp(16px, 1.3vw, 20px);
+      font-size: clamp(15px, 1.25vw, 19px);
     }
     .class-code {
       display: flex;
@@ -132,7 +132,7 @@
       letter-spacing: 0.08em;
     }
     .class-code strong {
-      font-size: clamp(28px, 3.2vw, 40px);
+      font-size: clamp(26px, 3vw, 38px);
       color: var(--blue);
       letter-spacing: 0.08em;
     }
@@ -149,13 +149,13 @@
       box-shadow: var(--shadow);
     }
     .info-card h4 {
-      font-size: clamp(14.5px, 1.15vw, 17px);
+      font-size: clamp(14px, 1.1vw, 16.5px);
       color: var(--green2);
       font-weight: 900;
       margin-bottom: 3px;
     }
     .info-card p {
-      font-size: clamp(13px, 1.05vw, 15.5px);
+      font-size: clamp(12.5px, 1vw, 15px);
       color: var(--muted);
       line-height: 1.3;
     }
@@ -215,9 +215,9 @@
       border-radius: 8px;
       padding: 8px 12px;
     }
-    .ra-box strong { color: var(--green2); font-size: clamp(15px, 1.2vw, 18px); font-weight: 900; }
+    .ra-box strong { color: var(--green2); font-size: clamp(14.5px, 1.15vw, 17.5px); font-weight: 900; }
     .mini-title {
-      font-size: clamp(13px, 1.05vw, 15px);
+      font-size: clamp(12.5px, 1vw, 14.5px);
       font-weight: 900;
       color: var(--green2);
       text-transform: uppercase;
@@ -235,7 +235,7 @@
     }
     .panel.dictado .mini-title { color: var(--blue); }
     .panel.dictado p {
-      font-size: clamp(13.5px, 1.1vw, 16px);
+      font-size: clamp(13px, 1.05vw, 15.5px);
       line-height: 1.38;
       color: #1e3a8a;
       font-style: italic;
@@ -246,20 +246,27 @@
       border-left: 6px solid var(--purple);
       padding: 7px 12px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12.5px;
       color: #581c87;
     }
     .prompt-box strong { color: #3b0764; }
+    
+    /* TEACHER GUIDE BOX */
     .teacher-box {
       background: #fffbeb;
-      border: 2px dashed #f59e0b;
-      border-left: 6px solid #d97706;
-      padding: 8px 12px;
+      border: 2px solid #f59e0b;
+      border-left: 8px solid #d97706;
+      padding: 10px 14px;
       border-radius: 8px;
       font-size: 13px;
       color: #78350f;
+      line-height: 1.38;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.1);
     }
-    .teacher-box strong { color: #92400e; }
+    .teacher-box strong { color: #92400e; font-weight: 900; }
+    .teacher-box ol { margin: 4px 0 0 0; padding-left: 18px; }
+    .teacher-box li { margin-bottom: 3px; }
+    
     table {
       width: 100%;
       height: 100%;
@@ -277,11 +284,11 @@
     th {
       background: #e2ede7;
       color: var(--green2);
-      font-size: clamp(13px, 1.05vw, 15.5px);
+      font-size: clamp(12.5px, 1vw, 15px);
       font-weight: 900;
     }
     td {
-      font-size: clamp(13px, 1vw, 15px);
+      font-size: clamp(12.5px, 0.95vw, 14.5px);
       line-height: 1.3;
     }
     td:first-child { font-weight: 900; color: var(--green); text-align: center; }
@@ -300,14 +307,14 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: clamp(14px, 1.1vw, 16.5px);
+      font-size: clamp(13.5px, 1.05vw, 16px);
       box-shadow: var(--shadow);
     }
     .checklist-list div::before {
       content: "✓";
       color: var(--green);
       font-weight: 900;
-      font-size: clamp(17px, 1.3vw, 20px);
+      font-size: clamp(16px, 1.25vw, 19px);
       flex-shrink: 0;
     }
     .badge-ia {
@@ -343,20 +350,21 @@
       background: #fef3c7;
       color: #b45309;
       border: 1px solid #f59e0b;
-      padding: 1px 6px;
+      padding: 1px 7px;
       border-radius: 4px;
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     footer {
       position: absolute;
-      left: clamp(18px, 3.5vw, 44px);
-      right: clamp(18px, 3.5vw, 44px);
+      left: clamp(18px, 3.2vw, 42px);
+      right: clamp(18px, 3.2vw, 42px);
       bottom: 8px;
       padding-top: 4px;
       border-top: 2px solid var(--line);
-      font-size: clamp(12px, 0.95vw, 14px);
+      font-size: clamp(11.5px, 0.9vw, 13.5px);
       color: var(--muted);
       display: flex;
       justify-content: space-between;
@@ -433,22 +441,22 @@
         <div class="cover-left">
           <span class="badge">CONALEP · MTCS-20 · Grupo 501</span>
           <h1>Semana 03: Protocolos e Identidad</h1>
-          <p><strong>Laboratorio Activo y Forense:</strong> Guía de 3 Fases con investigación rápida en ChatGPT, misiones interactivas en PC y síntesis en libreta física.</p>
+          <p><strong>Laboratorio Forense (Cero Instalación):</strong> Guía paso a paso para el Docente con investigación rápida en ChatGPT, misiones interactivas en PC y síntesis en libreta.</p>
           <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
           <p class="teacher">Docente: Dr. Felipe López Salazar · RA 1.1 (15%)</p>
         </div>
         <div class="cover-right">
+          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
+            <h4>👨‍🏫 Guías Docente en Pantalla</h4>
+            <p>Cada diapositiva incluye el recuadro amarillo con los clics exactos que debes indicarle al grupo.</p>
+          </div>
           <div class="info-card" style="border-left: 6px solid var(--purple); background: var(--softpurple);">
             <h4>🤖 1. Marco Teórico con IA (5-10 min)</h4>
             <p>Prompts guiados para que ChatGPT genere la teoría y los alumnos la peguen estructurada en Docs.</p>
           </div>
           <div class="info-card" style="border-left: 6px solid var(--blue); background: var(--softblue);">
-            <h4>🔍 2. Misión Forense en PC (25 min)</h4>
-            <p>Comprobamos en vivo con <code>F12 DevTools</code>, <code>packetlosstest</code>, <code>macvendors</code> y <code>CMD</code>.</p>
-          </div>
-          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
-            <h4>📓 3. Síntesis en Libreta (10 min)</h4>
-            <p>Esquemas a mano, preguntas de asimilación crítica y conclusiones firmadas de puño y letra.</p>
+            <h4>🔍 2. Misiones en Vivo (neal.fun, CMD)</h4>
+            <p>Comprobamos en vivo con <code>F12</code>, <code>packetlosstest</code>, <code>macvendors</code> y <code>CMD</code>.</p>
           </div>
         </div>
       </div>
@@ -477,20 +485,20 @@
         </article>
       </div>
       <div class="card" style="background: var(--soft); padding: 10px 16px; border-left: 8px solid var(--green);">
-        <p style="color: var(--green2); font-size: clamp(14.5px, 1.15vw, 17px);">
+        <p style="color: var(--green2); font-size: clamp(14px, 1.1vw, 16.5px);">
           <strong>🎯 Regla Ética:</strong> La IA es nuestro asistente para recopilar información rápido; nuestra mente es la que analiza y audita los datos.
         </p>
       </div>
       <footer><span>Estructura de la Semana 03</span><strong>MTCS · Grupo 501</strong></footer>
     </section>
 
-    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO · DICTADO + PROMPT + DEVTOOLS) -->
+    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO · DICTADO + GUÍA DOCENTE + DEVTOOLS) -->
     <section class="slide">
       <span class="eyebrow">Sesión 01 · Hora 1</span>
       <h2>El Modelo OSI: Teoría con IA e Inspección DevTools</h2>
       <div class="hour-layout">
         <aside>
-          <div class="ra-box"><strong>RA 1.1 (15%)</strong><br><span style="font-size:13px; color:var(--muted);">Protocolos y capas de comunicación.</span></div>
+          <div class="ra-box"><strong>RA 1.1 (15%)</strong><br><span style="font-size:12.5px; color:var(--muted);">Protocolos y capas de comunicación.</span></div>
           <article class="panel dictado">
             <div class="mini-title">Inicio · dictado</div>
             <p>"En redes, un protocolo es un conjunto de reglas universales que permiten que dos o más computadoras se comuniquen sin importar su marca o sistema operativo. Para entender cómo viajan los datos desde que un usuario da clic hasta que la señal viaja por el cable, se utiliza el Modelo OSI de siete capas: Física, Enlace de Datos, Red, Transporte, Sesión, Presentación y Aplicación."</p>
@@ -498,8 +506,13 @@
         </aside>
         <section class="stack">
           <div class="teacher-box">
-            <span class="badge-teacher">💡 Guía Docente (Cómo guiar los clics)</span>
-            Diles a los alumnos: <em>"1) Abran una pestaña y entren a <code>neal.fun</code> (o <code>hackertyper.net</code>). 2) Presionen la tecla <strong>F12</strong> en su teclado. 3) Clic arriba en la pestaña <strong>Network</strong>. 4) Presionen <strong>F5</strong> para recargar. 5) Den clic al primer archivo que aparece arriba en la lista para ver los datos."</em>
+            <span class="badge-teacher">👨‍🏫 Guía Docente (Qué decirles y qué clics indicarles)</span>
+            <ol>
+              <li>Diles: <em>"Abran una pestaña y entren a <strong><code>neal.fun</code></strong> (sitio interactivo visual)"</em>.</li>
+              <li>Diles: <em>"Presionen la tecla <strong>F12</strong> (o clic derecho ➔ Inspeccionar)"</em>.</li>
+              <li>Diles: <em>"Clic en la pestaña <strong>Network</strong> (Red) y presionen <strong>F5</strong> para recargar"</em>.</li>
+              <li>Diles: <em>"Den clic en el primer archivo arriba (dice <code>neal.fun</code>) y busquen: HTTP (Capa 7), TLS (Capa 4), IP remota (Capa 3) y Bytes (Capa 1/2)"</em>.</li>
+            </ol>
           </div>
           <div class="prompt-box">
             <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame en una tabla clara las 7 capas del Modelo OSI, indicando el nombre, su función cotidiana y qué riesgo de ciberseguridad ocurre si falla."</strong> ➔ <em>Pegar en Docs.</em>
@@ -507,7 +520,7 @@
           <article class="panel">
             <div class="mini-title">Desarrollo · Misión Forense en PC (Producto 1)</div>
             <table><tbody>
-              <tr><td>1</td><td>Abrir documento: <strong>Semana 03 · Identidad y Protocolos</strong> en Google Docs.</td></tr>
+              <tr><td>1</td><td>Abrir documento: <strong>Semana 03 · Identidad y Protocolos</strong> en Google Docs con la tabla de IA.</td></tr>
               <tr><td>2</td><td>En <code>neal.fun</code> con <strong>`F12 Network`</strong> identificar: <strong>HTTP (Capa 7)</strong>, <strong>TLS (Capa 4)</strong>, <strong>IP remota (Capa 3)</strong> y <strong>Bytes (Capa 1/2)</strong>.</td></tr>
               <tr><td>3</td><td>Pegar la captura de tu <code>F12</code> en Docs señalando los 4 datos obtenidos.</td></tr>
               <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar la pirámide de 7 capas y responder: <em>¿Por qué cortar un cable es Capa 1 y robar contraseñas es Capa 7?</em></td></tr>
@@ -525,7 +538,7 @@
       <div class="full-grid-2">
         <article class="panel" style="border-left: 8px solid var(--blue); justify-content: center;">
           <div class="mini-title" style="color:var(--blue);">🔍 Dónde ver cada dato en la pantalla</div>
-          <ul style="font-size: 13.5px; padding-left: 18px;">
+          <ul style="font-size: 13px; padding-left: 18px;">
             <li style="margin: 4px 0;"><strong>1. Capa 7 (Aplicación):</strong> Busca arriba <code>Request URL: https://neal.fun/</code> y <code>Method: GET</code>.</li>
             <li style="margin: 4px 0;"><strong>2. Capa 4 (Transporte):</strong> Busca <code>Protocol: h2 (HTTP/2)</code> y puerto <code>:443 (TLS)</code>.</li>
             <li style="margin: 4px 0;"><strong>3. Capa 3 (Red):</strong> Busca <code>Remote Address: 104.21.x.x:443</code> (La IP del servidor).</li>
@@ -542,18 +555,18 @@
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">📸 <strong>Captura de tu PC:</strong> Los alumnos deben tomar captura completa de su pantalla mostrando su navegador con la pestaña Network abierta.</p>
+        <p style="font-size: 14px; color: var(--green2);">📸 <strong>Captura de tu PC:</strong> Los alumnos deben tomar captura completa de su pantalla mostrando su navegador con la pestaña Network abierta.</p>
       </div>
       <footer><span>Evidencia Digital</span><strong>Inspección de Tráfico en Vivo · Producto 1</strong></footer>
     </section>
 
-    <!-- SLIDE 5: SESIÓN 02 · HORA 2 (INICIO · DICTADO + PROMPT + TELEMETRÍA) -->
+    <!-- SLIDE 5: SESIÓN 02 · HORA 2 (INICIO · DICTADO + GUÍA DOCENTE + TELEMETRÍA) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 2</span>
       <h2>TCP vs UDP: Teoría con IA y Telemetría en Vivo</h2>
       <div class="hour-layout">
         <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Protocolos de transporte y entrega.</span></div>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:12.5px; color:var(--muted);">Protocolos de transporte y entrega.</span></div>
           <article class="panel dictado">
             <div class="mini-title">Inicio · dictado</div>
             <p>"Aunque el Modelo OSI es el estándar teórico, la realidad de internet funciona bajo el Modelo TCP/IP de cuatro capas: Acceso a la Red, Internet, Transporte y Aplicación. En la capa de transporte existen dos protocolos fundamentales: TCP, que garantiza que cada paquete llegue completo y sin errores, y UDP, que prioriza la velocidad inmediata sin detenerse a verificar."</p>
@@ -561,8 +574,13 @@
         </aside>
         <section class="stack">
           <div class="teacher-box">
-            <span class="badge-teacher">💡 Guía Docente (Cómo hacer la prueba de estrés)</span>
-            Indica a los alumnos: <em>"1) Entren a <code>packetlosstest.com</code> en su navegador. 2) En el menú 'Preset Simulation', seleccionen <strong>Fortnite</strong> o <strong>720p 60fps Stream</strong>. 3) Den clic en el botón verde <strong>Start Test</strong>. 4) Observen cómo vuelan los círculos de paquetes y se grafica la latencia en tiempo real."</em>
+            <span class="badge-teacher">👨‍🏫 Guía Docente (Cómo guiar la prueba de estrés)</span>
+            <ol>
+              <li>Diles: <em>"Entren a <strong><code>packetlosstest.com</code></strong> en su navegador"</em>.</li>
+              <li>Diles: <em>"En 'Preset Simulation', seleccionen <strong>Fortnite</strong> o <strong>720p 60fps Stream</strong>"</em>.</li>
+              <li>Diles: <em>"Den clic en <strong>Start Test</strong>. Explícales que los círculos que vuelan son paquetes UDP en tiempo real"</em>.</li>
+              <li>Diles: <em>"Tomen captura de su gráfica final y anoten su latencia y paquetes perdidos en Docs"</em>.</li>
+            </ol>
           </div>
           <div class="prompt-box">
             <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame la diferencia entre TCP y UDP con una analogía y crea una tabla clasificando 6 servicios (bancos, streaming, videollamadas, descargas, correo, juegos online)."</strong> ➔ <em>Pegar en Docs.</em>
@@ -588,7 +606,7 @@
         <article class="panel" style="border-left: 8px solid var(--green);">
           <div class="mini-title" style="color:var(--green);">📦 TCP (Transmission Control Protocol)</div>
           <p style="font-weight:900; margin-bottom:4px;">"Garantía 100% de Entrega (Conexión Bancaria)"</p>
-          <ul style="font-size:13.5px; padding-left:16px;">
+          <ul style="font-size:13px; padding-left:16px;">
             <li><strong>Mecanismo:</strong> Handshake de 3 vías (SYN, SYN-ACK, ACK).</li>
             <li><strong>Si se pierde un paquete:</strong> Se detiene y lo vuelve a enviar.</li>
             <li><strong>Uso:</strong> Transferencias de dinero, inicio de sesión, descargas de software y correo.</li>
@@ -597,7 +615,7 @@
         <article class="panel gold" style="border-left: 8px solid var(--gold);">
           <div class="mini-title" style="color:var(--gold);">⚡ UDP (User Datagram Protocol)</div>
           <p style="font-weight:900; margin-bottom:4px;">"Máxima Velocidad sin Espera (Tiempo Real)"</p>
-          <ul style="font-size:13.5px; padding-left:16px;">
+          <ul style="font-size:13px; padding-left:16px;">
             <li><strong>Mecanismo:</strong> Dispara los paquetes sin esperar confirmación.</li>
             <li><strong>Si se pierde un paquete:</strong> Se ignora para no congelar la pantalla.</li>
             <li><strong>Uso:</strong> Videollamadas de WhatsApp, streaming de video en vivo y juegos multijugador.</li>
@@ -605,18 +623,18 @@
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">🎮 <strong>En Libreta:</strong> Anota por qué el lag en los videojuegos no detiene el juego completo, sino que causa saltos de posición.</p>
+        <p style="font-size: 14px; color: var(--green2);">🎮 <strong>En Libreta:</strong> Anota por qué el lag en los videojuegos no detiene el juego completo, sino que causa saltos de posición.</p>
       </div>
       <footer><span>Capa de Transporte</span><strong>TCP vs UDP · Producto 2</strong></footer>
     </section>
 
-    <!-- SLIDE 7: SESIÓN 02 · HORA 3 (INICIO · DICTADO + PROMPT + MAC OUI) -->
+    <!-- SLIDE 7: SESIÓN 02 · HORA 3 (INICIO · DICTADO + GUÍA DOCENTE + MAC OUI) -->
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Hora 3</span>
       <h2>Dirección MAC: Teoría con IA y Rastreo de Fabricantes</h2>
       <div class="hour-layout">
         <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Identificadores físicos de Capa 2.</span></div>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:12.5px; color:var(--muted);">Identificadores físicos de Capa 2.</span></div>
           <article class="panel dictado">
             <div class="mini-title">Inicio · dictado</div>
             <p>"La dirección MAC es un identificador físico único de cuarenta y ocho bits grabado de fábrica en la tarjeta de red de cada dispositivo. A diferencia de otros datos, la dirección MAC funciona como la huella digital del hardware en la red local y se representa mediante seis pares de dígitos hexadecimales."</p>
@@ -624,8 +642,13 @@
         </aside>
         <section class="stack">
           <div class="teacher-box">
-            <span class="badge-teacher">💡 Guía Docente (Cómo buscar la MAC y el fabricante)</span>
-            Indica a los alumnos: <em>"1) Presionen la tecla <strong>Windows + R</strong>, escriban <code>cmd</code> y den Enter. 2) Escriban <code>getmac</code> y den Enter. Verán algo como <code>00-1A-2B-3C-4D-5E</code>. 3) Abran el navegador en <code>macvendors.com</code> y escriban los primeros 6 caracteres (ej. <code>00:1A:2B</code>). 4) La página les dirá la marca del chip."</em>
+            <span class="badge-teacher">👨‍🏫 Guía Docente (Cómo abrir la consola y buscar la MAC)</span>
+            <ol>
+              <li>Diles: <em>"Presionen la tecla <strong>Windows + R</strong>, escriban <code>cmd</code> y presionen Enter"</em>.</li>
+              <li>Diles: <em>"Escriban <code>getmac</code> y den Enter. Verán la Dirección Física con 12 dígitos"</em>.</li>
+              <li>Diles: <em>"Abran <strong><code>macvendors.com</code></strong> y escriban los primeros 6 caracteres (ej. <code>00:1A:2B</code>)"</em>.</li>
+              <li>Diles: <em>"Observen el logo de la empresa que fabricó la tarjeta de red de su PC escolar"</em>.</li>
+            </ol>
           </div>
           <div class="prompt-box">
             <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame qué es una dirección MAC, qué significa OUI y NIC en sus 48 bits, y en qué consiste el ataque de MAC Spoofing."</strong> ➔ <em>Pegar en Docs.</em>
@@ -651,34 +674,34 @@
       <div class="full-grid-2">
         <article class="panel" style="border-left: 8px solid var(--green); justify-content: space-around;">
           <div class="mini-title" style="color:var(--green);">🔍 Estructura de 48 Bits (12 Hexadecimales)</div>
-          <div style="background:#eff6ff; border:2px solid var(--blue); padding:10px; border-radius:8px; text-align:center; font-family:monospace; font-size:clamp(16px, 1.4vw, 22px); font-weight:900;">
+          <div style="background:#eff6ff; border:2px solid var(--blue); padding:10px; border-radius:8px; text-align:center; font-family:monospace; font-size:clamp(15px, 1.3vw, 20px); font-weight:900;">
             <span style="color:var(--blue);">00 : 1A : 2B</span> : <span style="color:var(--gold);">3C : 4D : 5E</span>
           </div>
-          <div style="display:flex; justify-content:space-between; font-size:13.5px;">
+          <div style="display:flex; justify-content:space-between; font-size:13px;">
             <span style="color:var(--blue); font-weight:bold;">◀ OUI (Fabricante) ▶<br>(Asignado por IEEE)</span>
             <span style="color:var(--gold); font-weight:bold;">◀ NIC (Dispositivo) ▶<br>(Número de serie del chip)</span>
           </div>
         </article>
-        <article class="panel" style="background:#fffdfa; border-left: 8px solid var(--gold); justify-content: center; gap: 8px;">
+        <article class="panel" style="background:#fffdfa; border-left: 8px solid var(--gold); justify-content: center; gap: 6px;">
           <div class="mini-title" style="color:var(--gold);">🕵️ Misión Detective con macvendors.com</div>
-          <p style="font-size:14px;">1. Extrae tu MAC con <code>getmac</code> en la consola negra.</p>
-          <p style="font-size:14px;">2. Escribe en el buscador web: <code>00:1A:2B</code>.</p>
-          <p style="font-size:14px;">3. La base de datos mundial te dirá si tu tarjeta fue hecha por <strong>Intel</strong>, <strong>Realtek</strong>, <strong>Apple</strong> o <strong>Broadcom</strong>.</p>
+          <p style="font-size:13px;">1. Extrae tu MAC con <code>getmac</code> en la consola negra.</p>
+          <p style="font-size:13px;">2. Escribe en el buscador web: <code>00:1A:2B</code>.</p>
+          <p style="font-size:13px;">3. La base de datos mundial te dirá si tu tarjeta fue hecha por <strong>Intel</strong>, <strong>Realtek</strong>, <strong>Apple</strong> o <strong>Broadcom</strong>.</p>
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">🛡️ <strong>Alerta Ciber:</strong> La MAC nunca cambia aunque te mudes de ciudad, a menos que el atacante use software de clonación (MAC Spoofing).</p>
+        <p style="font-size: 14px; color: var(--green2);">🛡️ <strong>Alerta Ciber:</strong> La MAC nunca cambia aunque te mudes de ciudad, a menos que el atacante use software de clonación (MAC Spoofing).</p>
       </div>
       <footer><span>Capa de Enlace de Datos</span><strong>Huella Digital de Hardware · Producto 3</strong></footer>
     </section>
 
-    <!-- SLIDE 9: SESIÓN 03 · HORA 4 (INICIO · DICTADO + PROMPT + IP GEOLOCALIZACIÓN) -->
+    <!-- SLIDE 9: SESIÓN 03 · HORA 4 (INICIO · DICTADO + GUÍA DOCENTE + IP GEOLOCALIZACIÓN) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 4</span>
       <h2>Dirección IP: Teoría con IA y Geolocalización Satelital</h2>
       <div class="hour-layout">
         <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Direccionamiento lógico de Capa 3.</span></div>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:12.5px; color:var(--muted);">Direccionamiento lógico de Capa 3.</span></div>
           <article class="panel dictado">
             <div class="mini-title">Inicio · dictado</div>
             <p>"Una dirección IP es una etiqueta lógica y modificable que identifica a un equipo dentro de una red para que los paquetes sepan a dónde ser enrutados. Existe la IP Privada, que identifica al dispositivo dentro de la casa o escuela, y la IP Pública, que es la dirección con la que el router navega hacia todo internet."</p>
@@ -686,8 +709,12 @@
         </aside>
         <section class="stack">
           <div class="teacher-box">
-            <span class="badge-teacher">💡 Guía Docente (Cómo ver la IP y el mapa satelital)</span>
-            Indica a los alumnos: <em>"1) En CMD escriban <code>ipconfig</code> y busquen su <strong>Dirección IPv4</strong> (ej. <code>192.168.1.X</code>). 2) Abran <code>iplocation.io</code> (o <code>whatismyipaddress.com</code>) para ver la IP pública del plantel y el mapa satelital. 3) Ingresen en el buscador de la página la IP de <code>google.com</code> o <code>wikipedia.org</code> para ver dónde está el servidor en el mundo."</em>
+            <span class="badge-teacher">👨‍🏫 Guía Docente (Cómo ver la IP y rastrear servidores)</span>
+            <ol>
+              <li>Diles: <em>"En CMD escriban <code>ipconfig</code> y busquen su <strong>Dirección IPv4 Privada</strong> (ej. <code>192.168.1.X</code>)"</em>.</li>
+              <li>Diles: <em>"Abran <strong><code>iplocation.io</code></strong> para ver la IP Pública del plantel y el mapa de Pachuca"</em>.</li>
+              <li>Diles: <em>"Escriban <code>wikipedia.org</code> en el buscador de la página para ver el satélite de su servidor internacional"</em>.</li>
+            </ol>
           </div>
           <div class="prompt-box">
             <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Explícame la diferencia entre IP Pública y Privada, qué hace el protocolo NAT en un router y por qué se crearon las direcciones IPv6."</strong> ➔ <em>Pegar en Docs.</em>
@@ -713,7 +740,7 @@
       <div class="full-grid-2">
         <article class="panel" style="border-left: 8px solid var(--blue); justify-content: center;">
           <div class="mini-title" style="color:var(--blue);">🏠 IP Privada (Tu Casa / Escuela)</div>
-          <ul style="font-size:13.5px; padding-left:16px;">
+          <ul style="font-size:13px; padding-left:16px;">
             <li><strong>Formato común:</strong> <code>192.168.1.50</code> o <code>10.0.0.15</code>.</li>
             <li><strong>Alcance:</strong> Solo funciona dentro del plantel.</li>
             <li><strong>Costo:</strong> Gratuita, asignada por el Router local.</li>
@@ -722,7 +749,7 @@
         </article>
         <article class="panel gold" style="border-left: 8px solid var(--gold); justify-content: center;">
           <div class="mini-title" style="color:var(--gold);">🌐 IP Pública (Visible en Internet)</div>
-          <ul style="font-size:13.5px; padding-left:16px;">
+          <ul style="font-size:13px; padding-left:16px;">
             <li><strong>Formato:</strong> <code>187.189.214.10</code> (Única en el mundo).</li>
             <li><strong>Alcance:</strong> Identifica al plantel ante todo internet.</li>
             <li><strong>Asignada por:</strong> Tu proveedor (Telmex, Totalplay, etc.).</li>
@@ -731,18 +758,18 @@
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">🌐 <strong>IPv4 vs IPv6:</strong> IPv4 solo tiene 4 mil millones de direcciones (agotadas). IPv6 tiene 340 sextillones para conectar cada dispositivo del planeta.</p>
+        <p style="font-size: 14px; color: var(--green2);">🌐 <strong>IPv4 vs IPv6:</strong> IPv4 solo tiene 4 mil millones de direcciones (agotadas). IPv6 tiene 340 sextillones para conectar cada dispositivo del planeta.</p>
       </div>
       <footer><span>Capa de Red</span><strong>Direccionamiento Lógico · Producto 4</strong></footer>
     </section>
 
-    <!-- SLIDE 11: SESIÓN 03 · HORA 5 (INICIO · DICTADO + PROMPT + CMD EN VIVO) -->
+    <!-- SLIDE 11: SESIÓN 03 · HORA 5 (INICIO · DICTADO + GUÍA DOCENTE + CMD EN VIVO) -->
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Hora 5</span>
       <h2>Laboratorio en Consola: Diagnóstico de Red en Vivo</h2>
       <div class="hour-layout">
         <aside>
-          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Herramientas de diagnóstico y auditoría.</span></div>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:12.5px; color:var(--muted);">Herramientas de diagnóstico y auditoría.</span></div>
           <article class="panel dictado">
             <div class="mini-title">Inicio · dictado</div>
             <p>"La consola de comandos es la herramienta fundamental del especialista en ciberseguridad para auditar la red sin intermediarios visuales. Comandos como ipconfig, ping y tracert permiten verificar la identidad propia del equipo, probar la conectividad con otros nodos y rastrear el camino exacto que siguen los datos a través de internet."</p>
@@ -750,8 +777,12 @@
         </aside>
         <section class="stack">
           <div class="teacher-box">
-            <span class="badge-teacher">💡 Guía Docente (Cómo correr los 3 comandos)</span>
-            Indica a los alumnos: <em>"1) En la consola negra CMD escriban <code>ipconfig /all</code> y den Enter. 2) Luego escriban <code>ping 8.8.8.8</code> para ver si responde Google. 3) Por último escriban <code>tracert www.conalep.edu.mx</code> y vean cómo el paquete va saltando de router en router hasta llegar a Toluca/CDMX."</em>
+            <span class="badge-teacher">👨‍🏫 Guía Docente (Cómo ejecutar los 3 comandos de auditoría)</span>
+            <ol>
+              <li>Diles: <em>"Escriban <code>ipconfig /all</code> y busquen su Gateway y DNS"</em>.</li>
+              <li>Diles: <em>"Escriban <code>ping -n 10 8.8.8.8</code> y verifiquen 0% de pérdida de paquetes con Google"</em>.</li>
+              <li>Diles: <em>"Escriban <code>tracert www.conalep.edu.mx</code> y cuenten cuántos saltos (routers) atraviesa la señal"</em>.</li>
+            </ol>
           </div>
           <div class="prompt-box">
             <span class="badge-ia">🤖 Prompt para ChatGPT</span> <strong>"Dame una guía rápida de 3 líneas explicando para qué sirven los comandos ipconfig /all, ping y tracert en Windows."</strong> ➔ <em>Pegar en Docs.</em>
@@ -778,28 +809,28 @@
       <div class="full-grid-3">
         <article class="panel" style="background:#111827; color:#10b981; font-family:monospace; justify-content:space-between;">
           <div style="color:#93c5fd; font-weight:bold;">1. ipconfig /all</div>
-          <p style="color:#f9fafb; font-size:12.5px;">> IPv4: 192.168.1.45</p>
-          <p style="color:#fbbf24; font-size:12.5px;">> MAC: 00-1A-2B-3C-4D-5E</p>
-          <p style="color:#60a5fa; font-size:12.5px;">> Gateway: 192.168.1.254</p>
+          <p style="color:#f9fafb; font-size:12px;">> IPv4: 192.168.1.45</p>
+          <p style="color:#fbbf24; font-size:12px;">> MAC: 00-1A-2B-3C-4D-5E</p>
+          <p style="color:#60a5fa; font-size:12px;">> Gateway: 192.168.1.254</p>
           <span style="color:#9ca3af; font-size:11px;">Identidad completa del equipo</span>
         </article>
         <article class="panel" style="background:#111827; color:#10b981; font-family:monospace; justify-content:space-between;">
           <div style="color:#93c5fd; font-weight:bold;">2. ping 8.8.8.8</div>
-          <p style="color:#f9fafb; font-size:12.5px;">> Reply from 8.8.8.8: time=18ms</p>
-          <p style="color:#f9fafb; font-size:12.5px;">> Reply from 8.8.8.8: time=19ms</p>
-          <p style="color:#10b981; font-size:12.5px;">> Packets: Lost = 0 (0% loss)</p>
+          <p style="color:#f9fafb; font-size:12px;">> Reply from 8.8.8.8: time=18ms</p>
+          <p style="color:#f9fafb; font-size:12px;">> Reply from 8.8.8.8: time=19ms</p>
+          <p style="color:#10b981; font-size:12px;">> Packets: Lost = 0 (0% loss)</p>
           <span style="color:#9ca3af; font-size:11px;">Diagnóstico de latencia y salud</span>
         </article>
         <article class="panel" style="background:#111827; color:#10b981; font-family:monospace; justify-content:space-between;">
           <div style="color:#93c5fd; font-weight:bold;">3. tracert conalep.edu.mx</div>
-          <p style="color:#f9fafb; font-size:12.5px;">> 1  1ms  192.168.1.254 (Módem)</p>
-          <p style="color:#f9fafb; font-size:12.5px;">> 2 12ms  187.189.1.1 (Nodo ISP)</p>
-          <p style="color:#fbbf24; font-size:12.5px;">> 7 24ms  Servidor Conalep</p>
+          <p style="color:#f9fafb; font-size:12px;">> 1  1ms  192.168.1.254 (Módem)</p>
+          <p style="color:#f9fafb; font-size:12px;">> 2 12ms  187.189.1.1 (Nodo ISP)</p>
+          <p style="color:#fbbf24; font-size:12px;">> 7 24ms  Servidor Conalep</p>
           <span style="color:#9ca3af; font-size:11px;">Rastreo de saltos por el país</span>
         </article>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
-        <p style="font-size: 14.5px; color: var(--green2);">💻 <strong>Seguridad:</strong> Ejecuta estos comandos en tu propia terminal de Windows para auditar el estado del laboratorio escolar.</p>
+        <p style="font-size: 14px; color: var(--green2);">💻 <strong>Seguridad:</strong> Ejecuta estos comandos en tu propia terminal de Windows para auditar el estado del laboratorio escolar.</p>
       </div>
       <footer><span>Consola de Comandos</span><strong>Diagnóstico Forense · Producto 5</strong></footer>
     </section>
@@ -811,13 +842,13 @@
       <div class="full-grid-2">
         <article class="panel" style="justify-content:center; gap:12px;">
           <div class="mini-title">Síntesis Formativa</div>
-          <p style="font-size:15px; line-height:1.45;">
+          <p style="font-size:14.5px; line-height:1.45;">
             "La diferencia fundamental entre una dirección MAC y una dirección IP es que la MAC es la identidad física e inmutable que me dio el fabricante del hardware, mientras que la IP es mi ubicación lógica temporal que me asigna la red para poder enrutar paquetes."
           </p>
         </article>
         <article class="panel gold" style="justify-content:center; gap:10px;">
           <div class="mini-title" style="color:var(--gold);">📓 Redacción Final en Libreta</div>
-          <p style="background:var(--soft); padding:12px; border-radius:8px; font-style:italic; font-size:14.5px; line-height:1.4;">
+          <p style="background:var(--soft); padding:12px; border-radius:8px; font-style:italic; font-size:14px; line-height:1.4;">
             "Comprobé en consola que mi equipo se identifica físicamente mediante su MAC y lógicamente mediante su IP privada, alcanzando el servidor central de CONALEP a través de saltos de red con una latencia óptima."
           </p>
           <div style="padding:8px; border:1px dashed var(--line); border-radius:6px; text-align:center; font-size:13px; color:var(--muted);">
@@ -840,7 +871,7 @@
         <div><strong>Misión 5 (Hora 5):</strong> Docs (Guía IA + ipconfig, ping, tracert e Índice) + <span class="badge-libreta">Libreta</span> Conclusión y firma.</div>
       </div>
       <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green); margin-top: 6px;">
-        <p style="font-size: 14.5px; color: var(--green2);"><strong>📤 Entrega:</strong> Sube tu documento a Google Classroom y muestra tu libreta física al docente para el sellado de bitácora.</p>
+        <p style="font-size: 14px; color: var(--green2);"><strong>📤 Entrega:</strong> Sube tu documento a Google Classroom y muestra tu libreta física al docente para el sellado de bitácora.</p>
       </div>
       <footer><span>Evaluación Continua</span><strong>Dr. Felipe López Salazar · CONALEP MTCS-20</strong></footer>
     </section>
