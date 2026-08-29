@@ -139,7 +139,7 @@ export const curriculumData = {
     "W00": { isHtml: true, url: "./html/W00.html" },
     "W01": { isHtml: true, url: "./html/W01.html" },
     "W02": { isHtml: true, url: "./html/W02.html" },
-    "W03": { days: [] },
+    "W03": { isHtml: true, url: "./html/W03.html" },
     "W04": { days: [] },
     "W05": { days: [] },
     "W06": { days: [] },
