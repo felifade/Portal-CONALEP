@@ -53,6 +53,7 @@
       box-sizing: border-box;
       flex-direction: column;
       gap: 10px;
+      scroll-padding-bottom: 92px;
     }
     .slide.active { display: flex; }
     h1, h2, h3, h4, p { margin: 0; }
@@ -188,12 +189,12 @@
     
     /* EDOA-STYLE HOUR LAYOUT */
     .hour-layout {
-      flex: 1;
+      flex: 0 0 auto;
       display: grid;
       grid-template-columns: 36% 1fr;
       gap: 16px;
-      align-items: stretch;
-      min-height: 0;
+      align-items: start;
+      min-height: auto;
     }
     @media (max-width: 950px) {
       .hour-layout { grid-template-columns: 1fr; }
@@ -207,7 +208,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      height: 100%;
+      height: auto;
     }
     .ra-box {
       background: var(--soft);
@@ -244,12 +245,13 @@
       background: var(--softpurple);
       border: 2px solid #d8b4fe;
       border-left: 6px solid var(--purple);
-      padding: 7px 12px;
+      padding: 10px 14px;
       border-radius: 8px;
-      font-size: 12.5px;
+      font-size: clamp(13.5px, 1.1vw, 16px);
       color: #581c87;
+      line-height: 1.38;
     }
-    .prompt-box strong { color: #3b0764; }
+    .prompt-box strong { color: #3b0764; display:block; margin-top:4px; }
     
     /* TEACHER GUIDE BOX */
     .teacher-box {
@@ -269,10 +271,10 @@
     
     table {
       width: 100%;
-      height: 100%;
+      height: auto;
       border-collapse: collapse;
       border-radius: 8px;
-      overflow: hidden;
+      overflow: visible;
       background: var(--white);
     }
     th, td {
@@ -358,10 +360,8 @@
       letter-spacing: 0.04em;
     }
     footer {
-      position: absolute;
-      left: clamp(18px, 3.2vw, 42px);
-      right: clamp(18px, 3.2vw, 42px);
-      bottom: 8px;
+      position: static;
+      margin-top: auto;
       padding-top: 4px;
       border-top: 2px solid var(--line);
       font-size: clamp(11.5px, 0.9vw, 13.5px);
@@ -428,6 +428,14 @@
       border-radius: 8px;
       padding: 4px 7px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .prompt-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+    .prompt-summary .prompt-box {
+      box-shadow: var(--shadow);
     }
     .count { font-weight: 900; min-width: 58px; text-align: center; font-size: 13px; color: var(--green2); }
   </style>
@@ -876,12 +884,44 @@
       <footer><span>Evaluación Continua</span><strong>Dr. Felipe López Salazar · CONALEP MTCS-20</strong></footer>
     </section>
 
+    <!-- SLIDE 15: PROMPTS CONSOLIDADOS PARA CHATGPT -->
+    <section class="slide">
+      <span class="eyebrow">Semana 03 · Prompts para IA</span>
+      <h2>Prompts que deben copiar en ChatGPT</h2>
+      <div class="prompt-summary">
+        <div class="prompt-box">
+          <span class="badge-ia">Hora 1 · Modelo OSI</span>
+          <strong>"Explícame en una tabla clara las 7 capas del Modelo OSI, indicando el nombre, su función cotidiana y qué riesgo de ciberseguridad ocurre si falla."</strong>
+        </div>
+        <div class="prompt-box">
+          <span class="badge-ia">Hora 2 · TCP vs UDP</span>
+          <strong>"Explícame la diferencia entre TCP y UDP con una analogía y crea una tabla clasificando 6 servicios (bancos, streaming, videollamadas, descargas, correo, juegos online)."</strong>
+        </div>
+        <div class="prompt-box">
+          <span class="badge-ia">Hora 3 · Dirección MAC</span>
+          <strong>"Explícame qué es una dirección MAC, qué significa OUI y NIC en sus 48 bits, y en qué consiste el ataque de MAC Spoofing."</strong>
+        </div>
+        <div class="prompt-box">
+          <span class="badge-ia">Hora 4 · IP pública y privada</span>
+          <strong>"Explícame la diferencia entre IP Pública y Privada, qué hace el protocolo NAT en un router y por qué se crearon las direcciones IPv6."</strong>
+        </div>
+        <div class="prompt-box">
+          <span class="badge-ia">Hora 5 · Comandos CMD</span>
+          <strong>"Dame una guía rápida de 3 líneas explicando para qué sirven los comandos ipconfig /all, ping y tracert en Windows."</strong>
+        </div>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green); margin-top: 8px;">
+        <p style="font-size: 14px; color: var(--green2);"><strong>Indicación docente:</strong> Estos prompts sirven para iniciar la teoría. Después deben comprobar en la computadora, tomar captura y cerrar con libreta.</p>
+      </div>
+      <footer><span>Prompts visibles</span><strong>Fase 1 · Teoría con IA para Docs</strong></footer>
+    </section>
+
   </main>
 
   <!-- NAVEGACIÓN INFERIOR DERECHA -->
   <nav class="nav" aria-label="Navegación">
     <button id="prev" title="Anterior">‹</button>
-    <span class="count" id="count">1/14</span>
+    <span class="count" id="count">1/15</span>
     <button id="next" title="Siguiente">›</button>
     <button id="full" title="Pantalla completa">⛶</button>
   </nav>
