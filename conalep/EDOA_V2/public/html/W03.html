@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Σ EDOA · Semana 03</title>
+  <style>
+    :root {
+      --ink:#10211f; --muted:#53615d; --paper:#f6faf8; --line:#d6e3dd;
+      --green:#0f766e; --green2:#0b5f58; --blue:#2563eb; --gold:#b56b00;
+      --soft:#e8f5f0; --softblue:#eaf2ff; --softgold:#fff4dc; --white:#fff;
+      --grid:#d7eadf; --sheet:#188038;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:100%; height:100%; background:#dfe9e5; color:var(--ink); font-family:Arial, Helvetica, sans-serif; overflow:hidden; }
+    .deck { width:100vw; height:100vh; position:relative; }
+    .slide { width:100vw; height:100vh; padding:4.3vh 5vw 6.5vh; display:none; background:var(--paper); overflow:hidden; }
+    .slide.active { display:block; }
+    h1,h2,h3,h4,p { margin:0; }
+    h1 { font-size:clamp(48px,6vw,84px); line-height:.96; max-width:1130px; color:var(--green2); letter-spacing:0; }
+    h2 { font-size:clamp(31px,3.9vw,54px); line-height:1.04; margin-bottom:14px; max-width:1180px; color:var(--green2); letter-spacing:0; }
+    h3 { font-size:clamp(20px,1.8vw,28px); margin-bottom:8px; color:var(--green2); }
+    h4 { font-size:18px; color:var(--green2); margin-top:12px; }
+    p, li, td, th { font-size:clamp(17px,1.28vw,21px); line-height:1.31; }
+    li { margin-bottom:6px; }
+    ol,ul { margin:8px 0 0; padding-left:23px; }
+    .badge,.eyebrow { display:inline-block; font-size:clamp(14px,1.08vw,18px); font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; }
+    .cover { min-height:83vh; display:flex; flex-direction:column; justify-content:center; gap:20px; }
+    .cover p { max-width:980px; color:var(--muted); font-size:clamp(22px,2.1vw,31px); }
+    .teacher { margin-top:8px; color:var(--green) !important; font-weight:900; }
+    .class-code { display:flex; align-items:center; gap:20px; width:max-content; max-width:100%; padding:15px 20px; border:2px solid var(--line); background:var(--white); border-radius:8px; }
+    .class-code span { color:var(--muted); font-weight:900; font-size:clamp(16px,1.2vw,20px); }
+    .class-code strong { font-size:clamp(32px,3.8vw,48px); color:var(--blue); letter-spacing:.06em; }
+    .wide-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+    .two-grid { display:grid; grid-template-columns:42% 1fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
+    .example-grid { display:grid; grid-template-columns:34% 1fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
+    .panel,.mock { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:18px; min-width:0; overflow:hidden; }
+    .panel.dictado { background:var(--softblue); border-color:#cfe0fb; }
+    .panel.obj { background:var(--soft); }
+    .panel.gold { background:var(--softgold); border-color:#ecd59e; }
+    .mini-title { font-size:clamp(13px,1vw,17px); font-weight:900; color:var(--green2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+    .ra-box { background:#ffffffb8; border:2px solid var(--line); border-radius:8px; padding:12px; margin-bottom:12px; }
+    .ra-box strong { color:var(--green2); }
+    .format-spec { background:#f8fafc; border-left:5px solid var(--green); padding:10px; border-radius:6px; margin-top:12px; font-size:clamp(15px,1.04vw,18px); line-height:1.28; }
+    .close-box { margin-top:18px; padding:14px; border-radius:8px; background:#fff; border:2px solid #ecd59e; }
+    .close-box p { margin-top:6px; }
+    .example-title { color:var(--blue); font-weight:900; margin-bottom:10px; font-size:clamp(16px,1.2vw,20px); }
+    .doc-page,.sheet { background:white; border:1px solid #d8dee4; border-radius:8px; padding:18px; box-shadow:0 8px 24px #0001; color:#1f2937; height:100%; overflow:hidden; }
+    .doc-toolbar,.sheet-bar { padding:8px 10px; border-radius:6px; margin-bottom:14px; font-size:15px; font-weight:900; }
+    .doc-toolbar { background:#eff6ff; color:#1d4ed8; }
+    .sheet-bar { background:#e6f4ea; color:var(--sheet); }
+    .subline { color:#64748b; font-size:15px; margin-bottom:12px; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip { border-radius:999px; padding:8px 12px; color:#0f172a; font-weight:900; font-size:16px; }
+    .chip.amber { background:#fde68a; } .chip.blue { background:#bfdbfe; } .chip.green { background:#bbf7d0; }
+    .checklist { display:grid; grid-template-columns:1fr 38px; gap:7px; margin-top:10px; }
+    .checklist span,.checklist b { border-bottom:1px solid #e5e7eb; padding:7px; font-size:18px; }
+    .checklist b { color:#0f766e; border:2px solid #0f766e; border-radius:6px; display:flex; align-items:center; justify-content:center; min-height:34px; }
+    .qr-wrap { display:flex; align-items:center; gap:22px; margin-top:28px; }
+    .qr { width:150px; height:150px; background:
+      linear-gradient(90deg,#111 10px,transparent 10px) 0 0/30px 30px,
+      linear-gradient(#111 10px,transparent 10px) 0 0/30px 30px,
+      #fff; border:10px solid #111; }
+    .flow { display:flex; align-items:center; justify-content:center; gap:9px; margin:44px 0; flex-wrap:wrap; }
+    .flow span { background:#e0f2fe; border:2px solid #38bdf8; border-radius:8px; padding:14px 18px; color:#075985; font-weight:900; }
+    .flow i { color:#64748b; font-size:24px; font-style:normal; }
+    .signature { width:360px; margin:36px auto 0; text-align:center; }
+    .scribble { font-family:cursive; font-size:34px; color:#0f766e; transform:rotate(-4deg); }
+    .line { border-bottom:2px solid #334155; margin:2px 0 8px; }
+    .cv-page { display:grid; grid-template-columns:30% 1fr; gap:18px; }
+    .cv-page aside { background:#ecfdf5; border-radius:8px; padding:18px; text-align:center; }
+    .avatar { width:90px; height:90px; border-radius:50%; background:linear-gradient(135deg,#0f766e,#93c5fd); margin:0 auto 14px; }
+    table { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; background:var(--white); }
+    th,td { border:1px solid var(--grid); padding:8px 9px; text-align:left; vertical-align:top; }
+    th { background:#dff3e5; color:#14532d; font-size:clamp(14px,1.05vw,18px); }
+    td { font-size:clamp(13px,1vw,17px); line-height:1.2; }
+    .sheet table { margin-top:10px; }
+    .caption { text-align:center; color:var(--muted); font-size:15px; margin-top:14px; }
+    .input-cell { background:#fef3c7; border:2px solid #f59e0b; border-radius:8px; padding:12px; margin-bottom:12px; width:max-content; font-size:20px; }
+    .cards-mini { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px; }
+    .cards-mini span { background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:16px; font-weight:900; font-size:18px; }
+    .kahoot { margin-top:24px; background:#4f46e5; color:white; border-radius:8px; padding:22px; text-align:center; font-size:26px; font-weight:900; }
+    footer { position:absolute; left:5vw; right:5vw; bottom:1.5vh; padding-top:8px; border-top:2px solid var(--line); font-size:clamp(15px,1.22vw,19px); color:var(--muted); }
+    footer strong { color:var(--green); }
+    .timer { position:fixed; right:18px; top:18px; z-index:20; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:9px; display:flex; gap:8px; align-items:center; box-shadow:0 8px 26px #0002; cursor:move; user-select:none; }
+    .timer.min { width:48px; height:48px; padding:0; justify-content:center; overflow:hidden; cursor:move; }
+    .timer.min::before { content:"⏱"; font-size:25px; line-height:1; }
+    .timer.min .time,.timer.min button { display:none; }
+    .timer button,.nav button { border:0; background:var(--green); color:white; border-radius:6px; padding:8px 10px; font-weight:900; cursor:pointer; }
+    .timer .time { font-size:22px; font-weight:900; min-width:72px; text-align:center; color:var(--ink); }
+    .nav { position:fixed; right:18px; bottom:18px; z-index:20; display:flex; align-items:center; gap:8px; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:10px; }
+    .count { font-weight:900; min-width:76px; text-align:center; }
+    @media (max-width: 900px) {
+      .slide { overflow:auto; }
+      .two-grid,.example-grid,.wide-grid,.cv-page { grid-template-columns:1fr; height:auto; }
+      footer { position:static; margin-top:18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active">
+      <div class="cover">
+        <span class="badge">Σ EDOA · Semana 03</span>
+        <h1>Automatización en Docs e introducción a Sheets</h1>
+        <p>Secuencia de clase para cerrar documentos profesionales e iniciar hojas de cálculo con evidencias visibles por hora.</p>
+        <div class="class-code"><span>Código Classroom</span><strong>mawiuwaj</strong></div>
+        <p class="teacher">Dr. Felipe Lopez Salazar</p>
+      </div>
+      <footer><strong>Producto:</strong> entrega integrada con documento avanzado, plantilla y hoja de cálculo funcional.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Ruta de trabajo</span>
+      <h2>Actividades de la Semana 03</h2>
+      <div class="wide-grid">
+        <article class="panel obj">
+          <div class="mini-title">Cierre de Google Docs</div>
+          <ul>
+            <li>Fichas inteligentes con @.</li>
+            <li>Menú desplegable, fecha y enlace.</li>
+            <li>Lista de verificación y código QR.</li>
+            <li>Diagrama, firma digital y plantilla profesional.</li>
+          </ul>
+        </article>
+        <article class="panel gold">
+          <div class="mini-title">Entrada a Google Sheets</div>
+          <ul>
+            <li>Filas, columnas y celdas.</li>
+            <li>Inventario personal con formato.</li>
+            <li>Operaciones básicas y autocompletar.</li>
+            <li>Referencia absoluta y creador de tablas.</li>
+          </ul>
+        </article>
+      </div>
+      <footer><strong>Regla:</strong> cada hora produce una evidencia visible y verificable.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 1</span>
+      <h2>Documento interactivo con fichas inteligentes</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Integra herramientas digitales para organizar y presentar información.</strong><br>Transformar un documento de texto en una evidencia interactiva usando fichas inteligentes.</div>
+          <p>Un documento digital profesional no solo contiene texto. También puede incluir elementos interactivos que ayudan a organizar información, dar seguimiento a tareas y comunicar el estado de un proceso.</p>
+<p>En Google Docs, las fichas inteligentes permiten insertar fechas, archivos, personas, menús desplegables y otros elementos usando el símbolo arroba.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear un documento llamado Semana 03 - Gestión de documentos.</li>
+<li>Escribir título, subtítulo, nombre completo, grupo, módulo y fecha.</li>
+<li>Agregar un párrafo breve sobre la importancia de organizar documentos.</li>
+<li>Insertar un menú desplegable llamado Estado de revisión: Pendiente, En proceso y Terminado.</li>
+<li>Insertar una ficha de fecha para registrar la entrega.</li>
+<li>Agregar un enlace o ficha hacia Classroom, Drive o un archivo relacionado con la materia.</li>
+<li>Revisar que el documento tenga presentación limpia antes de continuar.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> El menú debe funcionar y tener colores claros. No se acepta como texto escrito manualmente.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Documento de Google Docs con fichas inteligentes funcionando.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 1 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué diferencia hay entre escribir una fecha normal e insertar una ficha de fecha?</li>
+<li>¿Para qué puede servir un menú desplegable dentro de un documento escolar?</li>
+<li>¿Qué ventaja tiene vincular archivos o recursos desde el propio documento?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Documento de Google Docs con fichas inteligentes funcionando.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="doc-page">
+  <div class="doc-toolbar">Docs · Semana 03 - Gestión de documentos</div>
+  <h3>Gestión de documentos digitales</h3>
+  <p class="subline">Alumno: __________________ · Grupo 301 · EDOA · Fecha: 31/08/2026</p>
+  <p>Organizar un documento permite revisar tareas, entregar evidencias y comunicar avances con claridad.</p>
+  <div class="chips">
+    <span class="chip amber">Estado: En proceso</span>
+    <span class="chip blue">Fecha: 04/09/2026</span>
+    <span class="chip green">Classroom</span>
+  </div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 2</span>
+      <h2>Lista de verificación y código QR</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Usa recursos digitales para controlar requisitos y compartir información.</strong><br>Crear una sección de control con casillas de verificación y un QR funcional.</div>
+          <p>Una lista de verificación permite controlar pasos, requisitos o pendientes dentro de un documento.</p>
+<p>Cuando se combina con enlaces, códigos QR o recursos digitales, el documento se convierte en una guía de trabajo que puede consultarse y comprobarse fácilmente.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Agregar el apartado Lista de verificación de entrega.</li>
+<li>Insertar al menos 8 casillas de verificación con requisitos reales del documento.</li>
+<li>Cuidar que cada requisito sea breve, claro y verificable.</li>
+<li>Generar o insertar un código QR hacia un recurso útil de clase.</li>
+<li>Centrar el QR y escribir debajo una frase breve de uso.</li>
+<li>Probar el QR desde un celular o con apoyo del docente.</li>
+<li>Corregir enlace o permiso si el QR no abre.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> El QR debe abrir un recurso real. Si el enlace pide acceso o falla, el producto no está completo.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Lista de verificación con casillas y QR funcional.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 2 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Por qué una lista de verificación ayuda a entregar trabajos completos?</li>
+<li>¿Qué cuidado debemos tener antes de compartir un enlace o QR?</li>
+<li>¿Qué recurso escolar sería útil convertir en código QR?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Lista de verificación con casillas y QR funcional.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="doc-page">
+  <div class="doc-toolbar">Lista de verificación</div>
+  <div class="checklist">
+    <span>Portada completa</span><b>✓</b>
+    <span>Título y subtítulo aplicados</span><b>✓</b>
+    <span>Imagen centrada</span><b></b>
+    <span>Permisos correctos</span><b></b>
+  </div>
+  <div class="qr-wrap">
+    <div class="qr"></div>
+    <p>Escanea para abrir el recurso de trabajo</p>
+  </div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 3</span>
+      <h2>Diagrama de proceso y firma digital</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Representa procesos mediante elementos visuales dentro del documento.</strong><br>Insertar un diagrama y una firma digital para reforzar la presentación formal.</div>
+          <p>El lienzo de dibujo de Google Docs permite crear elementos visuales dentro del documento sin abrir otro programa.</p>
+<p>Con esta herramienta se pueden hacer firmas, diagramas sencillos, flechas, cuadros de proceso y organizadores visuales que ayudan a explicar una idea.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Agregar el apartado Proceso de entrega digital.</li>
+<li>Insertar un dibujo nuevo desde Google Docs.</li>
+<li>Crear un diagrama con cinco pasos: crear, dar formato, revisar, compartir y entregar.</li>
+<li>Usar formas, flechas, color y texto legible.</li>
+<li>Insertar el dibujo dentro del documento.</li>
+<li>Crear una firma digital con línea a mano alzada o formato formal.</li>
+<li>Colocar la firma al final del documento con nombre y grupo.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> El diagrama debe explicar el proceso. No debe ser una decoración sin sentido.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Documento con diagrama de proceso y firma digital.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 3 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué ventaja tiene explicar un proceso con un diagrama?</li>
+<li>¿Qué elementos hacen que una firma digital se vea formal?</li>
+<li>¿Dónde conviene colocar la firma en un documento escolar o laboral?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Documento con diagrama de proceso y firma digital.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="doc-page">
+  <div class="doc-toolbar">Proceso de entrega digital</div>
+  <div class="flow">
+    <span>Crear</span><i>→</i><span>Formato</span><i>→</i><span>Revisar</span><i>→</i><span>Compartir</span><i>→</i><span>Entregar</span>
+  </div>
+  <div class="signature">
+    <div class="scribble">Felipe Lopez</div>
+    <div class="line"></div>
+    <p>Nombre, grupo y firma digital</p>
+  </div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 4</span>
+      <h2>Plantilla profesional adaptada</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Adapta plantillas digitales con información propia y formato profesional.</strong><br>Usar una plantilla de Docs como base de un currículum o documento formal escolar.</div>
+          <p>Una plantilla es un documento prediseñado que sirve como base para crear trabajos con presentación profesional.</p>
+<p>Usar una plantilla no significa copiar sin pensar; significa aprovechar una estructura y adaptarla con información propia, ordenada y revisada.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Abrir la galería de plantillas de Google Docs.</li>
+<li>Elegir una plantilla de currículum, reporte o carta formal.</li>
+<li>Adaptarla con nombre completo, grupo, perfil breve y habilidades digitales.</li>
+<li>Agregar herramientas de Google que sabe utilizar.</li>
+<li>Insertar evidencia o actividad realizada durante el módulo.</li>
+<li>Agregar firma digital y un menú desplegable de nivel de dominio.</li>
+<li>Entregar el enlace de la plantilla adaptada en Classroom.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> La plantilla debe adaptarse con información propia. No se acepta como formato vacío o texto sin revisar.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Plantilla profesional adaptada y entregada en Classroom.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Lunes · Hora 4 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué parte de una plantilla sí se puede modificar?</li>
+<li>¿Por qué no basta con llenar una plantilla sin revisar el contenido?</li>
+<li>¿Qué habilidad digital podrías demostrar con este documento?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Plantilla profesional adaptada y entregada en Classroom.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="doc-page cv-page">
+  <aside>
+    <div class="avatar"></div>
+    <strong>Alumno CONALEP</strong>
+    <p>Grupo 301</p>
+  </aside>
+  <main>
+    <h3>Perfil escolar digital</h3>
+    <p>Estudiante con manejo de Drive, Docs, formato, índice automático y evidencias en Classroom.</p>
+    <h4>Habilidades</h4>
+    <ul><li>Documentos formales</li><li>Tablas e imágenes</li><li>Entrega por enlace</li></ul>
+    <span class="chip green">Dominio: Intermedio</span>
+  </main>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Miércoles · Hora 5</span>
+      <h2>Primer contacto con Google Sheets</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Organiza información en filas, columnas y celdas.</strong><br>Crear una hoja de cálculo con datos organizados y formato visual básico.</div>
+          <p>Una hoja de cálculo es una herramienta que organiza información en filas y columnas.</p>
+<p>Las columnas se identifican con letras, las filas con números y la intersección entre una columna y una fila se llama celda. A diferencia de un documento de texto, una hoja de cálculo permite ordenar, comparar, calcular y presentar datos.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear una hoja llamada Semana 03 - Inventario personal.</li>
+<li>Elegir un tema: videojuegos, películas, canciones, libros, apps, gastos escolares o materiales.</li>
+<li>Crear 6 columnas: nombre, categoría, año o fecha, plataforma o tipo, calificación o cantidad y observación.</li>
+<li>Capturar mínimo 10 registros reales o coherentes.</li>
+<li>Aplicar color de relleno a encabezados.</li>
+<li>Usar negrita, bordes, ajuste de ancho y alineación.</li>
+<li>Congelar la fila 1 y verificar que ningún dato quede cortado.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> La tabla debe poder leerse en pantalla sin que el docente pregunte qué significa cada columna.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Hoja de cálculo con inventario personal y formato profesional.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Miércoles · Hora 5 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué diferencia hay entre una fila, una columna y una celda?</li>
+<li>¿Por qué los encabezados deben destacar visualmente?</li>
+<li>¿Qué información personal o escolar conviene organizar en una hoja de cálculo?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Hoja de cálculo con inventario personal y formato profesional.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="sheet">
+  <div class="sheet-bar">Sheets · Semana 03 - Inventario personal</div>
+  <table>
+    <tr><th>Nombre</th><th>Categoría</th><th>Año</th><th>Plataforma</th><th>Calificación</th><th>Observación</th></tr>
+    <tr><td>Rocket League</td><td>Videojuego</td><td>2015</td><td>PC</td><td>9</td><td>Trabajo en equipo</td></tr>
+    <tr><td>Interestelar</td><td>Película</td><td>2014</td><td>Streaming</td><td>10</td><td>Ciencia ficción</td></tr>
+    <tr><td>Calculadora</td><td>App</td><td>2026</td><td>Celular</td><td>8</td><td>Uso escolar</td></tr>
+  </table>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Jueves · Hora 6</span>
+      <h2>Operaciones básicas y autocompletar</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Aplica fórmulas básicas para calcular información.</strong><br>Construir una tabla con fórmulas de subtotal, descuento y total.</div>
+          <p>En una hoja de cálculo, una fórmula siempre inicia con el signo igual.</p>
+<p>Si no se escribe el signo igual, el programa interpreta la información como texto común. Las fórmulas permiten sumar, restar, multiplicar y dividir datos usando referencias de celda.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear una pestaña llamada Operaciones.</li>
+<li>Construir una tabla con 20 filas.</li>
+<li>Usar las columnas producto, cantidad, precio unitario, subtotal, descuento y total.</li>
+<li>Calcular subtotal multiplicando cantidad por precio unitario.</li>
+<li>Calcular descuento con el porcentaje indicado por el docente.</li>
+<li>Calcular total restando el descuento al subtotal.</li>
+<li>Usar autocompletar para copiar fórmulas y aplicar formato de moneda.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> Si se cambia la cantidad o el precio, los resultados deben actualizarse automáticamente.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Pestaña de operaciones con 20 filas calculadas.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Jueves · Hora 6 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Por qué las fórmulas deben iniciar con el signo igual?</li>
+<li>¿Qué ventaja tiene usar referencias de celda en lugar de escribir números directamente?</li>
+<li>¿Para qué sirve autocompletar en una hoja de cálculo?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Pestaña de operaciones con 20 filas calculadas.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="sheet">
+  <div class="sheet-bar">Pestaña: Operaciones</div>
+  <table>
+    <tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th><th>Descuento</th><th>Total</th></tr>
+    <tr><td>Libreta</td><td>2</td><td>$45</td><td>=B2*C2</td><td>=D2*10%</td><td>=D2-E2</td></tr>
+    <tr><td>Lapiceros</td><td>3</td><td>$12</td><td>=B3*C3</td><td>=D3*10%</td><td>=D3-E3</td></tr>
+    <tr><td>Regla</td><td>1</td><td>$18</td><td>=B4*C4</td><td>=D4*10%</td><td>=D4-E4</td></tr>
+  </table>
+  <p class="caption">El cuadrito azul permite autocompletar fórmulas hacia abajo.</p>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Jueves · Hora 7</span>
+      <h2>Referencia absoluta y creador de tablas</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Usa referencias absolutas para mantener datos fijos en fórmulas.</strong><br>Diseñar una herramienta que cambie resultados al modificar una celda principal.</div>
+          <p>Una referencia absoluta sirve para fijar una celda dentro de una fórmula. Se representa con el símbolo de dólar, por ejemplo $A$1.</p>
+<p>Cuando una celda se fija, la fórmula puede copiarse hacia abajo o hacia los lados sin perder el dato principal.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear una pestaña llamada Creador de tablas.</li>
+<li>Elegir una celda principal para escribir el número base.</li>
+<li>Crear una columna con números del 1 al 20.</li>
+<li>Crear la fórmula que multiplique cada número por la celda principal.</li>
+<li>Usar referencia absoluta para fijar la celda principal.</li>
+<li>Cambiar el número base y comprobar que toda la tabla se actualiza.</li>
+<li>Agregar instrucciones breves, color para entrada de datos y color para resultados.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> La hoja debe funcionar como herramienta: al cambiar un solo dato, cambia toda la tabla.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Creador de tablas con referencia absoluta funcionando.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Jueves · Hora 7 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué problema resuelve una referencia absoluta?</li>
+<li>¿Qué pasa si copiamos una fórmula sin fijar la celda principal?</li>
+<li>¿En qué casos reales se podría usar una celda fija?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Creador de tablas con referencia absoluta funcionando.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="sheet absolute">
+  <div class="sheet-bar">Pestaña: Creador de tablas</div>
+  <div class="input-cell">Número base: <strong>7</strong></div>
+  <table>
+    <tr><th>Número</th><th>Fórmula</th><th>Resultado</th></tr>
+    <tr><td>1</td><td>=A5*$B$2</td><td>7</td></tr>
+    <tr><td>2</td><td>=A6*$B$2</td><td>14</td></tr>
+    <tr><td>3</td><td>=A7*$B$2</td><td>21</td></tr>
+    <tr><td>20</td><td>=A24*$B$2</td><td>140</td></tr>
+  </table>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 04 · Viernes · Hora 8</span>
+      <h2>Verificación, entrega y Kahoot</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.3 · Verifica entregables digitales y evidencia aprendizaje.</strong><br>Revisar archivos, permisos y participación en una evaluación rápida de cierre.</div>
+          <p>Antes de entregar un archivo digital es necesario verificar que el contenido esté completo, que el formato sea legible y que los permisos permitan la revisión del docente.</p>
+<p>Un trabajo bien hecho puede perder valor si el enlace está bloqueado o si el archivo no tiene nombre claro.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Verificar documento de Docs con herramientas avanzadas.</li>
+<li>Confirmar plantilla o currículum adaptado.</li>
+<li>Revisar hoja de inventario personal.</li>
+<li>Revisar pestaña de operaciones con fórmulas.</li>
+<li>Revisar creador de tablas con referencia absoluta.</li>
+<li>Configurar enlaces como lector.</li>
+<li>Entregar en Classroom y responder el Kahoot o mini examen.</li></ol>
+          <div class="format-spec"><strong>Reto:</strong> La entrega debe abrir sin pedir acceso y mostrar evidencia de Docs y Sheets.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Entrega completa de Semana 03 y participación en evaluación de cierre.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 04 · Viernes · Hora 8 · ejemplo y cierre</span>
+      <h2>Referencia visual del producto</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Cierre en libreta</div>
+          <ol><li>¿Qué herramienta de Docs te pareció más útil y por qué?</li>
+<li>¿Qué diferencia encontraste entre trabajar en Docs y trabajar en Sheets?</li>
+<li>¿Qué error debes evitar al compartir archivos por Classroom?</li></ol>
+          <div class="close-box">
+            <strong>Producto al finalizar</strong>
+            <p>Entrega completa de Semana 03 y participación en evaluación de cierre.</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Así debe ir quedando</div>
+          <div class="doc-page">
+  <div class="doc-toolbar">Entrega Semana 03</div>
+  <div class="cards-mini">
+    <span>Docs avanzado ✓</span>
+    <span>Plantilla adaptada ✓</span>
+    <span>Inventario Sheets ✓</span>
+    <span>Operaciones ✓</span>
+    <span>Referencia absoluta ✓</span>
+    <span>Enlaces como lector ✓</span>
+  </div>
+  <div class="kahoot">Kahoot: celdas, fórmulas, @, QR y $A$1</div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Verificación:</strong> el producto debe verse, funcionar y poder abrirse desde Classroom.</footer>
+    </section>
+
+  </main>
+
+  <div class="timer min" id="timer" title="Arrastra para mover. Clic para ampliar.">
+    <span class="time" id="time">10:00</span>
+    <button onclick="event.stopPropagation(); toggleRun()">▶</button>
+    <button onclick="event.stopPropagation(); resetTimer(600)">10</button>
+    <button onclick="event.stopPropagation(); resetTimer(1200)">20</button>
+    <button onclick="event.stopPropagation(); resetTimer(0)">↺</button>
+  </div>
+  <div class="nav">
+    <button onclick="prev()">←</button>
+    <span class="count" id="count">1 / 1</span>
+    <button onclick="next()">→</button>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    let current=0, seconds=600, running=false, interval=null;
+    const timer=document.getElementById('timer');
+    let drag=false, moved=false, dx=0, dy=0;
+    function show(i){ current=(i+slides.length)%slides.length; slides.forEach((s,n)=>s.classList.toggle('active',n===current)); document.getElementById('count').textContent=(current+1)+' / '+slides.length; }
+    function next(){ show(current+1); }
+    function prev(){ show(current-1); }
+    function paintTime(){ const m=String(Math.floor(seconds/60)).padStart(2,'0'); const s=String(seconds%60).padStart(2,'0'); document.getElementById('time').textContent=m+':'+s; }
+    function resetTimer(v){ seconds=v; running=false; clearInterval(interval); paintTime(); }
+    function toggleRun(){ running=!running; if(running){ interval=setInterval(()=>{ if(seconds>0){ seconds--; paintTime(); } else { running=false; clearInterval(interval); } },1000); } else { clearInterval(interval); } }
+    timer.addEventListener('pointerdown',e=>{ drag=true; moved=false; dx=e.clientX-timer.offsetLeft; dy=e.clientY-timer.offsetTop; timer.setPointerCapture(e.pointerId); });
+    timer.addEventListener('pointermove',e=>{ if(!drag) return; moved=true; timer.style.left=Math.max(8, Math.min(window.innerWidth-timer.offsetWidth-8, e.clientX-dx))+'px'; timer.style.top=Math.max(8, Math.min(window.innerHeight-timer.offsetHeight-8, e.clientY-dy))+'px'; timer.style.right='auto'; });
+    timer.addEventListener('pointerup',()=>{ if(!moved) timer.classList.toggle('min'); drag=false; });
+    document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); if(e.key===' ') { e.preventDefault(); toggleRun(); } });
+    show(0); paintTime();
+  </script>
+</body>
+</html>

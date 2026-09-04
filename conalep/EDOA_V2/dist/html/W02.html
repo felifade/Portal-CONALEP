@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Σ EDOA · Semana 02</title>
+  <style>
+    :root {
+      --ink:#12211f; --muted:#53615d; --paper:#f6faf8; --line:#d6e3dd;
+      --green:#0f766e; --green2:#0b5f58; --blue:#2563eb; --gold:#b56b00;
+      --soft:#e8f5f0; --softblue:#eaf2ff; --softgold:#fff4dc; --white:#fff;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:100%; height:100%; background:#dfe9e5; color:var(--ink); font-family:Arial, Helvetica, sans-serif; overflow:hidden; }
+    .deck { width:100vw; height:100vh; position:relative; }
+    .slide { width:100vw; height:100vh; padding:4.4vh 5vw 6.4vh; display:none; background:var(--paper); overflow:hidden; }
+    .slide.active { display:block; }
+    h1,h2,h3,p { margin:0; }
+    h1 { font-size:clamp(48px,6vw,84px); line-height:.96; max-width:1120px; color:var(--green2); letter-spacing:0; }
+    h2 { font-size:clamp(31px,4vw,54px); line-height:1.04; margin-bottom:14px; max-width:1180px; color:var(--green2); letter-spacing:0; }
+    h3 { font-size:clamp(20px,1.8vw,28px); margin-bottom:8px; color:var(--green2); }
+    p, li, td, th { font-size:clamp(17px,1.28vw,21px); line-height:1.31; }
+    li { margin-bottom:6px; }
+    ol,ul { margin:8px 0 0; padding-left:23px; }
+    .badge,.eyebrow { display:inline-block; font-size:clamp(14px,1.08vw,18px); font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; }
+    .cover { min-height:83vh; display:flex; flex-direction:column; justify-content:center; gap:20px; }
+    .cover p { max-width:980px; color:var(--muted); font-size:clamp(22px,2.1vw,31px); }
+    .teacher { margin-top:8px; color:var(--green) !important; font-weight:900; }
+    .class-code { display:flex; align-items:center; gap:20px; width:max-content; max-width:100%; padding:15px 20px; border:2px solid var(--line); background:var(--white); border-radius:8px; }
+    .class-code span { color:var(--muted); font-weight:900; font-size:clamp(16px,1.2vw,20px); }
+    .class-code strong { font-size:clamp(32px,3.8vw,48px); color:var(--blue); letter-spacing:.06em; }
+    .two-grid { display:grid; grid-template-columns:42% 1fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
+    .example-grid { display:grid; grid-template-columns:34% 1fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
+    .wide-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+    .panel,.mock { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:18px; min-width:0; overflow:hidden; }
+    .panel.dictado { background:var(--softblue); border-color:#cfe0fb; }
+    .panel.obj { background:var(--soft); }
+    .panel.gold { background:var(--softgold); border-color:#ecd59e; }
+    .mini-title { font-size:clamp(13px,1vw,17px); font-weight:900; color:var(--green2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+    .ra-box { background:#ffffffb8; border:2px solid var(--line); border-radius:8px; padding:12px; margin-bottom:12px; }
+    .ra-box strong { color:var(--green2); }
+    table { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; background:var(--white); }
+    th,td { border:1px solid var(--line); padding:8px 9px; text-align:left; vertical-align:top; }
+    th { background:#e8f1ee; color:#143d38; font-size:clamp(14px,1.05vw,18px); }
+    td { font-size:clamp(14px,1.03vw,18px); line-height:1.22; }
+    .example-title { color:var(--blue); font-weight:900; margin-bottom:10px; font-size:clamp(16px,1.2vw,20px); }
+    .doc-page { background:white; border:1px solid #d8dee4; border-radius:8px; padding:18px; box-shadow:0 8px 24px #0001; font-family:Arial, sans-serif; color:#1f2937; max-height:100%; overflow:hidden; }
+    .doc-title { font-size:24px; font-weight:900; color:#111827; text-align:center; margin-bottom:8px; }
+    .doc-sub { font-size:18px; font-weight:900; color:#1d4ed8; margin:12px 0 7px; }
+    .small { font-size:clamp(13px,1vw,16px); line-height:1.28; }
+    .justify { text-align:justify; }
+    .oficio { font-size:14px; line-height:1.35; text-align:justify; }
+    .oficio .right { text-align:right; margin-bottom:10px; }
+    .oficio .asunto { font-weight:900; margin:12px 0; }
+    .toc-row { display:flex; justify-content:space-between; gap:12px; border-bottom:1px dotted #9aa6b2; padding:5px 0; font-size:16px; }
+    .check-grid { display:grid; grid-template-columns:1fr 42px; gap:6px; align-items:center; }
+    .check-grid span { font-size:16px; border-bottom:1px solid #e5e7eb; padding:5px 0; }
+    .check { width:28px; height:28px; border:2px solid #0f766e; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; color:#0f766e; font-weight:900; }
+    .ia-img { width:100%; height:36vh; object-fit:cover; border-radius:8px; border:2px solid var(--line); display:block; }
+    .ia-img.short { height:25vh; }
+    .criteria { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:10px; }
+    .criteria span { background:#f8fafc; border:1px solid #d8dee4; border-radius:6px; padding:7px; font-size:14px; line-height:1.18; }
+    .format-spec { background:#f8fafc; border-left:5px solid var(--green); padding:10px; border-radius:6px; margin-top:12px; font-size:clamp(15px,1.04vw,18px); line-height:1.28; }
+    .sample-heading { font-weight:900; color:#0b5f58; font-size:17px; margin:8px 0 4px; }
+    .cover-band { height:62px; background:#e0f2fe; border:2px solid #38bdf8; border-radius:8px; margin:8px 0 12px; display:flex; align-items:center; justify-content:center; font-weight:900; color:#075985; }
+    .style-box { background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:12px; max-width:390px; margin:auto; text-align:center; font-weight:900; }
+    .green-text { color:#0f766e; }
+    .caption { text-align:center; color:var(--muted); font-size:14px; margin-top:6px; }
+    .ready { margin-top:14px; padding:12px; border-radius:8px; background:#dcfce7; color:#166534; font-weight:900; text-align:center; }
+    .close-box { margin-top:18px; padding:14px; border-radius:8px; background:#fff; border:2px solid #ecd59e; }
+    .close-box p { margin-top:6px; }
+    .watermarked { position:relative; min-height:430px; }
+    .watermark { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:92px; font-weight:900; color:#0f766e22; transform:rotate(-22deg); pointer-events:none; }
+    .page-head { border-bottom:1px solid #cbd5e1; color:#0f766e; font-weight:900; font-size:14px; padding-bottom:6px; margin-bottom:10px; }
+    .page-foot { position:absolute; left:18px; right:18px; bottom:12px; border-top:1px solid #cbd5e1; color:#64748b; font-size:14px; padding-top:6px; text-align:right; }
+    footer { position:absolute; left:5vw; right:5vw; bottom:1.5vh; padding-top:8px; border-top:2px solid var(--line); font-size:clamp(15px,1.22vw,19px); color:var(--muted); }
+    footer strong { color:var(--green); }
+    .timer { position:fixed; right:18px; top:18px; z-index:20; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:9px; display:flex; gap:8px; align-items:center; box-shadow:0 8px 26px #0002; }
+    .timer.min { width:48px; height:48px; padding:0; justify-content:center; overflow:hidden; cursor:pointer; }
+    .timer.min::before { content:"⏱"; font-size:25px; line-height:1; }
+    .timer.min .time,.timer.min button { display:none; }
+    .timer button,.nav button { border:0; background:var(--green); color:white; border-radius:6px; padding:8px 10px; font-weight:900; cursor:pointer; }
+    .timer .time { font-size:22px; font-weight:900; min-width:72px; text-align:center; color:var(--ink); }
+    .nav { position:fixed; right:18px; bottom:18px; z-index:20; display:flex; align-items:center; gap:8px; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:10px; }
+    .count { font-weight:900; min-width:76px; text-align:center; }
+    @media (max-width: 900px) {
+      .slide { overflow:auto; }
+      .two-grid,.example-grid,.wide-grid { grid-template-columns:1fr; height:auto; }
+      .ia-img,.ia-img.short { height:260px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active">
+      <div class="cover">
+        <span class="badge">Σ EDOA · Semana 02</span>
+        <h1>Continuación del mini manual</h1>
+        <p>Secuencia ampliada para bachillerato: una pantalla para trabajar y otra para ver el ejemplo de cómo debe quedar cada producto.</p>
+        <div class="class-code"><span>Código Classroom</span><strong>mawiuwaj</strong></div>
+        <p class="teacher">Dr. Felipe Lopez Salazar</p>
+      </div>
+      <footer><strong>Producto:</strong> Practica_02_Continuacion_Mini_Manual_Nombre_Apellido</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Ruta de trabajo</span>
+      <h2>Ruta real de la Semana 02</h2>
+      <div class="wide-grid">
+        <article class="panel obj">
+          <div class="mini-title">Horas 1 a 4 ya realizadas</div>
+          <ul>
+            <li>Documento nuevo de Semana 02 creado desde Classroom.</li>
+            <li>Contenido de la semana anterior copiado al nuevo archivo.</li>
+            <li>Lista de 10 recomendaciones con viñetas.</li>
+            <li>Tabla de estilos de texto con definición y uso práctico.</li>
+            <li>Índice automático, encabezado, pie de página, numeración y marca de agua.</li>
+          </ul>
+        </article>
+        <article class="panel gold">
+          <div class="mini-title">Lo que sigue</div>
+          <ul>
+            <li>Mini oficio formal de solicitud.</li>
+            <li>Tabla e imagen pertinente dentro del oficio.</li>
+            <li>Revisión individual con lista de cotejo.</li>
+            <li>Entrega por enlace y cierre de RA 1.1.</li>
+          </ul>
+        </article>
+      </div>
+      <footer><strong>Idea clave:</strong> cada hora genera una evidencia visible, no una actividad suelta.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 1</span>
+      <h2>Avance real: documento nuevo y copia de contenido</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Organización inicial y formato básico.</strong><br>Registrar la evidencia creada en Classroom y conservar continuidad con el trabajo de la semana anterior.</div>
+          <p>Para continuar una práctica sin perder orden, se puede trabajar en un documento nuevo y recuperar el contenido necesario del archivo anterior.</p>
+<p>Copiar el contenido no significa repetir la actividad: significa preparar una nueva evidencia para seguir aplicando herramientas de formato y organización.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Abrir la actividad correspondiente en Classroom.</li>
+<li>Crear un documento nuevo para Semana 02.</li>
+<li>Nombrar o identificar el archivo como Semana 02.</li>
+<li>Abrir el archivo trabajado la semana anterior.</li>
+<li>Copiar el contenido necesario al nuevo documento.</li>
+<li>Revisar que el contenido no quede duplicado, incompleto o desordenado.</li>
+<li>Guardar el avance dentro de Classroom.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> El documento nuevo debe conservar continuidad, pero verse como evidencia limpia de Semana 02.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Documento nuevo de Semana 02 creado en Classroom con contenido recuperado.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 1 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Confirmar que el archivo nuevo esté creado desde Classroom.</li>
+<li>Verificar que el contenido de la semana anterior se haya copiado al archivo nuevo.</li>
+<li>Recordar que el archivo debe quedar ordenado para continuar aplicando formato.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Por qué copiar contenido a un documento nuevo puede ayudar a revisar mejor una práctica?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page">
+  <div class="doc-title">Semana 02</div>
+  <div class="cover-band">Archivo nuevo en Classroom</div>
+  <div class="doc-sub">Contenido recuperado de la semana anterior</div>
+  <ol class="small"><li>Portada o encabezado inicial.</li><li>Lectura/formato trabajado.</li><li>Espacio listo para nuevas herramientas.</li></ol>
+  <div class="criteria"><span>Archivo nuevo</span><span>Contenido copiado</span><span>Sin duplicados</span><span>Listo para formato</span></div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Documento nuevo de Semana 02 creado en Classroom con contenido recuperado.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 2</span>
+      <h2>Avance real: lista de 10 elementos y viñetas</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Uso de listas y tablas para ordenar información.</strong><br>Organizar recomendaciones para crear documentos claros usando listas y viñetas.</div>
+          <p>Una lista permite ordenar ideas importantes para consultarlas con rapidez. Cuando usamos viñetas, cada elemento se distingue mejor y el documento se vuelve más fácil de leer.</p>
+<p>En un documento académico o técnico, las listas ayudan a presentar recomendaciones, pasos, materiales o criterios sin escribir párrafos demasiado largos.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear el subtítulo: Recomendaciones para crear documentos.</li>
+<li>Escribir una lista de 10 elementos.</li>
+<li>Convertir la lista en viñetas.</li>
+<li>Revisar mayúsculas, acentos y redacción de cada recomendación.</li>
+<li>Alinear visualmente la lista para que no parezca texto pegado.</li>
+<li>Aplicar negritas sólo en palabras clave si es necesario.</li>
+<li>Dejar espacio limpio antes de continuar con la tabla.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> Las 10 recomendaciones deben servir para mejorar documentos reales, no ser frases de relleno.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Lista de 10 recomendaciones con viñetas aplicada en el documento.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 2 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Confirmar que la lista tenga 10 elementos.</li>
+<li>Revisar que las viñetas se apliquen de forma uniforme.</li>
+<li>Pedir que cada recomendación sea breve, clara y útil para elaborar documentos.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Cuál recomendación te parece más importante para entregar trabajos con calidad?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page">
+  <div class="doc-sub">Recomendaciones para crear documentos</div>
+  <ul class="small"><li>Usar un título claro y visible.</li><li>Separar la información con subtítulos.</li><li>Justificar los párrafos formales.</li><li>Usar viñetas para listas.</li><li>Insertar imágenes relacionadas con el tema.</li><li>Revisar ortografía antes de entregar.</li><li>Agregar tabla cuando se comparen datos.</li><li>Nombrar el archivo con claridad.</li><li>Compartir el enlace con permiso correcto.</li><li>Actualizar el índice si cambia el documento.</li></ul>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Lista de 10 recomendaciones con viñetas aplicada en el documento.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 3</span>
+      <h2>Avance real: tabla de estilos de texto</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Aplicación de estilos para estructurar documentos.</strong><br>Comprender y organizar los estilos de texto que permiten estructurar documentos en Google Docs.</div>
+          <p>Los estilos de texto sirven para indicar la función de cada parte del documento. No todos los textos tienen la misma importancia: algunos nombran el documento, otros separan secciones y otros explican ideas.</p>
+<p>Cuando usamos estilos como Título, Subtítulo, Encabezado 1, Encabezado 2 y Encabezado 3, el documento puede organizarse mejor y después generar un índice automático.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Insertar una tabla de 2 columnas.</li>
+<li>Usar encabezados: Estilo de Texto y Definición y Uso Práctico.</li>
+<li>Registrar Texto Normal, Título, Subtítulo, Encabezado 1, Encabezado 2 y Encabezado 3.</li>
+<li>Agregar iconos o emojis al inicio de cada estilo para identificarlo rápido.</li>
+<li>Aplicar formato al encabezado de la tabla.</li>
+<li>Ajustar el ancho de columnas para que las definiciones se lean bien.</li>
+<li>Usar negritas en el nombre de cada estilo.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> La tabla debe explicar el uso práctico de cada estilo, no sólo repetir el nombre.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Tabla de estilos de texto con definiciones y uso práctico.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 3 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Explicar cada estilo de texto con uso práctico.</li>
+<li>Pedir que la tabla tenga encabezado visible y formato cuidado.</li>
+<li>Conectar los estilos con el índice automático.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Qué estilo usarías para separar una sección principal y cuál para un subtema?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page">
+  <table><tr><th>Estilo de Texto</th><th>Definición y Uso Práctico</th></tr><tr><td>📄 <strong>Texto Normal</strong></td><td>Formato base para párrafos largos y contenido general.</td></tr><tr><td>👑 <strong>Título</strong></td><td>Nombra todo el documento. Se usa una sola vez.</td></tr><tr><td>🏷️ <strong>Subtítulo</strong></td><td>Acompaña al título principal con contexto o autor.</td></tr><tr><td>📘 <strong>Encabezado 1</strong></td><td>Marca secciones principales o capítulos.</td></tr><tr><td>📗 <strong>Encabezado 2</strong></td><td>Nombra subtemas dentro de un Encabezado 1.</td></tr><tr><td>📙 <strong>Encabezado 3</strong></td><td>Divide apartados menores dentro de un Encabezado 2.</td></tr></table>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Tabla de estilos de texto con definiciones y uso práctico.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 4</span>
+      <h2>Avance real: índice, encabezado, pie, numeración y marca de agua</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Control de estructura y navegación interna.</strong><br>Aplicar elementos de presentación profesional para cerrar la estructura del documento.</div>
+          <p>El índice automático se construye a partir de los estilos aplicados en el documento. Si los títulos y encabezados están bien usados, el índice puede actualizarse cuando cambia el contenido.</p>
+<p>El encabezado, el pie de página, la numeración y la marca de agua ayudan a que un documento se vea formal, identificable y ordenado.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Insertar el índice automático en el lugar indicado.</li>
+<li>Actualizar el índice y revisar que aparezcan las secciones correctas.</li>
+<li>Agregar encabezado con datos breves del módulo o práctica.</li>
+<li>Agregar pie de página.</li>
+<li>Insertar numeración de páginas.</li>
+<li>Agregar marca de agua discreta.</li>
+<li>Revisar que ningún elemento tape el contenido.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> La marca de agua debe verse institucional y discreta; si estorba la lectura, está mal aplicada.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Documento con índice automático, encabezado, pie de página, numeración y marca de agua.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 4 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Confirmar que el índice automático aparezca después de aplicar estilos.</li>
+<li>Mostrar dónde se inserta encabezado, pie de página y número de página.</li>
+<li>Revisar que la marca de agua no impida leer el contenido.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Qué aporta el encabezado, pie de página y numeración a un documento escolar?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page watermarked">
+  <div class="page-head">EDOA · Semana 02</div>
+  <div class="doc-sub">Índice</div>
+  <div class="toc-row"><span>Semana 02</span><strong>2</strong></div>
+  <div class="toc-row"><span>Herramientas de supervivencia digital</span><strong>2</strong></div>
+  <div class="toc-row"><span>Tabla de estilos de texto</span><strong>3</strong></div>
+  <div class="toc-row"><span>Oficio de solicitud</span><strong>4</strong></div>
+  <div class="watermark">EDOA</div>
+  <div class="page-foot">CONALEP · Página 2</div>
+  <div class="criteria"><span>Índice actualizado</span><span>Encabezado</span><span>Pie de página</span><span>Marca de agua discreta</span></div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Documento con índice automático, encabezado, pie de página, numeración y marca de agua.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 5</span>
+      <h2>Mini oficio de solicitud a dirección</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Redacción y formato formal.</strong><br>Elaborar un oficio escolar con estructura formal y propósito claro.</div>
+          <p>Un oficio de solicitud es un documento formal que se usa para pedir algo de manera respetuosa y clara.</p>
+<p>Debe explicar qué se pide, para qué se pide y qué compromiso asume quien lo solicita. No se escribe como mensaje de chat: se usa lenguaje formal, texto justificado y datos completos.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Crear página nueva con el título Oficio de solicitud.</li>
+<li>Escribir lugar y fecha alineados a la derecha.</li>
+<li>Dirigir el oficio a la directora con cargo completo.</li>
+<li>Escribir un asunto breve y específico.</li>
+<li>Redactar párrafo 1: qué solicito.</li>
+<li>Redactar párrafo 2: para qué lo solicito.</li>
+<li>Redactar párrafo 3: a qué me comprometo.</li>
+<li>Agregar Atentamente, nombre, grupo y firma.</li>
+<li>Aplicar texto 14, justificado, interlineado 1.15 y espacios limpios.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> El oficio debe sonar formal, pero entendible. No se aceptan frases de chat ni texto sin justificación.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Oficio de solicitud integrado al documento Semana 02.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 5 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Leer el modelo de oficio y señalar sus partes.</li>
+<li>Aclarar que no deben copiar sólo nombres: deben adaptar el contenido.</li>
+<li>Pedir tres párrafos obligatorios: solicitud, justificación y compromiso.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Por qué un oficio necesita lenguaje formal y datos completos?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page oficio">
+  <div class="right">Pachuca de Soto, Hidalgo, a 24 de agosto de 2026</div>
+  <p><strong>Mtra. [Nombre de la Directora]</strong><br>Directora del Plantel CONALEP Pachuca II<br>Presente</p>
+  <p class="asunto">Asunto: Solicitud de autorización para elaborar una práctica en el laboratorio de informática</p>
+  <p>Por medio de la presente, solicito de manera respetuosa la autorización para utilizar el laboratorio de informática durante una sesión de práctica del módulo Elaboración de Documentos Digitales Avanzados.</p>
+  <p>La actividad tiene como propósito aplicar formato profesional en Google Docs: títulos, subtítulos, texto justificado, tabla, imagen, índice automático y redacción de un oficio formal.</p>
+  <p>Me comprometo a utilizar el equipo de manera responsable, mantener el espacio limpio y entregar la evidencia solicitada en Classroom dentro del tiempo indicado.</p>
+  <p>Atentamente<br><br>Nombre del alumno · Grupo 301<br>Firma</p>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Oficio de solicitud integrado al documento Semana 02.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 6</span>
+      <h2>Tabla, imagen y evidencia dentro del oficio</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Inserción de elementos visuales con función.</strong><br>Complementar el oficio con una tabla útil y una imagen bien colocada.</div>
+          <p>Una tabla dentro de un oficio puede ordenar datos como fecha, actividad, responsable o material solicitado. Su función es facilitar la lectura, no decorar.</p>
+<p>Una imagen en un documento formal debe usarse con cuidado. Puede ser una evidencia visual o una referencia útil, siempre centrada y sin romper la presentación.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Insertar tabla de 3 columnas por 4 filas.</li>
+<li>Usar encabezados: Actividad, Fecha sugerida, Material requerido.</li>
+<li>Completar tres actividades coherentes.</li>
+<li>Aplicar color suave al encabezado.</li>
+<li>Ajustar el ancho de columnas para que el texto no se encime.</li>
+<li>Insertar una imagen pertinente debajo de la tabla.</li>
+<li>Centrar la imagen y ajustar tamaño.</li>
+<li>Agregar pie de imagen.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> La imagen debe tener relación con el oficio. No se aceptan imágenes decorativas sin propósito.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Oficio con tabla, imagen centrada y pie de imagen.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 6 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Mostrar una tabla útil y una tabla mal hecha para comparar.</li>
+<li>Recordar que la imagen no debe tapar texto ni salirse de la página.</li>
+<li>Pedir pie de imagen breve.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Qué aporta la tabla o imagen al oficio?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page">
+  <img class="ia-img short" src="./assets/semana02_oficio_formato_ia.png" alt="Ejemplo visual de documento formal y tabla">
+  <table style="margin-top:10px"><tr><th>Actividad</th><th>Fecha sugerida</th><th>Material requerido</th></tr><tr><td>Formato en Google Docs</td><td>26 ago</td><td>Computadora e internet</td></tr><tr><td>Índice automático</td><td>26 ago</td><td>Documento con estilos</td></tr><tr><td>Entrega en Classroom</td><td>27 ago</td><td>Enlace compartido</td></tr></table>
+  <p class="caption">Figura 1. Organización del documento digital solicitado.</p>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Oficio con tabla, imagen centrada y pie de imagen.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 7</span>
+      <h2>Revisión individual guiada</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Corrección individual con criterios.</strong><br>Revisar y mejorar la evidencia propia sin revisar equipos de compañeros.</div>
+          <p>La revisión individual permite comprobar si mi documento cumple con los criterios solicitados. No necesito revisar el equipo de otra persona para mejorar mi trabajo.</p>
+<p>La calidad se construye ajustando detalles: corregir un título, acomodar una tabla, justificar un párrafo o centrar una imagen son evidencias de mejora.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Revisar la lista de cotejo de forma individual.</li>
+<li>Marcar en libreta 5 elementos completos.</li>
+<li>Marcar 3 elementos que todavía necesitan ajuste.</li>
+<li>Aplicar al menos 3 correcciones reales en el documento.</li>
+<li>Escribir una nota breve: antes estaba así / lo corregí así.</li>
+<li>Tomar captura del documento corregido.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> Las correcciones deben ser visibles: formato, tabla, índice, imagen, portada, oficio o enlace.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Documento corregido individualmente y captura de evidencia.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 7 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Proyectar la lista de cotejo.</li>
+<li>Aclarar que cada alumno revisa su propio archivo.</li>
+<li>Pedir evidencia visible de corrección, no sólo decir ya quedó.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Qué corregí y por qué mejora mi documento?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page check-grid">
+  <span>Portada completa</span><span class="check">✓</span>
+  <span>Sección Semana 02</span><span class="check">✓</span>
+  <span>Tabla de atajos</span><span class="check">✓</span>
+  <span>Índice automático</span><span class="check"></span>
+  <span>Oficio con tabla e imagen</span><span class="check"></span>
+  <span>Enlace compartido como lector</span><span class="check"></span>
+  <span>3 correcciones visibles</span><span class="check"></span>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Documento corregido individualmente y captura de evidencia.</footer>
+    </section>
+
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 04 · Hora 8</span>
+      <h2>Entrega final y cierre de RA 1.1</h2>
+      <div class="two-grid">
+        <article class="panel dictado">
+          <div class="mini-title">Inicio · dictado</div>
+          <div class="ra-box"><strong>RA 1.1 · Cierre del resultado de aprendizaje.</strong><br>Preparar la evidencia final para revisión y cerrar con reflexión breve.</div>
+          <p>Dar formato no es decorar. Es tomar decisiones para que el contenido tenga orden, jerarquía y presentación adecuada.</p>
+<p>La gaceta digital se trabajará después. Por ahora, el objetivo es cerrar con calidad el formato de documentos: portada, tabla, estilos, índice, saltos de página, oficio, imagen y enlace.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-title">Desarrollo · actividad del alumno</div>
+          <ol><li>Verificar nombre del archivo.</li>
+<li>Actualizar el índice.</li>
+<li>Confirmar estructura del oficio.</li>
+<li>Revisar que las imágenes estén centradas y no deformadas.</li>
+<li>Comprobar que no haya espacios excesivos entre páginas.</li>
+<li>Compartir como lector.</li>
+<li>Copiar enlace y preparar entrega en Classroom.</li>
+<li>Responder cierre en libreta.</li></ol>
+          <div class="format-spec"><strong>Reto de bachillerato:</strong> El enlace debe abrir correctamente y el documento debe mostrar evidencia completa de RA 1.1.</div>
+        </article>
+      </div>
+      <footer><strong>Producto parcial:</strong> Evidencia final de RA 1.1 lista para calificar.</footer>
+    </section>
+
+    <section class="slide">
+      <span class="eyebrow">Sesión 04 · Hora 8 · ejemplo y cierre</span>
+      <h2>Así debe ir quedando</h2>
+      <div class="example-grid">
+        <article class="panel gold">
+          <div class="mini-title">Guía rápida del docente</div>
+          <ul><li>Revisar permisos de enlace en pantalla.</li>
+<li>Recordar que el enlace debe abrir sin pedir acceso.</li>
+<li>Pedir cierre en libreta antes de terminar.</li></ul>
+          <div class="close-box">
+            <strong>Cierre en libreta</strong>
+            <p>¿Qué habilidad de formato ya domino y cuál necesito practicar más?</p>
+          </div>
+        </article>
+        <article class="mock">
+          <div class="example-title">Referencia visual del producto</div>
+          <div class="doc-page">
+  <img class="ia-img short" src="./assets/semana02_producto_final_ia.png" alt="Ejemplo visual de producto final">
+  <div class="doc-title">Documento Semana 02</div>
+  <table><tr><td>Portada</td><td>Lista</td><td>Tabla</td></tr><tr><td>Estilos</td><td>Índice</td><td>Oficio</td></tr><tr><td>Imagen</td><td>Enlace</td><td>Cierre</td></tr></table>
+  <div class="ready">Listo para revisión</div>
+</div>
+        </article>
+      </div>
+      <footer><strong>Producto al finalizar la hora:</strong> Evidencia final de RA 1.1 lista para calificar.</footer>
+    </section>
+
+  </main>
+
+  <div class="timer min" id="timer" title="Clic para ampliar">
+    <span class="time" id="time">10:00</span>
+    <button onclick="event.stopPropagation(); toggleRun()">▶</button>
+    <button onclick="event.stopPropagation(); resetTimer(600)">10</button>
+    <button onclick="event.stopPropagation(); resetTimer(0)">↺</button>
+  </div>
+  <div class="nav">
+    <button onclick="prev()">←</button>
+    <span class="count" id="count">1 / 1</span>
+    <button onclick="next()">→</button>
+  </div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];
+    let current=0, seconds=600, running=false, interval=null;
+    const timer=document.getElementById('timer');
+    timer.addEventListener('click',()=>timer.classList.toggle('min'));
+    function show(i){ current=(i+slides.length)%slides.length; slides.forEach((s,n)=>s.classList.toggle('active',n===current)); document.getElementById('count').textContent=(current+1)+' / '+slides.length; }
+    function next(){ show(current+1); }
+    function prev(){ show(current-1); }
+    function paintTime(){ const m=String(Math.floor(seconds/60)).padStart(2,'0'); const s=String(seconds%60).padStart(2,'0'); document.getElementById('time').textContent=m+':'+s; }
+    function resetTimer(v){ seconds=v; running=false; clearInterval(interval); paintTime(); }
+    function toggleRun(){ running=!running; if(running){ interval=setInterval(()=>{ if(seconds>0){ seconds--; paintTime(); } else { running=false; clearInterval(interval); } },1000); } else { clearInterval(interval); } }
+    document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); if(e.key===' ') { e.preventDefault(); toggleRun(); } });
+    show(0); paintTime();
+  </script>
+</body>
+</html>
