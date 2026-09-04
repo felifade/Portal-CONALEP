@@ -23,6 +23,10 @@ echo "Build DEWE..."
 echo "Build EDOA..."
 (cd "$PORTAL/conalep/EDOA" && npm run build --silent)
 
+# ── 3.5.5 Build EDOA V2 ───────────────────────────────────────
+echo "Build EDOA V2..."
+(cd "$PORTAL/conalep/EDOA_V2" && npm run build --silent)
+
 # ── 3.6 Build MTCS ────────────────────────────────────────────
 echo "Build MTCS..."
 (cd "$PORTAL/conalep/MTCS" && npm run build --silent)
