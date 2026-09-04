@@ -450,6 +450,7 @@ export const teachingPlan = {
           learningResult: 'El estudiante explica para que sirve el Modelo OSI y relaciona al menos tres capas con ejemplos de uso diario.',
           identification: 'Tema: Modelo OSI. Evidencia: apunte en libreta e inspeccion F12 en Docs.',
           infographicTitle: 'El viaje de un mensaje en la red',
+          infographicImage: 'mtcs-modelo-osi-paquete-digital.jpg',
           infographicSteps: [
             'Aplicacion (Capa 7): escribo y envio el mensaje en la app.',
             'Transporte (Capa 4): se divide en paquetes y verifica entrega.',

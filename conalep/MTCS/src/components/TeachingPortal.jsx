@@ -146,12 +146,21 @@ function LessonSection({ icon, label, children, className = '' }) {
 }
 
 function InfographicPlan({ hour }) {
+  const imageUrl = hour.infographicImage
+    ? new URL(`../assets/${hour.infographicImage}`, import.meta.url).href
+    : null;
+
   return (
     <div className="infographic-plan">
       <div className="infographic-title">
         <Sparkles size={18} />
         <strong>Infografía de la Hora: {hour.infographicTitle}</strong>
       </div>
+      {imageUrl && (
+        <figure className="infographic-image-frame">
+          <img src={imageUrl} alt={`Infografia ${hour.infographicTitle}`} />
+        </figure>
+      )}
       <div className="infographic-flow">
         {hour.infographicSteps.map((step, index) => (
           <div className="flow-step" key={step}>
