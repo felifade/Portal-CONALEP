@@ -5,15 +5,16 @@ import '../styles/TeachingPortal.css';
 
 const TeachingPortal = () => {
   const [activeWeek, setActiveWeek] = useState('W03');
-  const [activeHour, setActiveHour] = useState('H1');
+  const [activeSession, setActiveSession] = useState('S1');
 
   const { module, cortes, weeks } = teachingPlan;
   const currentWeekData = weeks[activeWeek] || weeks['W00'];
-  const currentHourData = currentWeekData.hours.find(h => h.id === activeHour) || currentWeekData.hours[0];
+  // Fallback if session doesn't exist
+  const currentSessionData = currentWeekData.sessions.find(s => s.id === activeSession) || currentWeekData.sessions[0];
 
   const handleWeekClick = (weekId) => {
     setActiveWeek(weekId);
-    setActiveHour('H1');
+    setActiveSession('S1'); // Reset to first session on week change
   };
 
   return (
@@ -84,16 +85,16 @@ const TeachingPortal = () => {
           )}
         </div>
 
-        {/* Hour Selector */}
+        {/* Session Selector */}
         <div className="hour-selector">
-          {currentWeekData.hours.map(hour => (
+          {currentWeekData.sessions.map(session => (
             <button
-              key={hour.id}
-              onClick={() => setActiveHour(hour.id)}
-              className={`hour-btn ${activeHour === hour.id ? 'active' : ''}`}
+              key={session.id}
+              onClick={() => setActiveSession(session.id)}
+              className={`hour-btn ${activeSession === session.id ? 'active' : ''}`}
             >
-              <strong>{hour.label}</strong>
-              <span>{hour.subtitle}</span>
+              <strong>{session.label}</strong>
+              <span>{session.subtitle}</span>
             </button>
           ))}
         </div>
@@ -101,9 +102,9 @@ const TeachingPortal = () => {
         {/* Data Strip */}
         <div className="data-strip">
           <div className="ds-item"><strong>Módulo:</strong> {module.code}</div>
-          <div className="ds-item"><strong>Grupo:</strong> {module.group}</div>
-          <div className="ds-item"><strong>Lugar:</strong> {currentHourData.identification.location}</div>
-          <div className="ds-item"><strong>Tiempo:</strong> {currentHourData.identification.time}</div>
+          <div className="ds-item"><strong>Lugar:</strong> {currentSessionData.identification.location}</div>
+          <div className="ds-item"><strong>Tiempo:</strong> {currentSessionData.identification.time}</div>
+          <div className="ds-item"><strong>Organización:</strong> {currentSessionData.identification.organization}</div>
           <div className="ds-item"><strong>Classroom:</strong> {module.classroomCode}</div>
         </div>
 
@@ -114,10 +115,10 @@ const TeachingPortal = () => {
           <div className="module-section section-inicio">
             <div className="section-header">
               <PlayCircle size={18} />
-              <h3>Apertura de Clase</h3>
+              <h3>Apertura de Sesión</h3>
             </div>
             <div className="section-content">
-              <p className="start-question">"{currentHourData.start}"</p>
+              <p className="start-question">"{currentSessionData.start}"</p>
             </div>
           </div>
 
@@ -125,10 +126,10 @@ const TeachingPortal = () => {
           <div className="module-section section-dictado">
             <div className="section-header">
               <FileText size={18} />
-              <h3>Concepto Clave (Dictado)</h3>
+              <h3>Concepto Integrador (Dictado)</h3>
             </div>
             <div className="section-content reading-box">
-              <p>{currentHourData.dictation}</p>
+              <p>{currentSessionData.dictation}</p>
             </div>
           </div>
 
@@ -136,57 +137,50 @@ const TeachingPortal = () => {
           <div className="module-section section-ra">
             <div className="section-header">
               <Target size={18} />
-              <h3>Resultado de Aprendizaje</h3>
+              <h3>Resultado de Aprendizaje (Sesión)</h3>
             </div>
             <div className="section-content">
-              <p>{currentHourData.learningResult}</p>
+              <p>{currentSessionData.learningResult}</p>
             </div>
           </div>
 
-          {/* 4. Ficha */}
-          <div className="module-section section-ficha">
-            <div className="section-header">
-              <BookOpen size={18} />
-              <h3>Ficha de Identificación</h3>
-            </div>
-            <div className="section-content ficha-grid">
-              <div><strong>Tema:</strong> {currentHourData.identification.topic}</div>
-              <div><strong>Evidencia:</strong> {currentHourData.identification.evidence}</div>
-              <div><strong>Organización:</strong> {currentHourData.identification.organization}</div>
-            </div>
-          </div>
-
-          {/* 5. Desarrollo e Infografia */}
+          {/* 5. Desarrollo e Infografia (Moved up to be more prominent as the roadmap) */}
           <div className="module-section section-desarrollo">
             <div className="section-header">
               <PenTool size={18} />
-              <h3>Desarrollo y Actividad</h3>
+              <h3>Ruta Práctica del Día</h3>
             </div>
             <div className="section-content">
-              <p className="development-text">{currentHourData.development}</p>
               
               <div className="infographic-container">
-                <h4>{currentHourData.infographicTitle}</h4>
+                <h4>{currentSessionData.infographicTitle}</h4>
                 <div className="info-steps">
-                  {currentHourData.infographicSteps.map((step, idx) => (
+                  {currentSessionData.infographicSteps.map((step, idx) => (
                     <div key={idx} className="info-step">
-                      <h5>{step.title}</h5>
-                      <p>{step.desc}</p>
+                      <div className="step-number">{idx + 1}</div>
+                      <div className="step-content">
+                        <h5>{step.title}</h5>
+                        <p>{step.desc}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+
+              <p className="development-text" style={{marginTop: '20px'}}>{currentSessionData.development}</p>
+
             </div>
           </div>
 
-          {/* 6. Cierre */}
+          {/* 4. Ficha & Cierre (Merged a bit visually for the end of the day) */}
           <div className="module-section section-cierre">
             <div className="section-header">
               <CheckCircle2 size={18} />
-              <h3>Conclusión y Producto</h3>
+              <h3>Evidencia y Cierre</h3>
             </div>
             <div className="section-content">
-              <p>{currentHourData.closure}</p>
+              <div style={{marginBottom: '10px'}}><strong>Evidencia esperada:</strong> {currentSessionData.identification.evidence}</div>
+              <p>{currentSessionData.closure}</p>
             </div>
           </div>
 
@@ -214,7 +208,7 @@ const TeachingPortal = () => {
           <h4>Avisos Institucionales</h4>
           <ul>
             <li>No consumir alimentos cerca de los equipos.</li>
-            <li>Subir evidencias a Classroom en tiempo forma.</li>
+            <li>Subir evidencias a Classroom en tiempo y forma.</li>
           </ul>
         </div>
       </aside>
