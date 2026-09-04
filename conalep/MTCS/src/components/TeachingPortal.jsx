@@ -4,11 +4,11 @@ import {
   CalendarDays,
   CheckCircle2,
   ClipboardList,
+  ExternalLink,
   FileText,
   Layers3,
   Map,
   Megaphone,
-  Network,
   PenLine,
   School,
   Sparkles,
@@ -24,7 +24,7 @@ function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
   return (
     <aside className="lesson-rail">
       <div className="lesson-brand">
-        <School size={20} />
+        <School size={22} />
         <div>
           <strong>{teachingPlan.module.code}</strong>
           <span>{teachingPlan.module.group} · {teachingPlan.module.campus}</span>
@@ -41,33 +41,51 @@ function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
               <span>{corte.label}</span>
               <strong>{corte.weight}</strong>
             </div>
-            <p>{corte.weeks} semanas planeadas</p>
+            <p className="corte-meta">{corte.weeks} semanas planeadas</p>
 
             <div className="ra-list">
-              {corte.ras.map((ra) => (
-                <div className="ra-mini" key={ra.id}>
-                  <div>
-                    <strong>{ra.id}</strong>
-                    <span>{ra.title}</span>
+              {corte.ras.map((ra) => {
+                const loadedWeeks = teachingPlan.weeks.filter(
+                  (w) => w.raId === ra.id && w.corteId === corte.id
+                );
+
+                return (
+                  <div className="ra-mini" key={ra.id}>
+                    <div className="ra-mini-top">
+                      <div>
+                        <strong>{ra.id}</strong>
+                        <span>{ra.title}</span>
+                      </div>
+                      <small>{ra.weight}</small>
+                    </div>
+
+                    {/* Semanas anidadas dentro del RA */}
+                    {loadedWeeks.length > 0 && (
+                      <div className="ra-weeks-grid">
+                        {loadedWeeks.map((week) => {
+                          const isCurrent = activeWeek.id === week.id;
+                          const isEnCurso = week.status === 'En curso';
+
+                          return (
+                            <button
+                              key={week.id}
+                              className={`ra-week-pill ${isCurrent ? 'active' : ''} ${isEnCurso ? 'is-current' : ''}`}
+                              onClick={() => onSelectWeek(week.id)}
+                              title={`${week.label}: ${week.title} (${week.status})`}
+                            >
+                              <span className="pill-badge">{week.id}</span>
+                              <span className="pill-label">{week.label}</span>
+                              {isEnCurso && <span className="pill-status-dot" title="En curso">●</span>}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
-                  <small>{ra.weight} · {ra.weeks} sem.</small>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
-        ))}
-      </div>
-
-      <div className="week-jump">
-        <span>Semanas cargadas</span>
-        {teachingPlan.weeks.map((week) => (
-          <button
-            className={activeWeek.id === week.id ? 'active' : ''}
-            key={week.id}
-            onClick={() => onSelectWeek(week.id)}
-          >
-            {week.label}
-          </button>
         ))}
       </div>
     </aside>
@@ -83,7 +101,8 @@ function HourTabs({ hours, activeHour, onSelectHour }) {
           key={hour.id}
           onClick={() => onSelectHour(hour.id)}
         >
-          {hour.label}
+          <span className="hour-pill-title">{hour.label}</span>
+          <small className="hour-pill-subtitle">{hour.title.substring(0, 24)}...</small>
         </button>
       ))}
     </nav>
@@ -92,12 +111,12 @@ function HourTabs({ hours, activeHour, onSelectHour }) {
 
 function DataStrip({ week, hour }) {
   const items = [
-    ['Modulo', teachingPlan.module.code],
+    ['Módulo', teachingPlan.module.code],
     ['Grupo', teachingPlan.module.group],
     ['Classroom', teachingPlan.module.classroomCode],
     ['Semana', week.dateRange],
     ['Evidencia', week.identification.product],
-    ['Organizacion', week.identification.modality],
+    ['Organización', week.identification.modality],
     ['Lugar', week.identification.place],
     ['Hora', hour.label],
   ];
@@ -117,7 +136,10 @@ function DataStrip({ week, hour }) {
 function LessonSection({ icon, label, children, className = '' }) {
   return (
     <section className={`lesson-section ${className}`}>
-      <h3>{icon}<span>{label}</span></h3>
+      <div className="lesson-section-header">
+        <span className="section-icon">{icon}</span>
+        <span className="section-title">{label}</span>
+      </div>
       <div className="lesson-section-body">{children}</div>
     </section>
   );
@@ -128,12 +150,12 @@ function InfographicPlan({ hour }) {
     <div className="infographic-plan">
       <div className="infographic-title">
         <Sparkles size={18} />
-        <strong>{hour.infographicTitle}</strong>
+        <strong>Infografía de la Hora: {hour.infographicTitle}</strong>
       </div>
       <div className="infographic-flow">
         {hour.infographicSteps.map((step, index) => (
           <div className="flow-step" key={step}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
+            <span className="step-num">{String(index + 1).padStart(2, '0')}</span>
             <p>{step}</p>
           </div>
         ))}
@@ -146,38 +168,55 @@ function RightSummary({ week, corte, ra, activeHour }) {
   return (
     <aside className="lesson-context">
       <section className="context-panel primary">
-        <h3><Target size={17} /> Resultado de aprendizaje</h3>
+        <div className="panel-header-badge badge-ra">
+          <Target size={16} />
+          <span>Resultado de aprendizaje</span>
+        </div>
         <strong>{ra.id}: {ra.title}</strong>
         <p>{week.result}</p>
       </section>
 
-      <section className="context-panel">
-        <h3><ClipboardList size={17} /> Producto breve</h3>
+      <section className="context-panel product">
+        <div className="panel-header-badge badge-product">
+          <ClipboardList size={16} />
+          <span>Producto esperado</span>
+        </div>
         <p>{activeHour.closure}</p>
       </section>
 
-      <section className="context-panel">
-        <h3><Megaphone size={17} /> Avisos</h3>
+      <section className="context-panel notices">
+        <div className="panel-header-badge badge-notices">
+          <Megaphone size={16} />
+          <span>Avisos institucionales</span>
+        </div>
         <ul>
-          {week.notices.map((notice) => <li key={notice}>{notice}</li>)}
+          {week.notices.map((notice) => (
+            <li key={notice}>{notice}</li>
+          ))}
         </ul>
       </section>
 
-      <section className="context-panel">
-        <h3><Layers3 size={17} /> Corte actual</h3>
-        <p>{corte.label}: {corte.weight}, {corte.weeks} semanas planeadas.</p>
+      <section className="context-panel corte">
+        <div className="panel-header-badge badge-corte">
+          <Layers3 size={16} />
+          <span>Corte en curso</span>
+        </div>
+        <p><strong>{corte.label}</strong> ({corte.weight}) · {corte.weeks} semanas de ponderación formativa.</p>
       </section>
     </aside>
   );
 }
 
 function TeachingPortal() {
-  const [activeWeekId, setActiveWeekId] = useState(teachingPlan.weeks[0].id);
+  const defaultWeek = teachingPlan.weeks.find((w) => w.status === 'En curso') || teachingPlan.weeks[0];
+  const [activeWeekId, setActiveWeekId] = useState(defaultWeek.id);
+
   const activeWeek = useMemo(
-    () => teachingPlan.weeks.find((week) => week.id === activeWeekId) || teachingPlan.weeks[0],
-    [activeWeekId],
+    () => teachingPlan.weeks.find((week) => week.id === activeWeekId) || defaultWeek,
+    [activeWeekId, defaultWeek],
   );
-  const [activeHourId, setActiveHourId] = useState(activeWeek.hours[0].id);
+
+  const [activeHourId, setActiveHourId] = useState(activeWeek.hours[0]?.id || 'H01');
 
   const activeCorte = teachingPlan.cortes.find((corte) => corte.id === activeWeek.corteId) || teachingPlan.cortes[0];
   const activeRa = getActiveRa(activeCorte, activeWeek.raId);
@@ -200,10 +239,27 @@ function TeachingPortal() {
 
       <main className="lesson-main">
         <header className="lesson-hero">
-          <div>
-            <span className="lesson-eyebrow">{activeWeek.label} · {activeWeek.status}</span>
+          <div className="hero-info">
+            <div className="hero-tags">
+              <span className={`lesson-status-pill status-${activeWeek.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                {activeWeek.status}
+              </span>
+              <span className="lesson-eyebrow">{activeWeek.label}</span>
+              {activeWeek.htmlUrl && (
+                <a
+                  href={activeWeek.htmlUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-slides-link"
+                  title="Abrir presentación de diapositivas en pestaña completa"
+                >
+                  <ExternalLink size={13} />
+                  <span>Ver Diapositivas</span>
+                </a>
+              )}
+            </div>
             <h1>{activeWeek.title}</h1>
-            <p>{teachingPlan.module.subject}</p>
+            <p>{teachingPlan.module.subject} · {teachingPlan.module.group}</p>
           </div>
           <div className="lesson-hero-badge">
             <CalendarDays size={18} />
@@ -222,33 +278,36 @@ function TeachingPortal() {
 
         <article className="lesson-card">
           <div className="lesson-card-header">
-            <span>{activeHour.label}</span>
+            <div className="header-meta">
+              <span className="hour-tag">{activeHour.label}</span>
+              <span className="hour-ra-tag">{activeRa.id}</span>
+            </div>
             <h2>{activeHour.title}</h2>
           </div>
 
           <div className="lesson-grid">
-            <LessonSection icon={<BookOpen size={18} />} label="Inicio" className="start">
+            <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
               <p>{activeHour.start}</p>
             </LessonSection>
 
-            <LessonSection icon={<PenLine size={18} />} label="Dictado" className="dictation">
-              <p>{activeHour.dictation}</p>
+            <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
+              <p className="dictation-text">{activeHour.dictation}</p>
             </LessonSection>
 
-            <LessonSection icon={<Target size={18} />} label="Resultado de aprendizaje" className="result">
+            <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
               <p>{activeHour.learningResult}</p>
             </LessonSection>
 
-            <LessonSection icon={<FileText size={18} />} label="Datos de identificacion" className="identity">
+            <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
               <p>{activeHour.identification}</p>
             </LessonSection>
 
-            <LessonSection icon={<Map size={18} />} label="Desarrollo" className="development wide">
-              <p>{activeHour.development}</p>
+            <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
+              <p className="dev-intro">{activeHour.development}</p>
               <InfographicPlan hour={activeHour} />
             </LessonSection>
 
-            <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusion / cierre" className="closure wide">
+            <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
               <p>{activeHour.closure}</p>
             </LessonSection>
           </div>
