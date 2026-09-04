@@ -40,6 +40,9 @@ const TeachingPortal = () => {
                   <div className="ra-title">
                     <BookOpen size={14} />
                     <span><strong>{ra.id}</strong>: {ra.title}</span>
+                    <span className="peso-badge" style={{ marginLeft: 'auto', fontSize: '10px', background: '#dbeafe', color: '#1d4ed8' }}>
+                      {ra.peso}
+                    </span>
                   </div>
                   <div className="week-buttons">
                     {ra.weeks.map(weekId => {
