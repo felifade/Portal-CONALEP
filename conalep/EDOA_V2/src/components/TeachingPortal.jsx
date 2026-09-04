@@ -162,6 +162,7 @@ const TeachingPortal = () => {
                     src={currentSessionData.infographicImage} 
                     alt={currentSessionData.infographicTitle} 
                     className="infographic-image"
+                    style={{ width: '100%', maxWidth: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain', display: 'block', margin: '0 auto 15px auto', borderRadius: '6px' }}
                   />
                 )}
                 <div className="info-steps">
