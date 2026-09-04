@@ -3,6 +3,7 @@ import { Monitor, GraduationCap, Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import DashboardView from './components/DashboardView';
 import CodeLab from './components/CodeLab';
+import TeachingPortal from './components/TeachingPortal';
 import PinModal from '@shared/components/PinModal';
 import { curriculumData } from './data/curriculum';
 import './styles/App.css';
@@ -26,7 +27,7 @@ function App() {
   const currentIdx  = allOrderedWeeks.indexOf(currentWeek);
   const nextWeek    = currentIdx < allOrderedWeeks.length - 1 ? allOrderedWeeks[currentIdx + 1] : null;
 
-  const [activeView, setActiveView]       = useState('dashboard');
+  const [activeView, setActiveView]       = useState('teaching');
   const [isClassMode, setIsClassMode]     = useState(false);
   const [isTeacherMode, setIsTeacherMode] = useState(false);
   const [showPinModal, setShowPinModal]   = useState(false);
@@ -74,6 +75,10 @@ function App() {
             {isTeacherMode ? 'Salir Docente' : 'Modo Docente'}
           </button>
         </div>
+
+        {activeView === 'teaching' && (
+          <TeachingPortal />
+        )}
 
         {activeView === 'dashboard' && (
           <DashboardView 
