@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, LayoutDashboard, FlaskConical } from 'lucide-react';
+import { CalendarDays, GraduationCap, LayoutDashboard, FlaskConical } from 'lucide-react';
 
 const Sidebar = ({ activeView, onViewSelect, isMobileOpen, onMobileClose }) => {
   return (
@@ -29,6 +29,13 @@ const Sidebar = ({ activeView, onViewSelect, isMobileOpen, onMobileClose }) => {
 
         <nav className="nav-container">
           <div className="main-nav-section">
+            <a
+              className={`main-nav-link ${activeView === 'teaching' ? 'active' : ''}`}
+              onClick={() => { onViewSelect('teaching'); if (onMobileClose) onMobileClose(); }}
+            >
+              <CalendarDays size={15} className="doc-icon" />
+              Planeación por semana
+            </a>
             <a
               className={`main-nav-link ${activeView === 'dashboard' ? 'active' : ''}`}
               onClick={() => { onViewSelect('dashboard'); if (onMobileClose) onMobileClose(); }}

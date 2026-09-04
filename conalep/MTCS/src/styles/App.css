@@ -935,6 +935,355 @@
 }
 
 /* ════════════════════════════════════════════════════════════
+   TEACHING PORTAL · MTCS NUEVA VERSIÓN
+════════════════════════════════════════════════════════════ */
+.teaching-portal {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 280px;
+  gap: 18px;
+  align-items: start;
+  min-height: calc(100vh - 96px);
+}
+
+.tp-left-rail,
+.tp-right-rail {
+  position: sticky;
+  top: 24px;
+}
+
+.tp-left-rail,
+.tp-side-panel,
+.tp-header-band,
+.tp-session,
+.tp-activity-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tp-left-rail {
+  padding: 14px;
+}
+
+.tp-rail-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--primary);
+}
+
+.tp-rail-title strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text-900);
+}
+
+.tp-rail-title span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-500);
+}
+
+.tp-week-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tp-week-button {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 7px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-700);
+  transition: var(--transition);
+}
+
+.tp-week-button:hover {
+  background: var(--border-light);
+  color: var(--text-900);
+}
+
+.tp-week-button.active {
+  background: var(--primary-50);
+  border-color: rgba(2, 89, 64, 0.18);
+  color: var(--primary);
+}
+
+.tp-week-main,
+.tp-week-meta,
+.tp-week-button small {
+  display: block;
+}
+
+.tp-week-main {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tp-week-meta {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-500);
+}
+
+.tp-week-button small {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tp-center {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.tp-header-band {
+  padding: 20px 22px;
+  border-left: 4px solid var(--primary);
+}
+
+.tp-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #0f766e;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.tp-header-band h2 {
+  margin: 0;
+  color: var(--text-900);
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.tp-header-band p {
+  margin: 10px 0 0;
+  color: var(--text-500);
+  font-size: 14px;
+}
+
+.tp-sessions {
+  display: grid;
+  gap: 16px;
+}
+
+.tp-session {
+  overflow: hidden;
+}
+
+.tp-session-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  background: #f8fafc;
+}
+
+.tp-session-header span {
+  display: block;
+  margin-bottom: 4px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tp-session-header h3,
+.tp-hour-heading h3 {
+  margin: 0;
+  color: var(--text-900);
+  letter-spacing: 0;
+}
+
+.tp-session-header h3 {
+  font-size: 18px;
+}
+
+.tp-hour {
+  padding: 18px;
+  border-top: 1px solid var(--border-light);
+}
+
+.tp-hour:first-of-type {
+  border-top: 0;
+}
+
+.tp-hour-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.tp-hour-heading span {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.tp-hour-heading h3 {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.tp-hour-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tp-activity-block {
+  padding: 14px;
+  min-height: 132px;
+  box-shadow: none;
+}
+
+.tp-activity-block h4,
+.tp-side-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 8px;
+  color: var(--text-900);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.tp-activity-block p,
+.tp-side-panel p,
+.tp-side-panel li {
+  margin: 0;
+  color: var(--text-700);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.tp-activity-block.start { border-left: 4px solid #16a34a; }
+.tp-activity-block.dictation { border-left: 4px solid #d97706; }
+.tp-activity-block.development { border-left: 4px solid #2563eb; }
+.tp-activity-block.close { border-left: 4px solid #0d9488; }
+
+.infographic-block {
+  grid-column: 1 / -1;
+  border-left: 4px solid #7c3aed;
+}
+
+.tp-infographic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tp-info-node {
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+  color: #111827;
+}
+
+.tp-info-node.app { background: #dcfce7; }
+.tp-info-node.transport { background: #fef3c7; }
+.tp-info-node.network { background: #dbeafe; }
+.tp-info-node.physical { background: #ede9fe; }
+.tp-info-line { display: none; }
+
+.tp-right-rail {
+  display: grid;
+  gap: 12px;
+}
+
+.tp-side-panel {
+  padding: 14px;
+}
+
+.tp-side-panel ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.tp-side-panel.accent {
+  border-left: 4px solid #0d9488;
+  background: #f0fdfa;
+}
+
+@media (max-width: 1180px) {
+  .teaching-portal {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .tp-right-rail {
+    grid-column: 1 / -1;
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .teaching-portal {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-left-rail,
+  .tp-right-rail {
+    position: static;
+  }
+
+  .tp-week-list {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .tp-week-button {
+    min-width: 148px;
+  }
+
+  .tp-hour-grid,
+  .tp-right-rail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tp-header-band h2 {
+    font-size: 20px;
+  }
+
+  .tp-hour {
+    padding: 14px;
+  }
+
+  .tp-infographic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
    MODE TOGGLE BUTTONS
 ════════════════════════════════════════════════════════════ */
 .class-mode-toggle-container {
