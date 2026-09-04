@@ -310,3 +310,13 @@
 }
 .step-content h5 { margin: 0 0 4px 0; color: #5b21b6; font-size: 14px; }
 .step-content p { margin: 0; font-size: 12px; color: #4c1d95; line-height: 1.4; }
+
+/* Infographic Image */
+.infographic-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
