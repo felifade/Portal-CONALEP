@@ -313,8 +313,11 @@
 
 /* Infographic Image */
 .infographic-image {
+  display: block;
   width: 100%;
-  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background: #f8fafc;
   border-radius: 6px;
   margin-bottom: 15px;
   border: 1px solid #e2e8f0;
