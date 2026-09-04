@@ -225,7 +225,7 @@ export const teachingPlan = {
           learningResult: 'Dominar la automatización e interactividad en Google Docs.',
           identification: { topic: 'Automatización', evidence: 'CV Interactivo', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
-          infographicImage: './assets/w03_s01_infografia.jpg',
+          infographicImage: './assets/w03_s01_infografia.png',
           infographicSteps: [{ title: '1. Fichas @', desc: 'Menús y Fechas' }, { title: '2. QR Code', desc: 'Add-ons' }, { title: '3. Lienzo', desc: 'Firma Digital' }, { title: '4. Plantilla', desc: 'Diseño de CV' }],
           development: 'Creación de controles interactivos con el símbolo @. Instalación del generador de QR. Trazo de firma a mano alzada y vaciado en una plantilla de Currículum.',
           closure: 'Currículum vitae interactivo, firmado y con código QR funcional.'
