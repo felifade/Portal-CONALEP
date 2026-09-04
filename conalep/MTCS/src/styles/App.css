@@ -650,6 +650,23 @@ button {
   font-size: 13px;
 }
 
+.infographic-image-frame {
+  margin: 0;
+  padding: 12px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd6fe;
+}
+
+.infographic-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 720px;
+  object-fit: contain;
+  border-radius: 7px;
+  border: 1px solid #e2e8f0;
+}
+
 .infographic-flow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

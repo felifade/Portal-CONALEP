@@ -20,7 +20,8 @@ Editar solamente `src/data/teachingPlan.js` para cambios normales:
 - Cortes, RA, porcentajes y semanas: `teachingPlan.cortes`.
 - Semanas y horas: `teachingPlan.weeks`.
 - Cada hora usa: `start`, `dictation`, `learningResult`, `identification`, `development`, `closure`.
-- La infografia de la hora se define con `infographicTitle` e `infographicSteps`.
+- La infografia de la hora se define con `infographicTitle`, `infographicSteps` y opcionalmente `infographicImage`.
+- Las imagenes de infografia se guardan en `src/assets/` y se referencian por nombre de archivo, por ejemplo `infographicImage: 'mtcs-modelo-osi-paquete-digital.jpg'`.
 
 ## Estructura visual
 
@@ -36,4 +37,3 @@ Editar solamente `src/data/teachingPlan.js` para cambios normales:
 2. Cambiar `teachingPlan.module`.
 3. Cambiar cortes, RA y semanas.
 4. Mantener las mismas claves de cada hora para que la plantilla funcione sin tocar React.
-
