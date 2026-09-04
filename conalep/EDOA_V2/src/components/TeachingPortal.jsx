@@ -155,27 +155,30 @@ const TeachingPortal = () => {
             </div>
             <div className="section-content">
               
-              <div className="infographic-container">
-                <h4>{currentSessionData.infographicTitle}</h4>
-                {currentSessionData.infographicImage && (
+              <div className="infographic-container" style={{ flexDirection: 'column' }}>
+                {currentSessionData.infographicImage ? (
                   <img 
                     src={currentSessionData.infographicImage} 
                     alt={currentSessionData.infographicTitle} 
                     className="infographic-image"
-                    style={{ width: '100%', maxWidth: '100%', height: 'auto', maxHeight: '500px', objectFit: 'contain', display: 'block', margin: '0 auto 15px auto', borderRadius: '6px' }}
+                    style={{ width: '100%', maxWidth: '100%', height: 'auto', maxHeight: '550px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '6px' }}
                   />
-                )}
-                <div className="info-steps">
-                  {currentSessionData.infographicSteps.map((step, idx) => (
-                    <div key={idx} className="info-step">
-                      <div className="step-number">{idx + 1}</div>
-                      <div className="step-content">
-                        <h5>{step.title}</h5>
-                        <p>{step.desc}</p>
-                      </div>
+                ) : (
+                  <>
+                    <h4>{currentSessionData.infographicTitle}</h4>
+                    <div className="info-steps">
+                      {currentSessionData.infographicSteps.map((step, idx) => (
+                        <div key={idx} className="info-step">
+                          <div className="step-number">{idx + 1}</div>
+                          <div className="step-content">
+                            <h5>{step.title}</h5>
+                            <p>{step.desc}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </>
+                )}
               </div>
 
               <p className="development-text" style={{marginTop: '20px'}}>{currentSessionData.development}</p>
