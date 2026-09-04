@@ -157,6 +157,13 @@ const TeachingPortal = () => {
               
               <div className="infographic-container">
                 <h4>{currentSessionData.infographicTitle}</h4>
+                {currentSessionData.infographicImage && (
+                  <img 
+                    src={currentSessionData.infographicImage} 
+                    alt={currentSessionData.infographicTitle} 
+                    className="infographic-image"
+                  />
+                )}
                 <div className="info-steps">
                   {currentSessionData.infographicSteps.map((step, idx) => (
                     <div key={idx} className="info-step">
