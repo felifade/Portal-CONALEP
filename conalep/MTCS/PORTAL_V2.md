@@ -22,6 +22,7 @@ Editar solamente `src/data/teachingPlan.js` para cambios normales:
 - Cada hora usa: `start`, `dictation`, `learningResult`, `identification`, `development`, `closure`.
 - La infografia de la hora se define con `infographicTitle`, `infographicSteps` y opcionalmente `infographicImage`.
 - Las imagenes de infografia se guardan en `src/assets/` y se referencian por nombre de archivo, por ejemplo `infographicImage: 'mtcs-modelo-osi-paquete-digital.jpg'`.
+- Semana 03 ya tiene imagenes reales para Hora 1, Modelo OSI, y Hora 2, Protocolos de Transporte.
 
 ## Estructura visual
 

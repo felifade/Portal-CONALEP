@@ -469,6 +469,7 @@ export const teachingPlan = {
           learningResult: 'El estudiante diferencia TCP y UDP usando ejemplos cotidianos y justifica cual conviene en distintos casos.',
           identification: 'Tema: Protocolos de transporte. Evidencia: telemetria en packetlosstest.com y Kahoot.',
           infographicTitle: 'Rapidez vs Confirmacion',
+          infographicImage: 'mtcs-protocolos-transporte-tcp-udp.jpg',
           infographicSteps: [
             'TCP (Garantizado): confirma cada paquete recibido.',
             'TCP (Ordenado): reordena paquetes y reenvia perdidos.',
