@@ -233,37 +233,37 @@ export const teachingPlan = {
           closure: 'Currículum vitae interactivo, firmado y con código QR funcional.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Intro a Sheets',
-          start: '¿Las matemáticas te dan miedo?',
-          dictation: 'Una hoja de cálculo no solo sirve para calcular. Hoy usaremos la matriz de celdas (filas y columnas) estrictamente como una herramienta de diseño, alineación y organización visual.',
-          learningResult: 'Comprender la interfaz de filas, columnas y celdas sin usar fórmulas.',
-          identification: { topic: 'Matriz Sheets', evidence: 'Inventario', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Celdas', desc: 'Filas / Columnas' }, { title: '2. Relleno', desc: 'Colores' }, { title: '3. Bordes', desc: 'Delimitar' }, { title: '4. Inventario', desc: 'Datos visuales' }],
-          development: 'Crear un Directorio o Inventario Visual de videojuegos/películas aplicando formatos de colores, fuentes y bordes (cero matemáticas).',
-          closure: 'Directorio visualmente estético.'
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Continuación',
+          start: '¿Dónde nos quedamos el lunes?',
+          dictation: 'En esta sesión continuaremos con la elaboración técnica de nuestro Currículum interactivo, guiados por la Ruta del Día que trazamos en la primera sesión.',
+          learningResult: 'Continuar la automatización e interactividad en Google Docs.',
+          identification: { topic: 'CV Interactivo', evidence: 'Avance Práctico', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Continuación',
+          infographicSteps: [{ title: '1. Retomar', desc: 'Abrir Doc' }, { title: '2. Ajustes', desc: 'Detalles visuales' }, { title: '3. QR', desc: 'Generador' }, { title: '4. Avance', desc: 'Progreso guardado' }],
+          development: 'Continuación del trabajo práctico guiado por la infografía: Inserción de códigos QR, uso del lienzo para firma digital y acomodo visual de la plantilla del Currículum.',
+          closure: 'Avance validado del Currículum.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Referencias Absolutas',
-          start: '¿Cómo crear una calculadora automática?',
-          dictation: 'Comprender el uso del símbolo de dólar ($) para fijar celdas (Referencia Absoluta) es el secreto mejor guardado de la ofimática. Evita que la fórmula se deslice al usar Autocompletar.',
-          learningResult: 'Construir un creador de tablas dinámicas combinando $ y autocompletar.',
-          identification: { topic: 'Ref. Absoluta', evidence: 'Creador Tablas', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Autofill', desc: 'Arrastrar cuadro' }, { title: '2. Celda Maestra', desc: 'Dato anclado' }, { title: '3. Dólar ($)', desc: 'Fijar referencia' }, { title: '4. Desplegar', desc: 'Generar tabla' }],
-          development: 'Diseñar el Creador de Tablas. Al modificar el número en la "Celda Maestra", toda la matriz multiplicadora de abajo debe actualizarse instantáneamente.',
-          closure: 'Calculadora de tablas funcional y resistente a errores.'
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Continuación',
+          start: '¿Listos para pulir los detalles finales de nuestro CV interactivo?',
+          dictation: 'La calidad está en los detalles. Dedicaremos esta sesión doble a perfeccionar la plantilla, asegurar que las fichas inteligentes funcionen y que los códigos QR apunten correctamente a sus destinos.',
+          learningResult: 'Perfeccionar y consolidar el formato avanzado del documento.',
+          identification: { topic: 'Pruebas Finales', evidence: 'CV Terminado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Cierre de Diseño',
+          infographicSteps: [{ title: '1. Revisión', desc: 'Fichas @' }, { title: '2. Test QR', desc: 'Escanear' }, { title: '3. Firma', desc: 'Trazo manual' }, { title: '4. Formato', desc: 'Detalles' }],
+          development: 'Pruebas de funcionalidad de las fichas desplegables y del código QR con celulares. Alineación de textos, márgenes y aplicación de formato avanzado.',
+          closure: 'Documento interactivo 100% terminado.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Verificación Semanal',
-          start: '¿Qué hemos aprendido en la semana de transición?',
-          dictation: 'El cierre semanal es nuestra auditoría. Nos aseguramos de que todos los enlaces públicos funcionen y evaluamos nuestra retención de conceptos mediante gamificación.',
-          learningResult: 'Evaluar aprendizajes (Kahoot) y auditar Google Classroom.',
-          identification: { topic: 'Cierre', evidence: '100% Entregas', organization: 'Grupal', location: 'Aula', time: '1 hr' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Kahoot', desc: 'Juego evaluativo' }, { title: '2. Auditar Docs', desc: 'CV Funciona' }, { title: '3. Auditar Sheets', desc: 'Tablas dinámicas' }, { title: '4. Sellos', desc: 'Firma final' }],
-          development: 'Partida de Kahoot repasando Fichas Inteligentes y Celdas. Verificación uno-a-uno de los enlaces públicos en Classroom.',
-          closure: 'Despedida de la semana con todas las evidencias cubiertas.'
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Evaluación',
+          start: '¿Qué hemos aprendido sobre la automatización de documentos?',
+          dictation: 'Es momento de auditar nuestro progreso. La evaluación final consiste en asegurar que el documento interactivo cumpla con todas las especificaciones solicitadas (Fichas, QR, Firma) y sus permisos públicos.',
+          learningResult: 'Evaluar el Currículum Interactivo y auditar las entregas.',
+          identification: { topic: 'Evaluación', evidence: '100% Entregas', organization: 'Individual', location: 'Aula', time: '1 hr' },
+          infographicTitle: 'Ruta de Entrega',
+          infographicSteps: [{ title: '1. Auditar', desc: 'Checklist' }, { title: '2. Enlace', desc: 'Cualquiera lee' }, { title: '3. Classroom', desc: 'Subida oficial' }, { title: '4. Acreditación', desc: 'Registro' }],
+          development: 'Verificación uno-a-uno de que el enlace de compartir de Google Docs esté como "Cualquier usuario con el vínculo". Evaluación final del Currículum en Google Classroom.',
+          closure: 'Proyecto evaluado y bloque cerrado.'
         }
       ]
     },
