@@ -150,6 +150,7 @@ const TeachingPortal = () => {
   // Fallback if session doesn't exist
   const currentSessionData = currentWeekData.sessions.find(s => s.id === activeSession) || currentWeekData.sessions[0];
   const activeCorte = cortes.find(c => c.ras.some(r => r.weeks.includes(activeWeek))) || cortes[0];
+  const activeRa = activeCorte.ras.find(r => r.weeks.includes(activeWeek)) || activeCorte.ras[0];
 
   const handleWeekClick = (weekId) => {
     setActiveWeek(weekId);
@@ -438,59 +439,66 @@ const TeachingPortal = () => {
         )}
       </main>
 
-      {/* RIGHT COLUMN: Radar Operativo */}
-      <aside className="radar-operativo">
-        <div className="radar-header">
-          <h3>Radar Operativo</h3>
-          <p>Visión General</p>
-        </div>
-        
-        <div className="radar-card">
-          <h4>Resumen de la Semana</h4>
-          <p>{currentWeekData.summary}</p>
-        </div>
-        
-        <div className="radar-card">
-          <h4>Sesión actual</h4>
-          <p className="highlight-text">{currentSessionData.subtitle}</p>
-        </div>
-
-        <div className="radar-card product-card">
-          <h4>Producto Esperado</h4>
-          <p className="highlight-text">{currentWeekData.expectedProduct}</p>
-        </div>
-
-        {/* Fechas clave del Corte 1 */}
-        <div className="radar-card" style={{ borderLeft: '4px solid #0ea5e9' }}>
-          <h4>Corte 1 (30%) · Agenda</h4>
-          <p style={{ margin: '4px 0', fontSize: '12px' }}><strong>Periodo:</strong> 10 Ago - 22 Sep 2026</p>
-          <p style={{ margin: '4px 0', fontSize: '12px' }}><strong>Captura SAE:</strong> 21 al 22 Sep 2026</p>
-          <div style={{ marginTop: '8px', display: 'inline-flex', alignItems: 'center', gap: '5px', background: '#eff6ff', padding: '3px 8px', borderRadius: '4px', fontSize: '11px', color: '#1e40af', fontWeight: '700' }}>
-            <Clock size={12} /> Límite: 22 Sep 2026
+      {/* RIGHT COLUMN: Contexto y Avisos (MTCS Replica) */}
+      <aside className="lesson-context">
+        {/* 1. Resultado de Aprendizaje */}
+        <section className="context-panel primary">
+          <div className="panel-header-badge badge-ra" style={{ background: '#eff6ff', color: '#1d4ed8', display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <Target size={14} />
+            <span>Resultado de Aprendizaje</span>
           </div>
-        </div>
-        
-        <div className="radar-card warning">
-          <h4>Avisos de la semana</h4>
-          <ul>
+          <div style={{ fontSize: '13px', color: '#0f172a' }}>
+            <strong>{activeRa.id}:</strong> {activeRa.title}
+          </div>
+          <p style={{ fontSize: '12px', color: '#475569', marginTop: '8px', lineHeight: '1.4', marginBottom: 0 }}>
+            {currentWeekData.summary}
+          </p>
+        </section>
+
+        {/* 2. Producto Esperado */}
+        <section className="context-panel product" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
+          <div className="panel-header-badge badge-product" style={{ background: '#dcfce7', color: '#15803d', display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <FileText size={14} />
+            <span>Producto Esperado</span>
+          </div>
+          <p style={{ fontSize: '13.5px', color: '#166534', fontWeight: '650', margin: 0, lineHeight: '1.4' }}>
+            {currentWeekData.expectedProduct}
+          </p>
+        </section>
+
+        {/* 3. Avisos Institucionales */}
+        <section className="context-panel notices" style={{ background: '#fffbeb', border: '1px solid #fde68a' }}>
+          <div className="panel-header-badge badge-notices" style={{ background: '#fef3c7', color: '#b45309', display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <ShieldCheck size={14} />
+            <span>Avisos de la Semana</span>
+          </div>
+          <ul style={{ margin: 0, paddingLeft: '22px', fontSize: '12px', color: '#92400e', lineHeight: '1.5' }}>
             {(currentWeekData.notices || [
-              'No consumir alimentos cerca de los equipos.',
-              'Subir evidencias a Classroom en tiempo y forma.',
-            ]).map((notice) => (
-              <li key={notice}>{notice}</li>
+              'No consumir alimentos ni bebidas cerca de los equipos.',
+              'Subir evidencias a Classroom en la hora asignada.',
+              'Respaldar archivos en Google Drive institucional.'
+            ]).map((notice, idx) => (
+              <li key={idx} style={{ marginBottom: '6px' }}>{notice}</li>
             ))}
           </ul>
-        </div>
+        </section>
 
-        <div className="radar-card checklist-card">
-          <h4>Orden de clase</h4>
-          <ul>
-            <li>Pregunta detonadora.</li>
-            <li>Dictado para libreta.</li>
-            <li>Desarrollo guiado.</li>
-            <li>Cierre con evidencia.</li>
-          </ul>
-        </div>
+        {/* 4. Estado del Corte */}
+        <section className="context-panel corte" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+          <div className="panel-header-badge badge-corte" style={{ background: '#e2e8f0', color: '#475569', display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <Calendar size={14} />
+            <span>Corte en Curso</span>
+          </div>
+          <p style={{ fontSize: '13px', color: '#334155', margin: 0 }}>
+            <strong>{activeCorte.label}</strong> ({activeCorte.peso})
+          </p>
+          {activeCorte.deadline && (
+            <div style={{ marginTop: '12px', fontSize: '11px', color: '#9f1239', display: 'flex', alignItems: 'center', gap: '6px', background: '#fff1f2', padding: '8px 10px', borderRadius: '6px', border: '1px dashed #fecdd3' }}>
+              <Clock size={16} style={{ flexShrink: 0 }} />
+              <span style={{ lineHeight: '1.4' }}>Captura SAE: <strong>{activeCorte.captureDates || 'Ver SAE'}</strong><br/>Límite: <strong>{activeCorte.deadline}</strong></span>
+            </div>
+          )}
+        </section>
       </aside>
 
       {/* Zoom Modal Overlay */}
