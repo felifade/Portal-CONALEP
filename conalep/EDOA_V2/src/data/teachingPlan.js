@@ -278,6 +278,12 @@ export const teachingPlan = {
       presentationUrl: './html/W04.html',
       summary: 'Integración de Google Docs (pestaña y bitácora) y Google Sheets (Directorio del Grupo 301 con validación, filtros y fórmulas).',
       expectedProduct: 'Pestaña Semana 04 en Docs y Directorio Grupo 301 en Sheets.',
+      notices: [
+        'Todo inicia desde Google Classroom y el documento maestro del RA 1.3.',
+        'La evidencia se documenta en la pestaña Semana 04 de Google Docs.',
+        'Las capturas deben mostrar claramente el avance técnico realizado.',
+        'Las hojas de cálculo deben quedar con datos limpios, ordenados y legibles.'
+      ],
       sessions: [
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (2 hrs) · Docs & Registro Base',
