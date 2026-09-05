@@ -270,56 +270,92 @@ export const teachingPlan = {
     'W04': {
       id: 'W04',
       label: 'Semana 04',
-      title: 'Hojas de Cálculo Avanzadas',
+      title: 'Directorio Inteligente y Transición a Hojas de Cálculo',
       dates: '07 Sep - 11 Sep',
       status: 'upcoming',
       presentationUrl: null,
-      summary: 'Funciones estadísticas básicas y validación de datos en Google Sheets.',
-      expectedProduct: 'Boleta de calificaciones automatizada.',
+      summary: 'Integración de Google Docs (pestaña y bitácora) y Google Sheets (Directorio del Grupo 301 con validación, filtros y fórmulas).',
+      expectedProduct: 'Pestaña Semana 04 en Docs y Directorio Grupo 301 en Sheets.',
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Funciones Básicas',
-          start: '¿Cómo sumar 100 números en 1 segundo?',
-          dictation: 'Las Funciones son fórmulas preprogramadas. En lugar de sumar celda por celda (A1+A2+A3), usamos la función =SUMA() con rangos.',
-          learningResult: 'Aplicar funciones SUMA, PROMEDIO y MAX.',
-          identification: { topic: 'Funciones', evidence: 'Boleta', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Igual =', desc: 'Escribir Función' }, { title: '2. Paréntesis', desc: 'Abrir (' }, { title: '3. Rango', desc: 'Seleccionar celdas' }, { title: '4. Enter', desc: 'Cerrar y calcular' }],
-          development: 'Desarrollo de boleta automatizada.',
-          closure: 'Archivo entregado en Classroom.'
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (2 hrs) · Docs & Registro Base',
+          start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
+          dictation: 'Una hoja de cálculo es una matriz bidimensional de filas y columnas que permite almacenar, calcular y analizar datos. La normalización consiste en asignar a cada columna un dato único y específico para evitar redundancias y errores.',
+          learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
+          identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Ruta de la Sesión',
+          infographicSteps: [
+            { title: '1. Pestaña Docs', desc: 'Crear pestaña Semana 04' },
+            { title: '2. Portada & Checklist', desc: 'Metas y formato base' },
+            { title: '3. Enlace Sheets', desc: 'Vincular archivo a Docs' },
+            { title: '4. 9 Campos Base', desc: 'Nombre, edad, PC, equipo...' }
+          ],
+          development: 'Apertura de la bitácora en Docs, creación de la pestaña Semana 04 con portada y checklist. En Google Sheets, creación de Directorio_Grupo_301 con 9 campos (incluyendo PC asignada, dispositivo en casa y correo Conalep) y captura de registros.',
+          closure: 'Pestaña en Docs formateada y archivo de Sheets enlazado con la estructura base.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Gráficos',
-          start: '¿Por qué las empresas aman las gráficas?',
-          dictation: 'Una gráfica convierte una tabla de números aburridos en una historia visual fácil de digerir para la toma de decisiones.',
-          learningResult: 'Generar gráficas de barras y pastel.',
-          identification: { topic: 'Gráficos', evidence: 'Dashboard', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Datos', desc: 'Seleccionar tabla' }, { title: '2. Insertar', desc: 'Gráfico' }, { title: '3. Tipo', desc: 'Elegir diseño' }, { title: '4. Personalizar', desc: 'Colores' }],
-          development: 'Generar gráficas a partir de la boleta de calificaciones.',
-          closure: 'Gráficas insertadas.'
+          id: 'S2', label: 'Sesión 02', subtitle: 'Lunes (2 hrs) · Formato & Validación',
+          start: '¿Cómo garantizamos que nadie escriba datos equivocados en una hoja compartida?',
+          dictation: 'La validación de datos restringe los valores que una celda puede recibir mediante listas predefinidas. Congelar filas inmoviliza los encabezados para que nunca se pierdan de vista al navegar por listas extensas.',
+          learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
+          identification: { topic: 'Calidad de Datos', evidence: 'Directorio Validado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Ruta de la Sesión',
+          infographicSteps: [
+            { title: '1. Inmovilizar Fila 1', desc: 'Encabezados siempre visibles' },
+            { title: '2. Estilo Visual', desc: 'Alineación y bordes' },
+            { title: '3. Listas Sexo/PC', desc: 'Menú desplegable simple' },
+            { title: '4. Chips de Color', desc: 'Dispositivo en casa' }
+          ],
+          development: 'Inmovilización de la fila 1, alineación según tipo de dato, formato de bordes y configuración de reglas de validación de datos en columnas clave para erradicar errores tipográficos.',
+          closure: 'Directorio estilizado con menús desplegables activos y evidencia en Docs.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Validación de Datos',
-          start: '¿Cómo evitar que el usuario rompa tu tabla?',
-          dictation: 'La Validación de Datos restringe lo que se puede escribir en una celda, evitando errores tipográficos en bases de datos masivas.',
-          learningResult: 'Crear listas desplegables en Sheets.',
-          identification: { topic: 'Validación', evidence: 'Menús Sheets', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Menú', desc: 'Datos > Validar' }, { title: '2. Criterio', desc: 'Menú desplegable' }, { title: '3. Opciones', desc: 'Escribir ítems' }, { title: '4. Guardar', desc: 'Probar celda' }],
-          development: 'Agregar listas desplegables para el estatus de las calificaciones (Aprobado/Reprobado).',
-          closure: 'Validación funcionando.'
+          id: 'S3', label: 'Sesión 03', subtitle: 'Miércoles (1 hr) · Filtros y Búsquedas',
+          start: '¿Filtrar datos significa que borramos lo que no vemos?',
+          dictation: 'Filtrar no elimina registros: oculta temporalmente los datos que no cumplen con un criterio específico. Permite responder preguntas estratégicas de inmediato sin alterar la información original.',
+          learningResult: 'Consultar y analizar el directorio mediante filtros y ordenamiento.',
+          identification: { topic: 'Consultas', evidence: 'Vistas de Filtro', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Ruta de la Sesión',
+          infographicSteps: [
+            { title: '1. Activar Filtro', desc: 'Datos > Crear filtro' },
+            { title: '2. Orden A-Z', desc: 'Por apellidos' },
+            { title: '3. Filtrar Colonia', desc: 'Por zonas' },
+            { title: '4. Filtrar Dispositivo', desc: 'Identificar necesidades' }
+          ],
+          development: 'Creación de vistas de filtro en el directorio del grupo. Consultas rápidas: orden alfabético por apellidos, filtrado de alumnos sin computadora en casa y agrupación por colonias.',
+          closure: 'Evidencia en Docs con capturas de pantalla y análisis de 3 líneas.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Cierre y Entregas',
-          start: '¿Tu dashboard está completo?',
-          dictation: 'Un archivo de datos requiere revisión meticulosa. La limpieza de celdas vacías y la protección de rangos son vitales antes del envío.',
-          learningResult: 'Finalizar la boleta y enviarla.',
-          identification: { topic: 'Cierre', evidence: 'Classroom', organization: 'Individual', location: 'Aula', time: '1 hr' },
-          infographicTitle: 'Ruta del Día',
-          infographicSteps: [{ title: '1. Funciones', desc: 'Revisar #' }, { title: '2. Gráficas', desc: 'Claras' }, { title: '3. Estética', desc: 'Limpieza' }, { title: '4. Envío', desc: 'Lector' }],
-          development: 'Revisión final de la Boleta con Gráficas.',
-          closure: 'Sello semanal W04.'
+          id: 'S4', label: 'Sesión 04', subtitle: 'Jueves (2 hrs) · Fórmulas & Dashboard',
+          start: '¿Cómo sintetizar la información de 40 estudiantes en un solo vistazo?',
+          dictation: 'Un dashboard o panel de control reúne los indicadores más importantes de una base de datos mediante fórmulas matemáticas y gráficas ejecutivas, facilitando la toma de decisiones.',
+          learningResult: 'Construir fórmulas estadísticas básicas y tarjetas de resumen.',
+          identification: { topic: 'Métricas & Dashboard', evidence: 'Mini Dashboard', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Ruta de la Sesión',
+          infographicSteps: [
+            { title: '1. Fórmulas Base', desc: '=CONTAR y =PROMEDIO' },
+            { title: '2. Máximos/Mínimos', desc: '=MAX y =MIN de edad' },
+            { title: '3. Tarjetas KPI', desc: 'Resumen visual del grupo' },
+            { title: '4. Gráfica Pastel', desc: 'Distribución de equipos' }
+          ],
+          development: 'Cálculo de métricas del salón: total de alumnos registrados, promedio de edad, conteo de dispositivos. Diseño de tarjetas visuales de resumen y gráfica circular de equipamiento.',
+          closure: 'Mini dashboard funcional y documentado en la bitácora de Docs.'
+        },
+        {
+          id: 'S5', label: 'Sesión 05', subtitle: 'Viernes (1 hr) · Auditoría & Evaluación',
+          start: '¿Tu enlace se puede abrir desde cualquier dispositivo sin pedir contraseña?',
+          dictation: 'La gestión de accesos y permisos es la última fase de la producción digital. Una entrega profesional debe asegurar que el destinatario tenga acceso de lectura inmediato sin fricciones.',
+          learningResult: 'Auditar permisos públicos, entregar en Classroom y evaluar conceptos.',
+          identification: { topic: 'Cierre y Auditoría', evidence: '100% Entregado', organization: 'Individual', location: 'Aula', time: '1 hr' },
+          infographicTitle: 'Ruta de la Sesión',
+          infographicSteps: [
+            { title: '1. Permisos Docs', desc: 'Cualquier persona / Lector' },
+            { title: '2. Permisos Sheets', desc: 'Acceso verificado' },
+            { title: '3. Subir Classroom', desc: 'Publicar enlaces' },
+            { title: '4. Kahoot Semanal', desc: 'Competencia técnica' }
+          ],
+          development: 'Comprobación de enlaces en ventana de incógnito. Entrega de vínculos en Google Classroom (tarea oficial). Aplicación del Kahoot semanal de afianzamiento sobre hojas de cálculo.',
+          closure: 'Semana 04 calificada, sellos registrados en libreta y proyecto evaluado.'
         }
       ]
     }
