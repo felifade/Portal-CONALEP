@@ -6,6 +6,7 @@ import '../styles/TeachingPortal.css';
 const TeachingPortal = () => {
   const [activeWeek, setActiveWeek] = useState('W03');
   const [activeSession, setActiveSession] = useState('S1');
+  const [zoomedImg, setZoomedImg] = useState(null);
 
   const { module, cortes, weeks } = teachingPlan;
   const currentWeekData = weeks[activeWeek] || weeks['W00'];
@@ -160,8 +161,9 @@ const TeachingPortal = () => {
                   <img 
                     src={currentSessionData.infographicImage} 
                     alt={currentSessionData.infographicTitle} 
-                    className="infographic-image"
+                    className="infographic-image infographic-image-clickable"
                     style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '6px' }}
+                    onClick={() => setZoomedImg(currentSessionData.infographicImage)}
                   />
                 ) : (
                   <>
@@ -226,6 +228,16 @@ const TeachingPortal = () => {
           </ul>
         </div>
       </aside>
+
+      {/* Zoom Modal Overlay */}
+      {zoomedImg && (
+        <div className="image-modal-overlay" onClick={() => setZoomedImg(null)}>
+          <div className="image-modal-content">
+            <button className="close-modal-btn" onClick={() => setZoomedImg(null)}>×</button>
+            <img src={zoomedImg} alt="Zoomed Infographic" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
