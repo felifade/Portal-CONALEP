@@ -1,4 +1,6 @@
 import imgW03S01 from '../assets/w03_s01_infografia.png';
+import imgW04S01 from '../assets/w04_s01_infografia.jpg';
+import imgW04S02 from '../assets/w04_s02_infografia.jpg';
 
 export const teachingPlan = {
   module: {
@@ -273,7 +275,7 @@ export const teachingPlan = {
       title: 'Directorio Inteligente y Transición a Hojas de Cálculo',
       dates: '07 Sep - 11 Sep',
       status: 'upcoming',
-      presentationUrl: null,
+      presentationUrl: './html/W04.html',
       summary: 'Integración de Google Docs (pestaña y bitácora) y Google Sheets (Directorio del Grupo 301 con validación, filtros y fórmulas).',
       expectedProduct: 'Pestaña Semana 04 en Docs y Directorio Grupo 301 en Sheets.',
       sessions: [
@@ -283,7 +285,8 @@ export const teachingPlan = {
           dictation: 'Una hoja de cálculo es una matriz bidimensional de filas y columnas que permite almacenar, calcular y analizar datos. La normalización consiste en asignar a cada columna un dato único y específico para evitar redundancias y errores.',
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
           identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Ruta de la Sesión',
+          infographicTitle: 'Sesión 01 · Horas 1 y 2',
+          infographicImage: imgW04S01,
           infographicSteps: [
             { title: '1. Pestaña Docs', desc: 'Crear pestaña Semana 04' },
             { title: '2. Portada & Checklist', desc: 'Metas y formato base' },
@@ -299,7 +302,8 @@ export const teachingPlan = {
           dictation: 'La validación de datos restringe los valores que una celda puede recibir mediante listas predefinidas. Congelar filas inmoviliza los encabezados para que nunca se pierdan de vista al navegar por listas extensas.',
           learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
           identification: { topic: 'Calidad de Datos', evidence: 'Directorio Validado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Ruta de la Sesión',
+          infographicTitle: 'Sesión 02 · Horas 3 y 4',
+          infographicImage: imgW04S02,
           infographicSteps: [
             { title: '1. Inmovilizar Fila 1', desc: 'Encabezados siempre visibles' },
             { title: '2. Estilo Visual', desc: 'Alineación y bordes' },
