@@ -20,6 +20,30 @@ function getActiveRa(corte, raId) {
   return corte?.ras.find((ra) => ra.id === raId) || corte?.ras[0];
 }
 
+function getWeekSessions(week) {
+  if (!week) return [];
+
+  if (week.sessions?.length) {
+    return week.sessions.map((session) => ({
+      ...session,
+      hours: session.hourIds
+        .map((hourId) => week.hours.find((hour) => hour.id === hourId))
+        .filter(Boolean),
+    }));
+  }
+
+  return [
+    {
+      id: 'S01',
+      label: 'Sesión 01',
+      duration: `${week.hours.length} horas`,
+      title: week.title,
+      product: week.identification.product,
+      hours: week.hours,
+    },
+  ];
+}
+
 function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
   return (
     <aside className="lesson-rail">
@@ -92,24 +116,24 @@ function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
   );
 }
 
-function HourTabs({ hours, activeHour, onSelectHour }) {
+function SessionTabs({ sessions, activeSession, onSelectSession }) {
   return (
-    <nav className="hour-tabs" aria-label="Horas de clase">
-      {hours.map((hour) => (
+    <nav className="session-tabs" aria-label="Sesiones de clase">
+      {sessions.map((session) => (
         <button
-          className={activeHour.id === hour.id ? 'active' : ''}
-          key={hour.id}
-          onClick={() => onSelectHour(hour.id)}
+          className={activeSession.id === session.id ? 'active' : ''}
+          key={session.id}
+          onClick={() => onSelectSession(session.id)}
         >
-          <span className="hour-pill-title">{hour.label}</span>
-          <small className="hour-pill-subtitle">{hour.title.substring(0, 24)}...</small>
+          <span className="session-pill-title">{session.label}</span>
+          <small className="session-pill-subtitle">{session.duration} · {session.title}</small>
         </button>
       ))}
     </nav>
   );
 }
 
-function DataStrip({ week, hour }) {
+function DataStrip({ week, session }) {
   const items = [
     ['Módulo', teachingPlan.module.code],
     ['Grupo', teachingPlan.module.group],
@@ -118,7 +142,7 @@ function DataStrip({ week, hour }) {
     ['Evidencia', week.identification.product],
     ['Organización', week.identification.modality],
     ['Lugar', week.identification.place],
-    ['Hora', hour.label],
+    ['Sesión', `${session.label} · ${session.duration}`],
   ];
 
   return (
@@ -173,7 +197,7 @@ function InfographicPlan({ hour }) {
   );
 }
 
-function RightSummary({ week, corte, ra, activeHour }) {
+function RightSummary({ week, corte, ra, activeSession }) {
   return (
     <aside className="lesson-context">
       <section className="context-panel primary">
@@ -190,7 +214,7 @@ function RightSummary({ week, corte, ra, activeHour }) {
           <ClipboardList size={16} />
           <span>Producto esperado</span>
         </div>
-        <p>{activeHour.closure}</p>
+        <p>{activeSession.product}</p>
       </section>
 
       <section className="context-panel notices">
@@ -217,7 +241,7 @@ function RightSummary({ week, corte, ra, activeHour }) {
 }
 
 function TeachingPortal() {
-  const defaultWeek = teachingPlan.weeks.find((w) => w.status === 'En curso') || teachingPlan.weeks[0];
+  const defaultWeek = teachingPlan.weeks.find((w) => w.defaultWeek) || teachingPlan.weeks.find((w) => w.status === 'En curso') || teachingPlan.weeks[0];
   const [activeWeekId, setActiveWeekId] = useState(defaultWeek.id);
 
   const activeWeek = useMemo(
@@ -225,16 +249,18 @@ function TeachingPortal() {
     [activeWeekId, defaultWeek],
   );
 
-  const [activeHourId, setActiveHourId] = useState(activeWeek.hours[0]?.id || 'H01');
+  const sessions = getWeekSessions(activeWeek);
+  const [activeSessionId, setActiveSessionId] = useState(sessions[0]?.id || 'S01');
 
   const activeCorte = teachingPlan.cortes.find((corte) => corte.id === activeWeek.corteId) || teachingPlan.cortes[0];
   const activeRa = getActiveRa(activeCorte, activeWeek.raId);
-  const activeHour = activeWeek.hours.find((hour) => hour.id === activeHourId) || activeWeek.hours[0];
+  const activeSession = sessions.find((session) => session.id === activeSessionId) || sessions[0];
 
   const handleWeekSelect = (weekId) => {
     const nextWeek = teachingPlan.weeks.find((week) => week.id === weekId);
+    const nextSessions = getWeekSessions(nextWeek);
     setActiveWeekId(weekId);
-    setActiveHourId(nextWeek?.hours[0]?.id || 'H01');
+    setActiveSessionId(nextSessions[0]?.id || 'S01');
   };
 
   return (
@@ -277,57 +303,67 @@ function TeachingPortal() {
           </div>
         </header>
 
-        <HourTabs
-          hours={activeWeek.hours}
-          activeHour={activeHour}
-          onSelectHour={setActiveHourId}
+        <SessionTabs
+          sessions={sessions}
+          activeSession={activeSession}
+          onSelectSession={setActiveSessionId}
         />
 
-        <DataStrip week={activeWeek} hour={activeHour} />
+        <DataStrip week={activeWeek} session={activeSession} />
 
-        <article className="lesson-card">
-          <div className="lesson-card-header">
-            <div className="header-meta">
-              <span className="hour-tag">{activeHour.label}</span>
-              <span className="hour-ra-tag">{activeRa.id}</span>
-            </div>
-            <h2>{activeHour.title}</h2>
-          </div>
+        <section className="session-overview">
+          <span>{activeSession.label} · {activeSession.duration}</span>
+          <h2>{activeSession.title}</h2>
+          <p><strong>Producto:</strong> {activeSession.product}</p>
+        </section>
 
-          <div className="lesson-grid">
-            <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
-              <p>{activeHour.start}</p>
-            </LessonSection>
+        <div className="session-hours">
+          {activeSession.hours.map((hour) => (
+            <article className="lesson-card" key={hour.id}>
+              <div className="lesson-card-header">
+                <div className="header-meta">
+                  <span className="hour-tag">{hour.label}</span>
+                  <span className="hour-ra-tag">{activeRa.id}</span>
+                </div>
+                <h2>{hour.title}</h2>
+              </div>
 
-            <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
-              <p className="dictation-text">{activeHour.dictation}</p>
-            </LessonSection>
+              <div className="lesson-grid">
+                <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
+                  <p>{hour.start}</p>
+                </LessonSection>
 
-            <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
-              <p>{activeHour.learningResult}</p>
-            </LessonSection>
+                <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
+                  <p className="dictation-text">{hour.dictation}</p>
+                </LessonSection>
 
-            <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
-              <p>{activeHour.identification}</p>
-            </LessonSection>
+                <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
+                  <p>{hour.learningResult}</p>
+                </LessonSection>
 
-            <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
-              <p className="dev-intro">{activeHour.development}</p>
-              <InfographicPlan hour={activeHour} />
-            </LessonSection>
+                <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
+                  <p>{hour.identification}</p>
+                </LessonSection>
 
-            <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
-              <p>{activeHour.closure}</p>
-            </LessonSection>
-          </div>
-        </article>
+                <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
+                  <p className="dev-intro">{hour.development}</p>
+                  <InfographicPlan hour={hour} />
+                </LessonSection>
+
+                <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
+                  <p>{hour.closure}</p>
+                </LessonSection>
+              </div>
+            </article>
+          ))}
+        </div>
       </main>
 
       <RightSummary
         week={activeWeek}
         corte={activeCorte}
         ra={activeRa}
-        activeHour={activeHour}
+        activeSession={activeSession}
       />
     </div>
   );
