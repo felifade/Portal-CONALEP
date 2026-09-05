@@ -5,10 +5,10 @@
 
 .teaching-portal {
   display: grid;
-  grid-template-columns: 280px 1fr 300px;
-  gap: 20px;
+  grid-template-columns: 280px minmax(0, 1fr) 315px;
+  gap: 18px;
   height: 100vh;
-  background-color: #f8fafc;
+  background: linear-gradient(135deg, #eef7f3 0%, #f8fafc 38%, #eef6ff 100%);
   color: #334155;
   font-family: system-ui, -apple-system, sans-serif;
   overflow: hidden;
@@ -119,10 +119,11 @@
 }
 
 .guide-hero {
-  background: white;
+  background: linear-gradient(135deg, rgba(2, 89, 64, 0.09), rgba(14, 165, 233, 0.08)), white;
   padding: 20px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
+  border-left: 6px solid #025940;
   margin-bottom: 20px;
 }
 
@@ -210,7 +211,9 @@
 .module-section {
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+  background: white;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
 .section-header {
@@ -220,6 +223,7 @@
   padding: 12px 20px;
   font-weight: 700;
   font-size: 15px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .section-header h3 { margin: 0; font-size: 15px; }
@@ -227,20 +231,44 @@
 .section-content {
   padding: 15px 20px;
   background: white;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 /* Chromatic Codes */
 /* 🟢 Inicio */
+.section-inicio {
+  border-left: 6px solid #16a34a;
+}
 .section-inicio .section-header { background: #e6f4ea; color: #025940; }
-.start-question { font-size: 18px; font-weight: 600; font-style: italic; color: #166534; text-align: center; margin: 0; }
+.start-question {
+  font-size: 20px;
+  font-weight: 800;
+  font-style: italic;
+  color: #166534;
+  text-align: center;
+  margin: 0;
+}
 
 /* 🟠 Dictado */
-.section-dictado .section-header { background: #fef3c7; color: #d97706; }
-.reading-box p { background: #eff6ff; padding: 15px; border-left: 4px solid #3b82f6; margin: 0; border-radius: 0 6px 6px 0; }
+.section-dictado {
+  border-left: 6px solid #f59e0b;
+}
+.section-dictado .section-header { background: #fef3c7; color: #b45309; }
+.reading-box p {
+  background: #eff6ff;
+  padding: 18px;
+  border-left: 5px solid #3b82f6;
+  margin: 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 17px;
+  color: #1e3a8a;
+}
 
 /* 🔵 RA */
+.section-ra {
+  border-left: 6px solid #2563eb;
+}
 .section-ra .section-header { background: #eff6ff; color: #1d4ed8; }
 
 /* 🩵 Ficha */
@@ -248,9 +276,25 @@
 .ficha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 
 /* 🟣 Desarrollo */
+.section-desarrollo {
+  border-left: 6px solid #7c3aed;
+}
 .section-desarrollo .section-header { background: #f5f3ff; color: #6d28d9; }
-.development-text { margin-bottom: 20px; }
-.infographic-container { background: #faf5ff; border: 1px dashed #c4b5fd; padding: 15px; border-radius: 8px; }
+.development-text {
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+  border-radius: 8px;
+  color: #3b0764;
+  font-weight: 650;
+}
+.infographic-container {
+  background: #faf5ff;
+  border: 1px dashed #c4b5fd;
+  padding: 14px;
+  border-radius: 8px;
+}
 .infographic-container h4 { margin: 0 0 15px 0; color: #6d28d9; text-align: center; }
 .info-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
 .info-step { background: white; padding: 10px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
@@ -258,7 +302,18 @@
 .info-step p { margin: 0; font-size: 12px; color: #4c1d95; }
 
 /* 🔴 Cierre */
+.section-cierre {
+  border-left: 6px solid #dc2626;
+}
 .section-cierre .section-header { background: #fef2f2; color: #dc2626; }
+.evidence-callout {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+}
 
 
 /* --- COLUMN 3: RADAR OPERATIVO --- */
@@ -279,12 +334,25 @@
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
+  border-left: 5px solid #94a3b8;
 }
 .radar-card h4 { margin: 0 0 8px 0; font-size: 14px; color: #334155; text-transform: uppercase; letter-spacing: 0.5px; }
 .radar-card p { margin: 0; font-size: 13px; color: #475569; line-height: 1.4; }
-.highlight-text { font-weight: 700; color: #0284c7 !important; }
+.highlight-text { font-weight: 800; color: #0284c7 !important; }
 
-.radar-card.warning { background: #fffbeb; border-color: #fde68a; }
+.radar-card.product-card {
+  background: #ecfdf5;
+  border-color: #bbf7d0;
+  border-left-color: #16a34a;
+}
+
+.radar-card.checklist-card {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+  border-left-color: #7c3aed;
+}
+
+.radar-card.warning { background: #fffbeb; border-color: #fde68a; border-left-color: #f59e0b; }
 .radar-card.warning h4 { color: #b45309; }
 .radar-card.warning ul { margin: 0; padding-left: 20px; font-size: 13px; color: #92400e; }
 .radar-card.warning li { margin-bottom: 4px; }
@@ -315,13 +383,28 @@
 .infographic-image {
   display: block;
   width: 100%;
-  max-height: 500px;
+  max-height: 640px;
   object-fit: contain;
   background: #f8fafc;
   border-radius: 6px;
   margin-bottom: 15px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 1100px) {
+  .teaching-portal {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .corte-rail,
+  .radar-operativo {
+    max-height: none;
+    overflow: visible;
+  }
 }
 
 /* --- ZOOM MODAL --- */

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { BookOpen, Calendar, Percent, ExternalLink, PlayCircle, Target, FileText, CheckCircle2, ChevronRight, PenTool } from 'lucide-react';
+import { BookOpen, Calendar, PlayCircle, Target, FileText, CheckCircle2, PenTool, HelpCircle } from 'lucide-react';
 import { teachingPlan } from '../data/teachingPlan';
 import '../styles/TeachingPortal.css';
 
 const TeachingPortal = () => {
-  const [activeWeek, setActiveWeek] = useState('W03');
+  const [activeWeek, setActiveWeek] = useState('W04');
   const [activeSession, setActiveSession] = useState('S1');
   const [zoomedImg, setZoomedImg] = useState(null);
 
@@ -115,44 +115,40 @@ const TeachingPortal = () => {
         {/* Modular Class Card */}
         <div className="class-card">
           
-          {/* 1. Inicio */}
           <div className="module-section section-inicio">
             <div className="section-header">
-              <PlayCircle size={18} />
-              <h3>Apertura de Sesión</h3>
+              <HelpCircle size={18} />
+              <h3>Pregunta detonadora</h3>
             </div>
             <div className="section-content">
               <p className="start-question">"{currentSessionData.start}"</p>
             </div>
           </div>
 
-          {/* 2. Dictado */}
           <div className="module-section section-dictado">
             <div className="section-header">
               <FileText size={18} />
-              <h3>Concepto Integrador (Dictado)</h3>
+              <h3>Dictado para libreta</h3>
             </div>
             <div className="section-content reading-box">
               <p>{currentSessionData.dictation}</p>
             </div>
           </div>
 
-          {/* 3. RA */}
           <div className="module-section section-ra">
             <div className="section-header">
               <Target size={18} />
-              <h3>Resultado de Aprendizaje (Sesión)</h3>
+              <h3>Resultado de aprendizaje</h3>
             </div>
             <div className="section-content">
               <p>{currentSessionData.learningResult}</p>
             </div>
           </div>
 
-          {/* 5. Desarrollo e Infografia (Moved up to be more prominent as the roadmap) */}
           <div className="module-section section-desarrollo">
             <div className="section-header">
               <PenTool size={18} />
-              <h3>Ruta Práctica del Día</h3>
+              <h3>Desarrollo de la actividad</h3>
             </div>
             <div className="section-content">
               
@@ -162,7 +158,6 @@ const TeachingPortal = () => {
                     src={currentSessionData.infographicImage} 
                     alt={currentSessionData.infographicTitle} 
                     className="infographic-image infographic-image-clickable"
-                    style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '6px' }}
                     onClick={() => setZoomedImg(currentSessionData.infographicImage)}
                   />
                 ) : (
@@ -188,14 +183,13 @@ const TeachingPortal = () => {
             </div>
           </div>
 
-          {/* 4. Ficha & Cierre (Merged a bit visually for the end of the day) */}
           <div className="module-section section-cierre">
             <div className="section-header">
               <CheckCircle2 size={18} />
-              <h3>Evidencia y Cierre</h3>
+              <h3>Cierre y evidencia</h3>
             </div>
             <div className="section-content">
-              <div style={{marginBottom: '10px'}}><strong>Evidencia esperada:</strong> {currentSessionData.identification.evidence}</div>
+              <div className="evidence-callout"><strong>Evidencia esperada:</strong> {currentSessionData.identification.evidence}</div>
               <p>{currentSessionData.closure}</p>
             </div>
           </div>
@@ -216,15 +210,34 @@ const TeachingPortal = () => {
         </div>
         
         <div className="radar-card">
+          <h4>Sesión actual</h4>
+          <p className="highlight-text">{currentSessionData.subtitle}</p>
+        </div>
+
+        <div className="radar-card product-card">
           <h4>Producto Esperado</h4>
           <p className="highlight-text">{currentWeekData.expectedProduct}</p>
         </div>
         
         <div className="radar-card warning">
-          <h4>Avisos Institucionales</h4>
+          <h4>Avisos de la semana</h4>
           <ul>
-            <li>No consumir alimentos cerca de los equipos.</li>
-            <li>Subir evidencias a Classroom en tiempo y forma.</li>
+            {(currentWeekData.notices || [
+              'No consumir alimentos cerca de los equipos.',
+              'Subir evidencias a Classroom en tiempo y forma.',
+            ]).map((notice) => (
+              <li key={notice}>{notice}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="radar-card checklist-card">
+          <h4>Orden de clase</h4>
+          <ul>
+            <li>Pregunta detonadora.</li>
+            <li>Dictado para libreta.</li>
+            <li>Desarrollo guiado.</li>
+            <li>Cierre con evidencia.</li>
           </ul>
         </div>
       </aside>
