@@ -4,15 +4,21 @@ import {
   CalendarDays,
   CheckCircle2,
   ClipboardList,
+  Clock,
   ExternalLink,
   FileText,
+  KeyRound,
   Layers3,
+  Lock,
   Map,
   Megaphone,
   PenLine,
   School,
+  ShieldCheck,
   Sparkles,
   Target,
+  Unlock,
+  X,
 } from 'lucide-react';
 import { teachingPlan } from '../data/teachingPlan';
 
@@ -44,15 +50,74 @@ function getWeekSessions(week) {
   ];
 }
 
-function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
+const TEACHER_PIN = '1328';
+
+function isSessionLocked(session, isTeacherMode) {
+  if (isTeacherMode) return false;
+  if (!session?.unlockDate) return false;
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const todayStr = `${year}-${month}-${day}`;
+
+  // Bloqueado si la fecha es en el futuro
+  if (todayStr < session.unlockDate) return true;
+  // Bloqueado si es hoy pero antes de las 15:00 hrs (turno vespertino)
+  if (todayStr === session.unlockDate && now.getHours() < 15) return true;
+
+  return false;
+}
+
+function SessionLockedCard({ session, onOpenPinModal }) {
+  return (
+    <div className="session-locked-container">
+      <div className="session-locked-card">
+        <div className="locked-icon-bubble">
+          <Lock size={44} />
+        </div>
+        <h2>Sesión Programada</h2>
+        <p className="locked-main-text">
+          El contenido técnico, infografías y actividades de la <strong>{session.label}: {session.title}</strong> se activarán automáticamente el:
+        </p>
+        <div className="locked-date-badge">
+          <CalendarDays size={18} />
+          <strong>{session.unlockLabel || session.unlockDate}</strong>
+        </div>
+        <div className="locked-advice">
+          <p>
+            💡 <strong>Indicación para el Alumno:</strong> Si tienes actividades pendientes de las sesiones anteriores, aprovecha este tiempo para concluirlas y entregarlas en Google Classroom.
+          </p>
+        </div>
+        <button className="teacher-unlock-btn" onClick={onOpenPinModal} title="Acceso exclusivo para el docente">
+          <KeyRound size={14} />
+          <span>Acceso Docente con PIN</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek, onBrandClick, isTeacherMode }) {
   return (
     <aside className="lesson-rail">
-      <div className="lesson-brand">
+      <div
+        className="lesson-brand"
+        onClick={onBrandClick}
+        style={{ cursor: 'pointer', userSelect: 'none' }}
+        title={isTeacherMode ? "Modo Docente Activo" : "CONALEP Pachuca II (Triple clic para Acceso Docente)"}
+      >
         <School size={22} />
-        <div>
+        <div style={{ flex: 1 }}>
           <strong>{teachingPlan.module.code}</strong>
           <span>{teachingPlan.module.group} · {teachingPlan.module.campus}</span>
         </div>
+        {isTeacherMode ? (
+          <ShieldCheck size={18} style={{ color: '#10b981' }} title="Modo Docente Activo" />
+        ) : (
+          <KeyRound size={15} style={{ opacity: 0.35 }} title="Triple clic para PIN Docente" />
+        )}
       </div>
 
       <div className="corte-stack">
@@ -65,7 +130,15 @@ function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
               <span>{corte.label}</span>
               <strong>{corte.weight}</strong>
             </div>
-            <p className="corte-meta">{corte.weeks} semanas planeadas</p>
+            <div className="corte-meta-row">
+              <span className="corte-meta-dates">{corte.weeks} sem · {corte.dates || `${corte.weeks} semanas`}</span>
+              {corte.deadline && (
+                <span className="corte-deadline-pill" title={`Periodo de captura en SIGA: ${corte.captureDates}`}>
+                  <Clock size={10} />
+                  <span>Límite: <strong>{corte.deadline}</strong></span>
+                </span>
+              )}
+            </div>
 
             <div className="ra-list">
               {corte.ras.map((ra) => {
@@ -116,19 +189,27 @@ function CorteRail({ cortes, activeWeek, activeCorte, onSelectWeek }) {
   );
 }
 
-function SessionTabs({ sessions, activeSession, onSelectSession }) {
+function SessionTabs({ sessions, activeSession, onSelectSession, isTeacherMode }) {
   return (
     <nav className="session-tabs" aria-label="Sesiones de clase">
-      {sessions.map((session) => (
-        <button
-          className={activeSession.id === session.id ? 'active' : ''}
-          key={session.id}
-          onClick={() => onSelectSession(session.id)}
-        >
-          <span className="session-pill-title">{session.label}</span>
-          <small className="session-pill-subtitle">{session.duration} · {session.title}</small>
-        </button>
-      ))}
+      {sessions.map((session) => {
+        const locked = isSessionLocked(session, isTeacherMode);
+        return (
+          <button
+            className={`${activeSession.id === session.id ? 'active' : ''} ${locked ? 'is-locked-tab' : ''}`}
+            key={session.id}
+            onClick={() => onSelectSession(session.id)}
+          >
+            <span className="session-pill-title" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+              <span>{session.label}</span>
+              {locked && <Lock size={12} style={{ color: '#e11d48', marginLeft: 4 }} />}
+            </span>
+            <small className="session-pill-subtitle">
+              {locked ? `🔒 ${session.unlockLabel || 'Programada'}` : `${session.duration} · ${session.title}`}
+            </small>
+          </button>
+        );
+      })}
     </nav>
   );
 }
@@ -170,29 +251,45 @@ function LessonSection({ icon, label, children, className = '' }) {
 }
 
 function InfographicPlan({ hour }) {
-  const imageUrl = hour.infographicImage
-    ? new URL(`../assets/${hour.infographicImage}`, import.meta.url).href
-    : null;
+  const images = Array.isArray(hour.infographicImages)
+    ? hour.infographicImages
+    : hour.infographicImage
+    ? [{ src: hour.infographicImage, title: hour.infographicTitle }]
+    : [];
 
   return (
     <div className="infographic-plan">
-      <div className="infographic-title">
-        <Sparkles size={18} />
-        <strong>Infografía de la Hora: {hour.infographicTitle}</strong>
-      </div>
-      {imageUrl && (
-        <figure className="infographic-image-frame">
-          <img src={imageUrl} alt={`Infografia ${hour.infographicTitle}`} />
-        </figure>
-      )}
-      <div className="infographic-flow">
-        {hour.infographicSteps.map((step, index) => (
-          <div className="flow-step" key={step}>
-            <span className="step-num">{String(index + 1).padStart(2, '0')}</span>
-            <p>{step}</p>
+      {images.map((item, idx) => {
+        const imgSrc = typeof item === 'string' ? item : item.src;
+        const imgTitle = typeof item === 'string' ? `${hour.infographicTitle} (${idx + 1})` : item.title || hour.infographicTitle;
+        const imageUrl = new URL(`../assets/${imgSrc}`, import.meta.url).href;
+        return (
+          <div key={idx} style={{ marginBottom: idx < images.length - 1 ? 24 : 0 }}>
+            <div className="infographic-title" style={{ marginBottom: 10 }}>
+              <Sparkles size={18} />
+              <strong>{imgTitle}</strong>
+            </div>
+            <figure className="infographic-image-frame" style={{ margin: 0 }}>
+              <img 
+                src={imageUrl} 
+                alt={`Infografia ${imgTitle}`} 
+                style={{ width: '100%', borderRadius: 8, display: 'block' }} 
+              />
+            </figure>
           </div>
-        ))}
-      </div>
+        );
+      })}
+
+      {hour.infographicSteps?.length > 0 && (
+        <div className="infographic-flow" style={{ marginTop: 20 }}>
+          {hour.infographicSteps.map((step, index) => (
+            <div className="flow-step" key={step}>
+              <span className="step-num">{String(index + 1).padStart(2, '0')}</span>
+              <p>{step}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -234,7 +331,13 @@ function RightSummary({ week, corte, ra, activeSession }) {
           <Layers3 size={16} />
           <span>Corte en curso</span>
         </div>
-        <p><strong>{corte.label}</strong> ({corte.weight}) · {corte.weeks} semanas de ponderación formativa.</p>
+        <p><strong>{corte.label}</strong> ({corte.weight}) · {corte.weeks} semanas ({corte.dates || 'Semestre'}).</p>
+        {corte.deadline && (
+          <p style={{ marginTop: 6, fontSize: 12, color: '#9f1239', display: 'flex', alignItems: 'center', gap: 5 }}>
+            <Clock size={12} />
+            <span>Captura SIGA: <strong>{corte.captureDates}</strong> (Límite: <strong>{corte.deadline}</strong>)</span>
+          </p>
+        )}
       </section>
     </aside>
   );
@@ -256,12 +359,63 @@ function TeachingPortal() {
   const activeRa = getActiveRa(activeCorte, activeWeek.raId);
   const activeSession = sessions.find((session) => session.id === activeSessionId) || sessions[0];
 
+  const [isTeacherMode, setIsTeacherMode] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem('mtcs_teacher_mode');
+      const urlParam = window.location.search.includes('docente=1') || window.location.search.includes('pin=1328');
+      return stored === 'true' || urlParam;
+    } catch {
+      return false;
+    }
+  });
+  const [showPinModal, setShowPinModal] = useState(false);
+  const [pinInput, setPinInput] = useState('');
+  const [pinError, setPinError] = useState(false);
+  const [brandClicks, setBrandClicks] = useState(0);
+
+  const handleBrandClick = () => {
+    setBrandClicks((prev) => {
+      const next = prev + 1;
+      if (next >= 3) {
+        setShowPinModal(true);
+        return 0;
+      }
+      setTimeout(() => setBrandClicks(0), 1500);
+      return next;
+    });
+  };
+
+  const handlePinSubmit = (e) => {
+    e?.preventDefault();
+    if (pinInput.trim() === TEACHER_PIN) {
+      setIsTeacherMode(true);
+      try {
+        sessionStorage.setItem('mtcs_teacher_mode', 'true');
+      } catch {}
+      setShowPinModal(false);
+      setPinInput('');
+      setPinError(false);
+    } else {
+      setPinError(true);
+      setPinInput('');
+    }
+  };
+
+  const handleLogoutTeacher = () => {
+    setIsTeacherMode(false);
+    try {
+      sessionStorage.removeItem('mtcs_teacher_mode');
+    } catch {}
+  };
+
   const handleWeekSelect = (weekId) => {
     const nextWeek = teachingPlan.weeks.find((week) => week.id === weekId);
     const nextSessions = getWeekSessions(nextWeek);
     setActiveWeekId(weekId);
     setActiveSessionId(nextSessions[0]?.id || 'S01');
   };
+
+  const activeSessionLocked = isSessionLocked(activeSession, isTeacherMode);
 
   return (
     <div className="lesson-shell">
@@ -270,9 +424,24 @@ function TeachingPortal() {
         activeWeek={activeWeek}
         activeCorte={activeCorte}
         onSelectWeek={handleWeekSelect}
+        onBrandClick={handleBrandClick}
+        isTeacherMode={isTeacherMode}
       />
 
       <main className="lesson-main">
+        {isTeacherMode && (
+          <div className="teacher-mode-banner">
+            <div className="teacher-mode-info">
+              <ShieldCheck size={18} />
+              <span><strong>Modo Docente Activo:</strong> Todas las sesiones e infografías están visibles sin restricciones de fecha.</span>
+            </div>
+            <button onClick={handleLogoutTeacher} className="teacher-mode-exit-btn" title="Volver a la vista de alumno">
+              <Lock size={13} />
+              <span>Bloquear / Vista Alumno</span>
+            </button>
+          </div>
+        )}
+
         <header className="lesson-hero">
           <div className="hero-info">
             <div className="hero-tags">
@@ -307,6 +476,7 @@ function TeachingPortal() {
           sessions={sessions}
           activeSession={activeSession}
           onSelectSession={setActiveSessionId}
+          isTeacherMode={isTeacherMode}
         />
 
         <DataStrip week={activeWeek} session={activeSession} />
@@ -314,49 +484,59 @@ function TeachingPortal() {
         <section className="session-overview">
           <span>{activeSession.label} · {activeSession.duration}</span>
           <h2>{activeSession.title}</h2>
-          <p><strong>Producto:</strong> {activeSession.product}</p>
+          <p>
+            <strong>Producto: </strong>
+            {activeSessionLocked ? `🔒 Disponible el ${activeSession.unlockLabel || activeSession.unlockDate}` : activeSession.product}
+          </p>
         </section>
 
-        <div className="session-hours">
-          {activeSession.hours.map((hour) => (
-            <article className="lesson-card" key={hour.id}>
-              <div className="lesson-card-header">
-                <div className="header-meta">
-                  <span className="hour-tag">{hour.label}</span>
-                  <span className="hour-ra-tag">{activeRa.id}</span>
+        {activeSessionLocked ? (
+          <SessionLockedCard
+            session={activeSession}
+            onOpenPinModal={() => setShowPinModal(true)}
+          />
+        ) : (
+          <div className="session-hours">
+            {activeSession.hours.map((hour) => (
+              <article className="lesson-card" key={hour.id}>
+                <div className="lesson-card-header">
+                  <div className="header-meta">
+                    <span className="hour-tag">{hour.label}</span>
+                    <span className="hour-ra-tag">{activeRa.id}</span>
+                  </div>
+                  <h2>{hour.title}</h2>
                 </div>
-                <h2>{hour.title}</h2>
-              </div>
 
-              <div className="lesson-grid">
-                <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
-                  <p>{hour.start}</p>
-                </LessonSection>
+                <div className="lesson-grid">
+                  <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
+                    <p>{hour.start}</p>
+                  </LessonSection>
 
-                <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
-                  <p className="dictation-text">{hour.dictation}</p>
-                </LessonSection>
+                  <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
+                    <p className="dictation-text">{hour.dictation}</p>
+                  </LessonSection>
 
-                <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
-                  <p>{hour.learningResult}</p>
-                </LessonSection>
+                  <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
+                    <p>{hour.learningResult}</p>
+                  </LessonSection>
 
-                <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
-                  <p>{hour.identification}</p>
-                </LessonSection>
+                  <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
+                    <p>{hour.identification}</p>
+                  </LessonSection>
 
-                <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
-                  <p className="dev-intro">{hour.development}</p>
-                  <InfographicPlan hour={hour} />
-                </LessonSection>
+                  <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
+                    <p className="dev-intro">{hour.development}</p>
+                    <InfographicPlan hour={hour} />
+                  </LessonSection>
 
-                <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
-                  <p>{hour.closure}</p>
-                </LessonSection>
-              </div>
-            </article>
-          ))}
-        </div>
+                  <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
+                    <p>{hour.closure}</p>
+                  </LessonSection>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </main>
 
       <RightSummary
@@ -365,6 +545,44 @@ function TeachingPortal() {
         ra={activeRa}
         activeSession={activeSession}
       />
+
+      {showPinModal && (
+        <div className="pin-modal-overlay" onClick={() => setShowPinModal(false)}>
+          <div className="pin-modal-card" onClick={(e) => e.stopPropagation()}>
+            <button className="pin-modal-close" onClick={() => setShowPinModal(false)} aria-label="Cerrar modal">
+              <X size={18} />
+            </button>
+            <div className="pin-modal-icon">
+              <KeyRound size={28} />
+            </div>
+            <h3>Acceso Docente</h3>
+            <p>Ingresa el PIN de 4 dígitos para desbloquear todas las sesiones del portal:</p>
+            <form onSubmit={handlePinSubmit}>
+              <input
+                type="password"
+                maxLength={4}
+                autoFocus
+                value={pinInput}
+                onChange={(e) => {
+                  setPinInput(e.target.value);
+                  setPinError(false);
+                }}
+                placeholder="••••"
+                className={`pin-input ${pinError ? 'error' : ''}`}
+              />
+              {pinError && <span className="pin-error-text">PIN incorrecto. Intenta de nuevo.</span>}
+              <div className="pin-actions">
+                <button type="button" className="btn-cancel" onClick={() => setShowPinModal(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn-submit">
+                  Desbloquear
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

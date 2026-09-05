@@ -17,6 +17,9 @@ export const teachingPlan = {
       id: 'C1',
       label: 'Primer Corte',
       peso: '30%',
+      dates: '10 Ago - 22 Sep 2026',
+      captureDates: '21 al 22 Sep 2026',
+      deadline: '22 Sep 2026',
       ras: [
         { id: 'RA_Diag', title: 'Diagnóstico e Inducción', peso: '0%', weeks: ['W00'] },
         { id: 'RA 1.1', title: 'Entorno Nube y Estilos Base', peso: '10%', weeks: ['W01'] },
@@ -28,6 +31,9 @@ export const teachingPlan = {
       id: 'C2',
       label: 'Segundo Corte',
       peso: '35%',
+      dates: '23 Sep - 04 Nov 2026',
+      captureDates: '03 al 04 Nov 2026',
+      deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '15%', weeks: ['W05', 'W06'] },
         { id: 'RA 2.2', title: 'Presentaciones Interactivas', peso: '20%', weeks: ['W07', 'W08', 'W09'] }
@@ -37,6 +43,9 @@ export const teachingPlan = {
       id: 'C3',
       label: 'Tercer Corte',
       peso: '35%',
+      dates: '05 Nov - 11 Dic 2026',
+      captureDates: '10 al 11 Dic 2026',
+      deadline: '11 Dic 2026',
       ras: [
         { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W10', 'W11', 'W12'] },
         { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W13', 'W14', 'W15'] }
@@ -287,6 +296,8 @@ export const teachingPlan = {
       sessions: [
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (2 hrs) · Docs & Registro Base',
+          unlockDate: '2026-09-07',
+          unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
           dictation: 'Una hoja de cálculo es una poderosa herramienta digital estructurada como una matriz bidimensional. Está organizada en filas (números) y columnas (letras). Su propósito principal no es solo almacenar texto, sino capturar, estructurar, calcular y analizar grandes volúmenes de datos numéricos y alfanuméricos mediante fórmulas. Además, la normalización de datos consiste en dividir la información en columnas con propósitos únicos y altamente específicos para evitar duplicidades, prevenir errores humanos y facilitar significativamente las búsquedas futuras.',
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
@@ -304,6 +315,8 @@ export const teachingPlan = {
         },
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Lunes (2 hrs) · Formato & Validación',
+          unlockDate: '2026-09-07',
+          unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cómo garantizamos que nadie escriba datos equivocados en una hoja compartida?',
           dictation: 'El diseño profesional en una hoja de cálculo tiene una función operativa: permite congelar paneles para evitar que la información clave se pierda de vista al desplazarse. Por otro lado, la "Validación de Datos" es una estricta regla de calidad que restringe la entrada de información a valores predeterminados (como menús desplegables), lo que erradica errores tipográficos, estandariza la escritura y permite que las fórmulas y filtros funcionen con 100% de precisión.',
           learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
@@ -321,6 +334,8 @@ export const teachingPlan = {
         },
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Miércoles (1 hr) · Filtros y Búsquedas',
+          unlockDate: '2026-09-09',
+          unlockLabel: 'Miércoles 9 de Septiembre, 15:00 hrs',
           start: '¿Filtrar datos significa que borramos lo que no vemos?',
           dictation: 'Filtrar no elimina registros: oculta temporalmente los datos que no cumplen con un criterio específico. Permite responder preguntas estratégicas de inmediato sin alterar la información original.',
           learningResult: 'Consultar y analizar el directorio mediante filtros y ordenamiento.',
@@ -337,6 +352,8 @@ export const teachingPlan = {
         },
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Jueves (2 hrs) · Fórmulas & Dashboard',
+          unlockDate: '2026-09-10',
+          unlockLabel: 'Jueves 10 de Septiembre, 15:00 hrs',
           start: '¿Cómo sintetizar la información de 40 estudiantes en un solo vistazo?',
           dictation: 'Un dashboard o panel de control reúne los indicadores más importantes de una base de datos mediante fórmulas matemáticas y gráficas ejecutivas, facilitando la toma de decisiones.',
           learningResult: 'Construir fórmulas estadísticas básicas y tarjetas de resumen.',
@@ -353,6 +370,8 @@ export const teachingPlan = {
         },
         {
           id: 'S5', label: 'Sesión 05', subtitle: 'Viernes (1 hr) · Auditoría & Evaluación',
+          unlockDate: '2026-09-11',
+          unlockLabel: 'Viernes 11 de Septiembre, 15:00 hrs',
           start: '¿Tu enlace se puede abrir desde cualquier dispositivo sin pedir contraseña?',
           dictation: 'La gestión de accesos y permisos es la última fase de la producción digital. Una entrega profesional debe asegurar que el destinatario tenga acceso de lectura inmediato sin fricciones.',
           learningResult: 'Auditar permisos públicos, entregar en Classroom y evaluar conceptos.',
