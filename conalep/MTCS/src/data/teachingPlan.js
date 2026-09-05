@@ -580,6 +580,7 @@ export const teachingPlan = {
       },
       notices: [
         'Semana de consolidacion del RA 1.1 (15% del primer corte).',
+        'Lunes 07 y Martes 08: sin clases presenciales. El portal y las actividades se activan el Miércoles 09 a las 15:00 hrs.',
         'Preparativos para el desfile del 16 de septiembre.',
       ],
       hours: [
@@ -657,8 +658,8 @@ export const teachingPlan = {
           title: 'Diagnóstico inicial: identidad fisica del equipo',
           hourIds: ['H01'],
           product: 'Ficha MAC/OUI/NIC del equipo asignado con explicacion propia.',
-          unlockDate: '2026-09-07',
-          unlockLabel: 'Lunes 07 de Septiembre (15:00 hrs)',
+          unlockDate: '2026-09-09',
+          unlockLabel: 'Miércoles 09 de Septiembre (15:00 hrs)',
         },
         {
           id: 'S02',
