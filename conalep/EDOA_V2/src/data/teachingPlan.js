@@ -288,7 +288,7 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (2 hrs) · Docs & Registro Base',
           start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
-          dictation: 'Una hoja de cálculo es una matriz bidimensional de filas y columnas que permite almacenar, calcular y analizar datos. La normalización consiste en asignar a cada columna un dato único y específico para evitar redundancias y errores.',
+          dictation: 'Una hoja de cálculo es una poderosa herramienta digital estructurada como una matriz bidimensional. Está organizada en filas (números) y columnas (letras). Su propósito principal no es solo almacenar texto, sino capturar, estructurar, calcular y analizar grandes volúmenes de datos numéricos y alfanuméricos mediante fórmulas. Además, la normalización de datos consiste en dividir la información en columnas con propósitos únicos y altamente específicos para evitar duplicidades, prevenir errores humanos y facilitar significativamente las búsquedas futuras.',
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
           identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 01 · Horas 1 y 2',
@@ -305,7 +305,7 @@ export const teachingPlan = {
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Lunes (2 hrs) · Formato & Validación',
           start: '¿Cómo garantizamos que nadie escriba datos equivocados en una hoja compartida?',
-          dictation: 'La validación de datos restringe los valores que una celda puede recibir mediante listas predefinidas. Congelar filas inmoviliza los encabezados para que nunca se pierdan de vista al navegar por listas extensas.',
+          dictation: 'El diseño profesional en una hoja de cálculo tiene una función operativa: permite congelar paneles para evitar que la información clave se pierda de vista al desplazarse. Por otro lado, la "Validación de Datos" es una estricta regla de calidad que restringe la entrada de información a valores predeterminados (como menús desplegables), lo que erradica errores tipográficos, estandariza la escritura y permite que las fórmulas y filtros funcionen con 100% de precisión.',
           learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
           identification: { topic: 'Calidad de Datos', evidence: 'Directorio Validado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 02 · Horas 3 y 4',
