@@ -53,7 +53,7 @@ const TeachingPortal = () => {
                         <button
                           key={weekId}
                           onClick={() => handleWeekClick(weekId)}
-                          className={`week-btn ${wData.status} ${isActive ? 'active' : ''}`}
+                          className={`week-btn ${wData.status} ${isActive ? 'selected' : ''}`}
                           title={wData.title}
                         >
                           {weekId}
