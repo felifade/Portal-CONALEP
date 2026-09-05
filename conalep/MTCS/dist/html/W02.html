@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTCS · Semana 02 · Redes Básicas: Mapeando el Territorio</title>
+  <style>
+    :root {
+      --ink: #0f1917;
+      --muted: #41514c;
+      --paper: #f8faf8;
+      --line: #c6d5cd;
+      --green: #025940;
+      --green2: #013324;
+      --blue: #1d4ed8;
+      --blue-dark: #1e3a8a;
+      --gold: #b45309;
+      --red: #b91c1c;
+      --soft: #eaf4ee;
+      --softblue: #eff6ff;
+      --softgold: #fef3c7;
+      --softred: #fee2e2;
+      --white: #ffffff;
+      --shadow: 0 12px 32px rgba(15, 25, 23, 0.07);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #d4e2dc;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: clamp(16px, 3vh, 28px) clamp(20px, 3.8vw, 46px) 72px;
+      display: none;
+      background: var(--paper);
+      overflow-y: auto;
+      box-sizing: border-box;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .slide.active { display: flex; }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1 {
+      font-size: clamp(38px, 5vw, 70px);
+      line-height: 1.0;
+      color: var(--green2);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    h2 {
+      font-size: clamp(24px, 3.2vw, 42px);
+      line-height: 1.1;
+      color: var(--green2);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: clamp(18px, 1.8vw, 24px);
+      color: var(--green2);
+      font-weight: 800;
+    }
+    p, li, td, th {
+      font-size: clamp(15px, 1.25vw, 19px);
+      line-height: 1.38;
+    }
+    .badge, .eyebrow {
+      display: inline-block;
+      font-size: clamp(13px, 1.05vw, 15px);
+      font-weight: 900;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .cover-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: center;
+    }
+    @media (max-width: 950px) {
+      .cover-layout { grid-template-columns: 1fr; }
+    }
+    .cover-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cover-left p {
+      color: var(--muted);
+      font-size: clamp(18px, 1.8vw, 24px);
+      line-height: 1.35;
+    }
+    .teacher {
+      color: var(--green) !important;
+      font-weight: 900;
+      font-size: clamp(17px, 1.4vw, 22px);
+    }
+    .class-code {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 18px;
+      border: 3px solid var(--line);
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      width: max-content;
+      max-width: 100%;
+    }
+    .class-code span {
+      color: var(--muted);
+      font-weight: 900;
+      font-size: clamp(14px, 1.15vw, 18px);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .class-code strong {
+      font-size: clamp(30px, 3.5vw, 44px);
+      color: var(--blue);
+      letter-spacing: 0.08em;
+    }
+    .cover-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .info-card {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+    }
+    .info-card h4 {
+      font-size: clamp(15px, 1.2vw, 18px);
+      color: var(--green2);
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .info-card p {
+      font-size: clamp(14px, 1.1vw, 16.5px);
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .full-grid-3 {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      min-height: 0;
+    }
+    .full-grid-2 {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      min-height: 0;
+    }
+    @media (max-width: 950px) {
+      .full-grid-3, .full-grid-2 { grid-template-columns: 1fr; }
+    }
+    .card, .panel, .note {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .card p, .panel p { color: var(--muted); font-size: clamp(14.5px, 1.15vw, 17.5px); }
+    
+    /* EDOA-STYLE HOUR LAYOUT */
+    .hour-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 36% 1fr;
+      gap: 18px;
+      align-items: stretch;
+      min-height: 0;
+    }
+    @media (max-width: 950px) {
+      .hour-layout { grid-template-columns: 1fr; }
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+    }
+    .ra-box {
+      background: var(--soft);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    .ra-box strong { color: var(--green2); font-size: clamp(16px, 1.3vw, 19px); font-weight: 900; }
+    .mini-title {
+      font-size: clamp(14px, 1.1vw, 16px);
+      font-weight: 900;
+      color: var(--green2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .panel.dictado {
+      background: var(--softblue);
+      border: 2px solid #93c5fd;
+      border-left: 6px solid var(--blue);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel.dictado .mini-title { color: var(--blue); }
+    .panel.dictado p {
+      font-size: clamp(14.5px, 1.15vw, 17px);
+      line-height: 1.42;
+      color: #1e3a8a;
+      font-style: italic;
+    }
+    .panel.obj { background: var(--soft); }
+    .panel.gold { background: var(--softgold); border-color: #fcd34d; }
+    .panel.red { background: var(--softred); border-color: #fca5a5; }
+    table {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    th {
+      background: #e2ede7;
+      color: var(--green2);
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 900;
+    }
+    td {
+      font-size: clamp(13.5px, 1.05vw, 16px);
+      line-height: 1.32;
+    }
+    td:first-child { font-weight: 900; color: var(--green); text-align: center; }
+    .checklist-list {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .checklist-list div {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(14.5px, 1.15vw, 17.5px);
+      box-shadow: var(--shadow);
+    }
+    .checklist-list div::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      font-size: clamp(18px, 1.5vw, 22px);
+      flex-shrink: 0;
+    }
+    .badge-libreta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .diagram-box {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .diagram-box b { color: var(--green2); display: block; font-size: 17px; margin-bottom: 4px; }
+    .diagram-box span { color: var(--muted); font-size: 13.5px; }
+    footer {
+      position: absolute;
+      left: clamp(20px, 3.8vw, 46px);
+      right: clamp(20px, 3.8vw, 46px);
+      bottom: 10px;
+      padding-top: 5px;
+      border-top: 2px solid var(--line);
+      font-size: clamp(12.5px, 1vw, 15px);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer strong { color: var(--green); font-weight: 900; }
+    .timer {
+      position: fixed;
+      right: 18px;
+      top: 14px;
+      z-index: 50;
+      background: #ffffffed;
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .timer.min {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .timer.min::before { content: "⏱"; font-size: 18px; line-height: 1; }
+    .timer.min .time, .timer.min button { display: none; }
+    .timer button, .nav button {
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 6px;
+      padding: 5px 9px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .timer .time {
+      font-size: 17px;
+      font-weight: 900;
+      min-width: 60px;
+      text-align: center;
+      color: var(--ink);
+      font-family: monospace;
+    }
+    .nav {
+      position: fixed;
+      right: 18px;
+      bottom: 10px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffffed;
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 5px 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .count { font-weight: 900; min-width: 64px; text-align: center; font-size: 14px; color: var(--green2); }
+  </style>
+</head>
+<body>
+  <main class="deck">
+
+    <!-- SLIDE 1: PORTADA -->
+    <section class="slide active">
+      <div class="cover-layout">
+        <div class="cover-left">
+          <span class="badge">CONALEP · MTCS-20 · Grupo 501</span>
+          <h1>Semana 02: Redes Básicas</h1>
+          <p><strong>Mapeando el Territorio Digital</strong> · Identificación de tipos de red (PAN, LAN, WAN), dispositivos de interconexión (Hub, Switch, Router), medios de transmisión y topología básica.</p>
+          <div class="class-code"><span>Código Classroom</span><strong>j6bnku3j</strong></div>
+          <p class="teacher">Docente: Dr. Felipe López Salazar · RA 1.1</p>
+        </div>
+        <div class="cover-right">
+          <div class="info-card" style="border-left: 6px solid var(--green);">
+            <h4>🎯 Pregunta Central</h4>
+            <p>"¿Cómo puedo proteger una red informática si primero no entiendo cómo está conectada?"</p>
+          </div>
+          <div class="info-card" style="border-left: 6px solid var(--blue); background: var(--softblue);">
+            <h4>🎙️ Inicio con Dictado</h4>
+            <p>Cada hora abre formalmente con el dictado reflexivo del docente antes de iniciar el trabajo en Google Docs y libreta.</p>
+          </div>
+          <div class="info-card" style="border-left: 6px solid var(--gold); background: var(--softgold);">
+            <h4>📓 Reforzamiento en Libreta</h4>
+            <p>Mapas mentales, esquemas de ataque vs defensa, autopsias de red y conclusiones manuscritas de bitácora.</p>
+          </div>
+        </div>
+      </div>
+      <footer><span>Semana 02 · Redes Básicas</span><strong>5 Horas · 3 Sesiones · 5 Productos</strong></footer>
+    </section>
+
+    <!-- SLIDE 2: ENCUADRE DE LA SEMANA 02 -->
+    <section class="slide">
+      <span class="eyebrow">Encuadre de la Semana</span>
+      <h2>Objetivo y Organizadores Visuales</h2>
+      <div class="full-grid-3">
+        <article class="card" style="border-top: 8px solid var(--green);">
+          <div class="mini-title" style="color: var(--green);">Sesión 01 (1h) · Alcance</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 4px;">Tipos de Redes</p>
+          <p>Identificar y mapear las diferencias de cobertura entre <strong>PAN</strong> (personal), <strong>LAN</strong> (local) y <strong>WAN</strong> (amplia/internet) mediante mapa mental.</p>
+        </article>
+        <article class="card" style="border-top: 8px solid var(--gold); background: var(--softgold);">
+          <div class="mini-title" style="color: var(--gold);">Sesión 02 (2h) · Dispositivos</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 4px;">Hub, Switch y Router</p>
+          <p>Analizar por qué un <strong>Switch</strong> protege mejor que un <strong>Hub</strong> (tráfico dirigido) y cómo el <strong>Router</strong> conecta la LAN con internet.</p>
+        </article>
+        <article class="card" style="border-top: 8px solid var(--blue); background: var(--softblue);">
+          <div class="mini-title" style="color: var(--blue);">Sesión 03 (2h) · Medios & Mapa</div>
+          <p style="font-weight: 800; color: var(--ink); margin-bottom: 4px;">Medios y Topología</p>
+          <p>Infografía de medios (<strong>UTP, Fibra, Wi-Fi</strong>) y construcción del <strong>Mapa de Red Básica</strong> con etiquetado de puntos críticos a proteger.</p>
+        </article>
+      </div>
+      <div class="card" style="background: var(--soft); padding: 10px 16px; border-left: 8px solid var(--green);">
+        <p style="color: var(--green2); font-size: clamp(14.5px, 1.15vw, 17px);">
+          <strong>📌 Regla de Oro:</strong> Antes de defender un sistema, hay que conocer el territorio: saber dónde están los equipos y por dónde viajan los datos.
+        </p>
+      </div>
+      <footer><span>Estructura de la Semana 02</span><strong>MTCS · Grupo 501</strong></footer>
+    </section>
+
+    <!-- SLIDE 3: SESIÓN 01 · HORA 1 (INICIO · DICTADO + DESARROLLO) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 01 · Hora 1</span>
+      <h2>Tipos de Redes: PAN, LAN y WAN</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1 (15%)</strong><br><span style="font-size:13px; color:var(--muted);">Identifica conexiones de red y funcionamiento óptimo.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Una red de datos es un conjunto de dispositivos conectados que pueden compartir información, recursos o servicios. Para comprender la ciberseguridad, primero debemos identificar el tipo de red, los equipos que participan en ella y el camino que siguen los datos. No se puede proteger lo que no se conoce; por eso, aprender a mapear una red es el primer paso para analizar su funcionamiento y detectar posibles riesgos."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 1)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Abrir documento: <strong>Semana 02 · Redes básicas</strong> en Google Docs.</td></tr>
+              <tr><td>2</td><td>Identificar los 3 alcances: <strong>PAN</strong> (Personal), <strong>LAN</strong> (Local escolar/hogar) y <strong>WAN</strong> (Amplia/Mundial).</td></tr>
+              <tr><td>3</td><td>Elaborar un <strong>Mapa Mental digital</strong> en Docs con significado, alcance, ejemplo e imagen por cada tipo de red.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Clasificar 5 ejemplos reales de tu vida diaria en PAN, LAN o WAN y justificar cuál usas más.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 1</span><strong>Docs (Mapa Mental PAN, LAN, WAN) + Libreta (Clasificación de 5 Ejemplos)</strong></footer>
+    </section>
+
+    <!-- SLIDE 4: EJEMPLO VISUAL · HORA 1 (MAPA MENTAL PAN, LAN, WAN) -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 1</span>
+      <h2>Estructura del Mapa Mental (P1)</h2>
+      <div class="full-grid-3">
+        <article class="panel" style="border-left: 8px solid var(--green);">
+          <div class="mini-title" style="color: var(--green);">PAN · Personal Area Network</div>
+          <p style="font-weight:900; margin-bottom:4px;">Alcance: 1 a 10 metros</p>
+          <p style="font-size:14px; margin-bottom:6px;">Conexión de dispositivos personales de uso individual.</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ejemplo:</strong> Celular conectado a audífonos o smartwatch (Bluetooth).</li>
+            <li><strong>Riesgo:</strong> Intercepción en corto alcance o enlaces no autorizados.</li>
+          </ul>
+        </article>
+        <article class="panel" style="border-left: 8px solid var(--blue); background: var(--softblue);">
+          <div class="mini-title" style="color: var(--blue);">LAN · Local Area Network</div>
+          <p style="font-weight:900; margin-bottom:4px;">Alcance: Un edificio / Aula / Casa</p>
+          <p style="font-size:14px; margin-bottom:6px;">Equipos interconectados compartiendo archivos e impresoras.</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ejemplo:</strong> Computadoras del laboratorio escolar conectadas al switch.</li>
+            <li><strong>Riesgo:</strong> Intrusos en la red Wi-Fi o propagación de malware interno.</li>
+          </ul>
+        </article>
+        <article class="panel" style="border-left: 8px solid var(--gold); background: var(--softgold);">
+          <div class="mini-title" style="color: var(--gold);">WAN · Wide Area Network</div>
+          <p style="font-weight:900; margin-bottom:4px;">Alcance: Ciudades / Países / Mundial</p>
+          <p style="font-size:14px; margin-bottom:6px;">Interconexión global de múltiples redes locales.</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ejemplo:</strong> Internet, servidores de Google Classroom o YouTube.</li>
+            <li><strong>Riesgo:</strong> Ciberataques remotos, phishing masivo y espionaje de tráfico.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
+        <p style="font-size: 14.5px; color: var(--green2);">💡 <strong>En Libreta:</strong> Anota: <em>"La red que uso con más frecuencia es _______ porque _______."</em></p>
+      </div>
+      <footer><span>Alcance y Cobertura</span><strong>Mapa Mental de Redes · Producto 1</strong></footer>
+    </section>
+
+    <!-- SLIDE 5: SESIÓN 02 · HORA 2 (INICIO · DICTADO + HUB VS SWITCH) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 2</span>
+      <h2>Dispositivos de Red: Hub vs Switch</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Diferenciación de equipos de conmutación.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Dentro de una red local, los dispositivos necesitan comunicarse de forma ordenada. Un hub repite la información a todos los equipos conectados, aunque no todos la necesiten; por eso expone más tráfico. Un switch, en cambio, identifica hacia dónde debe enviar los datos y reduce la comunicación innecesaria. En ciberseguridad, enviar la información sólo a quien corresponde ayuda a disminuir riesgos."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 2)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Comprender la analogía: <strong>Hub = gritar en el salón</strong> vs <strong>Switch = entregar nota en mano</strong>.</td></tr>
+              <tr><td>2</td><td>Construir en Docs una <strong>comparación visual en dos bloques</strong> (Hub vs Switch) con características, ventajas y riesgos.</td></tr>
+              <tr><td>3</td><td>Insertar imágenes o iconos que representen el envío masivo vs el envío dirigido.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Responder a mano: <em>¿Por qué un switch es mucho más seguro para un laboratorio que un hub?</em></td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 2</span><strong>Docs (Comparación Visual Hub vs Switch) + Libreta (Análisis de Seguridad de Conmutación)</strong></footer>
+    </section>
+
+    <!-- SLIDE 6: EJEMPLO VISUAL · HORA 2 (COMPARACIÓN HUB VS SWITCH) -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 2</span>
+      <h2>Comparación Visual: Hub vs Switch (P2)</h2>
+      <div class="full-grid-2">
+        <article class="panel red" style="border-left: 8px solid var(--red);">
+          <div class="mini-title" style="color: var(--red);">📢 El HUB (Concentrador)</div>
+          <p style="font-weight:900; margin-bottom:4px;">"Gritar el mensaje a todo el salón"</p>
+          <ul style="font-size:14px; padding-left:18px;">
+            <li style="margin:6px 0;"><strong>Funcionamiento:</strong> Replica todo paquete que recibe a todos los puertos conectados sin filtrar.</li>
+            <li style="margin:6px 0;"><strong>Problema:</strong> Colisiones de datos y saturación de la red.</li>
+            <li style="margin:6px 0;"><strong>Riesgo de Seguridad:</strong> Cualquier computadora conectada puede "escuchar" y espiar el tráfico ajeno (Sniffing).</li>
+          </ul>
+        </article>
+        <article class="panel" style="border-left: 8px solid var(--green);">
+          <div class="mini-title" style="color: var(--green);">🎯 El SWITCH (Conmutador)</div>
+          <p style="font-weight:900; margin-bottom:4px;">"Entregar el mensaje solo al destinatario"</p>
+          <ul style="font-size:14px; padding-left:18px;">
+            <li style="margin:6px 0;"><strong>Funcionamiento:</strong> Lee la dirección física (MAC) y envía el paquete únicamente al equipo de destino.</li>
+            <li style="margin:6px 0;"><strong>Ventaja:</strong> Red veloz, sin colisiones y tráfico optimizado.</li>
+            <li style="margin:6px 0;"><strong>Beneficio de Seguridad:</strong> Aísla la conversación; los demás equipos no pueden interceptar los datos fácilmente.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
+        <p style="font-size: 14.5px; color: var(--green2);">🔒 <strong>Conclusión:</strong> En redes modernas de ciberseguridad, el switch es el estándar indispensable.</p>
+      </div>
+      <footer><span>Conmutación y Seguridad</span><strong>Hub vs Switch · Producto 2</strong></footer>
+    </section>
+
+    <!-- SLIDE 7: SESIÓN 02 · HORA 3 (INICIO · DICTADO + ROUTER E INTERNET) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 02 · Hora 3</span>
+      <h2>El Router y la Salida hacia Internet</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Enrutamiento y segmentación de redes.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Un router, o enrutador, conecta redes diferentes. En una casa, escuela u oficina, permite que la red local salga hacia internet. Su función es decidir por dónde deben viajar los datos para llegar a su destino. También puede actuar como una primera barrera de protección, porque ayuda a controlar qué conexiones entran o salen de la red."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 3)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Diferenciar: <strong>Switch</strong> (conecta equipos dentro de la LAN) vs <strong>Router</strong> (conecta la LAN con el exterior).</td></tr>
+              <tr><td>2</td><td>Construir en Docs el <strong>Diagrama de Ruta Básica</strong>: <em>Computadora ➔ Switch ➔ Router ➔ Internet</em>.</td></tr>
+              <tr><td>3</td><td>Explicar por qué el router funciona como la "aduana" o primera barrera de seguridad de la red.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar el diagrama de bloques y responder: <em>¿Qué pasaría si la red del plantel no tuviera router?</em></td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 3</span><strong>Docs (Diagrama de Flujo PC-Switch-Router-WAN) + Libreta (Esquema de Enrutamiento y Análisis)</strong></footer>
+    </section>
+
+    <!-- SLIDE 8: EJEMPLO VISUAL · HORA 3 (DIAGRAMA DE RECORRIDO) -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 3</span>
+      <h2>Diagrama de Recorrido de Datos (P3)</h2>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:10px;">
+        <div class="diagram-box" style="border-color:var(--green); flex:1;">
+          <b>💻 1. Computadora</b>
+          <span>Genera la petición (ej. abrir Classroom).</span>
+        </div>
+        <span style="font-size:26px; font-weight:900; color:var(--green);">➔</span>
+        <div class="diagram-box" style="border-color:var(--blue); flex:1;">
+          <b>🔀 2. Switch</b>
+          <span>Concentra y dirige el tráfico dentro del salón.</span>
+        </div>
+        <span style="font-size:26px; font-weight:900; color:var(--green);">➔</span>
+        <div class="diagram-box" style="border-color:var(--gold); flex:1;">
+          <b>🛡️ 3. Router</b>
+          <span>Aplica reglas y traduce hacia el proveedor (ISP).</span>
+        </div>
+        <span style="font-size:26px; font-weight:900; color:var(--green);">➔</span>
+        <div class="diagram-box" style="border-color:var(--red); flex:1;">
+          <b>🌐 4. Internet (WAN)</b>
+          <span>Servidores destino en la nube mundial.</span>
+        </div>
+      </div>
+      <div class="full-grid-2" style="margin-top:14px;">
+        <article class="panel">
+          <div class="mini-title">Función del Router como Barrera</div>
+          <p style="font-size:14px;">El router tiene una dirección IP privada hacia adentro y una IP pública hacia afuera. Bloquea peticiones no solicitadas desde internet.</p>
+        </article>
+        <article class="panel gold">
+          <div class="mini-title" style="color:var(--gold);">📓 Pregunta en Libreta</div>
+          <p style="font-size:14px; font-style:italic;">"Si eliminamos el router, los equipos del laboratorio podrían comunicarse entre sí, pero jamás podrían navegar en internet porque no habría quién traduzca la ruta."</p>
+        </article>
+      </div>
+      <footer><span>Flujo de Comunicación</span><strong>Diagrama de Enrutamiento · Producto 3</strong></footer>
+    </section>
+
+    <!-- SLIDE 9: SESIÓN 03 · HORA 4 (INICIO · DICTADO + MEDIOS DE TRANSMISIÓN) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 4</span>
+      <h2>Medios de Transmisión: UTP, Fibra y Wi-Fi</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Medios físicos e inalámbricos de transmisión.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Los datos no viajan por arte de magia: necesitan un medio de transmisión. En una red, la información puede viajar por cable de cobre, por fibra óptica o por señales inalámbricas. Cada medio tiene ventajas, límites y riesgos. Elegir correctamente el medio de transmisión ayuda a que la red sea más rápida, estable y segura."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 4)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Analizar los 3 medios principales: <strong>Cable UTP (Cobre)</strong>, <strong>Fibra Óptica (Luz)</strong> y <strong>Wi-Fi (Ondas)</strong>.</td></tr>
+              <tr><td>2</td><td>Construir en Docs una <strong>Infografía de 3 secciones</strong> con ventajas, limitaciones, usos y fotos representativas.</td></tr>
+              <tr><td>3</td><td>Evaluar 3 casos reales: Casa, Laboratorio escolar y Banco de alta seguridad.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Responder: <em>Si diseñaras la red de un banco, ¿qué medio elegirías como enlace principal y por qué?</em></td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 4</span><strong>Docs (Infografía de 3 Medios de Transmisión) + Libreta (Justificación Técnica para Entornos Críticos)</strong></footer>
+    </section>
+
+    <!-- SLIDE 10: EJEMPLO VISUAL · HORA 4 (INFOGRAFÍA DE MEDIOS) -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 4</span>
+      <h2>Infografía: Medios de Transmisión (P4)</h2>
+      <div class="full-grid-3">
+        <article class="panel" style="border-left: 8px solid var(--blue);">
+          <div class="mini-title" style="color: var(--blue);">🔌 Cable UTP (Cobre)</div>
+          <p style="font-weight:900; margin-bottom:4px;">Transmisión por Pulsos Eléctricos</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ventaja:</strong> Económico, fácil de conectar y estándar en PCs.</li>
+            <li><strong>Límite:</strong> Máximo 100 metros sin repetidor; sufre interferencia.</li>
+            <li><strong>Uso:</strong> Laboratorios escolares, oficinas y casas.</li>
+          </ul>
+        </article>
+        <article class="panel" style="border-left: 8px solid var(--green);">
+          <div class="mini-title" style="color: var(--green);">💡 Fibra Óptica (Luz)</div>
+          <p style="font-weight:900; margin-bottom:4px;">Transmisión por Haces de Luz</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ventaja:</strong> Velocidad extrema, kilómetros de alcance y cero interferencias.</li>
+            <li><strong>Límite:</strong> Delicado de manipular y costo de equipo más elevado.</li>
+            <li><strong>Uso:</strong> Enlaces entre edificios, servidores y troncales de internet.</li>
+          </ul>
+        </article>
+        <article class="panel" style="border-left: 8px solid var(--gold); background: var(--softgold);">
+          <div class="mini-title" style="color: var(--gold);">📶 Wi-Fi (Inalámbrico)</div>
+          <p style="font-weight:900; margin-bottom:4px;">Transmisión por Radiofrecuencia</p>
+          <ul style="font-size:13.5px; padding-left:16px;">
+            <li><strong>Ventaja:</strong> Movilidad total sin cables para laptops y móviles.</li>
+            <li><strong>Límite:</strong> Señal sensible a muros y obstáculos.</li>
+            <li><strong>Riesgo Ciber:</strong> Señal abierta vulnerable si no tiene WPA3.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green);">
+        <p style="font-size: 14.5px; color: var(--green2);">🏦 <strong>Caso Banco:</strong> La fibra óptica y el cableado blindado previenen la intercepción electromagnética del tráfico financiero.</p>
+      </div>
+      <footer><span>Medios Físicos e Inalámbricos</span><strong>Infografía Técnica · Producto 4</strong></footer>
+    </section>
+
+    <!-- SLIDE 11: SESIÓN 03 · HORA 5 (INICIO · DICTADO + MAPA DE RED) -->
+    <section class="slide">
+      <span class="eyebrow">Sesión 03 · Hora 5</span>
+      <h2>Mapeo de Topología y Puntos Críticos</h2>
+      <div class="hour-layout">
+        <aside>
+          <div class="ra-box"><strong>RA 1.1</strong><br><span style="font-size:13px; color:var(--muted);">Mapeo formal y topologías de red.</span></div>
+          <article class="panel dictado">
+            <div class="mini-title">Inicio · dictado</div>
+            <p>"Mapear una red significa representar de forma ordenada sus equipos, conexiones y salida a internet. Un mapa de red permite comprender cómo circula la información, dónde puede fallar la comunicación y qué puntos deben protegerse primero. En ciberseguridad, un buen mapa ayuda a tomar mejores decisiones antes de configurar, corregir o defender un sistema."</p>
+          </article>
+        </aside>
+        <section class="stack">
+          <article class="panel">
+            <div class="mini-title">Desarrollo · lo que hace el estudiante (Producto 5)</div>
+            <table><tbody>
+              <tr><td>1</td><td>Integrar los conceptos de la semana: <strong>PCs, Switch, Router, Medios y Salida WAN</strong>.</td></tr>
+              <tr><td>2</td><td>Construir en Docs el <strong>Mapa de Red Básica</strong> de un laboratorio (4 PCs + Switch + Router + Internet).</td></tr>
+              <tr><td>3</td><td>Etiquetar el <strong>punto crítico más vulnerable</strong> que debe protegerse con prioridad.</td></tr>
+              <tr><td>4</td><td><span class="badge-libreta">📓 En Libreta</span> Dibujar el mapa con simbología de colores y redactar la justificación del punto crítico.</td></tr>
+            </tbody></table>
+          </article>
+        </section>
+      </div>
+      <footer><span>Producto 5</span><strong>Docs (Mapa de Red Etiquetado) + Libreta (Topología con Simbología y Punto Crítico)</strong></footer>
+    </section>
+
+    <!-- SLIDE 12: EJEMPLO VISUAL · HORA 5 (MAPA DE RED BÁSICA) -->
+    <section class="slide">
+      <span class="eyebrow">Ejemplo Visual · Hora 5</span>
+      <h2>Topología de Red Básica con Punto Crítico (P5)</h2>
+      <div style="background:#fff; border:2px solid var(--line); border-radius:10px; padding:14px; box-shadow:var(--shadow);">
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:12px;">
+          <div style="background:var(--soft); border:1px solid var(--line); padding:8px; border-radius:6px; text-align:center;">🖥️ PC 01 (UTP)</div>
+          <div style="background:var(--soft); border:1px solid var(--line); padding:8px; border-radius:6px; text-align:center;">🖥️ PC 02 (UTP)</div>
+          <div style="background:var(--soft); border:1px solid var(--line); padding:8px; border-radius:6px; text-align:center;">🖥️ PC 03 (UTP)</div>
+          <div style="background:var(--soft); border:1px solid var(--line); padding:8px; border-radius:6px; text-align:center;">📱 Laptop (Wi-Fi)</div>
+        </div>
+        <div style="text-align:center; font-size:20px; color:var(--green); margin:4px 0;">⬇️ Conectados al Switch Central ⬇️</div>
+        <div style="display:flex; justify-content:center; gap:20px; align-items:center; margin:10px 0;">
+          <div style="background:#eff6ff; border:2px solid var(--blue); padding:10px 20px; border-radius:8px; font-weight:900;">
+            🔀 SWITCH LAN (Capa 2)
+          </div>
+          <span style="font-size:24px; font-weight:900; color:var(--green);">➔</span>
+          <div style="background:#fef3c7; border:2px solid var(--gold); padding:10px 20px; border-radius:8px; font-weight:900; border-left:6px solid var(--red);">
+            🛡️ ROUTER / FIREWALL ⚠️ <span style="font-size:12px; color:var(--red); display:block;">(Punto Crítico)</span>
+          </div>
+          <span style="font-size:24px; font-weight:900; color:var(--green);">➔</span>
+          <div style="background:#fee2e2; border:2px solid var(--red); padding:10px 20px; border-radius:8px; font-weight:900;">
+            🌐 INTERNET (WAN)
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:10px; background:var(--softgold); border-left:6px solid var(--gold);">
+        <p style="font-size:14.5px; color:var(--gold);"><strong>Punto Crítico Identificado:</strong> El Router/Firewall es la frontera entre la red interna segura y el exterior inseguro.</p>
+      </div>
+      <footer><span>Topología y Ciberdefensa</span><strong>Mapa de Red · Producto 5</strong></footer>
+    </section>
+
+    <!-- SLIDE 13: CIERRE Y CONCLUSIÓN DE BITÁCORA -->
+    <section class="slide">
+      <span class="eyebrow">Cierre de Semana 02</span>
+      <h2>Conclusión de Bitácora en Libreta Física</h2>
+      <div class="full-grid-2">
+        <article class="panel" style="justify-content:center; gap:12px;">
+          <div class="mini-title">Síntesis Formativa</div>
+          <p style="font-size:15px; line-height:1.45;">
+            "Para proteger una red informática, primero necesito conocer sus dispositivos, conexiones y medios de transmisión. Saber mapear una red me permite anticipar fallas, cerrar puertos vulnerables y aislar amenazas antes de que comprometan los equipos."
+          </p>
+        </article>
+        <article class="panel gold" style="justify-content:center; gap:10px;">
+          <div class="mini-title" style="color:var(--gold);">📓 Redacción Final en Libreta</div>
+          <p style="background:var(--soft); padding:12px; border-radius:8px; font-style:italic; font-size:14.5px; line-height:1.4;">
+            "La parte de la red que considero más importante cuidar es <strong>el Router y la red Wi-Fi</strong>, porque son la puerta de entrada de posibles atacantes externos."
+          </p>
+          <div style="padding:8px; border:1px dashed var(--line); border-radius:6px; text-align:center; font-size:13px; color:var(--muted);">
+            ✍️ <strong>Firma autógrafa del alumno:</strong> ___________________________
+          </div>
+        </article>
+      </div>
+      <footer><span>Bitácora de Cierre</span><strong>Consolidación Semanal · Semana 02</strong></footer>
+    </section>
+
+    <!-- SLIDE 14: CHECKLIST CONSOLIDADO DE 5 PRODUCTOS -->
+    <section class="slide">
+      <span class="eyebrow">Cierre de Semana 02</span>
+      <h2>Checklist de Evaluación Híbrida (5 Productos)</h2>
+      <div class="checklist-list">
+        <div><strong>Producto 1 (Hora 1):</strong> Docs (Mapa mental PAN, LAN, WAN) + <span class="badge-libreta">Libreta</span> Clasificación de 5 ejemplos.</div>
+        <div><strong>Producto 2 (Hora 2):</strong> Docs (Comparación visual Hub vs Switch) + <span class="badge-libreta">Libreta</span> Análisis de seguridad.</div>
+        <div><strong>Producto 3 (Hora 3):</strong> Docs (Diagrama PC-Switch-Router-Internet) + <span class="badge-libreta">Libreta</span> Esquema de enrutamiento.</div>
+        <div><strong>Producto 4 (Hora 4):</strong> Docs (Infografía de UTP, Fibra y Wi-Fi) + <span class="badge-libreta">Libreta</span> Justificación caso Banco.</div>
+        <div><strong>Producto 5 (Hora 5):</strong> Docs (Mapa de Red básica etiquetado) + <span class="badge-libreta">Libreta</span> Topología con simbología y firma.</div>
+      </div>
+      <div class="note" style="background: var(--soft); padding: 8px 14px; border-left: 6px solid var(--green); margin-top: 6px;">
+        <p style="font-size: 14.5px; color: var(--green2);"><strong>📤 Entrega:</strong> Sube tu archivo a Google Classroom y presenta tu libreta física al docente para el sellado oficial.</p>
+      </div>
+      <footer><span>Evaluación Continua</span><strong>Dr. Felipe López Salazar · CONALEP MTCS-20</strong></footer>
+    </section>
+
+  </main>
+
+  <!-- NAVEGACIÓN INFERIOR DERECHA -->
+  <nav class="nav" aria-label="Navegación">
+    <button id="prev" title="Anterior">‹</button>
+    <span class="count" id="count">1/14</span>
+    <button id="next" title="Siguiente">›</button>
+    <button id="full" title="Pantalla completa">⛶</button>
+  </nav>
+
+  <!-- CRONÓMETRO SUPERIOR DERECHO -->
+  <div class="timer min" id="timer">
+    <button id="timerToggle">⏱</button>
+    <span class="time" id="timerDisplay">00:00</span>
+    <button id="timerReset" style="background:#555;">↺</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const count = document.getElementById("count");
+    let current = 0;
+
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+      count.textContent = (current + 1) + "/" + slides.length;
+    }
+
+    document.getElementById("prev").addEventListener("click", () => show(current - 1));
+    document.getElementById("next").addEventListener("click", () => show(current + 1));
+    document.getElementById("full").addEventListener("click", () => {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (["ArrowRight", "PageDown", " "].includes(event.key)) { event.preventDefault(); show(current + 1); }
+      if (["ArrowLeft", "PageUp"].includes(event.key)) { event.preventDefault(); show(current - 1); }
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(slides.length - 1);
+    });
+
+    // Cronómetro
+    const timer = document.getElementById("timer");
+    const timerDisplay = document.getElementById("timerDisplay");
+    const timerToggle = document.getElementById("timerToggle");
+    const timerReset = document.getElementById("timerReset");
+    let seconds = 0, running = false, interval = null;
+
+    timer.addEventListener("click", (e) => {
+      if (timer.classList.contains("min")) {
+        timer.classList.remove("min");
+      }
+    });
+
+    function updateTimer() {
+      seconds++;
+      const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
+      timerDisplay.textContent = `${m}:${s}`;
+    }
+
+    timerToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (running) {
+        clearInterval(interval);
+        running = false;
+        timerToggle.textContent = "▶";
+      } else {
+        interval = setInterval(updateTimer, 1000);
+        running = true;
+        timerToggle.textContent = "⏸";
+      }
+    });
+
+    timerReset.addEventListener("click", (e) => {
+      e.stopPropagation();
+      clearInterval(interval);
+      running = false;
+      seconds = 0;
+      timerDisplay.textContent = "00:00";
+      timerToggle.textContent = "▶";
+    });
+
+    // Initialize
+    show(0);
+  </script>
+</body>
+</html>
