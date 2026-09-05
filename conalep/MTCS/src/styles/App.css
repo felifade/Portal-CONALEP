@@ -364,14 +364,14 @@ button {
   font-weight: 700;
 }
 
-.hour-tabs {
+.session-tabs {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
-.hour-tabs button {
-  min-height: 52px;
+.session-tabs button {
+  min-height: 62px;
   padding: 8px 10px;
   border: 1px solid var(--lesson-border);
   border-radius: 8px;
@@ -385,30 +385,30 @@ button {
   transition: all 0.15s ease;
 }
 
-.hour-tabs button:hover {
+.session-tabs button:hover {
   border-color: var(--lesson-green);
   background: #f8fafc;
 }
 
-.hour-tabs button.active {
+.session-tabs button.active {
   background: var(--lesson-green);
   border-color: var(--lesson-green);
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(2, 89, 64, 0.2);
 }
 
-.hour-tabs button.active .hour-pill-subtitle {
+.session-tabs button.active .session-pill-subtitle {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.hour-pill-title {
+.session-pill-title {
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.hour-pill-subtitle {
+.session-pill-subtitle {
   font-size: 10.5px;
   color: var(--lesson-muted);
   font-weight: 600;
@@ -416,6 +416,42 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+}
+
+.session-overview {
+  padding: 15px 18px;
+  border: 1px solid var(--lesson-border);
+  border-radius: 8px;
+  background: #ffffff;
+  border-left: 4px solid var(--lesson-blue);
+}
+
+.session-overview span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--lesson-blue);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.session-overview h2 {
+  margin: 0;
+  color: var(--lesson-ink);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.session-overview p {
+  margin: 8px 0 0;
+  color: var(--lesson-muted);
+  font-size: 13px;
+}
+
+.session-hours {
+  display: grid;
+  gap: 16px;
 }
 
 .identity-strip {
@@ -788,8 +824,8 @@ button {
   .infographic-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .hour-tabs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .session-tabs {
+    grid-template-columns: 1fr;
   }
   .identity-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
