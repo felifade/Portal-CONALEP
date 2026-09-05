@@ -27,6 +27,22 @@
     .wide-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
     .work-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
     .example-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:18px; align-items:stretch; height:calc(100vh - 190px); }
+    .infographic-layout { display:grid; grid-template-columns:minmax(320px,.78fr) minmax(330px,1.22fr); gap:18px; height:calc(100vh - 190px); align-items:stretch; }
+    .infographic-summary { display:flex; flex-direction:column; justify-content:space-between; }
+    .infographic-summary ol { padding-left:26px; }
+    .infographic-summary li { font-size:clamp(20px,1.7vw,31px); line-height:1.2; margin-bottom:13px; font-weight:800; }
+    .infographic-frame { margin:0; background:#0b5f58; border:2px solid #0b5f58; border-radius:8px; min-height:0; overflow:hidden; display:flex; align-items:center; justify-content:center; box-shadow:0 16px 40px #063b3526; }
+    .infographic-frame img { width:100%; height:100%; object-fit:contain; display:block; background:white; }
+    .open-info { width:100%; margin-top:14px; border:0; background:var(--green); color:white; border-radius:8px; padding:16px 18px; font-size:clamp(18px,1.5vw,25px); font-weight:900; cursor:pointer; }
+    .lightbox { position:fixed; inset:0; z-index:100; display:none; background:#071312f2; }
+    .lightbox.open { display:grid; grid-template-rows:auto 1fr; }
+    .lightbox-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; background:#ffffff; border-bottom:2px solid var(--line); }
+    .lightbox-title { font-weight:900; color:var(--green2); font-size:18px; }
+    .lightbox-actions { display:flex; gap:8px; align-items:center; }
+    .lightbox-actions button { border:0; border-radius:6px; padding:10px 13px; font-weight:900; cursor:pointer; background:var(--green); color:white; }
+    .lightbox-scroll { overflow:auto; display:flex; justify-content:center; align-items:flex-start; padding:20px; }
+    .lightbox-scroll img { width:min(92vw,720px); height:auto; background:white; box-shadow:0 18px 50px #0007; transform-origin:top center; }
+    .lightbox.zoom .lightbox-scroll img { width:min(132vw,980px); }
     .panel,.mock { background:var(--white); border:2px solid var(--line); border-radius:8px; padding:18px; min-width:0; overflow:hidden; }
     .panel.dictado { background:var(--softblue); border-color:#cfe0fb; }
     .panel.docs { background:#fff; border-left:8px solid var(--blue); }
@@ -63,7 +79,7 @@
     .timer .time { font-size:22px; font-weight:900; min-width:72px; text-align:center; color:var(--ink); }
     .nav { position:fixed; right:18px; bottom:18px; z-index:20; display:flex; align-items:center; gap:8px; background:#ffffffed; border:2px solid var(--line); border-radius:8px; padding:10px; }
     .count { font-weight:900; min-width:76px; text-align:center; }
-    @media (max-width: 900px) { .slide { overflow:auto; } .work-grid,.example-grid,.wide-grid,.split-mock { grid-template-columns:1fr; height:auto; } footer { position:static; margin-top:18px; } }
+    @media (max-width: 900px) { .slide { overflow:auto; } .work-grid,.example-grid,.wide-grid,.split-mock,.infographic-layout { grid-template-columns:1fr; height:auto; } .infographic-frame { height:74vh; } footer { position:static; margin-top:18px; } }
   </style>
 </head>
 <body>
@@ -90,35 +106,59 @@
     </section>
 
 
+    <section class="slide infographic-slide">
+      <span class="eyebrow">Infografía · Lunes bloque 1</span>
+      <h2>Sesión 01 · Preparación en Docs y registro base en Sheets</h2>
+      <div class="infographic-layout">
+        <article class="panel infographic-summary">
+          <div class="mini-title">Qué se trabaja</div>
+          <ol><li>Crear la Pestaña 2 del documento maestro.</li>
+<li>Diseñar portada, checklist, propósito y definición técnica.</li>
+<li>Crear el Directorio_Grupo_301_EDOA en Sheets.</li>
+<li>Configurar los 9 campos base y capturar los primeros registros.</li>
+<li>Pegar vínculo y captura explicada en la Pestaña 2.</li></ol>
+          <button class="open-info" data-img="assets/semana04_sesion01_hrs01_02.jpg">Ver infografía completa</button>
+        </article>
+        <figure class="infographic-frame">
+          <img src="assets/semana04_sesion01_hrs01_02.jpg" alt="Sesión 01 · Preparación en Docs y registro base en Sheets" loading="lazy">
+        </figure>
+      </div>
+      <footer><strong>Uso en clase:</strong> primero explica los pasos en HTML; después abre la infografía completa solo para referencia visual.</footer>
+    </section>
+
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 1</span>
-      <h2>Bitácora y archivo de práctica</h2>
+      <span class="eyebrow">Sesión 01 · Lunes bloque 1 · Hora 1</span>
+      <h2>Configuración de la Pestaña 2 y bitácora</h2>
       <div class="work-grid">
         <article class="panel dictado">
           <div class="mini-title">Inicio · dictado</div>
-          <p>Una bitácora digital permite documentar el proceso de trabajo. No sustituye la práctica: la acompaña.</p>
-<p>En esta semana, Google Docs servirá para explicar qué hicimos y Google Sheets será el espacio donde construiremos el inventario.</p>
+          <p>Esta semana Google Docs funcionará como bitácora de trabajo y Google Sheets como herramienta técnica para organizar información.</p>
+<p>La bitácora permite documentar el proceso, guardar evidencias y explicar con claridad qué se hizo, cómo se hizo y qué producto se obtuvo.</p>
+<p>Una hoja de cálculo es una herramienta digital organizada en filas y columnas. Su propósito es almacenar, estructurar, calcular y analizar datos mediante fórmulas y funciones automáticas.</p>
         </article>
         <article class="panel docs">
           <div class="mini-title">Docs documenta</div>
-          <ol><li>Crear Bitacora_Semana_04_Nombre_Apellido.</li>
-<li>Agregar portada con escuela, módulo, grupo, alumno, docente y fecha.</li>
-<li>Escribir el propósito de la práctica.</li>
-<li>Crear el apartado Evidencias por hora.</li></ol>
+          <ol><li>Abrir desde Classroom el documento maestro del RA 1.3.</li>
+<li>Crear la Pestaña 2 y nombrarla Semana 04.</li>
+<li>Diseñar portada formal: módulo, alumno, grupo, docente y fecha.</li>
+<li>Insertar checklist con casillas interactivas.</li>
+<li>Escribir propósito, dictado y definición técnica.</li>
+<li>Justificar texto y resaltar conceptos clave en negrita.</li></ol>
         </article>
         <article class="panel sheets">
           <div class="mini-title">Sheets practica</div>
-          <ol><li>Crear Inventario_Inteligente_Semana_04.</li>
-<li>Copiar el enlace de Sheets.</li>
-<li>Pegar el enlace en la bitácora.</li>
-<li>Verificar que ambos archivos estén en Drive.</li></ol>
+          <ol><li>Preparar el espacio donde se pegará el vínculo del directorio.</li>
+<li>Identificar que Sheets será la práctica técnica de la semana.</li>
+<li>Dejar lista la bitácora para recibir evidencias por hora.</li></ol>
         </article>
       </div>
-      <footer><strong>Producto:</strong> Bitácora creada y hoja de cálculo lista para trabajar.</footer>
+      <footer><strong>Producto:</strong> Pestaña 2 estructurada con portada formal, checklist activo, propósito, dictado justificado y definición técnica.</footer>
     </section>
 
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 1 · ejemplo y cierre</span>
+      <span class="eyebrow">Sesión 01 · Lunes bloque 1 · Hora 1 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
       <div class="example-grid">
         <article class="mock"><div class="split-mock">
@@ -127,10 +167,10 @@
 </div></article>
         <article class="panel gold">
           <div class="mini-title">Cierre en libreta</div>
-          <ol><li>¿Por qué conviene documentar una práctica técnica?</li>
-<li>¿Qué diferencia hay entre la bitácora y el archivo de práctica?</li>
-<li>¿Qué evidencia debe quedar al finalizar cada hora?</li></ol>
-          <div class="product-box"><strong>Entregable:</strong> Bitácora creada y hoja de cálculo lista para trabajar.</div>
+          <ol><li>¿Por qué conviene documentar una práctica digital dentro de una bitácora?</li>
+<li>¿Qué diferencia existe entre escribir información en Docs y organizar datos en Sheets?</li>
+<li>¿Qué elemento de la portada ayuda a identificar mejor el trabajo?</li></ol>
+          <div class="product-box"><strong>Entregable:</strong> Pestaña 2 estructurada con portada formal, checklist activo, propósito, dictado justificado y definición técnica.</div>
         </article>
       </div>
       <footer><strong>Regla:</strong> avance técnico en Sheets + evidencia breve en Docs.</footer>
@@ -138,34 +178,35 @@
 
 
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 2</span>
-      <h2>Tabla base del inventario</h2>
+      <span class="eyebrow">Sesión 01 · Lunes bloque 1 · Hora 2</span>
+      <h2>Directorio Grupo 301 y normalización</h2>
       <div class="work-grid">
         <article class="panel dictado">
           <div class="mini-title">Inicio · dictado</div>
-          <p>Un inventario sirve para registrar, ordenar y consultar elementos.</p>
-<p>Para que una hoja de cálculo sea útil, cada columna debe tener un encabezado claro y cada fila debe representar un registro completo.</p>
+          <p>La normalización de datos consiste en organizar la información en columnas con propósitos únicos y específicos.</p>
+<p>Cuando los datos están normalizados, se reducen duplicidades, errores de captura y problemas al buscar, filtrar o calcular información.</p>
         </article>
         <article class="panel docs">
           <div class="mini-title">Docs documenta</div>
-          <ol><li>Tomar captura de la tabla base.</li>
-<li>Pegar la captura en la bitácora.</li>
-<li>Escribir explicación de 3 líneas.</li>
-<li>Nombrar la evidencia como Hora 2.</li></ol>
+          <ol><li>Pegar el vínculo del archivo de Sheets dentro de la Pestaña 2.</li>
+<li>Insertar captura de pantalla de la tabla base.</li>
+<li>Escribir 3 líneas de explicación técnica.</li>
+<li>Actualizar el checklist marcando los avances logrados.</li></ol>
         </article>
         <article class="panel sheets">
           <div class="mini-title">Sheets practica</div>
-          <ol><li>Crear pestaña Inventario.</li>
-<li>Columnas: Producto, Categoría, Cantidad, Precio unitario, Estado, Observación.</li>
-<li>Capturar mínimo 12 registros.</li>
-<li>Evitar filas vacías entre registros.</li></ol>
+          <ol><li>Crear el archivo Directorio_Grupo_301_EDOA.</li>
+<li>Configurar 9 encabezados: No. Lista, Nombre Completo, Edad, Sexo, Colonia, Cumpleaños, PC Lab, Dispositivo en Casa y Correo Conalep.</li>
+<li>Capturar los primeros 10-15 registros del grupo.</li>
+<li>Evitar celdas vacías intermedias y datos mezclados.</li></ol>
         </article>
       </div>
-      <footer><strong>Producto:</strong> Tabla base del inventario documentada en Docs.</footer>
+      <footer><strong>Producto:</strong> Hoja de cálculo iniciada con 9 campos normalizados, primeros registros, vínculo en Docs y captura inicial explicada.</footer>
     </section>
 
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 2 · ejemplo y cierre</span>
+      <span class="eyebrow">Sesión 01 · Lunes bloque 1 · Hora 2 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
       <div class="example-grid">
         <article class="mock"><div class="sheet-mock wide">
@@ -174,45 +215,69 @@
 </div></article>
         <article class="panel gold">
           <div class="mini-title">Cierre en libreta</div>
-          <ol><li>¿Qué representa una fila en un inventario?</li>
-<li>¿Qué representa una columna?</li>
-<li>¿Por qué los encabezados deben ser claros?</li></ol>
-          <div class="product-box"><strong>Entregable:</strong> Tabla base del inventario documentada en Docs.</div>
+          <ol><li>¿Qué problema se evita cuando cada columna tiene un propósito único?</li>
+<li>¿Por qué no conviene mezclar varios datos dentro de una misma celda?</li>
+<li>¿Qué dato del directorio consideras más importante para organizar el trabajo del grupo?</li></ol>
+          <div class="product-box"><strong>Entregable:</strong> Hoja de cálculo iniciada con 9 campos normalizados, primeros registros, vínculo en Docs y captura inicial explicada.</div>
         </article>
       </div>
       <footer><strong>Regla:</strong> avance técnico en Sheets + evidencia breve en Docs.</footer>
     </section>
 
 
+    <section class="slide infographic-slide">
+      <span class="eyebrow">Infografía · Lunes bloque 2</span>
+      <h2>Sesión 02 · Formato profesional y validación de datos</h2>
+      <div class="infographic-layout">
+        <article class="panel infographic-summary">
+          <div class="mini-title">Qué se trabaja</div>
+          <ol><li>Inmovilizar la fila de encabezados.</li>
+<li>Ajustar columnas, alineación, fechas y bordes.</li>
+<li>Configurar listas desplegables y chips de color.</li>
+<li>Validar fechas y estandarizar datos del directorio.</li>
+<li>Documentar capturas con explicación técnica en Docs.</li></ol>
+          <button class="open-info" data-img="assets/semana04_sesion02_hrs03_04.jpg">Ver infografía completa</button>
+        </article>
+        <figure class="infographic-frame">
+          <img src="assets/semana04_sesion02_hrs03_04.jpg" alt="Sesión 02 · Formato profesional y validación de datos" loading="lazy">
+        </figure>
+      </div>
+      <footer><strong>Uso en clase:</strong> primero explica los pasos en HTML; después abre la infografía completa solo para referencia visual.</footer>
+    </section>
+
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 3</span>
-      <h2>Formato profesional en Sheets</h2>
+      <span class="eyebrow">Sesión 02 · Lunes bloque 2 · Hora 3</span>
+      <h2>Formato profesional y congelado de paneles</h2>
       <div class="work-grid">
         <article class="panel dictado">
           <div class="mini-title">Inicio · dictado</div>
-          <p>El formato en una hoja de cálculo no es decoración.</p>
-<p>Sirve para distinguir encabezados, facilitar la lectura, evitar confusiones y presentar datos de manera profesional.</p>
+          <p>El diseño en una hoja de cálculo tiene una función operativa: jerarquizar los encabezados, evitar que se pierdan de vista y asegurar la legibilidad del dato registrado.</p>
+<p>El formato no es decoración; permite revisar información de forma más rápida, clara y profesional.</p>
         </article>
         <article class="panel docs">
           <div class="mini-title">Docs documenta</div>
-          <ol><li>Tomar captura de la tabla con formato.</li>
-<li>Pegarla en la bitácora.</li>
+          <ol><li>Tomar captura de la tabla con formato profesional.</li>
+<li>Pegarla en la Pestaña 2.</li>
 <li>Explicar qué cambios visuales mejoraron la lectura.</li>
-<li>Revisar que la captura no se desborde.</li></ol>
+<li>Verificar que la imagen quede centrada y sin deformarse.</li></ol>
         </article>
         <article class="panel sheets">
           <div class="mini-title">Sheets practica</div>
-          <ol><li>Aplicar negrita y color a encabezados.</li>
-<li>Aplicar bordes a toda la tabla.</li>
-<li>Ajustar ancho de columnas.</li>
-<li>Aplicar formato de moneda y congelar fila 1.</li></ol>
+          <ol><li>Congelar la Fila 1 para mantener visibles los encabezados.</li>
+<li>Aplicar color de fondo oscuro y texto claro en negrita.</li>
+<li>Ajustar el ancho óptimo de cada columna.</li>
+<li>Centrar datos cortos: No. Lista, Edad, Sexo y PC Lab.</li>
+<li>Alinear a la izquierda nombres, colonias y correos.</li>
+<li>Aplicar bordes delgados a toda la matriz.</li></ol>
         </article>
       </div>
-      <footer><strong>Producto:</strong> Inventario con formato profesional y evidencia en bitácora.</footer>
+      <footer><strong>Producto:</strong> Directorio con encabezados inmovilizados, formato profesional, columnas legibles, bordes y evidencia visual en Docs.</footer>
     </section>
 
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 3 · ejemplo y cierre</span>
+      <span class="eyebrow">Sesión 02 · Lunes bloque 2 · Hora 3 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
       <div class="example-grid">
         <article class="mock"><div class="sheet-mock wide formatted">
@@ -221,10 +286,10 @@
 </div></article>
         <article class="panel gold">
           <div class="mini-title">Cierre en libreta</div>
-          <ol><li>¿Qué mejora cuando se congela la fila 1?</li>
-<li>¿Qué pasa si una columna queda demasiado angosta?</li>
-<li>¿Cómo sabes que una tabla ya se puede leer bien?</li></ol>
-          <div class="product-box"><strong>Entregable:</strong> Inventario con formato profesional y evidencia en bitácora.</div>
+          <ol><li>¿Cómo ayuda el formato visual a leer mejor una tabla?</li>
+<li>¿Por qué es útil congelar la fila de encabezados?</li>
+<li>¿Qué columnas deben centrarse y cuáles deben alinearse a la izquierda?</li></ol>
+          <div class="product-box"><strong>Entregable:</strong> Directorio con encabezados inmovilizados, formato profesional, columnas legibles, bordes y evidencia visual en Docs.</div>
         </article>
       </div>
       <footer><strong>Regla:</strong> avance técnico en Sheets + evidencia breve en Docs.</footer>
@@ -232,34 +297,35 @@
 
 
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 4</span>
-      <h2>Validación de datos</h2>
+      <span class="eyebrow">Sesión 02 · Lunes bloque 2 · Hora 4</span>
+      <h2>Validación de datos con listas desplegables</h2>
       <div class="work-grid">
         <article class="panel dictado">
           <div class="mini-title">Inicio · dictado</div>
-          <p>La validación de datos ayuda a evitar errores de captura.</p>
-<p>En lugar de escribir cualquier palabra, el usuario elige opciones controladas en una lista desplegable.</p>
+          <p>La validación de datos restringe la entrada de información en una celda a valores predeterminados.</p>
+<p>Esta función reduce errores tipográficos y permite que las fórmulas, filtros y consultas trabajen con información consistente.</p>
         </article>
         <article class="panel docs">
           <div class="mini-title">Docs documenta</div>
-          <ol><li>Tomar captura de la lista desplegable.</li>
+          <ol><li>Tomar captura de una lista desplegable activa.</li>
+<li>Pegar la evidencia en la Pestaña 2.</li>
 <li>Explicar por qué la validación reduce errores.</li>
-<li>Registrar un ejemplo de captura correcta e incorrecta.</li>
-<li>Cerrar la evidencia de la sesión 01.</li></ol>
+<li>Cerrar la evidencia de la sesión con una breve revisión.</li></ol>
         </article>
         <article class="panel sheets">
           <div class="mini-title">Sheets practica</div>
-          <ol><li>Seleccionar la columna Estado.</li>
-<li>Crear lista: Disponible, Bajo, Agotado.</li>
-<li>Asignar color a cada estado.</li>
-<li>Completar el estado de todos los productos.</li></ol>
+          <ol><li>Crear validación en la columna Sexo: Femenino, Masculino.</li>
+<li>Crear chips de color para Dispositivo en Casa: Laptop, PC Escritorio, Solo Celular, Tablet, Ninguno.</li>
+<li>Validar que Cumpleaños use formato de fecha.</li>
+<li>Revisar que todos los registros cumplan la validación sin alertas.</li></ol>
         </article>
       </div>
-      <footer><strong>Producto:</strong> Inventario con estado validado mediante lista desplegable.</footer>
+      <footer><strong>Producto:</strong> Directorio con listas desplegables, fechas validadas, registros revisados y evidencia documentada en la Pestaña 2.</footer>
     </section>
 
+
     <section class="slide">
-      <span class="eyebrow">Sesión 01 · Lunes · Hora 4 · ejemplo y cierre</span>
+      <span class="eyebrow">Sesión 02 · Lunes bloque 2 · Hora 4 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
       <div class="example-grid">
         <article class="mock"><div class="sheet-mock wide">
@@ -269,10 +335,10 @@
 </div></article>
         <article class="panel gold">
           <div class="mini-title">Cierre en libreta</div>
-          <ol><li>¿Qué error evita una lista desplegable?</li>
-<li>¿Por qué conviene limitar las opciones de captura?</li>
-<li>¿Qué otro campo del inventario podría validarse?</li></ol>
-          <div class="product-box"><strong>Entregable:</strong> Inventario con estado validado mediante lista desplegable.</div>
+          <ol><li>¿Qué errores se reducen al usar listas desplegables?</li>
+<li>¿Por qué una fecha mal escrita puede afectar un análisis posterior?</li>
+<li>¿Cómo ayuda la validación de datos a mantener la información confiable?</li></ol>
+          <div class="product-box"><strong>Entregable:</strong> Directorio con listas desplegables, fechas validadas, registros revisados y evidencia documentada en la Pestaña 2.</div>
         </article>
       </div>
       <footer><strong>Regla:</strong> avance técnico en Sheets + evidencia breve en Docs.</footer>
@@ -305,6 +371,7 @@
       </div>
       <footer><strong>Producto:</strong> Inventario filtrable y evidencia del filtro aplicado.</footer>
     </section>
+
 
     <section class="slide">
       <span class="eyebrow">Sesión 02 · Miércoles · Hora 5 · ejemplo y cierre</span>
@@ -353,6 +420,7 @@
       <footer><strong>Producto:</strong> Inventario con fórmulas de subtotal, descuento y total.</footer>
     </section>
 
+
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Jueves · Hora 6 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
@@ -399,6 +467,7 @@
       </div>
       <footer><strong>Producto:</strong> Mini dashboard documentado.</footer>
     </section>
+
 
     <section class="slide">
       <span class="eyebrow">Sesión 03 · Jueves · Hora 7 · ejemplo y cierre</span>
@@ -448,6 +517,7 @@
       <footer><strong>Producto:</strong> Bitácora y práctica de Sheets entregadas.</footer>
     </section>
 
+
     <section class="slide">
       <span class="eyebrow">Sesión 04 · Viernes · Hora 8 · ejemplo y cierre</span>
       <h2>Ejemplo del producto esperado</h2>
@@ -474,11 +544,26 @@
     <button onclick="event.stopPropagation(); resetTimer(1200)">20</button>
     <button onclick="event.stopPropagation(); resetTimer(0)">↺</button>
   </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-bar">
+      <span class="lightbox-title" id="lightboxTitle">Infografía completa</span>
+      <div class="lightbox-actions">
+        <button type="button" onclick="toggleZoom()">Zoom</button>
+        <button type="button" onclick="closeInfo()">Cerrar</button>
+      </div>
+    </div>
+    <div class="lightbox-scroll">
+      <img id="lightboxImg" src="" alt="Infografía completa">
+    </div>
+  </div>
   <div class="nav"><button onclick="prev()">←</button><span class="count" id="count">1 / 1</span><button onclick="next()">→</button></div>
   <script>
     const slides=[...document.querySelectorAll('.slide')];
     let current=0, seconds=600, running=false, interval=null;
     const timer=document.getElementById('timer');
+    const lightbox=document.getElementById('lightbox');
+    const lightboxImg=document.getElementById('lightboxImg');
+    const lightboxTitle=document.getElementById('lightboxTitle');
     let drag=false, moved=false, dx=0, dy=0;
     function show(i){ current=(i+slides.length)%slides.length; slides.forEach((s,n)=>s.classList.toggle('active',n===current)); document.getElementById('count').textContent=(current+1)+' / '+slides.length; }
     function next(){ show(current+1); }
@@ -489,7 +574,11 @@
     timer.addEventListener('pointerdown',e=>{ drag=true; moved=false; dx=e.clientX-timer.offsetLeft; dy=e.clientY-timer.offsetTop; timer.setPointerCapture(e.pointerId); });
     timer.addEventListener('pointermove',e=>{ if(!drag) return; moved=true; timer.style.left=Math.max(8, Math.min(window.innerWidth-timer.offsetWidth-8, e.clientX-dx))+'px'; timer.style.top=Math.max(8, Math.min(window.innerHeight-timer.offsetHeight-8, e.clientY-dy))+'px'; timer.style.right='auto'; });
     timer.addEventListener('pointerup',()=>{ if(!moved) timer.classList.toggle('min'); drag=false; });
-    document.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); if(e.key===' ') { e.preventDefault(); toggleRun(); } });
+    document.querySelectorAll('.open-info').forEach(btn=>btn.addEventListener('click',()=>openInfo(btn.dataset.img, btn.closest('.slide').querySelector('h2').textContent)));
+    function openInfo(src,title){ lightboxImg.src=src; lightboxTitle.textContent=title; lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false'); }
+    function closeInfo(){ lightbox.classList.remove('open','zoom'); lightbox.setAttribute('aria-hidden','true'); lightboxImg.src=''; }
+    function toggleZoom(){ lightbox.classList.toggle('zoom'); }
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeInfo(); if(lightbox.classList.contains('open')) return; if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); if(e.key===' ') { e.preventDefault(); toggleRun(); } });
     show(0); paintTime();
   </script>
 </body>
