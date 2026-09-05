@@ -134,6 +134,40 @@ button {
   font-size: 11px;
 }
 
+.corte-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 6px 0 10px;
+  font-size: 11px;
+}
+
+.corte-meta-dates {
+  color: var(--lesson-muted);
+  font-weight: 600;
+  font-size: 10.5px;
+}
+
+.corte-deadline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #9f1239;
+  border-radius: 4px;
+  padding: 1.5px 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.corte-deadline-pill strong {
+  color: #881337;
+  font-weight: 850;
+}
+
 .ra-list {
   display: grid;
   gap: 8px;
@@ -830,4 +864,287 @@ button {
   .identity-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* ========================================================
+   MODO DOCENTE Y SESIONES BLOQUEADAS
+   ======================================================== */
+
+.teacher-mode-banner {
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(6, 95, 70, 0.2);
+}
+
+.teacher-mode-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.teacher-mode-exit-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.teacher-mode-exit-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Pestaña bloqueada */
+.session-tabs button.is-locked-tab {
+  border-color: #fecdd3;
+  background: #fff1f2;
+}
+
+.session-tabs button.is-locked-tab:hover {
+  border-color: #f43f5e;
+}
+
+/* Tarjeta de Sesión Bloqueada */
+.session-locked-container {
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.session-locked-card {
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 36px 28px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.locked-icon-bubble {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.session-locked-card h2 {
+  font-size: 22px;
+  color: var(--lesson-ink);
+  margin-bottom: 10px;
+}
+
+.locked-main-text {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.locked-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.locked-advice {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 12px 16px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.locked-advice p {
+  color: #334155;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.teacher-unlock-btn {
+  background: transparent;
+  border: 1px dashed #94a3b8;
+  color: #64748b;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.teacher-unlock-btn:hover {
+  background: #f1f5f9;
+  color: var(--lesson-ink);
+  border-color: #64748b;
+}
+
+/* Modal de PIN */
+.pin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pin-modal-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 26px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e2e8f0;
+}
+
+.pin-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-modal-close:hover {
+  color: #0f172a;
+}
+
+.pin-modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e6f4ea;
+  color: #025940;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.pin-modal-card h3 {
+  font-size: 19px;
+  font-weight: 850;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.pin-modal-card p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.pin-input {
+  width: 160px;
+  font-size: 28px;
+  letter-spacing: 12px;
+  text-align: center;
+  padding: 8px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  font-family: monospace;
+  color: #0f172a;
+  margin-bottom: 12px;
+  transition: border-color 0.15s ease;
+}
+
+.pin-input:focus {
+  border-color: #025940;
+}
+
+.pin-input.error {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.pin-error-text {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.pin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pin-actions .btn-cancel {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #475569;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pin-actions .btn-submit {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #025940;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.pin-actions .btn-submit:hover {
+  background: #013a29;
 }
