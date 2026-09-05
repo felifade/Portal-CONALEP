@@ -99,7 +99,7 @@
 }
 
 .week-btn:hover { background: #f1f5f9; }
-.week-btn.active { background: #3b82f6; color: white; border-color: #2563eb; }
+.week-btn.selected { background: #3b82f6; color: white; border-color: #2563eb; }
 .week-btn.historical { opacity: 0.7; }
 .week-btn.upcoming { border-style: dashed; }
 .week-btn.active-dot {
