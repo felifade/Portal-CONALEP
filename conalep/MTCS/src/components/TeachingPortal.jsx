@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   BookOpen,
   CalendarDays,
@@ -11,6 +11,7 @@ import {
   Layers3,
   Lock,
   Map,
+  Maximize2,
   Megaphone,
   PenLine,
   School,
@@ -19,8 +20,36 @@ import {
   Target,
   Unlock,
   X,
+  ZoomIn,
 } from 'lucide-react';
 import { teachingPlan } from '../data/teachingPlan';
+
+import imgOsi from '../assets/mtcs-modelo-osi-paquete-digital.jpg';
+import imgTcpUdp from '../assets/mtcs-protocolos-transporte-tcp-udp.jpg';
+import imgMacOui from '../assets/mtcs-ruta-forense-capa-2-mac-oui-spoofing.jpg';
+import imgIpSubnet from '../assets/mtcs-mapa-anatomia-ip-red-hosts-broadcast-subredes.jpg';
+import imgLabIp from '../assets/mtcs-ruta-practica-laboratorio-ip.jpg';
+
+const ASSET_REGISTRY = {
+  'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
+  'mtcs-protocolos-transporte-tcp-udp.jpg': imgTcpUdp,
+  'mtcs-ruta-forense-capa-2-mac-oui-spoofing.jpg': imgMacOui,
+  'mtcs-mapa-anatomia-ip-red-hosts-broadcast-subredes.jpg': imgIpSubnet,
+  'mtcs-ruta-practica-laboratorio-ip.jpg': imgLabIp,
+};
+
+function resolveAssetUrl(src) {
+  if (!src) return '';
+  if (ASSET_REGISTRY[src]) return ASSET_REGISTRY[src];
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:') || src.startsWith('/')) {
+    return src;
+  }
+  try {
+    return new URL(`../assets/${src}`, import.meta.url).href;
+  } catch {
+    return src;
+  }
+}
 
 function getActiveRa(corte, raId) {
   return corte?.ras.find((ra) => ra.id === raId) || corte?.ras[0];
@@ -250,7 +279,7 @@ function LessonSection({ icon, label, children, className = '' }) {
   );
 }
 
-function InfographicPlan({ hour }) {
+function InfographicPlan({ hour, onZoomImage }) {
   const images = Array.isArray(hour.infographicImages)
     ? hour.infographicImages
     : hour.infographicImage
@@ -262,19 +291,43 @@ function InfographicPlan({ hour }) {
       {images.map((item, idx) => {
         const imgSrc = typeof item === 'string' ? item : item.src;
         const imgTitle = typeof item === 'string' ? `${hour.infographicTitle} (${idx + 1})` : item.title || hour.infographicTitle;
-        const imageUrl = new URL(`../assets/${imgSrc}`, import.meta.url).href;
+        const imageUrl = resolveAssetUrl(imgSrc);
+
         return (
           <div key={idx} style={{ marginBottom: idx < images.length - 1 ? 24 : 0 }}>
-            <div className="infographic-title" style={{ marginBottom: 10 }}>
-              <Sparkles size={18} />
-              <strong>{imgTitle}</strong>
+            <div className="infographic-title" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Sparkles size={18} />
+                <strong>{imgTitle}</strong>
+              </div>
+              {imageUrl && (
+                <button
+                  type="button"
+                  className="infographic-expand-btn"
+                  onClick={() => onZoomImage && onZoomImage({ src: imageUrl, title: imgTitle })}
+                  title="Haz clic para abrir la infografía en pantalla completa"
+                >
+                  <Maximize2 size={13} />
+                  <span>Ampliar infografía</span>
+                </button>
+              )}
             </div>
-            <figure className="infographic-image-frame" style={{ margin: 0 }}>
+            <figure
+              className="infographic-image-frame infographic-image-clickable"
+              style={{ margin: 0, cursor: 'pointer', position: 'relative' }}
+              onClick={() => onZoomImage && onZoomImage({ src: imageUrl, title: imgTitle })}
+              title="Haz clic para abrir la infografía en pantalla completa"
+            >
               <img 
                 src={imageUrl} 
-                alt={`Infografia ${imgTitle}`} 
+                alt={`Infografía ${imgTitle}`} 
+                loading="lazy"
                 style={{ width: '100%', borderRadius: 8, display: 'block' }} 
               />
+              <div className="infographic-hover-overlay">
+                <Maximize2 size={24} />
+                <span>Haz clic para ver a tamaño completo</span>
+              </div>
             </figure>
           </div>
         );
@@ -369,9 +422,21 @@ function TeachingPortal() {
     }
   });
   const [showPinModal, setShowPinModal] = useState(false);
+  const [zoomedImg, setZoomedImg] = useState(null);
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState(false);
   const [brandClicks, setBrandClicks] = useState(0);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setZoomedImg(null);
+        setShowPinModal(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleBrandClick = () => {
     setBrandClicks((prev) => {
@@ -526,7 +591,7 @@ function TeachingPortal() {
 
                   <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
                     <p className="dev-intro">{hour.development}</p>
-                    <InfographicPlan hour={hour} />
+                    <InfographicPlan hour={hour} onZoomImage={setZoomedImg} />
                   </LessonSection>
 
                   <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
@@ -545,6 +610,43 @@ function TeachingPortal() {
         ra={activeRa}
         activeSession={activeSession}
       />
+
+      {/* Visualizador / Lightbox de Infografía en Pantalla Completa */}
+      {zoomedImg && (
+        <div className="image-modal-overlay" onClick={() => setZoomedImg(null)}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="image-modal-topbar">
+              <div className="image-modal-title">
+                <Sparkles size={16} />
+                <strong>{zoomedImg.title}</strong>
+              </div>
+              <div className="image-modal-actions">
+                <a
+                  href={zoomedImg.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-icon-btn"
+                  title="Abrir imagen en pestaña nueva"
+                >
+                  <ExternalLink size={15} />
+                  <span>Pestaña nueva</span>
+                </a>
+                <button
+                  type="button"
+                  className="modal-icon-btn close"
+                  onClick={() => setZoomedImg(null)}
+                  title="Cerrar visor (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+            <div className="image-modal-body">
+              <img src={zoomedImg.src} alt={zoomedImg.title} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {showPinModal && (
         <div className="pin-modal-overlay" onClick={() => setShowPinModal(false)}>

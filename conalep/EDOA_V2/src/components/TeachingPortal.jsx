@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   Calendar, 
@@ -144,6 +144,17 @@ const TeachingPortal = () => {
 
   const [showPinModal, setShowPinModal] = useState(false);
   const [logoClicks, setLogoClicks] = useState(0);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setZoomedImg(null);
+        setShowPinModal(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const { module, cortes, weeks } = teachingPlan;
   const currentWeekData = weeks[activeWeek] || weeks['W00'];
@@ -504,7 +515,7 @@ const TeachingPortal = () => {
       {/* Zoom Modal Overlay */}
       {zoomedImg && (
         <div className="image-modal-overlay" onClick={() => setZoomedImg(null)}>
-          <div className="image-modal-content">
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-modal-btn" onClick={() => setZoomedImg(null)}>×</button>
             <img src={zoomedImg} alt="Zoomed Infographic" />
           </div>
