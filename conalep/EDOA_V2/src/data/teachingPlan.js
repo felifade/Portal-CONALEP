@@ -1,6 +1,7 @@
 import imgW03S01 from '../assets/w03_s01_infografia.png';
 import imgW04S01 from '../assets/w04_s01_infografia.jpg';
 import imgW04S02 from '../assets/w04_s02_infografia.jpg';
+import imgW04S03 from '../assets/w04_s03_infografia.png';
 
 export const teachingPlan = {
   module: {
@@ -340,7 +341,8 @@ export const teachingPlan = {
           dictation: 'Filtrar información no significa eliminar datos; consiste en crear una vista temporal y dinámica que aísla visualmente los registros que cumplen con condiciones específicas. Por otro lado, la herramienta de ordenamiento reestructura todas las filas en secuencia alfanumérica. Ambas herramientas nos permiten responder preguntas operativas en segundos sin alterar ni dañar la base de datos original.',
           learningResult: 'Consultar y analizar el directorio mediante filtros y ordenamiento.',
           identification: { topic: 'Consultas', evidence: 'Vistas de Filtro', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Ruta de la Sesión',
+          infographicTitle: 'Sesión 03 · Hora 5',
+          infographicImage: imgW04S03,
           infographicSteps: [
             { title: '1. Activar Filtro', desc: 'Datos > Crear filtro' },
             { title: '2. Orden A-Z', desc: 'Por apellidos' },
