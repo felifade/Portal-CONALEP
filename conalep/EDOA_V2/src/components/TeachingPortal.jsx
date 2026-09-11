@@ -429,7 +429,7 @@ const TeachingPortal = () => {
                     )}
                   </div>
 
-                  <p className="development-text" style={{marginTop: '20px'}}>{currentSessionData.development}</p>
+                  <p className="development-text" style={{marginTop: '20px', whiteSpace: 'pre-wrap', lineHeight: '1.6'}}>{currentSessionData.development}</p>
 
                 </div>
               </div>

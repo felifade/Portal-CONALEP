@@ -360,6 +360,7 @@ export const teachingPlan = {
           dictation: 'El dominio de una base de datos no solo requiere conocer las herramientas, sino aplicar lógica condicional para aislar información precisa. Al combinar múltiples criterios (filtros simultáneos), exclusiones o búsquedas específicas de texto, podemos resolver escenarios complejos y extraer inteligencia operativa en tiempo récord, sin alterar el archivo original.',
           learningResult: 'Aplicar lógica de filtros combinados y ordenamiento múltiple.',
           identification: { topic: 'Filtros Avanzados', evidence: 'Capturas de Retos', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicImage: imgW04S03,
           infographicTitle: 'Retos Relámpago',
           infographicSteps: [
             { title: '1. Dob Condición', desc: 'Colonia + Dispositivo' },
