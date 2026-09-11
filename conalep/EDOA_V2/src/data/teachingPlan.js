@@ -367,7 +367,14 @@ export const teachingPlan = {
             { title: '3. Exclusión', desc: 'Desmarcar opciones' },
             { title: '4. Texto Específico', desc: 'Buscar apellidos' }
           ],
-          development: 'Resolución de 4 "Retos Relámpago" dictados por el docente para aislar datos combinando condiciones lógicas. Generación de 4 capturas de pantalla de evidencia integradas a Google Docs.',
+          development: `Resolución de 4 \"Retos Relámpago\" dictados por el docente para aislar datos combinando condiciones lógicas:
+
+1️⃣ **Doble Filtro:** Mostrar únicamente a alumnos de la colonia \"Centro\" QUE ADEMÁS tengan \"Laptop\".
+2️⃣ **Orden Inverso:** Filtrar a quienes usan \"PC de Escritorio\" y ordenarlos alfabéticamente de la Z a la A por Apellidos.
+3️⃣ **Exclusión:** Desmarcar la opción de \"Laptop\" en el filtro para ocultarlos, dejando las demás activas.
+4️⃣ **Búsqueda Textual:** Usar la barra de búsqueda del filtro en \"Apellidos\" para encontrar un apellido específico y ordenar sus Nombres de la A a la Z.
+
+Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Google Docs.`,
           closure: 'Evidencias capturadas en Docs y comprensión sólida de las vistas.'
         },
         {
