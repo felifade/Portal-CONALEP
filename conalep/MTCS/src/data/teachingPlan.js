@@ -639,8 +639,17 @@ export const teachingPlan = {
           dictation: 'El diagnóstico de red consiste en revisar datos del equipo y hacer pruebas para saber dónde está la falla, sin depender solo del mensaje general de sin internet. ipconfig /all muestra la identidad lógica del equipo, como IP, máscara, gateway y DNS. ping comprueba si otro equipo o servidor responde y cuánto tarda en contestar; tracert muestra los saltos que siguen los datos hasta llegar a su destino, y nslookup ayuda a verificar la resolución de nombres. Con esos resultados se puede argumentar si el problema está en la computadora, en la red local, en DNS o en la salida a internet.',
           learningResult: 'El estudiante ejecuta una auditoría completa de red en consola, consolida su portafolio en Docs y demuestra dominio en el Kahoot.',
           identification: 'Tema: Auditoría en CMD y Evaluación. Evidencia: portafolio en Classroom y libreta sellada.',
-          infographicTitle: 'Batería de Pruebas Forenses en Consola (CMD)',
-          infographicImage: 'mtcs-bateria-pruebas-cmd-forense.jpg',
+          infographicTitle: 'Cómic Educativo y Batería de Pruebas en Consola (CMD)',
+          infographicImages: [
+            {
+              src: 'mtcs-comic-redes-ciberseguridad-semana04.jpg',
+              title: 'Cómic Educativo: Misión Auditoría de Red y Kahoot'
+            },
+            {
+              src: 'mtcs-bateria-pruebas-cmd-forense.jpg',
+              title: 'Batería de Pruebas Forenses en Consola (CMD)'
+            }
+          ],
           infographicSteps: [
             '1. ipconfig /all: capturar identidad lógica local, máscara, gateway y servidores DNS en CMD.',
             '2. ping & tracert: medir latencia en ms, pérdida de paquetes y número de saltos hacia servidores centrales.',
