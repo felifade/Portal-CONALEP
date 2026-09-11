@@ -353,22 +353,22 @@ export const teachingPlan = {
           closure: 'Evidencia en Docs con capturas de pantalla y análisis de 3 líneas.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Jueves (2 hrs) · Fórmulas & Dashboard',
+          id: 'S4', label: 'Sesión 04', subtitle: 'Jueves (2 hrs) · Retos de Filtro Avanzado',
           unlockDate: '2026-09-10',
           unlockLabel: 'Jueves 10 de Septiembre, 15:00 hrs',
-          start: '¿Cómo sintetizar la información de 40 estudiantes en un solo vistazo?',
-          dictation: 'Un Dashboard, o panel de control, es una herramienta ejecutiva que sintetiza grandes volúmenes de datos mediante tarjetas de métricas (KPIs) y gráficas visuales. Su objetivo principal es transformar datos crudos en información digerible para tomar decisiones estratégicas rápidamente. Por su parte, las fórmulas en las hojas de cálculo son el motor que automatiza este análisis; al utilizar funciones nativas sobre rangos específicos, el sistema procesa la información y actualiza los resultados en tiempo real.',
-          learningResult: 'Construir fórmulas estadísticas básicas y tarjetas de resumen.',
-          identification: { topic: 'Métricas & Dashboard', evidence: 'Mini Dashboard', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Ruta de la Sesión',
+          start: '¿Cómo aplicas la lógica para combinar diferentes filtros a la vez?',
+          dictation: 'El dominio de una base de datos no solo requiere conocer las herramientas, sino aplicar lógica condicional para aislar información precisa. Al combinar múltiples criterios (filtros simultáneos), exclusiones o búsquedas específicas de texto, podemos resolver escenarios complejos y extraer inteligencia operativa en tiempo récord, sin alterar el archivo original.',
+          learningResult: 'Aplicar lógica de filtros combinados y ordenamiento múltiple.',
+          identification: { topic: 'Filtros Avanzados', evidence: 'Capturas de Retos', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Retos Relámpago',
           infographicSteps: [
-            { title: '1. Fórmulas Base', desc: '=CONTAR y =PROMEDIO' },
-            { title: '2. Máximos/Mínimos', desc: '=MAX y =MIN de edad' },
-            { title: '3. Tarjetas KPI', desc: 'Resumen visual del grupo' },
-            { title: '4. Gráfica Pastel', desc: 'Distribución de equipos' }
+            { title: '1. Dob Condición', desc: 'Colonia + Dispositivo' },
+            { title: '2. Orden Inverso', desc: 'Filtro + Orden Z-A' },
+            { title: '3. Exclusión', desc: 'Desmarcar opciones' },
+            { title: '4. Texto Específico', desc: 'Buscar apellidos' }
           ],
-          development: 'Cálculo de métricas del salón: total de alumnos registrados, promedio de edad, conteo de dispositivos. Diseño de tarjetas visuales de resumen y gráfica circular de equipamiento.',
-          closure: 'Mini dashboard funcional y documentado en la bitácora de Docs.'
+          development: 'Resolución de 4 "Retos Relámpago" dictados por el docente para aislar datos combinando condiciones lógicas. Generación de 4 capturas de pantalla de evidencia integradas a Google Docs.',
+          closure: 'Evidencias capturadas en Docs y comprensión sólida de las vistas.'
         },
         {
           id: 'S5', label: 'Sesión 05', subtitle: 'Viernes (1 hr) · Auditoría & Evaluación',
