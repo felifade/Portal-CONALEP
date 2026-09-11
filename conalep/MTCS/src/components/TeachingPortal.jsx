@@ -30,6 +30,7 @@ import imgMacOui from '../assets/mtcs-ruta-forense-capa-2-mac-oui-spoofing.jpg';
 import imgIpSubnet from '../assets/mtcs-mapa-anatomia-ip-red-hosts-broadcast-subredes.jpg';
 import imgLabIp from '../assets/mtcs-ruta-practica-laboratorio-ip.jpg';
 import imgCmdForense from '../assets/mtcs-bateria-pruebas-cmd-forense.jpg';
+import imgComicS04 from '../assets/mtcs-comic-redes-ciberseguridad-semana04.jpg';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -38,6 +39,7 @@ const ASSET_REGISTRY = {
   'mtcs-mapa-anatomia-ip-red-hosts-broadcast-subredes.jpg': imgIpSubnet,
   'mtcs-ruta-practica-laboratorio-ip.jpg': imgLabIp,
   'mtcs-bateria-pruebas-cmd-forense.jpg': imgCmdForense,
+  'mtcs-comic-redes-ciberseguridad-semana04.jpg': imgComicS04,
 };
 
 function resolveAssetUrl(src) {
