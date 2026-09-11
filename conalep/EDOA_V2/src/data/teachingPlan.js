@@ -3,6 +3,8 @@ import imgW04S01 from '../assets/w04_s01_infografia.jpg';
 import imgW04S02 from '../assets/w04_s02_infografia.jpg';
 import imgW04S03 from '../assets/w04_s03_infografia.png';
 
+import imgW05S01 from '../assets/w05_s01_infografia.png';
+
 export const teachingPlan = {
   module: {
     code: 'EDOA-20',
@@ -421,6 +423,7 @@ Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Go
           learningResult: 'Construir fórmulas estadísticas y maquetar gráficas dinámicas.',
           identification: { topic: 'Gráficos y Fórmulas', evidence: 'Dashboard Completo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Dashboard Interactivo',
+          infographicImage: imgW05S01,
           infographicSteps: [
             { title: '1. Fórmulas Base', desc: 'SUMA, PROMEDIO, CONTAR' },
             { title: '2. Gráfico Pastel', desc: 'Porcentaje de Sexo' },
