@@ -3,7 +3,7 @@ import imgW04S01 from '../assets/w04_s01_infografia.jpg';
 import imgW04S02 from '../assets/w04_s02_infografia.jpg';
 import imgW04S03 from '../assets/w04_s03_infografia.png';
 
-import imgW05S01 from '../assets/w05_s01_infografia.png';
+import imgW05S01 from '../assets/w05_s01_infografia.jpg';
 
 export const teachingPlan = {
   module: {
@@ -425,10 +425,10 @@ Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Go
           infographicTitle: 'Dashboard Interactivo',
           infographicImage: imgW05S01,
           infographicSteps: [
-            { title: '1. Fórmulas Base', desc: 'SUMA, PROMEDIO, CONTAR' },
-            { title: '2. Gráfico Pastel', desc: 'Porcentaje de Sexo' },
-            { title: '3. Gráfico Barras', desc: 'Edades y Colonias' },
-            { title: '4. Formato', desc: 'Pintar celdas en rojo' }
+            { title: '1. Aplica Fórmulas', desc: 'Calcula, analiza y automatiza con fórmulas.' },
+            { title: '2. Crea Gráficos', desc: 'Visualiza la información de forma profesional.' },
+            { title: '3. Formato Condicional', desc: 'Resalta lo importante de un vistazo.' },
+            { title: '4. Dashboard final', desc: 'Organiza y presenta resultados claros.' }
           ],
           development: `Construcción del Dashboard en las filas 1-6.
 
