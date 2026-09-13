@@ -430,13 +430,21 @@ Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Go
             { title: '3. Formato Condicional', desc: 'Resalta lo importante de un vistazo.' },
             { title: '4. Dashboard final', desc: 'Organiza y presenta resultados claros.' }
           ],
-          development: `Construcción del Dashboard en las filas 1-6.
+          development: `**Instrucciones para el Alumno:**
 
-1️⃣ **Fórmulas Aritméticas y Estadísticas:** Uso de =CONTARA, =SUMA, =PROMEDIO, =MAX, =MIN, =CONTAR.SI para analizar edades y sexos.
-2️⃣ **4 Gráficos Visuales:** Pastel (Sexo), Barras (Edades), Anillo (Dispositivo) y Columnas (Colonia).
-3️⃣ **Formato Condicional:** Regla automática para pintar de rojo a quienes no tienen dispositivo ("Ninguno").
+1️⃣ **Preparar el Lienzo:** Abre tu archivo de Hojas de Cálculo ''Directorio Grupo 301'' (el que hiciste la semana pasada) e inserta 6 filas en blanco hasta arriba. Este será tu espacio para el Panel de Control (Dashboard).
 
-Capturas del dashboard funcional añadidas al Google Docs maestro.`,
+2️⃣ **Panel de Fórmulas:** En esas nuevas celdas, calcula automáticamente los datos de tus compañeros usando: 
+• =CONTARA (Total de registros)
+• =PROMEDIO (Promedio de edad)
+• =MAX y =MIN (El alumno más grande y el más chico)
+• =CONTAR.SI (Cuántos hombres y cuántas mujeres hay).
+
+3️⃣ **Panel de Gráficos:** Selecciona tus datos e inserta 4 gráficas (Pastel para Sexo, Barras para Edades, Anillo para Dispositivos y Columnas para Colonias). Acomódalas estéticamente debajo de tus fórmulas.
+
+4️⃣ **Alertas Visuales:** Selecciona la columna de ''Dispositivos'' y ponle una regla de Formato Condicional para que se pinte de ROJO automáticamente si dice ''Ninguno''.
+
+5️⃣ **Evidencia:** Toma capturas de tu Dashboard funcional y súbelas a tu bitácora de Google Docs.`,
           closure: 'Dashboard interactivo que cambia colores y gráficas en tiempo real.'
         },
         {
