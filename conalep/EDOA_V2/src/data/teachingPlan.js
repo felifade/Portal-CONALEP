@@ -27,7 +27,7 @@ export const teachingPlan = {
         { id: 'RA_Diag', title: 'Diagnóstico e Inducción', peso: '0%', weeks: ['W00'] },
         { id: 'RA 1.1', title: 'Entorno Nube y Estilos Base', peso: '10%', weeks: ['W01'] },
         { id: 'RA 1.2', title: 'Formato Avanzado y Documentos', peso: '10%', weeks: ['W02'] },
-        { id: 'RA 1.3', title: 'Automatización y Colaboración', peso: '10%', weeks: ['W03', 'W04'] }
+        { id: 'RA 1.3', title: 'Automatización y Colaboración', peso: '10%', weeks: ['W03', 'W04', 'W05'] }
       ]
     },
     {
@@ -38,7 +38,7 @@ export const teachingPlan = {
       captureDates: '03 al 04 Nov 2026',
       deadline: '04 Nov 2026',
       ras: [
-        { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '15%', weeks: ['W05', 'W06'] },
+        { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '15%', weeks: ['W06'] },
         { id: 'RA 2.2', title: 'Presentaciones Interactivas', peso: '20%', weeks: ['W07', 'W08', 'W09'] }
       ]
     },
