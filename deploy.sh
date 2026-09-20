@@ -34,7 +34,7 @@ echo "Build MTCS..."
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
 git add -A
-git commit -m "feat(MTCS): deploy SW v${NEXT} — Semana 05 Cloud Shell, infografías didácticas y Kahoot"
+git commit -m "feat(MTCS): SW v${NEXT} — ajustar Semana 05 (teoría y Kahoot) y Semana 06 Cloud Shell"
 git push
 
 echo "✓ Deploy completo — SW v${NEXT}"
