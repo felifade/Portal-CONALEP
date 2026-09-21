@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Operación Servidor Fantasma: La Huella Invisible en la Nube - MTCS-20 CONALEP</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 14mm 13mm 14mm 13mm;
+      @bottom-right {
+        content: counter(page);
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+    *, *:before, *:after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #090d16 0%, #151d2a 100%);
+      color: #f8fafc;
+      padding: 20px 24px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      border-left: 6px solid #10b981;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .inst-title {
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #10b981;
+      margin-bottom: 4px;
+    }
+    h1.doc-title {
+      margin: 0 0 4px 0;
+      font-size: 18pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+    .doc-subtitle {
+      font-size: 10.5pt;
+      color: #94a3b8;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .meta-badge {
+      font-size: 7.5pt;
+      font-weight: 700;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid #334155;
+    }
+    .meta-badge.gold {
+      border-color: #f59e0b;
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.15);
+    }
+    .meta-badge.green {
+      border-color: #10b981;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.15);
+    }
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+    .role-card {
+      font-size: 8.5pt;
+      line-height: 1.35;
+    }
+    .role-card strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 9pt;
+    }
+    .role-narrador { border-top: 3px solid #64748b; padding-top: 6px; }
+    .role-alex { border-top: 3px solid #0284c7; padding-top: 6px; }
+    .role-valeria { border-top: 3px solid #10b981; padding-top: 6px; }
+    .role-profe { border-top: 3px solid #8b5cf6; padding-top: 6px; }
+
+    .role-narrador strong { color: #475569; }
+    .role-alex strong { color: #0284c7; }
+    .role-valeria strong { color: #059669; }
+    .role-profe strong { color: #7c3aed; }
+
+    .act-container {
+      margin-bottom: 18px;
+      page-break-inside: avoid;
+    }
+    .act-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border-left: 4px solid #0284c7;
+      margin-bottom: 10px;
+    }
+    .act-num {
+      font-size: 8pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: #0284c7;
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .act-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .dialogue {
+      margin-bottom: 8px;
+      padding-left: 10px;
+      position: relative;
+    }
+    .speaker-tag {
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 2px;
+    }
+    .speaker-narrador { background: #e2e8f0; color: #475569; }
+    .speaker-alex { background: #e0f2fe; color: #0369a1; }
+    .speaker-valeria { background: #d1fae5; color: #047857; }
+    .speaker-profe { background: #ede9fe; color: #6d28d9; }
+
+    .narrative-text {
+      color: #334155;
+      font-style: italic;
+      font-size: 9.5pt;
+    }
+    .terminal-box {
+      background: #0b0f19;
+      color: #00ff66;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 8.5pt;
+      padding: 7px 12px;
+      border-radius: 5px;
+      margin: 6px 0 8px 12px;
+      border: 1px solid #1e293b;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    }
+    .terminal-prompt { color: #38bdf8; font-weight: bold; }
+    .terminal-output { color: #cbd5e1; margin-top: 3px; display: block; }
+    .callout-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-left: 4px solid #f59e0b;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 8px 0;
+      font-size: 9pt;
+      color: #334155;
+    }
+    .callout-title {
+      font-weight: 800;
+      color: #b45309;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    /* Page Break Rules */
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* Organizer Visual Section */
+    .organizer-card {
+      background: #ffffff;
+      border: 2px solid #0f172a;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+      page-break-inside: avoid;
+    }
+    .organizer-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .organizer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .organizer-col {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px;
+      background: #f8fafc;
+    }
+    .organizer-col-header {
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .bg-red { background: #ef4444; }
+    .bg-amber { background: #f59e0b; }
+    .bg-blue { background: #0284c7; }
+    .organizer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 8.5pt;
+    }
+    .organizer-list li {
+      margin-bottom: 5px;
+      padding-left: 12px;
+      position: relative;
+    }
+    .organizer-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #64748b;
+      font-weight: bold;
+    }
+
+    .questions-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      page-break-inside: avoid;
+    }
+    .stamp-box {
+      border: 2px dashed #94a3b8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+    .stamp-placeholder {
+      width: 130px;
+      height: 55px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7.5pt;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER INSTITUCIONAL -->
+  <header class="header-banner">
+    <div class="inst-title">CONALEP Plantel Pachuca de Soto • Educación Profesional Técnica</div>
+    <h1 class="doc-title">Operación Servidor Fantasma: La Huella Invisible en la Nube</h1>
+    <div class="doc-subtitle">Lectura Táctica Formativa, Estudio de Caso Forense y Organizador Visual</div>
+    <div class="meta-badges">
+      <span class="meta-badge">Módulo: MTCS-20</span>
+      <span class="meta-badge gold">Segundo Corte (35%)</span>
+      <span class="meta-badge green">RA 2.1: Entornos Seguros y Auditoría</span>
+      <span class="meta-badge">Semana 06 • Sesión 01</span>
+      <span class="meta-badge">Grupo: 501</span>
+      <span class="meta-badge">Caso: Cryptojacking</span>
+    </div>
+  </header>
+
+  <!-- GUÍA DE ROLES TEATRALES -->
+  <section class="roles-grid">
+    <div class="role-card role-narrador">
+      <strong>🎙️ Narrador(a)</strong>
+      Voz del SOC y contexto forense. Describe el ambiente de tensión y las métricas de monitoreo.
+    </div>
+    <div class="role-card role-alex">
+      <strong>💻 Alex (Analista Jr.)</strong>
+      Enfoque en hardware e identidad. Descubre el procesador Xeon y los privilegios de usuario.
+    </div>
+    <div class="role-card role-valeria">
+      <strong>🛡️ Valeria (Ciberseguridad)</strong>
+      Especialista en sistemas de archivos y red. Inspecciona /etc y triangula geolocalización satelital.
+    </div>
+    <div class="role-card role-profe">
+      <strong>👨‍🏫 El Profesor</strong>
+      Guía metodológico del Blue Team. Formula las preguntas críticas de auditoría y valida las evidencias.
+    </div>
+  </section>
+
+  <!-- ================= ACTO 1 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 1</span>
+      <span class="act-title">La Alarma Térmica y la Factura Imposible</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Son las 15:10 horas en el laboratorio de cómputo de CONALEP Plantel Pachuca de Soto. En la consola de monitoreo del rack en la nube parpadea una baliza ámbar que en segundos cambia a rojo escarlata. La telemetría marca un consumo energético anormal.</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —Profesor, mire los gráficos del clúster escolar en Google Cloud. Nuestra máquina virtual Debian marca 100% de uso de procesador ininterrumpido desde las 3:00 AM. La alerta del proveedor advierte que el consumo de potencia se triplicó.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —Es ilógico. El taller cerró ayer a las siete de la tarde y nadie tiene tareas de renderizado ni bases de datos activas. Entré al portal del módulo y no hay archivos cifrados, ni notas pidiendo rescate en criptomonedas. Si no destruyeron nada... ¿por qué el servidor está hirviendo?
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-profe">Profesor</span>
+      —Porque no todos los atacantes buscan destruir, Valeria. En el mundo corporativo existe una amenaza mucho más rentable y sigilosa: el <em>Cryptojacking</em>. Los cibercriminales no secuestran tus datos; secuestran la potencia eléctrica y de cálculo de tu procesador para minar criptomonedas a tus expensas.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 2 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 2</span>
+      <span class="act-title">El Abismo Headless: El Universo sin Ratón</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Alex abre una sesión de conexión remota hacia la instancia afectada. En el proyector de la clase no aparece un escritorio de Windows con iconos coloridos ni menús desplegables. Solo una pantalla de fondo negro absoluto con un cursor rectangular parpadeante.</span>
+    </div>
+    <div class="terminal-box">
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> <span style="color:#64748b;">_ (Debian GNU/Linux 12 - Google Cloud Shell)</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —Bienvenidos al mundo de los servidores profesionales: modo <em>Headless</em>. En ciberseguridad defensiva no se instalan interfaces gráficas en servidores porque consumirían valiosa memoria RAM y ampliarían la superficie de ataque. Aquí no hay ratón. Todo se investiga mediante la shell de Bash.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —Si el intruso desplegó un contenedor de minería oculto, tuvo que dejar rastros en la tabla de procesos y en las variables del entorno. Es hora de desplegar la batería de reconocimiento pericial.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 3 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 3</span>
+      <span class="act-title">Fase 1 — Identidad, Permisos y Carga del Sistema</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Valeria coloca los dedos sobre el teclado mecánico y ejecuta la primera fase del protocolo forense: verificar con qué nivel de privilegios están operando y cuánto tiempo lleva asfixiada la máquina.</span>
+    </div>
+    <div class="terminal-box">
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> whoami && id<br>
+      <span class="terminal-output">usuario</span>
+      <span class="terminal-output">uid=1000(usuario) gid=1000(usuario) groups=1000(usuario),4(adm),27(sudo)</span>
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> uptime<br>
+      <span class="terminal-output"> 15:12:44 up 14:18,  1 user,  load average: 4.88, 4.75, 4.60</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —Primer hallazgo: nuestro identificador es UID 1000. No somos el superusuario <code>root</code> (UID 0). Eso significa que el atacante no modificó los binarios del núcleo del kernel, pero sí logró ejecutar scripts en segundo plano.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —Miren el resultado de <code>uptime</code>. El <em>load average</em> está en 4.88. En un servidor con 4 núcleos lógicos, cualquier valor superior a 4.00 significa saturación total: hay procesos encolados esperando procesador. ¡El minero está devorando ciclos de cómputo en este milisegundo!
+    </div>
+  </div>
+
+  <!-- SALTO DE PÁGINA PARA ORDEN EDITORIAL -->
+  <div class="page-break"></div>
+
+  <!-- ================= ACTO 4 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 4</span>
+      <span class="act-title">Fase 2 — La Revelación del Hardware de Servidor</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Alex toma el control del teclado. Quiere entender por qué un ciberdelincuente se molestaría en atacar una máquina escolar en vez de infectar computadoras domésticas. Lanza la orden de auditoría de arquitectura de hardware.</span>
+    </div>
+    <div class="terminal-box">
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> lscpu | grep -E "Model name|CPU\(s\):"<br>
+      <span class="terminal-output">CPU(s):              4</span>
+      <span class="terminal-output">Model name:          Intel(R) Xeon(R) CPU @ 2.80GHz</span>
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> free -h<br>
+      <span class="terminal-output">               total        used        free      shared  buff/cache   available</span>
+      <span class="terminal-output">Mem:           15Gi        14Gi       420Mi        12Mi       780Mi       850Mi</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —¡Aquí está la respuesta! Procesadores empresariales <strong>Intel Xeon</strong> en la infraestructura de Google Cloud con 16 Gigabytes de memoria RAM. A los atacantes no les sirven las laptops lentas; buscan la nube porque un solo servidor Xeon genera más bloques de criptomonedas en un día que una oficina entera en un mes.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-profe">Profesor</span>
+      —Exacto. Las organizaciones pagan miles de dólares por poder de procesamiento en la nube. Cuando un atacante comete cryptojacking, la víctima no solo sufre lentitud: la factura del proveedor de nube puede arruinar el presupuesto operativo de una empresa.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 5 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 5</span>
+      <span class="act-title">Fase 3 — Infiltración en el Directorio Raíz (/etc)</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Valeria navega hacia el cerebro administrativo de Linux: el directorio <code>/etc</code>, donde residen los archivos que definen qué usuarios existen y qué permisos tienen para entrar al sistema.</span>
+    </div>
+    <div class="terminal-box">
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> cat /etc/os-release | grep "PRETTY_NAME"<br>
+      <span class="terminal-output">PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"</span>
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> cat /etc/passwd | tail -n 6<br>
+      <span class="terminal-output">sshd:x:106:65534::/run/sshd:/usr/sbin/nologin</span>
+      <span class="terminal-output">tcpdump:x:107:112::/nonexistent:/usr/sbin/nologin</span>
+      <span class="terminal-output">usuario:x:1000:1000:Google Cloud Shell User:/home/usuario:/bin/bash</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —Confirmamos que corremos sobre <strong>Debian GNU/Linux 12 (Bookworm)</strong>. Al revisar <code>/etc/passwd</code>, notamos que casi todas las cuentas de servicio terminan en <code>/usr/sbin/nologin</code>. Esto significa que nadie puede iniciar sesión interactiva con ellas. La única shell real con <code>/bin/bash</code> es la nuestra.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —Eso demuestra que el intruso no logró crear una cuenta oculta permanente con contraseña. Su ataque está corriendo como un proceso huérfano dentro de la carpeta <code>/home/usuario</code> o en un contenedor efímero.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 6 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 6</span>
+      <span class="act-title">Fase 4 — La Paradoja de la Doble IP (Privada vs Pública)</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Para detener la fuga de información, el equipo necesita saber hacia dónde se envían los datos. Alex ejecuta el comando de consulta de interfaces de red internas.</span>
+    </div>
+    <div class="terminal-box">
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> hostname -I<br>
+      <span class="terminal-output">10.88.0.4</span>
+      <span class="terminal-prompt">usuario@cloudshell:~$</span> curl -s ifconfig.me<br>
+      <span class="terminal-output">34.125.74.198</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —Miren esto: <code>hostname -I</code> nos entrega <code>10.88.0.4</code>. Esa es una dirección privada Clase A. Está encapsulada dentro de la red virtual de Google; no existe en el internet público. ¿Cómo se comunica el minero con el servidor atacante en el exterior?
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —A través de la pasarela de traducción NAT. Por eso usamos <code>curl -s ifconfig.me</code>. Al interrogar a un servidor externo en internet, descubrimos la IP pública real que Google le asignó a nuestra conexión de salida: <strong>34.125.74.198</strong>.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 7 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 7</span>
+      <span class="act-title">Fase 5 — Triangulación Satelital del Centro de Datos</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-narrador">Narrador</span>
+      <span class="narrative-text">Valeria abre el navegador del taller e ingresa la IP pública en el portal de geolocalización de telecomunicaciones <code>iplocation.io</code>. En segundos, una retícula satelital se posiciona sobre un punto geográfico en el mapa mundial.</span>
+    </div>
+    <div class="callout-box">
+      <div class="callout-title">📡 REPORTE DE TELEMETRÍA GEOESPACIAL (iplocation.io)</div>
+      <strong>Dirección IPv4 Pública:</strong> 34.125.74.198 | <strong>Proveedor (ISP):</strong> Google Cloud Platform<br>
+      <strong>Ubicación Física del Data Center:</strong> Council Bluffs, Iowa, Estados Unidos de América.<br>
+      <strong>Latencia a Google DNS (8.8.8.8):</strong> 0.742 ms (enlace de fibra óptica troncal interoceánica).
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-valeria">Valeria</span>
+      —¡Localizado con precisión! Nuestra terminal de Cloud Shell no está en México; se ejecuta en una granja de servidores de Google en Iowa, Estados Unidos. El malware estaba enviando hashes criptográficos hacia un pool minero en el extranjero.
+    </div>
+  </div>
+
+  <!-- ================= ACTO 8 ================= -->
+  <div class="act-container">
+    <div class="act-header">
+      <span class="act-num">Acto 8</span>
+      <span class="act-title">El Dictamen Pericial en nano y la Misión de Laboratorio</span>
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-alex">Alex</span>
+      —No podemos apagar el equipo sin dejar registro formal. En la terminal abro el editor de texto plano: <code>nano bitacora_forense.txt</code>. Documentamos cada comando, la IP detectada y el procesador Xeon identificado. Con <code>Ctrl + O</code> guardamos y con <code>Ctrl + X</code> cerramos el archivo.
+    </div>
+    <div class="dialogue">
+      <span class="speaker-tag speaker-profe">Profesor</span>
+      —Excelente trabajo de respuesta a incidentes, equipo. Han actuado como un verdadero Blue Team: identificaron la anomalía, auditaron el hardware, revisaron los usuarios y rastrearon la red sin depender de un ratón. Ahora, plasmen el organizador visual en su libreta para que quede sellado el peritaje técnico. En la próxima sesión, cada uno de ustedes entrará a su propia terminal a reproducir esta investigación.
+    </div>
+  </div>
+
+  <!-- SALTO DE PÁGINA PARA ENTREGABLES FORMATIVOS -->
+  <div class="page-break"></div>
+
+  <!-- ================= SECCIÓN FORMATIVA: ORGANIZADOR VISUAL ================= -->
+  <section class="organizer-card">
+    <div class="organizer-title">📊 Organizador Visual Forense: Anatomía del Incidente en la Nube</div>
+    <div style="font-size: 8.5pt; color: #64748b; text-align: center; margin-bottom: 10px;">
+      Instrucción para el alumno: Reproduce en tu libreta el siguiente esquema de 3 columnas como evidencia de la Sesión 01.
+    </div>
+    <div class="organizer-grid">
+      <div class="organizer-col">
+        <div class="organizer-col-header bg-red">1. Vector de Ataque</div>
+        <ul class="organizer-list">
+          <li><strong>Tipo de amenaza:</strong> Cryptojacking silencioso.</li>
+          <li><strong>Modo de operación:</strong> Intrusión en contenedor de nube.</li>
+          <li><strong>Objetivo del atacante:</strong> Robo de ciclos de procesador para minería.</li>
+          <li><strong>Diferencia con Ransomware:</strong> No destruye ni cifra; parasita los recursos.</li>
+        </ul>
+      </div>
+
+      <div class="organizer-col">
+        <div class="organizer-col-header bg-amber">2. Síntomas Técnicos</div>
+        <ul class="organizer-list">
+          <li><strong>CPU y RAM:</strong> Consumo del 100% sostenido.</li>
+          <li><strong>Uptime crítico:</strong> Load average superior a 4.00.</li>
+          <li><strong>Alarma financiera:</strong> Incremento en la factura de la nube.</li>
+          <li><strong>Entorno Headless:</strong> Servidor remoto Debian operado exclusivamente por consola.</li>
+        </ul>
+      </div>
+
+      <div class="organizer-col">
+        <div class="organizer-col-header bg-blue">3. Respuesta Forense (Linux)</div>
+        <ul class="organizer-list">
+          <li><strong>Identidad:</strong> <code>whoami</code> e <code>id</code> (permisos UID 1000).</li>
+          <li><strong>Hardware:</strong> <code>lscpu</code> (Intel Xeon) y <code>free -h</code>.</li>
+          <li><strong>Sistema:</strong> <code>cat /etc/os-release</code> y <code>/etc/passwd</code>.</li>
+          <li><strong>Red:</strong> <code>hostname -I</code> (privada) vs <code>curl ifconfig.me</code> (pública).</li>
+          <li><strong>Dictamen:</strong> Registro en <code>nano bitacora.txt</code> y <code>grep</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PREGUNTAS DE COMPRENSIÓN LECTORA ================= -->
+  <section class="questions-box">
+    <div style="font-size: 9.5pt; font-weight: 800; color: #0f172a; margin-bottom: 8px; text-transform: uppercase;">
+      📝 Cuestionario de Control de Lectura (Responder en Libreta)
+    </div>
+    <ol style="margin: 0; padding-left: 18px; font-size: 8.5pt; line-height: 1.6; color: #334155;">
+      <li>¿Cuál es la diferencia fundamental entre un ataque de <strong>Ransomware</strong> y uno de <strong>Cryptojacking</strong>?</li>
+      <li>¿Qué significa que un servidor en la nube opere en <strong>modo «Headless»</strong> y por qué se prefiere en ciberseguridad?</li>
+      <li>¿Por qué a los atacantes les interesa comprometer servidores con procesadores <strong>Intel Xeon</strong> en vez de computadoras personales?</li>
+      <li>¿Por qué el comando <code>hostname -I</code> muestra una dirección como <code>10.88.0.4</code> y se requiere <code>curl ifconfig.me</code> para ver la IP pública?</li>
+      <li>¿Cuáles son los atajos de teclado esenciales en el editor <code>nano</code> para guardar los cambios y salir a la shell?</li>
+    </ol>
+  </section>
+
+  <!-- CAJA DE FIRMA Y SELLO DOCENTE -->
+  <div class="stamp-box">
+    <div style="font-size: 8.5pt; color: #475569;">
+      <strong>Evidencia formativa Sesión 01:</strong> Lectura comprensiva, organizador visual dibujado en libreta y respuestas al cuestionario.<br>
+      <span style="font-size: 7.5pt; color: #64748b;">CONALEP Plantel Pachuca de Soto • Módulo MTCS-20 • Segundo Corte • RA 2.1</span>
+    </div>
+    <div class="stamp-placeholder">
+      Sello del Docente
+    </div>
+  </div>
+
+</body>
+</html>
