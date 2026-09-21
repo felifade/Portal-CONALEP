@@ -232,9 +232,99 @@
       <div class="notice">💡 <strong>Apertura del Segundo Corte:</strong> Esta semana 06 marca el inicio del Segundo Corte de evaluación. Llevamos a la práctica real en consola todos los fundamentos de Linux investigados en la Semana 05.</div>
     </section>
 
-    <!-- SLIDE 2: LÁMINA DIDÁCTICA SESIÓN 01 -->
+    <!-- SLIDE 2: SESIÓN 01 - CASO FORENSE Y LECTURA -->
     <section class="slide">
-      <p class="kicker">Material Didáctico de Apoyo Visual · Sesión 01</p>
+      <div style="display: flex; gap: 8px; margin-bottom: 8px; align-items: center;">
+        <span class="badge gold">Sesión 01 · 2 Horas</span>
+        <span class="badge cyan">Fomento a la Lectura & Caso Real</span>
+      </div>
+      <p class="kicker">Estudio de Caso Real · Respuesta a Incidentes (Blue Team)</p>
+      <h2>Operación Servidor Fantasma: Cryptojacking en la Nube</h2>
+      <p class="lead">Un ataque silencioso no destruye archivos ni pide rescate: secuestra la potencia eléctrica y de cálculo del procesador para minar criptomonedas a espaldas de la organización.</p>
+
+      <div class="grid two" style="margin-bottom: 16px;">
+        <article class="card green">
+          <h3>🎭 Lectura Táctica Compartida en el Aula</h3>
+          <p style="font-size: 14px; line-height: 1.45; color: #d1d5db; margin-bottom: 12px;">
+            Lectura en voz alta por turnos con 4 roles asignados:
+          </p>
+          <ul class="steps">
+            <li><strong>🎙️ Narrador(a):</strong> Voz del SOC escolar, telemetría y alarmas térmicas.</li>
+            <li><strong>💻 Alex:</strong> Analista Jr. a cargo de la auditoría de hardware y CPU Xeon.</li>
+            <li><strong>🛡️ Valeria:</strong> Especialista en /etc, shells nologin y triangulación satelital.</li>
+            <li><strong>👨‍🏫 El Profesor:</strong> Guía metodológico del equipo defensivo Blue Team.</li>
+          </ul>
+        </article>
+
+        <article class="card cyan">
+          <h3>📕 Documento Oficial en PDF</h3>
+          <p style="font-size: 14px; line-height: 1.45; color: #d1d5db; margin-bottom: 14px;">
+            Accede al texto completo con los 8 actos narrativos, diálogos técnicos y cuestionario de control:
+          </p>
+          <div style="text-align: center; padding: 12px; background: rgba(0, 229, 255, 0.08); border-radius: 8px; border: 1px dashed var(--cyan);">
+            <a href="../docs/Operacion_Servidor_Fantasma_Lectura_Oficial_MTCS.pdf" target="_blank" style="display: inline-block; background: var(--cyan); color: #000000; font-weight: 800; font-size: 14px; padding: 10px 18px; border-radius: 6px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px var(--cyan-glow);">
+              📥 Abrir Lectura Táctica en PDF
+            </a>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Disponible para proyectar en aula o descargar e imprimir.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="notice">
+        💡 <strong>Misión Pedagógica:</strong> Comprender el valor del hardware y el peligro del secuestro de CPU antes de tocar la terminal en la Sesión 02.
+      </div>
+    </section>
+
+    <!-- SLIDE 3: SESIÓN 01 - ORGANIZADOR VISUAL EN LIBRETA -->
+    <section class="slide">
+      <div style="display: flex; gap: 8px; margin-bottom: 8px; align-items: center;">
+        <span class="badge gold">Sesión 01 · Actividad en Libreta</span>
+        <span class="badge green">Evidencia con Sello Docente</span>
+      </div>
+      <p class="kicker">Esquema de Análisis Pericial</p>
+      <h2>Organizador Visual: Anatomía del Incidente en la Nube</h2>
+      <p class="lead">Dibuja en tu libreta el siguiente esquema de 3 columnas como evidencia formativa de la Sesión 01:</p>
+
+      <div class="grid three">
+        <article class="card" style="border-top: 4px solid #ef4444;">
+          <h3 style="color: #ef4444;">1. Vector de Ataque</h3>
+          <ul class="steps">
+            <li><strong>Amenaza:</strong> Cryptojacking silencioso.</li>
+            <li><strong>Acceso:</strong> Contenedor de nube desprotegido.</li>
+            <li><strong>Objetivo:</strong> Robo de ciclos de CPU para minar Monero.</li>
+            <li><strong>Contraste:</strong> No destruye ni cifra datos; parasita recursos.</li>
+          </ul>
+        </article>
+
+        <article class="card gold">
+          <h3>2. Síntomas Técnicos</h3>
+          <ul class="steps">
+            <li><strong>CPU y RAM:</strong> Saturación sostenida al 100%.</li>
+            <li><strong>Uptime crítico:</strong> Load average superior a 4.00.</li>
+            <li><strong>Alarma financiera:</strong> Incremento en factura cloud.</li>
+            <li><strong>Modo Headless:</strong> Servidor sin GUI operado por consola.</li>
+          </ul>
+        </article>
+
+        <article class="card cyan">
+          <h3>3. Respuesta Forense</h3>
+          <ul class="steps">
+            <li><strong>Identidad:</strong> <span class="cmd">whoami</span> e <span class="cmd">id</span> (UID 1000).</li>
+            <li><strong>Hardware:</strong> <span class="cmd">lscpu</span> (Intel Xeon) y <span class="cmd">free -h</span>.</li>
+            <li><strong>Sistema:</strong> <span class="cmd">cat /etc/os-release</span> y <span class="cmd">/etc/passwd</span>.</li>
+            <li><strong>Red:</strong> <span class="cmd">hostname -I</span> vs <span class="cmd">curl ifconfig.me</span>.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="notice" style="margin-top: 16px;">
+        ⭐ <strong>Criterio de Sello 1:</strong> Libreta completa con el organizador visual de 3 columnas y el cuestionario de control de 5 preguntas respondido.
+      </div>
+    </section>
+
+    <!-- SLIDE 4: LÁMINA DIDÁCTICA SESIÓN 02 -->
+    <section class="slide">
+      <p class="kicker">Sesión 02 · Material de Apoyo Visual</p>
       <h2>Infografía Oficial: Auditoría Forense en Google Cloud Shell</h2>
       <div style="margin: 14px 0; border-radius: 10px; overflow: hidden; border: 2px solid var(--border); box-shadow: 0 12px 35px rgba(0,0,0,0.5); background: #ffffff;">
         <img src="mtcs-auditoria-cloud-recon-semana05.jpg" alt="Infografía Escolar Auditoría Forense Cloud Shell" style="width: 100%; max-height: 68vh; object-fit: contain; display: block; margin: 0 auto; cursor: zoom-in;" onclick="window.open(this.src, '_blank')">
