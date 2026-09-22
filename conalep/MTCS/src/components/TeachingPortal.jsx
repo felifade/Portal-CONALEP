@@ -369,7 +369,7 @@ function ReadingCaseCard({ readingCase }) {
         <div className="reading-case-badges">
           <span className="reading-badge gold">📖 {readingCase.badge}</span>
           <span className="reading-badge cyan">⏱️ {readingCase.timeEstimate}</span>
-          <span className="reading-badge slate">📑 {readingCase.actsCount} Actos Dramáticos</span>
+          <span className="reading-badge slate">📑 {readingCase.typeLabel || (readingCase.actsCount ? `${readingCase.actsCount} Fases Forenses` : 'Estudio Técnico')}</span>
         </div>
         <p className="reading-case-kicker">{readingCase.kicker}</p>
         <h2 className="reading-case-title">{readingCase.title}</h2>
@@ -377,11 +377,11 @@ function ReadingCaseCard({ readingCase }) {
       </div>
 
       <div className="reading-case-grid">
-        {/* Roles */}
+        {/* Roles o Ejes Clave */}
         <div className="reading-block roles-block">
           <div className="block-header">
-            <span className="block-icon">🎭</span>
-            <strong>Guía de Roles Teatrales para Lectura en el Aula</strong>
+            <span className="block-icon">{readingCase.rolesIcon || '🛡️'}</span>
+            <strong>{readingCase.rolesTitle || 'Ejes de Análisis del Caso Forense'}</strong>
           </div>
           <div className="roles-pill-grid">
             {readingCase.roles?.map((r, i) => (
@@ -413,18 +413,18 @@ function ReadingCaseCard({ readingCase }) {
         </div>
       </div>
 
-      {/* 8 Etapas del Incidente */}
+      {/* Fases o Etapas del Incidente */}
       {readingCase.stages?.length > 0 && (
         <div className="reading-stages-container">
           <div className="block-header">
             <span className="block-icon">⚡</span>
-            <strong>Secuencia de los 8 Actos de Investigación Pericial</strong>
+            <strong>{readingCase.stagesTitle || 'Batería de Inspección y Fases Periciales'}</strong>
           </div>
           <div className="stages-flow-grid">
             {readingCase.stages.map((st) => (
               <div key={st.step} className="stage-card">
                 <div className="stage-card-top">
-                  <span className="stage-badge">Acto {st.step}</span>
+                  <span className="stage-badge">{st.badge || `Fase ${st.step}`}</span>
                   <strong>{st.title}</strong>
                 </div>
                 <p>{st.desc}</p>

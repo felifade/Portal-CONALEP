@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Operación Servidor Fantasma: La Huella Invisible en la Nube - MTCS-20 CONALEP</title>
+  <title>Estudio de Caso Forense: El Ataque Silencioso a la Nube - MTCS-20 CONALEP</title>
   <style>
     @page {
       size: letter;
@@ -19,16 +19,16 @@
       color: #1e293b;
       background: #ffffff;
       line-height: 1.5;
-      font-size: 10pt;
+      font-size: 9.8pt;
       margin: 0;
       padding: 0;
     }
     .header-banner {
       background: linear-gradient(135deg, #090d16 0%, #151d2a 100%);
       color: #f8fafc;
-      padding: 20px 24px;
-      border-radius: 10px;
-      margin-bottom: 18px;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin-bottom: 16px;
       border-left: 6px solid #10b981;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
@@ -42,29 +42,29 @@
     }
     h1.doc-title {
       margin: 0 0 4px 0;
-      font-size: 18pt;
-      font-weight: 800;
+      font-size: 17pt;
+      font-weight: 850;
       letter-spacing: -0.5px;
       color: #ffffff;
     }
     .doc-subtitle {
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #94a3b8;
       font-style: italic;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .meta-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
     .meta-badge {
       font-size: 7.5pt;
       font-weight: 700;
       background: #1e293b;
       color: #e2e8f0;
-      padding: 3px 9px;
+      padding: 2px 8px;
       border-radius: 999px;
       border: 1px solid #334155;
     }
@@ -78,142 +78,113 @@
       color: #34d399;
       background: rgba(16, 185, 129, 0.15);
     }
-    .roles-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+
+    /* Ficha Técnica */
+    .ficha-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 12px 14px;
-      margin-bottom: 20px;
+      border-left: 4px solid #0284c7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px 12px;
     }
-    .role-card {
+    .ficha-item {
       font-size: 8.5pt;
       line-height: 1.35;
     }
-    .role-card strong {
+    .ficha-item strong {
       display: block;
-      margin-bottom: 3px;
-      font-size: 9pt;
-    }
-    .role-narrador { border-top: 3px solid #64748b; padding-top: 6px; }
-    .role-alex { border-top: 3px solid #0284c7; padding-top: 6px; }
-    .role-valeria { border-top: 3px solid #10b981; padding-top: 6px; }
-    .role-profe { border-top: 3px solid #8b5cf6; padding-top: 6px; }
-
-    .role-narrador strong { color: #475569; }
-    .role-alex strong { color: #0284c7; }
-    .role-valeria strong { color: #059669; }
-    .role-profe strong { color: #7c3aed; }
-
-    .act-container {
-      margin-bottom: 18px;
-      page-break-inside: avoid;
-    }
-    .act-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #f1f5f9;
-      padding: 6px 12px;
-      border-radius: 6px;
-      border-left: 4px solid #0284c7;
-      margin-bottom: 10px;
-    }
-    .act-num {
-      font-size: 8pt;
-      font-weight: 800;
+      color: #0f172a;
+      font-size: 7.5pt;
       text-transform: uppercase;
-      background: #0284c7;
-      color: #ffffff;
-      padding: 2px 7px;
-      border-radius: 4px;
       letter-spacing: 0.5px;
+      margin-bottom: 1px;
     }
-    .act-title {
-      font-size: 11pt;
+
+    .section-title {
+      font-size: 11.5pt;
       font-weight: 800;
       color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin: 14px 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .dialogue {
-      margin-bottom: 8px;
-      padding-left: 10px;
-      position: relative;
-    }
-    .speaker-tag {
-      font-size: 7.5pt;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 1px 6px;
-      border-radius: 3px;
-      display: inline-block;
-      margin-right: 6px;
-      margin-bottom: 2px;
-    }
-    .speaker-narrador { background: #e2e8f0; color: #475569; }
-    .speaker-alex { background: #e0f2fe; color: #0369a1; }
-    .speaker-valeria { background: #d1fae5; color: #047857; }
-    .speaker-profe { background: #ede9fe; color: #6d28d9; }
 
-    .narrative-text {
-      color: #334155;
-      font-style: italic;
-      font-size: 9.5pt;
+    p {
+      margin: 0 0 8px 0;
+      text-align: justify;
     }
+
     .terminal-box {
       background: #0b0f19;
       color: #00ff66;
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 8.5pt;
-      padding: 7px 12px;
+      padding: 6px 12px;
       border-radius: 5px;
-      margin: 6px 0 8px 12px;
+      margin: 6px 0 8px 0;
       border: 1px solid #1e293b;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
     }
     .terminal-prompt { color: #38bdf8; font-weight: bold; }
-    .terminal-output { color: #cbd5e1; margin-top: 3px; display: block; }
-    .callout-box {
-      background: #f8fafc;
-      border: 1px dashed #cbd5e1;
-      border-left: 4px solid #f59e0b;
+    .terminal-output { color: #cbd5e1; display: block; margin-top: 2px; }
+
+    /* Tabla Comparativa */
+    .table-container {
+      margin: 10px 0;
+      border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 8px 12px;
-      margin: 8px 0;
-      font-size: 9pt;
-      color: #334155;
+      overflow: hidden;
     }
-    .callout-title {
-      font-weight: 800;
-      color: #b45309;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+    }
+    th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 6px 10px;
+      text-align: left;
+      font-weight: 700;
       font-size: 8pt;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 2px;
+    }
+    td {
+      padding: 6px 10px;
+      border-top: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
     }
 
-    /* Page Break Rules */
+    /* Page Break */
     .page-break {
       page-break-before: always;
     }
 
-    /* Organizer Visual Section */
+    /* Organizador Visual */
     .organizer-card {
       background: #ffffff;
       border: 2px solid #0f172a;
       border-radius: 8px;
-      padding: 14px;
-      margin-top: 14px;
+      padding: 12px;
+      margin-top: 12px;
       page-break-inside: avoid;
     }
     .organizer-title {
       text-align: center;
-      font-size: 12pt;
+      font-size: 11pt;
       font-weight: 800;
       color: #0f172a;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -225,17 +196,17 @@
     .organizer-col {
       border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 10px;
+      padding: 8px 10px;
       background: #f8fafc;
     }
     .organizer-col-header {
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 800;
       text-transform: uppercase;
       color: #ffffff;
-      padding: 4px 8px;
+      padding: 3px 6px;
       border-radius: 4px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-align: center;
     }
     .bg-red { background: #ef4444; }
@@ -245,11 +216,11 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
     .organizer-list li {
-      margin-bottom: 5px;
-      padding-left: 12px;
+      margin-bottom: 4px;
+      padding-left: 10px;
       position: relative;
     }
     .organizer-list li::before {
@@ -257,37 +228,36 @@
       position: absolute;
       left: 0;
       color: #64748b;
-      font-weight: bold;
     }
 
     .questions-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      padding: 12px 16px;
-      margin-top: 14px;
+      padding: 10px 14px;
+      margin-top: 12px;
       page-break-inside: avoid;
     }
     .stamp-box {
       border: 2px dashed #94a3b8;
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 14px;
+      margin-top: 12px;
       background: #ffffff;
       page-break-inside: avoid;
     }
     .stamp-placeholder {
-      width: 130px;
-      height: 55px;
+      width: 120px;
+      height: 48px;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 7.5pt;
+      font-size: 7pt;
       color: #94a3b8;
       font-weight: 700;
       text-transform: uppercase;
@@ -299,297 +269,220 @@
   <!-- BANNER INSTITUCIONAL -->
   <header class="header-banner">
     <div class="inst-title">CONALEP Plantel Pachuca de Soto • Educación Profesional Técnica</div>
-    <h1 class="doc-title">Operación Servidor Fantasma: La Huella Invisible en la Nube</h1>
-    <div class="doc-subtitle">Lectura Táctica Formativa, Estudio de Caso Forense y Organizador Visual</div>
+    <h1 class="doc-title">Estudio de Caso Forense: El Ataque Silencioso a la Nube</h1>
+    <div class="doc-subtitle">Análisis Técnico del Incidente de Cryptojacking a Clústeres de Servidores Empresariales</div>
     <div class="meta-badges">
       <span class="meta-badge">Módulo: MTCS-20</span>
       <span class="meta-badge gold">Segundo Corte (35%)</span>
       <span class="meta-badge green">RA 2.1: Entornos Seguros y Auditoría</span>
       <span class="meta-badge">Semana 06 • Sesión 01</span>
       <span class="meta-badge">Grupo: 501</span>
-      <span class="meta-badge">Caso: Cryptojacking</span>
+      <span class="meta-badge">Caso Real: Tesla / AWS Kubernetes</span>
     </div>
   </header>
 
-  <!-- GUÍA DE ROLES TEATRALES -->
-  <section class="roles-grid">
-    <div class="role-card role-narrador">
-      <strong>🎙️ Narrador(a)</strong>
-      Voz del SOC y contexto forense. Describe el ambiente de tensión y las métricas de monitoreo.
+  <!-- FICHA TÉCNICA DEL INCIDENTE -->
+  <section class="ficha-box">
+    <div class="ficha-item">
+      <strong>Tipo de Amenaza</strong>
+      Cryptojacking (Minería no autorizada de criptomonedas).
     </div>
-    <div class="role-card role-alex">
-      <strong>💻 Alex (Analista Jr.)</strong>
-      Enfoque en hardware e identidad. Descubre el procesador Xeon y los privilegios de usuario.
+    <div class="ficha-item">
+      <strong>Infraestructura Afectada</strong>
+      Clústeres Kubernetes en la nube bajo Debian/Linux.
     </div>
-    <div class="role-card role-valeria">
-      <strong>🛡️ Valeria (Ciberseguridad)</strong>
-      Especialista en sistemas de archivos y red. Inspecciona /etc y triangula geolocalización satelital.
+    <div class="ficha-item">
+      <strong>Caso Documentado</strong>
+      Incidente Tesla Motors / AWS (RedLock, 2018).
     </div>
-    <div class="role-card role-profe">
-      <strong>👨‍🏫 El Profesor</strong>
-      Guía metodológico del Blue Team. Formula las preguntas críticas de auditoría y valida las evidencias.
+    <div class="ficha-item">
+      <strong>Criptomoneda Explotada</strong>
+      Monero (XMR), optimizada para silicio de servidor.
+    </div>
+    <div class="ficha-item">
+      <strong>Vector de Acceso</strong>
+      Consola de nube sin autenticación de contraseña.
+    </div>
+    <div class="ficha-item">
+      <strong>Método de Detección</strong>
+      Auditoría de telemetría y facturación anómala de CPU.
     </div>
   </section>
 
-  <!-- ================= ACTO 1 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 1</span>
-      <span class="act-title">La Alarma Térmica y la Factura Imposible</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Son las 15:10 horas en el laboratorio de cómputo de CONALEP Plantel Pachuca de Soto. En la consola de monitoreo del rack en la nube parpadea una baliza ámbar que en segundos cambia a rojo escarlata. La telemetría marca un consumo energético anormal.</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —Profesor, mire los gráficos del clúster escolar en Google Cloud. Nuestra máquina virtual Debian marca 100% de uso de procesador ininterrumpido desde las 3:00 AM. La alerta del proveedor advierte que el consumo de potencia se triplicó.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —Es ilógico. El taller cerró ayer a las siete de la tarde y nadie tiene tareas de renderizado ni bases de datos activas. Entré al portal del módulo y no hay archivos cifrados, ni notas pidiendo rescate en criptomonedas. Si no destruyeron nada... ¿por qué el servidor está hirviendo?
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-profe">Profesor</span>
-      —Porque no todos los atacantes buscan destruir, Valeria. En el mundo corporativo existe una amenaza mucho más rentable y sigilosa: el <em>Cryptojacking</em>. Los cibercriminales no secuestran tus datos; secuestran la potencia eléctrica y de cálculo de tu procesador para minar criptomonedas a tus expensas.
-    </div>
-  </div>
+  <!-- SECCIÓN 1: CRÓNICA DEL CASO -->
+  <div class="section-title">1. Crónica del Incidente: La Invasión Invisible</div>
+  <p>
+    A principios de 2018, analistas de ciberseguridad descubrieron una anomalía desconcertante en uno de los entornos en la nube más avanzados del mundo: la infraestructura corporativa de Tesla alojada en Amazon Web Services (AWS). Los atacantes no penetraron la red para robar planos de vehículos autónomos, ni para filtrar datos personales de clientes, ni para desplegar un <em>Ransomware</em> que paralizara las plantas de ensamblaje. El ataque fue completamente silencioso e imperceptible a simple vista:
+  </p>
+  <p>
+    1) Los atacantes ubicaron una consola de administración de contenedores (Kubernetes) configurada por omisión sin contraseña hacia internet. 2) Una vez dentro, no alteraron bases de datos ni códigos fuente para no encender alarmas de integridad. 3) Desplegaron scripts dentro de instancias virtuales con sistema operativo <strong>Linux</strong>, programados para forzar los procesadores al 100% de capacidad minando criptomonedas las 24 horas del día. 4) Ocultaron la dirección IP del servidor de cobro detrás de la red de Cloudflare para esquivar las listas negras de cortafuegos.
+  </p>
+  <p>
+    El compromiso no fue detectado por quejas de usuarios ni por caídas de servicio, sino por la <strong>telemetría financiera</strong>: las facturas de consumo energético y cómputo de la nube comenzaron a triplicarse inexplicablemente.
+  </p>
 
-  <!-- ================= ACTO 2 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 2</span>
-      <span class="act-title">El Abismo Headless: El Universo sin Ratón</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Alex abre una sesión de conexión remota hacia la instancia afectada. En el proyector de la clase no aparece un escritorio de Windows con iconos coloridos ni menús desplegables. Solo una pantalla de fondo negro absoluto con un cursor rectangular parpadeante.</span>
-    </div>
-    <div class="terminal-box">
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> <span style="color:#64748b;">_ (Debian GNU/Linux 12 - Google Cloud Shell)</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —Bienvenidos al mundo de los servidores profesionales: modo <em>Headless</em>. En ciberseguridad defensiva no se instalan interfaces gráficas en servidores porque consumirían valiosa memoria RAM y ampliarían la superficie de ataque. Aquí no hay ratón. Todo se investiga mediante la shell de Bash.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —Si el intruso desplegó un contenedor de minería oculto, tuvo que dejar rastros en la tabla de procesos y en las variables del entorno. Es hora de desplegar la batería de reconocimiento pericial.
-    </div>
-  </div>
+  <!-- SECCIÓN 2: POR QUÉ LINUX Y LA NUBE -->
+  <div class="section-title">2. ¿Por qué los atacantes eligen la Nube y Servidores Linux?</div>
+  <p>
+    Para un atacante moderno, una computadora de escritorio doméstica es un objetivo deficiente para la minería: genera escasos centavos al mes tras un desgaste acelerado. En contraste, la infraestructura en la nube ofrece ventajas masivas:
+  </p>
+  <p>
+    <strong>Procesadores Industriales (Intel Xeon y AMD EPYC):</strong> Los centros de datos de proveedores como Google Cloud y AWS cuentan con procesadores de servidor de alta densidad, con decenas de núcleos y gigabytes de memoria RAM de alta velocidad. Secuestrar diez servidores en la nube equivale al poder de cómputo de cientos de oficinas convencionales, financiado al 100% por la empresa víctima.
+  </p>
+  <p>
+    <strong>Servidores en Modo Headless:</strong> Más del 90% de los servidores en la nube operan bajo distribuciones Linux (Debian, Ubuntu Server) en modo <em>Headless</em> (sin interfaz gráfica, sin ventanas ni ratón). Toda la operación se realiza mediante consola Bash. Por ende, ningún usuario ve una pantalla trabada; la invasión solo se detecta interrogando el sistema mediante comandos forenses.
+  </p>
 
-  <!-- ================= ACTO 3 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 3</span>
-      <span class="act-title">Fase 1 — Identidad, Permisos y Carga del Sistema</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Valeria coloca los dedos sobre el teclado mecánico y ejecuta la primera fase del protocolo forense: verificar con qué nivel de privilegios están operando y cuánto tiempo lleva asfixiada la máquina.</span>
-    </div>
-    <div class="terminal-box">
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> whoami && id<br>
-      <span class="terminal-output">usuario</span>
-      <span class="terminal-output">uid=1000(usuario) gid=1000(usuario) groups=1000(usuario),4(adm),27(sudo)</span>
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> uptime<br>
-      <span class="terminal-output"> 15:12:44 up 14:18,  1 user,  load average: 4.88, 4.75, 4.60</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —Primer hallazgo: nuestro identificador es UID 1000. No somos el superusuario <code>root</code> (UID 0). Eso significa que el atacante no modificó los binarios del núcleo del kernel, pero sí logró ejecutar scripts en segundo plano.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —Miren el resultado de <code>uptime</code>. El <em>load average</em> está en 4.88. En un servidor con 4 núcleos lógicos, cualquier valor superior a 4.00 significa saturación total: hay procesos encolados esperando procesador. ¡El minero está devorando ciclos de cómputo en este milisegundo!
-    </div>
-  </div>
-
-  <!-- SALTO DE PÁGINA PARA ORDEN EDITORIAL -->
+  <!-- SALTO DE PÁGINA PARA FASES FORENSES Y TABLAS -->
   <div class="page-break"></div>
 
-  <!-- ================= ACTO 4 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 4</span>
-      <span class="act-title">Fase 2 — La Revelación del Hardware de Servidor</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Alex toma el control del teclado. Quiere entender por qué un ciberdelincuente se molestaría en atacar una máquina escolar en vez de infectar computadoras domésticas. Lanza la orden de auditoría de arquitectura de hardware.</span>
-    </div>
-    <div class="terminal-box">
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> lscpu | grep -E "Model name|CPU\(s\):"<br>
-      <span class="terminal-output">CPU(s):              4</span>
-      <span class="terminal-output">Model name:          Intel(R) Xeon(R) CPU @ 2.80GHz</span>
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> free -h<br>
-      <span class="terminal-output">               total        used        free      shared  buff/cache   available</span>
-      <span class="terminal-output">Mem:           15Gi        14Gi       420Mi        12Mi       780Mi       850Mi</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —¡Aquí está la respuesta! Procesadores empresariales <strong>Intel Xeon</strong> en la infraestructura de Google Cloud con 16 Gigabytes de memoria RAM. A los atacantes no les sirven las laptops lentas; buscan la nube porque un solo servidor Xeon genera más bloques de criptomonedas en un día que una oficina entera en un mes.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-profe">Profesor</span>
-      —Exacto. Las organizaciones pagan miles de dólares por poder de procesamiento en la nube. Cuando un atacante comete cryptojacking, la víctima no solo sufre lentitud: la factura del proveedor de nube puede arruinar el presupuesto operativo de una empresa.
-    </div>
+  <!-- SECCIÓN 3: INVESTIGACIÓN FORENSE EN CONSOLA -->
+  <div class="section-title">3. Batería de Auditoría Pericial en Terminal Linux</div>
+  <p>
+    Cuando un equipo de respuesta a incidentes (Blue Team) audita una máquina virtual sospechosa en la nube, ejecuta una secuencia estricta de verificación en consola:
+  </p>
+
+  <p><strong>Fase 1: Identidad y Carga del Sistema (<code>whoami</code>, <code>id</code>, <code>uptime</code>):</strong></p>
+  <div class="terminal-box">
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> whoami && id<br>
+    <span class="terminal-output">uid=1000(usuario) gid=1000(usuario) groups=1000(usuario),27(sudo)</span>
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> uptime<br>
+    <span class="terminal-output"> 15:12:44 up 14:18,  1 user,  load average: 4.88, 4.75, 4.60</span>
+  </div>
+  <p style="font-size:8.5pt; color:#475569;">
+    <em>Interpretación:</em> El usuario UID 1000 confirma que el atacante operó en espacio de usuario sin corromper el núcleo <code>root</code> (UID 0). El <em>load average</em> en 4.88 para 4 núcleos evidencia que la máquina está saturada al 100% ejecutando tareas continuas en segundo plano.
+  </p>
+
+  <p><strong>Fase 2: Silicio y Memoria RAM (<code>lscpu</code>, <code>free -h</code>):</strong></p>
+  <div class="terminal-box">
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> lscpu | grep -E "Model name|CPU\(s\):"<br>
+    <span class="terminal-output">CPU(s):              4 | Model name: Intel(R) Xeon(R) CPU @ 2.80GHz</span>
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> free -h<br>
+    <span class="terminal-output">Mem: 15Gi total, 14Gi used, 420Mi free, 850Mi available</span>
+  </div>
+  <p style="font-size:8.5pt; color:#475569;">
+    <em>Interpretación:</em> Revela la presencia de procesadores Intel Xeon empresariales con 15 GB de RAM consumidos casi en su totalidad por procesos huérfanos.
+  </p>
+
+  <p><strong>Fase 3: Inspección del Directorio <code>/etc</code> (<code>/etc/os-release</code>, <code>/etc/passwd</code>):</strong></p>
+  <div class="terminal-box">
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> cat /etc/passwd | tail -n 3<br>
+    <span class="terminal-output">tcpdump:x:107:112::/nonexistent:/usr/sbin/nologin</span>
+    <span class="terminal-output">usuario:x:1000:1000:Google Cloud Shell User:/home/usuario:/bin/bash</span>
+  </div>
+  <p style="font-size:8.5pt; color:#475569;">
+    <em>Interpretación:</em> Las cuentas de servicio terminan en <code>/usr/sbin/nologin</code>, garantizando que el intruso no creó usuarios persistentes con shell interactiva; el malware opera en memoria temporal.
+  </p>
+
+  <p><strong>Fase 4: Red y Paradoja de Doble IP (<code>hostname -I</code> vs <code>curl ifconfig.me</code>):</strong></p>
+  <div class="terminal-box">
+    <span class="terminal-prompt">usuario@cloudshell:~$</span> hostname -I && curl -s ifconfig.me<br>
+    <span class="terminal-output">10.88.0.4 (IP privada en contenedor) | 34.125.74.198 (IP pública en internet)</span>
+  </div>
+  <p style="font-size:8.5pt; color:#475569;">
+    <em>Interpretación:</em> La máquina vive en una subred privada clase A (10.88.0.4), pero a través de la pasarela NAT sale a internet con la IP pública 34.125.74.198. Al rastrearla en <code>iplocation.io</code>, se ubica el centro de datos en Iowa, Estados Unidos, identificando la ruta de fuga hacia los servidores de minería.
+  </p>
+
+  <!-- SECCIÓN 4: TABLA COMPARATIVA -->
+  <div class="section-title">4. Comparativa Táctica: Ransomware vs. Cryptojacking</div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Criterio Técnico</th>
+          <th>Ransomware (Secuestro de Datos)</th>
+          <th>Cryptojacking (Secuestro de Silicio)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Modo de Operación</strong></td>
+          <td>Altamente ruidoso: pantallas de bloqueo y notas de extorsión.</td>
+          <td>Completamente silencioso e invisible a simple vista.</td>
+        </tr>
+        <tr>
+          <td><strong>Impacto en Archivos</strong></td>
+          <td>Cifra o borra bases de datos y carpetas institucionales.</td>
+          <td>No toca ni altera los archivos; solo parasita recursos.</td>
+        </tr>
+        <tr>
+          <td><strong>Objetivo Financiero</strong></td>
+          <td>Exigir un pago único a cambio de la clave de rescate.</td>
+          <td>Generar flujo constante de criptomonedas (Monero).</td>
+        </tr>
+        <tr>
+          <td><strong>Síntoma Principal</strong></td>
+          <td>Archivos inaccesibles con extensiones extrañas.</td>
+          <td>CPU al 100%, saturación térmica y facturación disparada.</td>
+        </tr>
+        <tr>
+          <td><strong>Herramienta de Detección</strong></td>
+          <td>Alertas visuales de antivirus y reporte de usuarios.</td>
+          <td>Auditoría de consola en Linux (<code>uptime</code>, <code>lscpu</code>, <code>nano</code>).</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- ================= ACTO 5 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 5</span>
-      <span class="act-title">Fase 3 — Infiltración en el Directorio Raíz (/etc)</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Valeria navega hacia el cerebro administrativo de Linux: el directorio <code>/etc</code>, donde residen los archivos que definen qué usuarios existen y qué permisos tienen para entrar al sistema.</span>
-    </div>
-    <div class="terminal-box">
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> cat /etc/os-release | grep "PRETTY_NAME"<br>
-      <span class="terminal-output">PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"</span>
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> cat /etc/passwd | tail -n 6<br>
-      <span class="terminal-output">sshd:x:106:65534::/run/sshd:/usr/sbin/nologin</span>
-      <span class="terminal-output">tcpdump:x:107:112::/nonexistent:/usr/sbin/nologin</span>
-      <span class="terminal-output">usuario:x:1000:1000:Google Cloud Shell User:/home/usuario:/bin/bash</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —Confirmamos que corremos sobre <strong>Debian GNU/Linux 12 (Bookworm)</strong>. Al revisar <code>/etc/passwd</code>, notamos que casi todas las cuentas de servicio terminan en <code>/usr/sbin/nologin</code>. Esto significa que nadie puede iniciar sesión interactiva con ellas. La única shell real con <code>/bin/bash</code> es la nuestra.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —Eso demuestra que el intruso no logró crear una cuenta oculta permanente con contraseña. Su ataque está corriendo como un proceso huérfano dentro de la carpeta <code>/home/usuario</code> o en un contenedor efímero.
-    </div>
-  </div>
-
-  <!-- ================= ACTO 6 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 6</span>
-      <span class="act-title">Fase 4 — La Paradoja de la Doble IP (Privada vs Pública)</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Para detener la fuga de información, el equipo necesita saber hacia dónde se envían los datos. Alex ejecuta el comando de consulta de interfaces de red internas.</span>
-    </div>
-    <div class="terminal-box">
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> hostname -I<br>
-      <span class="terminal-output">10.88.0.4</span>
-      <span class="terminal-prompt">usuario@cloudshell:~$</span> curl -s ifconfig.me<br>
-      <span class="terminal-output">34.125.74.198</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —Miren esto: <code>hostname -I</code> nos entrega <code>10.88.0.4</code>. Esa es una dirección privada Clase A. Está encapsulada dentro de la red virtual de Google; no existe en el internet público. ¿Cómo se comunica el minero con el servidor atacante en el exterior?
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —A través de la pasarela de traducción NAT. Por eso usamos <code>curl -s ifconfig.me</code>. Al interrogar a un servidor externo en internet, descubrimos la IP pública real que Google le asignó a nuestra conexión de salida: <strong>34.125.74.198</strong>.
-    </div>
-  </div>
-
-  <!-- ================= ACTO 7 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 7</span>
-      <span class="act-title">Fase 5 — Triangulación Satelital del Centro de Datos</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-narrador">Narrador</span>
-      <span class="narrative-text">Valeria abre el navegador del taller e ingresa la IP pública en el portal de geolocalización de telecomunicaciones <code>iplocation.io</code>. En segundos, una retícula satelital se posiciona sobre un punto geográfico en el mapa mundial.</span>
-    </div>
-    <div class="callout-box">
-      <div class="callout-title">📡 REPORTE DE TELEMETRÍA GEOESPACIAL (iplocation.io)</div>
-      <strong>Dirección IPv4 Pública:</strong> 34.125.74.198 | <strong>Proveedor (ISP):</strong> Google Cloud Platform<br>
-      <strong>Ubicación Física del Data Center:</strong> Council Bluffs, Iowa, Estados Unidos de América.<br>
-      <strong>Latencia a Google DNS (8.8.8.8):</strong> 0.742 ms (enlace de fibra óptica troncal interoceánica).
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-valeria">Valeria</span>
-      —¡Localizado con precisión! Nuestra terminal de Cloud Shell no está en México; se ejecuta en una granja de servidores de Google en Iowa, Estados Unidos. El malware estaba enviando hashes criptográficos hacia un pool minero en el extranjero.
-    </div>
-  </div>
-
-  <!-- ================= ACTO 8 ================= -->
-  <div class="act-container">
-    <div class="act-header">
-      <span class="act-num">Acto 8</span>
-      <span class="act-title">El Dictamen Pericial en nano y la Misión de Laboratorio</span>
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-alex">Alex</span>
-      —No podemos apagar el equipo sin dejar registro formal. En la terminal abro el editor de texto plano: <code>nano bitacora_forense.txt</code>. Documentamos cada comando, la IP detectada y el procesador Xeon identificado. Con <code>Ctrl + O</code> guardamos y con <code>Ctrl + X</code> cerramos el archivo.
-    </div>
-    <div class="dialogue">
-      <span class="speaker-tag speaker-profe">Profesor</span>
-      —Excelente trabajo de respuesta a incidentes, equipo. Han actuado como un verdadero Blue Team: identificaron la anomalía, auditaron el hardware, revisaron los usuarios y rastrearon la red sin depender de un ratón. Ahora, plasmen el organizador visual en su libreta para que quede sellado el peritaje técnico. En la próxima sesión, cada uno de ustedes entrará a su propia terminal a reproducir esta investigación.
-    </div>
-  </div>
-
-  <!-- SALTO DE PÁGINA PARA ENTREGABLES FORMATIVOS -->
-  <div class="page-break"></div>
-
-  <!-- ================= SECCIÓN FORMATIVA: ORGANIZADOR VISUAL ================= -->
+  <!-- SECCIÓN 5: ORGANIZADOR VISUAL FORMATIVO -->
   <section class="organizer-card">
-    <div class="organizer-title">📊 Organizador Visual Forense: Anatomía del Incidente en la Nube</div>
-    <div style="font-size: 8.5pt; color: #64748b; text-align: center; margin-bottom: 10px;">
-      Instrucción para el alumno: Reproduce en tu libreta el siguiente esquema de 3 columnas como evidencia de la Sesión 01.
+    <div class="organizer-title">📊 Organizador Visual: Anatomía del Incidente en la Nube</div>
+    <div style="font-size: 8pt; color: #64748b; text-align: center; margin-bottom: 6px;">
+      Instrucción: Reproduce en tu libreta el siguiente esquema de 3 columnas como evidencia formativa de la Sesión 01.
     </div>
     <div class="organizer-grid">
       <div class="organizer-col">
         <div class="organizer-col-header bg-red">1. Vector de Ataque</div>
         <ul class="organizer-list">
-          <li><strong>Tipo de amenaza:</strong> Cryptojacking silencioso.</li>
-          <li><strong>Modo de operación:</strong> Intrusión en contenedor de nube.</li>
-          <li><strong>Objetivo del atacante:</strong> Robo de ciclos de procesador para minería.</li>
-          <li><strong>Diferencia con Ransomware:</strong> No destruye ni cifra; parasita los recursos.</li>
+          <li><strong>Amenaza:</strong> Cryptojacking en la nube.</li>
+          <li><strong>Brecha:</strong> Consola expuesta sin contraseña.</li>
+          <li><strong>Objetivo:</strong> Robo de ciclos de cómputo.</li>
+          <li><strong>Evasión:</strong> Sin cifrar datos ni dejar notas.</li>
         </ul>
       </div>
 
       <div class="organizer-col">
         <div class="organizer-col-header bg-amber">2. Síntomas Técnicos</div>
         <ul class="organizer-list">
-          <li><strong>CPU y RAM:</strong> Consumo del 100% sostenido.</li>
-          <li><strong>Uptime crítico:</strong> Load average superior a 4.00.</li>
-          <li><strong>Alarma financiera:</strong> Incremento en la factura de la nube.</li>
-          <li><strong>Entorno Headless:</strong> Servidor remoto Debian operado exclusivamente por consola.</li>
+          <li><strong>CPU:</strong> 100% de uso sostenido.</li>
+          <li><strong>Carga:</strong> Load average crítico (> 4.0).</li>
+          <li><strong>Factura:</strong> Cobro cloud triplicado.</li>
+          <li><strong>Entorno:</strong> Servidor remoto Headless (Linux).</li>
         </ul>
       </div>
 
       <div class="organizer-col">
         <div class="organizer-col-header bg-blue">3. Respuesta Forense (Linux)</div>
         <ul class="organizer-list">
-          <li><strong>Identidad:</strong> <code>whoami</code> e <code>id</code> (permisos UID 1000).</li>
+          <li><strong>Identidad:</strong> <code>whoami</code> e <code>id</code> (UID 1000).</li>
           <li><strong>Hardware:</strong> <code>lscpu</code> (Intel Xeon) y <code>free -h</code>.</li>
-          <li><strong>Sistema:</strong> <code>cat /etc/os-release</code> y <code>/etc/passwd</code>.</li>
-          <li><strong>Red:</strong> <code>hostname -I</code> (privada) vs <code>curl ifconfig.me</code> (pública).</li>
-          <li><strong>Dictamen:</strong> Registro en <code>nano bitacora.txt</code> y <code>grep</code>.</li>
+          <li><strong>Directorio:</strong> <code>cat /etc/passwd</code> (nologin).</li>
+          <li><strong>Red:</strong> <code>hostname -I</code> vs <code>curl ifconfig.me</code>.</li>
+          <li><strong>Dictamen:</strong> Registro en <code>nano bitacora.txt</code>.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ================= PREGUNTAS DE COMPRENSIÓN LECTORA ================= -->
+  <!-- SECCIÓN 6: CUESTIONARIO DE CONTROL -->
   <section class="questions-box">
-    <div style="font-size: 9.5pt; font-weight: 800; color: #0f172a; margin-bottom: 8px; text-transform: uppercase;">
-      📝 Cuestionario de Control de Lectura (Responder en Libreta)
+    <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a; margin-bottom: 6px; text-transform: uppercase;">
+      📝 Cuestionario de Análisis Forense (Responder a Mano en Libreta)
     </div>
-    <ol style="margin: 0; padding-left: 18px; font-size: 8.5pt; line-height: 1.6; color: #334155;">
-      <li>¿Cuál es la diferencia fundamental entre un ataque de <strong>Ransomware</strong> y uno de <strong>Cryptojacking</strong>?</li>
-      <li>¿Qué significa que un servidor en la nube opere en <strong>modo «Headless»</strong> y por qué se prefiere en ciberseguridad?</li>
-      <li>¿Por qué a los atacantes les interesa comprometer servidores con procesadores <strong>Intel Xeon</strong> en vez de computadoras personales?</li>
-      <li>¿Por qué el comando <code>hostname -I</code> muestra una dirección como <code>10.88.0.4</code> y se requiere <code>curl ifconfig.me</code> para ver la IP pública?</li>
-      <li>¿Cuáles son los atajos de teclado esenciales en el editor <code>nano</code> para guardar los cambios y salir a la shell?</li>
+    <ol style="margin: 0; padding-left: 16px; font-size: 8pt; line-height: 1.55; color: #334155;">
+      <li>¿Por qué el ataque a Tesla en 2018 no fue detectado por los usuarios del sistema ni alteró las bases de datos?</li>
+      <li>¿Qué ventaja económica encuentra un atacante al minar en procesadores <strong>Intel Xeon</strong> en la nube en lugar de PCs domésticas?</li>
+      <li>¿Por qué en ciberseguridad defensiva los servidores de producción operan en <strong>modo Headless</strong> (sin interfaz gráfica)?</li>
+      <li>¿Cuál es la diferencia entre la dirección IP privada entregada por <code>hostname -I</code> y la obtenida mediante <code>curl ifconfig.me</code>?</li>
+      <li>¿Cuáles son los atajos de teclado indispensables en el editor <code>nano</code> para guardar los cambios y salir a la terminal?</li>
     </ol>
   </section>
 
-  <!-- CAJA DE FIRMA Y SELLO DOCENTE -->
+  <!-- SELLO DOCENTE -->
   <div class="stamp-box">
-    <div style="font-size: 8.5pt; color: #475569;">
-      <strong>Evidencia formativa Sesión 01:</strong> Lectura comprensiva, organizador visual dibujado en libreta y respuestas al cuestionario.<br>
-      <span style="font-size: 7.5pt; color: #64748b;">CONALEP Plantel Pachuca de Soto • Módulo MTCS-20 • Segundo Corte • RA 2.1</span>
+    <div style="font-size: 8pt; color: #475569;">
+      <strong>Evidencia formativa Sesión 01:</strong> Estudio de caso analizado, organizador visual en libreta y cuestionario respondido.<br>
+      <span style="font-size: 7pt; color: #64748b;">CONALEP Plantel Pachuca de Soto • MTCS-20 • Segundo Corte • RA 2.1</span>
     </div>
     <div class="stamp-placeholder">
       Sello del Docente
