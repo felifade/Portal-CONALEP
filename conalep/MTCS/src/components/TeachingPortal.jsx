@@ -533,7 +533,28 @@ function RightSummary({ week, corte, ra, activeSession }) {
 }
 
 function TeachingPortal() {
-  const defaultWeek = teachingPlan.weeks.find((w) => w.defaultWeek) || teachingPlan.weeks.find((w) => w.status === 'En curso') || teachingPlan.weeks[0];
+  const defaultWeek = useMemo(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const paramWeek = params.get('semana') || params.get('week');
+      if (paramWeek) {
+        const match = teachingPlan.weeks.find((w) => w.id.toLowerCase() === paramWeek.toLowerCase());
+        if (match) return match;
+      }
+      const hash = window.location.hash.replace(/^#/, '');
+      if (hash) {
+        const match = teachingPlan.weeks.find((w) => w.id.toLowerCase() === hash.toLowerCase());
+        if (match) return match;
+      }
+    } catch {}
+
+    return (
+      teachingPlan.weeks.find((w) => w.defaultWeek) ||
+      teachingPlan.weeks.find((w) => w.status === 'En curso') ||
+      teachingPlan.weeks[teachingPlan.weeks.length - 1]
+    );
+  }, []);
+
   const [activeWeekId, setActiveWeekId] = useState(defaultWeek.id);
 
   const activeWeek = useMemo(
@@ -542,7 +563,13 @@ function TeachingPortal() {
   );
 
   const sessions = getWeekSessions(activeWeek);
-  const [activeSessionId, setActiveSessionId] = useState(sessions[0]?.id || 'S01');
+  const [activeSessionId, setActiveSessionId] = useState(() => sessions[0]?.id || 'S01');
+
+  useEffect(() => {
+    if (sessions.length > 0 && !sessions.some((s) => s.id === activeSessionId)) {
+      setActiveSessionId(sessions[0].id);
+    }
+  }, [activeWeekId, sessions, activeSessionId]);
 
   const activeCorte = teachingPlan.cortes.find((corte) => corte.id === activeWeek.corteId) || teachingPlan.cortes[0];
   const activeRa = getActiveRa(activeCorte, activeWeek.raId);
