@@ -5,7 +5,10 @@ import {
   CheckCircle2,
   ClipboardList,
   Clock,
+  Download,
   ExternalLink,
+  Eye,
+  EyeOff,
   FileText,
   KeyRound,
   Layers3,
@@ -355,6 +358,131 @@ function InfographicPlan({ hour, onZoomImage }) {
   );
 }
 
+function ReadingCaseCard({ readingCase }) {
+  const [showViewer, setShowViewer] = useState(false);
+
+  if (!readingCase) return null;
+
+  return (
+    <section className="reading-case-card wide-card" aria-label="Estudio de Caso y Lectura Oficial">
+      <div className="reading-case-header">
+        <div className="reading-case-badges">
+          <span className="reading-badge gold">📖 {readingCase.badge}</span>
+          <span className="reading-badge cyan">⏱️ {readingCase.timeEstimate}</span>
+          <span className="reading-badge slate">📑 {readingCase.actsCount} Actos Dramáticos</span>
+        </div>
+        <p className="reading-case-kicker">{readingCase.kicker}</p>
+        <h2 className="reading-case-title">{readingCase.title}</h2>
+        <p className="reading-case-synopsis">{readingCase.synopsis}</p>
+      </div>
+
+      <div className="reading-case-grid">
+        {/* Roles */}
+        <div className="reading-block roles-block">
+          <div className="block-header">
+            <span className="block-icon">🎭</span>
+            <strong>Guía de Roles Teatrales para Lectura en el Aula</strong>
+          </div>
+          <div className="roles-pill-grid">
+            {readingCase.roles?.map((r, i) => (
+              <div key={i} className="role-pill-item">
+                <span className="role-name">{r.role}</span>
+                <span className="role-desc">{r.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Entregables */}
+        <div className="reading-block deliverables-block">
+          <div className="block-header">
+            <span className="block-icon">📋</span>
+            <strong>Entregables y Evidencias Formativas</strong>
+          </div>
+          <div className="deliverables-pill-grid">
+            {readingCase.deliverables?.map((d, i) => (
+              <div key={i} className="deliverable-item">
+                <span className="d-emoji">{d.emoji}</span>
+                <div className="d-content">
+                  <strong>{d.label}</strong>
+                  <p>{d.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 8 Etapas del Incidente */}
+      {readingCase.stages?.length > 0 && (
+        <div className="reading-stages-container">
+          <div className="block-header">
+            <span className="block-icon">⚡</span>
+            <strong>Secuencia de los 8 Actos de Investigación Pericial</strong>
+          </div>
+          <div className="stages-flow-grid">
+            {readingCase.stages.map((st) => (
+              <div key={st.step} className="stage-card">
+                <div className="stage-card-top">
+                  <span className="stage-badge">Acto {st.step}</span>
+                  <strong>{st.title}</strong>
+                </div>
+                <p>{st.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Botones de Acción */}
+      <div className="reading-case-actions">
+        <a
+          href={readingCase.pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="reading-action-btn primary"
+          title="Abrir o descargar el documento PDF en pestaña nueva"
+        >
+          <FileText size={18} />
+          <span>📕 Leer Documento Oficial en PDF</span>
+          <ExternalLink size={14} />
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setShowViewer(!showViewer)}
+          className="reading-action-btn secondary"
+          title="Alternar visor integrado de lectura"
+        >
+          {showViewer ? <EyeOff size={18} /> : <Eye size={18} />}
+          <span>{showViewer ? '🙈 Ocultar Visor en Pantalla' : '👁️ Visualizar PDF en Pantalla Completa'}</span>
+        </button>
+      </div>
+
+      {/* Visor Iframe Amplio Integrado */}
+      {showViewer && (
+        <div className="reading-embedded-viewer">
+          <div className="viewer-bar">
+            <div className="viewer-title">
+              <FileText size={16} />
+              <span>Visor Oficial: {readingCase.title}</span>
+            </div>
+            <a href={readingCase.pdfUrl} download className="viewer-download-link">
+              <Download size={14} />
+              <span>Descargar PDF</span>
+            </a>
+          </div>
+          <iframe
+            src={readingCase.pdfUrl}
+            title="Documento de Lectura Oficial en PDF"
+            className="reading-pdf-iframe"
+          />
+        </div>
+      )}
+    </section>
+  );
+}
+
 function RightSummary({ week, corte, ra, activeSession }) {
   return (
     <aside className="lesson-context">
@@ -534,6 +662,18 @@ function TeachingPortal() {
                   <span>Ver Diapositivas</span>
                 </a>
               )}
+              {activeWeek.pdfUrl && (
+                <a
+                  href={activeWeek.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-pdf-link"
+                  title="Abrir lectura táctica en PDF"
+                >
+                  <FileText size={13} />
+                  <span>📕 Leer PDF Oficial</span>
+                </a>
+              )}
             </div>
             <h1>{activeWeek.title}</h1>
             <p>{teachingPlan.module.subject} · {teachingPlan.module.group}</p>
@@ -562,6 +702,10 @@ function TeachingPortal() {
             {activeSessionLocked ? `🔒 Disponible el ${activeSession.unlockLabel || activeSession.unlockDate}` : activeSession.product}
           </p>
         </section>
+
+        {activeWeek.readingCase && (
+          <ReadingCaseCard readingCase={activeWeek.readingCase} />
+        )}
 
         {activeSessionLocked ? (
           <SessionLockedCard

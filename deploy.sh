@@ -34,7 +34,7 @@ echo "Build MTCS..."
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
 git add -A
-git commit -m "feat(MTCS): SW v${NEXT} — lectura táctica PDF Operación Servidor Fantasma y organizador visual"
+git commit -m "feat(MTCS): SW v${NEXT} — integrar tarjeta amplia de lectura PDF y visor interactivo en página principal"
 git push
 
 echo "✓ Deploy completo — SW v${NEXT}"
