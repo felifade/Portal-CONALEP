@@ -34,7 +34,7 @@ echo "Build MTCS..."
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
 git add -A
-git commit -m "feat(MTCS): SW v${NEXT} — activar Semana 06 por defecto automáticamente al abrir el portal"
+git commit -m "feat(MTCS): SW v${NEXT} — caso forense informativo de Cryptojacking en la nube y visor PDF oficial"
 git push
 
 echo "✓ Deploy completo — SW v${NEXT}"
