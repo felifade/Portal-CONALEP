@@ -362,6 +362,25 @@ button {
   transform: translateY(-1px);
 }
 
+.hero-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.hero-pdf-link:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
 .lesson-hero h1 {
   margin: 0;
   color: var(--lesson-ink);
@@ -1320,4 +1339,337 @@ button {
   object-fit: contain;
   border-radius: 6px;
 }
+
+/* ================================================================
+   AMPLIA & PROFESIONAL: READING CASE CARD (CASO FORENSE EN PDF)
+   ================================================================ */
+.reading-case-card {
+  background: linear-gradient(135deg, #090d16 0%, #111a28 100%);
+  border: 1px solid #1e293b;
+  border-top: 4px solid #10b981;
+  border-radius: 12px;
+  padding: 24px 26px;
+  margin-bottom: 22px;
+  color: #f8fafc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+
+.reading-case-header {
+  margin-bottom: 20px;
+}
+
+.reading-case-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.reading-badge {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.reading-badge.gold {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.reading-badge.cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.reading-badge.slate {
+  background: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+
+.reading-case-kicker {
+  color: #10b981;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+.reading-case-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.reading-case-synopsis {
+  color: #cbd5e1;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 100%;
+}
+
+.reading-case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.reading-block {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #f1f5f9;
+}
+
+.block-icon {
+  font-size: 16px;
+}
+
+.roles-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.role-pill-item {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.role-name {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.role-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.deliverables-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.deliverable-item {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.d-emoji {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.d-content strong {
+  display: block;
+  font-size: 12.5px;
+  color: #f8fafc;
+  margin-bottom: 2px;
+}
+
+.d-content p {
+  margin: 0;
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.reading-stages-container {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.stages-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.stage-card {
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(51, 65, 85, 0.45);
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stage-card-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.stage-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.stage-card-top strong {
+  font-size: 11.5px;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stage-card p {
+  margin: 0;
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.reading-case-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reading-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.reading-action-btn.primary {
+  background: #10b981;
+  color: #062817;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+}
+
+.reading-action-btn.primary:hover {
+  background: #059669;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+}
+
+.reading-action-btn.secondary {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+.reading-action-btn.secondary:hover {
+  background: #334155;
+  border-color: #475569;
+  transform: translateY(-1px);
+}
+
+.reading-embedded-viewer {
+  margin-top: 18px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #020617;
+}
+
+.viewer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  font-size: 12.5px;
+  color: #e2e8f0;
+}
+
+.viewer-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.viewer-download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #334155;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.viewer-download-link:hover {
+  background: #475569;
+}
+
+.reading-pdf-iframe {
+  width: 100%;
+  height: 680px;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .reading-case-grid {
+    grid-template-columns: 1fr;
+  }
+  .stages-flow-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 
