@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía de Actividad: Cómic Pericial en 6 Viñetas - Caso Tesla y Cloud Shell (MTCS-20)</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    *, *:before, *:after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.32;
+      font-size: 8.2pt;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sheet {
+      page-break-after: always;
+      height: 262mm;
+      max-height: 262mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .sheet:last-child {
+      page-break-after: avoid;
+    }
+
+    /* ENCABEZADOS INSTITUCIONALES */
+    .inst-header {
+      background: linear-gradient(135deg, #025940 0%, #064e3b 100%);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border-left: 5px solid #10b981;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .inst-titles { flex: 1; }
+    .inst-subkicker {
+      font-size: 6.5pt;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #6ee7b7;
+      margin-bottom: 1px;
+    }
+    .inst-maintitle {
+      font-size: 11pt;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      margin: 0 0 1px 0;
+      color: #ffffff;
+    }
+    .inst-meta {
+      font-size: 7.2pt;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .inst-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: flex-end;
+    }
+    .badge-tag {
+      font-size: 6.5pt;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+    .badge-gold { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+    .badge-green { background: #dcfce7; color: #166534; border: 1px solid #22c55e; }
+    .badge-dark { background: #1e293b; color: #f8fafc; border: 1px solid #475569; }
+
+    /* SUBHEADER PÁGINA 2 */
+    .page-subhead {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #025940;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    /* FICHA DEL ALUMNO */
+    .student-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 5px 8px;
+      margin-bottom: 6px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 6px;
+      font-size: 7.2pt;
+    }
+    .field-box { display: flex; flex-direction: column; }
+    .field-label {
+      font-size: 5.8pt;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1px;
+    }
+    .field-line {
+      border-bottom: 1px dotted #64748b;
+      min-height: 12px;
+      color: #0f172a;
+      font-weight: 600;
+      padding-top: 1px;
+    }
+
+    /* AVISO PEDAGÓGICO */
+    .activity-intro {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-left: 4px solid #16a34a;
+      padding: 5px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 7pt;
+      color: #14532d;
+    }
+
+    /* REJILLA DE VIÑETAS */
+    .panels-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 7px;
+    }
+
+    .panel-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 6px 9px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .panel-card.v1 { border-left: 4px solid #ef4444; }
+    .panel-card.v2 { border-left: 4px solid #f59e0b; }
+    .panel-card.v3 { border-left: 4px solid #eab308; }
+    .panel-card.v4 { border-left: 4px solid #3b82f6; }
+    .panel-card.v5 { border-left: 4px solid #8b5cf6; }
+    .panel-card.v6 { border-left: 4px solid #10b981; }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+    .panel-title {
+      font-size: 8.5pt;
+      font-weight: 850;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .panel-badge {
+      font-size: 6.2pt;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+    .badge-v1 { background: #fee2e2; color: #991b1b; }
+    .badge-v2 { background: #fef3c7; color: #92400e; }
+    .badge-v3 { background: #fef9c3; color: #854d0e; }
+    .badge-v4 { background: #dbeafe; color: #1e40af; }
+    .badge-v5 { background: #ede9fe; color: #5b21b6; }
+    .badge-v6 { background: #dcfce7; color: #166534; }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    /* ESQUEMA VISUAL DE DIBUJO */
+    .sketch-box {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 5px;
+      padding: 5px 7px;
+      font-size: 6.8pt;
+      color: #334155;
+    }
+    .sketch-label {
+      font-size: 6pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ELEMENTOS DEL CÓMIC: CARTELA Y BOCADILLO */
+    .comic-elements {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+    }
+    .narration-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 4px;
+      padding: 3px 6px;
+      font-size: 6.7pt;
+      font-style: italic;
+      color: #78350f;
+    }
+    .narration-box strong { font-style: normal; color: #92400e; }
+
+    .speech-bubble {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 6.9pt;
+      color: #14532d;
+      position: relative;
+    }
+    .speech-bubble strong {
+      color: #047857;
+      text-decoration: underline;
+    }
+    .speech-speaker {
+      font-size: 5.8pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #166534;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .concepts-tag {
+      font-size: 6pt;
+      color: #475569;
+      margin-top: 1px;
+    }
+    .concepts-tag code {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 6pt;
+    }
+
+    /* FOOTER */
+    .sheet-footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.2pt;
+      color: #64748b;
+      margin-top: auto;
+    }
+    .sheet-footer strong { color: #025940; }
+
+    /* SECCIÓN RÚBRICA Y SELLO */
+    .bottom-section {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+      align-items: stretch;
+    }
+    .rubric-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 6px 8px;
+    }
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 6.5pt;
+      margin-top: 3px;
+    }
+    .rubric-table th {
+      background: #e2e8f0;
+      padding: 2px 4px;
+      text-align: left;
+      font-weight: 800;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+    .rubric-table td {
+      padding: 2.5px 4px;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+    }
+
+    .stamp-card {
+      border: 2px dashed #025940;
+      border-radius: 6px;
+      background: #f0fdf4;
+      padding: 6px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .stamp-title {
+      font-size: 6.8pt;
+      font-weight: 900;
+      color: #166534;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- HOJA 1: CONTEXTO Y VIÑETAS 1 A 3           -->
+  <!-- ========================================== -->
+  <section class="sheet">
+    <div>
+      <!-- HEADER INSTITUCIONAL -->
+      <header class="inst-header">
+        <div class="inst-titles">
+          <div class="inst-subkicker">Colegio de Educación Profesional Técnica del Estado de Hidalgo · CCT: 13DPT0001D</div>
+          <h1 class="inst-maintitle">CONALEP PLANTEL PACHUCA DE SOTO · GUÍA DE NOVELA GRÁFICA</h1>
+          <div class="inst-meta">Módulo: MTCS-20 (Ciberseguridad) · Grupo 501 · P.T.B. en Informática</div>
+        </div>
+        <div class="inst-badges">
+          <span class="badge-tag badge-gold">Segundo Corte (35%) · RA 2.1</span>
+          <span class="badge-tag badge-green">Actividad Previa a Kahoot</span>
+          <span class="badge-tag badge-dark">Cómic de 6 Viñetas (30 min)</span>
+        </div>
+      </header>
+
+      <!-- FICHA DEL ALUMNO -->
+      <div class="student-card">
+        <div class="field-box">
+          <span class="field-label">Nombre del Alumno(a):</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Matrícula:</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Equipo / Estación:</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Fecha: 25 / Sep / 2026</span>
+          <div class="field-line">Sesión 03 (Viernes)</div>
+        </div>
+      </div>
+
+      <!-- INTRODUCCIÓN A LA ACTIVIDAD -->
+      <div class="activity-intro">
+        <span style="font-size: 13pt;">🎨</span>
+        <div>
+          <strong>MISIÓN DIDÁCTICA: «EL ASALTO INVISIBLE: LA MINA DE SILICIO EN LA NUBE»</strong><br>
+          En una hoja limpia de tu libreta, traza una cuadrícula de <strong>6 viñetas</strong>. Ilustra la historia del hackeo a Tesla y los comandos aprendidos en Cloud Shell. Cada viñeta debe tener su <em>dibujo</em>, <em>cartela narrativa</em> y <em>globo de diálogo</em> con los términos técnicos obligatorios. Este cómic será tu acordeón visual para el Kahoot.
+        </div>
+      </div>
+
+      <!-- VIÑETAS 1 A 3 -->
+      <div class="panels-container">
+        
+        <!-- VIÑETA 1 -->
+        <article class="panel-card v1">
+          <div class="panel-header">
+            <div class="panel-title">🚪 Viñeta 1: La Brecha Desprotegida (Acceso a AWS)</div>
+            <span class="panel-badge badge-v1">Vector de Entrada</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              Pantalla de monitor con el logo de Kubernetes y un candado abierto en verde sin clave. En la sombra, la silueta encapuchada de un hacker frente a una laptop.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «La nube parecía inexpugnable... hasta que un puerto administrativo de Kubernetes quedó expuesto a todo internet sin contraseña.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Intruso:</span>
+                "¡Acceso concedido a <strong>AWS</strong>! Una consola <strong>Kubernetes sin contraseña</strong>. No borren nada para no alertar al personal; ¡desplieguen los scripts en silencio!"
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>Kubernetes</code> <code>AWS</code> <code>Sin contraseña</code> <code>Acceso inicial</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIÑETA 2 -->
+        <article class="panel-card v2">
+          <div class="panel-header">
+            <div class="panel-title">🔥 Viñeta 2: El Silicio Hirviendo (Cryptojacking en Modo Headless)</div>
+            <span class="panel-badge badge-v2">Ataque Parásito</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              Racks de servidores emitiendo humo térmico o brillando en rojo, sin pantallas conectadas (modo Headless). Monedas virtuales de Monero (XMR) flotando en el aire.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «Sin pantallas ni ventanas gráficas, el robo de ciclos de cómputo en servidores remotos es totalmente imperceptible a simple vista.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Intruso:</span>
+                "¡Todos los núcleos <strong>Intel Xeon al 100%</strong>! Esto es <strong>Cryptojacking</strong>: minamos <strong>Monero (XMR)</strong> día y noche sin pedir rescate ni dañar archivos."
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>Cryptojacking</code> <code>Intel Xeon</code> <code>Monero (XMR)</code> <code>Modo Headless</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIÑETA 3 -->
+        <article class="panel-card v3">
+          <div class="panel-header">
+            <div class="panel-title">📈 Viñeta 3: La Alarma de la Factura y el Load Average</div>
+            <span class="panel-badge badge-v3">Detección Forense</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              El administrador de sistemas de Tesla en shock, sosteniendo una factura de la nube llena de signos de pesos/dólares ($$$) y una terminal con alertas parpadeantes.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «El síntoma del ataque nunca fue una pantalla de rescate de Ransomware; fue la factura eléctrica y de cómputo en la nube.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Administrador:</span>
+                "¡Jefe! La factura de AWS se triplicó y el comando <code>uptime</code> marca un <strong>Load Average superior a 4.00</strong> en reposo. ¡Tenemos un parásito en el silicio!"
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>Factura disparada</code> <code>uptime</code> <code>Load Average > 4.00</code> <code>Sin rescate</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- FOOTER HOJA 1 -->
+    <footer class="sheet-footer">
+      <span>CONALEP Plantel Pachuca de Soto · Módulo MTCS-20 (Ciberseguridad)</span>
+      <span>Semana 06 · Actividad Cómic Pericial</span>
+      <span><strong>Página 1 de 2</strong></span>
+    </footer>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- HOJA 2: VIÑETAS 4 A 6, RÚBRICA Y SELLO     -->
+  <!-- ========================================== -->
+  <section class="sheet">
+    <div>
+      <!-- SUBHEADER HOJA 2 -->
+      <div class="page-subhead">
+        <span>CONALEP Plantel Pachuca de Soto · MTCS-20 · Guía de Cómic Pericial</span>
+        <span>SEGUNDO CORTE (35%) · SESIÓN 03 · ACTIVIDAD PREVIA A KAHOOT</span>
+        <span>HOJA 2 / 2</span>
+      </div>
+
+      <!-- VIÑETAS 4 A 6 -->
+      <div class="panels-container">
+
+        <!-- VIÑETA 4 -->
+        <article class="panel-card v4">
+          <div class="panel-header">
+            <div class="panel-title">💻 Viñeta 4: El Contraataque en la Terminal (Identidad y Silicio)</div>
+            <span class="panel-badge badge-v4">Telemetría Blue Team</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              Analista de seguridad defensiva (Blue Team) frente a la consola de Google Cloud Shell (Debian 12), tecleando comandos con comandos en verde sobre fondo negro.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «El Blue Team no usa ratón: desciende a la shell de Bash para levantar la telemetría pericial de la instancia afectada.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Analista Blue Team:</span>
+                "Ejecuto <code>whoami</code> e <code>id</code>: mi sesión es <strong>UID 1000</strong>. Con <code>lscpu</code> confirmo el silicio Xeon secuestrado y con <code>free -h</code> audito la memoria RAM."
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>whoami</code> <code>id (UID 1000)</code> <code>lscpu</code> <code>free -h</code> <code>Blue Team</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIÑETA 5 -->
+        <article class="panel-card v5">
+          <div class="panel-header">
+            <div class="panel-title">🛡️ Viñeta 5: Bastionado y la Doble IP (Rastreo y Hardening)</div>
+            <span class="panel-badge badge-v5">Hardening / Red</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              Pantalla dividida: a la izquierda el archivo <code>/etc/passwd</code> con un escudo de bloqueo, y a la derecha un mapamundi con la ruta de la IP privada hacia la pública.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «Las cuentas de servicio están blindadas contra intrusos y el vector de red queda triangulado por satélite.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Analista:</span>
+                "Nuestra IP privada es <code>hostname -I</code> (<strong>10.88.0.4</strong>), pero salimos por <code>curl ifconfig.me</code>. ¡Y el atacante no abre shell porque las cuentas tienen <strong>/usr/sbin/nologin</strong>!"
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>/etc/passwd</code> <code>/usr/sbin/nologin</code> <code>hostname -I</code> <code>curl ifconfig.me</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIÑETA 6 -->
+        <article class="panel-card v6">
+          <div class="panel-header">
+            <div class="panel-title">🏆 Viñeta 6: La Victoria del Blue Team y Rumbo al Podio</div>
+            <span class="panel-badge badge-v6">Cierre y Kahoot</span>
+          </div>
+          <div class="panel-grid">
+            <div class="sketch-box">
+              <span class="sketch-label">✏️ Qué dibujar en tu libreta:</span>
+              El alumno celebrando con su libreta sellada y la pantalla gigante del aula de cómputo CONALEP proyectando el podio de Kahoot con trofeos dorados.
+            </div>
+            <div class="comic-elements">
+              <div class="narration-box">
+                <strong>Cartela Narrativa:</strong> «Bitácora pericial verificada en consola, infraestructura recuperada y listos para la batalla gamificada final.»
+              </div>
+              <div class="speech-bubble">
+                <span class="speech-speaker">🗣️ Diálogo del Estudiante:</span>
+                "¡Guardé en nano con <code>Ctrl+O</code> y salí con <code>Ctrl+X</code>! Filtré con <code>grep ALUMNO</code> y con este cómic tengo el acordeón perfecto para <strong>ganar el Kahoot</strong>."
+              </div>
+              <div class="concepts-tag">
+                Conceptos clave obligatorios: <code>nano (Ctrl+O / Ctrl+X)</code> <code>grep ALUMNO</code> <code>Podio Kahoot</code> <code>Sello Docente</code>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- SECCIÓN INFERIOR: RÚBRICA Y SELLO -->
+      <div class="bottom-section">
+        
+        <!-- RÚBRICA -->
+        <div class="rubric-card">
+          <div style="font-size: 7.2pt; font-weight: 850; color: #0f172a; display: flex; justify-content: space-between; align-items: center;">
+            <span>📋 Rúbrica de Evaluación y Sellado en Libreta</span>
+            <span style="color: #166534; font-weight: 900;">Total: 10 Puntos</span>
+          </div>
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Criterio</th>
+                <th style="width: 15%;">Puntos</th>
+                <th style="width: 60%;">Indicador de Desempeño</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Rigor Técnico</strong></td>
+                <td style="text-align: center; font-weight: 800; color: #166534;">4 pts</td>
+                <td>Uso explícito de términos: <em>Kubernetes, Cryptojacking, Intel Xeon, uptime, UID 1000, nologin, nano, grep</em>.</td>
+              </tr>
+              <tr>
+                <td><strong>Secuencia Narrativa</strong></td>
+                <td style="text-align: center; font-weight: 800; color: #166534;">3 pts</td>
+                <td>Respeta el orden de los 6 momentos: Brecha ➔ Hackeo ➔ Alerta ➔ Shell ➔ Bastionado ➔ Podio.</td>
+              </tr>
+              <tr>
+                <td><strong>Creatividad y Calidad</strong></td>
+                <td style="text-align: center; font-weight: 800; color: #166534;">3 pts</td>
+                <td>Viñetas delimitadas con regla, dibujos ilustrados con color/tinta, textos limpios y globos legibles.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size: 6pt; color: #475569; margin-top: 2px;">
+            💡 <em>Nota: El cómic se califica y sella directamente en la libreta física al término de los 30 minutos.</em>
+          </div>
+        </div>
+
+        <!-- RECUADRO DE SELLO -->
+        <div class="stamp-card">
+          <div class="stamp-title">Sello de Acreditación</div>
+          <div style="font-size: 5.5pt; color: #475569; margin-bottom: 3px;">CONALEP Plantel Pachuca · MTCS-20</div>
+          <div style="border: 1px solid #166534; border-radius: 4px; padding: 2px 10px; font-size: 7.5pt; font-weight: 900; color: #166534; background: #ffffff;">
+            [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / 10 ]
+          </div>
+          <div style="font-size: 5.2pt; color: #64748b; margin-top: 3px;">Firma y Sello del Docente</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER HOJA 2 -->
+    <footer class="sheet-footer">
+      <span>CONALEP Plantel Pachuca de Soto · Módulo MTCS-20 (Ciberseguridad)</span>
+      <span>Semana 06 · Actividad Cómic Pericial</span>
+      <span><strong>Página 2 de 2 · Fin de la Guía</strong></span>
+    </footer>
+  </section>
+
+</body>
+</html>
