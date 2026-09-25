@@ -93,7 +93,7 @@ export const teachingPlan = {
           closure: 'Captura de pantalla de finalización.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Identidad Digital',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Suspensión Institucional',
           start: '¿Tienes acceso a tu correo institucional?',
           dictation: 'La identidad digital institucional es el primer paso para acceder a las herramientas empresariales de Google Workspace de forma segura y sin límites de almacenamiento.',
           learningResult: 'Activar cuentas institucionales y recuperar contraseñas.',
@@ -374,14 +374,11 @@ export const teachingPlan = {
             { title: '3. Exclusión', desc: 'Desmarcar opciones' },
             { title: '4. Texto Específico', desc: 'Buscar apellidos' }
           ],
-          development: `Resolución de 4 \"Retos Relámpago\" dictados por el docente para aislar datos combinando condiciones lógicas:
+          development: `Aviso Institucional:
 
-1️⃣ **Doble Filtro:** Mostrar únicamente a alumnos de la colonia \"Centro\" QUE ADEMÁS tengan \"Laptop\".
-2️⃣ **Orden Inverso:** Filtrar a quienes usan \"PC de Escritorio\" y ordenarlos alfabéticamente de la Z a la A por Apellidos.
-3️⃣ **Exclusión:** Desmarcar la opción de \"Laptop\" en el filtro para ocultarlos, dejando las demás activas.
-4️⃣ **Búsqueda Textual:** Usar la barra de búsqueda del filtro en \"Apellidos\" para encontrar un apellido específico y ordenar sus Nombres de la A a la Z.
+Sesión no impartida debido a la participación del grupo en la actividad matutina escolar del plantel.
 
-Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Google Docs.`,
+La instalación de Autocrat y la combinación de correspondencia masiva se realizarán en el bloque de 4 horas del lunes de la Semana 07.`,
           closure: 'Evidencias capturadas en Docs y comprensión sólida de las vistas.'
         },
         {
@@ -533,7 +530,7 @@ Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Go
           closure: 'Base de datos limpia y trabajo de Autocrat guardado en borrador para la fusión.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Fusión Masiva & Auditoría',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Suspensión Institucional',
           unlockDate: '2026-09-24',
           unlockLabel: 'Jueves 24 de Septiembre, 15:00 hrs',
           start: '¿Es posible generar 30 o 50 contratos oficiales en menos de dos minutos?',
@@ -548,12 +545,11 @@ Generación de 4 capturas de pantalla de evidencia integradas y explicadas en Go
             { title: '3. Revisa y Audita', desc: 'Auditoría entre pares para verificar calidad visual.' },
             { title: '4. Entrega en Drive', desc: 'Enlace público configurado y entrega en Classroom.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `Aviso Institucional:
 
-1️⃣ Mapeo: Asociar cada variable con su columna en Sheets y configurar nombre dinámico: Expediente_<<Apellidos>>_<<Nombre>>.
-2️⃣ Run Job: Ejecutar la fusión masiva en modo Multiple Output (archivos individuales en PDF).
-3️⃣ Auditoría Cruzada: Revisar 3 PDFs de un compañero para asegurar que no haya saltos de página incorrectos ni etiquetas sin sustituir.
-4️⃣ Entrega: Ajustar permisos de la carpeta a "Cualquier persona con el vínculo (Lector)" y subir enlace a Classroom.`,
+Sesión no impartida debido a la participación del grupo en la actividad matutina escolar del plantel.
+
+La instalación de Autocrat y la combinación de correspondencia masiva se realizarán en el bloque de 4 horas del lunes de la Semana 07.`,
           closure: 'Carpeta con todos los PDFs individuales compartida y entregada oficialmente.'
         },
         {
