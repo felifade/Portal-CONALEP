@@ -34,7 +34,8 @@ echo "Build MTCS..."
 # ── 4. Commit y push ──────────────────────────────────────────
 cd "$PORTAL"
 git add -A
-git commit -m "feat(MTCS): SW v${NEXT} — cronica pericial en 1 cuartilla (Tesla Cryptojacking) y visor PDF oficial"
+MSG="${1:-fix(MTCS): corregir encimado de barra lateral y desbordamiento en leccion (SW v\${NEXT})}"
+git commit -m "$MSG"
 git push
 
 echo "✓ Deploy completo — SW v${NEXT}"
