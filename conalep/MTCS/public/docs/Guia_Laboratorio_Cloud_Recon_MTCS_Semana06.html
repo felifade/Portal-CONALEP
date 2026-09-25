@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía Oficial de Laboratorio: Misión Cloud Recon - MTCS-20 CONALEP</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    *, *:before, *:after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.32;
+      font-size: 8.2pt;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sheet {
+      page-break-after: always;
+      height: 262mm;
+      max-height: 262mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .sheet:last-child {
+      page-break-after: avoid;
+    }
+
+    /* ENCABEZADOS INSTITUCIONALES */
+    .inst-header {
+      background: linear-gradient(135deg, #025940 0%, #064e3b 100%);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border-left: 5px solid #10b981;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .inst-titles {
+      flex: 1;
+    }
+    .inst-subkicker {
+      font-size: 6.5pt;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #6ee7b7;
+      margin-bottom: 1px;
+    }
+    .inst-maintitle {
+      font-size: 11pt;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      margin: 0 0 1px 0;
+      color: #ffffff;
+    }
+    .inst-meta {
+      font-size: 7.2pt;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .inst-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      align-items: flex-end;
+    }
+    .badge-tag {
+      font-size: 6.5pt;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+    .badge-gold { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+    .badge-green { background: #dcfce7; color: #166534; border: 1px solid #22c55e; }
+    .badge-dark { background: #1e293b; color: #f8fafc; border: 1px solid #475569; }
+
+    /* SUB-HEADER COMPACTO EN PÁGINAS 2 Y 3 */
+    .page-subhead {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #025940;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    /* FICHA DEL ALUMNO */
+    .student-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      padding: 5px 8px;
+      margin-bottom: 6px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 6px;
+      font-size: 7.2pt;
+    }
+    .field-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .field-label {
+      font-size: 5.8pt;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1px;
+    }
+    .field-line {
+      border-bottom: 1px dotted #64748b;
+      min-height: 12px;
+      color: #0f172a;
+      font-weight: 600;
+      padding-top: 1px;
+    }
+
+    /* AVISO DE SESIÓN AUTÓNOMA */
+    .autonomous-notice {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #f59e0b;
+      padding: 5px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 7pt;
+      color: #78350f;
+    }
+    .autonomous-notice strong { color: #b45309; }
+
+    /* TARJETAS DE FASES DE TRABAJO */
+    .phase-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 7px 9px;
+      margin-bottom: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .phase-card.green-edge { border-left: 4px solid #10b981; }
+    .phase-card.blue-edge { border-left: 4px solid #2563eb; }
+    .phase-card.amber-edge { border-left: 4px solid #f59e0b; }
+    .phase-card.purple-edge { border-left: 4px solid #7c3aed; }
+
+    .phase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .phase-title {
+      font-size: 8.5pt;
+      font-weight: 850;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .phase-time {
+      font-size: 6.5pt;
+      font-weight: 800;
+      color: #1e293b;
+      background: #e2e8f0;
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    /* GRID DE DOS COLUMNAS */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+
+    /* LISTA DE PASOS NUMERADOS */
+    .step-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .step-list li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 3.5px;
+      font-size: 7.4pt;
+      line-height: 1.25;
+      color: #334155;
+    }
+    .step-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #025940;
+      font-weight: 900;
+      font-size: 9pt;
+    }
+
+    /* CÓDIGO INLINE */
+    .cmd-tag {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 7.2pt;
+      font-weight: 700;
+    }
+
+    /* VENTANA DE TERMINAL (SCREENSHOT MOCKUP DE ALTA FIDELIDAD) */
+    .terminal-window {
+      background: #0b0f19;
+      border-radius: 5px;
+      border: 1px solid #1e293b;
+      margin: 4px 0 3px 0;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+    }
+    .terminal-bar {
+      background: #151d2a;
+      padding: 3px 7px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #243042;
+    }
+    .terminal-dots {
+      display: flex;
+      gap: 3.5px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #eab308; }
+    .dot.green { background: #22c55e; }
+    .terminal-title {
+      font-size: 6.2pt;
+      color: #94a3b8;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-weight: 600;
+    }
+    .terminal-badge {
+      font-size: 5.5pt;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid #0284c7;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-weight: 800;
+    }
+    .terminal-body {
+      padding: 5px 8px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 6.6pt;
+      line-height: 1.25;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .t-user { color: #4ade80; font-weight: 700; }
+    .t-sep { color: #94a3b8; }
+    .t-path { color: #38bdf8; font-weight: 700; }
+    .t-cmd { color: #ffffff; font-weight: 800; }
+    .t-dim { color: #64748b; }
+    .t-warn { color: #fbbf24; }
+    .t-cyan { color: #22d3ee; }
+    .t-green { color: #4ade80; }
+
+    /* TABLAS DE RECOLECCIÓN DE EVIDENCIA */
+    .evidence-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 6.8pt;
+      margin-top: 3px;
+    }
+    .evidence-table th {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 3px 5px;
+      text-align: left;
+      font-weight: 800;
+      color: #1e293b;
+      font-size: 6.2pt;
+      text-transform: uppercase;
+    }
+    .evidence-table td {
+      border: 1px solid #cbd5e1;
+      padding: 3px 5px;
+      color: #334155;
+    }
+    .evidence-table tr:nth-child(even) { background: #f8fafc; }
+    .evidence-table .blank-input {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      color: #0f172a;
+      font-weight: 700;
+      background: #ffffff;
+    }
+
+    /* FOOTER DE PÁGINA */
+    .sheet-footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.2pt;
+      color: #64748b;
+      margin-top: auto;
+    }
+    .sheet-footer strong { color: #025940; }
+
+    /* RÚBRICA Y SELLO */
+    .rubric-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .rubric-header {
+      background: #025940;
+      color: #ffffff;
+      padding: 3px 7px;
+      font-size: 7pt;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+    }
+    .stamp-box {
+      border: 2px dashed #025940;
+      border-radius: 6px;
+      background: #f0fdf4;
+      padding: 6px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+    }
+    .stamp-title {
+      font-size: 6.5pt;
+      font-weight: 900;
+      color: #166534;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .stamp-sub {
+      font-size: 5.8pt;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- HOJA 1: CONTEXTO, FASE 0 Y FASE 1          -->
+  <!-- ========================================== -->
+  <section class="sheet">
+    <div>
+      <!-- HEADER INSTITUCIONAL -->
+      <header class="inst-header">
+        <div class="inst-titles">
+          <div class="inst-subkicker">Colegio de Educación Profesional Técnica del Estado de Hidalgo · CCT: 13DPT0001D</div>
+          <h1 class="inst-maintitle">CONALEP PLANTEL PACHUCA DE SOTO · GUÍA DE LABORATORIO</h1>
+          <div class="inst-meta">Módulo: MTCS-20 (Mantenimiento y Ciberseguridad) · Grupo 501 · P.T.B. en Informática</div>
+        </div>
+        <div class="inst-badges">
+          <span class="badge-tag badge-gold">Segundo Corte (35%) · RA 2.1</span>
+          <span class="badge-tag badge-green">Sesión 02 · 90 Minutos</span>
+          <span class="badge-tag badge-dark">Google Cloud Shell (Debian 12)</span>
+        </div>
+      </header>
+
+      <!-- FICHA DE IDENTIFICACIÓN -->
+      <div class="student-card">
+        <div class="field-box">
+          <span class="field-label">Nombre del Alumno(a):</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Matrícula:</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Equipo / Estación:</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-box">
+          <span class="field-label">Fecha: 24 / Sep / 2026</span>
+          <div class="field-line">Hora Inicio: __________</div>
+        </div>
+      </div>
+
+      <!-- AVISO DE SESIÓN AUTÓNOMA -->
+      <div class="autonomous-notice">
+        <span style="font-size: 14pt;">⚠️</span>
+        <div>
+          <strong>INSTRUCCIÓN DIRECTA DE SESIÓN AUTÓNOMA (DURACIÓN: 90 MINUTOS):</strong> El docente se encuentra en comisión académica/reunión institucional. Debes realizar esta práctica de manera autónoma siguiendo estrictamente los pasos y capturando tus evidencias. La entrega se valida al cierre de la sesión en Google Classroom (Código: <strong>j6bnku3j</strong>).
+        </div>
+      </div>
+
+      <!-- FASE 0: PROTOCOLO DE CONEXIÓN -->
+      <article class="phase-card green-edge">
+        <div class="phase-header">
+          <div class="phase-title">🚀 Fase 0: Protocolo de Acceso a Google Cloud Shell</div>
+          <span class="phase-time">⏱️ 10 Minutos</span>
+        </div>
+        <ul class="step-list">
+          <li><strong>Paso 1:</strong> Abre el navegador Google Chrome en tu estación de cómputo e ingresa a: <span class="cmd-tag">https://shell.cloud.google.com/</span></li>
+          <li><strong>Paso 2:</strong> Inicia sesión con tu cuenta institucional de Google. Si aparece un aviso de bienvenida, marca la casilla de términos y pulsa <em>Continuar</em>.</li>
+          <li><strong>Paso 3:</strong> Espera de 15 a 30 segundos mientras Google aprovisiona tu máquina virtual gratuita en Debian GNU/Linux con 5 GB de almacenamiento persistente.</li>
+          <li><strong>Paso 4:</strong> Verifica que en la parte inferior aparezca la terminal negra con el cursor parpadeando y el prompt listo: <span class="cmd-tag">usuario@cloudshell:~$</span></li>
+        </ul>
+
+        <!-- CAPTURA 1 -->
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="terminal-title">Google Cloud Shell — Conexión Establecida (Debian GNU/Linux 12)</div>
+            <div class="terminal-badge">ONLINE · TTY1</div>
+          </div>
+          <div class="terminal-body"><span class="t-dim">Welcome to Cloud Shell! For support visit: https://cloud.google.com/shell/help
+Your Cloud Shell machine provides 5GB of free persistent storage in your $HOME directory.
+To run a command as administrator (user "root"), use "sudo <command>".</span>
+
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-dim">_ [Listo para auditar]</span></div>
+        </div>
+      </article>
+
+      <!-- FASE 1: AUDITORÍA DE IDENTIDAD Y CARGA -->
+      <article class="phase-card blue-edge">
+        <div class="phase-header">
+          <div class="phase-title">🕵️‍♂️ Fase 1: Auditoría Forense de Identidad, Privilegios y Carga de CPU</div>
+          <span class="phase-time">⏱️ 15 Minutos</span>
+        </div>
+        <p style="font-size: 7.2pt; color: #475569; margin: 0 0 4px 0;">
+          En la nube, antes de tocar cualquier archivo, el analista de seguridad debe comprobar qué permisos tiene su sesión y si la máquina sufre parasitismo de silicio (Cryptojacking).
+        </p>
+
+        <ul class="step-list">
+          <li><strong>Paso 1.1:</strong> Escribe <span class="cmd-tag">whoami</span> y presiona <strong>Enter</strong>. Anota el nombre exacto del usuario asignado.</li>
+          <li><strong>Paso 1.2:</strong> Escribe <span class="cmd-tag">id</span> y presiona <strong>Enter</strong>. Registra el UID numérico (User ID) y GID (Group ID). Nota técnica: En sistemas Debian, los UIDs iguales o superiores a 1000 corresponden a usuarios estándar; los menores a 1000 son cuentas de sistema.</li>
+          <li><strong>Paso 1.3:</strong> Escribe <span class="cmd-tag">uptime</span> y presiona <strong>Enter</strong>. Observa el tiempo encendido y los tres valores de <em>load average</em> (promedio de carga a 1, 5 y 15 minutos).</li>
+        </ul>
+
+        <!-- CAPTURA 2 -->
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="terminal-title">Terminal Shell — Verificación de Identidad (whoami, id, uptime)</div>
+            <div class="terminal-badge">SEC-AUDIT</div>
+          </div>
+          <div class="terminal-body"><span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">whoami</span>
+alumno_conalep
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">id</span>
+uid=1000(alumno_conalep) gid=1000(alumno_conalep) groups=1000(alumno_conalep),4(adm),20(dialout),24(cdrom),27(sudo),46(plugdev)
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">uptime</span>
+ 15:22:10 up 14 min,  1 user,  <span class="t-warn">load average: 0.08, 0.04, 0.01</span></div>
+        </div>
+
+        <!-- TABLA DE RECOLECCIÓN 1 -->
+        <table class="evidence-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Parámetro Forense</th>
+              <th style="width: 35%;">Comando Ejecutado</th>
+              <th style="width: 40%;">Dato Real Obtenido en tu Pantalla (Escribir a mano)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Usuario de Sesión</strong></td>
+              <td><code>whoami</code></td>
+              <td class="blank-input">________________________________________________</td>
+            </tr>
+            <tr>
+              <td><strong>UID / GID Numérico</strong></td>
+              <td><code>id</code></td>
+              <td class="blank-input">UID: ___________ | GID: ___________</td>
+            </tr>
+            <tr>
+              <td><strong>Carga Media (Load Average)</strong></td>
+              <td><code>uptime</code></td>
+              <td class="blank-input">1 min: ______ | 5 min: ______ | 15 min: ______</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 6.3pt; color: #b45309; margin-top: 3px;">
+          💡 <strong>Pregunta de Diagnóstico:</strong> Si el <em>Load Average</em> fuera superior a <strong>4.00</strong> en reposo, ¿qué indicaría según la crónica del caso Tesla? R: <em>Actividad parásita de cómputo en segundo plano (Cryptojacking).</em>
+        </div>
+      </article>
+    </div>
+
+    <!-- FOOTER HOJA 1 -->
+    <footer class="sheet-footer">
+      <span>CONALEP Plantel Pachuca de Soto · Módulo MTCS-20 (Ciberseguridad)</span>
+      <span>Semana 06 · RA 2.1: Misión Cloud Recon</span>
+      <span><strong>Página 1 de 3</strong></span>
+    </footer>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- HOJA 2: FASE 2 Y FASE 3                    -->
+  <!-- ========================================== -->
+  <section class="sheet">
+    <div>
+      <!-- SUBHEADER HOJA 2 -->
+      <div class="page-subhead">
+        <span>CONALEP Plantel Pachuca de Soto · MTCS-20 · Misión Cloud Recon</span>
+        <span>SEGUNDO CORTE (35%) · SESIÓN 02 · 90 MINUTOS</span>
+        <span>HOJA 2 / 3</span>
+      </div>
+
+      <!-- FASE 2: RECONOCIMIENTO DE SILICIO Y MEMORIA -->
+      <article class="phase-card amber-edge">
+        <div class="phase-header">
+          <div class="phase-title">⚙️ Fase 2: Inspección de Silicio, RAM y Almacenamiento Persistente</div>
+          <span class="phase-time">⏱️ 20 Minutos</span>
+        </div>
+        <p style="font-size: 7.2pt; color: #475569; margin: 0 0 4px 0;">
+          Los proveedores de nube ocultan físicamente las máquinas en centros de datos masivos. Con estos comandos auditamos el microprocesador real, la memoria volátil y la partición persistente.
+        </p>
+
+        <ul class="step-list">
+          <li><strong>Paso 2.1:</strong> Escribe <span class="cmd-tag">lscpu | grep "Model name"</span> y presiona <strong>Enter</strong>. Identifica si te asignaron procesador <em>Intel Xeon</em> o <em>AMD EPYC</em> y su frecuencia en GHz.</li>
+          <li><strong>Paso 2.2:</strong> Escribe <span class="cmd-tag">free -h</span> y presiona <strong>Enter</strong>. El modificador <span class="cmd-tag">-h</span> (human-readable) muestra los tamaños en GiB. Anota la memoria RAM <strong>total</strong> y la <strong>disponible</strong>.</li>
+          <li><strong>Paso 2.3:</strong> Escribe <span class="cmd-tag">df -h /home</span> y presiona <strong>Enter</strong>. Comprueba el tamaño total asignado a tu carpeta personal (<span class="cmd-tag">/home</span>), el espacio usado y el porcentaje disponible.</li>
+        </ul>
+
+        <!-- CAPTURA 3 -->
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="terminal-title">Terminal Shell — Auditoría de Hardware (lscpu, free -h, df -h)</div>
+            <div class="terminal-badge">HARDWARE-INFO</div>
+          </div>
+          <div class="terminal-body"><span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">lscpu | grep "Model name"</span>
+Model name:                           <span class="t-cyan">Intel(R) Xeon(R) CPU @ 2.20GHz</span>
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">free -h</span>
+               total        used        free      shared  buff/cache   available
+Mem:           <span class="t-green">7.7Gi</span>       840Mi       5.8Gi       1.0Mi       1.1Gi       <span class="t-cyan">6.6Gi</span>
+Swap:             0B          0B          0B
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">df -h /home</span>
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       <span class="t-cyan">4.8G</span>  240M  <span class="t-green">4.3G</span>   6% /home</div>
+        </div>
+
+        <!-- TABLA DE RECOLECCIÓN 2 -->
+        <table class="evidence-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Componente Físico</th>
+              <th style="width: 35%;">Comando Utilizado</th>
+              <th style="width: 40%;">Resultado Registrado en tu Terminal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Microprocesador (CPU)</strong></td>
+              <td><code>lscpu | grep "Model name"</code></td>
+              <td class="blank-input">Modelo: _________________________________________</td>
+            </tr>
+            <tr>
+              <td><strong>Memoria RAM Total</strong></td>
+              <td><code>free -h</code> (Columna total)</td>
+              <td class="blank-input">Total: ___________ GiB | Disponible: ___________ GiB</td>
+            </tr>
+            <tr>
+              <td><strong>Disco Persistente en /home</strong></td>
+              <td><code>df -h /home</code></td>
+              <td class="blank-input">Capacidad: ___________ GiB | % Usado: ___________</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- FASE 3: INFILTRACIÓN Y AUDITORÍA DEL DIRECTORIO /etc -->
+      <article class="phase-card purple-edge" style="margin-top: 6px;">
+        <div class="phase-header">
+          <div class="phase-title">📁 Fase 3: Auditoría del Árbol Raíz (/) y Cuentas en /etc</div>
+          <span class="phase-time">⏱️ 15 Minutos</span>
+        </div>
+        <p style="font-size: 7.2pt; color: #475569; margin: 0 0 4px 0;">
+          En Linux, <em>"Todo es un archivo"</em>. El directorio <span class="cmd-tag">/etc</span> concentra los archivos de configuración central y las cuentas del sistema operativo.
+        </p>
+
+        <ul class="step-list">
+          <li><strong>Paso 3.1:</strong> Escribe <span class="cmd-tag">cat /etc/os-release | grep -E "PRETTY_NAME|VERSION_ID"</span> y presiona <strong>Enter</strong>. Registra la versión exacta de la distribución Debian.</li>
+          <li><strong>Paso 3.2:</strong> Escribe <span class="cmd-tag">cat /etc/passwd | head -n 6</span> y presiona <strong>Enter</strong>. Inspecciona las primeras cuentas creadas en el sistema (<span class="cmd-tag">root</span>, <span class="cmd-tag">daemon</span>, <span class="cmd-tag">bin</span>).</li>
+          <li><strong>Paso 3.3:</strong> Observa el final de cada línea de las cuentas de servicio: tienen asignada la shell <span class="cmd-tag">/usr/sbin/nologin</span>. Esto impide que un atacante inicie sesión interactiva en esas cuentas (bastionado de seguridad).</li>
+          <li><strong>Paso 3.4:</strong> Escribe <span class="cmd-tag">cat /etc/resolv.conf</span> para ver la dirección IP del servidor DNS interno configurado por Google Cloud.</li>
+        </ul>
+
+        <!-- CAPTURA 4 -->
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="terminal-title">Terminal Shell — Lectura de Archivos del Sistema (/etc)</div>
+            <div class="terminal-badge">SYS-PASSWD</div>
+          </div>
+          <div class="terminal-body"><span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">cat /etc/os-release | grep "PRETTY_NAME"</span>
+PRETTY_NAME="<span class="t-green">Debian GNU/Linux 12 (bookworm)</span>"
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">cat /etc/passwd | head -n 4</span>
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:<span class="t-warn">/usr/sbin/nologin</span>
+bin:x:2:2:bin:/bin:<span class="t-warn">/usr/sbin/nologin</span>
+sys:x:3:3:sys:/dev:<span class="t-warn">/usr/sbin/nologin</span>
+<span class="t-user">alumno_conalep@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">cat /etc/resolv.conf</span>
+nameserver <span class="t-cyan">169.254.169.254</span>
+search c.cloudshell-prod.internal google.internal</div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px dashed #64748b; border-radius: 4px; padding: 4px 8px; font-size: 6.8pt; color: #334155;">
+          🛡️ <strong>Principio de Ciberseguridad:</strong> ¿Por qué la cuenta <code>daemon</code> tiene <code>/usr/sbin/nologin</code> en vez de <code>/bin/bash</code>? <br>
+          <em>R: Para evitar que un intruso que comprometa ese servicio obtenga una consola interactiva para ejecutar comandos en el servidor.</em>
+        </div>
+      </article>
+    </div>
+
+    <!-- FOOTER HOJA 2 -->
+    <footer class="sheet-footer">
+      <span>CONALEP Plantel Pachuca de Soto · Módulo MTCS-20 (Ciberseguridad)</span>
+      <span>Semana 06 · RA 2.1: Misión Cloud Recon</span>
+      <span><strong>Página 2 de 3</strong></span>
+    </footer>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- HOJA 3: FASE 4, FASE 5, ENTREGA Y SELLO    -->
+  <!-- ========================================== -->
+  <section class="sheet">
+    <div>
+      <!-- SUBHEADER HOJA 3 -->
+      <div class="page-subhead">
+        <span>CONALEP Plantel Pachuca de Soto · MTCS-20 · Misión Cloud Recon</span>
+        <span>SEGUNDO CORTE (35%) · SESIÓN 02 · 90 MINUTOS</span>
+        <span>HOJA 3 / 3</span>
+      </div>
+
+      <!-- FASE 4: RED Y GEOLOCALIZACIÓN -->
+      <article class="phase-card green-edge">
+        <div class="phase-header">
+          <div class="phase-title">🌐 Fase 4: Reconocimiento de Red, IP Pública y Latencia</div>
+          <span class="phase-time">⏱️ 15 Minutos</span>
+        </div>
+        <div class="two-col">
+          <div>
+            <ul class="step-list">
+              <li><strong>Paso 4.1:</strong> Escribe <span class="cmd-tag">hostname -I</span> para ver la <strong>IP Privada Interna</strong> (inicia con 10.x.x.x dentro de la VPC de Google).</li>
+              <li><strong>Paso 4.2:</strong> Escribe <span class="cmd-tag">curl -s ifconfig.me</span> y presiona <strong>Enter</strong>. Esta es la <strong>IP Pública de Salida</strong> con la que tu servidor se comunica al mundo.</li>
+              <li><strong>Paso 4.3:</strong> Abre en otra pestaña de Chrome: <span class="cmd-tag">https://iplocation.io</span>, introduce la IP pública obtenida y ubica la ciudad/país del Data Center.</li>
+              <li><strong>Paso 4.4:</strong> Escribe <span class="cmd-tag">ping -c 4 8.8.8.8</span> para medir la latencia a los DNS de Google en fibra óptica (&lt; 1 milisegundo).</li>
+            </ul>
+          </div>
+          <div>
+            <!-- CAPTURA 5 -->
+            <div class="terminal-window">
+              <div class="terminal-bar">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">Red — Doble IP y Ping a Fibra</div>
+                <div class="terminal-badge">NET-GEO</div>
+              </div>
+              <div class="terminal-body"><span class="t-user">alumno@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">hostname -I</span>
+<span class="t-cyan">10.88.0.4</span>
+<span class="t-user">alumno@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">curl -s ifconfig.me</span>
+<span class="t-warn">34.125.88.192</span>
+<span class="t-user">alumno@cloudshell</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-sep">$ </span><span class="t-cmd">ping -c 2 8.8.8.8</span>
+64 bytes from 8.8.8.8: time=<span class="t-green">0.612 ms</span>
+64 bytes from 8.8.8.8: time=<span class="t-green">0.598 ms</span></div>
+            </div>
+            <div style="font-size: 6.2pt; color: #1e293b; background: #e0f2fe; padding: 3px 6px; border-radius: 4px; border: 1px solid #7dd3fc;">
+              📍 <strong>Ubicación Geográfica en iplocation.io:</strong> Ciudad: <em>Council Bluffs (Iowa) / The Dalles (Oregon), Estados Unidos.</em>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FASE 5: EDICIÓN EN NANO Y BITÁCORA -->
+      <article class="phase-card blue-edge" style="margin-top: 5px;">
+        <div class="phase-header">
+          <div class="phase-title">📝 Fase 5: Taller de Edición en Nano y Creación de Bitácora Oficial</div>
+          <span class="phase-time">⏱️ 15 Minutos</span>
+        </div>
+        <ul class="step-list">
+          <li><strong>Paso 5.1 (Crear carpeta):</strong> Escribe <span class="cmd-tag">mkdir lab_mtcs</span> y luego entra con <span class="cmd-tag">cd lab_mtcs</span>. Verifica la ruta con <span class="cmd-tag">pwd</span>.</li>
+          <li><strong>Paso 5.2 (Abrir editor):</strong> Escribe <span class="cmd-tag">nano bitacora_semana06.txt</span> y presiona <strong>Enter</strong>. La terminal entrará a la pantalla del editor.</li>
+          <li><strong>Paso 5.3 (Redacción):</strong> Escribe dentro de Nano la estructura mostrada a continuación reemplazando tus datos personales reales:</li>
+        </ul>
+
+        <!-- CAPTURA 6 MOCKUP NANO -->
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="terminal-title">GNU nano 7.2 — Archivo: bitacora_semana06.txt</div>
+            <div class="terminal-badge">EDITOR ACTIVO</div>
+          </div>
+          <div class="terminal-body" style="font-size: 6.2pt;"><span class="t-cyan">============================================================
+BITACORA FORENSE DE LABORATORIO CLOUD RECON - SEMANA 06
+CONALEP PLANTEL PACHUCA DE SOTO · MODULO MTCS-20 (GRUPO 501)
+============================================================</span>
+ALUMNO: [TU NOMBRE Y APELLIDOS COMPLETOS]
+MATRICULA: [TU MATRICULA OFICIAL CONALEP]
+FECHA DE AUDITORIA: 24 DE SEPTIEMBRE DE 2026
+------------------------------------------------------------
+PROCESADOR IDENTIFICADO: Intel Xeon CPU @ 2.20GHz
+MEMORIA RAM TOTAL: 7.7 GiB | CARGA LOAD AVERAGE: 0.08
+IP PRIVADA INTERNA: 10.88.0.4 | IP PUBLICA GOOGLE: 34.125.88.192
+GEOLOCALIZACION DATACENTER: Council Bluffs, Iowa, EE. UU.
+LATENCIA MEDIA DE FIBRA OPTICA: 0.61 ms
+============================================================
+<span class="t-dim">^G Ayuda  ^O Guardar (WriteOut)  ^W Buscar  ^K Cortar  ^J Justificar
+^X Salir  ^R Leer arch.          ^\ Reempl. ^U Pegar   ^T Ortografía</span></div>
+        </div>
+
+        <ul class="step-list" style="margin-top: 4px;">
+          <li><strong>Paso 5.4 (Guardar):</strong> Presiona <span class="cmd-tag">Ctrl + O</span>, presiona <strong>Enter</strong> para confirmar el nombre del archivo.</li>
+          <li><strong>Paso 5.5 (Salir):</strong> Presiona <span class="cmd-tag">Ctrl + X</span> para regresar a la terminal normal.</li>
+          <li><strong>Paso 5.6 (Auditar y Filtrar):</strong> Ejecuta <span class="cmd-tag">cat bitacora_semana06.txt</span> para ver todo el archivo y luego filtra con: <br>
+          <span class="cmd-tag">grep "ALUMNO" bitacora_semana06.txt</span> comprobando que aparezca tu nombre en pantalla.</li>
+        </ul>
+      </article>
+
+      <!-- CHECKLIST DE ENTREGA Y SELLO -->
+      <div class="two-col" style="margin-top: 5px; align-items: stretch;">
+        <!-- CHECKLIST CLASSROOM -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 6px 8px;">
+          <div style="font-size: 7.2pt; font-weight: 850; color: #0f172a; margin-bottom: 3px; display: flex; align-items: center; gap: 4px;">
+            <span>📥</span> Protocolo de Entrega en Google Docs y Classroom (j6bnku3j)
+          </div>
+          <p style="font-size: 6.5pt; color: #475569; margin: 0 0 3px 0;">
+            Abre Google Docs, crea un documento titulado <strong>MTCS_S06_[ApellidoNombre]</strong> e inserta 4 capturas:
+          </p>
+          <div style="font-size: 6.2pt; color: #1e293b; display: grid; gap: 2px;">
+            <div>☑️ <strong>Captura 1:</strong> Comandos <code>whoami</code>, <code>id</code> y <code>uptime</code> visibles.</div>
+            <div>☑️ <strong>Captura 2:</strong> Comandos <code>lscpu</code> y <code>free -h</code> ejecutados.</div>
+            <div>☑️ <strong>Captura 3:</strong> Geolocalización del Datacenter en <code>iplocation.io</code>.</div>
+            <div>☑️ <strong>Captura 4:</strong> Salida de <code>cat bitacora_semana06.txt</code> y <code>grep "ALUMNO"</code>.</div>
+          </div>
+          <div style="font-size: 6.2pt; color: #025940; font-weight: 800; margin-top: 3px;">
+            Sube el enlace o PDF de Docs a la tarea de Classroom antes de las 16:30 hrs.
+          </div>
+        </div>
+
+        <!-- CUADRO DE VALIDACIÓN Y SELLO DOCENTE -->
+        <div class="stamp-box">
+          <div class="stamp-title">Acreditación Oficial Docente</div>
+          <div class="stamp-sub">CONALEP Plantel Pachuca de Soto · Módulo MTCS-20</div>
+          <div style="margin-top: 4px; border: 1px solid #166534; border-radius: 4px; padding: 3px 14px; font-size: 6.8pt; font-weight: 800; color: #166534;">
+            CALIFICACIÓN: [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / 10 ]
+          </div>
+          <div style="font-size: 5.5pt; color: #64748b; margin-top: 3px;">
+            Firma / Sello de Validación de Práctica en Laboratorio
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER HOJA 3 -->
+    <footer class="sheet-footer">
+      <span>CONALEP Plantel Pachuca de Soto · Módulo MTCS-20 (Ciberseguridad)</span>
+      <span>Semana 06 · RA 2.1: Misión Cloud Recon</span>
+      <span><strong>Página 3 de 3 · Fin de la Guía</strong></span>
+    </footer>
+  </section>
+
+</body>
+</html>
