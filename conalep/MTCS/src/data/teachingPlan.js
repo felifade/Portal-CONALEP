@@ -931,6 +931,7 @@ export const teachingPlan = {
       title: 'Las Llaves del Reino: Permisos y Mínimo Privilegio en Linux',
       result: 'Aplica el principio de mínimo privilegio y la Tríada CIA, analizando la estructura de usuarios y permisos en Linux (rwx / chmod) y blindando servidores ante configuraciones inseguras.',
       htmlUrl: './html/W07.html',
+      pdfUrl: './pdf/Guia_Laboratorio_Forense_Linux_MTCS_Semana07.pdf',
       identification: {
         place: 'Aula de Clase y Laboratorio de Cómputo',
         modality: 'Trabajo individual con libreta y terminal Linux (Cloud Shell)',
@@ -974,61 +975,67 @@ export const teachingPlan = {
         {
           id: 'H02',
           label: 'Sesión 02 (Jueves 01 Oct · Hora 1)',
-          title: 'Identidad en Linux: Superusuario Root vs Sudo y /etc/passwd',
+          title: 'Auditoría Forense de Identidad: Superusuario Root vs UID y Cuentas Ocultas',
           hook: '¿Sabían que en el código de Linux existe un comando de 7 letras (rm -rf /) que puede borrar un servidor completo en 3 segundos? En Windows sale una ventana que te dice ¿Deseas confirmar?, pero Linux confía ciegamente en root. Si root ordena autodestruirse, la máquina lo hace sin chistar. Por eso nadie trabaja como root; usamos sudo.',
           start: '¿Por qué en Linux nunca se debe iniciar sesión directamente como root para trabajar?',
           dictation: 'En el sistema operativo Linux, la cuenta suprema de administración se denomina root y posee de forma predeterminada el identificador UID 0. Por políticas de ciberseguridad y bastionado (hardening), nunca se opera un servidor directamente desde la sesión de root. Para tareas de mantenimiento se utiliza el comando sudo, el cual otorga privilegios administrativos temporales y genera un registro de auditoría de cada acción ejecutada.',
           workBlock: {
-            duration: '25 minutos',
-            title: 'Inspección de Cuentas en Google Cloud Shell',
+            duration: '25-30 minutos',
+            title: 'Misión Cazador de Backdoors y Cuentas Ocultas (Cloud Shell + Libreta)',
             steps: [
-              'Abrir Cloud Shell y ejecutar whoami para verificar su nombre de usuario activo.',
-              'Ejecutar id para registrar su credencial numérica (UID 1000).',
-              'Ejecutar head -n 5 /etc/passwd y copiar la primera línea (root) en libreta señalando con flechas: Nombre, Contraseña (x), UID 0, Carpeta Home y Shell /bin/bash.'
+              'Paso 1 (Cazador de Backdoors con UID 0): Ejecutar en Cloud Shell: awk -F: \'$3 == 0 {print $1, $3}\' /etc/passwd. Registrar en libreta cuántas cuentas tienen UID 0. Si existiera otra cuenta además de root, documentar que se trata de una puerta trasera.',
+              'Paso 2 (Inspección Forense de Tu Cuenta): Ejecutar whoami e id. Anotar en libreta tu nombre de usuario, UID (1000) y grupos a los que perteneces.',
+              'Paso 3 (Tabla de Clasificación de Cuentas): Ejecutar head -n 6 /etc/passwd y tail -n 6 /etc/passwd. Construir en libreta una tabla con 4 cuentas (root, daemon, nobody, tu_usuario) indicando: Usuario, UID, Directorio Home y Shell asignado.',
+              'Paso 4 (Deducción Técnica): Responder en libreta: ¿Por qué las cuentas de servicio del sistema tienen como shell /usr/sbin/nologin o /bin/false en lugar de /bin/bash?',
+              'Paso 5 (El Asalto Fallido a /etc/shadow): Ejecutar cat /etc/shadow. Copiar en la libreta el mensaje exacto de error que arroja el kernel de Linux (Permission denied) y justificar por qué ni siquiera un usuario de informática puede mirar los hashes.'
             ]
           },
-          terminalRadar: 'whoami ➔ usuario_conalep\nid ➔ uid=1000(usuario) gid=1000(usuario)...\nhead -n 2 /etc/passwd ➔ root:x:0:0:root:/root:/bin/bash',
-          learningResult: 'El estudiante diferencia cuentas de superusuario y cuentas estándar, auditando UID y directorios del sistema en /etc/passwd.',
-          identification: 'Tema: Usuarios y Privilegios en Linux. Evidencia: Inspección de cuentas en terminal y libreta.',
-          development: 'Ejecución en Cloud Shell de whoami, id y head -n 5 /etc/passwd. Análisis pericial de los 7 campos de cada cuenta de usuario.',
-          closure: 'Mapeo de la línea de /etc/passwd en libreta señalando UID 0 y UID 1000.',
+          terminalRadar: 'awk -F: \'$3 == 0 {print $1, $3}\' /etc/passwd ➔ root 0\nid ➔ uid=1000(usuario) gid=1000(usuario)...\ncat /etc/shadow ➔ cat: /etc/shadow: Permission denied',
+          learningResult: 'El estudiante audita cuentas de sistema y privilegios UID mediante filtros en consola, diferenciando cuentas humanas de servicios protegidos en /etc/passwd y /etc/shadow.',
+          identification: 'Tema: Auditoría de Cuentas y Privilegios en Linux. Evidencia: Tabla de 4 cuentas, filtro UID 0 y captura de error de /etc/shadow.',
+          development: 'Ejecución de filtros awk y head/tail sobre /etc/passwd en Cloud Shell. Detección de cuentas UID 0, análisis de shells /usr/sbin/nologin e intento de lectura de /etc/shadow para documentar el bloqueo del sistema.',
+          closure: 'Revisión grupal rápida del significado del error de /etc/shadow y preparación para la anatomía de permisos rwx.',
           faq: [
-            { q: '¿Por qué la contraseña aparece como una simple "x"?', a: 'Por seguridad: las contraseñas reales encriptadas se guardan en el archivo protegido /etc/shadow.' }
+            { q: '¿Qué significa que una cuenta tenga UID 0?', a: 'Significa que el kernel de Linux le da autoridad total e ilimitada sobre el sistema, sin importar el nombre que tenga.' },
+            { q: '¿Por qué no puedo leer /etc/shadow con mi usuario?', a: 'Porque contiene los hashes criptográficos de las contraseñas y sus permisos son 0000 o 0640 propiedad exclusiva de root.' }
           ],
           sello: {
-            num: 'Sello 2 (Parte 1)',
-            desc: 'Línea de /etc/passwd copiada con flechas indicando los 4 campos clave.'
+            num: 'Sello 2 (Parte 1: Identidad)',
+            desc: 'Filtro UID 0 anotado + Tabla comparativa de 4 cuentas con shells + Error de /etc/shadow explicado.'
           }
         },
         {
           id: 'H03',
           label: 'Sesión 02 (Jueves 01 Oct · Hora 2)',
-          title: 'La Anatomía de Permisos en Linux: Lectura (r), Escritura (w) y Ejecución (x)',
+          title: 'Laboratorio de Cerraduras Rotas: Anatomía rwx y el Misterio del Búnker',
           hook: '¿Sabían por qué cuando ejecutamos ls -l salen 10 letras raras como -rwxr-xr--? Es un sistema de cerraduras inventado en los años 70 en los Laboratorios Bell que hoy corre en el 96% del top 1 millón de servidores web del planeta. Quien aprende a leer estas 10 letras entiende exactamente si un hacker puede entrar a un servidor o rebotar.',
           start: '¿Qué significan las letras r, w, x que aparecen al ejecutar ls -l en la terminal?',
           dictation: 'En los sistemas basados en UNIX/Linux, los permisos de acceso se dividen en tres tríadas asociadas a tres niveles de propiedad: 1) Dueño (User - u): Creador del archivo; 2) Grupo (Group - g): Cuentas asignadas a un rol específico; 3) Otros (Others - o): Todo usuario que no sea el dueño ni pertenezca al grupo. Los tres permisos fundamentales son: r (Read - Lectura de contenido), w (Write - Modificación o eliminación) y x (Execute - Ejecución como programa o script).',
           workBlock: {
-            duration: '25 minutos',
-            title: 'Resolución de 3 Casos de Auditoría de Permisos',
+            duration: '25-30 minutos',
+            title: 'Laboratorio Hands-on: Bloqueos de Consola y Matriz de Auditoría',
             steps: [
-              'Copiar en libreta el esquema de 10 caracteres: Tipo (-) + Dueño (u) + Grupo (g) + Otros (o).',
-              'Caso 1: En -rwxr-xr--, ¿pueden "otros" borrar el archivo? (Responder en libreta con justificación).',
-              'Caso 2: En -rw-------, ¿quién puede leerlo? (Responder en libreta).',
-              'Caso 3: En -rwxrwxrwx, ¿qué peligro crítico existe? (Responder en libreta).'
+              'Experimento 1 (El Script Desarmado): En Cloud Shell ejecutar: echo \'echo "Auditoría Exitosa"\' > audit.sh. Quitarle permisos de ejecución con: chmod -x audit.sh. Intentar ejecutarlo con: ./audit.sh. Copiar en la libreta el mensaje exacto de error (bash: ./audit.sh: Permission denied). Luego devolverle la ejecución solo al dueño con: chmod u+x audit.sh y verificar su ejecución.',
+              'Experimento 2 (El Enigma del Búnker Inaccesible): Crear carpeta con: mkdir bunker y dentro crear touch bunker/secreto.txt. Quitarle el permiso "x" al directorio con: chmod -x bunker. Intentar ingresar con: cd bunker. Anotar el error en libreta y responder la pregunta de oro: ¿Por qué no te deja entrar si todavía tienes permiso de lectura "r"? (Deducción: En directorios, la "x" no es ejecutar programas, ¡es el derecho de cruzar la puerta / navegar!).',
+              'Matriz Forense de Auditoría (4 Casos de Empresa en Libreta):',
+              '  • Caso A: La llave privada SSH id_rsa tiene permisos -rw-rw-rw-. ¿Por qué el servidor SSH se niega a conectar por seguridad?',
+              '  • Caso B: El archivo db_clientes.sql tiene permisos -rw-r-----. Si un usuario pertenece al grupo, ¿puede borrarlo o solo leerlo?',
+              '  • Caso C: Un atacante sube un troyano con permisos -rwxrwxrwx. ¿Qué riesgo crítico implica para el servidor?',
+              '  • Caso D: Escribe exactamente cómo dejarías los permisos con letras (u, g, o) del archivo config.php que contiene la contraseña de MySQL para que nadie ajeno la lea.'
             ]
           },
-          learningResult: 'El estudiante descompone y audita cadenas de permisos rwx identificando privilegios por categoría.',
-          identification: 'Tema: Tríadas de Permisos rwx. Evidencia: Ejercicios de lectura de permisos y Sello 2.',
-          development: 'Explicación en pizarrón de la cadena de 10 caracteres de ls -l. Resolución en libreta de 3 casos prácticos de auditoría de permisos.',
-          closure: 'Firma del Sello 2 con la resolución de los casos prácticos.',
+          terminalRadar: 'chmod -x audit.sh && ./audit.sh ➔ bash: ./audit.sh: Permission denied\nchmod -x bunker && cd bunker ➔ bash: cd: bunker: Permission denied\nls -ld bunker ➔ drw-r--r-- 2 user user ... bunker',
+          learningResult: 'El estudiante ejecuta pruebas de denegación de privilegios en consola con chmod (scripts y directorios), deduciendo la función operativa de r, w y x y auditando matrices de seguridad.',
+          identification: 'Tema: Tríadas rwx y Dinámica de Denegación de Permisos. Evidencia: Registro de experimentos 1 y 2 en consola + Matriz de 4 casos resuelta.',
+          development: 'Ejecución experimental de denegación de permisos en Cloud Shell: script sin bit "x" y directorio bloqueado con chmod -x. Resolución analítica de la matriz forense de 4 casos empresariales.',
+          closure: 'Firma y cotejo del Sello 2 completo (Evidencias de H02 + Experimentos y Matriz de H03).',
           faq: [
-            { q: 'Caso 1 (-rwxr-xr--): ¿Pueden otros borrar?', a: 'NO, porque tienen r-x (les falta la w de escritura).' },
-            { q: 'Caso 2 (-rw-------): ¿Quién lee?', a: 'Únicamente el Dueño.' },
-            { q: 'Caso 3 (-rwxrwxrwx): ¿Qué peligro existe?', a: 'Alerta crítica: cualquier usuario o atacante puede destruirlo o inyectarle virus.' }
+            { q: '¿Qué significa la "x" en una carpeta?', a: 'Significa permiso de acceso/travesía. Sin "x", no puedes hacer cd a la carpeta ni acceder a sus archivos, aunque tengas "r".' },
+            { q: '¿Por qué SSH rechaza una llave con 666 o rwx para otros?', a: 'Porque OpenSSH exige que las llaves privadas sean estrictamente confidenciales (600 / -rw-------). Si cualquiera puede leerla, la rechaza por insegura.' }
           ],
           sello: {
             num: 'Sello 2',
-            desc: 'Diagrama de /etc/passwd + Esquema rwx y los 3 casos resueltos en libreta.'
+            desc: 'Tabla de cuentas (H02) + Los 2 experimentos de bloqueo documentados + Matriz de 4 casos resuelta (H03).'
           }
         },
         {
