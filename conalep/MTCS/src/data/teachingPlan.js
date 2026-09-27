@@ -947,56 +947,149 @@ export const teachingPlan = {
           id: 'H01',
           label: 'Sesión 01 (Miércoles 30 Sep)',
           title: 'Reactivación Kahoot S06 y Fundamentos de la Tríada CIA',
+          hook: '¿Sabían que el 95% de los ciberataques exitosos a nivel mundial no son por hackers de película, sino porque alguien violó una regla de la Tríada CIA o dejó una contraseña débil? Hoy abrimos el corte con nuestro Kahoot pendiente y aprenderemos los 3 mandamientos sagrados de la seguridad.',
           start: '¿Por qué en ciberseguridad todo se resume a proteger la Confidencialidad, Integridad y Disponibilidad?',
           dictation: 'En ciberseguridad, toda protección gira en torno a tres pilares fundamentales conocidos como la Tríada CIA: 1) Confidencialidad: Garantiza que la información solo sea accesible para personas autorizadas; 2) Integridad: Asegura que los datos se mantengan exactos y protegidos contra modificaciones no autorizadas o borrados accidentales; 3) Disponibilidad: Asegura que los servicios y servidores estén operativos en el momento exacto en que los usuarios los necesiten. Regla de Oro: El Principio de Mínimo Privilegio (Zero Trust) exige otorgar únicamente los accesos indispensables para realizar una tarea.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Fase de Kahoot y Esquema de Libreta',
+            steps: [
+              'Competir en el Kahoot S06 (20 reactivos sobre Caso Tesla y terminal Linux). Anotar podio y puntaje en la parte superior de la libreta.',
+              'Dibujar en libreta un triángulo grande de la Tríada CIA con 3 divisiones (C, I, A). Redactar en cada arista un ejemplo de la vida real (ej. robo de contraseña, alteración de calificaciones, caída de un servidor).'
+            ]
+          },
           learningResult: 'El estudiante aplica la Tríada CIA y el principio de mínimo privilegio en el análisis de incidentes de seguridad.',
           identification: 'Tema: Tríada CIA y Principio Zero Trust. Evidencia: Triángulo CIA y registro de Kahoot en libreta sellado.',
           development: 'Evaluación diagnóstica con el Kahoot de la Semana 06 (Caso Tesla y Cloud Recon), dictado técnico sobre la Tríada CIA y elaboración del esquema visual en libreta.',
           closure: 'Firma del Sello 1 y registro del podio de Kahoot.',
+          faq: [
+            { q: '¿Qué arista rompe un ransomware?', a: 'Disponibilidad (bloquea el acceso) e Integridad al cifrar los archivos sin permiso.' },
+            { q: '¿Qué arista rompe tirar el portal escolar?', a: 'Disponibilidad (ataque de denegación de servicio DDoS).' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Triángulo de la Tríada CIA en libreta con 3 ejemplos + Puntaje de Kahoot S06 anotado.'
+          }
         },
         {
           id: 'H02',
           label: 'Sesión 02 (Jueves 01 Oct · Hora 1)',
           title: 'Identidad en Linux: Superusuario Root vs Sudo y /etc/passwd',
+          hook: '¿Sabían que en el código de Linux existe un comando de 7 letras (rm -rf /) que puede borrar un servidor completo en 3 segundos? En Windows sale una ventana que te dice ¿Deseas confirmar?, pero Linux confía ciegamente en root. Si root ordena autodestruirse, la máquina lo hace sin chistar. Por eso nadie trabaja como root; usamos sudo.',
           start: '¿Por qué en Linux nunca se debe iniciar sesión directamente como root para trabajar?',
           dictation: 'En el sistema operativo Linux, la cuenta suprema de administración se denomina root y posee de forma predeterminada el identificador UID 0. Por políticas de ciberseguridad y bastionado (hardening), nunca se opera un servidor directamente desde la sesión de root. Para tareas de mantenimiento se utiliza el comando sudo, el cual otorga privilegios administrativos temporales y genera un registro de auditoría de cada acción ejecutada.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Inspección de Cuentas en Google Cloud Shell',
+            steps: [
+              'Abrir Cloud Shell y ejecutar whoami para verificar su nombre de usuario activo.',
+              'Ejecutar id para registrar su credencial numérica (UID 1000).',
+              'Ejecutar head -n 5 /etc/passwd y copiar la primera línea (root) en libreta señalando con flechas: Nombre, Contraseña (x), UID 0, Carpeta Home y Shell /bin/bash.'
+            ]
+          },
+          terminalRadar: 'whoami ➔ usuario_conalep\nid ➔ uid=1000(usuario) gid=1000(usuario)...\nhead -n 2 /etc/passwd ➔ root:x:0:0:root:/root:/bin/bash',
           learningResult: 'El estudiante diferencia cuentas de superusuario y cuentas estándar, auditando UID y directorios del sistema en /etc/passwd.',
           identification: 'Tema: Usuarios y Privilegios en Linux. Evidencia: Inspección de cuentas en terminal y libreta.',
           development: 'Ejecución en Cloud Shell de whoami, id y head -n 5 /etc/passwd. Análisis pericial de los 7 campos de cada cuenta de usuario.',
           closure: 'Mapeo de la línea de /etc/passwd en libreta señalando UID 0 y UID 1000.',
+          faq: [
+            { q: '¿Por qué la contraseña aparece como una simple "x"?', a: 'Por seguridad: las contraseñas reales encriptadas se guardan en el archivo protegido /etc/shadow.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Línea de /etc/passwd copiada con flechas indicando los 4 campos clave.'
+          }
         },
         {
           id: 'H03',
           label: 'Sesión 02 (Jueves 01 Oct · Hora 2)',
           title: 'La Anatomía de Permisos en Linux: Lectura (r), Escritura (w) y Ejecución (x)',
+          hook: '¿Sabían por qué cuando ejecutamos ls -l salen 10 letras raras como -rwxr-xr--? Es un sistema de cerraduras inventado en los años 70 en los Laboratorios Bell que hoy corre en el 96% del top 1 millón de servidores web del planeta. Quien aprende a leer estas 10 letras entiende exactamente si un hacker puede entrar a un servidor o rebotar.',
           start: '¿Qué significan las letras r, w, x que aparecen al ejecutar ls -l en la terminal?',
           dictation: 'En los sistemas basados en UNIX/Linux, los permisos de acceso se dividen en tres tríadas asociadas a tres niveles de propiedad: 1) Dueño (User - u): Creador del archivo; 2) Grupo (Group - g): Cuentas asignadas a un rol específico; 3) Otros (Others - o): Todo usuario que no sea el dueño ni pertenezca al grupo. Los tres permisos fundamentales son: r (Read - Lectura de contenido), w (Write - Modificación o eliminación) y x (Execute - Ejecución como programa o script).',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Resolución de 3 Casos de Auditoría de Permisos',
+            steps: [
+              'Copiar en libreta el esquema de 10 caracteres: Tipo (-) + Dueño (u) + Grupo (g) + Otros (o).',
+              'Caso 1: En -rwxr-xr--, ¿pueden "otros" borrar el archivo? (Responder en libreta con justificación).',
+              'Caso 2: En -rw-------, ¿quién puede leerlo? (Responder en libreta).',
+              'Caso 3: En -rwxrwxrwx, ¿qué peligro crítico existe? (Responder en libreta).'
+            ]
+          },
           learningResult: 'El estudiante descompone y audita cadenas de permisos rwx identificando privilegios por categoría.',
           identification: 'Tema: Tríadas de Permisos rwx. Evidencia: Ejercicios de lectura de permisos y Sello 2.',
           development: 'Explicación en pizarrón de la cadena de 10 caracteres de ls -l. Resolución en libreta de 3 casos prácticos de auditoría de permisos.',
           closure: 'Firma del Sello 2 con la resolución de los casos prácticos.',
+          faq: [
+            { q: 'Caso 1 (-rwxr-xr--): ¿Pueden otros borrar?', a: 'NO, porque tienen r-x (les falta la w de escritura).' },
+            { q: 'Caso 2 (-rw-------): ¿Quién lee?', a: 'Únicamente el Dueño.' },
+            { q: 'Caso 3 (-rwxrwxrwx): ¿Qué peligro existe?', a: 'Alerta crítica: cualquier usuario o atacante puede destruirlo o inyectarle virus.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Diagrama de /etc/passwd + Esquema rwx y los 3 casos resueltos en libreta.'
+          }
         },
         {
           id: 'H04',
           label: 'Sesión 03 (Viernes 02 Oct · Hora 1)',
           title: 'Cálculo y Notación Octal de Permisos: El Comando chmod',
+          hook: '¿Por qué los administradores de sistemas no escriben letras y prefieren decir números como 755 o 644? En los inicios de la computación, la memoria RAM era tan escasa que inventaron un truco matemático binario: sumando solo 3 números (4 para leer, 2 para escribir y 1 para ejecutar), el procesador sabe a quién dejar pasar en microsegundos.',
           start: '¿Por qué los administradores de sistemas usamos números como 755 o 644 para cambiar permisos?',
           dictation: 'Para optimizar la administración de permisos, Linux implementa la notación octal asignando pesos numéricos binarios: Lectura (r) equivale a 4, Escritura (w) equivale a 2 y Ejecución (x) equivale a 1. Mediante la suma de estos valores se genera un número de tres dígitos que representa de forma exacta los privilegios del Dueño, Grupo y Otros. El comando del sistema para modificar estos atributos es chmod (Change Mode).',
+          workBlock: {
+            duration: '20 minutos',
+            title: 'Tabla Matemática y Reto de Cálculo Mental',
+            steps: [
+              'Copiar la regla matemática en libreta: r=4, w=2, x=1, -=0.',
+              'Construir la tabla de 4 sumas: 4+2+1=7 (Todo), 4+2+0=6 (rw), 4+0+1=5 (rx), 4+0+0=4 (r).',
+              'Calcular el número octal de: 1) -rwxr-xr-- (754), 2) -rw-r--r-- (644) y 3) -rwx------ (700).'
+            ]
+          },
           learningResult: 'El estudiante calcula notaciones octales de permisos y aplica cambios de seguridad con chmod.',
           identification: 'Tema: Notación Octal y Comando chmod. Evidencia: Matriz de sumas 4-2-1 en libreta.',
           development: 'Tabla matemática de sumas (4+2+1=7, 4+2+0=6, 4+0+1=5). Análisis de los códigos de la industria: 777 (peligro), 755 (servidor/web), 644 (archivos) y 600 (blindado).',
           closure: 'Resolución del reto rápido de cálculo octal en libreta.',
+          faq: [
+            { q: '¿Por qué no usar 777 siempre?', a: 'Porque es como dejar la puerta de tu casa abierta con un letrero de bienvenida a cualquier ladrón.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Tabla matemática de sumas 4-2-1 y cálculos octales resueltos.'
+          }
         },
         {
           id: 'H05',
           label: 'Sesión 03 (Viernes 02 Oct · Hora 2)',
           title: 'Laboratorio Hands-on: Misión Blindando el Servidor y Cierre Semanal',
+          hook: 'Caso real: En 2023 un programador dejó una base de datos con 2 millones de registros con permiso 777 en la nube. Un bot automatizado la encontró en menos de 4 minutos y la borró pidiendo rescate. Hoy ustedes son el Blue Team que evitará que eso pase.',
           start: '¿Cómo solucionar un servidor donde un administrador novato dejó archivos confidenciales con 777?',
           dictation: 'El endurecimiento o bastionado de servidores requiere auditar permisos inseguros y aplicar el principio de menor privilegio. En esta misión, los estudiantes crean un entorno con archivos vulnerables (chmod 777), identifican las brechas con ls -l y aplican las correcciones pertinentes: chmod 600 para claves privadas, chmod 640 para bases de datos y chmod 644 para archivos públicos, validando la inmutabilidad de la configuración.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Misión Blue Team en Google Cloud Shell',
+            steps: [
+              'Crear carpeta lab_semana07 con archivos clave.key, base_datos.sql y web.html.',
+              'Simular la falla del novato: chmod 777 * y comprobar el color verde de alerta con ls -l.',
+              'Blindar clave.key con chmod 600 (solo el dueño puede leer).',
+              'Asegurar base_datos.sql con chmod 640 (dueño edita, grupo lee).',
+              'Publicar web.html con chmod 644 (todos leen, solo dueño edita).',
+              'Validar con ls -l, tomar captura y entregar en Classroom (j6bnku3j).'
+            ]
+          },
+          terminalRadar: 'chmod 600 clave.key ➔ -rw------- 1 user user clave.key\nchmod 640 base_datos.sql ➔ -rw-r----- 1 user user base_datos.sql\nchmod 644 web.html ➔ -rw-r--r-- 1 user user web.html',
           learningResult: 'El estudiante ejecuta una auditoría práctica de permisos, corrige vulnerabilidades con chmod y documenta la evidencia.',
           identification: 'Tema: Bastionado de Permisos en Servidores. Evidencia: Terminal con ls -l blindado, Sello 3 y entrega en Classroom.',
           development: 'Práctica guiada en Google Cloud Shell creando la carpeta lab_semana07, simulando la brecha con 777 y aplicando el blindaje 600, 640 y 644. Captura de pantalla para Google Classroom.',
           closure: 'Firma del Sello 3, encuadre para la subida en Google Classroom (j6bnku3j) y cierre de semana.',
+          faq: [
+            { q: '¿Por qué me sale Operation not permitted?', a: 'Solo el dueño o root con sudo pueden cambiar permisos de un archivo.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Terminal con ls -l mostrando clave.key (600), base_datos.sql (640) y web.html (644).'
+          }
         },
       ],
       sessions: [
