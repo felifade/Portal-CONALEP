@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
+  Terminal,
   Unlock,
   X,
   ZoomIn,
@@ -530,7 +531,43 @@ function RightSummary({ week, corte, ra, activeSession }) {
           </p>
         )}
       </section>
+
+      <section className="context-panel teacher-notes-panel" style={{ background: '#fdfbf7', border: '1px solid #fef3c7' }}>
+        <div className="panel-header-badge" style={{ color: '#b45309' }}>
+          <Sparkles size={16} />
+          <span>Bloc de Notas Docente</span>
+        </div>
+        <TeacherNotesWidget />
+      </section>
     </aside>
+  );
+}
+
+function TeacherNotesWidget() {
+  const [note, setNote] = useState(() => {
+    try {
+      return localStorage.getItem('mtcs_quick_teacher_note') || '';
+    } catch {
+      return '';
+    }
+  });
+
+  const handleChange = (e) => {
+    setNote(e.target.value);
+    try {
+      localStorage.setItem('mtcs_quick_teacher_note', e.target.value);
+    } catch {}
+  };
+
+  return (
+    <div>
+      <textarea
+        className="teacher-notes-textarea"
+        placeholder="Anotaciones de clase (se guardan automáticamente)..."
+        value={note}
+        onChange={handleChange}
+      />
+    </div>
   );
 }
 
@@ -580,10 +617,10 @@ function TeachingPortal() {
   const [isTeacherMode, setIsTeacherMode] = useState(() => {
     try {
       const stored = sessionStorage.getItem('mtcs_teacher_mode');
-      const urlParam = window.location.search.includes('docente=1') || window.location.search.includes('pin=1328');
-      return stored === 'true' || urlParam;
+      if (stored === 'false') return false;
+      return true; // Modo Docente permanente para el profesor
     } catch {
-      return false;
+      return true;
     }
   });
   const [showPinModal, setShowPinModal] = useState(false);
@@ -753,32 +790,134 @@ function TeachingPortal() {
                   <h2>{hour.title}</h2>
                 </div>
 
-                <div className="lesson-grid">
-                  <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
-                    <p>{hour.start}</p>
-                  </LessonSection>
+                {hour.hook ? (
+                  <div className="teacher-script-grid">
+                    {/* 1. Gancho Inicial / Dato Curioso */}
+                    <div className="teacher-hook-card">
+                      <div className="card-hook-header">
+                        <Sparkles size={16} />
+                        <strong>⚡ Gancho Inicial / Dato Curioso (Dilo en voz alta al arrancar):</strong>
+                      </div>
+                      <p className="card-hook-body">{hour.hook}</p>
+                    </div>
 
-                  <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
-                    <p className="dictation-text">{hour.dictation}</p>
-                  </LessonSection>
+                    {/* 2. Dictado Oficial con Botón Copiar */}
+                    <div className="teacher-dictation-card">
+                      <div className="card-dictation-header">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <PenLine size={16} />
+                          <strong>🎙️ Dictado Oficial para Libreta:</strong>
+                        </div>
+                        <button
+                          type="button"
+                          className="copy-dictation-btn"
+                          onClick={() => {
+                            navigator.clipboard.writeText(hour.dictation);
+                            alert('Dictado copiado al portapapeles');
+                          }}
+                        >
+                          Copiar Dictado
+                        </button>
+                      </div>
+                      <blockquote className="card-dictation-body">
+                        "{hour.dictation}"
+                      </blockquote>
+                    </div>
 
-                  <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
-                    <p>{hour.learningResult}</p>
-                  </LessonSection>
+                    {/* 3. Bloque de Trabajo Autónomo */}
+                    {hour.workBlock && (
+                      <div className="teacher-workblock-card">
+                        <div className="card-workblock-header">
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <Clock size={16} />
+                            <strong>⏱️ Trabajo Autónomo de Alumnos ({hour.workBlock.title})</strong>
+                          </div>
+                          <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
+                        </div>
+                        <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 10px' }}>
+                          Indica los pasos en el pizarrón y déjalos trabajar por su cuenta sin necesidad de explicar continuamente:
+                        </p>
+                        <div className="workblock-steps-list">
+                          {hour.workBlock.steps.map((st, sidx) => (
+                            <div className="workblock-step-item" key={sidx}>
+                              <span className="step-circle">{sidx + 1}</span>
+                              <p>{st}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                  <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
-                    <p>{hour.identification}</p>
-                  </LessonSection>
+                    {/* 4. Radar de Terminal */}
+                    {hour.terminalRadar && (
+                      <div className="teacher-radar-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                          <Terminal size={16} style={{ color: '#00ff88' }} />
+                          <strong>💻 Radar de Terminal (Lo que debes ver en sus pantallas):</strong>
+                        </div>
+                        <pre className="terminal-radar-pre">{hour.terminalRadar}</pre>
+                      </div>
+                    )}
 
-                  <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
-                    <p className="dev-intro">{hour.development}</p>
-                    <InfographicPlan hour={hour} onZoomImage={setZoomedImg} />
-                  </LessonSection>
+                    {/* 5. Clave de Respuestas / FAQ */}
+                    {hour.faq?.length > 0 && (
+                      <div className="teacher-faq-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                          <CheckCircle2 size={16} style={{ color: '#9333ea' }} />
+                          <strong>🎯 Clave de Respuestas / Dudas al Vuelo:</strong>
+                        </div>
+                        <div className="faq-items-list">
+                          {hour.faq.map((item, fidx) => (
+                            <div className="faq-item" key={fidx}>
+                              <p className="faq-q">❓ {item.q}</p>
+                              <p className="faq-a">👉 <strong>Respuesta:</strong> {item.a}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                  <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
-                    <p>{hour.closure}</p>
-                  </LessonSection>
-                </div>
+                    {/* 6. Criterio de Sello */}
+                    {hour.sello && (
+                      <div className="teacher-sello-card">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          <span className="sello-badge-pill">⭐ {hour.sello.num}</span>
+                          <div>
+                            <strong style={{ color: '#0f172a', fontSize: '13.5px' }}>Criterio de Firma:</strong>
+                            <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>{hour.sello.desc}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="lesson-grid">
+                    <LessonSection icon={<BookOpen size={18} />} label="Inicio · Apertura de Clase" className="start">
+                      <p>{hour.start}</p>
+                    </LessonSection>
+
+                    <LessonSection icon={<PenLine size={18} />} label="Dictado · Concepto Clave" className="dictation">
+                      <p className="dictation-text">{hour.dictation}</p>
+                    </LessonSection>
+
+                    <LessonSection icon={<Target size={18} />} label="Resultado de Aprendizaje" className="result">
+                      <p>{hour.learningResult}</p>
+                    </LessonSection>
+
+                    <LessonSection icon={<FileText size={18} />} label="Ficha de Identificación" className="identity">
+                      <p>{hour.identification}</p>
+                    </LessonSection>
+
+                    <LessonSection icon={<Map size={18} />} label="Desarrollo con Infografía" className="development wide">
+                      <p className="dev-intro">{hour.development}</p>
+                      <InfographicPlan hour={hour} onZoomImage={setZoomedImg} />
+                    </LessonSection>
+
+                    <LessonSection icon={<CheckCircle2 size={18} />} label="Conclusión y Cierre de Bitácora" className="closure wide">
+                      <p>{hour.closure}</p>
+                    </LessonSection>
+                  </div>
+                )}
               </article>
             ))}
           </div>
