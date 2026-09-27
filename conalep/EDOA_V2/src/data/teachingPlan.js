@@ -71,7 +71,7 @@ export const teachingPlan = {
       expectedProduct: 'Evaluación diagnóstica y firma de reglamento.',
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Investigación y Métodos',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
           dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
           learningResult: 'Conocer las políticas del módulo y firmar reglamento.',
@@ -374,12 +374,26 @@ export const teachingPlan = {
             { title: '3. Exclusión', desc: 'Desmarcar opciones' },
             { title: '4. Texto Específico', desc: 'Buscar apellidos' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `Cronograma Desglosado por Horas:
 
-1️⃣ Investigación Formal: Concepto, utilidad y arquitectura de la combinación de correspondencia en libreta.
-2️⃣ Tabla Comparativa de Software: Análisis de programas necesarios (procesadores de texto, gestores de bases de datos y motores de enlace como Autocrat).
-3️⃣ Análisis de Tres Métodos: Recopilación visual de 3 vías de combinación (Google Workspace + Add-on, Microsoft Word + Excel local, y Google Apps Script / Extensiones).
-4️⃣ Integración Digital: Transcripción de la investigación y bocetos a la bitácora de Google Drive.`,
+⏱️ HORA 1 (50m) · Kahoot de Evaluación Inicial:
+• Proyección del PIN de Kahoot (20 preguntas técnicas sobre combinación de correspondencia, métodos ofimáticos y maquetación de plantillas).
+• Registro de puntaje y retroalimentación grupal en libreta. (Sello 1)
+
+⏱️ HORA 2 (50m) · Auditoría Forense del Directorio:
+• Abrir Directorio_Grupo_301 en Google Sheets.
+• Detección de campos nulos en Nombre, Apellidos, Colonia o Dispositivo.
+• Aplicación de =NOMPROPIO() para estandarizar tipografía y verificación de calificaciones numéricas (Promedio).
+
+⏱️ HORA 3 (50m) · Programación de Estatus Lógico (=SI):
+• Inserción de la columna oficial Estatus.
+• Programación de la fórmula: =SI(Promedio>=7.0, "Aprobado", "Reprobado").
+• Configuración de regla de Formato Condicional automática (verde/rojo). (Sello 2)
+
+⏱️ HORA 4 (50m) · Enlace y Fusión Masiva con Autocrat:
+• Vincular la Plantilla_Expediente_Grupo301 de Google Docs.
+• Mapeo estricto de las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
+• Configuración de salida en Multiple Output Mode y ejecución (Run Job) generando +30 PDFs en Drive. (Sello 3)`,
           closure: 'Evidencias capturadas en Docs y comprensión sólida de las vistas.'
         },
         {
@@ -485,7 +499,7 @@ export const teachingPlan = {
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Investigación y Métodos',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
           unlockDate: '2026-09-21',
           unlockLabel: 'Lunes 21 de Septiembre, 15:00 hrs',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
@@ -500,12 +514,26 @@ export const teachingPlan = {
             { title: '3. Maqueta tu Documento', desc: 'Diseño profesional y funcional con retículas y tablas.' },
             { title: '4. Combina y Genera', desc: 'Inyección de etiquetas dinámicas <<Variables>>.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `Cronograma Desglosado por Horas:
 
-1️⃣ Investigación Formal: Concepto, utilidad y arquitectura de la combinación de correspondencia en libreta.
-2️⃣ Tabla Comparativa de Software: Análisis de programas necesarios (procesadores de texto, gestores de bases de datos y motores de enlace como Autocrat).
-3️⃣ Análisis de Tres Métodos: Recopilación visual de 3 vías de combinación (Google Workspace + Add-on, Microsoft Word + Excel local, y Google Apps Script / Extensiones).
-4️⃣ Integración Digital: Transcripción de la investigación y bocetos a la bitácora de Google Drive.`,
+⏱️ HORA 1 (50m) · Kahoot de Evaluación Inicial:
+• Proyección del PIN de Kahoot (20 preguntas técnicas sobre combinación de correspondencia, métodos ofimáticos y maquetación de plantillas).
+• Registro de puntaje y retroalimentación grupal en libreta. (Sello 1)
+
+⏱️ HORA 2 (50m) · Auditoría Forense del Directorio:
+• Abrir Directorio_Grupo_301 en Google Sheets.
+• Detección de campos nulos en Nombre, Apellidos, Colonia o Dispositivo.
+• Aplicación de =NOMPROPIO() para estandarizar tipografía y verificación de calificaciones numéricas (Promedio).
+
+⏱️ HORA 3 (50m) · Programación de Estatus Lógico (=SI):
+• Inserción de la columna oficial Estatus.
+• Programación de la fórmula: =SI(Promedio>=7.0, "Aprobado", "Reprobado").
+• Configuración de regla de Formato Condicional automática (verde/rojo). (Sello 2)
+
+⏱️ HORA 4 (50m) · Enlace y Fusión Masiva con Autocrat:
+• Vincular la Plantilla_Expediente_Grupo301 de Google Docs.
+• Mapeo estricto de las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
+• Configuración de salida en Multiple Output Mode y ejecución (Run Job) generando +30 PDFs en Drive. (Sello 3)`,
           closure: 'Plantilla de Docs guardada en Drive con todas las etiquetas listas para vincular.'
         },
         {
@@ -593,7 +621,7 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Directorio & Fusión Masiva',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
           start: '¿Cómo automatizamos la decisión de quién aprueba o reprueba a partir de sus notas?',
@@ -607,12 +635,26 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
             { title: '3. Enlaza con Autocrat', desc: 'Conecta la plantilla de Docs con los datos de Sheets.' },
             { title: '4. Genera tus PDFs', desc: 'Ejecuta la combinación por lotes en Google Drive.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `Cronograma Desglosado por Horas:
 
-1️⃣ Completar Directorio: Verificar datos faltantes y normalizar nombres en mayúsculas/minúsculas.
-2️⃣ Fórmula Condicional: Insertar columna Estatus y programar =SI(Promedio>=7, "Aprobado", "Reprobado") con formato condicional verde/rojo.
-3️⃣ Configuración de Autocrat: Enlazar Plantilla_Expediente_Grupo301 y mapear las etiquetas dinámicas.
-4️⃣ Run Job: Generar los más de 30 PDFs individuales en Google Drive en modo Multiple Output.`,
+⏱️ HORA 1 (50m) · Kahoot de Evaluación Inicial:
+• Proyección del PIN de Kahoot (20 preguntas técnicas sobre combinación de correspondencia, métodos ofimáticos y maquetación de plantillas).
+• Registro de puntaje y retroalimentación grupal en libreta. (Sello 1)
+
+⏱️ HORA 2 (50m) · Auditoría Forense del Directorio:
+• Abrir Directorio_Grupo_301 en Google Sheets.
+• Detección de campos nulos en Nombre, Apellidos, Colonia o Dispositivo.
+• Aplicación de =NOMPROPIO() para estandarizar tipografía y verificación de calificaciones numéricas (Promedio).
+
+⏱️ HORA 3 (50m) · Programación de Estatus Lógico (=SI):
+• Inserción de la columna oficial Estatus.
+• Programación de la fórmula: =SI(Promedio>=7.0, "Aprobado", "Reprobado").
+• Configuración de regla de Formato Condicional automática (verde/rojo). (Sello 2)
+
+⏱️ HORA 4 (50m) · Enlace y Fusión Masiva con Autocrat:
+• Vincular la Plantilla_Expediente_Grupo301 de Google Docs.
+• Mapeo estricto de las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
+• Configuración de salida en Multiple Output Mode y ejecución (Run Job) generando +30 PDFs en Drive. (Sello 3)`,
           closure: 'Base de datos normalizada con fórmulas y lote de expedientes en PDF generado.'
         },
         {
