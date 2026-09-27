@@ -896,3 +896,154 @@
   font-size: 0.88rem;
   font-weight: 600;
 }
+
+/* ==========================================================================
+   TARJETAS EJECUTIVAS TELEPROMPTER EN EL DESARROLLO DE SESIÓN
+   ========================================================================== */
+
+.teleprompter-executive-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.teleprompter-header-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  border-left: 4px solid #006847;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.teleprompter-hour-divider {
+  background: #F1F5F9;
+  color: #0F172A;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 14px;
+  border: 1px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teleprompter-card {
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+
+.teleprompter-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+}
+
+.card-badge-header {
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-body-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* 🗣️ Frase Gancho (Azul Cobalto Ejecutivo) */
+.card-quote {
+  background: #F0F7FF;
+  border-left-color: #0284C7;
+  border: 1px solid #BAE6FD;
+  border-left-width: 5px;
+  border-left-color: #0284C7;
+}
+.card-quote .card-badge-header {
+  color: #0369A1;
+}
+.card-quote .card-body-text {
+  color: #0C4A6E;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* 💡 Dato Curioso / Anécdota (Ámbar / Oro Ejecutivo) */
+.card-tip {
+  background: #FEFCE8;
+  border: 1px solid #FEF08A;
+  border-left-width: 5px;
+  border-left-color: #CA8A04;
+}
+.card-tip .card-badge-header {
+  color: #A16207;
+}
+.card-tip .card-body-text {
+  color: #713F12;
+}
+
+/* 🖥️ Demo en Cañón (Púrpura Tecnológico) */
+.card-demo {
+  background: #FAF5FF;
+  border: 1px solid #E9D5FF;
+  border-left-width: 5px;
+  border-left-color: #9333EA;
+}
+.card-demo .card-badge-header {
+  color: #7E22CE;
+}
+.card-demo .card-body-text {
+  color: #581C87;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.90rem;
+}
+
+/* 💻 Reto en Máquinas (Verde Esmeralda Institucional) */
+.card-todo {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-left-width: 5px;
+  border-left-color: #16A34A;
+}
+.card-todo .card-badge-header {
+  color: #15803D;
+}
+.card-todo .card-body-text {
+  color: #14532D;
+  font-weight: 600;
+}
+
+/* 🏷️ Evidencia y Sello (Gris Pizarra / Slate Acreditación) */
+.card-check {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-left-width: 5px;
+  border-left-color: #475569;
+}
+.card-check .card-badge-header {
+  color: #334155;
+}
+.card-check .card-body-text {
+  color: #0F172A;
+  font-weight: 600;
+}
+
+.teleprompter-plain-line {
+  margin: 4px 0;
+  color: #334155;
+  font-size: 0.92rem;
+}
