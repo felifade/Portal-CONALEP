@@ -706,7 +706,7 @@ George Boole formuló la lógica condicional en 1847. Toda la inteligencia artif
           closure: 'Base de datos normalizada con fórmulas y lote de expedientes en PDF generado.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Auditoría Cruzada',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Auditoría & Entrega Classroom',
           unlockDate: '2026-09-30',
           unlockLabel: 'Miércoles 30 de Septiembre, 15:00 hrs',
           start: '¿Tus documentos generados cumplen con todos los estándares profesionales?',
@@ -719,14 +719,55 @@ George Boole formuló la lógica condicional en 1847. Toda la inteligencia artif
             { title: '2. Checklist Visual', desc: 'Verifica que no haya etiquetas sin sustituir.' },
             { title: '3. Corrección', desc: 'Reejecuta la fusión si se detectaron desajustes.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (2 HORAS)
+Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
 
-1️⃣ Auditoría Cruzada: Abrir 3 PDFs de un compañero y revisar márgenes, sustitución y que quepa en 1 hoja.
-2️⃣ Corrección de Errores: Ajustar plantillas o celdas con fallas y reejecutar la combinación si aplica.`,
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (50 min) · Auditoría Forense entre Pares (Control de Calidad)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"Muchachos, en la industria del software ningún programador audita su propio código porque padece de 'ceguera de taller'. Hoy intercambiaremos lugares de trabajo: seremos auditores externos implacables buscando fallas de maquetación en el trabajo del colega antes de que llegue a manos de las autoridades."
+
+💡 ANÉCDOTA FORENSE (El Error Millonario):
+En 1962, la sonda espacial Mariner 1 de la NASA tuvo que ser destruida a los 293 segundos de despegar porque un programador omitió una simple barra sobre una letra en el código de cálculo manual. Costó 18 millones de dólares. Un error minúsculo en un documento oficial arruina todo el proyecto.
+
+🖥️ DEMO EN CAÑÓN (3 min):
+Proyectar el Checklist de 3 puntos: 1) Cero etiquetas rotas (<< >>), 2) Ajuste estricto a 1 sola hoja sin páginas en blanco, 3) Coincidencia de promedio y estatus.
+
+💻 RETO 7 (15 min en PC):
+Intercambiar equipo con el compañero de al lado. Abrir 3 PDFs generados al azar y anotar el dictamen de auditoría en la libreta del compañero.
+
+💻 RETO 8 (15 min en PC):
+Regresar a su máquina. Si el auditor encontró errores de formato, corregir la plantilla de Docs o la celda en Sheets y reejecutar Autocrat de inmediato.
+
+🏷️ EVIDENCIA Y SELLO:
+Lista de cotejo firmada en libreta y lote de PDFs verificado al 100%. 👉 SELLO 4
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 6 (50 min) · Seguridad Nube y Entrega Oficial en Classroom
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"De nada sirve haber generado los documentos más profesionales del estado de Hidalgo si cuando su cliente o docente abre el enlace, la pantalla le dice: 'Acceso Denegado / Solicita Permiso'. Hoy configuraremos privilegios de red y cerraremos la entrega oficial en Google Classroom."
+
+🖥️ DEMO 1 (3 min):
+En Google Drive, cambiar acceso general de la carpeta a: "Cualquier persona que tenga el vínculo (Lector)". La prueba de fuego: Probar el enlace en una ventana privada de incógnito.
+
+💻 RETO 9 (15 min en PC):
+Configurar la carpeta de Google Drive como pública en modo Lector y validar que abra en ventana de incógnito sin pedir cuenta.
+
+🖥️ DEMO 2 (2 min):
+Formato ejecutivo de la bitácora en Google Docs (capturas de pantalla con pie de figura) y entrega en Classroom.
+
+💻 RETO 10 (15 min en PC):
+Pegar el enlace público verificado en la tarea asignada de Google Classroom, adjuntar la bitácora con capturas y presionar Entregar Tarea.
+
+🏷️ EVIDENCIA Y SELLO:
+Pantalla de Google Classroom con la tarea entregada y enlace verificado. 👉 SELLO 5
+Aviso docente: Mañana jueves no hay sesión presencial por comisión sindical; el viernes cerramos con el Kahoot final y calificaciones oficiales.`,
           closure: 'Expedientes verificados sin vicios de origen.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Permisos & Portafolio',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Sin Actividades (Permiso Sindical)',
           unlockDate: '2026-10-01',
           unlockLabel: 'Jueves 1 de Octubre, 15:00 hrs',
           start: '¿Cómo garantizar que un cliente o directivo pueda consultar tus archivos sin contraseñas?',
@@ -739,15 +780,20 @@ George Boole formuló la lógica condicional en 1847. Toda la inteligencia artif
             { title: '2. Bitácora de Evidencia', desc: 'Inserta capturas de la fórmula =SI y del proceso de Autocrat.' },
             { title: '3. Entrega Oficial', desc: 'Sube el enlace verificado a Google Classroom.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `⚠️ AVISO INSTITUCIONAL · JUEVES (SIN ACTIVIDADES PRESENCIALES)
 
-1️⃣ Configuración de Drive: Ajustar la carpeta contenedora con permisos de Lector público.
-2️⃣ Compilación de Bitácora: Documentar el proceso con capturas de la tabla comparativa de métodos, la fórmula =SI y Autocrat terminado.
-3️⃣ Entrega: Enviar la tarea en Google Classroom para evaluación oficial.`,
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ SESIÓN 03 (JUEVES) · COMISIÓN Y PERMISO SINDICAL DOCENTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ INDICACIÓN PARA EL GRUPO:
+Sesión presencial no impartida por permiso y comisión oficial docente de carácter sindical.
+
+💻 ACTIVIDAD AUTÓNOMA DE REGULARIZACIÓN:
+Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora el día miércoles deberán aprovechar estas dos horas de forma autónoma para concluir sus archivos y regularizar su entrega en Google Classroom antes del cierre definitivo del viernes.`,
           closure: 'Carpeta compartida y bitácora entregada en Classroom.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Cierre RA 2.1',
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Kahoot Final & Cierre RA 2.1',
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 2 de Octubre, 15:00 hrs',
           start: '¿Concluiste satisfactoriamente todas las evidencias del RA 2.1?',
@@ -760,11 +806,24 @@ George Boole formuló la lógica condicional en 1847. Toda la inteligencia artif
             { title: '2. Firma de Actas', desc: 'Registro de puntajes oficiales del resultado.' },
             { title: '3. Encuadre RA 2.2', desc: 'Introducción a presentaciones electrónicas avanzadas.' }
           ],
-          development: `Instrucciones de la Sesión:
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Kahoot Sumativo + Auditoría de Sellos + Asentamiento de Calificaciones
 
-1️⃣ Revisión Docente: Evaluación de carpetas de Drive y registro de calificaciones del RA 2.1.
-2️⃣ Regularización: Apoyo directo a alumnos rezagados en la entrega.
-3️⃣ Introducción al RA 2.2: Presentación del temario de diapositivas interactivas.`,
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (50 min) · Kahoot Final y Acreditación del RA 2.1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"Muchachos, hoy cerramos oficialmente el Resultado de Aprendizaje 2.1. Concluyeron la base de datos, dominaron fórmulas condicionales y generaron documentos en lote en la nube. Hoy jugamos el Kahoot final para demostrar el dominio técnico del bloque y asentar sus calificaciones oficiales."
+
+🖥️ DEMO EN CAÑÓN (2 min):
+Proyectar el PIN del Kahoot Oficial del RA 2.1 (20 reactivos sobre todo el flujo: fórmulas, etiquetas, Autocrat y permisos de nube).
+
+💻 RETO FINAL (25 min en Dispositivos):
+Resolver la evaluación sumativa en dispositivos. Podio de ganadores y premiación simbólica.
+
+🏷️ CIERRE Y ASENTAMIENTO OFICIAL (20 min):
+Cotejo de los 5 sellos acumulados en la semana y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
+Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           closure: 'RA 2.1 acreditado al 100% y ciclo cerrado.'
         }
       ]
