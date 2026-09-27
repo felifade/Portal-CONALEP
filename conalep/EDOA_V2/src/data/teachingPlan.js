@@ -71,7 +71,7 @@ export const teachingPlan = {
       expectedProduct: 'Evaluación diagnóstica y firma de reglamento.',
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
           dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
           learningResult: 'Conocer las políticas del módulo y firmar reglamento.',
@@ -499,7 +499,7 @@ export const teachingPlan = {
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           unlockDate: '2026-09-21',
           unlockLabel: 'Lunes 21 de Septiembre, 15:00 hrs',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
@@ -621,7 +621,7 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Lunes (4 hrs) · Kahoot, Directorio & Fusión',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
           start: '¿Cómo automatizamos la decisión de quién aprueba o reprueba a partir de sus notas?',
@@ -635,26 +635,33 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
             { title: '3. Enlaza con Autocrat', desc: 'Conecta la plantilla de Docs con los datos de Sheets.' },
             { title: '4. Genera tus PDFs', desc: 'Ejecuta la combinación por lotes en Google Drive.' }
           ],
-          development: `Cronograma Desglosado por Horas:
+          development: `Metodología: Guía Docente (2-3 min) + Retos Autónomos en Máquinas (10-15 min)
 
 ⏱️ HORA 1 (50m) · Kahoot de Evaluación Inicial:
-• Proyección del PIN de Kahoot (20 preguntas técnicas sobre combinación de correspondencia, métodos ofimáticos y maquetación de plantillas).
-• Registro de puntaje y retroalimentación grupal en libreta. (Sello 1)
+• [0-10m] Proyección de PIN de Kahoot (20 preguntas sobre correspondencia, Docs y Sheets).
+• [10-35m] Conducción de la prueba técnica en dispositivos.
+• [35-50m] Retroalimentación en plenaria y registro de puntaje en libreta. (Sello 1)
 
-⏱️ HORA 2 (50m) · Auditoría Forense del Directorio:
-• Abrir Directorio_Grupo_301 en Google Sheets.
-• Detección de campos nulos en Nombre, Apellidos, Colonia o Dispositivo.
-• Aplicación de =NOMPROPIO() para estandarizar tipografía y verificación de calificaciones numéricas (Promedio).
+⏱️ HORA 2 (50m) · Auditoría Forense y Normalización del Directorio:
+• [0-5m] Demo 1 (3 min): Detección de celdas vacías y sintaxis de =NOMPROPIO.
+• [5-20m] RETO 1 (15 min en PC): Auditar Directorio_Grupo_301, corregir celdas vacías y normalizar nombres en mayúsculas/minúsculas.
+• [20-25m] Demo 2 (2 min): Verificación de calificaciones numéricas en la columna Promedio.
+• [25-40m] RETO 2 (15 min en PC): Completar el 100% de calificaciones numéricas del grupo (cero faltantes).
+• [40-50m] Revisión y resolución de dudas entre filas.
 
-⏱️ HORA 3 (50m) · Programación de Estatus Lógico (=SI):
-• Inserción de la columna oficial Estatus.
-• Programación de la fórmula: =SI(Promedio>=7.0, "Aprobado", "Reprobado").
-• Configuración de regla de Formato Condicional automática (verde/rojo). (Sello 2)
+⏱️ HORA 3 (50m) · Lógica Condicional (=SI) y Semáforos:
+• [0-5m] Demo 3 (3 min): Sintaxis =SI(Promedio>=7.0, "Aprobado", "Reprobado").
+• [5-20m] RETO 3 (15 min en PC): Insertar columna Estatus, programar la fórmula =SI y arrastrar a todo el grupo.
+• [20-25m] Demo 4 (2 min): Formato Condicional automático (verde para Aprobado, rojo para Reprobado).
+• [25-40m] RETO 4 (15 min en PC): Aplicar semaforización de colores en toda la columna Estatus.
+• [40-50m] Revisión docente y firma: Directorio evaluado y semaforizado al 100%. (Sello 2)
 
-⏱️ HORA 4 (50m) · Enlace y Fusión Masiva con Autocrat:
-• Vincular la Plantilla_Expediente_Grupo301 de Google Docs.
-• Mapeo estricto de las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
-• Configuración de salida en Multiple Output Mode y ejecución (Run Job) generando +30 PDFs en Drive. (Sello 3)`,
+⏱️ HORA 4 (50m) · Enlace Mapeado y Fusión Masiva con Autocrat:
+• [0-5m] Demo 5 (3 min): Apertura de Autocrat y vinculación con Plantilla_Expediente_Grupo301.
+• [5-20m] RETO 5 (15 min en PC): Mapear estrictamente las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
+• [20-25m] Demo 6 (2 min): Parámetros de salida en modo Multiple Output (PDF).
+• [25-45m] RETO 6 (20 min en PC): Ejecutar Run Job, supervisar la generación en Google Drive y corregir incidencias.
+• [45-50m] Verificación de la carpeta en Drive con los más de 30 PDFs generados en vivo. (Sello 3)`,
           closure: 'Base de datos normalizada con fórmulas y lote de expedientes en PDF generado.'
         },
         {
