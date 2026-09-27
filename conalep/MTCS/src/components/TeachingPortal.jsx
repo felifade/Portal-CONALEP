@@ -69,11 +69,13 @@ function getActiveRa(corte, raId) {
 function getWeekSessions(week) {
   if (!week) return [];
 
+  const weekHours = Array.isArray(week.hours) ? week.hours : [];
+
   if (week.sessions?.length) {
     return week.sessions.map((session) => ({
       ...session,
-      hours: session.hourIds
-        .map((hourId) => week.hours.find((hour) => hour.id === hourId))
+      hours: (session.hourIds || [])
+        .map((hourId) => weekHours.find((hour) => hour.id === hourId))
         .filter(Boolean),
     }));
   }
@@ -82,10 +84,10 @@ function getWeekSessions(week) {
     {
       id: 'S01',
       label: 'Sesión 01',
-      duration: `${week.hours.length} horas`,
-      title: week.title,
-      product: week.identification.product,
-      hours: week.hours,
+      duration: `${weekHours.length} horas`,
+      title: week.title || '',
+      product: week.identification?.product || '',
+      hours: weekHours,
     },
   ];
 }
