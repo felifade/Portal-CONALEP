@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTCS Semana 07 · Segundo Corte · Las Llaves del Reino: Permisos y Mínimo Privilegio</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #141b22;
+      --card-bg: #1c2430;
+      --card-alt: #16202c;
+      --border: #303e50;
+      --green: #00ff66;
+      --green-glow: rgba(0, 255, 102, 0.15);
+      --cyan: #00e5ff;
+      --cyan-glow: rgba(0, 229, 255, 0.15);
+      --gold: #ffb800;
+      --gold-glow: rgba(255, 184, 0, 0.15);
+      --red: #ff4757;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      overflow: hidden;
+    }
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: clamp(20px, 3.5vw, 44px);
+      padding-bottom: 80px;
+      background: var(--bg);
+      overflow-y: auto;
+    }
+    .slide.active { display: block; }
+    .slide::after {
+      content: "CONALEP Plantel Pachuca · MTCS-20 · Segundo Corte · Semana 07";
+      position: absolute;
+      right: 28px;
+      bottom: 20px;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .cover.active { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .kicker {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(38px, 5vw, 76px);
+      color: #ffffff;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    h1 span { color: var(--green); }
+    h2 {
+      font-size: clamp(22px, 2.6vw, 38px);
+      color: #ffffff;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .lead {
+      font-size: clamp(16px, 1.25vw, 20px);
+      color: var(--text-muted);
+      max-width: 950px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .meta-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .pill.green { color: var(--green); border-color: rgba(0, 255, 102, 0.4); background: var(--green-glow); }
+    .pill.cyan { color: var(--cyan); border-color: rgba(0, 229, 255, 0.4); background: var(--cyan-glow); }
+    .pill.gold { color: var(--gold); border-color: rgba(255, 184, 0, 0.4); background: var(--gold-glow); }
+
+    .grid { display: grid; gap: 18px; margin-top: 16px; }
+    .grid.two { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+    .grid.three { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+    .card.green { border-color: rgba(0, 255, 102, 0.4); }
+    .card.cyan { border-color: rgba(0, 229, 255, 0.4); }
+    .card.gold { border-color: rgba(255, 184, 0, 0.4); }
+    .card.red { border-color: rgba(255, 71, 87, 0.4); }
+    .card h3 {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* BLOQUE ACORDEÓN DOCENTE */
+    .acordeon-box {
+      background: rgba(255, 184, 0, 0.08);
+      border: 1px dashed var(--gold);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+    .acordeon-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .dictado-quote {
+      background: #0f151c;
+      border-left: 4px solid var(--green);
+      padding: 10px 14px;
+      font-style: italic;
+      color: #bfeadb;
+      font-size: 14px;
+      line-height: 1.45;
+      margin: 8px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .clave-box {
+      background: rgba(0, 229, 255, 0.08);
+      border-left: 4px solid var(--cyan);
+      padding: 8px 12px;
+      font-size: 13px;
+      color: #d8f5ff;
+      margin-top: 8px;
+      border-radius: 0 6px 6px 0;
+    }
+    .clave-box strong { color: var(--cyan); }
+
+    .cmd-box {
+      background: #06090d;
+      border: 1px solid #1f2a38;
+      border-radius: 8px;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--green);
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    .cmd-box span.comment { color: var(--text-muted); }
+    .cmd-box span.param { color: var(--cyan); }
+
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+    .steps li { display: flex; gap: 10px; align-items: flex-start; }
+    .steps li::before {
+      content: "▶";
+      color: var(--green);
+      font-size: 10px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* NAVEGACIÓN Y CONTROLES INFERIORES */
+    .nav-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--border);
+      color: #fff;
+    }
+    .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .nav-btn.primary {
+      background: var(--green-glow);
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .nav-btn.primary:hover:not(:disabled) {
+      background: var(--green);
+      color: #000;
+    }
+    .nav-btn.gold {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .slide-count {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <!-- SLIDE 1: PORTADA -->
+    <section class="slide cover active">
+      <p class="kicker">CONALEP Plantel Pachuca · Segundo Corte (RA 2.1)</p>
+      <h1>Las Llaves <span>del Reino</span></h1>
+      <p class="lead">Modelo de Mínimo Privilegio, Tríada CIA y Anatomía de Permisos en Linux. Aprende a auditar quién lee, quién modifica y quién ejecuta dentro de servidores telemáticos.</p>
+      <div class="meta-pills">
+        <span class="pill green">🛡️ Módulo: MTCS-20</span>
+        <span class="pill cyan">👥 Grupo: 501</span>
+        <span class="pill gold">📅 Semana 07 · 28 Sep - 02 Oct 2026</span>
+        <span class="pill">⏱️ 5 Horas Efectivas</span>
+      </div>
+      <div class="acordeon-box" style="max-width: 820px;">
+        <div class="acordeon-header">💡 Para el Docente (Analogía del Hotel)</div>
+        <p style="font-size: 13.5px; color: #e6edf3; line-height: 1.45;">
+          Un servidor es como un hotel: los huéspedes (usuarios normales) solo abren su cuarto; el personal de limpieza (grupo) abre varias recámaras para asear; y el Gerente General (<strong>root</strong>) tiene la llave maestra de todo el edificio. Esta semana enseñamos a ponerle cerrojo a las habitaciones para que ningún hacker entre por las puertas abiertas.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: RUTA DE LA SEMANA -->
+    <section class="slide">
+      <p class="kicker">Cronograma de la Semana 07</p>
+      <h2>Ruta de Sesiones y Sellos Oficiales</h2>
+      <div class="grid three">
+        <article class="card green">
+          <h3>🟢 Miércoles (1 Hora)</h3>
+          <p style="font-size: 13px; color: var(--green); font-weight: 700; margin-bottom: 8px;">Sesión 01 · Reactivación & CIA</p>
+          <ul class="steps">
+            <li><strong>Desafío Kahoot S06:</strong> Caso Tesla y Cloud Recon (20 reactivos).</li>
+            <li><strong>La Tríada CIA:</strong> Confidencialidad, Integridad y Disponibilidad.</li>
+            <li><strong>Principio Zero Trust:</strong> Mínimo privilegio requerido.</li>
+            <li>⭐ <strong>Sello 1:</strong> Registro de Kahoot + Tríada CIA en libreta.</li>
+          </ul>
+        </article>
+
+        <article class="card cyan">
+          <h3>🟡 Jueves (2 Horas)</h3>
+          <p style="font-size: 13px; color: var(--cyan); font-weight: 700; margin-bottom: 8px;">Sesión 02 · Identidad & Permisos rwx</p>
+          <ul class="steps">
+            <li><strong>Root vs Sudo:</strong> El peligro del superusuario (UID 0 vs UID 1000).</li>
+            <li><strong>Inspección:</strong> Comando <span class="cmd">whoami</span>, <span class="cmd">id</span> y <span class="cmd">/etc/passwd</span>.</li>
+            <li><strong>Anatomía rwx:</strong> Lectura (r), Escritura (w), Ejecución (x).</li>
+            <li>⭐ <strong>Sello 2:</strong> Anatomía /etc/passwd + 5 ejercicios rwx.</li>
+          </ul>
+        </article>
+
+        <article class="card gold">
+          <h3>🔵 Viernes (2 Horas)</h3>
+          <p style="font-size: 13px; color: var(--gold); font-weight: 700; margin-bottom: 8px;">Sesión 03 · Notación Octal & Blindaje</p>
+          <ul class="steps">
+            <li><strong>Matemática Octal:</strong> 4 (r) + 2 (w) + 1 (x) y comando <span class="cmd">chmod</span>.</li>
+            <li><strong>Los Códigos Clave:</strong> 777 (peligro), 755 (servidor), 644 (archivos).</li>
+            <li><strong>Laboratorio Hands-on:</strong> Misión "Blindando el Servidor".</li>
+            <li>⭐ <strong>Sello 3:</strong> Laboratorio resuelto y validado en terminal.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: HORA 1 (MIÉRCOLES) -->
+    <section class="slide">
+      <p class="kicker">Miércoles · Sesión 01 · 1 Hora</p>
+      <h2>Hora 1: Kahoot Semana 06 & La Tríada CIA</h2>
+
+      <div class="grid two">
+        <article class="card green">
+          <h3>🎮 1. Reactivación: Desafío Kahoot S06</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Evaluamos el Caso Tesla, terminal Google Cloud Shell y comandos periciales (20 reactivos, 20s c/u).</p>
+          <div class="cmd-box">
+            PIN Proyectado en Pantalla ➔ kahoot.it<br>
+            <span class="comment"># Al terminar, registrar podio y puntos en libreta</span>
+          </div>
+          <div class="clave-box">
+            <strong>Acordeón Docente:</strong> Felicita a los 3 primeros lugares. Pídeles que anoten: <em>"Puntaje Kahoot S06: ____ pts | Lugar: ____"</em>.
+          </div>
+        </article>
+
+        <article class="card cyan">
+          <h3>🛡️ 2. Fundamentos: La Tríada CIA</h3>
+          <div class="acordeon-box" style="margin: 0 0 10px 0;">
+            <div class="acordeon-header">🎙️ Texto para Dictar al Grupo</div>
+            <div class="dictado-quote">
+              "En ciberseguridad, toda protección gira en torno a tres pilares fundamentales:<br>
+              1. <strong>Confidencialidad:</strong> Solo personas autorizadas pueden ver los datos.<br>
+              2. <strong>Integridad:</strong> La información no puede ser alterada ni borrada sin permiso.<br>
+              3. <strong>Disponibilidad:</strong> Los servidores y servicios deben estar listos cuando se necesiten."
+            </div>
+          </div>
+          <div class="clave-box">
+            <strong>Ejemplos Rápidos:</strong> Robar contraseñas = rompe Confidencialidad. Cambiar una calificación en el sistema = rompe Integridad. Tirar el portal de la escuela = rompe Disponibilidad.
+          </div>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top: 14px; border-left: 4px solid var(--green);">
+        <p style="font-size: 13.5px;"><strong>📦 Producto a Calificar (Sello 1):</strong> Triángulo de la Tríada CIA dibujado en libreta con 1 ejemplo por arista + Registro del puntaje obtenido en Kahoot.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: HORA 2 (JUEVES) -->
+    <section class="slide">
+      <p class="kicker">Jueves · Sesión 02 · Hora 2</p>
+      <h2>Hora 2: ¿Quién manda aquí? Root vs Sudo</h2>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>👑 El Superusuario Supremo</h3>
+          <div class="acordeon-box" style="margin: 0 0 10px 0;">
+            <div class="acordeon-header">🎙️ Texto para Dictar</div>
+            <div class="dictado-quote">
+              "En Linux, 'root' es el Dios del sistema con UID 0. Puede borrar el disco duro completo sin pedir confirmación. Por seguridad, nunca se trabaja como root; usamos 'sudo' para pedir permiso temporal."
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted);">
+            En Windows sale una ventana que te dice "¿Desea permitir que esta aplicación haga cambios?". En Linux la terminal confía ciegamente en quien tenga permisos root.
+          </p>
+        </article>
+
+        <article class="card green">
+          <h3>💻 Práctica en Terminal (Google Cloud Shell)</h3>
+          <div class="cmd-box">
+            <span class="comment"># 1. Comprueba tu nombre de usuario</span><br>
+            whoami<br><br>
+            <span class="comment"># 2. Revisa tu credencial numérica (UID y GID)</span><br>
+            id<br><br>
+            <span class="comment"># 3. Inspecciona el registro oficial de cuentas</span><br>
+            head -n 5 /etc/passwd
+          </div>
+          <div class="clave-box">
+            <strong>Acordeón para ti:</strong> Explícales que <strong>UID 0</strong> es root, y los usuarios normales empiezan a partir de <strong>UID 1000</strong>. En <span style="font-family:var(--font-mono);">/etc/passwd</span> cada línea tiene 7 campos separados por dos puntos (<span style="font-family:var(--font-mono);">:</span>).
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: HORA 3 (JUEVES) -->
+    <section class="slide">
+      <p class="kicker">Jueves · Sesión 02 · Hora 3</p>
+      <h2>Hora 3: Anatomía de los Permisos (r, w, x)</h2>
+
+      <div class="grid two">
+        <article class="card cyan">
+          <h3>🔤 Las Tres Letras y los Tres Grupos</h3>
+          <ul class="steps" style="margin-bottom: 12px;">
+            <li><strong>r (Read / Lectura):</strong> Abre y lee el contenido.</li>
+            <li><strong>w (Write / Escritura):</strong> Modifica, sobrescribe o borra.</li>
+            <li><strong>x (Execute / Ejecución):</strong> Corre el archivo como aplicación.</li>
+          </ul>
+          <div class="cmd-box">
+            - r w x r - x r - -<br>
+            | [---] [---] [---]<br>
+            |   |     |     +-- Otros (o): solo leen (r--)<br>
+            |   |     +-------- Grupo (g): leen y ejecutan (r-x)<br>
+            |   +-------------- Dueño (u): control total (rwx)<br>
+            +------------------ Tipo: '-' archivo normal / 'd' carpeta
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>✍️ Ejercicio Guiado en Libreta</h3>
+          <div class="acordeon-box" style="margin: 0 0 10px 0;">
+            <div class="acordeon-header">💡 Clave de Respuestas para el Docente</div>
+            <p style="font-size: 13px; line-height: 1.45;">
+              1. <span style="font-family:var(--font-mono);">-rwxr-xr-x</span>: ¿Pueden otros borrarlo? ➔ <strong>NO</strong> (les falta la 'w').<br>
+              2. <span style="font-family:var(--font-mono);">-rw-------</span>: ¿Quién puede leerlo? ➔ <strong>Solo el Dueño</strong>.<br>
+              3. <span style="font-family:var(--font-mono);">-rwxrwxrwx</span>: ¿Qué riesgo tiene? ➔ <strong>Cualquiera puede modificarlo o destruirlo</strong>.
+            </p>
+          </div>
+          <div class="card" style="margin-top: 10px; border-left: 4px solid var(--cyan);">
+            <p style="font-size: 13.5px;"><strong>📦 Producto a Calificar (Sello 2):</strong> Anatomía de /etc/passwd copiada + Los 3 casos resueltos en libreta.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: HORA 4 (VIERNES) -->
+    <section class="slide">
+      <p class="kicker">Viernes · Sesión 03 · Hora 4</p>
+      <h2>Hora 4: La Matemática de Permisos (chmod Octal)</h2>
+
+      <div class="grid two">
+        <article class="card gold">
+          <h3>🔢 La Suma Secreta: 4 - 2 - 1</h3>
+          <div class="acordeon-box" style="margin: 0 0 10px 0;">
+            <div class="acordeon-header">🎙️ Texto para Dictar</div>
+            <div class="dictado-quote">
+              "Para cambiar permisos rápidamente, usamos números octales sumando valores:<br>
+              <strong>r = 4</strong> | <strong>w = 2</strong> | <strong>x = 1</strong> | <strong>- = 0</strong><br>
+              El comando para aplicar permisos se llama 'chmod' (Change Mode)."
+            </div>
+          </div>
+          <div class="cmd-box">
+            r w x = 4 + 2 + 1 = 7 (Todo)<br>
+            r w - = 4 + 2 + 0 = 6 (Lectura y Escritura)<br>
+            r - x = 4 + 0 + 1 = 5 (Lectura y Ejecución)<br>
+            r - - = 4 + 0 + 0 = 4 (Solo Lectura)
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>🏢 Los Códigos de la Industria Real</h3>
+          <ul class="steps" style="margin-bottom: 12px;">
+            <li><strong style="color:var(--red);">chmod 777:</strong> El pecado mortal. Jamás usarlo en servidores reales.</li>
+            <li><strong style="color:var(--green);">chmod 755:</strong> Estándar para carpetas y páginas web públicas.</li>
+            <li><strong style="color:var(--cyan);">chmod 644:</strong> Estándar para archivos de texto y documentos.</li>
+            <li><strong style="color:var(--gold);">chmod 600 / 700:</strong> Modo blindado (solo el dueño puede acceder).</li>
+          </ul>
+          <div class="clave-box">
+            <strong>Pregunta al Grupo:</strong> ¿Qué número es <span style="font-family:var(--font-mono);">-rwxr-xr--</span>?<br>
+            <em>Respuesta:</em> Dueño (7) Grupo (5) Otros (4) ➔ <strong>754</strong>.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: HORA 5 (VIERNES) -->
+    <section class="slide">
+      <p class="kicker">Viernes · Sesión 03 · Hora 5</p>
+      <h2>Hora 5: Laboratorio "Blindando el Servidor"</h2>
+
+      <div class="grid two">
+        <article class="card red">
+          <h3>🚨 El Servidor Vulnerable (Simulación)</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Un administrador novato dejó archivos confidenciales expuestos al público con 777:</p>
+          <div class="cmd-box">
+            mkdir -p lab_semana07 && cd lab_semana07<br>
+            touch clave_servidor.key base_datos.sql web.html<br>
+            chmod 777 *<br>
+            ls -l
+          </div>
+          <div class="acordeon-box">
+            <div class="acordeon-header">💡 Para el Docente</div>
+            <p style="font-size: 13px; color: #fff;">Los alumnos verán los archivos en verde brillante (alerta de peligro). Su misión es blindarlos uno por uno.</p>
+          </div>
+        </article>
+
+        <article class="card green">
+          <h3>🛡️ Misión de Respuesta (Blue Team)</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Comandos exactos que los alumnos deben ejecutar para blindar el servidor:</p>
+          <div class="cmd-box">
+            <span class="comment"># 1. Clave secreta (SOLO el dueño puede leerla)</span><br>
+            chmod 600 clave_servidor.key<br><br>
+            <span class="comment"># 2. Base de datos (Dueño escribe, grupo lee)</span><br>
+            chmod 640 base_datos.sql<br><br>
+            <span class="comment"># 3. Web pública (Todos leen, solo dueño escribe)</span><br>
+            chmod 644 web.html<br><br>
+            <span class="comment"># 4. Validar el blindaje</span><br>
+            ls -l
+          </div>
+          <div class="clave-box">
+            <strong>📦 Producto (Sello 3):</strong> Terminal con <span style="font-family:var(--font-mono);">ls -l</span> mostrando los archivos corregidos.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: RESUMEN DE SELLOS -->
+    <section class="slide">
+      <p class="kicker">Evaluación Formativa · Semana 07</p>
+      <h2>Lista de Sellos Semanales (Libreta & Terminal)</h2>
+      <div class="grid two">
+        <article class="card green">
+          <h3>📋 Sellos a Firmar en Libreta</h3>
+          <ul class="steps">
+            <li><strong>Sello 1 (Miércoles):</strong> Registro de Kahoot Semana 06 + Esquema de la Tríada CIA.</li>
+            <li><strong>Sello 2 (Jueves):</strong> Diagrama de /etc/passwd con flechas + 3 ejercicios de lectura rwx resueltos.</li>
+            <li><strong>Sello 3 (Viernes):</strong> Cálculo matemático de chmod + Tabla de antes/después del laboratorio "Blindando el Servidor".</li>
+          </ul>
+        </article>
+
+        <article class="card cyan">
+          <h3>🌐 Entrega en Google Classroom (Código: j6bnku3j)</h3>
+          <ul class="steps">
+            <li>Captura de pantalla de la terminal ejecutando <span class="cmd">ls -l lab_semana07</span> con los permisos blindados.</li>
+            <li>Conclusión breve de 3 renglones: <em>"¿Por qué el permiso 777 es considerado una brecha grave de seguridad?"</em></li>
+            <li>Fecha límite de entrega: <strong>Domingo 04 de Octubre</strong> (23:59 hrs).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <footer class="nav-bar">
+    <div class="nav-left">
+      <button class="nav-btn" id="prevBtn">◀ Anterior</button>
+      <button class="nav-btn primary" id="nextBtn">Siguiente ▶</button>
+      <span class="slide-count" id="slideCount">1 / 8</span>
+    </div>
+    <div class="nav-right">
+      <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">[Espacio] o [Flechas] para navegar</span>
+    </div>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideCount = document.getElementById('slideCount');
+    let current = 0;
+
+    function update() {
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+      slideCount.textContent = `${current + 1} / ${slides.length}`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === slides.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) { current--; update(); } });
+    nextBtn.addEventListener('click', () => { if (current < slides.length - 1) { current++; update(); } });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        if (current < slides.length - 1) { current++; update(); }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        if (current > 0) { current--; update(); }
+      }
+    });
+    update();
+  </script>
+</body>
+</html>

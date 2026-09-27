@@ -125,8 +125,22 @@ function PinModal({ isOpen, onClose, onSuccess }) {
   );
 }
 
+function getDefaultActiveWeek() {
+  try {
+    const weekKeys = Object.keys(teachingPlan.weeks);
+    if (!weekKeys.length) return 'W00';
+    // Buscar la última semana marcada como 'active'
+    const activeWeeks = weekKeys.filter(k => teachingPlan.weeks[k]?.status === 'active');
+    if (activeWeeks.length) return activeWeeks[activeWeeks.length - 1];
+    // O retornar la última semana disponible
+    return weekKeys[weekKeys.length - 1];
+  } catch (e) {
+    return 'W07';
+  }
+}
+
 const TeachingPortal = () => {
-  const [activeWeek, setActiveWeek] = useState('W04');
+  const [activeWeek, setActiveWeek] = useState(getDefaultActiveWeek);
   const [activeSession, setActiveSession] = useState('S1');
   const [zoomedImg, setZoomedImg] = useState(null);
 
