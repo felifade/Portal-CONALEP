@@ -70,32 +70,39 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
 
 1️⃣ Kahoot de Retención: Desafío grupal de 20 preguntas técnicas sobre combinación, fórmulas y ética digital.
 2️⃣ Revisión Docente: Registro de calificaciones y firma de actas de acreditación del RA 2.1.
-3️⃣ Regularización: Atención a alumnos con casos especiales o pendientes en la entrega de su carpeta.`,closure:`RA 2.1 acreditado al 100%, evidencias archivadas y sellos asentados.`}]},W07:{id:`W07`,label:`Semana 07`,title:`Normalización de Datos y Fusión Masiva en la Nube`,dates:`28 Sep - 02 Oct`,status:`active`,presentationUrl:`./html/W07.html`,summary:`Implementación práctica del Método 1 (Google Docs + Sheets + Autocrat), normalización de datos con fórmula =SI y generación de +30 PDFs en Drive.`,expectedProduct:`Directorio finalizado con fórmula =SI y carpeta de Drive con más de 30 expedientes individuales en PDF.`,notices:[`Materialización práctica de la investigación realizada en la Semana 06.`,`Se completará el Directorio del Grupo 301 con calificaciones y la fórmula condicional =SI.`,`Ejecución masiva con Autocrat y auditoría de permisos públicos en Google Drive.`],sessions:[{id:`S1`,label:`Sesión 01`,subtitle:`Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva`,unlockDate:`2026-09-28`,unlockLabel:`Lunes 28 de Septiembre, 15:00 hrs`,start:`¿Cómo automatizamos la decisión de quién aprueba o reprueba a partir de sus notas?`,dictation:`Antes de ejecutar un proceso de automatización por lotes, es imperativo garantizar la integridad y completitud de la base de datos de origen. La función lógica condicional permite que la hoja de cálculo evalúe parámetros cuantitativos como el promedio y asigne de forma autónoma una categoría cualitativa, eliminando el error humano.`,learningResult:`Completar el directorio con la fórmula =SI y generar +30 PDFs con Autocrat.`,identification:{topic:`Fórmula =SI & Autocrat`,evidence:`Directorio + Fusión Masiva`,organization:`Individual`,location:`Laboratorio`,time:`4 hrs`},infographicTitle:`Normalización y Fusión Masiva`,infographicSteps:[{title:`1. Audita el Directorio`,desc:`Verifica que no haya celdas vacías en ninguna columna.`},{title:`2. Aplica la Fórmula =SI`,desc:`Asigna automáticamente Aprobado o Reprobado según el promedio.`},{title:`3. Enlaza con Autocrat`,desc:`Conecta la plantilla de Docs con los datos de Sheets.`},{title:`4. Genera tus PDFs`,desc:`Ejecuta la combinación por lotes en Google Drive.`}],development:`Metodología: Guía Docente (2-3 min) + Retos Autónomos en Máquinas (10-15 min)
+3️⃣ Regularización: Atención a alumnos con casos especiales o pendientes en la entrega de su carpeta.`,closure:`RA 2.1 acreditado al 100%, evidencias archivadas y sellos asentados.`}]},W07:{id:`W07`,label:`Semana 07`,title:`Normalización de Datos y Fusión Masiva en la Nube`,dates:`28 Sep - 02 Oct`,status:`active`,presentationUrl:`./html/W07.html`,summary:`Implementación práctica del Método 1 (Google Docs + Sheets + Autocrat), normalización de datos con fórmula =SI y generación de +30 PDFs en Drive.`,expectedProduct:`Directorio finalizado con fórmula =SI y carpeta de Drive con más de 30 expedientes individuales en PDF.`,notices:[`Materialización práctica de la investigación realizada en la Semana 06.`,`Se completará el Directorio del Grupo 301 con calificaciones y la fórmula condicional =SI.`,`Ejecución masiva con Autocrat y auditoría de permisos públicos en Google Drive.`],sessions:[{id:`S1`,label:`Sesión 01`,subtitle:`Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva`,unlockDate:`2026-09-28`,unlockLabel:`Lunes 28 de Septiembre, 15:00 hrs`,start:`¿Cómo automatizamos la decisión de quién aprueba o reprueba a partir de sus notas?`,dictation:`Antes de ejecutar un proceso de automatización por lotes, es imperativo garantizar la integridad y completitud de la base de datos de origen. La función lógica condicional permite que la hoja de cálculo evalúe parámetros cuantitativos como el promedio y asigne de forma autónoma una categoría cualitativa, eliminando el error humano.`,learningResult:`Completar el directorio con la fórmula =SI y generar +30 PDFs con Autocrat.`,identification:{topic:`Fórmula =SI & Autocrat`,evidence:`Directorio + Fusión Masiva`,organization:`Individual`,location:`Laboratorio`,time:`4 hrs`},infographicTitle:`Normalización y Fusión Masiva`,infographicSteps:[{title:`1. Audita el Directorio`,desc:`Verifica que no haya celdas vacías en ninguna columna.`},{title:`2. Aplica la Fórmula =SI`,desc:`Asigna automáticamente Aprobado o Reprobado según el promedio.`},{title:`3. Enlaza con Autocrat`,desc:`Conecta la plantilla de Docs con los datos de Sheets.`},{title:`4. Genera tus PDFs`,desc:`Ejecuta la combinación por lotes en Google Drive.`}],development:`🎙️ GUION DIDÁCTICO Y CRONOGRAMA OPERATIVO (LUNES · 4 HORAS)
+Metodología: Demostración Breve (2-3 min) + Reto Autónomo en PC (10-15 min) + Auditoría Focalizada
 
-⏱️ HORA 1 (50m) · Kahoot de Evaluación Inicial:
-• [0-10m] Proyección de PIN de Kahoot (20 preguntas sobre correspondencia, Docs y Sheets).
-• [10-35m] Conducción de la prueba técnica en dispositivos.
-• [35-50m] Retroalimentación en plenaria y registro de puntaje en libreta. (Sello 1)
+⏱️ HORA 1 (50 min) · Evaluación Inicial (Kahoot S06) y Encuadre:
+• [0-10m] Frase Gancho: "Si tuvieran que enviar 50,000 cartas de aceptación a la UNAM este viernes, ¿las harían a mano o con un algoritmo de 3 clics?"
+  💡 Dato curioso: La correspondencia masiva nació en 1888 con planchas mecánicas en Addressograph; hoy la haremos en segundos en la nube.
+• [10-35m] Proyección de PIN de Kahoot (20 preguntas técnicas: Docs, Sheets, Autocrat, sintaxis << >>, borde 0 pt).
+• [35-50m] Retroalimentación grupal y registro del puntaje obtenido en libreta. (Sello 1)
 
-⏱️ HORA 2 (50m) · Auditoría Forense y Normalización del Directorio:
-• [0-5m] Demo 1 (3 min): Detección de celdas vacías y sintaxis de =NOMPROPIO.
+⏱️ HORA 2 (50 min) · Auditoría Forense y Normalización del Directorio:
+• [0-5m] Frase: "En bases de datos existe la regla GIGO: si entra basura, salen 30 documentos basura en PDF."
+  💡 Anécdota: En 2019 una aerolínea imprimió 2,000 pases con 'NULL' por celdas vacías y perdió millones. Hoy seremos cirujanos de datos.
+  🖥️ Demo 1 (3 min): Detección de campos nulos y sintaxis de =NOMPROPIO().
 • [5-20m] RETO 1 (15 min en PC): Auditar Directorio_Grupo_301, corregir celdas vacías y normalizar nombres en mayúsculas/minúsculas.
-• [20-25m] Demo 2 (2 min): Verificación de calificaciones numéricas en la columna Promedio.
+• [20-25m] Demo 2 (2 min): Verificación de calificaciones numéricas en la columna Promedio (valores con punto decimal).
 • [25-40m] RETO 2 (15 min en PC): Completar el 100% de calificaciones numéricas del grupo (cero faltantes).
-• [40-50m] Revisión y resolución de dudas entre filas.
+• [40-50m] Auditoría rápida docente entre filas y resolución de dudas.
 
-⏱️ HORA 3 (50m) · Lógica Condicional (=SI) y Semáforos:
-• [0-5m] Demo 3 (3 min): Sintaxis =SI(Promedio>=7.0, "Aprobado", "Reprobado").
-• [5-20m] RETO 3 (15 min en PC): Insertar columna Estatus, programar la fórmula =SI y arrastrar a todo el grupo.
+⏱️ HORA 3 (50 min) · Lógica Condicional (=SI) y Semáforos Visuales:
+• [0-5m] Frase: "Le daremos cerebro a la hoja de cálculo: la computadora leerá la nota y decidirá sola quién aprueba sin intervención humana."
+  💡 Dato filosófico: George Boole formuló la lógica condicional en 1847; toda la IA y sistemas bancarios del mundo funcionan sobre este principio.
+  🖥️ Demo 3 (3 min): Sintaxis =SI(Promedio>=7.0, "Aprobado", "Reprobado").
+• [5-20m] RETO 3 (15 min en PC): Insertar columna Estatus, programar la fórmula =SI y arrastrar a los 30+ alumnos.
 • [20-25m] Demo 4 (2 min): Formato Condicional automático (verde para Aprobado, rojo para Reprobado).
 • [25-40m] RETO 4 (15 min en PC): Aplicar semaforización de colores en toda la columna Estatus.
-• [40-50m] Revisión docente y firma: Directorio evaluado y semaforizado al 100%. (Sello 2)
+• [40-50m] Revisión y firma de avance: Directorio evaluado y semaforizado al 100%. (Sello 2)
 
-⏱️ HORA 4 (50m) · Enlace Mapeado y Fusión Masiva con Autocrat:
-• [0-5m] Demo 5 (3 min): Apertura de Autocrat y vinculación con Plantilla_Expediente_Grupo301.
+⏱️ HORA 4 (50 min) · Enlace Mapeado y Fusión Masiva con Autocrat:
+• [0-5m] Frase: "Llegó el momento de presionar el botón rojo: verán a los servidores de Google generar +30 PDFs sin tocar el teclado."
+  🖥️ Demo 5 (3 min): Apertura de Autocrat y vinculación con Plantilla_Expediente_Grupo301.
 • [5-20m] RETO 5 (15 min en PC): Mapear estrictamente las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
 • [20-25m] Demo 6 (2 min): Parámetros de salida en modo Multiple Output (PDF).
-• [25-45m] RETO 6 (20 min en PC): Ejecutar Run Job, supervisar la generación en Google Drive y corregir incidencias.
+• [25-45m] RETO 6 (20 min en PC): Ejecutar Run Job, supervisar la generación en Google Drive y corregir incidencias de etiquetas rotas.
 • [45-50m] Verificación de la carpeta en Drive con los más de 30 PDFs generados en vivo. (Sello 3)`,closure:`Base de datos normalizada con fórmulas y lote de expedientes en PDF generado.`},{id:`S2`,label:`Sesión 02`,subtitle:`Miércoles (1 hr) · Auditoría Cruzada`,unlockDate:`2026-09-30`,unlockLabel:`Miércoles 30 de Septiembre, 15:00 hrs`,start:`¿Tus documentos generados cumplen con todos los estándares profesionales?`,dictation:`Un flujo automatizado no concluye con la ejecución del script; requiere una fase crítica de control de calidad. Al comparar el método en la nube frente a los métodos locales investigados, analizaremos ventajas operativas en términos de colaboración, almacenamiento centralizado y accesibilidad.`,learningResult:`Auditar entre pares 3 documentos generados al azar.`,identification:{topic:`Control de Calidad`,evidence:`Auditoría entre Pares`,organization:`Parejas`,location:`Laboratorio`,time:`1 hr`},infographicTitle:`Auditoría y Control de Calidad`,infographicSteps:[{title:`1. Intercambio`,desc:`Audita 3 PDFs generados por un compañero.`},{title:`2. Checklist Visual`,desc:`Verifica que no haya etiquetas sin sustituir.`},{title:`3. Corrección`,desc:`Reejecuta la fusión si se detectaron desajustes.`}],development:`Instrucciones de la Sesión:
 
 1️⃣ Auditoría Cruzada: Abrir 3 PDFs de un compañero y revisar márgenes, sustitución y que quepa en 1 hoja.
