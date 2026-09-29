@@ -608,33 +608,32 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
     'W07': {
       id: 'W07',
       label: 'Semana 07',
-      title: 'Normalización, Cortes, Semáforo Tricolor y Fusión Masiva',
+      title: 'Investigación de Gráficas, 3 Cortes, Semáforo Tricolor y Fusión Masiva',
       dates: '28 Sep - 02 Oct',
       status: 'active',
       presentationUrl: './html/W07.html',
-      summary: 'Normalización forense en Google Sheets, consolidación de los 3 cortes de evaluación, formato condicional tricolor (<60, 60-80, >80), investigación de tipos de gráficas y fusión masiva con Autocrat.',
-      expectedProduct: 'Directorio normalizado con fórmula de 3 cortes y semáforo tricolor, carpeta en Drive con +30 expedientes en PDF y entrega en Classroom.',
+      summary: 'Investigación en computadora de tipos de gráficas estadísticas, consolidación de los 3 cortes de evaluación, formato condicional tricolor (<60, 60-80, >80), normalización con =NOMPROPIO y fusión masiva con Autocrat.',
+      expectedProduct: 'Directorio con fórmula de 3 cortes y semáforo tricolor, carpeta en Drive con +30 expedientes en PDF y entrega en Classroom.',
       notices: [
-        'Lunes: Normalización forense, fórmula de suma de los 3 cortes y formato condicional tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
-        'Tarea en libreta: Investigación de 5 tipos de gráficas estadísticas (barras, columnas, pastel, histograma, líneas) con definición, uso e imagen.',
-        'Miércoles: Fusión masiva con Autocrat (+30 PDFs en Drive), permisos públicos y entrega oficial en Classroom.',
+        'Lunes: Kahoot inicial, investigación en computadora de 5 tipos de gráficas, fórmula de suma de los 3 cortes y semáforo tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
+        'Miércoles: Normalización forense con =NOMPROPIO(), fusión masiva con Autocrat (+30 PDFs en Drive), permisos públicos y entrega oficial en Classroom.',
         'Jueves: Sin actividades presenciales por comisión oficial sindical del docente.'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Normalización, Fórmulas, Semáforo Tricolor & Gráficas',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Gráficas en PC, Fórmulas de Cortes & Semáforo Tricolor',
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
-          start: '¿Cómo estructurar y semaforizar una base de datos para evaluar automáticamente el desempeño?',
-          dictation: 'La normalización y consistencia de los datos es la base de todo análisis cuantitativo. La estructura de evaluación en tres cortes acumulativos permite determinar la calificación total mediante fórmulas matriciales, mientras que el formato condicional tricolor (<60 rojo, 60-80 amarillo, >80 verde) proporciona alertas visuales instantáneas del estado académico del grupo.',
-          learningResult: 'Normalizar el directorio, calcular el total de los 3 cortes, aplicar semaforización tricolor y registrar la investigación de los 5 tipos de gráficas.',
-          identification: { topic: 'Fórmulas, Cortes & Semáforo', evidence: 'Directorio Normalizado + Investigación Gráficas', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
-          infographicTitle: 'Normalización y Análisis de Datos',
+          start: '¿Cómo estructurar datos y visualizarlos gráficamente para evaluar el desempeño académico?',
+          dictation: 'La representación gráfica y la parametrización cuantitativa son esenciales para la toma de decisiones. Mientras que los 5 tipos esenciales de gráficas permiten comunicar tendencias y distribuciones, la estructura de evaluación en tres cortes acumulativos permite determinar la calificación total mediante fórmulas matriciales (=SUMA) y alertas visuales tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
+          learningResult: 'Investigar en computadora 5 tipos de gráficas, calcular el total de los 3 cortes y aplicar semaforización tricolor.',
+          identification: { topic: 'Gráficas, Cortes & Semáforo', evidence: 'Investigación PC + Hoja Semáforo Tricolor', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Visualización, Fórmulas y Semáforos',
           infographicSteps: [
-            { title: '1. Normaliza Datos', desc: 'Aplica =NOMPROPIO y elimina celdas vacías.' },
-            { title: '2. Suma de 3 Cortes', desc: 'Calcula el total acumulado con la fórmula =SUMA(Corte1:Corte3).' },
-            { title: '3. Semáforo Tricolor', desc: 'Aplica formato condicional: <60 rojo, 60-80 amarillo, >80 verde.' },
-            { title: '4. Tarea: 5 Gráficas', desc: 'Investiga en libreta barras, columnas, pastel, histograma y líneas con definición, uso e imagen.' }
+            { title: '1. Kahoot Inicial', desc: 'Evaluación de correspondencia y maquetación de plantillas.' },
+            { title: '2. Investigación en PC', desc: 'Investiga barras, columnas, pastel, histograma y líneas con definición, uso e imagen.' },
+            { title: '3. Suma de 3 Cortes', desc: 'Calcula el total acumulado con la fórmula =SUMA(Corte1:Corte3).' },
+            { title: '4. Semáforo Tricolor', desc: 'Aplica formato condicional: <60 rojo, 60-80 amarillo, >80 verde.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
 Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
@@ -658,18 +657,27 @@ Resolver la prueba de 20 preguntas con rigor técnico. Podio a los 3 primeros lu
 Dictar en libreta: "Evaluación diagnóstica Semana 07: Convalida los fundamentos de combinación de correspondencia, métodos ofimáticos y maquetación de plantillas." Anotar puntaje. 👉 SELLO 1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · Auditoría Forense y Normalización del Directorio
+⏱️ HORA 2 (50 min) · Investigación Técnica en Computadora (5 Tipos de Gráficas)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"En informática forense existe la regla GIGO: Garbage In, Garbage Out. Si a un sistema le metes datos basura, te va a escupir 30 documentos basura en PDF. Si el nombre de Juan está todo en minúsculas o a María le falta la colonia, el expediente oficial saldrá incompleto y no tendrá validez legal."
+"En la toma de decisiones empresariales nadie lee sábanas de números crudos. Si le presentan una tabla de 500 filas al director general, los despide; si le presentan una gráfica visual de impacto, autoriza el presupuesto en 2 minutos. Hoy investigaremos en sus computadoras los 5 pilares de la visualización de datos."
 
-💡 ANÉCDOTA DEL MUNDO REAL:
-En 2019 una aerolínea británica imprimió 2,000 pases con el texto 'NULL' en el asiento por culpa de celdas vacías. Los pasajeros no pudieron volar y la empresa perdió millones en demandas. Hoy seremos cirujanos de datos.
+💡 DATO HISTÓRICO:
+En 1858 Florence Nightingale salvó miles de vidas al inventar una gráfica circular (diagrama de área polar) que convenció al parlamento británico de invertir en sanidad militar.
 
-🖥️ DEMO 1 (3 min): Detección de campos nulos y sintaxis de =NOMPROPIO() para homogeneizar nombres.
-💻 RETO 1 (15 min en PC): Auditar Directorio_Grupo_301, quitar celdas vacías y normalizar nombres en mayúsculas/minúsculas.
+🖥️ DEMO EN CAÑÓN (3 min):
+Estructura obligatoria para cada una de las 5 gráficas:
+1) Gráfica de Barras (categorías horizontales)
+2) Gráfica de Columnas (comparación vertical)
+3) Gráfica de Pastel / Circular (proporciones de un 100%)
+4) Histograma (distribución de frecuencias y rangos)
+5) Gráfica de Líneas (tendencias continuas)
+Requisitos: Definición técnica, casos de uso empresarial/escolar e imagen ilustrativa.
 
-🏷️ EVIDENCIA: Hoja de cálculo limpia, sin celdas vacías y con tipografía uniforme.
+💻 RETO 1 (35 min en PC):
+Investigar en el navegador de la computadora los 5 tipos de gráficas estadísticas recopilando definición, aplicación práctica e imagen de ejemplo.
+
+🏷️ EVIDENCIA: Pantalla de la computadora con las 5 gráficas investigadas y documentadas.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 3 (50 min) · Estructura de los 3 Cortes y Fórmula de Suma Total
@@ -684,7 +692,7 @@ En 1979 VisiCalc transformó la economía mundial al permitir que al modificar u
 💻 RETO 3 (15 min en PC): Integrar columnas de cortes, capturar valores de 0 a 100, programar =SUMA() y arrastrar verticalmente a todo el grupo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (50 min) · Formato Condicional Tricolor y Asignación de Gráficas
+⏱️ HORA 4 (50 min) · Formato Condicional Tricolor
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
 "En la industria y en las direcciones corporativas los directores no tienen tiempo de leer 500 números: necesitan tomar decisiones en 3 segundos a golpe de vista. Hoy convertiremos su hoja de cálculo en un tablero de control con semáforos ejecutivos tricolor."
@@ -699,29 +707,21 @@ Menú Formato ➔ Formato condicional:
 Aplicar las 3 reglas condicionales a la columna total y realizar prueba reactiva de cambio de notas.
 
 🏷️ EVIDENCIA Y SELLO:
-Pantalla con hoja normalizada, fórmula de cortes calculada y columna semaforizada en los 3 colores. 👉 SELLO 2
-
-📝 ASIGNACIÓN TÉCNICA PARA CASA (INVESTIGACIÓN EN LIBRETA):
-Dictado en libreta de los 5 tipos de gráficas estadísticas en hojas de cálculo:
-1. Gráfica de Barras
-2. Gráfica de Columnas
-3. Gráfica de Pastel / Circular
-4. Histograma
-5. Gráfica de Líneas
-Para cada una registrar: 1) Definición técnica, 2) Dónde y para qué se utiliza, 3) Imagen ilustrativa pegada o dibujada. Revisión el miércoles.`,
-          closure: 'Directorio normalizado, fórmula de suma de cortes activa, semáforo tricolor configurado y tarea de gráficas asignada.'
+Pantalla con hoja de cálculo, fórmulas de cortes calculadas y columna semaforizada en los 3 colores. 👉 SELLO 2
+Aviso docente: La función =NOMPROPIO() la modelaremos el miércoles en la Hora 5 antes de presionar el botón de Autocrat.`,
+          closure: 'Investigación de gráficas concluida en PC, fórmula de suma de cortes activa y semáforo tricolor configurado.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Gráficas, Fusión Autocrat & Entrega Classroom',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Normalización =NOMPROPIO, Autocrat & Classroom',
           unlockDate: '2026-09-30',
           unlockLabel: 'Miércoles 30 de Septiembre, 15:00 hrs',
-          start: '¿Cómo convertir tus datos y calificaciones en documentos oficiales individuales en la nube?',
-          dictation: 'La combinación masiva de correspondencia en la nube mediante Autocrat permite vincular bases de datos dinámicas con plantillas maquetadas en Google Docs, generando en segundos decenas de expedientes en PDF con permisos de consulta corporativos.',
-          learningResult: 'Revisar gráficas, vincular plantilla, ejecutar Autocrat (+30 PDFs), configurar permisos públicos en Google Drive y entregar bitácora en Classroom.',
-          identification: { topic: 'Autocrat & Permisos Nube', evidence: '+30 PDFs en Drive + Entrega Classroom', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Fusión Masiva y Entrega Digital',
+          start: '¿Cómo normalizar nombres desordenados y fusionar datos en expedientes oficiales en PDF?',
+          dictation: 'La función =NOMPROPIO garantiza que los nombres y apellidos cumplan con la ortotipografía formal antes de ser inyectados en documentos legales. La combinación masiva de correspondencia mediante Autocrat vincula estas bases de datos saneadas con plantillas de Google Docs para generar en segundos decenas de expedientes en PDF con permisos corporativos en la nube.',
+          learningResult: 'Aplicar =NOMPROPIO(), vincular plantilla, ejecutar Autocrat (+30 PDFs), configurar permisos públicos en Google Drive y entregar bitácora en Classroom.',
+          identification: { topic: 'NOMPROPIO, Autocrat & Nube', evidence: '+30 PDFs en Drive + Entrega Classroom', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Normalización, Fusión Masiva y Entrega',
           infographicSteps: [
-            { title: '1. Revisión Gráficas', desc: 'Cotejo inicial de la investigación de gráficas.' },
+            { title: '1. Función =NOMPROPIO', desc: 'Convierte textos desordenados a mayúscula inicial limpia.' },
             { title: '2. Fusión Autocrat', desc: 'Mapea etiquetas y genera los +30 PDFs en Drive.' },
             { title: '3. Permisos Públicos', desc: 'Configura acceso Lector y prueba en modo incógnito.' },
             { title: '4. Entrega Classroom', desc: 'Adjunta bitácora con capturas y link público verificado.' }
@@ -730,26 +730,29 @@ Para cada una registrar: 1) Definición técnica, 2) Dónde y para qué se utili
 Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 5 (50 min) · Revisión de Gráficas y Fusión Masiva con Autocrat
+⏱️ HORA 5 (50 min) · Normalización =NOMPROPIO() y Fusión Masiva Autocrat
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Apertura al entrar):
-"Muchachos, el lunes normalizamos datos, calculamos los cortes y semaforizamos el grupo. Tienen en su libreta la investigación de cómo las gráficas resumen datos masivos. Hoy ejecutaremos el motor de combinación: vincularemos su hoja con la plantilla maestra de Google Docs y Autocrat generará más de 30 expedientes individuales en PDF en su carpeta de Google Drive."
+"Muchachos, el lunes calcularon los 3 cortes, semaforizaron el grupo e investigaron las 5 gráficas en la computadora. Pero antes de fusionar los datos a PDF, necesitamos aplicar la regla forense: 'Garbage In, Garbage Out'. Si Juan escribió su nombre en minúsculas, el título oficial saldrá viciado. En esta hora aprenderemos la función =NOMPROPIO() para dejar los nombres impecables y luego Autocrat generará más de 30 expedientes individuales en PDF en su Google Drive."
 
-🖥️ DEMO EN CAÑÓN (3 min):
+🖥️ DEMO 1 EN CAÑÓN (3 min):
+En Google Sheets, modelar la sintaxis: =NOMPROPIO(A2) para convertir textos desordenados a mayúscula inicial y minúsculas homogéneas. Pegar como valores.
+
+🖥️ DEMO 2 EN CAÑÓN (3 min):
 1. Abrir Extensiones ➔ Autocrat ➔ Launch.
 2. Nombrar el Job: Expedientes_Oficiales_Grupo301.
 3. Vincular Plantilla_Expediente_Grupo301 en Google Docs.
 4. Mapear etiquetas maestras (<<Nombre>>, <<Apellidos>>, <<Cortes>>, <<Total>>, <<Estatus>>).
 5. Configurar modo Multiple output mode (PDF) y carpeta de salida.
 
-💻 RETO 5 (20 min en PC):
-Mapear campos en Autocrat, presionar Run Job y supervisar la generación en Google Drive de los +30 expedientes individuales en PDF.
+💻 RETO 5 (25 min en PC):
+Aplicar =NOMPROPIO() en columnas de nombres, mapear campos en Autocrat, presionar Run Job y supervisar la generación de los +30 expedientes individuales en PDF en Google Drive.
 
 💻 RETO 6 (10 min en PC):
 Auditoría express entre pares: abrir 2 PDFs al azar de un compañero y verificar que no existan etiquetas rotas (<< >>) y el ajuste estricto a 1 sola página.
 
 🏷️ EVIDENCIA Y SELLO:
-Carpeta de Drive con los 30+ PDFs generados y libreta con la investigación de gráficas revisada. 👉 SELLO 3
+Base de datos con nombres normalizados y carpeta de Drive con los 30+ PDFs generados. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 6 (50 min) · Seguridad Nube y Entrega Oficial en Classroom
@@ -772,7 +775,7 @@ Pegar el enlace público verificado en la tarea asignada de Google Classroom, ad
 🏷️ EVIDENCIA Y SELLO:
 Pantalla de Google Classroom con la tarea entregada y enlace verificado. 👉 SELLO 4
 Aviso docente: Mañana jueves no hay sesión presencial por comisión sindical; el viernes cerramos con el Kahoot final y calificaciones oficiales.`,
-          closure: 'Expedientes generados con Autocrat, carpeta pública verificada y tarea entregada en Classroom.'
+          closure: 'Nombres normalizados con =NOMPROPIO, expedientes generados con Autocrat, carpeta pública verificada y tarea entregada en Classroom.'
         },
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Sin Actividades (Permiso Sindical)',
@@ -805,7 +808,7 @@ Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora 
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 2 de Octubre, 15:00 hrs',
           start: '¿Demostraste el dominio total de la automatización masiva documental?',
-          dictation: 'La evaluación sumativa con Kahoot integra el dominio de correspondencia masiva, saneamiento forense de datos, programación de fórmulas, semaforización tricolor, interpretación de gráficas y distribución segura en la nube, consolidando las competencias del Resultado de Aprendizaje 2.1.',
+          dictation: 'La evaluación sumativa con Kahoot integra el dominio de correspondencia masiva, saneamiento forense de datos con =NOMPROPIO, programación de fórmulas de cortes, semaforización tricolor, interpretación de gráficas y distribución segura en la nube, consolidando las competencias del Resultado de Aprendizaje 2.1.',
           learningResult: 'Resolver la evaluación sumativa de 20 reactivos, cotejar sellos y recibir calificación del RA 2.1.',
           identification: { topic: 'Evaluación Sumativa RA 2.1', evidence: 'Kahoot + 4 Sellos Acumulados', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Evaluación y Calificaciones Oficiales',
