@@ -608,32 +608,33 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
     'W07': {
       id: 'W07',
       label: 'Semana 07',
-      title: 'Normalización de Datos y Fusión Masiva en la Nube',
+      title: 'Normalización, Cortes, Semáforo Tricolor y Fusión Masiva',
       dates: '28 Sep - 02 Oct',
       status: 'active',
       presentationUrl: './html/W07.html',
-      summary: 'Implementación práctica del Método 1 (Google Docs + Sheets + Autocrat), normalización de datos con fórmula =SI y generación de +30 PDFs en Drive.',
-      expectedProduct: 'Directorio finalizado con fórmula =SI y carpeta de Drive con más de 30 expedientes individuales en PDF.',
+      summary: 'Normalización forense en Google Sheets, consolidación de los 3 cortes de evaluación, formato condicional tricolor (<60, 60-80, >80), investigación de tipos de gráficas y fusión masiva con Autocrat.',
+      expectedProduct: 'Directorio normalizado con fórmula de 3 cortes y semáforo tricolor, carpeta en Drive con +30 expedientes en PDF y entrega en Classroom.',
       notices: [
-        'Materialización práctica de la investigación realizada en la Semana 06.',
-        'Se completará el Directorio del Grupo 301 con calificaciones y la fórmula condicional =SI.',
-        'Ejecución masiva con Autocrat y auditoría de permisos públicos en Google Drive.'
+        'Lunes: Normalización forense, fórmula de suma de los 3 cortes y formato condicional tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
+        'Tarea en libreta: Investigación de 5 tipos de gráficas estadísticas (barras, columnas, pastel, histograma, líneas) con definición, uso e imagen.',
+        'Miércoles: Fusión masiva con Autocrat (+30 PDFs en Drive), permisos públicos y entrega oficial en Classroom.',
+        'Jueves: Sin actividades presenciales por comisión oficial sindical del docente.'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Normalización, Fórmulas, Semáforo Tricolor & Gráficas',
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
-          start: '¿Cómo automatizamos la decisión de quién aprueba o reprueba a partir de sus notas?',
-          dictation: 'Antes de ejecutar un proceso de automatización por lotes, es imperativo garantizar la integridad y completitud de la base de datos de origen. La función lógica condicional permite que la hoja de cálculo evalúe parámetros cuantitativos como el promedio y asigne de forma autónoma una categoría cualitativa, eliminando el error humano.',
-          learningResult: 'Completar el directorio con la fórmula =SI y generar +30 PDFs con Autocrat.',
-          identification: { topic: 'Fórmula =SI & Autocrat', evidence: 'Directorio + Fusión Masiva', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
-          infographicTitle: 'Normalización y Fusión Masiva',
+          start: '¿Cómo estructurar y semaforizar una base de datos para evaluar automáticamente el desempeño?',
+          dictation: 'La normalización y consistencia de los datos es la base de todo análisis cuantitativo. La estructura de evaluación en tres cortes acumulativos permite determinar la calificación total mediante fórmulas matriciales, mientras que el formato condicional tricolor (<60 rojo, 60-80 amarillo, >80 verde) proporciona alertas visuales instantáneas del estado académico del grupo.',
+          learningResult: 'Normalizar el directorio, calcular el total de los 3 cortes, aplicar semaforización tricolor y registrar la investigación de los 5 tipos de gráficas.',
+          identification: { topic: 'Fórmulas, Cortes & Semáforo', evidence: 'Directorio Normalizado + Investigación Gráficas', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Normalización y Análisis de Datos',
           infographicSteps: [
-            { title: '1. Audita el Directorio', desc: 'Verifica que no haya celdas vacías en ninguna columna.' },
-            { title: '2. Aplica la Fórmula =SI', desc: 'Asigna automáticamente Aprobado o Reprobado según el promedio.' },
-            { title: '3. Enlaza con Autocrat', desc: 'Conecta la plantilla de Docs con los datos de Sheets.' },
-            { title: '4. Genera tus PDFs', desc: 'Ejecuta la combinación por lotes en Google Drive.' }
+            { title: '1. Normaliza Datos', desc: 'Aplica =NOMPROPIO y elimina celdas vacías.' },
+            { title: '2. Suma de 3 Cortes', desc: 'Calcula el total acumulado con la fórmula =SUMA(Corte1:Corte3).' },
+            { title: '3. Semáforo Tricolor', desc: 'Aplica formato condicional: <60 rojo, 60-80 amarillo, >80 verde.' },
+            { title: '4. Tarea: 5 Gráficas', desc: 'Investiga en libreta barras, columnas, pastel, histograma y líneas con definición, uso e imagen.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
 Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
@@ -668,80 +669,87 @@ En 2019 una aerolínea británica imprimió 2,000 pases con el texto 'NULL' en e
 🖥️ DEMO 1 (3 min): Detección de campos nulos y sintaxis de =NOMPROPIO() para homogeneizar nombres.
 💻 RETO 1 (15 min en PC): Auditar Directorio_Grupo_301, quitar celdas vacías y normalizar nombres en mayúsculas/minúsculas.
 
-🖥️ DEMO 2 (2 min): Configuración de la columna Promedio en formato número con 1 decimal.
-💻 RETO 2 (15 min en PC): Completar el 100% de calificaciones numéricas sin que falte ni una.
-
 🏷️ EVIDENCIA: Hoja de cálculo limpia, sin celdas vacías y con tipografía uniforme.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 3 (50 min) · Lógica Condicional (=SI) y Semáforos Visuales
+⏱️ HORA 3 (50 min) · Estructura de los 3 Cortes y Fórmula de Suma Total
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Le daremos cerebro a la hoja de cálculo: la computadora leerá la nota de cada alumno y decidirá sola quién aprueba sin intervención humana. Cero favoritismos: pura lógica algorítmica."
+"Hasta este momento, la hoja de cálculo ha sido una simple libreta digital bonita. En esta hora le daremos cerebro matemático propio. El modelo de evaluación CONALEP no se calcula al azar: se compone de 3 cortes acumulativos. Vamos a programar la fórmula algorítmica que consolide los tres parciales para obtener la calificación total definitiva de cada estudiante."
 
-💡 DATO FILOSÓFICO / TECNOLÓGICO:
-George Boole formuló la lógica condicional en 1847. Toda la inteligencia artificial moderna, los algoritmos de redes sociales y los bancos funcionan bajo este mismo principio.
+💡 DATO FILOSÓFICO Y TECNOLÓGICO:
+En 1979 VisiCalc transformó la economía mundial al permitir que al modificar un solo número, toda una matriz de miles de filas se recalculara automáticamente en milisegundos.
 
-🖥️ DEMO 3 (3 min): Sintaxis en el cañón: =SI(Promedio >= 7.0, "Aprobado", "Reprobado").
-💻 RETO 3 (15 min en PC): Crear columna Estatus, programar la fórmula =SI y arrastrarla a todo el grupo.
-
-🖥️ DEMO 4 (2 min): Formato Condicional (Verde suave para Aprobado, Rojo suave para Reprobado).
-💻 RETO 4 (15 min en PC): Aplicar semaforización automática a toda la columna Estatus.
-
-🏷️ EVIDENCIA Y SELLO: Alumno muestra pantalla con la columna calculada y semaforizada. 👉 SELLO 2
+🖥️ DEMO 3 (3 min): Columnas Corte 1, Corte 2, Corte 3 y Calificación Total. Modelar la fórmula matricial: =SUMA(F2:H2).
+💻 RETO 3 (15 min en PC): Integrar columnas de cortes, capturar valores de 0 a 100, programar =SUMA() y arrastrar verticalmente a todo el grupo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (50 min) · Enlace Mapeado y Fusión Masiva con Autocrat
+⏱️ HORA 4 (50 min) · Formato Condicional Tricolor y Asignación de Gráficas
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Llegó el momento cumbre: presionaremos el botón rojo y verán a los servidores de Google generar +30 PDFs sin tocar el teclado."
+"En la industria y en las direcciones corporativas los directores no tienen tiempo de leer 500 números: necesitan tomar decisiones en 3 segundos a golpe de vista. Hoy convertiremos su hoja de cálculo en un tablero de control con semáforos ejecutivos tricolor."
 
-🖥️ DEMO 5 (3 min): Abrir Autocrat (Extensiones ➔ Autocrat ➔ Launch) y vincular Plantilla_Expediente_Grupo301.
-💻 RETO 5 (15 min en PC): Mapear estrictamente las 5 etiquetas (<<Nombre>>, <<Apellidos>>, <<Colonia>>, <<Dispositivo>>, <<Estatus>>).
+🖥️ DEMO 4 (3 min):
+Menú Formato ➔ Formato condicional:
+1) Menor que 60 ➔ Fondo Rojo suave (#F8D7DA).
+2) Está entre 60 y 80 ➔ Fondo Amarillo suave (#FFF3CD).
+3) Mayor que 80 ➔ Fondo Verde suave (#D4EDDA).
 
-🖥️ DEMO 6 (2 min): Nomenclatura Expediente_<<Apellidos>>_<<Nombre>> en modo Multiple Output (PDF).
-💻 RETO 6 (20 min en PC): Ejecutar Run Job, supervisar la generación en Google Drive y corregir incidencias.
+💻 RETO 4 (15 min en PC):
+Aplicar las 3 reglas condicionales a la columna total y realizar prueba reactiva de cambio de notas.
 
-🏷️ EVIDENCIA Y SELLO: Carpeta de Google Drive con los 30+ PDFs generados en vivo. 👉 SELLO 3`,
-          closure: 'Base de datos normalizada con fórmulas y lote de expedientes en PDF generado.'
+🏷️ EVIDENCIA Y SELLO:
+Pantalla con hoja normalizada, fórmula de cortes calculada y columna semaforizada en los 3 colores. 👉 SELLO 2
+
+📝 ASIGNACIÓN TÉCNICA PARA CASA (INVESTIGACIÓN EN LIBRETA):
+Dictado en libreta de los 5 tipos de gráficas estadísticas en hojas de cálculo:
+1. Gráfica de Barras
+2. Gráfica de Columnas
+3. Gráfica de Pastel / Circular
+4. Histograma
+5. Gráfica de Líneas
+Para cada una registrar: 1) Definición técnica, 2) Dónde y para qué se utiliza, 3) Imagen ilustrativa pegada o dibujada. Revisión el miércoles.`,
+          closure: 'Directorio normalizado, fórmula de suma de cortes activa, semáforo tricolor configurado y tarea de gráficas asignada.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Auditoría & Entrega Classroom',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Gráficas, Fusión Autocrat & Entrega Classroom',
           unlockDate: '2026-09-30',
           unlockLabel: 'Miércoles 30 de Septiembre, 15:00 hrs',
-          start: '¿Tus documentos generados cumplen con todos los estándares profesionales?',
-          dictation: 'Un flujo automatizado no concluye con la ejecución del script; requiere una fase crítica de control de calidad. Al comparar el método en la nube frente a los métodos locales investigados, analizaremos ventajas operativas en términos de colaboración, almacenamiento centralizado y accesibilidad.',
-          learningResult: 'Auditar entre pares 3 documentos generados al azar.',
-          identification: { topic: 'Control de Calidad', evidence: 'Auditoría entre Pares', organization: 'Parejas', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Auditoría y Control de Calidad',
+          start: '¿Cómo convertir tus datos y calificaciones en documentos oficiales individuales en la nube?',
+          dictation: 'La combinación masiva de correspondencia en la nube mediante Autocrat permite vincular bases de datos dinámicas con plantillas maquetadas en Google Docs, generando en segundos decenas de expedientes en PDF con permisos de consulta corporativos.',
+          learningResult: 'Revisar gráficas, vincular plantilla, ejecutar Autocrat (+30 PDFs), configurar permisos públicos en Google Drive y entregar bitácora en Classroom.',
+          identification: { topic: 'Autocrat & Permisos Nube', evidence: '+30 PDFs en Drive + Entrega Classroom', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Fusión Masiva y Entrega Digital',
           infographicSteps: [
-            { title: '1. Intercambio', desc: 'Audita 3 PDFs generados por un compañero.' },
-            { title: '2. Checklist Visual', desc: 'Verifica que no haya etiquetas sin sustituir.' },
-            { title: '3. Corrección', desc: 'Reejecuta la fusión si se detectaron desajustes.' }
+            { title: '1. Revisión Gráficas', desc: 'Cotejo inicial de la investigación de gráficas.' },
+            { title: '2. Fusión Autocrat', desc: 'Mapea etiquetas y genera los +30 PDFs en Drive.' },
+            { title: '3. Permisos Públicos', desc: 'Configura acceso Lector y prueba en modo incógnito.' },
+            { title: '4. Entrega Classroom', desc: 'Adjunta bitácora con capturas y link público verificado.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (2 HORAS)
 Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 5 (50 min) · Auditoría Forense entre Pares (Control de Calidad)
+⏱️ HORA 5 (50 min) · Revisión de Gráficas y Fusión Masiva con Autocrat
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Apertura al entrar):
-"Muchachos, en la industria del software ningún programador audita su propio código porque padece de 'ceguera de taller'. Hoy intercambiaremos lugares de trabajo: seremos auditores externos implacables buscando fallas de maquetación en el trabajo del colega antes de que llegue a manos de las autoridades."
-
-💡 ANÉCDOTA FORENSE (El Error Millonario):
-En 1962, la sonda espacial Mariner 1 de la NASA tuvo que ser destruida a los 293 segundos de despegar porque un programador omitió una simple barra sobre una letra en el código de cálculo manual. Costó 18 millones de dólares. Un error minúsculo en un documento oficial arruina todo el proyecto.
+"Muchachos, el lunes normalizamos datos, calculamos los cortes y semaforizamos el grupo. Tienen en su libreta la investigación de cómo las gráficas resumen datos masivos. Hoy ejecutaremos el motor de combinación: vincularemos su hoja con la plantilla maestra de Google Docs y Autocrat generará más de 30 expedientes individuales en PDF en su carpeta de Google Drive."
 
 🖥️ DEMO EN CAÑÓN (3 min):
-Proyectar el Checklist de 3 puntos: 1) Cero etiquetas rotas (<< >>), 2) Ajuste estricto a 1 sola hoja sin páginas en blanco, 3) Coincidencia de promedio y estatus.
+1. Abrir Extensiones ➔ Autocrat ➔ Launch.
+2. Nombrar el Job: Expedientes_Oficiales_Grupo301.
+3. Vincular Plantilla_Expediente_Grupo301 en Google Docs.
+4. Mapear etiquetas maestras (<<Nombre>>, <<Apellidos>>, <<Cortes>>, <<Total>>, <<Estatus>>).
+5. Configurar modo Multiple output mode (PDF) y carpeta de salida.
 
-💻 RETO 7 (15 min en PC):
-Intercambiar equipo con el compañero de al lado. Abrir 3 PDFs generados al azar y anotar el dictamen de auditoría en la libreta del compañero.
+💻 RETO 5 (20 min en PC):
+Mapear campos en Autocrat, presionar Run Job y supervisar la generación en Google Drive de los +30 expedientes individuales en PDF.
 
-💻 RETO 8 (15 min en PC):
-Regresar a su máquina. Si el auditor encontró errores de formato, corregir la plantilla de Docs o la celda en Sheets y reejecutar Autocrat de inmediato.
+💻 RETO 6 (10 min en PC):
+Auditoría express entre pares: abrir 2 PDFs al azar de un compañero y verificar que no existan etiquetas rotas (<< >>) y el ajuste estricto a 1 sola página.
 
 🏷️ EVIDENCIA Y SELLO:
-Lista de cotejo firmada en libreta y lote de PDFs verificado al 100%. 👉 SELLO 4
+Carpeta de Drive con los 30+ PDFs generados y libreta con la investigación de gráficas revisada. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 6 (50 min) · Seguridad Nube y Entrega Oficial en Classroom
@@ -752,33 +760,33 @@ Lista de cotejo firmada en libreta y lote de PDFs verificado al 100%. 👉 SELLO
 🖥️ DEMO 1 (3 min):
 En Google Drive, cambiar acceso general de la carpeta a: "Cualquier persona que tenga el vínculo (Lector)". La prueba de fuego: Probar el enlace en una ventana privada de incógnito.
 
-💻 RETO 9 (15 min en PC):
+💻 RETO 7 (15 min en PC):
 Configurar la carpeta de Google Drive como pública en modo Lector y validar que abra en ventana de incógnito sin pedir cuenta.
 
 🖥️ DEMO 2 (2 min):
 Formato ejecutivo de la bitácora en Google Docs (capturas de pantalla con pie de figura) y entrega en Classroom.
 
-💻 RETO 10 (15 min en PC):
+💻 RETO 8 (15 min en PC):
 Pegar el enlace público verificado en la tarea asignada de Google Classroom, adjuntar la bitácora con capturas y presionar Entregar Tarea.
 
 🏷️ EVIDENCIA Y SELLO:
-Pantalla de Google Classroom con la tarea entregada y enlace verificado. 👉 SELLO 5
+Pantalla de Google Classroom con la tarea entregada y enlace verificado. 👉 SELLO 4
 Aviso docente: Mañana jueves no hay sesión presencial por comisión sindical; el viernes cerramos con el Kahoot final y calificaciones oficiales.`,
-          closure: 'Expedientes verificados sin vicios de origen.'
+          closure: 'Expedientes generados con Autocrat, carpeta pública verificada y tarea entregada en Classroom.'
         },
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Sin Actividades (Permiso Sindical)',
           unlockDate: '2026-10-01',
           unlockLabel: 'Jueves 1 de Octubre, 15:00 hrs',
           start: '¿Cómo garantizar que un cliente o directivo pueda consultar tus archivos sin contraseñas?',
-          dictation: 'La distribución de documentos masivos en entornos profesionales exige una gestión estricta de privilegios de acceso. Un repositorio en la nube con permisos mal configurados anula la efectividad del proceso de automatización. El reporte de evidencia consolida la memoria técnica del flujo desarrollado.',
-          learningResult: 'Configurar permisos de lectura en Drive y entregar la tarea en Classroom.',
-          identification: { topic: 'Nube y Entrega', evidence: 'Carpeta pública en Classroom', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Gestión en la Nube y Entrega',
+          dictation: 'Sesión presencial no impartida por comisión y permiso oficial docente de carácter sindical. Espacio de trabajo autónomo para regularización de entregas.',
+          learningResult: 'Regularización autónoma de archivos y entregas en Google Classroom.',
+          identification: { topic: 'Permiso Sindical / Regularización', evidence: 'Regularización Classroom', organization: 'Individual', location: 'Autónomo', time: '2 hrs' },
+          infographicTitle: 'Aviso Institucional',
           infographicSteps: [
-            { title: '1. Permisos en Drive', desc: 'Configura la carpeta como Cualquier persona con el enlace (Lector).' },
-            { title: '2. Bitácora de Evidencia', desc: 'Inserta capturas de la fórmula =SI y del proceso de Autocrat.' },
-            { title: '3. Entrega Oficial', desc: 'Sube el enlace verificado a Google Classroom.' }
+            { title: '1. Permiso Sindical', desc: 'Sesión presencial no impartida por comisión oficial.' },
+            { title: '2. Trabajo Autónomo', desc: 'Revisa y completa tus archivos en Google Drive.' },
+            { title: '3. Regularización', desc: 'Verifica tu entrega en Google Classroom antes del viernes.' }
           ],
           development: `⚠️ AVISO INSTITUCIONAL · JUEVES (SIN ACTIVIDADES PRESENCIALES)
 
@@ -790,21 +798,22 @@ Sesión presencial no impartida por permiso y comisión oficial docente de cará
 
 💻 ACTIVIDAD AUTÓNOMA DE REGULARIZACIÓN:
 Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora el día miércoles deberán aprovechar estas dos horas de forma autónoma para concluir sus archivos y regularizar su entrega en Google Classroom antes del cierre definitivo del viernes.`,
-          closure: 'Carpeta compartida y bitácora entregada en Classroom.'
+          closure: 'Espacio de regularización autónoma para alumnos rezagados.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Kahoot Final & Cierre RA 2.1',
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Kahoot Final RA 2.1 & Calificaciones',
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 2 de Octubre, 15:00 hrs',
-          start: '¿Concluiste satisfactoriamente todas las evidencias del RA 2.1?',
-          dictation: 'El cierre de un resultado de aprendizaje valida tanto las habilidades procedimentales como la comprensión conceptual de los flujos de automatización digital. La evaluación técnica y la auditoría de portafolios certifican que el alumno es capaz de implementar soluciones ofimáticas profesionales.',
-          learningResult: 'Acreditar el RA 2.1 y registrar calificaciones en listas oficiales.',
-          identification: { topic: 'Acreditación y Cierre', evidence: 'Portafolio Completo RA 2.1', organization: 'Individual', location: 'Aula', time: '1 hr' },
-          infographicTitle: 'Acreditación del RA 2.1',
+          start: '¿Demostraste el dominio total de la automatización masiva documental?',
+          dictation: 'La evaluación sumativa con Kahoot integra el dominio de correspondencia masiva, saneamiento forense de datos, programación de fórmulas, semaforización tricolor, interpretación de gráficas y distribución segura en la nube, consolidando las competencias del Resultado de Aprendizaje 2.1.',
+          learningResult: 'Resolver la evaluación sumativa de 20 reactivos, cotejar sellos y recibir calificación del RA 2.1.',
+          identification: { topic: 'Evaluación Sumativa RA 2.1', evidence: 'Kahoot + 4 Sellos Acumulados', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Evaluación y Calificaciones Oficiales',
           infographicSteps: [
-            { title: '1. Auditoría Docente', desc: 'Revisión final de enlaces y sellos en Classroom.' },
-            { title: '2. Firma de Actas', desc: 'Registro de puntajes oficiales del resultado.' },
-            { title: '3. Encuadre RA 2.2', desc: 'Introducción a presentaciones electrónicas avanzadas.' }
+            { title: '1. Kahoot Sumativo', desc: 'Evaluación técnica integral del RA 2.1 en dispositivos.' },
+            { title: '2. Cotejo de Sellos', desc: 'Verificación de los 4 sellos acumulados en la semana.' },
+            { title: '3. Calificaciones', desc: 'Asentamiento de notas oficiales en listas de control escolar.' },
+            { title: '4. Encuadre RA 2.2', desc: 'Introducción a presentaciones electrónicas interactivas.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
 Metodología: Kahoot Sumativo + Auditoría de Sellos + Asentamiento de Calificaciones
@@ -813,18 +822,18 @@ Metodología: Kahoot Sumativo + Auditoría de Sellos + Asentamiento de Calificac
 ⏱️ HORA 7 (50 min) · Kahoot Final y Acreditación del RA 2.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Apertura al entrar):
-"Muchachos, hoy cerramos oficialmente el Resultado de Aprendizaje 2.1. Concluyeron la base de datos, dominaron fórmulas condicionales y generaron documentos en lote en la nube. Hoy jugamos el Kahoot final para demostrar el dominio técnico del bloque y asentar sus calificaciones oficiales."
+"Muchachos, hoy cerramos oficialmente el Resultado de Aprendizaje 2.1. Concluyeron la base de datos, dominaron fórmulas de cortes, semáforos condicionales, tipos de gráficas y fusión masiva en la nube. Hoy jugamos el Kahoot final para demostrar el dominio técnico del bloque y asentar sus calificaciones oficiales."
 
 🖥️ DEMO EN CAÑÓN (2 min):
-Proyectar el PIN del Kahoot Oficial del RA 2.1 (20 reactivos sobre todo el flujo: fórmulas, etiquetas, Autocrat y permisos de nube).
+Proyectar el PIN del Kahoot Oficial del RA 2.1 (20 reactivos sobre todo el flujo: fórmulas, etiquetas, formato condicional, gráficas, Autocrat y permisos de nube).
 
 💻 RETO FINAL (25 min en Dispositivos):
-Resolver la evaluación sumativa en dispositivos. Podio de ganadores y premiación simbólica.
+Resolver la evaluación sumativa en dispositivos individuales. Podio de ganadores y premiación simbólica.
 
 🏷️ CIERRE Y ASENTAMIENTO OFICIAL (20 min):
-Cotejo de los 5 sellos acumulados en la semana y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
+Cotejo de los 4 sellos acumulados en la semana y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
 Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
-          closure: 'RA 2.1 acreditado al 100% y ciclo cerrado.'
+          closure: 'Acreditación del RA 2.1 asentada en listas oficiales y encuadre del RA 2.2.'
         }
       ]
     }
