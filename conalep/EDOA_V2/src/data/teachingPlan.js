@@ -42,8 +42,8 @@ export const teachingPlan = {
       captureDates: '03 al 04 Nov 2026',
       deadline: '04 Nov 2026',
       ras: [
-        { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '15%', weeks: ['W06'] },
-        { id: 'RA 2.2', title: 'Presentaciones Interactivas', peso: '20%', weeks: ['W07', 'W08', 'W09'] }
+        { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
+        { id: 'RA 2.2', title: 'Presentaciones Interactivas', peso: '15%', weeks: ['W09'] }
       ]
     },
     {
@@ -837,6 +837,124 @@ Resolver la evaluación sumativa en dispositivos individuales. Podio de ganadore
 Cotejo de los 4 sellos acumulados en la semana y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
 Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           closure: 'Acreditación del RA 2.1 asentada en listas oficiales y encuadre del RA 2.2.'
+        }
+      ]
+    },
+    'W08': {
+      id: 'W08',
+      label: 'Semana 08',
+      title: 'Dominio de Autocrat, Boleta de Parciales y Reporte Técnico',
+      dates: '05 Oct - 09 Oct',
+      status: 'active',
+      presentationUrl: './html/W08.html',
+      summary: 'Conclusión de Autocrat (Pasos 4 al 9), maquetación autónoma del Machote 2 en Docs (Boleta Oficial de Parciales), segundo lote masivo de PDFs en Drive y compilación del Reporte Técnico de Práctica con 8 capturas.',
+      expectedProduct: 'Segundo lote de +30 boletas en PDF en Drive y Reporte de Práctica maquetado en Google Docs con 8 capturas de pantalla.',
+      notices: [
+        'Lunes: Cierre guiado del Job 1 (Pasos 4 al 9), diseño de la Boleta Oficial de Parciales desde cero, ejecución autónoma del Job 2 y compilación del Reporte Técnico de Práctica.',
+        'Sesiones 2, 3 y 4: Se estructurarán de forma dinámica de acuerdo al ritmo alcanzado el lunes.'
+      ],
+      sessions: [
+        {
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Dominio de Autocrat, Machote 2 & Reporte Técnico',
+          unlockDate: '2026-10-05',
+          unlockLabel: 'Lunes 5 de Octubre, 15:00 hrs',
+          start: '¿Cómo demostrar el dominio total de la automatización masiva mediante evidencias técnicas?',
+          dictation: 'El dominio de las herramientas de automatización masiva exige no solo la ejecución asistida de algoritmos, sino la capacidad de diseñar desde cero machotes maquetados con tablas de correspondencia y documentar técnicamente el proceso mediante reportes con evidencias visuales e indicadores de calidad.',
+          learningResult: 'Concluir el Job 1 de Autocrat, diseñar el machote de Boleta de Parciales en Docs, ejecutar el Job 2 autónomamente y compilar el Reporte Técnico con 8 capturas.',
+          identification: { topic: 'Autocrat Autónomo & Reporte Técnico', evidence: '+30 Boletas PDF + Reporte de Práctica Docs', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Dominio Técnico y Reporte de Evidencias',
+          infographicSteps: [
+            { title: '1. Dictado y Job 1', desc: 'Dictado del reporte y conclusión de los Pasos 4 a 9 de Autocrat.' },
+            { title: '2. Machote 2 Docs', desc: 'Maquetación de Boleta Oficial de Parciales con tabla y firma en 1 página.' },
+            { title: '3. Job 2 Autónomo', desc: 'Configuración de Autocrat y generación de +30 Boletas PDF en Drive.' },
+            { title: '4. Reporte Técnico', desc: 'Compilación de las 8 capturas con pie de figura y conclusiones.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
+Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 (50 min) · Dictado del Reporte, Pasos 4 al 9 y Primer Lote
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"Muchachos, en el mundo laboral a ningún ingeniero le pagan solo por presionar botones; le pagan por documentar técnicamente cómo resolvió el problema. Hoy no solo generaremos más de 60 documentos oficiales en la nube: compilaremos un Reporte de Práctica Profesional con evidencia visual de cada paso del algoritmo."
+
+📝 DICTADO EN LIBRETA · ESTRUCTURA DEL REPORTE TÉCNICO (10 min):
+Anotar los requisitos formales del reporte en Google Docs y la lista obligatoria de 8 Capturas de Pantalla:
+1) Base de datos con 3 Cortes y Semáforo Tricolor.
+2) Asistente de Autocrat en Paso 4 (File Settings: PDF y Multiple output mode).
+3) Barra de progreso de Autocrat en vivo (Run Job).
+4) Carpeta de Drive con +30 Expedientes en PDF creados.
+5) Machote de Google Docs (Boleta Oficial de Parciales) maquetado en 1 sola hoja.
+6) Configuración del Job 2 en Autocrat.
+7) Carpeta de Drive con +30 Boletas Oficiales en PDF.
+8) PDF abierto al azar mostrando sustitución limpia (cero etiquetas rotas << >>).
+
+🖥️ DEMO EN CAÑÓN (5 min):
+Explicación de Pasos 4 al 9 de Autocrat: File Settings (Nombre dinámico, PDF, Multiple mode), carpeta de salida 01_Expedientes_PDF y clic en Save.
+
+💻 RETO 1 (20 min en PC):
+Completar pasos 4 a 9, presionar Run Job, monitorear la barra de progreso, verificar lote en Drive y tomar Capturas 1 a 4.
+
+🏷️ EVIDENCIA Y SELLO:
+Pantalla con primer lote de PDFs en Drive y capturas 1 a 4 recopiladas. 👉 SELLO 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 2 (50 min) · Maquetación del Machote 2 ("Boleta de Parciales")
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Ya dominan la teoría. Ahora vamos al reto de producción: ustedes son el Departamento de Control Escolar de CONALEP Pachuca II. Van a maquetar desde una hoja en blanco una Boleta Oficial de Calificaciones por Cortes para entregar a los tutores."
+
+📝 APUNTE EN LIBRETA · TABLA DE MAPEO DE VARIABLES (10 min):
+Copiar la matriz de sincronización:
+<<Nombre>> ➔ Nombre | <<Apellidos>> ➔ Apellidos | <<Colonia>> ➔ Colonia
+<<Corte 1>> ➔ Corte 1 | <<Corte 2>> ➔ Corte 2 | <<Corte 3>> ➔ Corte 3
+<<Total>> ➔ Total | <<Estatus>> ➔ Estatus
+
+💻 RETO 2 (30 min en PC):
+Abrir Google Docs (Plantilla_Boleta_Parciales_Grupo301) y maquetar:
+1) Membrete institucional CONALEP.
+2) Datos del estudiante (Nombre, Apellidos, Colonia).
+3) Tabla formal de calificaciones de 3 parciales (Corte 1, 2, 3), Total y Estatus.
+4) Cuadro de observaciones disciplinarias/tutoriales.
+5) Línea al pie para firma del padre o tutor.
+6) Regla estricta: Ajuste a 1 sola página sin hojas en blanco sobrantes.
+
+📸 ACCIÓN DE CIERRE: Tomar Captura 5 del machote terminado.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (50 min) · Configuración Autónoma del Job 2 y Fusión Masiva
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Tienen su base de datos lista y su nueva plantilla maquetada. Ahora viene la prueba de fuego de autonomía técnica: configurarán el Job 2 en Autocrat de principio a fin de forma totalmente individual."
+
+💻 RETO 3 (25 min en PC):
+Crear carpeta en Drive: 02_Boletas_Oficiales_Grupo301. En Sheets, abrir Autocrat ➔ New Job (Boletas_Oficiales_301). Configurar autónomamente los 9 pasos: plantilla Docs, mapeo de las 5 etiquetas, salida PDF en Multiple mode y guardar. (📸 Tomar Captura 6).
+
+💻 RETO 4 (15 min en PC):
+Presionar Run Job. Monitorear en vivo la generación de los +30 PDFs de boletas individuales en Google Drive. (📸 Tomar Captura 7 de la carpeta en Drive y Captura 8 de una boleta abierta).
+
+🏷️ EVIDENCIA Y SELLO:
+Carpeta 02_Boletas_Oficiales_Grupo301 llena de PDFs y capturas 5 a 8 completas. 👉 SELLO 2
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (50 min) · Ensamble del Reporte en Docs y Asentamiento Oficial
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Hora de compilar su obra técnica. Todo ingeniero entrega una memoria descriptiva con capturas y conclusiones antes de liberar el sistema."
+
+💻 RETO 5 (30 min en PC):
+Abrir Google Docs (Reporte_Practica_Automatizacion_Apellidos_Nombre) y maquetar:
+1) Portada formal (CONALEP, módulo EDOA-20, grupo 301, datos del alumno).
+2) Objetivo y Justificación técnica.
+3) Desarrollo: Insertar las 8 Capturas de Pantalla con pie de figura numerado.
+4) Conclusión técnica personal sobre ahorro de tiempo y prevención del error humano (GIGO).
+
+📝 CIERRE EN LIBRETA (10 min):
+Anotar la conclusión sintética del algoritmo de correspondencia masiva en la nube.
+
+🏷️ CIERRE Y SELLO 3:
+Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libreta. 👉 SELLO 3 (Dominio Certificado de Autocrat).`,
+          closure: 'Reporte de Práctica compilado en Google Docs con 8 capturas y segundo lote de boletas generado en Drive.'
         }
       ]
     }
