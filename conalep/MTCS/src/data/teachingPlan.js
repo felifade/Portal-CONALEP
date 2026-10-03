@@ -924,8 +924,7 @@ export const teachingPlan = {
       id: 'W07',
       label: 'Semana 07',
       dateRange: '28 Sep - 02 Oct',
-      status: 'En curso',
-      defaultWeek: true,
+      status: 'Completada',
       corteId: 'C2',
       raId: 'RA 2.1',
       title: 'Las Llaves del Reino: Permisos y Mínimo Privilegio en Linux',
@@ -1129,6 +1128,211 @@ export const teachingPlan = {
           product: 'Matriz de cálculo octal completada, terminal con permisos corregidos y entrega en Classroom (j6bnku3j).',
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 02 de Octubre (18:30 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W08',
+      label: 'Semana 08',
+      dateRange: '05 - 09 Oct',
+      status: 'En curso',
+      defaultWeek: true,
+      corteId: 'C2',
+      raId: 'RA 2.1',
+      title: 'Tríada CIA, Cerraduras en Linux y Gran Batalla Kahoot',
+      result: 'Consolida la Tríada CIA y el principio de mínimo privilegio mediante organizadores gráficos, audita usuarios y permisos en Linux (rwx / chmod) y evalúa el dominio técnico en el laboratorio forense.',
+      pdfUrl: './pdf/Guia_Laboratorio_Forense_Linux_MTCS_Semana07.pdf',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual con libreta y Google Cloud Shell',
+        product: 'Visualizador gráfico de Tríada CIA en libreta, laboratorio de rwx/chmod en terminal y Gran Kahoot de Cierre',
+      },
+      notices: [
+        'Consolidación del RA 2.1 (Segundo Corte - 20%).',
+        'Miércoles 07 Oct: Tríada CIA a fondo, casos reales de impacto y construcción del Visualizador Gráfico en libreta (Sello 1).',
+        'Jueves 08 Oct: Cazador de Backdoors (/etc/passwd, root vs sudo) y Anatomía de Permisos rwx en Cloud Shell (Sello 2).',
+        'Viernes 09 Oct: El Laboratorio del Búnker, Matemática de chmod y Gran Kahoot de Cierre de Semana (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 07 Oct)',
+          title: 'La Tríada CIA y Visualizador Gráfico de Ciberdefensa',
+          hook: 'Si un atacante roba tus contraseñas vulnera la Confidencialidad; si altera tus notas en el sistema vulnera la Integridad; si tira la plataforma escolar en inscripciones vulnera la Disponibilidad. Hoy construimos el mapa mental definitivo de defensa.',
+          start: '¿Cómo se relacionan las amenazas reales (Phishing, SQLi, DDoS) con los 3 pilares de la seguridad?',
+          dictation: 'La Tríada CIA constituye la base doctrinaria de la seguridad informática: Confidencialidad (preservar el secreto ante accesos no autorizados), Integridad (garantizar la exactitud y no alteración de la información) y Disponibilidad (asegurar el acceso oportuno y confiable a los sistemas). El Principio de Mínimo Privilegio (Zero Trust) actúa como eje rector: ningún usuario o proceso debe contar con más privilegios de los estrictamente necesarios para su función.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Construcción del Visualizador Gráfico en Libreta',
+            steps: [
+              'Dividir la cuartilla en 3 columnas o bloques: Confidencialidad, Integridad y Disponibilidad.',
+              'Anotar en cada bloque: Definición, Amenaza de impacto real y Mecanismo de defensa (Cifrado, Hashes, Respaldos).',
+              'Colocar al centro o encabezado el principio Zero Trust / Mínimo Privilegio.',
+              'Redactar un caso práctico personal de protección de sus cuentas digitales.'
+            ]
+          },
+          learningResult: 'El estudiante aplica la Tríada CIA y el principio de mínimo privilegio en el diseño de un organizador visual defensivo.',
+          identification: 'Tema: Tríada CIA y Principio Zero Trust. Evidencia: Visualizador Gráfico en libreta sellado.',
+          development: 'Exposición docente con ejemplos reales de impacto (fuga de contraseñas, alteración de registros y ataques DDoS). Dictado técnico y construcción guiada del visualizador gráfico.',
+          closure: 'Firma y sellado del Sello 1 en libreta.',
+          faq: [
+            { q: '¿Cuál pilar es el más importante de los tres?', a: 'Depende del sistema: en un hospital la Disponibilidad salva vidas; en un banco la Integridad y Confidencialidad protegen el dinero.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Visualizador Gráfico de la Tríada CIA y Principio de Mínimo Privilegio en libreta.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 08 Oct · Hora 1)',
+          title: 'Misión Cazador de Backdoors y Cuentas Ocultas (/etc/passwd)',
+          hook: '¿Sabían que en Linux existe el comando rm -rf / que puede borrar un servidor en 3 segundos? Linux confía ciegamente en root. Por eso en empresas nadie trabaja como root; usamos sudo.',
+          start: '¿Por qué las cuentas del sistema tienen asignado /usr/sbin/nologin en lugar de /bin/bash?',
+          dictation: 'En el sistema operativo Linux, la cuenta suprema de administración se denomina root y posee de forma predeterminada el identificador numérico UID 0. Por políticas de ciberseguridad y bastionado (hardening), nunca se opera un servidor directamente desde la sesión de root. Para tareas de mantenimiento se utiliza el comando sudo, el cual otorga privilegios administrativos temporales y genera un registro de auditoría de cada acción ejecutada.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Auditoría en Google Cloud Shell',
+            steps: [
+              'Correr awk -F: \'$3 == 0 {print $1, $3}\' /etc/passwd y verificar cuentas con UID 0.',
+              'Ejecutar whoami && id y anotar UID 1000 y grupos.',
+              'Analizar las cuentas de servicio daemon y nobody con /usr/sbin/nologin.',
+              'Ejecutar cat /etc/shadow y copiar el error de bloqueo del kernel (Permission denied).'
+            ]
+          },
+          terminalRadar: 'root 0\nuid=1000(usuario) gid=1000(usuario)...\ncat: /etc/shadow: Permission denied',
+          learningResult: 'El estudiante audita cuentas en Linux, diferencia root de usuarios estándar y deduce las restricciones de seguridad.',
+          identification: 'Tema: Usuarios y Privilegios en Linux. Evidencia: Tabla de cuentas y auditoría de UID 0.',
+          development: 'Conexión a Google Cloud Shell, ejecución del filtro awk sobre /etc/passwd y análisis forense del rechazo de acceso a /etc/shadow.',
+          closure: 'Registro de hallazgos en libreta y revisión preliminar.',
+          faq: [
+            { q: '¿Por qué daemon o nobody tienen /usr/sbin/nologin?', a: 'Para evitar que un hacker pueda abrir una consola interactiva con esas cuentas de servicio.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Auditoría de cuentas /etc/passwd y captura de error /etc/shadow.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 08 Oct · Hora 2)',
+          title: 'Anatomía de las Cerraduras Digitales (rwx) y el Script Desarmado',
+          hook: 'Estas 10 letras (-rwxr-xr--) fueron creadas en los Laboratorios Bell y hoy protegen al 96% de los servidores en la nube. Aprender a leerlas es la diferencia entre ser un usuario y ser un analista de ciberseguridad.',
+          start: '¿Qué significa cada una de las 3 tríadas en la salida de ls -l?',
+          dictation: 'En UNIX/Linux, los permisos de acceso se dividen en tres tríadas asociadas a tres niveles de propiedad: 1) Dueño (User - u): Creador del archivo; 2) Grupo (Group - g): Cuentas asignadas a un rol específico; 3) Otros (Others - o): Todo usuario ajeno. Los tres permisos fundamentales son: r (Read - Lectura), w (Write - Modificación o borrado) y x (Execute - Ejecución como programa o script).',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Experimento del Script Desarmado',
+            steps: [
+              'Crear script test.sh con comando echo en terminal.',
+              'Retirar permisos de ejecución con chmod -x test.sh y probar ./test.sh.',
+              'Registrar en libreta el error: bash: ./test.sh: Permission denied.',
+              'Devolver ejecución únicamente al dueño con chmod u+x test.sh y ejecutar exitosamente.'
+            ]
+          },
+          terminalRadar: 'chmod -x test.sh ➔ bash: ./test.sh: Permission denied\nchmod u+x test.sh ➔ -rwxr--r-- 1 user user test.sh',
+          learningResult: 'El estudiante interpreta la estructura rwx y modifica permisos mediante notación simbólica chmod.',
+          identification: 'Tema: Permisos Simbólicos y Ejecución de Scripts. Evidencia: Ejercicio práctico del script desarmado sellado.',
+          development: 'Análisis de las tríadas Dueño/Grupo/Otros, experimentación práctica desarmando y rearmando la ejecución en test.sh.',
+          closure: 'Firma del Sello 2 en libreta.',
+          faq: [
+            { q: '¿Por qué no puedo ejecutar mi script si tiene permiso de lectura?', a: 'Porque en Linux leer un archivo no es suficiente para que el procesador lo ejecute como programa; requiere explícitamente el permiso x.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Auditoría de cuentas + Experimento del Script Desarmado completado en libreta.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 09 Oct · Hora 1)',
+          title: 'El Enigma del Búnker Inaccesible y la Matemática de chmod',
+          hook: 'Si a una carpeta le quito la ejecución x pero le dejo lectura r, ¿puedo ver sus archivos? Pareciera que sí, pero Linux te rebotará en la puerta. Vamos a descubrir el secreto de la x en directorios.',
+          start: '¿Por qué la x en directorios representa el derecho de entrar (hacer cd) y no de ejecutar programas?',
+          dictation: 'La notación octal asigna valores binarios a los permisos: Lectura (r=4), Escritura (w=2) y Ejecución (x=1). La combinación de estos valores genera números del 0 al 7 para cada nivel de acceso. En directorios, el permiso de ejecución x no ejecuta archivos sino que autoriza el paso o navegación (cd) a través de él. Configuraciones estándar de bastionado incluyen 600 para secretos privados, 644 para contenidos de consulta pública y 755 para binarios ejecutables.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Experimento del Búnker y Matriz Octal',
+            steps: [
+              'Crear carpeta bunker y archivo secreto adentro.',
+              'Ejecutar chmod -x bunker e intentar cd bunker.',
+              'Anotar en libreta la deducción del porqué la x es la llave de paso en carpetas.',
+              'Resolver los 4 casos forenses: 600 (privado), 755 (servidor), 644 (web) y el riesgo crítico de 777.'
+            ]
+          },
+          terminalRadar: 'chmod -x bunker ➔ bash: cd: bunker: Permission denied\nchmod 600 clave.key ➔ -rw-------',
+          learningResult: 'El estudiante deduce el rol de la ejecución en directorios, calcula sumas octales y aplica bastionado a 4 escenarios reales.',
+          identification: 'Tema: Directorios y Notación Octal. Evidencia: Búnker probado y matriz de 4 casos resuelta.',
+          development: 'Laboratorio guiado con la carpeta bunker, explicación de la tabla matemática 4-2-1 y resolución de casos corporativos.',
+          closure: 'Revisión de la matriz forense antes del Kahoot.',
+          faq: [
+            { q: '¿Por qué 777 es tan peligroso?', a: 'Porque viola la Confidencialidad, Integridad y Disponibilidad simultáneamente: cualquiera puede ver, alterar o borrar el archivo.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Experimento del búnker y matriz de 4 casos chmod en libreta.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 09 Oct · Hora 2)',
+          title: '🏆 Gran Kahoot de Cierre de Semana y Sellado Final',
+          hook: 'Es hora de poner a prueba todo lo aprendido en la semana: Tríada CIA, cuentas en Linux, root vs sudo, cerraduras rwx y códigos chmod. ¡Abran kahoot.it y que gane el mejor hacker ético de 501!',
+          start: '¿Quién logrará el podio en la batalla de ciberseguridad del Segundo Corte?',
+          dictation: 'La evaluación formativa gamificada permite afianzar el discernimiento técnico bajo presión temporal. El dominio de la Tríada CIA, la identificación de puertos y privilegios, y la aplicación precisa de directivas chmod constituyen competencias fundamentales para el perfil técnico en ciberseguridad.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Batalla Kahoot y Evaluación Semanal',
+            steps: [
+              'Ingresar a kahoot.it con el PIN proyectado en pantalla.',
+              'Resolver los 20 reactivos sobre Tríada CIA y comandos Linux.',
+              'Registrar podio, puntaje y reflexiones en libreta.',
+              'Revisión final de evidencias de la semana y estampado del Sello 3.'
+            ]
+          },
+          learningResult: 'El estudiante demuestra dominio integral de los conceptos teóricos y comandos prácticos en una evaluación gamificada.',
+          identification: 'Tema: Evaluación Formativa Integral RA 2.1. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
+          development: 'Desarrollo de la sesión interactiva en Kahoot, retroalimentación reactivo por reactivo de preguntas complejas y sellado de libretas.',
+          closure: 'Firma y sellado del Sello 3, felicitación al grupo y cierre de semana.',
+          faq: [
+            { q: '¿Qué cuenta si no alcancé podio en Kahoot?', a: 'Lo importante es tu participación, registrar tu puntaje y demostrar la libreta completa con los sellos 1, 2 y 3.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Matriz chmod + Podio y puntaje de Kahoot registrado en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'La Tríada CIA y Visualizador Gráfico de Ciberdefensa',
+          hourIds: ['H01'],
+          product: 'Visualizador Gráfico de la Tríada CIA y Principio de Mínimo Privilegio (Zero Trust) en libreta.',
+          unlockDate: '2026-10-07',
+          unlockLabel: 'Miércoles 07 de Octubre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Identidad de Usuarios (Root vs Sudo) y Anatomía de Permisos (rwx)',
+          hourIds: ['H02', 'H03'],
+          product: 'Auditoría de cuentas /etc/passwd en Cloud Shell y experimento del script desarmado en libreta.',
+          unlockDate: '2026-10-08',
+          unlockLabel: 'Jueves 08 de Octubre (16:50 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'Laboratorio del Búnker, Códigos chmod y Gran Kahoot de Cierre',
+          hourIds: ['H04', 'H05'],
+          product: 'Experimento del búnker, matriz de 4 casos chmod y registro de podio en Kahoot.',
+          unlockDate: '2026-10-09',
+          unlockLabel: 'Viernes 09 de Octubre (18:30 hrs)',
         },
       ],
     },
