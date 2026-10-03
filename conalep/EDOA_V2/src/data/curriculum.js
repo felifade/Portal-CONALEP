@@ -49,10 +49,12 @@ export const curriculumData = {
     {
       id: "RA2.1",
       title: "RA 2.1",
-      peso: "10%",
-      corte: 1,
+      peso: "15%",
+      corte: 2,
       weeks: [
-        { id: "W06", label: "Semana 06 (21-25 Sep)" }
+        { id: "W06", label: "Semana 06 (21-25 Sep)" },
+        { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" },
+        { id: "W08", label: "Semana 08 (05-09 Oct)" }
       ]
     },
 
@@ -60,11 +62,10 @@ export const curriculumData = {
     {
       id: "RA2.2",
       title: "RA 2.2",
-      peso: "10%",
+      peso: "20%",
       corte: 2,
       weeks: [
-        { id: "W07", label: "Semana 07 (28 Sep-02 Oct)" },
-        { id: "W08", label: "Semana 08 (05-09 Oct)" }
+        { id: "W09", label: "Semana 09 (12-16 Oct)" }
       ]
     },
     {
