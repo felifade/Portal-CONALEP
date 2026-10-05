@@ -878,16 +878,31 @@ Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ A
 🗣️ FRASE GANCHO (Apertura al entrar):
 "Muchachos, en el mundo laboral a ningún ingeniero le pagan solo por presionar botones; le pagan por documentar técnicamente cómo resolvió el problema. Hoy no solo generaremos más de 60 documentos oficiales en la nube: compilaremos un Reporte de Práctica Profesional con evidencia visual de cada paso del algoritmo."
 
-📝 DICTADO EN LIBRETA · ESTRUCTURA DEL REPORTE TÉCNICO (10 min):
-Anotar los requisitos formales del reporte en Google Docs y la lista obligatoria de 8 Capturas de Pantalla:
-1) Base de datos con 3 Cortes y Semáforo Tricolor.
-2) Asistente de Autocrat en Paso 4 (File Settings: PDF y Multiple output mode).
-3) Barra de progreso de Autocrat en vivo (Run Job).
-4) Carpeta de Drive con +30 Expedientes en PDF creados.
-5) Machote de Google Docs (Boleta Oficial de Parciales) maquetado en 1 sola hoja.
-6) Configuración del Job 2 en Autocrat.
-7) Carpeta de Drive con +30 Boletas Oficiales en PDF.
-8) PDF abierto al azar mostrando sustitución limpia (cero etiquetas rotas << >>).
+📝 DICTADO EN LIBRETA · ESTRUCTURA DEL REPORTE TÉCNICO (10-12 min):
+Dictar pausadamente el siguiente bloque en la libreta de apuntes:
+
+📌 Título en Libreta:
+"Práctica Profesional de Automatización Documental y Memoria Técnica de Evidencias"
+
+1. Propósito de la Sesión:
+"En el mundo laboral, un especialista en tecnología no solo ejecuta herramientas en la nube; también demuestra y documenta cómo resolvió el problema. Hoy concluiremos nuestra primera automatización de expedientes y diseñaremos desde cero una Boleta Oficial de Parciales, compilando un Reporte Técnico con 8 evidencias visuales que certifican nuestro dominio de Google Sheets, Docs y Autocrat."
+
+2. Estructura Oficial del Reporte Técnico (en Google Docs):
+"El reporte se elaborará en Google Docs con el nombre Reporte_Practica_Automatizacion_PrimerApellido_PrimerNombre e incluirá cuatro secciones:
+a) Portada Institucional: Datos de CONALEP Pachuca II, Módulo EDOA-20, Grupo 301, fecha y nombre del alumno.
+b) Objetivo y Justificación: Explicación breve de por qué la automatización masiva ahorra horas de trabajo manual y evita el error humano.
+c) Galería de Evidencias (Las 8 Capturas): Cada captura debe ir centrada con pie de figura numerado (ej. Figura 1: Base de datos normalizada).
+d) Conclusiones Técnicas: Reflexión personal sobre la calidad de datos y la velocidad de procesamiento en la nube."
+
+3. Checklist de las 8 Capturas Obligatorias:
+1) Captura 1: Base de datos en Sheets con los 3 Cortes calculados (=SUMA) y el Semáforo Tricolor.
+2) Captura 2: Asistente de Autocrat en el Paso 4 (File Settings: Expediente_<<Apellidos>>_<<Nombre>>, formato PDF y Multiple output).
+3) Captura 3: Barra de progreso de Autocrat en vivo generando los expedientes (Run Job).
+4) Captura 4: Carpeta de Google Drive 01_Expedientes_PDF con el primer lote de +30 PDFs creados.
+5) Captura 5: Nuevo Machote en Google Docs (Boleta Oficial de Parciales CONALEP) maquetado en 1 sola página.
+6) Captura 6: Configuración y mapeo de las 5 etiquetas de calificaciones en el Job 2 de Autocrat.
+7) Captura 7: Carpeta de Google Drive 02_Boletas_Oficiales_PDF con el segundo lote de +30 boletas en PDF.
+8) Captura 8: Una Boleta en PDF abierta en pantalla, demostrando que los datos se sustituyeron limpiamente sin etiquetas rotas << >>.
 
 🖥️ DEMO EN CAÑÓN (5 min):
 Explicación de Pasos 4 al 9 de Autocrat: File Settings (Nombre dinámico, PDF, Multiple mode), carpeta de salida 01_Expedientes_PDF y clic en Save.
