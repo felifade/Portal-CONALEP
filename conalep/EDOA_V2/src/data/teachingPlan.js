@@ -843,15 +843,17 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
     'W08': {
       id: 'W08',
       label: 'Semana 08',
-      title: 'Dominio de Autocrat, Boleta de Parciales y Reporte Técnico',
+      title: 'Dominio de Autocrat, Operadores Aritméticos, Matriz 10x10 y Forms-Sheets',
       dates: '05 Oct - 09 Oct',
       status: 'active',
       presentationUrl: './html/W08.html',
-      summary: 'Conclusión de Autocrat (Pasos 4 al 9), maquetación autónoma del Machote 2 en Docs (Boleta Oficial de Parciales), segundo lote masivo de PDFs en Drive y compilación del Reporte Técnico de Práctica con 8 capturas.',
-      expectedProduct: 'Segundo lote de +30 boletas en PDF en Drive y Reporte de Práctica maquetado en Google Docs con 8 capturas de pantalla.',
+      summary: 'Conclusión exitosa de Autocrat y Boleta de Parciales en Lunes; laboratorio de Aritmética y Matriz de Multiplicación con referencias fijas ($) el Miércoles; y Forms conectado a Sheets en tiempo real el Jueves.',
+      expectedProduct: 'Reporte Técnico de Autocrat en Docs, Matriz 10x10 con $ en Sheets, y Formulario conectado a Sheets con respuestas en vivo.',
       notices: [
-        'Lunes: Cierre guiado del Job 1 (Pasos 4 al 9), diseño de la Boleta Oficial de Parciales desde cero, ejecución autónoma del Job 2 y compilación del Reporte Técnico de Práctica.',
-        'Sesiones 2, 3 y 4: Se estructurarán de forma dinámica de acuerdo al ritmo alcanzado el lunes.'
+        'Lunes (Horas 1-4): Conclusión exitosa de Autocrat, maquetación de la Boleta de Parciales y Reporte Técnico de Práctica.',
+        'Miércoles (Horas 5-6): Operaciones aritméticas, jerarquía de paréntesis y Matriz de Multiplicación 10x10 con referencias fijas ($).',
+        'Jueves (Horas 7-8): Diseño de Google Forms con validación de respuestas y captura de datos en vivo en Google Sheets.',
+        'Viernes (Hora 9): Dashboard express con gráfica, Kahoot sumativo y cierre del RA 2.1.'
       ],
       sessions: [
         {
@@ -970,8 +972,149 @@ Anotar la conclusión sintética del algoritmo de correspondencia masiva en la n
 🏷️ CIERRE Y SELLO 3:
 Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libreta. 👉 SELLO 3 (Dominio Certificado de Autocrat).`,
           closure: 'Reporte de Práctica compilado en Google Docs con 8 capturas y segundo lote de boletas generado en Drive.'
+        },
+        {
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Aritmética & Matriz 10x10 con Símbolo $',
+          unlockDate: '2026-10-07',
+          unlockLabel: 'Miércoles 7 de Octubre, 15:00 hrs',
+          start: '¿Cómo programar una sola fórmula que resuelva 100 cálculos simultáneos sin desfasarse?',
+          dictation: 'El dominio avanzado de las hojas de cálculo exige comprender la diferencia fundamental entre referencias relativas y referencias fijas (absolutas/mixtas). Al utilizar el símbolo de pesos ($), bloqueamos filas o columnas clave, lo que permite reutilizar fórmulas matriciales en cruz para procesar tablas masivas en segundos.',
+          learningResult: 'Resolver ejercicios aritméticos con paréntesis y construir la matriz de multiplicación 10x10 con una sola fórmula fija.',
+          identification: { topic: 'Operadores & Referencias Fijas ($)', evidence: 'Matriz 10x10 Térmica en Sheets', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Aritmética y Referencias Fijas en Sheets',
+          infographicSteps: [
+            { title: '1. Operadores y Paréntesis', desc: 'Aplica +, -, *, /, ^ con prioridad de paréntesis.' },
+            { title: '2. El Secreto del Símbolo $', desc: 'Compara referencias relativas vs fijas ($A2 * B$1).' },
+            { title: '3. Matriz 10x10 en Cruz', desc: 'Escribe 1 fórmula en B2 y arrástrala a las 100 celdas.' },
+            { title: '4. Mapa de Calor', desc: 'Aplica formato condicional para visualizar densidad térmica.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (2 HORAS)
+Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (50 min) · Operadores Aritméticos y Jerarquía con Paréntesis
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"Muchachos, buenas tardes. En la administración de empresas una mala jerarquía de paréntesis puede quebrar una compañía. Si escribes =10+5/2 la computadora da 12.5; si usas paréntesis =(10+5)/2 la computadora da 7.5. Hoy dominaremos la aritmética precisa en Google Sheets."
+
+🖥️ DEMO EN CAÑÓN (3 min):
+Modelar los 5 operadores (+, -, *, /, ^) y la sintaxis de prioridad de paréntesis en Google Sheets.
+
+💻 RETO 1 (35 min en PC):
+Crear la hoja Laboratorio_Aritmetico_Grupo301 y resolver la batería de 10 simulaciones financieras (IVA 16%, descuentos, porcentajes y potencias).
+
+🏷️ EVIDENCIA Y SELLO:
+Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 6 (50 min) · La Matriz de Multiplicación 10x10 con Símbolo $
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Imaginen tener que calcular 100 multiplicaciones en una tabla. Un principiante escribiría 100 fórmulas una por una; un verdadero profesional escribe UNA SOLA FÓRMULA con el símbolo de pesos ($) y la arrastra en cruz en 2 segundos."
+
+🖥️ DEMO EN CAÑÓN (3 min):
+Explicar referencias relativas vs absolutas/mixtas. Mostrar la sintaxis en B2: =$A2*B$1.
+Arrastrar horizontalmente a la derecha y luego verticalmente hacia abajo.
+
+💻 RETO 2 (35 min en PC):
+1) Construir la tabla del 1 al 10 en filas y columnas.
+2) Programar la fórmula =$A2*B$1 en la celda B2.
+3) Arrastrar en cruz para llenar las 100 celdas automáticamente.
+4) Aplicar Formato Condicional de Escala de Colores (Mapa de Calor Térmico).
+
+🏷️ EVIDENCIA Y SELLO:
+Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5`,
+          closure: 'Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Google Forms Conectado a Sheets en Vivo',
+          unlockDate: '2026-10-08',
+          unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
+          start: '¿Cómo capturar datos en la nube sin permitir que los usuarios cometan errores de tecleo?',
+          dictation: 'La integración de Google Forms con Google Sheets constituye el canal estándar de captura de datos en tiempo real. Al incorporar reglas de validación de respuestas en el formulario, se garantiza la contención de errores en la fuente, permitiendo que la hoja de cálculo procese métricas e indicadores de forma automática.',
+          learningResult: 'Diseñar un formulario con validación de datos, vincularlo a Sheets y procesar respuestas en vivo.',
+          identification: { topic: 'Forms + Sheets en Tiempo Real', evidence: 'Formulario Validado + Respuestas en Vivo en Sheets', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Captura y Automatización Forms-Sheets',
+          infographicSteps: [
+            { title: '1. Formulario Validado', desc: 'Diseña reactivos con reglas estrictas de entrada de datos.' },
+            { title: '2. Enlace a Sheets', desc: 'Conecta la hoja receptora para captura automática.' },
+            { title: '3. Prueba en Vivo', desc: 'Envia respuestas simultáneas desde las computadoras.' },
+            { title: '4. Fórmulas Automáticas', desc: 'Programa =PROMEDIO, =CONTARA y =CONTAR.SI en tiempo real.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (50 min) · Google Forms con Validación de Datos
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"En las grandes plataformas nadie teclea directamente en la base de datos: se usan formularios de captura con escudos de seguridad llamados 'validación de datos'. Hoy diseñaremos un formulario que no permita meter texto donde van números ni edades imposibles."
+
+🖥️ DEMO EN CAÑÓN (3 min):
+Crear Google Form: Auditoria_Servicios_CONALEP_301. Configurar validación de respuesta numérica en el campo de calificación (número entre 5 y 10).
+
+💻 RETO 3 (35 min en PC):
+Diseñar el formulario con 5 reactivos técnicos variados (texto con validación, casillas, escala Likert).
+
+🏷️ EVIDENCIA Y SELLO:
+Formulario diseñado con al menos 1 regla estricta de validación de datos activada. 👉 SELLO 6
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 8 (50 min) · Vinculación en Tiempo Real a Sheets y Fórmulas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Llegó el momento del trabajo en red. Vincularemos su formulario a Google Sheets y verán cómo cada respuesta enviada por sus compañeros aparece sola en pantalla en tiempo real con su marca de agua digital."
+
+🖥️ DEMO EN CAÑÓN (3 min):
+Pestaña Respuestas ➔ Vincular a Hojas de cálculo. Mostrar la columna Timestamp y programar fórmulas de resumen: =CONTARA(), =PROMEDIO(), =CONTAR.SI().
+
+💻 RETO 4 (35 min en PC):
+1) Compartir el enlace del formulario con 3 compañeros del laboratorio.
+2) Recibir las respuestas en tiempo real en Google Sheets.
+3) Programar las columnas de resumen con las 3 fórmulas estadísticas.
+
+🏷️ EVIDENCIA Y SELLO:
+Hoja de cálculo receptora recibiendo respuestas en vivo con fórmulas de resumen operando. 👉 SELLO 7`,
+          closure: 'Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.'
+        },
+        {
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Dashboard Express & Kahoot Final RA 2.1',
+          unlockDate: '2026-10-09',
+          unlockLabel: 'Viernes 9 de Octubre, 15:00 hrs',
+          start: '¿Demostraste la maestría en automatización masiva, referencias y formularios?',
+          dictation: 'El cierre del Resultado de Aprendizaje 2.1 consolida las competencias de correspondencia masiva, diseño de plantillas, referencias mixtas con símbolo de pesos, validación de formularios y visualización de dashboards, certificando la acreditación oficial del bloque.',
+          learningResult: 'Construir un dashboard express, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.',
+          identification: { topic: 'Dashboard Express & Kahoot RA 2.1', evidence: 'Dashboard + Kahoot + Acreditación RA 2.1', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Acreditación Final del RA 2.1',
+          infographicSteps: [
+            { title: '1. Dashboard Express', desc: 'Inserta 2 gráficas dinámicas vinculadas a los datos capturados.' },
+            { title: '2. Kahoot Sumativo', desc: 'Prueba de 20 reactivos sobre Autocrat, $, Forms y Sheets.' },
+            { title: '3. Cotejo de Sellos', desc: 'Verificación del portafolio completo de sellos de la semana.' },
+            { title: '4. Acreditación', desc: 'Asentamiento de calificaciones oficiales del RA 2.1.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Dashboard Express + Kahoot Sumativo + Acreditación Oficial
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 9 (50 min) · Dashboard Express y Cierre del RA 2.1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Apertura al entrar):
+"Muchachos, hoy cerramos formalmente el Resultado de Aprendizaje 2.1. Han pasado de combinar textos sencillos a programar matrices térmicas de 100 celdas y capturar datos en tiempo real. Hoy cerramos con un Dashboard express y nuestro Kahoot sumativo final."
+
+🖥️ DEMO EN CAÑÓN (2 min):
+Insertar 2 gráficas dinámicas (Columnas y Pastel) vinculadas a la hoja de respuestas del formulario.
+
+💻 RETO FINAL (25 min en Dispositivos):
+1) Construir el Dashboard express con 2 gráficas (10 min).
+2) Resolver el Kahoot Sumativo Oficial del RA 2.1 de 20 reactivos (15 min).
+
+🏷️ CIERRE Y ASENTAMIENTO OFICIAL (20 min):
+Cotejo de los sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
+Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
+          closure: 'Acreditación oficial del RA 2.1 asentada en listas y encuadre del RA 2.2.'
         }
       ]
     }
+
   }
 };
