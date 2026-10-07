@@ -974,13 +974,13 @@ Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libret
           closure: 'Reporte de Práctica compilado en Google Docs con 8 capturas y segundo lote de boletas generado en Drive.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (2 hrs) · Aritmética & Matriz 10x10 con Símbolo $',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Aritmética Operativa & Jerarquía con Paréntesis',
           unlockDate: '2026-10-07',
           unlockLabel: 'Miércoles 7 de Octubre, 15:00 hrs',
           start: '¿Cómo programar una sola fórmula que resuelva 100 cálculos simultáneos sin desfasarse?',
           dictation: 'El dominio avanzado de las hojas de cálculo exige comprender la diferencia fundamental entre referencias relativas y referencias fijas (absolutas/mixtas). Al utilizar el símbolo de pesos ($), bloqueamos filas o columnas clave, lo que permite reutilizar fórmulas matriciales en cruz para procesar tablas masivas en segundos.',
-          learningResult: 'Resolver ejercicios aritméticos con paréntesis y construir la matriz de multiplicación 10x10 con una sola fórmula fija.',
-          identification: { topic: 'Operadores & Referencias Fijas ($)', evidence: 'Matriz 10x10 Térmica en Sheets', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          learningResult: 'Dominar la sintaxis de operadores aritméticos (+, -, *, /, ^) y la prioridad de paréntesis en Google Sheets.',
+          identification: { topic: 'Operadores & Paréntesis', evidence: 'Batería Aritmética en Sheets', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Aritmética y Referencias Fijas en Sheets',
           infographicSteps: [
             { title: '1. Operadores y Paréntesis', desc: 'Aplica +, -, *, /, ^ con prioridad de paréntesis.' },
@@ -988,8 +988,8 @@ Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libret
             { title: '3. Matriz 10x10 en Cruz', desc: 'Escribe 1 fórmula en B2 y arrástrala a las 100 celdas.' },
             { title: '4. Mapa de Calor', desc: 'Aplica formato condicional para visualizar densidad térmica.' }
           ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (2 HORAS)
-Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Demo Guiada (3 min) ➔ Reto Autónomo en PC (35 min) ➔ Cierre en Libreta
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 5 (50 min) · Operadores Aritméticos y Jerarquía con Paréntesis
@@ -1003,8 +1003,30 @@ Modelar los 5 operadores (+, -, *, /, ^) y la sintaxis de prioridad de paréntes
 💻 RETO 1 (35 min en PC):
 Crear la hoja Laboratorio_Aritmetico_Grupo301 y resolver la batería de 10 simulaciones financieras (IVA 16%, descuentos, porcentajes y potencias).
 
+📝 CIERRE EN LIBRETA (10 min):
+Regla de oro de la jerarquía de operadores en hojas de cálculo.
+
 🏷️ EVIDENCIA Y SELLO:
-Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4
+Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4`,
+          closure: 'Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Matriz 10x10 ($) & Forms con Validación',
+          unlockDate: '2026-10-08',
+          unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
+          start: '¿Cómo capturar datos en la nube sin permitir que los usuarios cometan errores de tecleo?',
+          dictation: 'La integración de Google Forms con Google Sheets constituye el canal estándar de captura de datos en tiempo real. Al incorporar reglas de validación de respuestas en el formulario, se garantiza la contención de errores en la fuente, permitiendo que la hoja de cálculo procese métricas e indicadores de forma automática.',
+          learningResult: 'Diseñar un formulario con validación de datos, vincularlo a Sheets y procesar respuestas en vivo.',
+          identification: { topic: 'Forms + Sheets en Tiempo Real', evidence: 'Formulario Validado + Respuestas en Vivo en Sheets', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Captura y Automatización Forms-Sheets',
+          infographicSteps: [
+            { title: '1. Formulario Validado', desc: 'Diseña reactivos con reglas estrictas de entrada de datos.' },
+            { title: '2. Enlace a Sheets', desc: 'Conecta la hoja receptora para captura automática.' },
+            { title: '3. Prueba en Vivo', desc: 'Envia respuestas simultáneas desde las computadoras.' },
+            { title: '4. Fórmulas Automáticas', desc: 'Programa =PROMEDIO, =CONTARA y =CONTAR.SI en tiempo real.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Demo Guiada (3 min) ➔ Retos Autónomos en PC (35 min) ➔ Auditoría
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 6 (50 min) · La Matriz de Multiplicación 10x10 con Símbolo $
@@ -1023,31 +1045,12 @@ Arrastrar horizontalmente a la derecha y luego verticalmente hacia abajo.
 4) Aplicar Formato Condicional de Escala de Colores (Mapa de Calor Térmico).
 
 🏷️ EVIDENCIA Y SELLO:
-Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5`,
-          closure: 'Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.'
-        },
-        {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Google Forms Conectado a Sheets en Vivo',
-          unlockDate: '2026-10-08',
-          unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
-          start: '¿Cómo capturar datos en la nube sin permitir que los usuarios cometan errores de tecleo?',
-          dictation: 'La integración de Google Forms con Google Sheets constituye el canal estándar de captura de datos en tiempo real. Al incorporar reglas de validación de respuestas en el formulario, se garantiza la contención de errores en la fuente, permitiendo que la hoja de cálculo procese métricas e indicadores de forma automática.',
-          learningResult: 'Diseñar un formulario con validación de datos, vincularlo a Sheets y procesar respuestas en vivo.',
-          identification: { topic: 'Forms + Sheets en Tiempo Real', evidence: 'Formulario Validado + Respuestas en Vivo en Sheets', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Captura y Automatización Forms-Sheets',
-          infographicSteps: [
-            { title: '1. Formulario Validado', desc: 'Diseña reactivos con reglas estrictas de entrada de datos.' },
-            { title: '2. Enlace a Sheets', desc: 'Conecta la hoja receptora para captura automática.' },
-            { title: '3. Prueba en Vivo', desc: 'Envia respuestas simultáneas desde las computadoras.' },
-            { title: '4. Fórmulas Automáticas', desc: 'Programa =PROMEDIO, =CONTARA y =CONTAR.SI en tiempo real.' }
-          ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Demo Guiada (2-3 min) ➔ Retos Autónomos en PC (10-15 min) ➔ Auditoría
+Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 7 (50 min) · Google Forms con Validación de Datos
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO (Apertura al entrar):
+🗣️ FRASE GANCHO:
 "En las grandes plataformas nadie teclea directamente en la base de datos: se usan formularios de captura con escudos de seguridad llamados 'validación de datos'. Hoy diseñaremos un formulario que no permita meter texto donde van números ni edades imposibles."
 
 🖥️ DEMO EN CAÑÓN (3 min):
@@ -1057,24 +1060,7 @@ Crear Google Form: Auditoria_Servicios_CONALEP_301. Configurar validación de re
 Diseñar el formulario con 5 reactivos técnicos variados (texto con validación, casillas, escala Likert).
 
 🏷️ EVIDENCIA Y SELLO:
-Formulario diseñado con al menos 1 regla estricta de validación de datos activada. 👉 SELLO 6
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (50 min) · Vinculación en Tiempo Real a Sheets y Fórmulas
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Llegó el momento del trabajo en red. Vincularemos su formulario a Google Sheets y verán cómo cada respuesta enviada por sus compañeros aparece sola en pantalla en tiempo real con su marca de agua digital."
-
-🖥️ DEMO EN CAÑÓN (3 min):
-Pestaña Respuestas ➔ Vincular a Hojas de cálculo. Mostrar la columna Timestamp y programar fórmulas de resumen: =CONTARA(), =PROMEDIO(), =CONTAR.SI().
-
-💻 RETO 4 (35 min en PC):
-1) Compartir el enlace del formulario con 3 compañeros del laboratorio.
-2) Recibir las respuestas en tiempo real en Google Sheets.
-3) Programar las columnas de resumen con las 3 fórmulas estadísticas.
-
-🏷️ EVIDENCIA Y SELLO:
-Hoja de cálculo receptora recibiendo respuestas en vivo con fórmulas de resumen operando. 👉 SELLO 7`,
+Formulario diseñado con al menos 1 regla estricta de validación de datos activada. 👉 SELLO 6`,
           closure: 'Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.'
         },
         {
@@ -1093,11 +1079,27 @@ Hoja de cálculo receptora recibiendo respuestas en vivo con fórmulas de resume
             { title: '4. Acreditación', desc: 'Asentamiento de calificaciones oficiales del RA 2.1.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Dashboard Express + Kahoot Sumativo + Acreditación Oficial
+Metodología: Integración Forms-Sheets + Kahoot Sumativo + Acreditación RA 2.1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 9 (50 min) · Dashboard Express y Cierre del RA 2.1
+⏱️ HORA 8 (50 min) · Captura en Vivo, Métricas y Acreditación Final
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Llegó el momento del trabajo en red y el cierre del RA 2.1. Vincularemos su formulario a Google Sheets y verán cómo cada respuesta enviada aparece en tiempo real para calcular promedios automáticos."
+
+💻 RETO 4 (20 min en PC):
+1) Compartir enlace del formulario con 3 compañeros del laboratorio.
+2) Recibir respuestas en vivo en Google Sheets.
+3) Programar fórmulas de resumen (=PROMEDIO, =CONTARA, =CONTAR.SI).
+
+📊 KAHOOT SUMATIVO RA 2.1 (20 min):
+Prueba evaluativa de 20 reactivos (Autocrat, $, Forms y Sheets).
+
+📝 CORTE DE SELLOS Y ACREDITACIÓN (10 min):
+Cotejo del portafolio completo de sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1.
+
+🏷️ EVIDENCIA Y SELLO:
+Hoja receptora operando + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
 🗣️ FRASE GANCHO (Apertura al entrar):
 "Muchachos, hoy cerramos formalmente el Resultado de Aprendizaje 2.1. Han pasado de combinar textos sencillos a programar matrices térmicas de 100 celdas y capturar datos en tiempo real. Hoy cerramos con un Dashboard express y nuestro Kahoot sumativo final."
 
