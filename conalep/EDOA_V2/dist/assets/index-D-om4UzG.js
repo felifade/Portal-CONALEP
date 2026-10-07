@@ -335,7 +335,7 @@ Crear la hoja Laboratorio_Aritmetico_Grupo301 y resolver la batería de 10 simul
 Regla de oro de la jerarquía de operadores en hojas de cálculo.
 
 🏷️ EVIDENCIA Y SELLO:
-Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4`,closure:`Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.`},{id:`S3`,label:`Sesión 03`,subtitle:`Jueves (2 hrs) · Matriz 10x10 ($) & Buscador Búsqueda con =BUSCARV()`,unlockDate:`2026-10-08`,unlockLabel:`Jueves 8 de Octubre, 15:00 hrs`,start:`¿Cómo hacer que teclees la clave de un alumno y la hoja te traiga automáticamente todos sus datos sin buscarlos manualmente?`,dictation:`La función =BUSCARV() (VLOOKUP) es el motor de búsqueda relacional de las hojas de cálculo. Al combinar listas desplegables con la validación de datos y la función =BUSCARV(), podemos transformar tablas estáticas en consultores dinámicos e interactivos capaces de recuperar información instantánea en pantalla.`,learningResult:`Crear listas desplegables con validación de datos y dominar la sintaxis de =BUSCARV() para la extracción automática de datos.`,identification:{topic:`Listas Desplegables & =BUSCARV()`,evidence:`Buscador de Datos Automatizado con BUSCARV`,organization:`Individual`,location:`Laboratorio`,time:`2 hrs`},infographicTitle:`Búsquedas Automatizadas con BUSCARV`,infographicSteps:[{title:`1. Validación de Datos`,desc:`Crea menús desplegables a partir de un intervalo de celdas.`},{title:`2. Sintaxis =BUSCARV`,desc:`=BUSCARV(clave_buscada, matriz_tabla, num_columna, FALSO).`},{title:`3. Extracción Automática`,desc:`Recupera nombres, apellidos, calificaciones y estatus al instante.`},{title:`4. Ficha Interactivas`,desc:`Diseña interfaces de consulta reactivas en tiempo real.`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4`,closure:`Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.`},{id:`S3`,label:`Sesión 03`,subtitle:`Jueves (2 hrs) · Matriz 10x10 ($) & Formato Profesional de Hojas de Cálculo`,unlockDate:`2026-10-08`,unlockLabel:`Jueves 8 de Octubre, 15:00 hrs`,start:`¿Cómo transformar una tabla aburrida y desordenada en un documento contable limpio, profesional y bien estructurado?`,dictation:`El diseño estético y el formato de datos en las hojas de cálculo son fundamentales para la presentación profesional. Al aplicar formatos numéricos de moneda ($), porcentajes (%), bordes estructurados y combinar celdas para encabezados, convertimos listas simples en comprobantes contables y notas de venta elegantes.`,learningResult:`Aplicar formatos estéticos de tabla (moneda, colores, bordes, alineación) y maquetar una Nota de Venta contable.`,identification:{topic:`Formato de Tablas & Estilos`,evidence:`Nota de Venta Maquetada con Formatos`,organization:`Individual`,location:`Laboratorio`,time:`2 hrs`},infographicTitle:`Formato Profesional de Hojas de Cálculo`,infographicSteps:[{title:`1. Estructura y Encabezados`,desc:`Combina celdas y aplica paleta de colores profesional.`},{title:`2. Formatos Numéricos`,desc:`Aplica formato de Moneda ($), Porcentaje (%) y Fechas.`},{title:`3. Bordes y Alineación`,desc:`Ajusta el texto y coloca bordes limpios en toda la tabla.`},{title:`4. Nota de Venta`,desc:`Maqueta el formato impreso o digital de una cotización.`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
 Metodología: Demo Guiada (3 min) ➔ Retos Autónomos en PC (35 min) ➔ Auditoría
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -358,39 +358,43 @@ Arrastrar horizontalmente a la derecha y luego verticalmente hacia abajo.
 Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (50 min) · Listas Desplegables y Búsquedas Automatizadas con =BUSCARV()
+⏱️ HORA 7 (50 min) · Formato Profesional de Hojas de Cálculo
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"En cualquier sistema profesional (bancos, hospitales, tiendas) buscas a una persona por su número de control o ID y la pantalla recupera de inmediato toda su ficha. Hoy aprenderemos la función más cotizada del mercado laboral: =BUSCARV()."
+"Una hoja de cálculo sin formato parece un borrador feo y poco confiable. Hoy aprenderemos a darle aspecto de documento contable profesional: combinar celdas, usar la moneda ($), aplicar colores sobrios y bordes limpios."
 
 🖥️ DEMO EN CAÑÓN (3 min):
-1) Crear menú desplegable: Datos > Validación de datos > Lista a partir de un intervalo.
-2) Demostrar la sintaxis de =BUSCARV(B2, Tabla_Directorio, 2, FALSO) para traer el nombre del alumno.
+Mostrar cómo combinar celdas para el membrete, formatear celdas a Moneda ($), ajustar ancho de columna y aplicar paleta de colores institucional.
 
 💻 RETO 3 (35 min en PC):
-Crear la tabla de consulta interactiva. Programar =BUSCARV() para recuperar datos de una clave seleccionada desde la lista desplegable.
+Maquetar la estructura visual de una Nota_de_Venta_Escolar_Grupo301 con 5 artículos (Cantidad, Descripción, Precio Unitario, Importe).
 
 🏷️ EVIDENCIA Y SELLO:
-Menú desplegable activo recuperando datos automáticamente con =BUSCARV(). 👉 SELLO 6`,closure:`Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.`},{id:`S4`,label:`Sesión 04`,subtitle:`Viernes (1 hr) · Consultor Dinámico en Sheets & Kahoot Final RA 2.1`,unlockDate:`2026-10-09`,unlockLabel:`Viernes 9 de Octubre, 15:00 hrs`,start:`¿Demostraste la maestría en automatización masiva, referencias y formularios?`,dictation:`El cierre del Resultado de Aprendizaje 2.1 consolida las competencias de correspondencia masiva, diseño de plantillas, referencias mixtas con símbolo de pesos, validación de formularios y visualización de dashboards, certificando la acreditación oficial del bloque.`,learningResult:`Construir un dashboard express, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.`,identification:{topic:`Dashboard Express & Kahoot RA 2.1`,evidence:`Dashboard + Kahoot + Acreditación RA 2.1`,organization:`Individual`,location:`Laboratorio`,time:`1 hr`},infographicTitle:`Acreditación Final del RA 2.1`,infographicSteps:[{title:`1. Dashboard Express`,desc:`Inserta 2 gráficas dinámicas vinculadas a los datos capturados.`},{title:`2. Kahoot Sumativo`,desc:`Prueba de 20 reactivos sobre Autocrat, $, Forms y Sheets.`},{title:`3. Cotejo de Sellos`,desc:`Verificación del portafolio completo de sellos de la semana.`},{title:`4. Acreditación`,desc:`Asentamiento de calificaciones oficiales del RA 2.1.`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Consultor Dinámico + Kahoot Sumativo + Acreditación RA 2.1
+Nota de venta maquetada con formato estético profesional y tipos de datos configurados. 👉 SELLO 6`,closure:`Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.`},{id:`S4`,label:`Sesión 04`,subtitle:`Viernes (1 hr) · Nota de Venta Automatizada & Kahoot Final RA 2.1`,unlockDate:`2026-10-09`,unlockLabel:`Viernes 9 de Octubre, 15:00 hrs`,start:`¿Demostraste la maestría en automatización masiva, referencias y formularios?`,dictation:`El cierre del Resultado de Aprendizaje 2.1 consolida las competencias de correspondencia masiva, diseño de plantillas, referencias mixtas con símbolo de pesos, validación de formularios y visualización de dashboards, certificando la acreditación oficial del bloque.`,learningResult:`Construir un dashboard express, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.`,identification:{topic:`Dashboard Express & Kahoot RA 2.1`,evidence:`Dashboard + Kahoot + Acreditación RA 2.1`,organization:`Individual`,location:`Laboratorio`,time:`1 hr`},infographicTitle:`Acreditación Final del RA 2.1`,infographicSteps:[{title:`1. Dashboard Express`,desc:`Inserta 2 gráficas dinámicas vinculadas a los datos capturados.`},{title:`2. Kahoot Sumativo`,desc:`Prueba de 20 reactivos sobre Autocrat, $, Forms y Sheets.`},{title:`3. Cotejo de Sellos`,desc:`Verificación del portafolio completo de sellos de la semana.`},{title:`4. Acreditación`,desc:`Asentamiento de calificaciones oficiales del RA 2.1.`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Nota de Venta Automatizada + Kahoot Sumativo + Acreditación RA 2.1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (50 min) · Consultor Dinámico de Expedientes y Cierre del RA 2.1
+⏱️ HORA 8 (50 min) · Nota de Venta Automatizada y Cierre del RA 2.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Hoy integraremos todo en un Consultor Dinámico de Expedientes. Al seleccionar la matrícula o nombre de cualquier compañero en B2, su ficha completa de 3 parciales, promedio y semáforo aparecerá automáticamente en pantalla."
+"Hoy cerraremos la semana automatizando la Nota de Venta. Con fórmulas sencillas de multiplicación y suma, el documento calculará subtotales, IVA y total de forma automática."
 
 💻 RETO 4 (20 min en PC):
-Maquetar la Ficha_Consultor_Grupo301 en Google Sheets. Programar =BUSCARV() en cada campo para que recupere la Colonia, Corte 1, Corte 2, Corte 3, Promedio y Semáforo reactivo.
+Programar en la Nota de Venta:
+1) Importe por artículo (=Cantidad * Precio).
+2) Subtotal (=SUMA(Importes)).
+3) IVA 16% (=Subtotal * 0.16).
+4) Total Final (=Subtotal + IVA).
+5) Formato Condicional suave en la celda del Total.
 
 📊 KAHOOT SUMATIVO RA 2.1 (20 min):
-Prueba evaluativa de 20 reactivos (Autocrat, $, Referencias Fijas y BUSCARV).
+Prueba evaluativa de 20 reactivos (Autocrat, $, Operadores y Formato de Hojas de Cálculo).
 
 📝 CORTE DE SELLOS Y ACREDITACIÓN (10 min):
 Cotejo del portafolio completo de sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1.
 
 🏷️ EVIDENCIA Y SELLO:
-Ficha Consultor reactiva con BUSCARV + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
+Nota de Venta automatizada funcionando + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
 🗣️ FRASE GANCHO (Apertura al entrar):
 "Muchachos, hoy cerramos formalmente el Resultado de Aprendizaje 2.1. Han pasado de combinar textos sencillos a programar matrices térmicas de 100 celdas y capturar datos en tiempo real. Hoy cerramos con un Dashboard express y nuestro Kahoot sumativo final."
 
