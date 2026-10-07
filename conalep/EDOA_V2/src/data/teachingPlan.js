@@ -1011,19 +1011,19 @@ Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas f
           closure: 'Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Matriz 10x10 ($) & Forms con Validación',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Matriz 10x10 ($) & Buscador Búsqueda con =BUSCARV()',
           unlockDate: '2026-10-08',
           unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
-          start: '¿Cómo capturar datos en la nube sin permitir que los usuarios cometan errores de tecleo?',
-          dictation: 'La integración de Google Forms con Google Sheets constituye el canal estándar de captura de datos en tiempo real. Al incorporar reglas de validación de respuestas en el formulario, se garantiza la contención de errores en la fuente, permitiendo que la hoja de cálculo procese métricas e indicadores de forma automática.',
-          learningResult: 'Diseñar un formulario con validación de datos, vincularlo a Sheets y procesar respuestas en vivo.',
-          identification: { topic: 'Forms + Sheets en Tiempo Real', evidence: 'Formulario Validado + Respuestas en Vivo en Sheets', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Captura y Automatización Forms-Sheets',
+          start: '¿Cómo hacer que teclees la clave de un alumno y la hoja te traiga automáticamente todos sus datos sin buscarlos manualmente?',
+          dictation: 'La función =BUSCARV() (VLOOKUP) es el motor de búsqueda relacional de las hojas de cálculo. Al combinar listas desplegables con la validación de datos y la función =BUSCARV(), podemos transformar tablas estáticas en consultores dinámicos e interactivos capaces de recuperar información instantánea en pantalla.',
+          learningResult: 'Crear listas desplegables con validación de datos y dominar la sintaxis de =BUSCARV() para la extracción automática de datos.',
+          identification: { topic: 'Listas Desplegables & =BUSCARV()', evidence: 'Buscador de Datos Automatizado con BUSCARV', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Búsquedas Automatizadas con BUSCARV',
           infographicSteps: [
-            { title: '1. Formulario Validado', desc: 'Diseña reactivos con reglas estrictas de entrada de datos.' },
-            { title: '2. Enlace a Sheets', desc: 'Conecta la hoja receptora para captura automática.' },
-            { title: '3. Prueba en Vivo', desc: 'Envia respuestas simultáneas desde las computadoras.' },
-            { title: '4. Fórmulas Automáticas', desc: 'Programa =PROMEDIO, =CONTARA y =CONTAR.SI en tiempo real.' }
+            { title: '1. Validación de Datos', desc: 'Crea menús desplegables a partir de un intervalo de celdas.' },
+            { title: '2. Sintaxis =BUSCARV', desc: '=BUSCARV(clave_buscada, matriz_tabla, num_columna, FALSO).' },
+            { title: '3. Extracción Automática', desc: 'Recupera nombres, apellidos, calificaciones y estatus al instante.' },
+            { title: '4. Ficha Interactivas', desc: 'Diseña interfaces de consulta reactivas en tiempo real.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
 Metodología: Demo Guiada (3 min) ➔ Retos Autónomos en PC (35 min) ➔ Auditoría
@@ -1048,23 +1048,24 @@ Arrastrar horizontalmente a la derecha y luego verticalmente hacia abajo.
 Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (50 min) · Google Forms con Validación de Datos
+⏱️ HORA 7 (50 min) · Listas Desplegables y Búsquedas Automatizadas con =BUSCARV()
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"En las grandes plataformas nadie teclea directamente en la base de datos: se usan formularios de captura con escudos de seguridad llamados 'validación de datos'. Hoy diseñaremos un formulario que no permita meter texto donde van números ni edades imposibles."
+"En cualquier sistema profesional (bancos, hospitales, tiendas) buscas a una persona por su número de control o ID y la pantalla recupera de inmediato toda su ficha. Hoy aprenderemos la función más cotizada del mercado laboral: =BUSCARV()."
 
 🖥️ DEMO EN CAÑÓN (3 min):
-Crear Google Form: Auditoria_Servicios_CONALEP_301. Configurar validación de respuesta numérica en el campo de calificación (número entre 5 y 10).
+1) Crear menú desplegable: Datos > Validación de datos > Lista a partir de un intervalo.
+2) Demostrar la sintaxis de =BUSCARV(B2, Tabla_Directorio, 2, FALSO) para traer el nombre del alumno.
 
 💻 RETO 3 (35 min en PC):
-Diseñar el formulario con 5 reactivos técnicos variados (texto con validación, casillas, escala Likert).
+Crear la tabla de consulta interactiva. Programar =BUSCARV() para recuperar datos de una clave seleccionada desde la lista desplegable.
 
 🏷️ EVIDENCIA Y SELLO:
-Formulario diseñado con al menos 1 regla estricta de validación de datos activada. 👉 SELLO 6`,
+Menú desplegable activo recuperando datos automáticamente con =BUSCARV(). 👉 SELLO 6`,
           closure: 'Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Dashboard Express & Kahoot Final RA 2.1',
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Consultor Dinámico en Sheets & Kahoot Final RA 2.1',
           unlockDate: '2026-10-09',
           unlockLabel: 'Viernes 9 de Octubre, 15:00 hrs',
           start: '¿Demostraste la maestría en automatización masiva, referencias y formularios?',
@@ -1079,27 +1080,25 @@ Formulario diseñado con al menos 1 regla estricta de validación de datos activ
             { title: '4. Acreditación', desc: 'Asentamiento de calificaciones oficiales del RA 2.1.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Integración Forms-Sheets + Kahoot Sumativo + Acreditación RA 2.1
+Metodología: Consultor Dinámico + Kahoot Sumativo + Acreditación RA 2.1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (50 min) · Captura en Vivo, Métricas y Acreditación Final
+⏱️ HORA 8 (50 min) · Consultor Dinámico de Expedientes y Cierre del RA 2.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Llegó el momento del trabajo en red y el cierre del RA 2.1. Vincularemos su formulario a Google Sheets y verán cómo cada respuesta enviada aparece en tiempo real para calcular promedios automáticos."
+"Hoy integraremos todo en un Consultor Dinámico de Expedientes. Al seleccionar la matrícula o nombre de cualquier compañero en B2, su ficha completa de 3 parciales, promedio y semáforo aparecerá automáticamente en pantalla."
 
 💻 RETO 4 (20 min en PC):
-1) Compartir enlace del formulario con 3 compañeros del laboratorio.
-2) Recibir respuestas en vivo en Google Sheets.
-3) Programar fórmulas de resumen (=PROMEDIO, =CONTARA, =CONTAR.SI).
+Maquetar la Ficha_Consultor_Grupo301 en Google Sheets. Programar =BUSCARV() en cada campo para que recupere la Colonia, Corte 1, Corte 2, Corte 3, Promedio y Semáforo reactivo.
 
 📊 KAHOOT SUMATIVO RA 2.1 (20 min):
-Prueba evaluativa de 20 reactivos (Autocrat, $, Forms y Sheets).
+Prueba evaluativa de 20 reactivos (Autocrat, $, Referencias Fijas y BUSCARV).
 
 📝 CORTE DE SELLOS Y ACREDITACIÓN (10 min):
 Cotejo del portafolio completo de sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1.
 
 🏷️ EVIDENCIA Y SELLO:
-Hoja receptora operando + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
+Ficha Consultor reactiva con BUSCARV + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
 🗣️ FRASE GANCHO (Apertura al entrar):
 "Muchachos, hoy cerramos formalmente el Resultado de Aprendizaje 2.1. Han pasado de combinar textos sencillos a programar matrices térmicas de 100 celdas y capturar datos en tiempo real. Hoy cerramos con un Dashboard express y nuestro Kahoot sumativo final."
 
