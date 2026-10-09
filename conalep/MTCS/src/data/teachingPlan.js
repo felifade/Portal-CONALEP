@@ -1335,5 +1335,232 @@ export const teachingPlan = {
         },
       ],
     },
+    {
+      id: 'W09',
+      label: 'Semana 09',
+      dateRange: '12 - 16 Oct',
+      status: 'Próxima',
+      corteId: 'C2',
+      raId: 'RA 2.1',
+      title: 'El Asalto a las Contraseñas: Fuerza Bruta, OpenSSL y Escudo MFA',
+      result: 'Identifica los vectores de riesgo en autenticación y transporte de datos, experimentando con ataques de diccionario, entropía de claves con OpenSSL y análisis de tráfico plano vs cifrado (HTTP vs HTTPS).',
+      pdfUrl: './pdf/Guia_Laboratorio_Forense_Linux_MTCS_Semana07.pdf',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual con libreta y Google Cloud Shell',
+        product: 'Matriz del Riesgo, tabla de entropía, generación con openssl, comparativa HTTP/HTTPS y Gran Kahoot',
+      },
+      notices: [
+        'Consolidación del RA 2.1 (Segundo Corte - 20%).',
+        'Miércoles 14 Oct: El Triángulo del Riesgo (Activo, Amenaza y Vulnerabilidad) + Matriz de Libreta (Sello 1).',
+        'Jueves 15 Oct: La Guerra de las Contraseñas (Fuerza Bruta vs Diccionarios) y Claves Militares con OpenSSL (Sello 2).',
+        'Viernes 16 Oct: La Trampa de las Redes Públicas (HTTP vs HTTPS con curl), Escudo MFA y Gran Kahoot Semana 09 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 14 Oct)',
+          title: 'El Triángulo del Riesgo: Activos, Amenazas y Vulnerabilidades',
+          hook: '¿Sabían que los hackers casi nunca atacan la computadora más difícil, sino a la persona más confiada? En un banco pueden tener un firewall de 10 millones de pesos, pero si el cajero deja su contraseña pegada en un post-it, el banco está hackeado.',
+          start: '¿Cómo se relacionan un activo valioso, una amenaza informática y una vulnerabilidad en un incidente real?',
+          dictationTitle: 'EL TRIÁNGULO DEL RIESGO EN CIBERSEGURIDAD: ACTIVOS, AMENAZAS Y VULNERABILIDADES',
+          dictation: 'En ciberseguridad corporativa, la gestión del riesgo se fundamenta en tres componentes interdependientes: 1) Activo de Información: Todo dato, sistema o infraestructura que posee valor tangible o intangible para la organización (ejemplos: bases de datos de clientes, propiedad intelectual, dinero digital o expedientes escolares); 2) Amenaza: Cualquier agente externo o interno con el potencial de causar daño o explotar un sistema (ejemplos: ciberdelincuentes, software malicioso, filtraciones de empleados o desastres físicos); 3) Vulnerabilidad: Debilidad o fallo en el diseño, configuración o procedimiento que permite a una amenaza materializarse (ejemplos: contraseñas débiles, puertos de red abiertos innecesariamente o software sin actualizar). La fórmula fundamental de la ciberdefensa establece que el Riesgo es directamente proporcional a la probabilidad de que una amenaza explote una vulnerabilidad (Riesgo = Amenaza × Vulnerabilidad). La mitigación consiste en aplicar salvaguardas y controles de seguridad para reducir dicha exposición a niveles tolerables.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Construcción de la Matriz de Riesgo en Libreta',
+            steps: [
+              'Anotar título centrado (tamaño 20) y copiar el dictado oficial justificado (tamaño 14).',
+              'Dividir la cuartilla en 3 cuadrantes: 1) El Activo (base de datos escolar), 2) La Amenaza (atacante externo / phishing), 3) La Vulnerabilidad (clave 123456).',
+              'Al centro de la página, redactar la fórmula matemática: Riesgo = Amenaza × Vulnerabilidad.',
+              'Plantear un ejemplo de mitigación real: Implementar autenticación de dos factores (2FA) y claves de más de 12 caracteres.'
+            ]
+          },
+          visualExample: {
+            title: 'Esquema de la Matriz del Riesgo',
+            badge: 'Referencia para Libreta',
+            description: 'Distribución recomendada para el apunte gráfico de los 3 cuadrantes:',
+            mockup: '┌────────────────────────────────────────────────────────┐\n│      [ TÍTULO CENTRADO · TAMAÑO 20 ]                   │\n│                                                        │\n│  [ TEXTO DEL DICTADO OFICIAL JUSTIFICADO · TAMAÑO 14 ] │\n├────────────────────────┬───────────────────────────────┤\n│ 1. EL ACTIVO (Valor)   │ 2. LA AMENAZA (Peligro)       │\n│ • Datos de alumnos     │ • Hacker / Malware espía      │\n│ • Calificaciones       │ • Ataques de phishing         │\n├────────────────────────┴───────────────────────────────┤\n│ 3. LA VULNERABILIDAD (Falla)                           │\n│ • Contraseñas débiles (ej. "admin123")                 │\n│ • Servidores sin parches de seguridad                  │\n├────────────────────────────────────────────────────────┤\n│   FÓRMULA: RIESGO = AMENAZA × VULNERABILIDAD           │\n│   MITIGACIÓN: Actualizar sistemas + Doble Factor (2FA) │\n└────────────────────────────────────────────────────────┘'
+          },
+          learningResult: 'El estudiante analiza los componentes del riesgo tecnológico y formula medidas de mitigación para salvaguardar activos de información.',
+          identification: 'Tema: Gestión del Riesgo Tecnológico. Evidencia: Matriz de Riesgo de 3 cuadrantes en libreta.',
+          development: 'Exposición interactiva sobre la anatomía de los ciberataques modernos. Dictado técnico sobre activos y vulnerabilidades, seguido de la elaboración gráfica de la Matriz de Riesgo.',
+          closure: 'Revisión y sellado del Sello 1 en libreta.',
+          faq: [
+            { q: '¿Si no hay vulnerabilidad, existe riesgo?', a: 'El riesgo se reduce prácticamente a cero, porque aunque exista la amenaza, no tiene ninguna puerta para entrar.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Matriz de Riesgo con los 3 cuadrantes, fórmula y ejemplo de mitigación en libreta.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 15 Oct · Hora 1)',
+          title: 'La Guerra de las Contraseñas: Fuerza Bruta vs Diccionarios',
+          hook: '¿Sabían que en México la contraseña más usada sigue siendo "123456"? Los hackers usan una lista filtrada real con 32 millones de contraseñas llamada RockYou. Si tu clave está ahí, tardan 0.001 segundos en entrar.',
+          start: '¿Cómo calcula un atacante el tiempo necesario para quebrar una contraseña por fuerza bruta?',
+          dictationTitle: 'LA GUERRA DE LAS CONTRASEÑAS: ATAQUES DE DICCIONARIO Y FUERZA BRUTA',
+          dictation: 'El mecanismo de autenticación más extendido en los sistemas informáticos sigue siendo la contraseña, representando simultáneamente el eslabón más vulnerable de la cadena de seguridad. Los atacantes no intentan adivinar contraseñas de forma manual, sino mediante herramientas automatizadas que ejecutan dos vectores principales: 1) Ataque por Fuerza Bruta: Prueba matemática exhaustiva de todas las combinaciones posibles de caracteres hasta dar con la correcta; su efectividad depende directamente de la longitud de la clave y de la potencia de cómputo del atacante; 2) Ataque de Diccionario: Utiliza listas masivas de contraseñas previamente filtradas y palabras comunes (como la célebre lista RockYou que contiene más de 32 millones de registros). Una contraseña compuesta únicamente por 6 u 8 caracteres numéricos puede ser vulnerada en milisegundos mediante aceleración por GPU. Para neutralizar estos ataques, se exige una longitud mínima de 12 a 16 caracteres alfanuméricos con caracteres especiales, alcanzando una entropía que eleva el tiempo de descifrado a miles de millones de años.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Tabla de Entropía y Tiempos de Ruptura',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado justificado (tamaño 14).',
+              'Dibujar en libreta una tabla comparativa de 4 niveles: Débil (6 núm), Regular (8 letras), Fuerte (10 letras+núm), Militar (14 alfanum con símbolos).',
+              'Registrar los tiempos de ruptura estimados por GPU: de 0.001 segundos a más de 35,000 años.',
+              'Responder: ¿Por qué las plataformas bloquean el acceso tras 3 o 5 intentos fallidos?'
+            ]
+          },
+          visualExample: {
+            title: 'Tabla de Entropía de Contraseñas',
+            badge: 'Tiempos de Ruptura',
+            description: 'Muestra de clasificación de contraseñas para libreta:',
+            mockup: '┌─────────────────┬──────────────┬───────────────────────────────┐\n│ TIPO DE CLAVE   │ EJEMPLO      │ TIEMPO ESTIMADO DE RUPTURA    │\n├─────────────────┼──────────────┼───────────────────────────────┤\n│ Débil (6 car.)  │ 123456       │ 0.001 segundos (Instantáneo)  │\n│ Media (8 car.)  │ escuelaa     │ 3 minutos por diccionario     │\n│ Fuerte (10 car.)│ Escuel4#26   │ 4 semanas por fuerza bruta    │\n│ Militar (14 c.) │ xK9$mP2!qL9@ │ +35,000 años (Invulnerable)   │\n└─────────────────┴──────────────┴───────────────────────────────┘'
+          },
+          learningResult: 'El estudiante evalúa la fortaleza de contraseñas basándose en su longitud, complejidad y entropía criptográfica.',
+          identification: 'Tema: Entropía y Ataques de Diccionario. Evidencia: Tabla comparativa de 4 niveles de contraseñas sellada.',
+          development: 'Análisis de vectores de ataque por fuerza bruta y diccionarios de filtraciones masivas (RockYou). Construcción guiada de la tabla de entropía.',
+          closure: 'Reflexión grupal y preparación para la práctica en Cloud Shell.',
+          faq: [
+            { q: '¿Qué es la lista RockYou?', a: 'Un archivo de texto real filtrado en 2009 que contiene más de 32 millones de contraseñas comunes usadas en ataques.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Tabla de entropía y tiempos de descifrado de contraseñas en libreta.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 15 Oct · Hora 2)',
+          title: 'Generación Robusta de Secretos con Criptografía OpenSSL',
+          hook: 'En ciberseguridad nunca inventamos contraseñas usando nuestra cabeza porque los atacantes usan psicología. Usamos la entropía matemática del procesador para generar claves militares.',
+          start: '¿Cómo utilizar el motor criptográfico de Linux para generar contraseñas invulnerables?',
+          dictationTitle: 'GENERACIÓN ROBUSTA DE SECRETOS CON CRIPTOGRAFÍA OPENSSL',
+          dictation: 'Para garantizar que los secretos administrativos, credenciales de conexión y tokens de autenticación posean verdadera entropía matemática, los administradores de sistemas y analistas de ciberseguridad nunca inventan contraseñas basadas en nombres o palabras del diccionario. En entornos de producción GNU/Linux se emplean herramientas criptográficas como OpenSSL acopladas al generador de números pseudoaleatorios del kernel (/dev/urandom). Mediante el comando openssl rand, el procesador genera cadenas binarias aleatorias codificadas en Base64 o hexadecimal que garantizan una distribución estadística uniforme, anulando por completo la efectividad de los ataques de diccionario y forzando al atacante a un coste computacional inasumible.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Taller en Google Cloud Shell: Claves Militares',
+            steps: [
+              'Generar clave militar de 12 caracteres: openssl rand -base64 12.',
+              'Generar superclave bancaria de 18 caracteres: openssl rand -base64 18.',
+              'Guardar el secreto en un archivo: openssl rand -base64 16 > mis_claves.txt.',
+              'Blindar con candado de dueño: chmod 600 mis_claves.txt.',
+              'Anotar en libreta: La clave generada y la salida de ls -l mis_claves.txt (-rw-------).'
+            ]
+          },
+          terminalRadar: 'openssl rand -base64 18 ➔ kL9#mP2!qL9@vX7$... \nchmod 600 mis_claves.txt\nls -l mis_claves.txt ➔ -rw------- 1 user user',
+          learningResult: 'El estudiante utiliza herramientas de línea de comandos para generar secretos criptográficos y aplicar permisos de restricción en Linux.',
+          identification: 'Tema: Generación Criptográfica con OpenSSL. Evidencia: Terminal con openssl y archivo blindado registrado.',
+          development: 'Demostración de generación pseudoaleatoria con openssl en Cloud Shell. Creación y aseguramiento del archivo mis_claves.txt con permisos 600.',
+          closure: 'Firma y sellado del Sello 2 en libreta.',
+          faq: [
+            { q: '¿Por qué base64 en openssl rand?', a: 'Porque convierte los bytes aleatorios crudos en caracteres legibles que se pueden escribir en cualquier teclado.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Generación con openssl rand y archivo mis_claves.txt con chmod 600 en libreta.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 16 Oct · Hora 1)',
+          title: 'El Peligro del Tráfico en Texto Plano: HTTP vs HTTPS y Escudo MFA',
+          hook: 'Si van a un café con WiFi gratis y entran a un sitio HTTP, cualquiera con una app gratuita puede ver en el aire su usuario y contraseña. Hoy veremos la diferencia real entre el puerto 80 inseguro y el 443 blindado.',
+          start: '¿Por qué navegar en HTTP transmite credenciales en texto plano y cómo lo resuelve HTTPS?',
+          dictationTitle: 'EL PELIGRO DEL TRÁFICO EN TEXTO PLANO: HTTP FRENTE A HTTPS',
+          dictation: 'La comunicación entre clientes y servidores web opera mediante protocolos de la capa de aplicación: 1) HTTP (Hypertext Transfer Protocol, puerto predeterminado 80): Transmite toda la información en texto plano sin ningún tipo de cifrado. Cualquier usuario conectado al mismo medio de transmisión (como una red WiFi pública o un switch sin bastionar) puede interceptar credenciales, cookies de sesión y mensajes privados empleando herramientas de análisis de tráfico; 2) HTTPS (HTTP Secure, puerto predeterminado 443): Incorpora una capa criptográfica basada en TLS/SSL (Transport Layer Security), cifrando el canal completo de comunicación de extremo a extremo mediante criptografía asimétrica y de clave pública. Asimismo, la Autenticación Multifactor (MFA/2FA) complementa esta defensa exigiendo al menos dos de tres factores probatorios: algo que sabes (contraseña), algo que tienes (dispositivo móvil o llave física de seguridad) y algo que eres (biometría), neutralizando intrusiones incluso si la contraseña llegase a ser interceptada.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Inspección Forense con curl y Escudo MFA',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado justificado (tamaño 14).',
+              'En Cloud Shell, consultar sitio inseguro en puerto 80: curl -I http://neverssl.com (observar texto plano).',
+              'Consultar sitio blindado con HTTPS en puerto 443: curl -I https://google.com (observar certificado TLS/SSL).',
+              'Dibujar en libreta el Escudo MFA: Factor 1 (Contraseña) + Factor 2 (Celular) = Acceso Seguro.'
+            ]
+          },
+          visualExample: {
+            title: 'Comparativa HTTP vs HTTPS & Escudo MFA',
+            badge: 'Ciberdefensa de Red',
+            description: 'Esquema visual para plasmar en libreta:',
+            mockup: '┌──────────────────────────────────────┬──────────────────────────────────────┐\n│  HTTP (Puerto 80) · INSEGURO         │  HTTPS (Puerto 443) · BLINDADO       │\n├──────────────────────────────────────┼──────────────────────────────────────┤\n│ 🔓 Candado Abierto                   │ 🔒 Candado Verde / Cerrado           │\n│ • Texto en claro (sin cifrar)        │ • Cifrado extremo a extremo (TLS)    │\n│ • Vulnerable a intercepción WiFi     │ • Datos ininteligibles para hackers  │\n├──────────────────────────────────────┴──────────────────────────────────────┤\n│  ESCUDO MULTIFACTOR (MFA / 2FA):                                            │\n│  [ Contraseña (Lo que sabes) ] + [ Celular / Token (Lo que tienes) ]        │\n│  ➔ ¡Cuenta protegida incluso si te roban la contraseña!                     │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'curl -I http://neverssl.com ➔ HTTP/1.1 200 OK (Puerto 80 sin cifrar)\ncurl -I https://google.com ➔ HTTP/2 200 (Puerto 443 TLS blindado)',
+          learningResult: 'El estudiante diferencia el tráfico web plano de los canales cifrados TLS/SSL y diseña estrategias de autenticación multifactor.',
+          identification: 'Tema: Protocolos Web y Autenticación MFA. Evidencia: Pruebas con curl e infografía de HTTP vs HTTPS en libreta.',
+          development: 'Análisis de puertos web 80 y 443 en Cloud Shell. Experimentación forense con curl y explicación de los 3 factores de autenticación.',
+          closure: 'Revisión de libretas y preparación para el Kahoot.',
+          faq: [
+            { q: '¿Qué significan los 3 factores de autenticación?', a: 'Algo que sabes (contraseña), algo que tienes (celular/token) y algo que eres (huella/rostro).' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Prueba forense con curl y esquema del Escudo MFA en libreta.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 16 Oct · Hora 2)',
+          title: '🏆 Gran Kahoot de Cierre Semana 09 y Sellado Final',
+          hook: 'Llegó el momento de la verdad: Activos, Amenazas, Vulnerabilidades, ataques de Fuerza Bruta, claves militares y el duelo HTTP vs HTTPS. Abran kahoot.it y que gane el mejor estratega de 501.',
+          start: '¿Quién dominará el podio en la batalla de ciberseguridad de la Semana 09?',
+          dictationTitle: 'EVALUACIÓN INTEGRAL DE VECTORES DE RIESGO Y AUTENTICACIÓN',
+          dictation: 'La evaluación formativa al cierre del RA 2.1 permite consolidar el análisis crítico de incidentes, la identificación de puertos de red vulnerables (80 vs 443), el cálculo de entropía en contraseñas y la aplicación de mecanismos defensivos en sistemas Linux. La ciberseguridad práctica exige capacidad de respuesta ágil y fundamentación técnica sólida ante escenarios de ataque simulados.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Batalla Gamificada Kahoot y Cierre Semanal',
+            steps: [
+              'Ingresar a kahoot.it con el PIN proyectado en pantalla.',
+              'Competir en los 20 reactivos oficiales sobre Gestión de Riesgos, Claves y Protocolos.',
+              'Anotar puntaje, podio y conclusiones en libreta.',
+              'Revisión final de evidencias de la semana y estampado del Sello 3.'
+            ]
+          },
+          learningResult: 'El estudiante demuestra dominio integral de los conceptos de riesgo, autenticación y protocolos web en una evaluación gamificada.',
+          identification: 'Tema: Evaluación Formativa Integral RA 2.1. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
+          development: 'Desarrollo de la sesión interactiva en Kahoot con 20 reactivos, retroalimentación técnica de reactivos clave y sellado de libretas.',
+          closure: 'Firma y sellado del Sello 3, felicitación al grupo y cierre de semana.',
+          faq: [
+            { q: '¿Cómo subo mi evidencia a Classroom?', a: 'Toma foto de tus libretas con los sellos 1, 2 y 3 y súbela a la tarea de la Semana 09 (código j6bnku3j).' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Comparativa HTTP/HTTPS + Podio de Kahoot Semana 09 registrado en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'El Triángulo del Riesgo: Activos, Amenazas y Vulnerabilidades',
+          hourIds: ['H01'],
+          product: 'Matriz de Riesgo con los 3 cuadrantes, fórmula y medidas de mitigación en libreta.',
+          unlockDate: '2026-10-14',
+          unlockLabel: 'Miércoles 14 de Octubre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'El Asalto a las Contraseñas y Claves Militares con OpenSSL',
+          hourIds: ['H02', 'H03'],
+          product: 'Tabla de entropía, generación de clave con openssl rand y archivo mis_claves.txt blindado con chmod 600.',
+          unlockDate: '2026-10-15',
+          unlockLabel: 'Jueves 15 de Octubre (16:50 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'HTTP vs HTTPS, Escudo MFA y Gran Kahoot Semana 09',
+          hourIds: ['H04', 'H05'],
+          product: 'Comparativa HTTP vs HTTPS, prueba de curl, esquema de MFA y podio de Kahoot registrado.',
+          unlockDate: '2026-10-16',
+          unlockLabel: 'Viernes 16 de Octubre (18:30 hrs)',
+        },
+      ],
+    },
   ],
 };
