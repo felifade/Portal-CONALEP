@@ -73,41 +73,7 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
           learningResult: 'Conocer las políticas del módulo y firmar reglamento.',
           identification: { topic: 'Encuadre EDOA', evidence: 'Reglamento', organization: 'Grupal', location: 'Aula', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -118,13 +84,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Diagnóstico',
           start: '¿Qué tanto sabes de la nube?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'El diagnóstico no tiene valor en la calificación, pero establece la línea base de nuestras habilidades para el semestre.',
           learningResult: 'Completar formulario diagnóstico.',
           identification: { topic: 'Diagnóstico', evidence: 'Formulario Forms', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -135,13 +95,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Suspensión Institucional',
           start: '¿Tienes acceso a tu correo institucional?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'La identidad digital institucional es el primer paso para acceder a las herramientas empresariales de Google Workspace de forma segura y sin límites de almacenamiento.',
           learningResult: 'Activar cuentas institucionales y recuperar contraseñas.',
           identification: { topic: 'Identidad', evidence: 'Correo Activo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -152,13 +106,7 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Estructura Drive',
           start: '¿Dónde viven tus archivos?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'Google Drive es nuestra memoria principal. Un archivo perdido es un archivo no evaluado. Hoy sentaremos las bases de nuestra organización en la nube.',
           learningResult: 'Crear la jerarquía de carpetas del semestre.',
           identification: { topic: 'Drive', evidence: 'Carpetas listas', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -181,41 +129,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · La Nube y Atajos',
           start: '¿Qué pasa si tu computadora explota hoy?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'Trabajar en la nube significa que el documento no vive en tu PC, sino en servidores remotos. Los atajos de teclado (shortcuts) son el secreto para operar en este entorno a velocidad profesional.',
           learningResult: 'Comprender el autoguardado y usar atajos universales.',
           identification: { topic: 'Cloud & Shortcuts', evidence: 'Doc Base', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -226,13 +140,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Jerarquía Visual',
           start: '¿Por qué los libros tienen tamaños de letra distintos?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'La jerarquía visual guía el ojo del lector. En documentos digitales, no se cambian los tamaños manualmente, se utilizan los "Estilos de Párrafo".',
           learningResult: 'Diferenciar entre Texto Normal, Título y Subtítulo.',
           identification: { topic: 'Estilos Base', evidence: 'Texto estructurado', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -243,13 +151,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Encabezados (H1-H3)',
           start: '¿Cómo estructurar un documento largo?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'Los encabezados 1, 2 y 3 (H1, H2, H3) crean el esqueleto del documento. Son fundamentales para la accesibilidad y los índices.',
           learningResult: 'Aplicar H1, H2 y H3 lógicamente.',
           identification: { topic: 'Encabezados', evidence: 'Documento largo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -260,13 +162,7 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Permisos',
           start: '¿Sabes compartir correctamente un archivo?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'Compartir un enlace privado es como entregar una caja fuerte sin la llave. Siempre debes ajustar los permisos a Lector público.',
           learningResult: 'Ajustar permisos de Google Drive y entregar.',
           identification: { topic: 'Permisos', evidence: 'Classroom', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -289,41 +185,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Índices y Tablas',
           start: '¿Aún escribes puntitos en tus índices manualmente?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'El índice automático recopila los Encabezados para generar un mapa clicable. Las tablas ordenan datos complejos en matrices de filas y columnas.',
           learningResult: 'Insertar tablas de contenido automáticas y tablas de datos.',
           identification: { topic: 'Índices y Tablas', evidence: 'Doc con Índice', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -334,13 +196,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Maquetación Oficios',
           start: '¿Sabes cómo solicitar algo formalmente a la dirección?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'Un oficio es el estándar de comunicación institucional. Requiere rigor en justificación, interlineado y alineación de fechas.',
           learningResult: 'Redactar un oficio formal.',
           identification: { topic: 'Oficio', evidence: 'Borrador Oficio', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -351,13 +207,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Identidad Visual',
           start: '¿Cómo proteger o brandear tu documento?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'La marca de agua (Watermark) es un elemento translúcido en el fondo que indica confidencialidad, estado o identidad corporativa.',
           learningResult: 'Insertar marcas de agua e imágenes.',
           identification: { topic: 'Marca de Agua', evidence: 'Doc brandeado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -368,13 +218,7 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Coevaluación',
           start: '¿Tu documento cumple todos los estándares?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'La coevaluación permite auditar el trabajo de un colega utilizando listas de cotejo para prevenir errores antes de la entrega formal.',
           learningResult: 'Auditar documentos de compañeros y entregar.',
           identification: { topic: 'Auditoría', evidence: 'Classroom', organization: 'Parejas', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -397,41 +241,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Automatización Docs',
           start: '¿Y si tu documento cobrara vida propia?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'Hoy transformaremos un procesador de texto estático en una herramienta viva. Aprenderemos a insertar menús con fichas inteligentes (@), programar códigos QR mediante Add-ons, trazar firmas digitales en el lienzo y estandarizar datos usando Plantillas (Currículum).',
           learningResult: 'Dominar la automatización e interactividad en Google Docs.',
           identification: { topic: 'Automatización', evidence: 'CV Interactivo', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -443,13 +253,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Continuación',
           start: '¿Dónde nos quedamos el lunes?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'En esta sesión continuaremos con la elaboración técnica de nuestro Currículum interactivo, guiados por la Ruta del Día que trazamos en la primera sesión.',
           learningResult: 'Continuar la automatización e interactividad en Google Docs.',
           identification: { topic: 'CV Interactivo', evidence: 'Avance Práctico', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Continuación',
@@ -460,13 +264,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Continuación',
           start: '¿Listos para pulir los detalles finales de nuestro CV interactivo?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'La calidad está en los detalles. Dedicaremos esta sesión doble a perfeccionar la plantilla, asegurar que las fichas inteligentes funcionen y que los códigos QR apunten correctamente a sus destinos.',
           learningResult: 'Perfeccionar y consolidar el formato avanzado del documento.',
           identification: { topic: 'Pruebas Finales', evidence: 'CV Terminado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Cierre de Diseño',
@@ -477,13 +275,7 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Evaluación',
           start: '¿Qué hemos aprendido sobre la automatización de documentos?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'Es momento de auditar nuestro progreso. La evaluación final consiste en asegurar que el documento interactivo cumpla con todas las especificaciones solicitadas (Fichas, QR, Firma) y sus permisos públicos.',
           learningResult: 'Evaluar el Currículum Interactivo y auditar las entregas.',
           identification: { topic: 'Evaluación', evidence: '100% Entregas', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta de Entrega',
@@ -514,41 +306,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-07',
           unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'Una hoja de cálculo es una poderosa herramienta digital estructurada como una matriz bidimensional. Está organizada en filas (números) y columnas (letras). Su propósito principal no es solo almacenar texto, sino capturar, estructurar, calcular y analizar grandes volúmenes de datos numéricos y alfanuméricos mediante fórmulas. Además, la normalización de datos consiste en dividir la información en columnas con propósitos únicos y altamente específicos para evitar duplicidades, prevenir errores humanos y facilitar significativamente las búsquedas futuras.',
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
           identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 01 · Horas 1 y 2',
@@ -567,13 +325,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
           unlockDate: '2026-09-07',
           unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cómo garantizamos que nadie escriba datos equivocados en una hoja compartida?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'El diseño profesional en una hoja de cálculo tiene una función operativa: permite congelar paneles para evitar que la información clave se pierda de vista al desplazarse. Por otro lado, la "Validación de Datos" es una estricta regla de calidad que restringe la entrada de información a valores predeterminados (como menús desplegables), lo que erradica errores tipográficos, estandariza la escritura y permite que las fórmulas y filtros funcionen con 100% de precisión.',
           learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
           identification: { topic: 'Calidad de Datos', evidence: 'Directorio Validado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 02 · Horas 3 y 4',
@@ -592,13 +344,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
           unlockDate: '2026-09-09',
           unlockLabel: 'Miércoles 9 de Septiembre, 15:00 hrs',
           start: '¿Filtrar datos significa que borramos lo que no vemos?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'Filtrar información no significa eliminar datos; consiste en crear una vista temporal y dinámica que aísla visualmente los registros que cumplen con condiciones específicas. Por otro lado, la herramienta de ordenamiento reestructura todas las filas en secuencia alfanumérica. Ambas herramientas nos permiten responder preguntas operativas en segundos sin alterar ni dañar la base de datos original.',
           learningResult: 'Consultar y analizar el directorio mediante filtros y ordenamiento.',
           identification: { topic: 'Consultas', evidence: 'Vistas de Filtro', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Sesión 03 · Hora 5',
@@ -617,13 +363,7 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
           unlockDate: '2026-09-10',
           unlockLabel: 'Jueves 10 de Septiembre, 15:00 hrs',
           start: '¿Cómo aplicas la lógica para combinar diferentes filtros a la vez?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'El dominio de una base de datos no solo requiere conocer las herramientas, sino aplicar lógica condicional para aislar información precisa. Al combinar múltiples criterios (filtros simultáneos), exclusiones o búsquedas específicas de texto, podemos resolver escenarios complejos y extraer inteligencia operativa en tiempo récord, sin alterar el archivo original.',
           learningResult: 'Aplicar lógica de filtros combinados y ordenamiento múltiple.',
           identification: { topic: 'Filtros Avanzados', evidence: 'Capturas de Retos', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicImage: imgW04S03,
@@ -695,41 +435,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-17',
           unlockLabel: 'Jueves 17 de Septiembre, 15:00 hrs',
           start: '¿Una tabla llena de texto sirve para tomar decisiones rápidas?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'Un Dashboard transforma datos crudos en información visual altamente digerible. Al insertar gráficos dinámicos vinculados a fórmulas como promedios o sumas y aplicar formatos condicionales, la hoja de cálculo se convierte en una presentación ejecutiva que reacciona en vivo a cualquier cambio.',
           learningResult: 'Construir fórmulas estadísticas y maquetar gráficas dinámicas.',
           identification: { topic: 'Gráficos y Fórmulas', evidence: 'Dashboard Completo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Dashboard Interactivo',
@@ -762,13 +468,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
           unlockDate: '2026-09-18',
           unlockLabel: 'Viernes 18 de Septiembre, 15:00 hrs',
           start: '¿Están listas tus evidencias para la evaluación oficial?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'El cierre de un ciclo técnico exige una auditoría rigurosa. En esta sesión validaremos que todas las evidencias del Primer Corte estén correctamente almacenadas y compartidas. El trabajo no entregado correctamente carece de valor.',
           learningResult: 'Revisión de promedios, regularización y Kahoot.',
           identification: { topic: 'Evaluación SAE', evidence: 'Calificaciones Firmadas', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Cierre de Corte',
@@ -803,41 +503,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
           unlockDate: '2026-09-21',
           unlockLabel: 'Lunes 21 de Septiembre, 15:00 hrs',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
           learningResult: 'Analizar el perfilamiento algorítmico y maquetar una plantilla institucional con variables en Google Docs.',
           identification: { topic: 'Ética y Plantilla Base', evidence: 'Plantilla Maestra Docs', organization: 'Individual / Parejas', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ética de Datos y Maquetación Documental',
@@ -875,13 +541,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
           unlockDate: '2026-09-23',
           unlockLabel: 'Miércoles 23 de Septiembre, 15:00 hrs',
           start: '¿Un dato mal escrito en la base de datos arruinará cientos de documentos?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'La integridad de un proceso de fusión depende directamente de la calidad estructural de la base de datos de origen. Cualquier discrepancia en mayúsculas, espacios invisibles o celdas vacías se replicará exponencialmente en los documentos finales. Mediante funciones lógicas y de texto se normaliza la información antes de activar el motor de procesamiento por lotes.',
           learningResult: 'Normalizar datos con fórmulas y configurar el complemento Autocrat.',
           identification: { topic: 'Calidad de Datos & Add-on', evidence: 'Job de Autocrat configurado', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Normalización de Datos y Motor de Fusión',
@@ -903,13 +563,7 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
           unlockDate: '2026-09-24',
           unlockLabel: 'Jueves 24 de Septiembre, 15:00 hrs',
           start: '¿Es posible generar 30 o 50 contratos oficiales en menos de dos minutos?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'El mapeo de campos establece la correspondencia exacta entre las variables de la plantilla y los encabezados de la hoja de cálculo. En entornos corporativos, la parametrización de nombres de archivo dinámicos y la segmentación por condiciones lógicas permiten generar miles de documentos independientes en la nube sin requerir almacenamiento físico local.',
           learningResult: 'Ejecutar la combinación por lotes en PDF y auditar carpetas compartidas.',
           identification: { topic: 'Procesamiento Masivo', evidence: 'Carpeta con +30 PDFs en Drive', organization: 'Individual / Coevaluación', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Fusión Masiva y Auditoría Digital',
@@ -932,13 +586,7 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
           unlockDate: '2026-09-25',
           unlockLabel: 'Viernes 25 de Septiembre, 15:00 hrs',
           start: '¿Qué tan sólido es tu conocimiento sobre combinación de correspondencia?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'El cierre de un resultado de aprendizaje valida tanto las habilidades procedimentales como la comprensión conceptual de los flujos de automatización digital. La evaluación técnica y la auditoría de portafolios certifican que el alumno es capaz de implementar soluciones de productividad con estándares de la industria.',
           learningResult: 'Completar la evaluación de 20 preguntas y acreditar el RA 2.1.',
           identification: { topic: 'Evaluación y Calificaciones', evidence: 'Kahoot 20 reactivos & Portafolio', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Evaluación y Auditoría de Resultados',
@@ -977,41 +625,7 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
           start: '¿Cómo estructurar datos y visualizarlos gráficamente para evaluar el desempeño académico?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'La representación gráfica y la parametrización cuantitativa son esenciales para la toma de decisiones. Mientras que los 5 tipos esenciales de gráficas permiten comunicar tendencias y distribuciones, la estructura de evaluación en tres cortes acumulativos permite determinar la calificación total mediante fórmulas matriciales (=SUMA) y alertas visuales tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
           learningResult: 'Investigar en computadora 5 tipos de gráficas, calcular el total de los 3 cortes y aplicar semaforización tricolor.',
           identification: { topic: 'Gráficas, Cortes & Semáforo', evidence: 'Investigación PC + Hoja Semáforo Tricolor', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Visualización, Fórmulas y Semáforos',
@@ -1102,13 +716,7 @@ Aviso docente: La función =NOMPROPIO() la modelaremos el miércoles en la Hora 
           unlockDate: '2026-09-30',
           unlockLabel: 'Miércoles 30 de Septiembre, 15:00 hrs',
           start: '¿Cómo normalizar nombres desordenados y fusionar datos en expedientes oficiales en PDF?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'La función =NOMPROPIO garantiza que los nombres y apellidos cumplan con la ortotipografía formal antes de ser inyectados en documentos legales. La combinación masiva de correspondencia mediante Autocrat vincula estas bases de datos saneadas con plantillas de Google Docs para generar en segundos decenas de expedientes en PDF con permisos corporativos en la nube.',
           learningResult: 'Aplicar =NOMPROPIO(), vincular plantilla, ejecutar Autocrat (+30 PDFs), configurar permisos públicos en Google Drive y entregar bitácora en Classroom.',
           identification: { topic: 'NOMPROPIO, Autocrat & Nube', evidence: '+30 PDFs en Drive + Entrega Classroom', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Normalización, Fusión Masiva y Entrega',
@@ -1174,13 +782,7 @@ Aviso docente: Mañana jueves no hay sesión presencial por comisión sindical; 
           unlockDate: '2026-10-01',
           unlockLabel: 'Jueves 1 de Octubre, 15:00 hrs',
           start: '¿Cómo garantizar que un cliente o directivo pueda consultar tus archivos sin contraseñas?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'Sesión presencial no impartida por comisión y permiso oficial docente de carácter sindical. Espacio de trabajo autónomo para regularización de entregas.',
           learningResult: 'Regularización autónoma de archivos y entregas en Google Classroom.',
           identification: { topic: 'Permiso Sindical / Regularización', evidence: 'Regularización Classroom', organization: 'Individual', location: 'Autónomo', time: '2 hrs' },
           infographicTitle: 'Aviso Institucional',
@@ -1206,13 +808,7 @@ Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora 
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 2 de Octubre, 15:00 hrs',
           start: '¿Demostraste el dominio total de la automatización masiva documental?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'La evaluación sumativa con Kahoot integra el dominio de correspondencia masiva, saneamiento forense de datos con =NOMPROPIO, programación de fórmulas de cortes, semaforización tricolor, interpretación de gráficas y distribución segura en la nube, consolidando las competencias del Resultado de Aprendizaje 2.1.',
           learningResult: 'Resolver la evaluación sumativa de 20 reactivos, cotejar sellos y recibir calificación del RA 2.1.',
           identification: { topic: 'Evaluación Sumativa RA 2.1', evidence: 'Kahoot + 4 Sellos Acumulados', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Evaluación y Calificaciones Oficiales',
@@ -1265,41 +861,7 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           unlockDate: '2026-10-05',
           unlockLabel: 'Lunes 5 de Octubre, 15:00 hrs',
           start: '¿Cómo demostrar el dominio total de la automatización masiva mediante evidencias técnicas?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
-
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
-
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
-
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+          dictation: 'El dominio de las herramientas de automatización masiva exige no solo la ejecución asistida de algoritmos, sino la capacidad de diseñar desde cero machotes maquetados con tablas de correspondencia y documentar técnicamente el proceso mediante reportes con evidencias visuales e indicadores de calidad.',
           learningResult: 'Concluir el Job 1 de Autocrat, diseñar el machote de Boleta de Parciales en Docs, ejecutar el Job 2 autónomamente y compilar el Reporte Técnico con 8 capturas.',
           identification: { topic: 'Autocrat Autónomo & Reporte Técnico', evidence: '+30 Boletas PDF + Reporte de Práctica Docs', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Dominio Técnico y Reporte de Evidencias',
@@ -1416,13 +978,7 @@ Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libret
           unlockDate: '2026-10-07',
           unlockLabel: 'Miércoles 7 de Octubre, 15:00 hrs',
           start: '¿Cómo hacer sumas sencillas y acumuladas en Google Sheets sin sumar a mano?',
-          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
-
-Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
-
-Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
-
-Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
+          dictation: 'La función de suma es la operación fundamental en las hojas de cálculo. Para realizar cálculos eficientes debemos iniciar toda fórmula con el signo igual (=) y emplear los operadores de suma directa o la función nativa =SUMA() para procesar rangos numéricos.',
           learningResult: 'Ingresar fórmulas de suma directa y utilizar la función nativa =SUMA().',
           identification: { topic: 'Sumas Básicas y Función =SUMA', evidence: 'Práctica de Sumas en Sheets', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Iniciación a Sumas en Sheets',
@@ -1459,13 +1015,7 @@ Hoja de cálculo con la práctica de sumas completada. 👉 SELLO 4`,
           unlockDate: '2026-10-08',
           unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
           start: '¿Cómo calcular restas, multiplicaciones, divisiones, raíces y potencias, y aplicar fórmulas de geometría con imágenes en Sheets?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+          dictation: 'El cálculo matemático en hojas de cálculo abarca las operaciones fundamentales (resta, multiplicación, división, raíz y potencia). Al asociar estas operaciones con expresiones geométricas y representaciones visuales, construimos herramientas interactivas para calcular áreas y perímetros en tiempo real.',
           learningResult: 'Aplicar operaciones matemáticas fundamentales y maquetar el calculador de áreas y perímetros con imágenes de fórmulas.',
           identification: { topic: 'Operaciones & Geometría', evidence: 'Calculador Geométrico Maquetado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Operaciones & Calculador Geométrico',
@@ -1516,13 +1066,7 @@ Calculador geométrico maquetado con imágenes y primeras fórmulas activas. �
           unlockDate: '2026-10-09',
           unlockLabel: 'Viernes 9 de Octubre, 15:00 hrs',
           start: '¿Completaste el calculador de áreas y perímetros y estás listo para evaluar tus aprendizajes en el Kahoot?',
-          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
-
-Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
-
-Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
-
-Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
+          dictation: 'El cierre del Resultado de Aprendizaje 2.1 integra el dominio del motor de combinación Autocrat, el manejo de operaciones matemáticas fundamentales en Google Sheets y el desarrollo del calculador geométrico, certificando la acreditación oficial del bloque.',
           learningResult: 'Finalizar el calculador de áreas y perímetros, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.',
           identification: { topic: 'Calculador Geométrico & Kahoot RA 2.1', evidence: 'Calculador Geométrico + Kahoot + Acreditación RA 2.1', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Cierre y Acreditación Final RA 2.1',
@@ -1573,23 +1117,23 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
     'W09': {
       id: 'W09',
       label: 'Semana 09',
-      title: 'Presupuesto Personal y Control de Gastos del Estudiante',
+      title: 'Presupuesto Personal y Control de Gastos (Black Mirror)',
       dates: '12 Oct - 16 Oct',
       status: 'upcoming',
-      summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard con gráficos de pastel y columnas.',
+      summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con proyección de Fifteen Million Merits (Black Mirror), formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard gráfico.',
       expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
       notices: [
-        'Lunes (Horas 1-4): Encuadre de educación financiera, maquetación de la bitácora y registro de gastos reales/simulados.',
+        'Lunes (Horas 1-4): Proyección del episodio Fifteen Million Merits de Black Mirror en Hora 1, maquetación de bitácora y registro de gastos reales/simulados.',
         'Miércoles (Hora 5): Programación de fórmulas de balance diario (=Ingresos - Egresos).',
         'Jueves (Horas 6-7): Resumen estadístico (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional de ahorro.',
         'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas) y corte final de sellos de la semana.'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Maquetación & Registro Diario de Gastos',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Fifteen Million Merits & Bitácora de Créditos',
           unlockDate: '2026-10-12',
           unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
-          start: '¿Sabes exactamente cuánto dinero gastas en pasajes, lonche y gustos durante una semana escolar?',
+          start: '¿Sabes exactamente cuántos Méritos o pesos gastas en pasajes, lonche y gustos durante una semana escolar?',
           dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
 En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
 
@@ -1600,9 +1144,9 @@ En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente 
 Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
 
 ⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores y administradores de nuestro destino.
+Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores de nuestro destino.
 
-Escribir simplemente números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
+Escribir números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
 
 Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
 
@@ -1625,57 +1169,62 @@ Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sh
 Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
 
 Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
-          learningResult: 'Maquetar una bitácora contable limpia, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
-          identification: { topic: 'Presupuesto Personal & Formato Moneda', evidence: 'Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
-          infographicTitle: 'Registro y Formato Financiero',
+          learningResult: 'Analizar el episodio Fifteen Million Merits, maquetar la bitácora contable, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
+          identification: { topic: 'Black Mirror & Presupuesto Personal', evidence: 'Reflexión + Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Estructura Visual del Presupuesto Personal',
           infographicSteps: [
-            { title: '1. Conceptos Básicos', desc: 'Identifica ingresos, egresos fijos, egresos variables y ahorro.' },
-            { title: '2. Maquetación Limpia', desc: 'Crea columnas para Día, Categoría, Descripción, Ingreso y Egreso.' },
+            { title: '1. Proyección Black Mirror', desc: 'Analiza el consumo involuntario de Méritos en el episodio Fifteen Million Merits.' },
+            { title: '2. Maquetación Limpia', desc: 'Crea 6 columnas: Día, Categoría, Descripción, Ingreso, Egreso y Saldo.' },
             { title: '3. Formato Moneda ($)', desc: 'Aplica formato numérico de moneda en todas las celdas financieras.' },
-            { title: '4. Captura de Gastos', desc: 'Registra 15 movimientos típicos de una semana escolar.' }
+            { title: '4. Registro de 15 Gastos', desc: 'Captura movimientos reales/simulados de una semana escolar típica.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
-Metodología: Explicación de Conceptos (15 min) ➔ Maquetación en PC (45 min) ➔ Captura y Registro
+Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación en PC (Hora 2) ➔ Formato Moneda y Registro (Horas 3-4)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (50 min) · Encuadre y Conceptos de Educación Financiera
+⏱️ HORA 1 (50 min) · Proyección Black Mirror: "Fifteen Million Merits"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Muchachos, la educación financiera es la herramienta que distingue a quien administra bien su dinero de quien nunca le alcanza. Hoy empezaremos a controlar nuestro presupuesto en Google Sheets."
+"Hoy empezaremos la clase viendo el capítulo 'Fifteen Million Merits' de Black Mirror. Presten atención a cómo cada botón que presionan los personajes les quita créditos sin que lo noten."
 
-📝 DICTADO EN LIBRETA (10 min):
-Definición de Ingresos (beca, mesada, apoyos), Egresos Fijos (pasaje, comida), Egresos Variables (gustos) y Saldo de Ahorro.
+🎬 PROYECCIÓN EN CAÑÓN (35 min):
+Proyectar el episodio Fifteen Million Merits (escenas de pedaleo, consumo de Méritos y avatares virtuales).
 
-💻 RETO 1 (25 min en PC):
-Abrir Google Sheets y maquetar el membrete de la hoja Mi_Presupuesto_Semanal_Grupo301.
+📝 RETO 1 EN LIBRETA (10 min):
+Escribir los 3 momentos del episodio donde los personajes pierden Méritos en compras inútiles.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · Formato Estético Profesional de Celdas
+⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja (Estructura de Bitácora)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🖥️ DEMO EN CAÑÓN (5 min):
-Combinar celdas para encabezados, aplicar bordes limpios y paleta de colores profesional.
+Mostrar el layout en pantalla:
+A1:F1 combinada ➔ CONALEP PACHUCA II - CONTROL DE PRESUPUESTO PERSONAL
+A3:F3 ➔ Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($)
 
-💻 RETO 2 (45 min en PC):
-Configurar el formato numérico de Moneda ($) en todas las columnas financieras y aplicar relleno de filas alternadas.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 3 (50 min) · Captura de Datos de Simulación Real
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💻 RETO 3 (50 min en PC):
-Registrar 15 movimientos financieros reales o simulados de una semana escolar típica (pasaje, lonche, fotocopias, recarga, snacks).
+💻 RETO 2 (40 min en PC):
+Maquetar los encabezados, combinar celdas para el membrete institucional y aplicar bordes limpios.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (50 min) · Revisión y Primer Cierre
+⏱️ HORA 3 (50 min) · Formato Moneda ($) & Registro de Gastos Hormiga
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💻 RETO 4 (35 min en PC):
-Validar que ningún monto esté sin formato de moneda y organizar los datos por días (Lunes a Viernes).
+🖥️ DEMO EN CAÑÓN (5 min):
+Seleccionar rango D4:F20 ➔ Formato > Número > Moneda ($). Aplicar paleta de color azul marino con texto blanco.
 
-📝 CIERRE EN LIBRETA (15 min):
-Reflexión sobre los gastos que a veces no notamos (gastos hormiga).
+💻 RETO 3 (40 min en PC):
+Aplicar formato Moneda ($) a todas las celdas contables y registrar 15 movimientos financieros escolares (colectivo, lonche, fotocopias, recargas, snacks).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (50 min) · El Diagnóstico Final: Tu Tablero de Libertad
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💻 RETO 4 (30 min en PC):
+Verificar que la tabla no tenga textos cortados y que todas las cifras tengan signo de pesos $.
+
+📝 REFLEXIÓN FINAL EN LIBRETA (10 min):
+Escribir una comparación de 3 líneas entre los Méritos de la serie y tus Gastos reales de la semana.
 
 🏷️ EVIDENCIA Y SELLO:
-Bitácora maquetada con formato moneda ($) y registro de gastos. 👉 SELLO 1`,
-          closure: 'Bitácora de gastos maquetada y registrada con formato estético de moneda.'
+Reflexión de Fifteen Million Merits + Bitácora Maquetada con Formato Moneda ($) y 15 Movimientos Registrados. 👉 SELLO 1`,
+          closure: 'Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).'
         },
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Fórmulas de Balance Diario',
@@ -1694,9 +1243,9 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
           infographicTitle: 'Fórmulas de Balance Diario',
           infographicSteps: [
             { title: '1. Sintaxis de Resta', desc: 'Aplica el operador menos (-) para calcular saldos.' },
-            { title: '2. Fórmula de Balance', desc: '=Ingreso_Día - Egreso_Día.' },
-            { title: '3. Saldo Acumulado', desc: 'Programa la celda de saldo disponible.' },
-            { title: '4. Verificación', desc: 'Prueba la fórmula modificando un monto de gasto.' }
+            { title: '2. Primer Saldo (F4)', desc: '=D4-E4 (Ingreso menos Egreso inicial).' },
+            { title: '3. Saldo Acumulado (F5)', desc: '=F4-E5 (Saldo anterior menos nuevo egreso).' },
+            { title: '4. Arrastre de Fórmula', desc: 'Copia la fórmula con el cuadrito azul de relleno.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
 Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔ Cierre en Libreta
@@ -1708,7 +1257,7 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔
 "Para saber si estamos ahorrando o en números rojos, la computadora calculará automáticamente el saldo neto al restar nuestros egresos de nuestros ingresos."
 
 🖥️ DEMO EN CAÑÓN (5 min):
-Modelar la fórmula de resta =Ingresos - Egresos y cómo aplicarla en la columna de Saldo Acumulado.
+Modelar la fórmula F4: =D4-E4 y F5: =F4-E5, y cómo arrastrarla hacia abajo en la columna de Saldo Acumulado.
 
 💻 RETO 1 (35 min en PC):
 Programar la columna de Saldo Acumulado en cada fila del presupuesto.
@@ -1736,10 +1285,10 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
           identification: { topic: 'Estadística & Semáforo Financiero', evidence: 'Tabla Resumen + Semáforo Condicional', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Resumen Estadístico y Semáforo',
           infographicSteps: [
-            { title: '1. Función =SUMA', desc: 'Calcula el total absoluto gastado en la semana.' },
-            { title: '2. Función =PROMEDIO', desc: 'Obtén el costo promedio por día escolar.' },
-            { title: '3. Max y Min', desc: 'Identifica el día con mayor (=MAX) y menor (=MIN) gasto.' },
-            { title: '4. Semáforo Tricolor', desc: 'Aplica verde para ahorro, amarillo para límite y rojo para déficit.' }
+            { title: '1. Función =SUMA', desc: '=SUMA(E4:E18) calcula el total absoluto gastado.' },
+            { title: '2. Función =PROMEDIO', desc: '=PROMEDIO(E4:E18) obtiene el gasto promedio diario.' },
+            { title: '3. Max y Min', desc: '=MAX(E4:E18) y =MIN(E4:E18) hallan el mayor y menor gasto.' },
+            { title: '4. Semáforo Tricolor', desc: 'Aplica verde para ahorro (>0), amarillo (0-20) y rojo (<0).' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
 Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) ➔ Auditoría
@@ -1751,7 +1300,7 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) 
 "No basta con ver gastos sueltos: un verdadero analista usa funciones estadísticas para descubrir cuál fue su día más caro y cuánto gasta en promedio por día."
 
 🖥️ DEMO EN CAÑÓN (5 min):
-Explicar la sintaxis de =SUMA(rango), =PROMEDIO(rango), =MAX(rango) y =MIN(rango).
+Explicar la sintaxis de =SUMA(E4:E18), =PROMEDIO(E4:E18), =MAX(E4:E18) y =MIN(E4:E18).
 
 💻 RETO 2 (35 min en PC):
 Construir la tabla de resumen semanal con las 4 funciones estadísticas.
@@ -1791,8 +1340,8 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           identification: { topic: 'Dashboard Gráfico & Cierre', evidence: 'Dashboard Financiero Completo con Gráficos', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Dashboard de Presupuesto Personal',
           infographicSteps: [
-            { title: '1. Gráfica de Pastel', desc: 'Visualiza la distribución del dinero por categorías.' },
-            { title: '2. Gráfica de Columnas', desc: 'Compara el nivel de gasto de Lunes a Viernes.' },
+            { title: '1. Gráfica de Pastel', desc: 'Visualiza la distribución del dinero por categorías (B4:B18 y E4:E18).' },
+            { title: '2. Gráfica de Columnas', desc: 'Compara el nivel de gasto de Lunes a Viernes (A4:A18 y E4:E18).' },
             { title: '3. Formato Ejecutivo', desc: 'Ajusta colores, títulos y etiquetas de datos.' },
             { title: '4. Cierre y Sellos', desc: 'Cotejo final del portafolio de sellos acumulados.' }
           ],
@@ -1807,8 +1356,8 @@ Metodología: Práctica en PC (25 min) ➔ Reflexión y Corte de Sellos (25 min)
 
 💻 RETO 4 (25 min en PC):
 Insertar 2 gráficas estadísticas en la hoja:
-1) Gráfica de Pastel (Distribución por categoría: Pasaje vs Comida vs Gustos).
-2) Gráfica de Columnas (Comparativa de gastos diarios de Lunes a Viernes).
+1) Gráfica de Pastel (Distribución por categoría: B4:B18 y E4:E18).
+2) Gráfica de Columnas (Comparativa diaria: A4:A18 y E4:E18).
 
 📝 CIERRE Y CORTE DE SELLOS (25 min):
 Escribir la conclusión personal sobre el aprendizaje del control de gastos y cotejo de sellos acumulados de la Semana 09.
