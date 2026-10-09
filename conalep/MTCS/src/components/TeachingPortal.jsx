@@ -10,6 +10,7 @@ import {
   Eye,
   EyeOff,
   FileText,
+  Image as ImageIcon,
   KeyRound,
   Layers3,
   Lock,
@@ -22,6 +23,7 @@ import {
   Sparkles,
   Target,
   Terminal,
+  Type,
   Unlock,
   X,
   ZoomIn,
@@ -801,7 +803,7 @@ function TeachingPortal() {
                       <p className="card-hook-body">{hour.hook}</p>
                     </div>
 
-                    {/* 2. Dictado Oficial con Botón Copiar */}
+                    {/* 2. Dictado Oficial con Formato Visual para Libreta */}
                     <div className="teacher-dictation-card">
                       <div className="card-dictation-header">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -812,30 +814,53 @@ function TeachingPortal() {
                           type="button"
                           className="copy-dictation-btn"
                           onClick={() => {
-                            navigator.clipboard.writeText(hour.dictation);
+                            const fullText = (hour.dictationTitle ? `${hour.dictationTitle}\n\n` : '') + hour.dictation;
+                            navigator.clipboard.writeText(fullText);
                             alert('Dictado copiado al portapapeles');
                           }}
                         >
                           Copiar Dictado
                         </button>
                       </div>
-                      <blockquote className="card-dictation-body">
-                        "{hour.dictation}"
-                      </blockquote>
+
+                      {/* Guía Visual de Formato para el Alumno */}
+                      <div className="format-guidelines-banner">
+                        <span className="format-pill-tag">
+                          <Type size={12} /> Reglas de Libreta
+                        </span>
+                        <div className="format-rules-wrap">
+                          <span className="format-rule-item">
+                            <strong style={{ color: '#047857' }}>Título:</strong> Centrado · Tamaño 20
+                          </span>
+                          <span className="format-rule-sep">|</span>
+                          <span className="format-rule-item">
+                            <strong style={{ color: '#047857' }}>Texto:</strong> Justificado · Tamaño 14
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="card-dictation-content-box">
+                        {hour.dictationTitle && (
+                          <h4 className="dictation-simulated-title">{hour.dictationTitle}</h4>
+                        )}
+                        <blockquote className="card-dictation-body">
+                          {hour.dictation}
+                        </blockquote>
+                      </div>
                     </div>
 
-                    {/* 3. Bloque de Trabajo Autónomo */}
+                    {/* 3. Bloque de Trabajo Autónomo (Actividades Simplificadas) */}
                     {hour.workBlock && (
                       <div className="teacher-workblock-card">
                         <div className="card-workblock-header">
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Clock size={16} />
-                            <strong>⏱️ Trabajo Autónomo de Alumnos ({hour.workBlock.title})</strong>
+                            <strong>⏱️ Actividades de Clase ({hour.workBlock.title})</strong>
                           </div>
                           <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
                         </div>
                         <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 10px' }}>
-                          Indica los pasos en el pizarrón y déjalos trabajar por su cuenta sin necesidad de explicar continuamente:
+                          Pasos claros y simplificados para realizar en libreta y terminal:
                         </p>
                         <div className="workblock-steps-list">
                           {hour.workBlock.steps.map((st, sidx) => (
@@ -845,6 +870,38 @@ function TeachingPortal() {
                             </div>
                           ))}
                         </div>
+                      </div>
+                    )}
+
+                    {/* 3.1 Ejemplo Visual / Imagen Ilustrativa sin saturar */}
+                    {hour.visualExample && (
+                      <div className="teacher-visual-card">
+                        <div className="card-visual-header">
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <ImageIcon size={16} style={{ color: '#0284c7' }} />
+                            <strong>🖼️ {hour.visualExample.title || 'Ejemplo Visual / Referencia'}:</strong>
+                          </div>
+                          {hour.visualExample.badge && (
+                            <span className="visual-badge">{hour.visualExample.badge}</span>
+                          )}
+                        </div>
+                        {hour.visualExample.description && (
+                          <p className="visual-desc">{hour.visualExample.description}</p>
+                        )}
+                        {hour.visualExample.image ? (
+                          <div
+                            className="visual-image-wrapper"
+                            onClick={() => setZoomedImg(hour.visualExample.image)}
+                            title="Clic para ampliar imagen"
+                          >
+                            <img src={hour.visualExample.image} alt={hour.visualExample.title || "Ejemplo Visual"} />
+                            <span className="zoom-hint">🔍 Clic para ampliar</span>
+                          </div>
+                        ) : hour.visualExample.mockup ? (
+                          <div className="visual-mockup-box">
+                            <pre>{hour.visualExample.mockup}</pre>
+                          </div>
+                        ) : null}
                       </div>
                     )}
 
