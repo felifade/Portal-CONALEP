@@ -1186,120 +1186,118 @@ export const teachingPlan = {
         {
           id: 'H02',
           label: 'Sesión 02 (Jueves 08 Oct · Hora 1)',
-          title: 'Misión Cazador de Backdoors y Cuentas Ocultas (/etc/passwd)',
-          hook: '¿Sabían que en Linux existe el comando rm -rf / que puede borrar un servidor en 3 segundos? Linux confía ciegamente en root. Por eso en empresas nadie trabaja como root; usamos sudo.',
-          start: '¿Por qué las cuentas del sistema tienen asignado /usr/sbin/nologin en lugar de /bin/bash?',
-          dictation: 'En el sistema operativo Linux, la cuenta suprema de administración se denomina root y posee de forma predeterminada el identificador numérico UID 0. Por políticas de ciberseguridad y bastionado (hardening), nunca se opera un servidor directamente desde la sesión de root. Para tareas de mantenimiento se utiliza el comando sudo, el cual otorga privilegios administrativos temporales y genera un registro de auditoría de cada acción ejecutada.',
+          title: '¿Cómo Viajan los Secretos en Internet? (Confidencialidad y Base64)',
+          hook: 'Cuando mandan un mensaje por WhatsApp o compran en línea, sus contraseñas viajan por cables y antenas públicas. Si viajaran en español normal, cualquiera los espiaría. Hoy nos convertiremos en ciberespías y aprenderemos cómo la terminal camufla la información.',
+          start: '¿Por qué nunca se deben transmitir contraseñas o datos bancarios en texto legible?',
+          dictation: 'En ciberseguridad, la Confidencialidad se garantiza transformando la información legible en código ininteligible para evitar que intermediarios no autorizados la comprendan. La codificación en Base64 es un estándar internacional que convierte secuencias de texto o binarios en un conjunto seguro de 64 caracteres imprimibles (letras mayúsculas, minúsculas, números y signos). Es la base con la que viajan contraseñas en cabeceras de red, tokens de sesión y archivos adjuntos en Internet.',
           workBlock: {
             duration: '25 minutos',
-            title: 'Auditoría en Google Cloud Shell',
+            title: 'Conceptos Clave de Criptografía en Libreta',
             steps: [
-              'Correr awk -F: \'$3 == 0 {print $1, $3}\' /etc/passwd y verificar cuentas con UID 0.',
-              'Ejecutar whoami && id y anotar UID 1000 y grupos.',
-              'Analizar las cuentas de servicio daemon y nobody con /usr/sbin/nologin.',
-              'Ejecutar cat /etc/shadow y copiar el error de bloqueo del kernel (Permission denied).'
+              'Definir en libreta texto en claro (plaintext) vs texto codificado (ciphertext).',
+              'Registrar la regla de oro: Base64 camufla a simple vista; la criptografía robusta protege con llave matemática.',
+              'Dibujar el esquema de transmisión: Mensaje legible ➔ [ Algoritmo Base64 ] ➔ Código Oculto.'
             ]
           },
-          terminalRadar: 'root 0\nuid=1000(usuario) gid=1000(usuario)...\ncat: /etc/shadow: Permission denied',
-          learningResult: 'El estudiante audita cuentas en Linux, diferencia root de usuarios estándar y deduce las restricciones de seguridad.',
-          identification: 'Tema: Usuarios y Privilegios en Linux. Evidencia: Tabla de cuentas y auditoría de UID 0.',
-          development: 'Conexión a Google Cloud Shell, ejecución del filtro awk sobre /etc/passwd y análisis forense del rechazo de acceso a /etc/shadow.',
-          closure: 'Registro de hallazgos en libreta y revisión preliminar.',
+          learningResult: 'El estudiante comprende los principios de ofuscación y codificación como primer nivel de confidencialidad en redes.',
+          identification: 'Tema: Confidencialidad y Codificación Base64. Evidencia: Apunte y esquema de criptografía básica.',
+          development: 'Explicación del riesgo de transmisión de datos en claro en redes públicas. Dictado técnico sobre el estándar Base64 y su aplicación en la industria.',
+          closure: 'Reflexión grupal y preparación para la práctica en Google Cloud Shell.',
           faq: [
-            { q: '¿Por qué daemon o nobody tienen /usr/sbin/nologin?', a: 'Para evitar que un hacker pueda abrir una consola interactiva con esas cuentas de servicio.' }
+            { q: '¿Base64 es un cifrado inviolable?', a: 'No, es una codificación de transporte. Cualquiera con la herramienta base64 puede decodificarlo, pero evita la lectura directa a simple vista.' }
           ],
           sello: {
             num: 'Sello 2 (Parte 1)',
-            desc: 'Auditoría de cuentas /etc/passwd y captura de error /etc/shadow.'
+            desc: 'Apunte teórico de Confidencialidad y esquema de Base64 en libreta.'
           }
         },
         {
           id: 'H03',
           label: 'Sesión 02 (Jueves 08 Oct · Hora 2)',
-          title: 'Anatomía de las Cerraduras Digitales (rwx) y el Script Desarmado',
-          hook: 'Estas 10 letras (-rwxr-xr--) fueron creadas en los Laboratorios Bell y hoy protegen al 96% de los servidores en la nube. Aprender a leerlas es la diferencia entre ser un usuario y ser un analista de ciberseguridad.',
-          start: '¿Qué significa cada una de las 3 tríadas en la salida de ls -l?',
-          dictation: 'En UNIX/Linux, los permisos de acceso se dividen en tres tríadas asociadas a tres niveles de propiedad: 1) Dueño (User - u): Creador del archivo; 2) Grupo (Group - g): Cuentas asignadas a un rol específico; 3) Otros (Others - o): Todo usuario ajeno. Los tres permisos fundamentales son: r (Read - Lectura), w (Write - Modificación o borrado) y x (Execute - Ejecución como programa o script).',
+          title: 'Misión Ciberespía: Cifrado y Descifrado en Google Cloud Shell',
+          hook: 'Vamos a convertir su terminal en una estación de inteligencia militar. Crearán su propio mensaje secreto, lo transformarán en código y retarán a su compañero a descifrarlo.',
+          start: '¿Cómo transformar una frase en código ininteligible con un solo comando de Linux?',
+          dictation: 'En la terminal de Linux, el comando base64 permite codificar y decodificar flujos de texto en tiempo real. Mediante la tubería (|), redirigimos la salida del comando echo hacia base64 para camuflar el mensaje. Para revertir la transformación y recuperar el texto original, se utiliza el parámetro -d (decode), permitiendo la verificación inmediata de la información.',
           workBlock: {
             duration: '25 minutos',
-            title: 'Experimento del Script Desarmado',
+            title: 'Laboratorio de Mensajes Secretos',
             steps: [
-              'Crear script test.sh con comando echo en terminal.',
-              'Retirar permisos de ejecución con chmod -x test.sh y probar ./test.sh.',
-              'Registrar en libreta el error: bash: ./test.sh: Permission denied.',
-              'Devolver ejecución únicamente al dueño con chmod u+x test.sh y ejecutar exitosamente.'
+              'Camuflar mensaje propio: echo "Mision aprobada" | base64 y registrar el código resultante.',
+              'Descifrar el código en terminal con: echo "CODIGO..." | base64 -d.',
+              'Reto por parejas: Intercambiar un código en papel con su compañero de banca para descifrarlo en su consola.',
+              'Anotar en libreta: Mensaje original, código base64 y mensaje descifrado del compañero.'
             ]
           },
-          terminalRadar: 'chmod -x test.sh ➔ bash: ./test.sh: Permission denied\nchmod u+x test.sh ➔ -rwxr--r-- 1 user user test.sh',
-          learningResult: 'El estudiante interpreta la estructura rwx y modifica permisos mediante notación simbólica chmod.',
-          identification: 'Tema: Permisos Simbólicos y Ejecución de Scripts. Evidencia: Ejercicio práctico del script desarmado sellado.',
-          development: 'Análisis de las tríadas Dueño/Grupo/Otros, experimentación práctica desarmando y rearmando la ejecución en test.sh.',
-          closure: 'Firma del Sello 2 en libreta.',
+          terminalRadar: 'echo "Hola" | base64 ➔ SG9sYQo=\necho "SG9sYQo=" | base64 -d ➔ Hola',
+          learningResult: 'El estudiante aplica comandos de codificación y decodificación en terminal para salvaguardar la confidencialidad de la información.',
+          identification: 'Tema: Práctica Forense de Codificación Base64. Evidencia: Registro del mensaje propio y descifrado en libreta sellado.',
+          development: 'Demostración en pantalla del uso de base64 con tubería. Práctica guiada por parejas de intercambio de mensajes secretos.',
+          closure: 'Revisión de libretas y sellado del Sello 2.',
           faq: [
-            { q: '¿Por qué no puedo ejecutar mi script si tiene permiso de lectura?', a: 'Porque en Linux leer un archivo no es suficiente para que el procesador lo ejecute como programa; requiere explícitamente el permiso x.' }
+            { q: '¿Qué pasa si olvido poner la bandera -d?', a: 'La terminal volverá a codificar el código ya codificado en lugar de descifrarlo.' }
           ],
           sello: {
             num: 'Sello 2',
-            desc: 'Auditoría de cuentas + Experimento del Script Desarmado completado en libreta.'
+            desc: 'Laboratorio Ciberespía: Mensaje en Base64 propio y descifrado de compañero en libreta.'
           }
         },
         {
           id: 'H04',
           label: 'Sesión 03 (Viernes 09 Oct · Hora 1)',
-          title: 'El Enigma del Búnker Inaccesible y la Matemática de chmod',
-          hook: 'Si a una carpeta le quito la ejecución x pero le dejo lectura r, ¿puedo ver sus archivos? Pareciera que sí, pero Linux te rebotará en la puerta. Vamos a descubrir el secreto de la x en directorios.',
-          start: '¿Por qué la x en directorios representa el derecho de entrar (hacer cd) y no de ejecutar programas?',
-          dictation: 'La notación octal asigna valores binarios a los permisos: Lectura (r=4), Escritura (w=2) y Ejecución (x=1). La combinación de estos valores genera números del 0 al 7 para cada nivel de acceso. En directorios, el permiso de ejecución x no ejecuta archivos sino que autoriza el paso o navegación (cd) a través de él. Configuraciones estándar de bastionado incluyen 600 para secretos privados, 644 para contenidos de consulta pública y 755 para binarios ejecutables.',
+          title: 'El Candado Digital de Linux (chmod 000 y 600) + Semáforo',
+          hook: 'Ayer aprendimos a camuflar mensajes en el aire. Pero, ¿qué pasa si el archivo ya está en el disco duro? Hoy aprenderán a ponerle un candado irrompible con chmod 000 para que ni el mismísimo creador pueda abrirlo sin la llave.',
+          start: '¿Por qué Linux le niega el acceso incluso al dueño si el archivo tiene permiso 000?',
+          dictation: 'En Linux, los permisos determinan qué acciones puede realizar cada usuario sobre un archivo. El comando chmod (change mode) permite modificar estas reglas. El permiso 000 representa un candado total donde nadie tiene autorización de lectura, escritura o ejecución, generando el error Permission denied. El permiso 600 actúa como una bóveda personal: otorga lectura y escritura exclusivamente al dueño del archivo, impidiendo que cualquier otro usuario del sistema acceda a los datos.',
           workBlock: {
             duration: '25 minutos',
-            title: 'Experimento del Búnker y Matriz Octal',
+            title: 'Laboratorio de Cerraduras y Semáforo de Permisos',
             steps: [
-              'Crear carpeta bunker y archivo secreto adentro.',
-              'Ejecutar chmod -x bunker e intentar cd bunker.',
-              'Anotar en libreta la deducción del porqué la x es la llave de paso en carpetas.',
-              'Resolver los 4 casos forenses: 600 (privado), 755 (servidor), 644 (web) y el riesgo crítico de 777.'
+              'Crear archivo: echo "Clave secreta: 12345" > secretos.txt y comprobar lectura con cat.',
+              'Poner candado total: chmod 000 secretos.txt y probar cat secretos.txt (copiar el Permission denied).',
+              'Abrir con llave de dueño: chmod 600 secretos.txt y comprobar que vuelve a leerse.',
+              'Dibujar en libreta el Semáforo de Permisos: Rojo (000 - Candado Total), Amarillo (600 - Bóveda Personal), Verde (644 - Público Seguro).'
             ]
           },
-          terminalRadar: 'chmod -x bunker ➔ bash: cd: bunker: Permission denied\nchmod 600 clave.key ➔ -rw-------',
-          learningResult: 'El estudiante deduce el rol de la ejecución en directorios, calcula sumas octales y aplica bastionado a 4 escenarios reales.',
-          identification: 'Tema: Directorios y Notación Octal. Evidencia: Búnker probado y matriz de 4 casos resuelta.',
-          development: 'Laboratorio guiado con la carpeta bunker, explicación de la tabla matemática 4-2-1 y resolución de casos corporativos.',
-          closure: 'Revisión de la matriz forense antes del Kahoot.',
+          terminalRadar: 'chmod 000 secretos.txt ➔ cat: secretos.txt: Permission denied\nchmod 600 secretos.txt ➔ Clave secreta: 12345',
+          learningResult: 'El estudiante aplica directivas chmod para restringir el acceso a archivos confidenciales y clasifica los niveles de protección en un semáforo de seguridad.',
+          identification: 'Tema: Control de Acceso y Comando chmod. Evidencia: Error Permission denied copiado y Semáforo de Permisos en libreta.',
+          development: 'Experimentación práctica en Cloud Shell con chmod 000 y 600. Reflexión sobre la protección de archivos confidenciales y elaboración del semáforo.',
+          closure: 'Preparación de libretas y apertura del Kahoot.',
           faq: [
-            { q: '¿Por qué 777 es tan peligroso?', a: 'Porque viola la Confidencialidad, Integridad y Disponibilidad simultáneamente: cualquiera puede ver, alterar o borrar el archivo.' }
+            { q: '¿Cuándo se usa 600 en el trabajo real?', a: 'En llaves privadas SSH, credenciales de bases de datos y archivos de configuración sensibles.' }
           ],
           sello: {
             num: 'Sello 3 (Parte 1)',
-            desc: 'Experimento del búnker y matriz de 4 casos chmod en libreta.'
+            desc: 'Práctica del Candado Digital y Semáforo de Permisos en libreta.'
           }
         },
         {
           id: 'H05',
           label: 'Sesión 03 (Viernes 09 Oct · Hora 2)',
           title: '🏆 Gran Kahoot de Cierre de Semana y Sellado Final',
-          hook: 'Es hora de poner a prueba todo lo aprendido en la semana: Tríada CIA, cuentas en Linux, root vs sudo, cerraduras rwx y códigos chmod. ¡Abran kahoot.it y que gane el mejor hacker ético de 501!',
-          start: '¿Quién logrará el podio en la batalla de ciberseguridad del Segundo Corte?',
-          dictation: 'La evaluación formativa gamificada permite afianzar el discernimiento técnico bajo presión temporal. El dominio de la Tríada CIA, la identificación de puertos y privilegios, y la aplicación precisa de directivas chmod constituyen competencias fundamentales para el perfil técnico en ciberseguridad.',
+          hook: 'Llegó la hora de la verdad: Tríada CIA, mensajes secretos en Base64 y los candados de Linux. Abran kahoot.it y compitan por el podio de ciberseguridad de 501.',
+          start: '¿Quién dominará el podio en la batalla de ciberdefensa del corte?',
+          dictation: 'La evaluación formativa gamificada afianza los conceptos de Confidencialidad, Integridad y Disponibilidad, la transformación de datos con Base64 y el control de accesos con chmod. Permite medir el aprendizaje de forma ágil, participativa y colaborativa en el cierre de ciclo semanal.',
           workBlock: {
             duration: '30 minutos',
             title: 'Batalla Kahoot y Evaluación Semanal',
             steps: [
               'Ingresar a kahoot.it con el PIN proyectado en pantalla.',
-              'Resolver los 20 reactivos sobre Tríada CIA y comandos Linux.',
+              'Resolver los reactivos sobre Tríada CIA, Base64 y permisos chmod.',
               'Registrar podio, puntaje y reflexiones en libreta.',
               'Revisión final de evidencias de la semana y estampado del Sello 3.'
             ]
           },
-          learningResult: 'El estudiante demuestra dominio integral de los conceptos teóricos y comandos prácticos en una evaluación gamificada.',
+          learningResult: 'El estudiante demuestra dominio integral de los conceptos de ciberseguridad, criptografía básica y permisos en un entorno interactivo.',
           identification: 'Tema: Evaluación Formativa Integral RA 2.1. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
-          development: 'Desarrollo de la sesión interactiva en Kahoot, retroalimentación reactivo por reactivo de preguntas complejas y sellado de libretas.',
+          development: 'Desarrollo de la sesión interactiva en Kahoot, retroalimentación reactivo por reactivo y sellado final de libretas.',
           closure: 'Firma y sellado del Sello 3, felicitación al grupo y cierre de semana.',
           faq: [
             { q: '¿Qué cuenta si no alcancé podio en Kahoot?', a: 'Lo importante es tu participación, registrar tu puntaje y demostrar la libreta completa con los sellos 1, 2 y 3.' }
           ],
           sello: {
             num: 'Sello 3',
-            desc: 'Matriz chmod + Podio y puntaje de Kahoot registrado en libreta.'
+            desc: 'Semáforo de Permisos + Podio y puntaje de Kahoot registrado en libreta.'
           }
         }
       ],
@@ -1318,9 +1316,9 @@ export const teachingPlan = {
           id: 'S02',
           label: 'Sesión 02',
           duration: '2 horas',
-          title: 'Identidad de Usuarios (Root vs Sudo) y Anatomía de Permisos (rwx)',
+          title: 'Misión Ciberespía: Criptografía Exprés en Terminal (Base64)',
           hourIds: ['H02', 'H03'],
-          product: 'Auditoría de cuentas /etc/passwd en Cloud Shell y experimento del script desarmado en libreta.',
+          product: 'Apunte de Confidencialidad, mensaje propio cifrado y mensaje de compañero descifrado en libreta.',
           unlockDate: '2026-10-08',
           unlockLabel: 'Jueves 08 de Octubre (16:50 hrs)',
         },
@@ -1328,9 +1326,9 @@ export const teachingPlan = {
           id: 'S03',
           label: 'Sesión 03',
           duration: '2 horas',
-          title: 'Laboratorio del Búnker, Códigos chmod y Gran Kahoot de Cierre',
+          title: 'El Candado Digital de Linux (chmod 000/600) y Gran Kahoot',
           hourIds: ['H04', 'H05'],
-          product: 'Experimento del búnker, matriz de 4 casos chmod y registro de podio en Kahoot.',
+          product: 'Semáforo de permisos (000, 600, 644), captura del Permission denied y podio de Kahoot en libreta.',
           unlockDate: '2026-10-09',
           unlockLabel: 'Viernes 09 de Octubre (18:30 hrs)',
         },
