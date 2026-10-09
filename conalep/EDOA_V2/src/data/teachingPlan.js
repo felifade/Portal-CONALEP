@@ -1179,7 +1179,7 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
             { title: '4. Registro de 15 Gastos', desc: 'Captura movimientos reales/simulados de una semana escolar típica.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
-Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación en PC (Hora 2) ➔ Formato Moneda y Registro (Horas 3-4)
+Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación (Hora 2) ➔ Moneda y Registro (Hora 3) ➔ Ajuste y Sello 1 (Hora 4)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 1 (50 min) · Proyección Black Mirror: "Fifteen Million Merits"
@@ -1187,15 +1187,37 @@ Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación en PC (Hora 2) 
 🗣️ FRASE GANCHO:
 "Hoy empezaremos la clase viendo el capítulo 'Fifteen Million Merits' de Black Mirror. Presten atención a cómo cada botón que presionan los personajes les quita créditos sin que lo noten."
 
+📝 DICTADO HORA 1:
+En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
+
+Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
+
+En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
+
+Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
+
 🎬 PROYECCIÓN EN CAÑÓN (35 min):
 Proyectar el episodio Fifteen Million Merits (escenas de pedaleo, consumo de Méritos y avatares virtuales).
 
 📝 RETO 1 EN LIBRETA (10 min):
 Escribir los 3 momentos del episodio donde los personajes pierden Méritos en compras inútiles.
 
+📊 RESULTADO ESPERADO HORA 1 (Libreta del Alumno):
+1. ¿Cómo pierden Méritos los personajes en la serie? (Ropa virtual, saltar anuncios, comida de máquinas).
+2. Conclusión: Quien no cuenta sus créditos, trabaja sin darse cuenta para el sistema.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja (Estructura de Bitácora)
+⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja: Estructura de la Bitácora
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 2:
+Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores de nuestro destino.
+
+Escribir números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
+
+Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
+
+Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Mostrar el layout en pantalla:
 A1:F1 combinada ➔ CONALEP PACHUCA II - CONTROL DE PRESUPUESTO PERSONAL
@@ -1204,26 +1226,50 @@ A3:F3 ➔ Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($
 💻 RETO 2 (40 min en PC):
 Maquetar los encabezados, combinar celdas para el membrete institucional y aplicar bordes limpios.
 
+📊 RESULTADO ESPERADO HORA 2 (Pantalla Google Sheets):
+Membrete A1:F1 en azul marino con letra blanca en negrita + Encabezados A3:F3 con bordes limpios.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 3 (50 min) · Formato Moneda ($) & Registro de Gastos Hormiga
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 3:
+En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
+
+Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
+
+Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Seleccionar rango D4:F20 ➔ Formato > Número > Moneda ($). Aplicar paleta de color azul marino con texto blanco.
 
 💻 RETO 3 (40 min en PC):
 Aplicar formato Moneda ($) a todas las celdas contables y registrar 15 movimientos financieros escolares (colectivo, lonche, fotocopias, recargas, snacks).
 
+📊 RESULTADO ESPERADO HORA 3 (Pantalla Google Sheets):
+15 Filas de movimientos capturados con formato numérico Moneda ($ 0.00) en Ingresos y Egresos.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 4 (50 min) · El Diagnóstico Final: Tu Tablero de Libertad
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 4:
+El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
+
+Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
+
+Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
+
+Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.
+
 💻 RETO 4 (30 min en PC):
 Verificar que la tabla no tenga textos cortados y que todas las cifras tengan signo de pesos $.
 
 📝 REFLEXIÓN FINAL EN LIBRETA (10 min):
 Escribir una comparación de 3 líneas entre los Méritos de la serie y tus Gastos reales de la semana.
 
-🏷️ EVIDENCIA Y SELLO:
-Reflexión de Fifteen Million Merits + Bitácora Maquetada con Formato Moneda ($) y 15 Movimientos Registrados. 👉 SELLO 1`,
+🏷️ EVIDENCIA Y SELLO 1:
+Bitácora Maquetada con Formato Moneda ($) + 15 Movimientos Registrados + Reflexión en Libreta. 👉 SELLO 1`,
           closure: 'Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).'
         },
         {
@@ -1256,16 +1302,25 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔
 🗣️ FRASE GANCHO:
 "Para saber si estamos ahorrando o en números rojos, la computadora calculará automáticamente el saldo neto al restar nuestros egresos de nuestros ingresos."
 
+📝 DICTADO HORA 5:
+Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Modelar la fórmula F4: =D4-E4 y F5: =F4-E5, y cómo arrastrarla hacia abajo en la columna de Saldo Acumulado.
 
 💻 RETO 1 (35 min en PC):
 Programar la columna de Saldo Acumulado en cada fila del presupuesto.
 
-📝 CIERRE EN LIBRETA (10 min):
-Anotar la fórmula utilizada para calcular el saldo neto disponible.
+📊 RESULTADO ESPERADO HORA 5 (Pantalla Google Sheets):
+Fila 4: =D4-E4 ($300.00) | Fila 5: =F4-E5 ($285.00) | Fila 6: =F5-E6 ($240.00)... Saldo automático.
 
-🏷️ EVIDENCIA Y SELLO:
+🏷️ EVIDENCIA Y SELLO 2:
 Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,
           closure: 'Fórmulas de balance diario programadas y funcionando.'
         },
@@ -1299,13 +1354,23 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) 
 🗣️ FRASE GANCHO:
 "No basta con ver gastos sueltos: un verdadero analista usa funciones estadísticas para descubrir cuál fue su día más caro y cuánto gasta en promedio por día."
 
+📝 DICTADO HORA 6:
+Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Estas cuatro fórmulas nos permitirán sintetizar docenas de registros numéricos en indicadores financieros de precisión profesional.
+
 🖥️ DEMO EN CAÑÓN (5 min):
-Explicar la sintaxis de =SUMA(E4:E18), =PROMEDIO(E4:E18), =MAX(E4:E18) y =MIN(E4:E18).
+Explicar la sintaxis de =SUMA(E4:E11), =PROMEDIO(E4:E11), =MAX(E4:E11) y =MIN(E4:E11).
 
 💻 RETO 2 (35 min en PC):
 Construir la tabla de resumen semanal con las 4 funciones estadísticas.
 
-🏷️ EVIDENCIA Y SELLO:
+📊 RESULTADO ESPERADO HORA 6 (Pantalla Google Sheets):
+Tabla de Resumen al costado: Total Egresos ($210.00), Promedio ($26.25), Máximo ($50.00), Mínimo ($10.00).
+
+🏷️ EVIDENCIA Y SELLO 3:
 Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1314,13 +1379,25 @@ Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
 🗣️ FRASE GANCHO:
 "Pondremos un escudo visual a nuestro presupuesto. Si estamos ahorrando se pondrá verde; si gastamos de más se pondrá rojo como señal de alerta."
 
+📝 DICTADO HORA 7:
+Además de las fórmulas estadísticas, le colocaremos un escudo de seguridad visual a nuestro presupuesto llamado Formato Condicional.
+
+Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro.
+
+De esta forma, la hoja de cálculo te hablará visualmente para proteger tu dinero sin tener que buscar la cifra entre todas las celdas.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Mostrar la regla de Formato Condicional sobre el Saldo Final (Verde > 0, Amarillo 0-20, Rojo < 0).
 
 💻 RETO 3 (35 min en PC):
 Configurar el semáforo condicional tricolor sobre el Saldo Final de la semana.
 
-🏷️ EVIDENCIA Y SELLO:
+📊 RESULTADO ESPERADO HORA 7 (Pantalla Google Sheets):
+Celda de Saldo Final en Verde Claro con letra verde oscura ($90.00 Ahorro Logrado).
+
+🏷️ EVIDENCIA Y SELLO 4:
 Semáforo condicional tricolor reactivo en el Saldo Final. 👉 SELLO 4`,
           closure: 'Resumen estadístico y semáforo condicional de ahorro terminados.'
         },
@@ -1354,15 +1431,24 @@ Metodología: Práctica en PC (25 min) ➔ Reflexión y Corte de Sellos (25 min)
 🗣️ FRASE GANCHO:
 "Hoy le daremos el toque final a nuestro proyecto creando un Dashboard visual con gráficas de pastel y columnas para exponer nuestras finanzas de forma profesional."
 
+📝 DICTADO HORA 8:
+En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.
+
 💻 RETO 4 (25 min en PC):
 Insertar 2 gráficas estadísticas en la hoja:
-1) Gráfica de Pastel (Distribución por categoría: B4:B18 y E4:E18).
-2) Gráfica de Columnas (Comparativa diaria: A4:A18 y E4:E18).
+1) Gráfica de Pastel (Distribución por categoría: B4:B11 y E4:E11).
+2) Gráfica de Columnas (Comparativa diaria: A4:A11 y E4:E11).
 
-📝 CIERRE Y CORTE DE SELLOS (25 min):
-Escribir la conclusión personal sobre el aprendizaje del control de gastos y cotejo de sellos acumulados de la Semana 09.
+📊 RESULTADO ESPERADO HORA 8 (Dashboard Final Completo):
+Gráfica de Pastel mostrando porcentajes por categoría + Gráfica de Columnas mostrando picos diarios de gasto.
 
-🏷️ EVIDENCIA Y SELLO:
+🏷️ EVIDENCIA Y SELLO FINAL:
 Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados. 👉 SELLO FINAL`,
           closure: 'Dashboard de Presupuesto Personal terminado con gráficos de pastel y columnas.'
         }

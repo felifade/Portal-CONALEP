@@ -436,7 +436,7 @@ Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sh
 Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
 
 Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,learningResult:`Analizar el episodio Fifteen Million Merits, maquetar la bitácora contable, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.`,identification:{topic:`Black Mirror & Presupuesto Personal`,evidence:`Reflexión + Bitácora Maquetada con Gastos Registrados`,organization:`Individual`,location:`Laboratorio`,time:`4 hrs`},infographicTitle:`Estructura Visual del Presupuesto Personal`,infographicSteps:[{title:`1. Proyección Black Mirror`,desc:`Analiza el consumo involuntario de Méritos en el episodio Fifteen Million Merits.`},{title:`2. Maquetación Limpia`,desc:`Crea 6 columnas: Día, Categoría, Descripción, Ingreso, Egreso y Saldo.`},{title:`3. Formato Moneda ($)`,desc:`Aplica formato numérico de moneda en todas las celdas financieras.`},{title:`4. Registro de 15 Gastos`,desc:`Captura movimientos reales/simulados de una semana escolar típica.`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
-Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación en PC (Hora 2) ➔ Formato Moneda y Registro (Horas 3-4)
+Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación (Hora 2) ➔ Moneda y Registro (Hora 3) ➔ Ajuste y Sello 1 (Hora 4)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 1 (50 min) · Proyección Black Mirror: "Fifteen Million Merits"
@@ -444,15 +444,37 @@ Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación en PC (Hora 2) 
 🗣️ FRASE GANCHO:
 "Hoy empezaremos la clase viendo el capítulo 'Fifteen Million Merits' de Black Mirror. Presten atención a cómo cada botón que presionan los personajes les quita créditos sin que lo noten."
 
+📝 DICTADO HORA 1:
+En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
+
+Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
+
+En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
+
+Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
+
 🎬 PROYECCIÓN EN CAÑÓN (35 min):
 Proyectar el episodio Fifteen Million Merits (escenas de pedaleo, consumo de Méritos y avatares virtuales).
 
 📝 RETO 1 EN LIBRETA (10 min):
 Escribir los 3 momentos del episodio donde los personajes pierden Méritos en compras inútiles.
 
+📊 RESULTADO ESPERADO HORA 1 (Libreta del Alumno):
+1. ¿Cómo pierden Méritos los personajes en la serie? (Ropa virtual, saltar anuncios, comida de máquinas).
+2. Conclusión: Quien no cuenta sus créditos, trabaja sin darse cuenta para el sistema.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja (Estructura de Bitácora)
+⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja: Estructura de la Bitácora
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 2:
+Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores de nuestro destino.
+
+Escribir números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
+
+Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
+
+Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Mostrar el layout en pantalla:
 A1:F1 combinada ➔ CONALEP PACHUCA II - CONTROL DE PRESUPUESTO PERSONAL
@@ -461,26 +483,50 @@ A3:F3 ➔ Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($
 💻 RETO 2 (40 min en PC):
 Maquetar los encabezados, combinar celdas para el membrete institucional y aplicar bordes limpios.
 
+📊 RESULTADO ESPERADO HORA 2 (Pantalla Google Sheets):
+Membrete A1:F1 en azul marino con letra blanca en negrita + Encabezados A3:F3 con bordes limpios.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 3 (50 min) · Formato Moneda ($) & Registro de Gastos Hormiga
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 3:
+En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
+
+Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
+
+Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Seleccionar rango D4:F20 ➔ Formato > Número > Moneda ($). Aplicar paleta de color azul marino con texto blanco.
 
 💻 RETO 3 (40 min en PC):
 Aplicar formato Moneda ($) a todas las celdas contables y registrar 15 movimientos financieros escolares (colectivo, lonche, fotocopias, recargas, snacks).
 
+📊 RESULTADO ESPERADO HORA 3 (Pantalla Google Sheets):
+15 Filas de movimientos capturados con formato numérico Moneda ($ 0.00) en Ingresos y Egresos.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⏱️ HORA 4 (50 min) · El Diagnóstico Final: Tu Tablero de Libertad
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 DICTADO HORA 4:
+El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
+
+Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
+
+Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
+
+Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.
+
 💻 RETO 4 (30 min en PC):
 Verificar que la tabla no tenga textos cortados y que todas las cifras tengan signo de pesos $.
 
 📝 REFLEXIÓN FINAL EN LIBRETA (10 min):
 Escribir una comparación de 3 líneas entre los Méritos de la serie y tus Gastos reales de la semana.
 
-🏷️ EVIDENCIA Y SELLO:
-Reflexión de Fifteen Million Merits + Bitácora Maquetada con Formato Moneda ($) y 15 Movimientos Registrados. 👉 SELLO 1`,closure:`Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).`},{id:`S2`,label:`Sesión 02`,subtitle:`Miércoles (1 hr) · Fórmulas de Balance Diario`,unlockDate:`2026-10-14`,unlockLabel:`Miércoles 14 de Octubre, 15:00 hrs`,start:`¿Cómo calcular automáticamente si te queda dinero al final de cada día?`,dictation:`Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+🏷️ EVIDENCIA Y SELLO 1:
+Bitácora Maquetada con Formato Moneda ($) + 15 Movimientos Registrados + Reflexión en Libreta. 👉 SELLO 1`,closure:`Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).`},{id:`S2`,label:`Sesión 02`,subtitle:`Miércoles (1 hr) · Fórmulas de Balance Diario`,unlockDate:`2026-10-14`,unlockLabel:`Miércoles 14 de Octubre, 15:00 hrs`,start:`¿Cómo calcular automáticamente si te queda dinero al final de cada día?`,dictation:`Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
 
 Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
 
@@ -495,16 +541,25 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔
 🗣️ FRASE GANCHO:
 "Para saber si estamos ahorrando o en números rojos, la computadora calculará automáticamente el saldo neto al restar nuestros egresos de nuestros ingresos."
 
+📝 DICTADO HORA 5:
+Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Modelar la fórmula F4: =D4-E4 y F5: =F4-E5, y cómo arrastrarla hacia abajo en la columna de Saldo Acumulado.
 
 💻 RETO 1 (35 min en PC):
 Programar la columna de Saldo Acumulado en cada fila del presupuesto.
 
-📝 CIERRE EN LIBRETA (10 min):
-Anotar la fórmula utilizada para calcular el saldo neto disponible.
+📊 RESULTADO ESPERADO HORA 5 (Pantalla Google Sheets):
+Fila 4: =D4-E4 ($300.00) | Fila 5: =F4-E5 ($285.00) | Fila 6: =F5-E6 ($240.00)... Saldo automático.
 
-🏷️ EVIDENCIA Y SELLO:
+🏷️ EVIDENCIA Y SELLO 2:
 Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,closure:`Fórmulas de balance diario programadas y funcionando.`},{id:`S3`,label:`Sesión 03`,subtitle:`Jueves (2 hrs) · Resumen Estadístico & Semáforo de Ahorro`,unlockDate:`2026-10-15`,unlockLabel:`Jueves 15 de Octubre, 15:00 hrs`,start:`¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?`,dictation:`Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
 
 Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
@@ -520,13 +575,23 @@ Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) 
 🗣️ FRASE GANCHO:
 "No basta con ver gastos sueltos: un verdadero analista usa funciones estadísticas para descubrir cuál fue su día más caro y cuánto gasta en promedio por día."
 
+📝 DICTADO HORA 6:
+Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Estas cuatro fórmulas nos permitirán sintetizar docenas de registros numéricos en indicadores financieros de precisión profesional.
+
 🖥️ DEMO EN CAÑÓN (5 min):
-Explicar la sintaxis de =SUMA(E4:E18), =PROMEDIO(E4:E18), =MAX(E4:E18) y =MIN(E4:E18).
+Explicar la sintaxis de =SUMA(E4:E11), =PROMEDIO(E4:E11), =MAX(E4:E11) y =MIN(E4:E11).
 
 💻 RETO 2 (35 min en PC):
 Construir la tabla de resumen semanal con las 4 funciones estadísticas.
 
-🏷️ EVIDENCIA Y SELLO:
+📊 RESULTADO ESPERADO HORA 6 (Pantalla Google Sheets):
+Tabla de Resumen al costado: Total Egresos ($210.00), Promedio ($26.25), Máximo ($50.00), Mínimo ($10.00).
+
+🏷️ EVIDENCIA Y SELLO 3:
 Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -535,13 +600,25 @@ Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
 🗣️ FRASE GANCHO:
 "Pondremos un escudo visual a nuestro presupuesto. Si estamos ahorrando se pondrá verde; si gastamos de más se pondrá rojo como señal de alerta."
 
+📝 DICTADO HORA 7:
+Además de las fórmulas estadísticas, le colocaremos un escudo de seguridad visual a nuestro presupuesto llamado Formato Condicional.
+
+Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro.
+
+De esta forma, la hoja de cálculo te hablará visualmente para proteger tu dinero sin tener que buscar la cifra entre todas las celdas.
+
 🖥️ DEMO EN CAÑÓN (5 min):
 Mostrar la regla de Formato Condicional sobre el Saldo Final (Verde > 0, Amarillo 0-20, Rojo < 0).
 
 💻 RETO 3 (35 min en PC):
 Configurar el semáforo condicional tricolor sobre el Saldo Final de la semana.
 
-🏷️ EVIDENCIA Y SELLO:
+📊 RESULTADO ESPERADO HORA 7 (Pantalla Google Sheets):
+Celda de Saldo Final en Verde Claro con letra verde oscura ($90.00 Ahorro Logrado).
+
+🏷️ EVIDENCIA Y SELLO 4:
 Semáforo condicional tricolor reactivo en el Saldo Final. 👉 SELLO 4`,closure:`Resumen estadístico y semáforo condicional de ahorro terminados.`},{id:`S4`,label:`Sesión 04`,subtitle:`Viernes (1 hr) · Dashboard Gráfico & Cierre`,unlockDate:`2026-10-16`,unlockLabel:`Viernes 16 de Octubre, 15:00 hrs`,start:`¿Cómo presentar tus resultados financieros con gráficos ejecutivos?`,dictation:`En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
 
 Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
@@ -557,15 +634,24 @@ Metodología: Práctica en PC (25 min) ➔ Reflexión y Corte de Sellos (25 min)
 🗣️ FRASE GANCHO:
 "Hoy le daremos el toque final a nuestro proyecto creando un Dashboard visual con gráficas de pastel y columnas para exponer nuestras finanzas de forma profesional."
 
+📝 DICTADO HORA 8:
+En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.
+
 💻 RETO 4 (25 min en PC):
 Insertar 2 gráficas estadísticas en la hoja:
-1) Gráfica de Pastel (Distribución por categoría: B4:B18 y E4:E18).
-2) Gráfica de Columnas (Comparativa diaria: A4:A18 y E4:E18).
+1) Gráfica de Pastel (Distribución por categoría: B4:B11 y E4:E11).
+2) Gráfica de Columnas (Comparativa diaria: A4:A11 y E4:E11).
 
-📝 CIERRE Y CORTE DE SELLOS (25 min):
-Escribir la conclusión personal sobre el aprendizaje del control de gastos y cotejo de sellos acumulados de la Semana 09.
+📊 RESULTADO ESPERADO HORA 8 (Dashboard Final Completo):
+Gráfica de Pastel mostrando porcentajes por categoría + Gráfica de Columnas mostrando picos diarios de gasto.
 
-🏷️ EVIDENCIA Y SELLO:
+🏷️ EVIDENCIA Y SELLO FINAL:
 Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados. 👉 SELLO FINAL`,closure:`Dashboard de Presupuesto Personal terminado con gráficos de pastel y columnas.`}]}}},Ce=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),k=o(((e,t)=>{t.exports=Ce()}))(),we=`1328`;function Te(e,t){if(t||!e?.unlockDate)return!1;let n=new Date,r=`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,`0`)}-${String(n.getDate()).padStart(2,`0`)}`;return r<e.unlockDate||r===e.unlockDate&&n.getHours()<15}function Ee({session:e,onOpenPinModal:t}){return(0,k.jsx)(`div`,{className:`session-locked-container`,children:(0,k.jsxs)(`div`,{className:`session-locked-card`,children:[(0,k.jsx)(`div`,{className:`locked-icon-bubble`,children:(0,k.jsx)(T,{size:44})}),(0,k.jsx)(`h2`,{children:`Sesión Programada`}),(0,k.jsxs)(`p`,{className:`locked-main-text`,children:[`El contenido técnico, infografías y actividades de la `,(0,k.jsxs)(`strong`,{children:[e.label,`: `,e.subtitle]}),` se activarán automáticamente el:`]}),(0,k.jsxs)(`div`,{className:`locked-date-badge`,children:[(0,k.jsx)(ie,{size:18}),(0,k.jsx)(`strong`,{children:e.unlockLabel||e.unlockDate})]}),(0,k.jsx)(`div`,{className:`locked-advice`,children:(0,k.jsxs)(`p`,{children:[`💡 `,(0,k.jsx)(`strong`,{children:`Indicación para el Alumno:`}),` Si tienes actividades pendientes de las sesiones anteriores, aprovecha este tiempo para concluirlas y entregarlas en Google Classroom.`]})}),(0,k.jsxs)(`button`,{className:`teacher-unlock-btn`,onClick:t,title:`Acceso exclusivo para el docente`,children:[(0,k.jsx)(ue,{size:14}),(0,k.jsx)(`span`,{children:`Acceso Docente con PIN`})]})]})})}function De({isOpen:e,onClose:t,onSuccess:n}){let[r,i]=(0,_.useState)(``),[a,o]=(0,_.useState)(!1);return e?(0,k.jsx)(`div`,{className:`pin-modal-overlay`,onClick:t,children:(0,k.jsxs)(`div`,{className:`pin-modal-card`,onClick:e=>e.stopPropagation(),children:[(0,k.jsx)(`button`,{className:`pin-modal-close`,onClick:t,children:(0,k.jsx)(me,{size:20})}),(0,k.jsx)(`div`,{className:`pin-modal-icon`,children:(0,k.jsx)(ue,{size:28})}),(0,k.jsx)(`h3`,{children:`Acceso Docente`}),(0,k.jsx)(`p`,{children:`Introduce el PIN de 4 dígitos para desbloquear la vista previa de todas las sesiones de EDOA-20.`}),(0,k.jsxs)(`form`,{onSubmit:e=>{e?.preventDefault(),r===we?(o(!1),n(),t()):(o(!0),i(``))},children:[(0,k.jsx)(`input`,{type:`password`,maxLength:4,value:r,onChange:e=>{o(!1),i(e.target.value)},placeholder:`••••`,className:`pin-input ${a?`error`:``}`,autoFocus:!0}),a&&(0,k.jsx)(`span`,{className:`pin-error-text`,children:`PIN incorrecto. Intenta de nuevo.`}),(0,k.jsxs)(`div`,{className:`pin-actions`,children:[(0,k.jsx)(`button`,{type:`button`,className:`btn-cancel`,onClick:t,children:`Cancelar`}),(0,k.jsx)(`button`,{type:`submit`,className:`btn-submit`,children:`Entrar`})]})]})]})}):null}function Oe(){try{let e=Object.keys(Se.weeks);if(!e.length)return`W00`;let t=e.filter(e=>Se.weeks[e]?.status===`active`);return t.length?t[t.length-1]:e[e.length-1]}catch{return`W07`}}function ke(e){if(!e)return null;if(!e.includes(`TELEPROMPTER`)&&!e.includes(`FRASE GANCHO`)&&!e.includes(`HORA 1`))return(0,k.jsx)(`p`,{className:`development-text`,style:{marginTop:`20px`,whiteSpace:`pre-wrap`,lineHeight:`1.6`},children:e});let t=e.split(`
 `),n=[],r=``,i=``,a=[],o=()=>{if(r&&a.length){let e=a.join(`
 `).trim();n.push((0,k.jsxs)(`div`,{className:`teleprompter-card card-${r}`,children:[(0,k.jsx)(`div`,{className:`card-badge-header`,children:i}),(0,k.jsx)(`div`,{className:`card-body-text`,children:e})]},n.length)),r=``,i=``,a=[]}};return t.forEach((e,s)=>{let c=e.trim();if(c.startsWith(`🎙️ TELEPROMPTER`)||c.startsWith(`Metodología:`)){o(),n.push((0,k.jsx)(`div`,{className:`teleprompter-header-banner`,children:c},s));return}if(c.startsWith(`⏱️ HORA`)||c.startsWith(`━━━━━━━━`)&&t[s+1]?.includes(`HORA`)){o(),c.startsWith(`⏱️ HORA`)&&n.push((0,k.jsx)(`div`,{className:`teleprompter-hour-divider`,children:c},s));return}if(c.startsWith(`━━━━━━━━`)){o();return}if(c.startsWith(`🗣️ FRASE GANCHO`)||c.startsWith(`🗣️`)){o(),r=`quote`,i=c;return}if(c.startsWith(`💡 DATO`)||c.startsWith(`💡 ANÉCDOTA`)||c.startsWith(`💡`)){o(),r=`tip`,i=c;return}if(c.startsWith(`🖥️ DEMO`)||c.startsWith(`🖥️`)){o(),r=`demo`,i=c;return}if(c.startsWith(`💻 RETO`)||c.startsWith(`💻`)){o(),r=`todo`,i=c;return}if(c.startsWith(`🏷️ EVIDENCIA`)||c.startsWith(`🏷️`)){o(),r=`check`,i=c;return}r?a.push(e):c&&n.push((0,k.jsx)(`p`,{className:`teleprompter-plain-line`,children:c},s))}),o(),(0,k.jsx)(`div`,{className:`teleprompter-executive-container`,children:n})}var Ae=()=>{let[e,t]=(0,_.useState)(Oe),[n,r]=(0,_.useState)(`S1`),[i,a]=(0,_.useState)(null),[o,s]=(0,_.useState)(()=>{if(typeof window<`u`){let e=new URLSearchParams(window.location.search);return e.get(`docente`)===`1`||e.get(`pin`)===we?(sessionStorage.setItem(`portal_teacher_mode`,`true`),!0):sessionStorage.getItem(`portal_teacher_mode`)===`true`}return!1}),[c,l]=(0,_.useState)(!1),[u,d]=(0,_.useState)(0);(0,_.useEffect)(()=>{let e=e=>{e.key===`Escape`&&(a(null),l(!1))};return window.addEventListener(`keydown`,e),()=>window.removeEventListener(`keydown`,e)},[]);let{module:f,cortes:p,weeks:m}=Se,h=m[e]||m.W00,g=h.sessions.find(e=>e.id===n)||h.sessions[0],v=p.find(t=>t.ras.some(t=>t.weeks.includes(e)))||p[0],y=v.ras.find(t=>t.weeks.includes(e))||v.ras[0],b=e=>{t(e),r(`S1`)},x=()=>{let e=u+1;d(e),e>=3&&(d(0),l(!0))},ee=()=>{sessionStorage.setItem(`portal_teacher_mode`,`true`),s(!0)},S=()=>{sessionStorage.removeItem(`portal_teacher_mode`),s(!1)};return(0,k.jsxs)(`div`,{className:`teaching-portal`,children:[(0,k.jsxs)(`aside`,{className:`lesson-rail`,children:[(0,k.jsxs)(`div`,{className:`lesson-brand`,onClick:x,style:{cursor:`pointer`,userSelect:`none`},title:o?`Modo Docente Activo`:`CONALEP Pachuca II (Triple clic para Acceso Docente)`,children:[(0,k.jsx)(de,{size:22}),(0,k.jsxs)(`div`,{style:{flex:1},children:[(0,k.jsx)(`strong`,{children:f.code}),(0,k.jsxs)(`span`,{children:[f.group,` · `,f.campus]})]}),o?(0,k.jsx)(fe,{size:18,style:{color:`#10b981`},title:`Modo Docente Activo`}):(0,k.jsx)(ue,{size:15,style:{opacity:.35},title:`Triple clic para PIN Docente`})]}),(0,k.jsx)(`div`,{className:`corte-stack`,children:p.map(t=>(0,k.jsxs)(`section`,{className:`corte-card ${v.id===t.id?`active`:``}`,children:[(0,k.jsxs)(`div`,{className:`corte-card-header`,children:[(0,k.jsx)(`span`,{children:t.label}),(0,k.jsx)(`strong`,{children:t.peso})]}),(0,k.jsxs)(`div`,{className:`corte-meta-row`,style:{marginBottom:`10px`,marginTop:`6px`},children:[(0,k.jsx)(`span`,{className:`corte-meta-dates`,children:t.dates||`Semestre`}),t.deadline&&(0,k.jsxs)(`span`,{className:`corte-deadline-pill`,title:`Periodo de captura en SAE: ${t.captureDates}`,children:[(0,k.jsx)(ce,{size:10}),(0,k.jsxs)(`span`,{children:[`Límite: `,(0,k.jsx)(`strong`,{children:t.deadline})]})]})]}),(0,k.jsx)(`div`,{className:`ra-list`,children:t.ras.map(t=>{let n=t.weeks.map(e=>m[e]).filter(Boolean);return(0,k.jsxs)(`div`,{className:`ra-mini`,children:[(0,k.jsxs)(`div`,{className:`ra-mini-top`,children:[(0,k.jsxs)(`div`,{children:[(0,k.jsx)(`strong`,{children:t.id}),(0,k.jsx)(`span`,{children:t.title})]}),(0,k.jsx)(`small`,{children:t.peso})]}),n.length>0&&(0,k.jsx)(`div`,{className:`ra-weeks-grid`,children:n.map(t=>{let n=e===t.id,r=t.status===`active`;return(0,k.jsxs)(`button`,{className:`ra-week-pill ${n?`active`:``} ${r?`is-current`:``}`,onClick:()=>b(t.id),title:`${t.label}: ${t.title}`,children:[(0,k.jsx)(`span`,{className:`pill-badge`,children:t.id}),(0,k.jsx)(`span`,{className:`pill-label`,children:t.label}),r&&(0,k.jsx)(`span`,{className:`pill-status-dot`,title:`En curso`,children:`●`})]},t.id)})})]},t.id)})})]},t.id))}),(0,k.jsx)(`div`,{style:{marginTop:`auto`,paddingTop:`15px`},children:o?(0,k.jsxs)(`div`,{className:`teacher-badge-active`,style:{display:`flex`,justifyContent:`space-between`,alignItems:`center`,background:`#dcfce7`,padding:`10px 15px`,borderRadius:`8px`,color:`#166534`,fontSize:`13px`},children:[(0,k.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:`6px`},children:[(0,k.jsx)(fe,{size:16}),(0,k.jsx)(`strong`,{children:`Modo Docente`})]}),(0,k.jsx)(`button`,{onClick:S,style:{background:`transparent`,border:`none`,color:`#166534`,cursor:`pointer`,textDecoration:`underline`,fontSize:`12px`},children:`Salir`})]}):(0,k.jsxs)(`button`,{onClick:()=>l(!0),style:{width:`100%`,padding:`10px`,display:`flex`,alignItems:`center`,justifyContent:`center`,gap:`8px`,background:`#f8fafc`,border:`1px dashed #cbd5e1`,borderRadius:`8px`,color:`#64748b`,fontSize:`12px`,cursor:`pointer`},children:[(0,k.jsx)(ue,{size:13}),(0,k.jsx)(`span`,{children:`Acceso Docente con PIN`})]})})]}),(0,k.jsxs)(`main`,{className:`class-guide`,children:[o&&(0,k.jsxs)(`div`,{className:`teacher-mode-banner`,children:[(0,k.jsxs)(`div`,{className:`teacher-mode-info`,children:[(0,k.jsx)(fe,{size:18}),(0,k.jsxs)(`span`,{children:[(0,k.jsx)(`strong`,{children:`Modo Docente Activo:`}),` Todas las sesiones e infografías están desbloqueadas para preparación y proyección.`]})]}),(0,k.jsx)(`button`,{onClick:S,className:`teacher-mode-exit-btn`,children:`Volver a Modo Alumno`})]}),(0,k.jsxs)(`div`,{className:`guide-hero`,children:[(0,k.jsxs)(`div`,{className:`hero-top`,children:[(0,k.jsx)(`span`,{className:`status-badge ${h.status}`,children:h.status===`active`?`● En Curso`:h.status===`historical`?`Histórico`:`Próxima`}),(0,k.jsxs)(`span`,{className:`hero-dates`,children:[(0,k.jsx)(ie,{size:14}),` `,h.dates]})]}),(0,k.jsxs)(`h1`,{children:[h.label,`: `,h.title]}),h.presentationUrl&&(0,k.jsxs)(`a`,{href:h.presentationUrl,target:`_blank`,rel:`noopener noreferrer`,className:`btn-diapositivas`,children:[(0,k.jsx)(oe,{size:18}),` Ver Diapositivas`]})]}),(0,k.jsx)(`div`,{className:`hour-selector`,children:h.sessions.map(e=>{let t=Te(e,o);return(0,k.jsxs)(`button`,{onClick:()=>r(e.id),className:`hour-btn ${n===e.id?`active`:``} ${t?`is-locked-tab`:``}`,title:t?`Bloqueada hasta ${e.unlockLabel||e.unlockDate}`:e.subtitle,children:[(0,k.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,justifyContent:`center`,gap:`6px`},children:[(0,k.jsx)(`strong`,{children:e.label}),t&&(0,k.jsx)(T,{size:12,color:`#dc2626`})]}),(0,k.jsx)(`span`,{children:e.subtitle})]},e.id)})}),Te(g,o)?(0,k.jsx)(Ee,{session:g,onOpenPinModal:()=>l(!0)}):(0,k.jsxs)(k.Fragment,{children:[(0,k.jsxs)(`div`,{className:`data-strip`,children:[(0,k.jsxs)(`div`,{className:`ds-item`,children:[(0,k.jsx)(`strong`,{children:`Módulo:`}),` `,f.code]}),(0,k.jsxs)(`div`,{className:`ds-item`,children:[(0,k.jsx)(`strong`,{children:`Lugar:`}),` `,g.identification.location]}),(0,k.jsxs)(`div`,{className:`ds-item`,children:[(0,k.jsx)(`strong`,{children:`Tiempo:`}),` `,g.identification.time]}),(0,k.jsxs)(`div`,{className:`ds-item`,children:[(0,k.jsx)(`strong`,{children:`Organización:`}),` `,g.identification.organization]}),(0,k.jsxs)(`div`,{className:`ds-item`,children:[(0,k.jsx)(`strong`,{children:`Classroom:`}),` `,f.classroomCode]})]}),(0,k.jsxs)(`div`,{className:`class-card`,children:[(0,k.jsxs)(`div`,{className:`module-section section-inicio`,children:[(0,k.jsxs)(`div`,{className:`section-header`,children:[(0,k.jsx)(se,{size:18}),(0,k.jsx)(`h3`,{children:`Pregunta detonadora`})]}),(0,k.jsx)(`div`,{className:`section-content`,children:(0,k.jsxs)(`p`,{className:`start-question`,children:[`"`,g.start,`"`]})})]}),(0,k.jsxs)(`div`,{className:`module-section section-dictado`,children:[(0,k.jsxs)(`div`,{className:`section-header`,children:[(0,k.jsx)(le,{size:18}),(0,k.jsx)(`h3`,{children:`Dictado-Gancho para libreta`})]}),(0,k.jsx)(`div`,{className:`section-content reading-box`,style:{whiteSpace:`pre-line`,lineHeight:`1.7`,fontSize:`15px`},children:g.dictation})]}),(0,k.jsxs)(`div`,{className:`module-section section-ra`,children:[(0,k.jsxs)(`div`,{className:`section-header`,children:[(0,k.jsx)(pe,{size:18}),(0,k.jsx)(`h3`,{children:`Resultado de aprendizaje`})]}),(0,k.jsx)(`div`,{className:`section-content`,children:(0,k.jsx)(`p`,{children:g.learningResult})})]}),(0,k.jsxs)(`div`,{className:`module-section section-desarrollo`,children:[(0,k.jsxs)(`div`,{className:`section-header`,children:[(0,k.jsx)(E,{size:18}),(0,k.jsx)(`h3`,{children:`Desarrollo de la actividad`})]}),(0,k.jsxs)(`div`,{className:`section-content`,children:[(0,k.jsx)(`div`,{className:`infographic-container`,style:{flexDirection:`column`},children:g.infographicImage?(0,k.jsx)(`img`,{src:g.infographicImage,alt:g.infographicTitle,className:`infographic-image infographic-image-clickable`,onClick:()=>a(g.infographicImage)}):(0,k.jsxs)(k.Fragment,{children:[(0,k.jsx)(`h4`,{children:g.infographicTitle}),(0,k.jsx)(`div`,{className:`info-steps`,children:g.infographicSteps?.map((e,t)=>(0,k.jsxs)(`div`,{className:`info-step`,children:[(0,k.jsx)(`div`,{className:`step-number`,children:t+1}),(0,k.jsxs)(`div`,{className:`step-content`,children:[(0,k.jsx)(`h5`,{children:e.title}),(0,k.jsx)(`p`,{children:e.desc})]})]},t))})]})}),ke(g.development)]})]}),(0,k.jsxs)(`div`,{className:`module-section section-cierre`,children:[(0,k.jsxs)(`div`,{className:`section-header`,children:[(0,k.jsx)(ae,{size:18}),(0,k.jsx)(`h3`,{children:`Cierre y evidencia`})]}),(0,k.jsxs)(`div`,{className:`section-content`,children:[(0,k.jsxs)(`div`,{className:`evidence-callout`,children:[(0,k.jsx)(`strong`,{children:`Evidencia esperada:`}),` `,g.identification.evidence]}),(0,k.jsx)(`p`,{children:g.closure})]})]})]})]})]}),(0,k.jsxs)(`aside`,{className:`lesson-context`,children:[(0,k.jsxs)(`section`,{className:`context-panel primary`,children:[(0,k.jsxs)(`div`,{className:`panel-header-badge badge-ra`,style:{background:`#eff6ff`,color:`#1d4ed8`,display:`inline-flex`,alignItems:`center`,gap:`6px`,padding:`4px 8px`,borderRadius:`6px`,fontSize:`11px`,fontWeight:`bold`,marginBottom:`10px`},children:[(0,k.jsx)(pe,{size:14}),(0,k.jsx)(`span`,{children:`Resultado de Aprendizaje`})]}),(0,k.jsxs)(`div`,{style:{fontSize:`13px`,color:`#0f172a`},children:[(0,k.jsxs)(`strong`,{children:[y.id,`:`]}),` `,y.title]}),(0,k.jsx)(`p`,{style:{fontSize:`12px`,color:`#475569`,marginTop:`8px`,lineHeight:`1.4`,marginBottom:0},children:h.summary})]}),(0,k.jsxs)(`section`,{className:`context-panel product`,style:{background:`#f0fdf4`,border:`1px solid #bbf7d0`},children:[(0,k.jsxs)(`div`,{className:`panel-header-badge badge-product`,style:{background:`#dcfce7`,color:`#15803d`,display:`inline-flex`,alignItems:`center`,gap:`6px`,padding:`4px 8px`,borderRadius:`6px`,fontSize:`11px`,fontWeight:`bold`,marginBottom:`10px`},children:[(0,k.jsx)(le,{size:14}),(0,k.jsx)(`span`,{children:`Producto Esperado`})]}),(0,k.jsx)(`p`,{style:{fontSize:`13.5px`,color:`#166534`,fontWeight:`650`,margin:0,lineHeight:`1.4`},children:h.expectedProduct})]}),(0,k.jsxs)(`section`,{className:`context-panel notices`,style:{background:`#fffbeb`,border:`1px solid #fde68a`},children:[(0,k.jsxs)(`div`,{className:`panel-header-badge badge-notices`,style:{background:`#fef3c7`,color:`#b45309`,display:`inline-flex`,alignItems:`center`,gap:`6px`,padding:`4px 8px`,borderRadius:`6px`,fontSize:`11px`,fontWeight:`bold`,marginBottom:`10px`},children:[(0,k.jsx)(fe,{size:14}),(0,k.jsx)(`span`,{children:`Avisos de la Semana`})]}),(0,k.jsx)(`ul`,{style:{margin:0,paddingLeft:`22px`,fontSize:`12px`,color:`#92400e`,lineHeight:`1.5`},children:(h.notices||[`No consumir alimentos ni bebidas cerca de los equipos.`,`Subir evidencias a Classroom en la hora asignada.`,`Respaldar archivos en Google Drive institucional.`]).map((e,t)=>(0,k.jsx)(`li`,{style:{marginBottom:`6px`},children:e},t))})]}),(0,k.jsxs)(`section`,{className:`context-panel corte`,style:{background:`#f8fafc`,border:`1px solid #e2e8f0`},children:[(0,k.jsxs)(`div`,{className:`panel-header-badge badge-corte`,style:{background:`#e2e8f0`,color:`#475569`,display:`inline-flex`,alignItems:`center`,gap:`6px`,padding:`4px 8px`,borderRadius:`6px`,fontSize:`11px`,fontWeight:`bold`,marginBottom:`10px`},children:[(0,k.jsx)(ie,{size:14}),(0,k.jsx)(`span`,{children:`Corte en Curso`})]}),(0,k.jsxs)(`p`,{style:{fontSize:`13px`,color:`#334155`,margin:0},children:[(0,k.jsx)(`strong`,{children:v.label}),` (`,v.peso,`)`]}),v.deadline&&(0,k.jsxs)(`div`,{style:{marginTop:`12px`,fontSize:`11px`,color:`#9f1239`,display:`flex`,alignItems:`center`,gap:`6px`,background:`#fff1f2`,padding:`8px 10px`,borderRadius:`6px`,border:`1px dashed #fecdd3`},children:[(0,k.jsx)(ce,{size:16,style:{flexShrink:0}}),(0,k.jsxs)(`span`,{style:{lineHeight:`1.4`},children:[`Captura SAE: `,(0,k.jsx)(`strong`,{children:v.captureDates||`Ver SAE`}),(0,k.jsx)(`br`,{}),`Límite: `,(0,k.jsx)(`strong`,{children:v.deadline})]})]})]})]}),i&&(0,k.jsx)(`div`,{className:`image-modal-overlay`,onClick:()=>a(null),children:(0,k.jsxs)(`div`,{className:`image-modal-content`,onClick:e=>e.stopPropagation(),children:[(0,k.jsx)(`button`,{className:`close-modal-btn`,onClick:()=>a(null),children:`×`}),(0,k.jsx)(`img`,{src:i,alt:`Zoomed Infographic`})]})}),(0,k.jsx)(De,{isOpen:c,onClose:()=>l(!1),onSuccess:ee})]})};function je(){return(0,k.jsx)(Ae,{})}(0,v.createRoot)(document.getElementById(`root`)).render((0,k.jsx)(_.StrictMode,{children:(0,k.jsx)(je,{})}));
