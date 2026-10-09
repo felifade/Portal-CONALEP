@@ -1113,6 +1113,203 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           closure: 'Acreditación oficial del RA 2.1 asentada en listas y encuadre del RA 2.2.'
         }
       ]
+    },
+    'W09': {
+      id: 'W09',
+      label: 'Semana 09',
+      title: 'Presupuesto Personal y Control de Gastos del Estudiante',
+      dates: '12 Oct - 16 Oct',
+      status: 'upcoming',
+      summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard con gráficos de pastel y columnas.',
+      expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
+      notices: [
+        'Lunes (Horas 1-4): Encuadre de educación financiera, maquetación de la bitácora y registro de gastos reales/simulados.',
+        'Miércoles (Hora 5): Programación de fórmulas de balance diario (=Ingresos - Egresos).',
+        'Jueves (Horas 6-7): Resumen estadístico (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional de ahorro.',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas) y corte final de sellos de la semana.'
+      ],
+      sessions: [
+        {
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Maquetación & Registro Diario de Gastos',
+          unlockDate: '2026-10-12',
+          unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
+          start: '¿Sabes exactamente cuánto dinero gastas en pasajes, lonche y gustos durante una semana escolar?',
+          dictation: 'La gestión de finanzas personales exige el registro sistemático de ingresos y egresos. Al aplicar formatos numéricos de moneda ($) y maquetar tablas estructuradas por días y categorías en Google Sheets, adquirimos la disciplina de visibilizar los gastos hormiga y tomar el control del presupuesto.',
+          learningResult: 'Maquetar una bitácora contable limpia, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
+          identification: { topic: 'Presupuesto Personal & Formato Moneda', evidence: 'Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Registro y Formato Financiero',
+          infographicSteps: [
+            { title: '1. Conceptos Básicos', desc: 'Identifica ingresos, egresos fijos, egresos variables y ahorro.' },
+            { title: '2. Maquetación Limpia', desc: 'Crea columnas para Día, Categoría, Descripción, Ingreso y Egreso.' },
+            { title: '3. Formato Moneda ($)', desc: 'Aplica formato numérico de moneda en todas las celdas financieras.' },
+            { title: '4. Captura de Gastos', desc: 'Registra 15 movimientos típicos de una semana escolar.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
+Metodología: Explicación de Conceptos (15 min) ➔ Maquetación en PC (45 min) ➔ Captura y Registro
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 (50 min) · Encuadre y Conceptos de Educación Financiera
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Muchachos, la educación financiera es la herramienta que distingue a quien administra bien su dinero de quien nunca le alcanza. Hoy empezaremos a controlar nuestro presupuesto en Google Sheets."
+
+📝 DICTADO EN LIBRETA (10 min):
+Definición de Ingresos (beca, mesada, apoyos), Egresos Fijos (pasaje, comida), Egresos Variables (gustos) y Saldo de Ahorro.
+
+💻 RETO 1 (25 min en PC):
+Abrir Google Sheets y maquetar el membrete de la hoja Mi_Presupuesto_Semanal_Grupo301.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 2 (50 min) · Formato Estético Profesional de Celdas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖥️ DEMO EN CAÑÓN (5 min):
+Combinar celdas para encabezados, aplicar bordes limpios y paleta de colores profesional.
+
+💻 RETO 2 (45 min en PC):
+Configurar el formato numérico de Moneda ($) en todas las columnas financieras y aplicar relleno de filas alternadas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (50 min) · Captura de Datos de Simulación Real
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💻 RETO 3 (50 min en PC):
+Registrar 15 movimientos financieros reales o simulados de una semana escolar típica (pasaje, lonche, fotocopias, recarga, snacks).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (50 min) · Revisión y Primer Cierre
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💻 RETO 4 (35 min en PC):
+Validar que ningún monto esté sin formato de moneda y organizar los datos por días (Lunes a Viernes).
+
+📝 CIERRE EN LIBRETA (15 min):
+Reflexión sobre los gastos que a veces no notamos (gastos hormiga).
+
+🏷️ EVIDENCIA Y SELLO:
+Bitácora maquetada con formato moneda ($) y registro de gastos. 👉 SELLO 1`,
+          closure: 'Bitácora de gastos maquetada y registrada con formato estético de moneda.'
+        },
+        {
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Fórmulas de Balance Diario',
+          unlockDate: '2026-10-14',
+          unlockLabel: 'Miércoles 14 de Octubre, 15:00 hrs',
+          start: '¿Cómo calcular automáticamente si te queda dinero al final de cada día?',
+          dictation: 'El balance contable en hojas de cálculo se determina mediante la resta entre los ingresos totales y los egresos acumulados. Al programar la fórmula =Ingresos - Egresos en la celda de saldo, la hoja actualiza en tiempo real la disponibilidad de capital.',
+          learningResult: 'Programar fórmulas de resta directas para calcular el Saldo Neto al final de cada día.',
+          identification: { topic: 'Balance Contable & Restas', evidence: 'Columna de Saldo Acumulado Operando', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Fórmulas de Balance Diario',
+          infographicSteps: [
+            { title: '1. Sintaxis de Resta', desc: 'Aplica el operador menos (-) para calcular saldos.' },
+            { title: '2. Fórmula de Balance', desc: '=Ingreso_Día - Egreso_Día.' },
+            { title: '3. Saldo Acumulado', desc: 'Programa la celda de saldo disponible.' },
+            { title: '4. Verificación', desc: 'Prueba la fórmula modificando un monto de gasto.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔ Cierre en Libreta
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (50 min) · Programación de Balances (=Ingresos - Egresos)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Para saber si estamos ahorrando o en números rojos, la computadora calculará automáticamente el saldo neto al restar nuestros egresos de nuestros ingresos."
+
+🖥️ DEMO EN CAÑÓN (5 min):
+Modelar la fórmula de resta =Ingresos - Egresos y cómo aplicarla en la columna de Saldo Acumulado.
+
+💻 RETO 1 (35 min en PC):
+Programar la columna de Saldo Acumulado en cada fila del presupuesto.
+
+📝 CIERRE EN LIBRETA (10 min):
+Anotar la fórmula utilizada para calcular el saldo neto disponible.
+
+🏷️ EVIDENCIA Y SELLO:
+Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,
+          closure: 'Fórmulas de balance diario programadas y funcionando.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Resumen Estadístico & Semáforo de Ahorro',
+          unlockDate: '2026-10-15',
+          unlockLabel: 'Jueves 15 de Octubre, 15:00 hrs',
+          start: '¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?',
+          dictation: 'Las funciones de resumen estadístico (=SUMA, =PROMEDIO, =MAX, =MIN) consolidan grandes volúmenes de transacciones en indicadores clave. El formato condicional semafórico destaca visualmente la salud financiera, alertando si el saldo entra en zona de riesgo o supera la meta de ahorro.',
+          learningResult: 'Construir la tabla de resumen estadístico y configurar el semáforo condicional tricolor de ahorro.',
+          identification: { topic: 'Estadística & Semáforo Financiero', evidence: 'Tabla Resumen + Semáforo Condicional', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Resumen Estadístico y Semáforo',
+          infographicSteps: [
+            { title: '1. Función =SUMA', desc: 'Calcula el total absoluto gastado en la semana.' },
+            { title: '2. Función =PROMEDIO', desc: 'Obtén el costo promedio por día escolar.' },
+            { title: '3. Max y Min', desc: 'Identifica el día con mayor (=MAX) y menor (=MIN) gasto.' },
+            { title: '4. Semáforo Tricolor', desc: 'Aplica verde para ahorro, amarillo para límite y rojo para déficit.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) ➔ Auditoría
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 6 (50 min) · Tabla de Métricas (=SUMA, =PROMEDIO, =MAX, =MIN)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"No basta con ver gastos sueltos: un verdadero analista usa funciones estadísticas para descubrir cuál fue su día más caro y cuánto gasta en promedio por día."
+
+🖥️ DEMO EN CAÑÓN (5 min):
+Explicar la sintaxis de =SUMA(rango), =PROMEDIO(rango), =MAX(rango) y =MIN(rango).
+
+💻 RETO 2 (35 min en PC):
+Construir la tabla de resumen semanal con las 4 funciones estadísticas.
+
+🏷️ EVIDENCIA Y SELLO:
+Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (50 min) · Semáforo Condicional de Salud Financiera
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Pondremos un escudo visual a nuestro presupuesto. Si estamos ahorrando se pondrá verde; si gastamos de más se pondrá rojo como señal de alerta."
+
+🖥️ DEMO EN CAÑÓN (5 min):
+Mostrar la regla de Formato Condicional sobre el Saldo Final (Verde > 0, Amarillo 0-20, Rojo < 0).
+
+💻 RETO 3 (35 min en PC):
+Configurar el semáforo condicional tricolor sobre el Saldo Final de la semana.
+
+🏷️ EVIDENCIA Y SELLO:
+Semáforo condicional tricolor reactivo en el Saldo Final. 👉 SELLO 4`,
+          closure: 'Resumen estadístico y semáforo condicional de ahorro terminados.'
+        },
+        {
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Dashboard Gráfico & Cierre',
+          unlockDate: '2026-10-16',
+          unlockLabel: 'Viernes 16 de Octubre, 15:00 hrs',
+          start: '¿Cómo presentar tus resultados financieros con gráficos ejecutivos?',
+          dictation: 'Los gráficos de pastel y columnas transforman datos numéricos en presentaciones visuales de alto impacto. Al representar la distribución por categorías y la evolución diaria de gastos, los estudiantes pueden comunicar claramente su análisis financiero.',
+          learningResult: 'Insertar una gráfica de pastel y una gráfica de columnas para el Dashboard de Presupuesto Personal.',
+          identification: { topic: 'Dashboard Gráfico & Cierre', evidence: 'Dashboard Financiero Completo con Gráficos', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Dashboard de Presupuesto Personal',
+          infographicSteps: [
+            { title: '1. Gráfica de Pastel', desc: 'Visualiza la distribución del dinero por categorías.' },
+            { title: '2. Gráfica de Columnas', desc: 'Compara el nivel de gasto de Lunes a Viernes.' },
+            { title: '3. Formato Ejecutivo', desc: 'Ajusta colores, títulos y etiquetas de datos.' },
+            { title: '4. Cierre y Sellos', desc: 'Cotejo final del portafolio de sellos acumulados.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Práctica en PC (25 min) ➔ Reflexión y Corte de Sellos (25 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 8 (50 min) · Visualización Dinámica de Gastos y Cierre de Semana 09
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Hoy le daremos el toque final a nuestro proyecto creando un Dashboard visual con gráficas de pastel y columnas para exponer nuestras finanzas de forma profesional."
+
+💻 RETO 4 (25 min en PC):
+Insertar 2 gráficas estadísticas en la hoja:
+1) Gráfica de Pastel (Distribución por categoría: Pasaje vs Comida vs Gustos).
+2) Gráfica de Columnas (Comparativa de gastos diarios de Lunes a Viernes).
+
+📝 CIERRE Y CORTE DE SELLOS (25 min):
+Escribir la conclusión personal sobre el aprendizaje del control de gastos y cotejo de sellos acumulados de la Semana 09.
+
+🏷️ EVIDENCIA Y SELLO:
+Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados. 👉 SELLO FINAL`,
+          closure: 'Dashboard de Presupuesto Personal terminado con gráficos de pastel y columnas.'
+        }
+      ]
     }
 
   }
