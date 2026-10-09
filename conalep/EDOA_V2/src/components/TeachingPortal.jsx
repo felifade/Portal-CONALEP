@@ -513,10 +513,10 @@ const TeachingPortal = () => {
               <div className="module-section section-dictado">
                 <div className="section-header">
                   <FileText size={18} />
-                  <h3>Dictado para libreta</h3>
+                  <h3>Dictado-Gancho para libreta</h3>
                 </div>
-                <div className="section-content reading-box">
-                  <p>{currentSessionData.dictation}</p>
+                <div className="section-content reading-box" style={{ whiteSpace: 'pre-line', lineHeight: '1.7', fontSize: '15px' }}>
+                  {currentSessionData.dictation}
                 </div>
               </div>
 
