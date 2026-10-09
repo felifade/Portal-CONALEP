@@ -73,13 +73,41 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Conocer las políticas del módulo y firmar reglamento.',
           identification: { topic: 'Encuadre EDOA', evidence: 'Reglamento', organization: 'Grupal', location: 'Aula', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -153,13 +181,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · La Nube y Atajos',
           start: '¿Qué pasa si tu computadora explota hoy?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Comprender el autoguardado y usar atajos universales.',
           identification: { topic: 'Cloud & Shortcuts', evidence: 'Doc Base', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -233,13 +289,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Índices y Tablas',
           start: '¿Aún escribes puntitos en tus índices manualmente?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Insertar tablas de contenido automáticas y tablas de datos.',
           identification: { topic: 'Índices y Tablas', evidence: 'Doc con Índice', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -313,13 +397,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Automatización Docs',
           start: '¿Y si tu documento cobrara vida propia?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Dominar la automatización e interactividad en Google Docs.',
           identification: { topic: 'Automatización', evidence: 'CV Interactivo', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -402,13 +514,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-07',
           unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
           identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 01 · Horas 1 y 2',
@@ -555,13 +695,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-17',
           unlockLabel: 'Jueves 17 de Septiembre, 15:00 hrs',
           start: '¿Una tabla llena de texto sirve para tomar decisiones rápidas?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Construir fórmulas estadísticas y maquetar gráficas dinámicas.',
           identification: { topic: 'Gráficos y Fórmulas', evidence: 'Dashboard Completo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Dashboard Interactivo',
@@ -635,13 +803,41 @@ Programaremos fórmulas de resta directa en Google Sheets para que, con solo cam
           unlockDate: '2026-09-21',
           unlockLabel: 'Lunes 21 de Septiembre, 15:00 hrs',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Analizar el perfilamiento algorítmico y maquetar una plantilla institucional con variables en Google Docs.',
           identification: { topic: 'Ética y Plantilla Base', evidence: 'Plantilla Maestra Docs', organization: 'Individual / Parejas', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ética de Datos y Maquetación Documental',
@@ -781,13 +977,41 @@ Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero d
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
           start: '¿Cómo estructurar datos y visualizarlos gráficamente para evaluar el desempeño académico?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Investigar en computadora 5 tipos de gráficas, calcular el total de los 3 cortes y aplicar semaforización tricolor.',
           identification: { topic: 'Gráficas, Cortes & Semáforo', evidence: 'Investigación PC + Hoja Semáforo Tricolor', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Visualización, Fórmulas y Semáforos',
@@ -1041,13 +1265,41 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           unlockDate: '2026-10-05',
           unlockLabel: 'Lunes 5 de Octubre, 15:00 hrs',
           start: '¿Cómo demostrar el dominio total de la automatización masiva mediante evidencias técnicas?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Concluir el Job 1 de Autocrat, diseñar el machote de Boleta de Parciales en Docs, ejecutar el Job 2 autónomamente y compilar el Reporte Técnico con 8 capturas.',
           identification: { topic: 'Autocrat Autónomo & Reporte Técnico', evidence: '+30 Boletas PDF + Reporte de Práctica Docs', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Dominio Técnico y Reporte de Evidencias',
@@ -1338,13 +1590,41 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           unlockDate: '2026-10-12',
           unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
           start: '¿Sabes exactamente cuánto dinero gastas en pasajes, lonche y gustos durante una semana escolar?',
-          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+          dictation: `⏱️ HORA 1 · Black Mirror y los Créditos Invisibles:
+En el famoso episodio *Nosedive* (Caída en Picada) y *Fifteen Million Merits* de Black Mirror, las personas viven atrapadas en una sociedad donde cada acción, compra o interacción les otorga o resta puntos y créditos digitales. Quien no monitorea sus puntos pierde el acceso a un departamento, a transporte o a su libertad.
 
-El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+En nuestra vida diaria ocurre algo sorprendentemente similar. Vivimos inmersos en una pantalla donde gastar dinero parece tan fácil como deslizar un dedo o acercar una tarjeta: un café, una suscripción, un juego o un camión extra parecen compras inofensivas e invisibles.
 
-Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+El problema es que, al igual que los personajes de la serie, si ignoras el algoritmo de tus propios números, despiertas a mitad del mes sin crédito y atrapado en deudas que no sabes cómo aparecieron.
 
-Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
+Hoy romperemos esa trampa digital. Usaremos Google Sheets no como espectadores de Black Mirror, sino como los programadores de nuestro propio sistema financiero para tomar el control absoluto de nuestros recursos.
+
+⏱️ HORA 2 · El Lenguaje de la Moneda ($):
+En la serie Black Mirror, las pantallas no muestran texto desordenado; muestran métricas exactas con símbolos y colores claros que todos entienden al instante. En el mundo real de la contabilidad, el desorden visual en una tabla es sinónimo de error y pérdida de dinero.
+
+Escribir simplemente un número como 50 en una celda no le dice nada a la computadora ni a un administrador: ¿son 50 pesos, 50 piezas o 50 por ciento? Para que los datos tengan sentido profesional deben llevar su identidad completa.
+
+Al aplicar el formato numérico de Moneda ($), le enseñamos a la hoja de cálculo a tratar cada cifra como dinero real, agregando el signo de pesos, comas de miles y dos decimales automáticos para centavos.
+
+Combinar celdas para membretes institucionales y aplicar colores sobrios transforma un borrador desordenado en un documento de control financiero impecable y fácil de auditar.
+
+⏱️ HORA 3 · Fugas de Dinero y Gastos Hormiga:
+Al igual que las distopías tecnológicas donde las pequeñas fugas de datos destruyen un sistema, en las finanzas de un estudiante de preparatoria son las pequeñas fugas de dinero las que destruyen el presupuesto.
+
+Comprar unas papas de $20 a la salida, una recarga de $50, un café de $35 y pagar $15 de pasaje extra parecen decisiones aisladas que no afectan a nadie. Pero al registrarlas en una bitácora contable, la suma revela una realidad impactante.
+
+El registro detallado nos obliga a clasificar cada movimiento por categorías reales: Transporte, Alimentación, Materiales Escolares y Gustos Personales, permitiéndonos ver en qué renglón se está fugando nuestro capital.
+
+Hoy capturaremos 15 movimientos financieros reales o simulados de tu semana en CONALEP. Al ponerles nombre y apellido a tus gastos, estarás encendiendo el radar contra los gastos hormiga.
+
+⏱️ HORA 4 · Tomando el Control del Algoritmo:
+El mensaje principal de Black Mirror no es lejanía ni ficción; es una advertencia sobre lo que ocurre cuando dejamos que la tecnología o la inercia tomen decisiones por nosotros sin cuestionar el resultado.
+
+Al concluir la primera fase de tu presupuesto en Google Sheets, has dejado de ser un consumidor pasivo que solo ve cómo se vacía su cartera para convertirte en el arquitecto de tus propios recursos.
+
+Una tabla bien maquetada, con formatos numéricos de moneda y registros ordenados por días, es la base sobre la cual calcularemos balances, resúmenes estadísticos y alertas automáticas en las siguientes sesiones.
+
+Mañana cuando realices una compra en la cafetería o en el transporte, recordarás que cada peso es un crédito en tu tablero personal y que el control de la pantalla está en tus manos.`,
           learningResult: 'Maquetar una bitácora contable limpia, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
           identification: { topic: 'Presupuesto Personal & Formato Moneda', evidence: 'Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Registro y Formato Financiero',
