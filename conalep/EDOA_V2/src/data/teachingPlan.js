@@ -73,7 +73,13 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Kahoot, Directorio & Fusión Masiva',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Conocer las políticas del módulo y firmar reglamento.',
           identification: { topic: 'Encuadre EDOA', evidence: 'Reglamento', organization: 'Grupal', location: 'Aula', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -84,7 +90,13 @@ export const teachingPlan = {
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Diagnóstico',
           start: '¿Qué tanto sabes de la nube?',
-          dictation: 'El diagnóstico no tiene valor en la calificación, pero establece la línea base de nuestras habilidades para el semestre.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Completar formulario diagnóstico.',
           identification: { topic: 'Diagnóstico', evidence: 'Formulario Forms', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -95,7 +107,13 @@ export const teachingPlan = {
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Suspensión Institucional',
           start: '¿Tienes acceso a tu correo institucional?',
-          dictation: 'La identidad digital institucional es el primer paso para acceder a las herramientas empresariales de Google Workspace de forma segura y sin límites de almacenamiento.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Activar cuentas institucionales y recuperar contraseñas.',
           identification: { topic: 'Identidad', evidence: 'Correo Activo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -106,7 +124,13 @@ export const teachingPlan = {
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Estructura Drive',
           start: '¿Dónde viven tus archivos?',
-          dictation: 'Google Drive es nuestra memoria principal. Un archivo perdido es un archivo no evaluado. Hoy sentaremos las bases de nuestra organización en la nube.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Crear la jerarquía de carpetas del semestre.',
           identification: { topic: 'Drive', evidence: 'Carpetas listas', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -129,7 +153,13 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · La Nube y Atajos',
           start: '¿Qué pasa si tu computadora explota hoy?',
-          dictation: 'Trabajar en la nube significa que el documento no vive en tu PC, sino en servidores remotos. Los atajos de teclado (shortcuts) son el secreto para operar en este entorno a velocidad profesional.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Comprender el autoguardado y usar atajos universales.',
           identification: { topic: 'Cloud & Shortcuts', evidence: 'Doc Base', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -140,7 +170,13 @@ export const teachingPlan = {
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Jerarquía Visual',
           start: '¿Por qué los libros tienen tamaños de letra distintos?',
-          dictation: 'La jerarquía visual guía el ojo del lector. En documentos digitales, no se cambian los tamaños manualmente, se utilizan los "Estilos de Párrafo".',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Diferenciar entre Texto Normal, Título y Subtítulo.',
           identification: { topic: 'Estilos Base', evidence: 'Texto estructurado', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -151,7 +187,13 @@ export const teachingPlan = {
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Encabezados (H1-H3)',
           start: '¿Cómo estructurar un documento largo?',
-          dictation: 'Los encabezados 1, 2 y 3 (H1, H2, H3) crean el esqueleto del documento. Son fundamentales para la accesibilidad y los índices.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Aplicar H1, H2 y H3 lógicamente.',
           identification: { topic: 'Encabezados', evidence: 'Documento largo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -162,7 +204,13 @@ export const teachingPlan = {
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Permisos',
           start: '¿Sabes compartir correctamente un archivo?',
-          dictation: 'Compartir un enlace privado es como entregar una caja fuerte sin la llave. Siempre debes ajustar los permisos a Lector público.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Ajustar permisos de Google Drive y entregar.',
           identification: { topic: 'Permisos', evidence: 'Classroom', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -185,7 +233,13 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Índices y Tablas',
           start: '¿Aún escribes puntitos en tus índices manualmente?',
-          dictation: 'El índice automático recopila los Encabezados para generar un mapa clicable. Las tablas ordenan datos complejos en matrices de filas y columnas.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Insertar tablas de contenido automáticas y tablas de datos.',
           identification: { topic: 'Índices y Tablas', evidence: 'Doc con Índice', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -196,7 +250,13 @@ export const teachingPlan = {
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Maquetación Oficios',
           start: '¿Sabes cómo solicitar algo formalmente a la dirección?',
-          dictation: 'Un oficio es el estándar de comunicación institucional. Requiere rigor en justificación, interlineado y alineación de fechas.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Redactar un oficio formal.',
           identification: { topic: 'Oficio', evidence: 'Borrador Oficio', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -207,7 +267,13 @@ export const teachingPlan = {
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Identidad Visual',
           start: '¿Cómo proteger o brandear tu documento?',
-          dictation: 'La marca de agua (Watermark) es un elemento translúcido en el fondo que indica confidencialidad, estado o identidad corporativa.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Insertar marcas de agua e imágenes.',
           identification: { topic: 'Marca de Agua', evidence: 'Doc brandeado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -218,7 +284,13 @@ export const teachingPlan = {
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Coevaluación',
           start: '¿Tu documento cumple todos los estándares?',
-          dictation: 'La coevaluación permite auditar el trabajo de un colega utilizando listas de cotejo para prevenir errores antes de la entrega formal.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Auditar documentos de compañeros y entregar.',
           identification: { topic: 'Auditoría', evidence: 'Classroom', organization: 'Parejas', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta del Día',
@@ -241,7 +313,13 @@ export const teachingPlan = {
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Automatización Docs',
           start: '¿Y si tu documento cobrara vida propia?',
-          dictation: 'Hoy transformaremos un procesador de texto estático en una herramienta viva. Aprenderemos a insertar menús con fichas inteligentes (@), programar códigos QR mediante Add-ons, trazar firmas digitales en el lienzo y estandarizar datos usando Plantillas (Currículum).',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Dominar la automatización e interactividad en Google Docs.',
           identification: { topic: 'Automatización', evidence: 'CV Interactivo', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ruta del Día',
@@ -253,7 +331,13 @@ export const teachingPlan = {
         {
           id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Continuación',
           start: '¿Dónde nos quedamos el lunes?',
-          dictation: 'En esta sesión continuaremos con la elaboración técnica de nuestro Currículum interactivo, guiados por la Ruta del Día que trazamos en la primera sesión.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Continuar la automatización e interactividad en Google Docs.',
           identification: { topic: 'CV Interactivo', evidence: 'Avance Práctico', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Continuación',
@@ -264,7 +348,13 @@ export const teachingPlan = {
         {
           id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Continuación',
           start: '¿Listos para pulir los detalles finales de nuestro CV interactivo?',
-          dictation: 'La calidad está en los detalles. Dedicaremos esta sesión doble a perfeccionar la plantilla, asegurar que las fichas inteligentes funcionen y que los códigos QR apunten correctamente a sus destinos.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Perfeccionar y consolidar el formato avanzado del documento.',
           identification: { topic: 'Pruebas Finales', evidence: 'CV Terminado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Cierre de Diseño',
@@ -275,7 +365,13 @@ export const teachingPlan = {
         {
           id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Evaluación',
           start: '¿Qué hemos aprendido sobre la automatización de documentos?',
-          dictation: 'Es momento de auditar nuestro progreso. La evaluación final consiste en asegurar que el documento interactivo cumpla con todas las especificaciones solicitadas (Fichas, QR, Firma) y sus permisos públicos.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Evaluar el Currículum Interactivo y auditar las entregas.',
           identification: { topic: 'Evaluación', evidence: '100% Entregas', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Ruta de Entrega',
@@ -306,7 +402,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-07',
           unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cuál es la diferencia entre redactar un texto y estructurar una base de datos?',
-          dictation: 'Una hoja de cálculo es una poderosa herramienta digital estructurada como una matriz bidimensional. Está organizada en filas (números) y columnas (letras). Su propósito principal no es solo almacenar texto, sino capturar, estructurar, calcular y analizar grandes volúmenes de datos numéricos y alfanuméricos mediante fórmulas. Además, la normalización de datos consiste en dividir la información en columnas con propósitos únicos y altamente específicos para evitar duplicidades, prevenir errores humanos y facilitar significativamente las búsquedas futuras.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Crear pestaña en Docs y registrar la base de datos del Grupo 301 en Sheets.',
           identification: { topic: 'Setup & Captura', evidence: 'Directorio Base', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 01 · Horas 1 y 2',
@@ -325,7 +427,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-07',
           unlockLabel: 'Lunes 7 de Septiembre, 15:00 hrs',
           start: '¿Cómo garantizamos que nadie escriba datos equivocados en una hoja compartida?',
-          dictation: 'El diseño profesional en una hoja de cálculo tiene una función operativa: permite congelar paneles para evitar que la información clave se pierda de vista al desplazarse. Por otro lado, la "Validación de Datos" es una estricta regla de calidad que restringe la entrada de información a valores predeterminados (como menús desplegables), lo que erradica errores tipográficos, estandariza la escritura y permite que las fórmulas y filtros funcionen con 100% de precisión.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Aplicar inmovilización de paneles y validación con menús desplegables.',
           identification: { topic: 'Calidad de Datos', evidence: 'Directorio Validado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Sesión 02 · Horas 3 y 4',
@@ -344,7 +452,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-09',
           unlockLabel: 'Miércoles 9 de Septiembre, 15:00 hrs',
           start: '¿Filtrar datos significa que borramos lo que no vemos?',
-          dictation: 'Filtrar información no significa eliminar datos; consiste en crear una vista temporal y dinámica que aísla visualmente los registros que cumplen con condiciones específicas. Por otro lado, la herramienta de ordenamiento reestructura todas las filas en secuencia alfanumérica. Ambas herramientas nos permiten responder preguntas operativas en segundos sin alterar ni dañar la base de datos original.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Consultar y analizar el directorio mediante filtros y ordenamiento.',
           identification: { topic: 'Consultas', evidence: 'Vistas de Filtro', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Sesión 03 · Hora 5',
@@ -363,7 +477,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-10',
           unlockLabel: 'Jueves 10 de Septiembre, 15:00 hrs',
           start: '¿Cómo aplicas la lógica para combinar diferentes filtros a la vez?',
-          dictation: 'El dominio de una base de datos no solo requiere conocer las herramientas, sino aplicar lógica condicional para aislar información precisa. Al combinar múltiples criterios (filtros simultáneos), exclusiones o búsquedas específicas de texto, podemos resolver escenarios complejos y extraer inteligencia operativa en tiempo récord, sin alterar el archivo original.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Aplicar lógica de filtros combinados y ordenamiento múltiple.',
           identification: { topic: 'Filtros Avanzados', evidence: 'Capturas de Retos', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicImage: imgW04S03,
@@ -435,7 +555,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-17',
           unlockLabel: 'Jueves 17 de Septiembre, 15:00 hrs',
           start: '¿Una tabla llena de texto sirve para tomar decisiones rápidas?',
-          dictation: 'Un Dashboard transforma datos crudos en información visual altamente digerible. Al insertar gráficos dinámicos vinculados a fórmulas como promedios o sumas y aplicar formatos condicionales, la hoja de cálculo se convierte en una presentación ejecutiva que reacciona en vivo a cualquier cambio.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Construir fórmulas estadísticas y maquetar gráficas dinámicas.',
           identification: { topic: 'Gráficos y Fórmulas', evidence: 'Dashboard Completo', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Dashboard Interactivo',
@@ -468,7 +594,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-18',
           unlockLabel: 'Viernes 18 de Septiembre, 15:00 hrs',
           start: '¿Están listas tus evidencias para la evaluación oficial?',
-          dictation: 'El cierre de un ciclo técnico exige una auditoría rigurosa. En esta sesión validaremos que todas las evidencias del Primer Corte estén correctamente almacenadas y compartidas. El trabajo no entregado correctamente carece de valor.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Revisión de promedios, regularización y Kahoot.',
           identification: { topic: 'Evaluación SAE', evidence: 'Calificaciones Firmadas', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Cierre de Corte',
@@ -503,7 +635,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-21',
           unlockLabel: 'Lunes 21 de Septiembre, 15:00 hrs',
           start: '¿Cómo se multiplican cientos de documentos personalizados sin escribirlos uno por uno?',
-          dictation: 'La combinación de correspondencia desacopla el diseño documental de la fuente de datos. Conocer los programas, complementos y metodologías disponibles en la industria es indispensable para seleccionar la herramienta adecuada según el volumen y la infraestructura tecnológica de la organización.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Analizar el perfilamiento algorítmico y maquetar una plantilla institucional con variables en Google Docs.',
           identification: { topic: 'Ética y Plantilla Base', evidence: 'Plantilla Maestra Docs', organization: 'Individual / Parejas', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Ética de Datos y Maquetación Documental',
@@ -541,7 +679,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-23',
           unlockLabel: 'Miércoles 23 de Septiembre, 15:00 hrs',
           start: '¿Un dato mal escrito en la base de datos arruinará cientos de documentos?',
-          dictation: 'La integridad de un proceso de fusión depende directamente de la calidad estructural de la base de datos de origen. Cualquier discrepancia en mayúsculas, espacios invisibles o celdas vacías se replicará exponencialmente en los documentos finales. Mediante funciones lógicas y de texto se normaliza la información antes de activar el motor de procesamiento por lotes.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Normalizar datos con fórmulas y configurar el complemento Autocrat.',
           identification: { topic: 'Calidad de Datos & Add-on', evidence: 'Job de Autocrat configurado', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Normalización de Datos y Motor de Fusión',
@@ -563,7 +707,13 @@ export const teachingPlan = {
           unlockDate: '2026-09-24',
           unlockLabel: 'Jueves 24 de Septiembre, 15:00 hrs',
           start: '¿Es posible generar 30 o 50 contratos oficiales en menos de dos minutos?',
-          dictation: 'El mapeo de campos establece la correspondencia exacta entre las variables de la plantilla y los encabezados de la hoja de cálculo. En entornos corporativos, la parametrización de nombres de archivo dinámicos y la segmentación por condiciones lógicas permiten generar miles de documentos independientes en la nube sin requerir almacenamiento físico local.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Ejecutar la combinación por lotes en PDF y auditar carpetas compartidas.',
           identification: { topic: 'Procesamiento Masivo', evidence: 'Carpeta con +30 PDFs en Drive', organization: 'Individual / Coevaluación', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Fusión Masiva y Auditoría Digital',
@@ -586,7 +736,13 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
           unlockDate: '2026-09-25',
           unlockLabel: 'Viernes 25 de Septiembre, 15:00 hrs',
           start: '¿Qué tan sólido es tu conocimiento sobre combinación de correspondencia?',
-          dictation: 'El cierre de un resultado de aprendizaje valida tanto las habilidades procedimentales como la comprensión conceptual de los flujos de automatización digital. La evaluación técnica y la auditoría de portafolios certifican que el alumno es capaz de implementar soluciones de productividad con estándares de la industria.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Completar la evaluación de 20 preguntas y acreditar el RA 2.1.',
           identification: { topic: 'Evaluación y Calificaciones', evidence: 'Kahoot 20 reactivos & Portafolio', organization: 'Individual', location: 'Aula', time: '1 hr' },
           infographicTitle: 'Evaluación y Auditoría de Resultados',
@@ -625,7 +781,13 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
           unlockDate: '2026-09-28',
           unlockLabel: 'Lunes 28 de Septiembre, 15:00 hrs',
           start: '¿Cómo estructurar datos y visualizarlos gráficamente para evaluar el desempeño académico?',
-          dictation: 'La representación gráfica y la parametrización cuantitativa son esenciales para la toma de decisiones. Mientras que los 5 tipos esenciales de gráficas permiten comunicar tendencias y distribuciones, la estructura de evaluación en tres cortes acumulativos permite determinar la calificación total mediante fórmulas matriciales (=SUMA) y alertas visuales tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Investigar en computadora 5 tipos de gráficas, calcular el total de los 3 cortes y aplicar semaforización tricolor.',
           identification: { topic: 'Gráficas, Cortes & Semáforo', evidence: 'Investigación PC + Hoja Semáforo Tricolor', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Visualización, Fórmulas y Semáforos',
@@ -716,7 +878,13 @@ Aviso docente: La función =NOMPROPIO() la modelaremos el miércoles en la Hora 
           unlockDate: '2026-09-30',
           unlockLabel: 'Miércoles 30 de Septiembre, 15:00 hrs',
           start: '¿Cómo normalizar nombres desordenados y fusionar datos en expedientes oficiales en PDF?',
-          dictation: 'La función =NOMPROPIO garantiza que los nombres y apellidos cumplan con la ortotipografía formal antes de ser inyectados en documentos legales. La combinación masiva de correspondencia mediante Autocrat vincula estas bases de datos saneadas con plantillas de Google Docs para generar en segundos decenas de expedientes en PDF con permisos corporativos en la nube.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Aplicar =NOMPROPIO(), vincular plantilla, ejecutar Autocrat (+30 PDFs), configurar permisos públicos en Google Drive y entregar bitácora en Classroom.',
           identification: { topic: 'NOMPROPIO, Autocrat & Nube', evidence: '+30 PDFs en Drive + Entrega Classroom', organization: 'Individual / Parejas', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Normalización, Fusión Masiva y Entrega',
@@ -782,7 +950,13 @@ Aviso docente: Mañana jueves no hay sesión presencial por comisión sindical; 
           unlockDate: '2026-10-01',
           unlockLabel: 'Jueves 1 de Octubre, 15:00 hrs',
           start: '¿Cómo garantizar que un cliente o directivo pueda consultar tus archivos sin contraseñas?',
-          dictation: 'Sesión presencial no impartida por comisión y permiso oficial docente de carácter sindical. Espacio de trabajo autónomo para regularización de entregas.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Regularización autónoma de archivos y entregas en Google Classroom.',
           identification: { topic: 'Permiso Sindical / Regularización', evidence: 'Regularización Classroom', organization: 'Individual', location: 'Autónomo', time: '2 hrs' },
           infographicTitle: 'Aviso Institucional',
@@ -808,7 +982,13 @@ Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora 
           unlockDate: '2026-10-02',
           unlockLabel: 'Viernes 2 de Octubre, 15:00 hrs',
           start: '¿Demostraste el dominio total de la automatización masiva documental?',
-          dictation: 'La evaluación sumativa con Kahoot integra el dominio de correspondencia masiva, saneamiento forense de datos con =NOMPROPIO, programación de fórmulas de cortes, semaforización tricolor, interpretación de gráficas y distribución segura en la nube, consolidando las competencias del Resultado de Aprendizaje 2.1.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Resolver la evaluación sumativa de 20 reactivos, cotejar sellos y recibir calificación del RA 2.1.',
           identification: { topic: 'Evaluación Sumativa RA 2.1', evidence: 'Kahoot + 4 Sellos Acumulados', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Evaluación y Calificaciones Oficiales',
@@ -861,7 +1041,13 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           unlockDate: '2026-10-05',
           unlockLabel: 'Lunes 5 de Octubre, 15:00 hrs',
           start: '¿Cómo demostrar el dominio total de la automatización masiva mediante evidencias técnicas?',
-          dictation: 'El dominio de las herramientas de automatización masiva exige no solo la ejecución asistida de algoritmos, sino la capacidad de diseñar desde cero machotes maquetados con tablas de correspondencia y documentar técnicamente el proceso mediante reportes con evidencias visuales e indicadores de calidad.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Concluir el Job 1 de Autocrat, diseñar el machote de Boleta de Parciales en Docs, ejecutar el Job 2 autónomamente y compilar el Reporte Técnico con 8 capturas.',
           identification: { topic: 'Autocrat Autónomo & Reporte Técnico', evidence: '+30 Boletas PDF + Reporte de Práctica Docs', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Dominio Técnico y Reporte de Evidencias',
@@ -978,7 +1164,13 @@ Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libret
           unlockDate: '2026-10-07',
           unlockLabel: 'Miércoles 7 de Octubre, 15:00 hrs',
           start: '¿Cómo hacer sumas sencillas y acumuladas en Google Sheets sin sumar a mano?',
-          dictation: 'La función de suma es la operación fundamental en las hojas de cálculo. Para realizar cálculos eficientes debemos iniciar toda fórmula con el signo igual (=) y emplear los operadores de suma directa o la función nativa =SUMA() para procesar rangos numéricos.',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Ingresar fórmulas de suma directa y utilizar la función nativa =SUMA().',
           identification: { topic: 'Sumas Básicas y Función =SUMA', evidence: 'Práctica de Sumas en Sheets', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Iniciación a Sumas en Sheets',
@@ -1015,7 +1207,13 @@ Hoja de cálculo con la práctica de sumas completada. 👉 SELLO 4`,
           unlockDate: '2026-10-08',
           unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
           start: '¿Cómo calcular restas, multiplicaciones, divisiones, raíces y potencias, y aplicar fórmulas de geometría con imágenes en Sheets?',
-          dictation: 'El cálculo matemático en hojas de cálculo abarca las operaciones fundamentales (resta, multiplicación, división, raíz y potencia). Al asociar estas operaciones con expresiones geométricas y representaciones visuales, construimos herramientas interactivas para calcular áreas y perímetros en tiempo real.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Aplicar operaciones matemáticas fundamentales y maquetar el calculador de áreas y perímetros con imágenes de fórmulas.',
           identification: { topic: 'Operaciones & Geometría', evidence: 'Calculador Geométrico Maquetado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Operaciones & Calculador Geométrico',
@@ -1066,7 +1264,13 @@ Calculador geométrico maquetado con imágenes y primeras fórmulas activas. �
           unlockDate: '2026-10-09',
           unlockLabel: 'Viernes 9 de Octubre, 15:00 hrs',
           start: '¿Completaste el calculador de áreas y perímetros y estás listo para evaluar tus aprendizajes en el Kahoot?',
-          dictation: 'El cierre del Resultado de Aprendizaje 2.1 integra el dominio del motor de combinación Autocrat, el manejo de operaciones matemáticas fundamentales en Google Sheets y el desarrollo del calculador geométrico, certificando la acreditación oficial del bloque.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Finalizar el calculador de áreas y perímetros, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.',
           identification: { topic: 'Calculador Geométrico & Kahoot RA 2.1', evidence: 'Calculador Geométrico + Kahoot + Acreditación RA 2.1', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Cierre y Acreditación Final RA 2.1',
@@ -1134,7 +1338,13 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
           unlockDate: '2026-10-12',
           unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
           start: '¿Sabes exactamente cuánto dinero gastas en pasajes, lonche y gustos durante una semana escolar?',
-          dictation: 'El presupuesto personal es el mapa financiero que visibiliza en qué se va nuestro dinero. Un egreso no registrado se convierte en un gasto hormiga que frena nuestras metas. Al organizar los ingresos y gastos en columnas con formato de Moneda ($), transformamos datos dispersos en inteligencia contable para tomar el control de nuestra economía.',
+          dictation: `¿Alguna vez han sentido que el dinero en su bolsa simplemente se esfuma sin darse cuenta? Llegas el lunes con algo de dinero para la semana escolar y, para el miércoles por la tarde, te preguntas en qué momento se gastó todo.
+
+El verdadero problema no es cuánto ganamos, sino que no sabemos a dónde se va cada peso. En administración existe un enemigo silencioso llamado "gastos hormiga": esas pequeñas compras diarias de dulces, refrescos o recargas que parecen insignificantes, pero al final del mes representan una cantidad enorme.
+
+Aquí es donde entra la magia del Presupuesto Personal. Un presupuesto no es una prisión para no gastar; al contrario, es un mapa de libertad que le asigna un trabajo a cada peso para que tú tengas el control de tus decisiones y no el dinero sobre ti.
+
+Hoy construiremos nuestra propia herramienta de inteligencia financiera en Google Sheets. Aprenderemos a maquetar una bitácora limpia con formato de Moneda ($), organizando tus compras diarias para tener la radiografía exacta de tu economía escolar.`,
           learningResult: 'Maquetar una bitácora contable limpia, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
           identification: { topic: 'Presupuesto Personal & Formato Moneda', evidence: 'Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Registro y Formato Financiero',
@@ -1192,7 +1402,13 @@ Bitácora maquetada con formato moneda ($) y registro de gastos. 👉 SELLO 1`,
           unlockDate: '2026-10-14',
           unlockLabel: 'Miércoles 14 de Octubre, 15:00 hrs',
           start: '¿Cómo calcular automáticamente si te queda dinero al final de cada día?',
-          dictation: 'El balance contable es la diferencia entre el dinero que entra y el dinero que sale. La fórmula del Saldo Disponible =Ingresos - Egresos nos indica en tiempo real si mantenemos superávit (dinero a favor) o déficit (deuda). En Google Sheets, las restas se programan directamente usando el operador menos (-).',
+          dictation: `Tener una lista de números en la pantalla es solo la mitad del trabajo. Una tabla sin fórmulas es como un reloj sin manecillas: se ve bien, pero no nos dice la hora exacta.
+
+Hoy le enseñaremos a Google Sheets a pensar por nosotros mediante el concepto del Balance Contable. La regla es muy sencilla: tomamos todo el dinero que entra (nuestros Ingresos) y le restamos todo el dinero que sale (nuestros Egresos).
+
+Si tus ingresos son mayores que tus egresos, obtienes un resultado positivo llamado Superávit, que significa tranquilidad y capacidad de ahorro. Pero si gastas más de lo que recibes, caes en un Déficit o números rojos que generan deudas.
+
+Programaremos fórmulas de resta directa en Google Sheets para que, con solo cambiar un monto, el saldo disponible se calcule automáticamente en tiempo real, transformando tu hoja en un consultor financiero personal.`,
           learningResult: 'Programar fórmulas de resta directas para calcular el Saldo Neto al final de cada día.',
           identification: { topic: 'Balance Contable & Restas', evidence: 'Columna de Saldo Acumulado Operando', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Fórmulas de Balance Diario',
@@ -1229,7 +1445,13 @@ Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,
           unlockDate: '2026-10-15',
           unlockLabel: 'Jueves 15 de Octubre, 15:00 hrs',
           start: '¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?',
-          dictation: 'Las funciones de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) procesan grandes listas numéricas para extraer métricas clave de toma de decisiones. El Formato Condicional actúa como un escudo visual de alerta que cambia automáticamente el color de la celda según la salud de nuestras finanzas.',
+          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+
+Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
+
+Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
+
+Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
           learningResult: 'Construir la tabla de resumen estadístico y configurar el semáforo condicional tricolor de ahorro.',
           identification: { topic: 'Estadística & Semáforo Financiero', evidence: 'Tabla Resumen + Semáforo Condicional', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Resumen Estadístico y Semáforo',
@@ -1278,7 +1500,13 @@ Semáforo condicional tricolor reactivo en el Saldo Final. 👉 SELLO 4`,
           unlockDate: '2026-10-16',
           unlockLabel: 'Viernes 16 de Octubre, 15:00 hrs',
           start: '¿Cómo presentar tus resultados financieros con gráficos ejecutivos?',
-          dictation: 'Un Dashboard Financiero sintetiza los datos en gráficos ejecutivos. La Gráfica de Pastel permite analizar la proporción porcentual de los gastos por categoría, mientras que la Gráfica de Columnas muestra la tendencia de consumo día con día, facilitando la toma de decisiones informadas.',
+          dictation: `En el mundo profesional existe una máxima indiscutible: una imagen vale más que mil números. Cuando presentas un proyecto, las tablas saturadas de cifras pueden resultar abrumadoras y difíciles de interpretar.
+
+Para comunicar resultados de forma clara y convincente se utilizan los Dashboards o Tableros de Control Ejecutivo, los cuales combinan los mejores gráficos visuales para contar la historia real detrás de los datos.
+
+Hoy traduciremos nuestras finanzas en dos gráficos esenciales: una Gráfica de Pastel para ver qué porcentaje del dinero se va en transporte, lonche o antojos, y una Gráfica de Columnas para comparar la tendencia de gasto día a día.
+
+Al integrar estos gráficos en tu hoja, habrás creado un Dashboard Financiero de nivel profesional, concluyendo tu práctica con una herramienta estratégica que te servirá para toda tu vida.`,
           learningResult: 'Insertar una gráfica de pastel y una gráfica de columnas para el Dashboard de Presupuesto Personal.',
           identification: { topic: 'Dashboard Gráfico & Cierre', evidence: 'Dashboard Financiero Completo con Gráficos', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
           infographicTitle: 'Dashboard de Presupuesto Personal',
