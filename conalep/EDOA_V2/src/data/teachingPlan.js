@@ -974,135 +974,129 @@ Revisión docente del Reporte de Práctica con sus 8 capturas + cotejo de libret
           closure: 'Reporte de Práctica compilado en Google Docs con 8 capturas y segundo lote de boletas generado en Drive.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Aritmética Operativa & Jerarquía con Paréntesis',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Iniciación a Sumas en Hojas de Cálculo',
           unlockDate: '2026-10-07',
           unlockLabel: 'Miércoles 7 de Octubre, 15:00 hrs',
-          start: '¿Cómo programar una sola fórmula que resuelva 100 cálculos simultáneos sin desfasarse?',
-          dictation: 'El dominio avanzado de las hojas de cálculo exige comprender la diferencia fundamental entre referencias relativas y referencias fijas (absolutas/mixtas). Al utilizar el símbolo de pesos ($), bloqueamos filas o columnas clave, lo que permite reutilizar fórmulas matriciales en cruz para procesar tablas masivas en segundos.',
-          learningResult: 'Dominar la sintaxis de operadores aritméticos (+, -, *, /, ^) y la prioridad de paréntesis en Google Sheets.',
-          identification: { topic: 'Operadores & Paréntesis', evidence: 'Batería Aritmética en Sheets', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Aritmética y Referencias Fijas en Sheets',
+          start: '¿Cómo hacer sumas sencillas y acumuladas en Google Sheets sin sumar a mano?',
+          dictation: 'La función de suma es la operación fundamental en las hojas de cálculo. Para realizar cálculos eficientes debemos iniciar toda fórmula con el signo igual (=) y emplear los operadores de suma directa o la función nativa =SUMA() para procesar rangos numéricos.',
+          learningResult: 'Ingresar fórmulas de suma directa y utilizar la función nativa =SUMA().',
+          identification: { topic: 'Sumas Básicas y Función =SUMA', evidence: 'Práctica de Sumas en Sheets', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Iniciación a Sumas en Sheets',
           infographicSteps: [
-            { title: '1. Operadores y Paréntesis', desc: 'Aplica +, -, *, /, ^ con prioridad de paréntesis.' },
-            { title: '2. El Secreto del Símbolo $', desc: 'Compara referencias relativas vs fijas ($A2 * B$1).' },
-            { title: '3. Matriz 10x10 en Cruz', desc: 'Escribe 1 fórmula en B2 y arrástrala a las 100 celdas.' },
-            { title: '4. Mapa de Calor', desc: 'Aplica formato condicional para visualizar densidad térmica.' }
+            { title: '1. El Signo Igual (=)', desc: 'Inicia toda fórmula escribiendo primero el signo igual.' },
+            { title: '2. Suma Directa (+)', desc: 'Suma celdas individuales utilizando la sintaxis =A1+B1.' },
+            { title: '3. Función =SUMA()', desc: 'Suma rangos completos de datos escribiendo =SUMA(A1:A10).' },
+            { title: '4. Arrastre Azul', desc: 'Copia fórmulas fácilmente usando el cuadrado de relleno.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
-Metodología: Demo Guiada (3 min) ➔ Reto Autónomo en PC (35 min) ➔ Cierre en Libreta
+Metodología: Explicación Breve (5 min) ➔ Práctica Guiada en PC (35 min) ➔ Cierre en Libreta
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 5 (50 min) · Operadores Aritméticos y Jerarquía con Paréntesis
+⏱️ HORA 5 (50 min) · Iniciación a Sumas (+ y =SUMA)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Apertura al entrar):
-"Muchachos, buenas tardes. En la administración de empresas una mala jerarquía de paréntesis puede quebrar una compañía. Si escribes =10+5/2 la computadora da 12.5; si usas paréntesis =(10+5)/2 la computadora da 7.5. Hoy dominaremos la aritmética precisa en Google Sheets."
+"Muchachos, buenas tardes. La herramienta número uno en cualquier empleo es saber sumar datos rápidamente en la computadora. Hoy aprenderemos a programar sumas directas y la función =SUMA en Google Sheets."
 
-🖥️ DEMO EN CAÑÓN (3 min):
-Modelar los 5 operadores (+, -, *, /, ^) y la sintaxis de prioridad de paréntesis en Google Sheets.
+🖥️ DEMO EN CAÑÓN (5 min):
+Mostrar cómo iniciar una fórmula con el signo igual (=), sumar celdas directas (=A1+B1) y usar la función =SUMA(A1:A10).
 
 💻 RETO 1 (35 min en PC):
-Crear la hoja Laboratorio_Aritmetico_Grupo301 y resolver la batería de 10 simulaciones financieras (IVA 16%, descuentos, porcentajes y potencias).
+Crear la hoja Practica_Sumas_Grupo301 y resolver los ejercicios prácticos de acumulación de datos numéricos.
 
 📝 CIERRE EN LIBRETA (10 min):
-Regla de oro de la jerarquía de operadores en hojas de cálculo.
+Anotar la regla de oro: toda fórmula en hojas de cálculo debe iniciar obligatoriamente con el signo igual (=).
 
 🏷️ EVIDENCIA Y SELLO:
-Hoja de cálculo con la batería de 10 ejercicios resueltos mediante fórmulas formales. 👉 SELLO 4`,
+Hoja de cálculo con la práctica de sumas completada. 👉 SELLO 4`,
           closure: 'Matriz de multiplicación 10x10 construida con referencias fijas ($) y formato condicional térmico.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Matriz 10x10 ($) & Formato Profesional de Hojas de Cálculo',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Operaciones Básicas & Calculador Geométrico',
           unlockDate: '2026-10-08',
           unlockLabel: 'Jueves 8 de Octubre, 15:00 hrs',
-          start: '¿Cómo transformar una tabla aburrida y desordenada en un documento contable limpio, profesional y bien estructurado?',
-          dictation: 'El diseño estético y el formato de datos en las hojas de cálculo son fundamentales para la presentación profesional. Al aplicar formatos numéricos de moneda ($), porcentajes (%), bordes estructurados y combinar celdas para encabezados, convertimos listas simples en comprobantes contables y notas de venta elegantes.',
-          learningResult: 'Aplicar formatos estéticos de tabla (moneda, colores, bordes, alineación) y maquetar una Nota de Venta contable.',
-          identification: { topic: 'Formato de Tablas & Estilos', evidence: 'Nota de Venta Maquetada con Formatos', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
-          infographicTitle: 'Formato Profesional de Hojas de Cálculo',
+          start: '¿Cómo calcular restas, multiplicaciones, divisiones, raíces y potencias, y aplicar fórmulas de geometría con imágenes en Sheets?',
+          dictation: 'El cálculo matemático en hojas de cálculo abarca las operaciones fundamentales (resta, multiplicación, división, raíz y potencia). Al asociar estas operaciones con expresiones geométricas y representaciones visuales, construimos herramientas interactivas para calcular áreas y perímetros en tiempo real.',
+          learningResult: 'Aplicar operaciones matemáticas fundamentales y maquetar el calculador de áreas y perímetros con imágenes de fórmulas.',
+          identification: { topic: 'Operaciones & Geometría', evidence: 'Calculador Geométrico Maquetado', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Operaciones & Calculador Geométrico',
           infographicSteps: [
-            { title: '1. Estructura y Encabezados', desc: 'Combina celdas y aplica paleta de colores profesional.' },
-            { title: '2. Formatos Numéricos', desc: 'Aplica formato de Moneda ($), Porcentaje (%) y Fechas.' },
-            { title: '3. Bordes y Alineación', desc: 'Ajusta el texto y coloca bordes limpios en toda la tabla.' },
-            { title: '4. Nota de Venta', desc: 'Maqueta el formato impreso o digital de una cotización.' }
+            { title: '1. Operaciones Básicas', desc: 'Practica restas (-), multiplicaciones (*), divisiones (/) y potencias (^).' },
+            { title: '2. Imagen de Figura', desc: 'Inserta la imagen de la figura geométrica con su fórmula.' },
+            { title: '3. Variables de Entrada', desc: 'Identifica y coloca las celdas para base, altura, lado o radio.' },
+            { title: '4. Fórmulas de Área y Perímetro', desc: 'Programa las fórmulas automáticas para calcular resultados.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Demo Guiada (3 min) ➔ Retos Autónomos en PC (35 min) ➔ Auditoría
+Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) ➔ Auditoría
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 6 (50 min) · La Matriz de Multiplicación 10x10 con Símbolo $
+⏱️ HORA 6 (50 min) · Resta, Multiplicación, División, Raíz y Potencia
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Imaginen tener que calcular 100 multiplicaciones en una tabla. Un principiante escribiría 100 fórmulas una por una; un verdadero profesional escribe UNA SOLA FÓRMULA con el símbolo de pesos ($) y la arrastra en cruz en 2 segundos."
+"Ya sabemos sumar. Ahora dominaremos las 5 herramientas operativas restantes: resta (-), multiplicación (*), división (/), raíz cuadrada (=RAIZ) y potencias (^)."
 
-🖥️ DEMO EN CAÑÓN (3 min):
-Explicar referencias relativas vs absolutas/mixtas. Mostrar la sintaxis en B2: =$A2*B$1.
-Arrastrar horizontalmente a la derecha y luego verticalmente hacia abajo.
+🖥️ DEMO EN CAÑÓN (5 min):
+Modelar cada operador en pantalla con ejemplos numéricos directos.
 
 💻 RETO 2 (35 min en PC):
-1) Construir la tabla del 1 al 10 en filas y columnas.
-2) Programar la fórmula =$A2*B$1 en la celda B2.
-3) Arrastrar en cruz para llenar las 100 celdas automáticamente.
-4) Aplicar Formato Condicional de Escala de Colores (Mapa de Calor Térmico).
+Crear la hoja Calculadora_Operaciones_Grupo301 y resolver la tabla de ejercicios con las 5 operaciones fundamentales.
 
 🏷️ EVIDENCIA Y SELLO:
-Matriz 10x10 reactiva funcionando con 1 sola fórmula y mapa térmico activo. 👉 SELLO 5
+Tabla de operaciones resuelta con fórmulas formales. 👉 SELLO 5
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (50 min) · Formato Profesional de Hojas de Cálculo
+⏱️ HORA 7 (50 min) · Calculador de Áreas y Perímetros (Imágenes y Variables)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Una hoja de cálculo sin formato parece un borrador feo y poco confiable. Hoy aprenderemos a darle aspecto de documento contable profesional: combinar celdas, usar la moneda ($), aplicar colores sobrios y bordes limpios."
+"Vamos a combinar la geometría con las fórmulas de Sheets. Insertaremos imágenes de figuras geométricas con su fórmula visual e identificaremos las celdas de variables para calcular áreas y perímetros en automático."
 
-🖥️ DEMO EN CAÑÓN (3 min):
-Mostrar cómo combinar celdas para el membrete, formatear celdas a Moneda ($), ajustar ancho de columna y aplicar paleta de colores institucional.
+🖥️ DEMO EN CAÑÓN (5 min):
+Mostrar cómo insertar la imagen de una figura (p. ej. Triángulo o Rectángulo), definir las celdas de entrada para Base y Altura, y programar la fórmula del área.
 
 💻 RETO 3 (35 min en PC):
-Maquetar la estructura visual de una Nota_de_Venta_Escolar_Grupo301 con 5 artículos (Cantidad, Descripción, Precio Unitario, Importe).
+1) Insertar imágenes de las figuras geométricas con sus fórmulas visibles.
+2) Identificar y configurar las celdas de las variables de entrada (base, altura, lado, radio).
+3) Programar las primeras fórmulas de Área y Perímetro.
 
 🏷️ EVIDENCIA Y SELLO:
-Nota de venta maquetada con formato estético profesional y tipos de datos configurados. 👉 SELLO 6`,
+Calculador geométrico maquetado con imágenes y primeras fórmulas activas. 👉 SELLO 6`,
           closure: 'Formulario vinculado a Google Sheets en tiempo real con validación y fórmulas de resumen.'
         },
         {
-          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Nota de Venta Automatizada & Kahoot Final RA 2.1',
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Cierre de Calculador Geométrico & Kahoot Final RA 2.1',
           unlockDate: '2026-10-09',
           unlockLabel: 'Viernes 9 de Octubre, 15:00 hrs',
-          start: '¿Demostraste la maestría en automatización masiva, referencias y formularios?',
-          dictation: 'El cierre del Resultado de Aprendizaje 2.1 consolida las competencias de correspondencia masiva, diseño de plantillas, referencias mixtas con símbolo de pesos, validación de formularios y visualización de dashboards, certificando la acreditación oficial del bloque.',
-          learningResult: 'Construir un dashboard express, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.',
-          identification: { topic: 'Dashboard Express & Kahoot RA 2.1', evidence: 'Dashboard + Kahoot + Acreditación RA 2.1', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
-          infographicTitle: 'Acreditación Final del RA 2.1',
+          start: '¿Completaste el calculador de áreas y perímetros y estás listo para evaluar tus aprendizajes en el Kahoot?',
+          dictation: 'El cierre del Resultado de Aprendizaje 2.1 integra el dominio del motor de combinación Autocrat, el manejo de operaciones matemáticas fundamentales en Google Sheets y el desarrollo del calculador geométrico, certificando la acreditación oficial del bloque.',
+          learningResult: 'Finalizar el calculador de áreas y perímetros, resolver el Kahoot sumativo y asentar calificaciones del RA 2.1.',
+          identification: { topic: 'Calculador Geométrico & Kahoot RA 2.1', evidence: 'Calculador Geométrico + Kahoot + Acreditación RA 2.1', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Cierre y Acreditación Final RA 2.1',
           infographicSteps: [
-            { title: '1. Dashboard Express', desc: 'Inserta 2 gráficas dinámicas vinculadas a los datos capturados.' },
-            { title: '2. Kahoot Sumativo', desc: 'Prueba de 20 reactivos sobre Autocrat, $, Forms y Sheets.' },
-            { title: '3. Cotejo de Sellos', desc: 'Verificación del portafolio completo de sellos de la semana.' },
-            { title: '4. Acreditación', desc: 'Asentamiento de calificaciones oficiales del RA 2.1.' }
+            { title: '1. Figuras Completas', desc: 'Calcula área y perímetro de Cuadrado, Triángulo, Círculo y Trapecio.' },
+            { title: '2. Formato Limpio', desc: 'Aplica colores y bordes claros a la hoja de cálculo.' },
+            { title: '3. Kahoot Sumativo', desc: 'Prueba de 20 reactivos sobre Autocrat, Operadores y Geometría.' },
+            { title: '4. Acreditación', desc: 'Cotejo de sellos y asentamiento oficial de calificaciones del RA 2.1.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Nota de Venta Automatizada + Kahoot Sumativo + Acreditación RA 2.1
+Metodología: Finalización de Calculador Geométrico + Kahoot Sumativo + Acreditación RA 2.1
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (50 min) · Nota de Venta Automatizada y Cierre del RA 2.1
+⏱️ HORA 8 (50 min) · Cierre del Calculador Geométrico y Acreditación RA 2.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Hoy cerraremos la semana automatizando la Nota de Venta. Con fórmulas sencillas de multiplicación y suma, el documento calculará subtotales, IVA y total de forma automática."
+"Hoy cerraremos nuestro calculador de áreas y perímetros de figuras geométricas y evaluaremos nuestros aprendizajes en el Kahoot sumativo para acreditar el RA 2.1."
 
 💻 RETO 4 (20 min en PC):
-Programar en la Nota de Venta:
-1) Importe por artículo (=Cantidad * Precio).
-2) Subtotal (=SUMA(Importes)).
-3) IVA 16% (=Subtotal * 0.16).
-4) Total Final (=Subtotal + IVA).
-5) Formato Condicional suave en la celda del Total.
+1) Finalizar las fórmulas para todas las figuras (Cuadrado, Rectángulo, Triángulo, Círculo, Trapecio).
+2) Dar un formato visual limpio a la hoja (bordes, colores claros de celdas).
 
 📊 KAHOOT SUMATIVO RA 2.1 (20 min):
-Prueba evaluativa de 20 reactivos (Autocrat, $, Operadores y Formato de Hojas de Cálculo).
+Prueba evaluativa de 20 reactivos integradores (Autocrat, Sumas, Operadores Básicos y Fórmulas Geométricas).
 
 📝 CORTE DE SELLOS Y ACREDITACIÓN (10 min):
-Cotejo del portafolio completo de sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1.
+Cotejo del portafolio completo de sellos acumulados y asentamiento oficial de calificaciones del RA 2.1.
 
 🏷️ EVIDENCIA Y SELLO:
-Nota de Venta automatizada funcionando + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
+Calculador geométrico terminado + Kahoot resuelto + Calificación asentada. 👉 SELLO FINAL (Acreditación RA 2.1)
 🗣️ FRASE GANCHO (Apertura al entrar):
 "Muchachos, hoy cerramos formalmente el Resultado de Aprendizaje 2.1. Han pasado de combinar textos sencillos a programar matrices térmicas de 100 celdas y capturar datos en tiempo real. Hoy cerramos con un Dashboard express y nuestro Kahoot sumativo final."
 
