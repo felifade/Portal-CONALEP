@@ -1244,31 +1244,32 @@ export const teachingPlan = {
         {
           id: 'H04',
           label: 'Sesión 03 (Viernes 09 Oct · Hora 1)',
-          title: 'El Candado Digital de Linux (chmod 000 y 600) + Semáforo',
-          hook: 'Ayer aprendimos a camuflar mensajes en el aire. Pero, ¿qué pasa si el archivo ya está en el disco duro? Hoy aprenderán a ponerle un candado irrompible con chmod 000 para que ni el mismísimo creador pueda abrirlo sin la llave.',
-          start: '¿Por qué Linux le niega el acceso incluso al dueño si el archivo tiene permiso 000?',
-          dictation: 'En Linux, los permisos determinan qué acciones puede realizar cada usuario sobre un archivo. El comando chmod (change mode) permite modificar estas reglas. El permiso 000 representa un candado total donde nadie tiene autorización de lectura, escritura o ejecución, generando el error Permission denied. El permiso 600 actúa como una bóveda personal: otorga lectura y escritura exclusivamente al dueño del archivo, impidiendo que cualquier otro usuario del sistema acceda a los datos.',
+          title: 'El Candado Digital (chmod) y la Huella Digital Forense (md5sum)',
+          hook: 'Ayer camuflamos mensajes en tránsito. Hoy aprenderán a blindar archivos en disco con chmod 000 y descubriremos el secreto que usan los bancos y los forenses para detectar si un hacker alteró una sola letra de un documento: la huella digital matemática (Hash md5sum).',
+          start: '¿Cómo sabe un analista forense si un archivo fue alterado sin tener que leerlo completo?',
+          dictation: 'En ciberseguridad, la Integridad se verifica mediante funciones hash como MD5, las cuales generan una huella digital matemática única e irreversible de 32 caracteres. El denominado Efecto Avalancha establece que la modificación de un solo carácter en el archivo altera completamente toda la huella resultante. En paralelo, el control de acceso en reposo se gestiona con directivas chmod, empleando 000 para bloqueo total y 600 para bóveda personal del dueño.',
           workBlock: {
-            duration: '25 minutos',
-            title: 'Laboratorio de Cerraduras y Semáforo de Permisos',
+            duration: '30 minutos',
+            title: 'Laboratorio de Candados y Huellas Digitales',
             steps: [
-              'Crear archivo: echo "Clave secreta: 12345" > secretos.txt y comprobar lectura con cat.',
-              'Poner candado total: chmod 000 secretos.txt y probar cat secretos.txt (copiar el Permission denied).',
-              'Abrir con llave de dueño: chmod 600 secretos.txt y comprobar que vuelve a leerse.',
-              'Dibujar en libreta el Semáforo de Permisos: Rojo (000 - Candado Total), Amarillo (600 - Bóveda Personal), Verde (644 - Público Seguro).'
+              'Candado total: echo "Clave: 98765" > secretos.txt y aplicar chmod 000 secretos.txt (copiar el Permission denied).',
+              'Bóveda personal: aplicar chmod 600 secretos.txt y comprobar lectura con cat.',
+              'Efecto Avalancha en vivo: ejecutar echo "Felipe" | md5sum y luego echo "Felipe." | md5sum para ver cambiar la huella al 100%.',
+              'Reto del Examen Hackeado: crear boleta.txt con nota 10, sacar md5sum boleta.txt, alterar la nota a 100 y comprobar que los hashes no coinciden.',
+              'Dibujar en libreta el Semáforo de Permisos (000, 600, 644) y la deducción de Integridad.'
             ]
           },
-          terminalRadar: 'chmod 000 secretos.txt ➔ cat: secretos.txt: Permission denied\nchmod 600 secretos.txt ➔ Clave secreta: 12345',
-          learningResult: 'El estudiante aplica directivas chmod para restringir el acceso a archivos confidenciales y clasifica los niveles de protección en un semáforo de seguridad.',
-          identification: 'Tema: Control de Acceso y Comando chmod. Evidencia: Error Permission denied copiado y Semáforo de Permisos en libreta.',
-          development: 'Experimentación práctica en Cloud Shell con chmod 000 y 600. Reflexión sobre la protección de archivos confidenciales y elaboración del semáforo.',
-          closure: 'Preparación de libretas y apertura del Kahoot.',
+          terminalRadar: 'chmod 000 secretos.txt ➔ cat: Permission denied\necho "Felipe" | md5sum ➔ 955848e...\necho "Felipe." | md5sum ➔ 3d18c2b...',
+          learningResult: 'El estudiante aplica candados digitales con chmod y comprueba la integridad de la información mediante análisis forense con md5sum.',
+          identification: 'Tema: Candados chmod e Integridad con md5sum. Evidencia: Error de consola, Efecto Avalancha y Semáforo sellados.',
+          development: 'Práctica guiada en Google Cloud Shell alternando permisos de acceso 000/600 y experimentación con funciones hash MD5 demostrando el Efecto Avalancha.',
+          closure: 'Revisión de libretas y apertura de la sesión de Kahoot.',
           faq: [
-            { q: '¿Cuándo se usa 600 en el trabajo real?', a: 'En llaves privadas SSH, credenciales de bases de datos y archivos de configuración sensibles.' }
+            { q: '¿Se puede descifrar un hash MD5 para recuperar la palabra?', a: 'No, los hashes son matemáticamente unidireccionales (de un solo sentido), no son reversibles como Base64.' }
           ],
           sello: {
             num: 'Sello 3 (Parte 1)',
-            desc: 'Práctica del Candado Digital y Semáforo de Permisos en libreta.'
+            desc: 'Práctica de Candados chmod (000/600) y Huella Forense md5sum en libreta.'
           }
         },
         {
