@@ -43,7 +43,7 @@ export const teachingPlan = {
       deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
-        { id: 'RA 2.2', title: 'Presentaciones Interactivas', peso: '15%', weeks: ['W09'] }
+        { id: 'RA 2.2', title: 'Control Financiero y Gestión de Hojas de Cálculo', peso: '15%', weeks: ['W09'] }
       ]
     },
     {
@@ -610,7 +610,7 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
       label: 'Semana 07',
       title: 'Investigación de Gráficas, 3 Cortes, Semáforo Tricolor y Fusión Masiva',
       dates: '28 Sep - 02 Oct',
-      status: 'active',
+      status: 'historical',
       presentationUrl: './html/W07.html',
       summary: 'Investigación en computadora de tipos de gráficas estadísticas, consolidación de los 3 cortes de evaluación, formato condicional tricolor (<60, 60-80, >80), normalización con =NOMPROPIO y fusión masiva con Autocrat.',
       expectedProduct: 'Directorio con fórmula de 3 cortes y semáforo tricolor, carpeta en Drive con +30 expedientes en PDF y entrega en Classroom.',
@@ -816,7 +816,7 @@ Los alumnos que hayan tenido pendientes en la entrega de su carpeta o bitácora 
             { title: '1. Kahoot Sumativo', desc: 'Evaluación técnica integral del RA 2.1 en dispositivos.' },
             { title: '2. Cotejo de Sellos', desc: 'Verificación de los 4 sellos acumulados en la semana.' },
             { title: '3. Calificaciones', desc: 'Asentamiento de notas oficiales en listas de control escolar.' },
-            { title: '4. Encuadre RA 2.2', desc: 'Introducción a presentaciones electrónicas interactivas.' }
+            { title: '4. Encuadre RA 2.2', desc: 'Introducción a control financiero y gestión de hojas de cálculo.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
 Metodología: Kahoot Sumativo + Auditoría de Sellos + Asentamiento de Calificaciones
@@ -835,8 +835,8 @@ Resolver la evaluación sumativa en dispositivos individuales. Podio de ganadore
 
 🏷️ CIERRE Y ASENTAMIENTO OFICIAL (20 min):
 Cotejo de los 4 sellos acumulados en la semana y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
-Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
-          closure: 'Acreditación del RA 2.1 asentada en listas oficiales y encuadre del RA 2.2.'
+Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
+          closure: 'Acreditación del RA 2.1 asentada en listas oficiales y encuadre del RA 2.2 (Control Financiero y Hojas de Cálculo).'
         }
       ]
     },
@@ -845,7 +845,7 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
       label: 'Semana 08',
       title: 'Dominio de Autocrat, Operadores Aritméticos, Matriz 10x10 y Forms-Sheets',
       dates: '05 Oct - 09 Oct',
-      status: 'active',
+      status: 'historical',
       presentationUrl: './html/W08.html',
       summary: 'Conclusión exitosa de Autocrat y Boleta de Parciales en Lunes; laboratorio de Aritmética y Matriz de Multiplicación con referencias fijas ($) el Miércoles; y Forms conectado a Sheets en tiempo real el Jueves.',
       expectedProduct: 'Reporte Técnico de Autocrat en Docs, Matriz 10x10 con $ en Sheets, y Formulario conectado a Sheets con respuestas en vivo.',
@@ -1109,8 +1109,8 @@ Insertar 2 gráficas dinámicas (Columnas y Pastel) vinculadas a la hoja de resp
 
 🏷️ CIERRE Y ASENTAMIENTO OFICIAL (20 min):
 Cotejo de los sellos acumulados y asentamiento de calificaciones oficiales del RA 2.1 en listas de control escolar.
-Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
-          closure: 'Acreditación oficial del RA 2.1 asentada en listas y encuadre del RA 2.2.'
+Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
+          closure: 'Acreditación oficial del RA 2.1 asentada en listas y encuadre del RA 2.2 (Control Financiero y Hojas de Cálculo).'
         }
       ]
     },
@@ -1119,10 +1119,11 @@ Encuadre del RA 2.2: Presentaciones Electrónicas Interactivas.`,
       label: 'Semana 09',
       title: 'Presupuesto Personal y Control de Gastos (Black Mirror)',
       dates: '12 Oct - 16 Oct',
-      status: 'upcoming',
+      status: 'active',
       summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con proyección de Fifteen Million Merits (Black Mirror), formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard gráfico.',
       expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
       notices: [
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
         'Lunes (Horas 1-4): Proyección del episodio Fifteen Million Merits de Black Mirror en Hora 1, maquetación de bitácora y registro de gastos reales/simulados.',
         'Miércoles (Hora 5): Programación de fórmulas de balance diario (=Ingresos - Egresos).',
         'Jueves (Horas 6-7): Resumen estadístico (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional de ahorro.',
