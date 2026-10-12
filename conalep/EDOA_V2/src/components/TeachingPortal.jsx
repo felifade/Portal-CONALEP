@@ -14,7 +14,10 @@ import {
   KeyRound, 
   Clock, 
   X, 
-  School 
+  School,
+  FileSpreadsheet,
+  ExternalLink,
+  Download
 } from 'lucide-react';
 import { teachingPlan } from '../data/teachingPlan';
 import '../styles/TeachingPortal.css';
@@ -452,11 +455,56 @@ const TeachingPortal = () => {
           </div>
           <h1>{currentWeekData.label}: {currentWeekData.title}</h1>
           
-          {currentWeekData.presentationUrl && (
-            <a href={currentWeekData.presentationUrl} target="_blank" rel="noopener noreferrer" className="btn-diapositivas">
-              <PlayCircle size={18} /> Ver Diapositivas
+          <div className="hero-action-buttons" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '14px' }}>
+            {currentWeekData.presentationUrl && (
+              <a href={currentWeekData.presentationUrl} target="_blank" rel="noopener noreferrer" className="btn-diapositivas">
+                <PlayCircle size={18} /> Ver Diapositivas
+              </a>
+            )}
+            {currentWeekData.templateUrl && (
+              <a 
+                href={currentWeekData.templateUrl} 
+                download="Plantilla_Presupuesto_Personal_Semana09.xlsx"
+                className="btn-plantilla-sheets"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: '#16a34a',
+                  color: 'white',
+                  padding: '9px 16px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '13px',
+                  boxShadow: '0 2px 6px rgba(22, 163, 74, 0.25)'
+                }}
+              >
+                <Download size={16} /> Descargar Plantilla (.xlsx / Sheets)
+              </a>
+            )}
+            <a 
+              href="https://sheets.new" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-sheets-direct"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#047857',
+                color: 'white',
+                padding: '9px 16px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '13px',
+                boxShadow: '0 2px 6px rgba(4, 120, 87, 0.25)'
+              }}
+            >
+              <ExternalLink size={16} /> Abrir Hoja en Blanco (sheets.new)
             </a>
-          )}
+          </div>
         </div>
 
         {/* Session Selector con estado de bloqueo */}

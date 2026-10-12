@@ -1120,6 +1120,7 @@ Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
       title: 'Presupuesto Personal y Control de Gastos (Black Mirror)',
       dates: '12 Oct - 16 Oct',
       status: 'active',
+      templateUrl: './templates/Plantilla_Presupuesto_Personal_Semana09.xlsx',
       summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con proyección de Fifteen Million Merits (Black Mirror), formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard gráfico.',
       expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
       notices: [
