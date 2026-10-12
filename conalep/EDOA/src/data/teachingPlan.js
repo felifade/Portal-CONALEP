@@ -26,7 +26,7 @@ export const teachingPlan = {
       peso: '35%',
       ras: [
         { id: 'RA2.1', title: 'Fusión Masiva de Datos', peso: '15%', weeks: ['W05', 'W06'] },
-        { id: 'RA2.2', title: 'Presentaciones Interactivas', peso: '20%', weeks: ['W07', 'W08', 'W09'] }
+        { id: 'RA2.2', title: 'Control Financiero y Gestión de Hojas de Cálculo', peso: '20%', weeks: ['W07', 'W08', 'W09'] }
       ]
     },
     {

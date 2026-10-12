@@ -48,8 +48,8 @@ export const curriculumData = {
     },
     {
       id: "RA2.1",
-      title: "RA 2.1",
-      peso: "15%",
+      title: "RA 2.1 · Fusión Masiva de Datos",
+      peso: "20%",
       corte: 2,
       weeks: [
         { id: "W06", label: "Semana 06 (21-25 Sep)" },
@@ -61,17 +61,8 @@ export const curriculumData = {
     // ─── 2DO CORTE (35%) ───
     {
       id: "RA2.2",
-      title: "RA 2.2",
-      peso: "20%",
-      corte: 2,
-      weeks: [
-        { id: "W09", label: "Semana 09 (12-16 Oct)" }
-      ]
-    },
-    {
-      id: "RA3.1",
-      title: "RA 3.1",
-      peso: "5%",
+      title: "RA 2.2 · Control Financiero y Gestión de Hojas de Cálculo",
+      peso: "15%",
       corte: 2,
       weeks: [
         { id: "W09", label: "Semana 09 (12-16 Oct)" }
