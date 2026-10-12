@@ -1135,41 +1135,17 @@ Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
           unlockDate: '2026-10-12',
           unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
           start: '¿Sabes exactamente cuántos Méritos o pesos gastas en pasajes, lonche y gustos durante una semana escolar?',
-          dictation: `⏱️ HORA 1 · Black Mirror: Fifteen Million Merits y los Créditos Invisibles:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
+          dictation: `⏱️ HORA 1 · Black Mirror y Gastos Invisibles:
+En "Fifteen Million Merits" de Black Mirror, los personajes pedalean a diario acumulando Méritos, pero compras automáticas e innecesarias se los descuentan sin que lo noten. En la vida diaria ocurre lo mismo: los gastos hormiga invisibles evaporan nuestros recursos si no llevamos un registro consciente de cada peso.
 
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
+⏱️ HORA 2 · Maquetación de la Bitácora:
+Una hoja de cálculo sin estructura es como pedalear a ciegas. Para dominar nuestras finanzas necesitamos un tablero con reglas claras que defina qué entra, qué sale y cuánto nos queda disponible en cada momento.
 
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
+⏱️ HORA 3 · Formato Moneda ($) y 15 Gastos:
+Para Google Sheets el número 50 es solo un valor abstracto. Al aplicar el formato Moneda ($), le indicamos que es dinero real, activando el signo de pesos y dos decimales para rastrear cada centavo que entra y sale.
 
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-⏱️ HORA 2 · De la Pantalla a la Hoja (Estructura de Bitácora):
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores de nuestro destino.
-
-Escribir números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
-
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
-
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-⏱️ HORA 3 · Formato Moneda ($) y Gastos Hormiga:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
-
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
-
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
-
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-⏱️ HORA 4 · Tu Tablero de Libertad Financiera:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
-
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
-
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
-
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.`,
+⏱️ HORA 4 · Diagnóstico Visual y Sello 1:
+El orden visual refleja control administrativo. Una tabla sin textos cortados y con números alineados a la derecha nos permite diagnosticar al instante en qué se fuga el dinero antes de aplicar cualquier fórmula matemática.`,
           learningResult: 'Analizar el episodio Fifteen Million Merits, maquetar la bitácora contable, aplicar formato Moneda ($) y registrar 15 movimientos financieros escolares.',
           identification: { topic: 'Black Mirror & Presupuesto Personal', evidence: 'Reflexión + Bitácora Maquetada con Gastos Registrados', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
           infographicTitle: 'Estructura Visual del Presupuesto Personal',
@@ -1180,97 +1156,76 @@ Mañana cuando realices una compra en la escuela o en el transporte, recordarás
             { title: '4. Registro de 15 Gastos', desc: 'Captura movimientos reales/simulados de una semana escolar típica.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
-Metodología: Proyección Black Mirror (Hora 1) ➔ Maquetación (Hora 2) ➔ Moneda y Registro (Hora 3) ➔ Ajuste y Sello 1 (Hora 4)
+Metodología por Hora: Dictado Breve ➔ Ejemplo Concreto ➔ Pasos Sencillos ➔ Cómo Debe Quedar
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (50 min) · Proyección Black Mirror: "Fifteen Million Merits"
+⏱️ HORA 1 (50 min) · Black Mirror: Créditos y Gastos Hormiga
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Hoy empezaremos la clase viendo el capítulo 'Fifteen Million Merits' de Black Mirror. Presten atención a cómo cada botón que presionan los personajes les quita créditos sin que lo noten."
+🗣️ DICTADO BREVE:
+"En "Fifteen Million Merits" de Black Mirror, los personajes pedalean a diario acumulando Méritos, pero compras automáticas e innecesarias se los descuentan sin que lo noten. En la vida diaria ocurre lo mismo: los gastos hormiga invisibles evaporan nuestros recursos si no llevamos un registro consciente de cada peso."
 
-📝 DICTADO HORA 1:
-En el emblemático episodio *Fifteen Million Merits* de Black Mirror, los personajes viven en un mundo cerrado pedaleando bicicletas para acumular "Méritos" (la moneda digital del sistema). Cada comida, cada pasta de dientes y hasta cada anuncio que no quieren ver les descuenta Méritos de su cuenta automáticamente.
+💡 EJEMPLO:
+Bing gana 100 créditos pedaleando, pero gasta 15 en silenciar anuncios, 30 en comida y 40 en ropa para su avatar. Solo le quedan 15 créditos reales.
 
-Bing, el protagonista, se da cuenta de que la mayoría de las personas gastan sus Méritos en ropa virtual inútil para sus avatares o en pequeñas comodidades diarias, manteniéndose en un ciclo infinito de pedaleo sin lograr ahorrar los 15 millones necesarios para alcanzar su verdadera libertad.
+💻 PASOS SENCILLOS:
+1. Observar la proyección en cañón del episodio (pedaleo y compras virtuales).
+2. Identificar en la libreta 3 compras innecesarias que descuentan créditos en la serie.
+3. Relacionar cada compra con un gasto propio (pasajes, comida chatarra, recargas).
 
-En nuestra vida real ocurre algo idéntico. Trabajamos o estudiamos diariamente acumulando recursos, pero permitimos que pequeños gastos hormiga invisibles nos descuenten dinero en automático, dejándonos sin saldo al final de la semana.
-
-Hoy iniciaremos nuestro laboratorio analizando este episodio para entender que quien no administra conscientemente sus créditos digitales termina pedaleando toda su vida para el sistema.
-
-🎬 PROYECCIÓN EN CAÑÓN (35 min):
-Proyectar el episodio Fifteen Million Merits (escenas de pedaleo, consumo de Méritos y avatares virtuales).
-
-📝 RETO 1 EN LIBRETA (10 min):
-Escribir los 3 momentos del episodio donde los personajes pierden Méritos en compras inútiles.
-
-📊 RESULTADO ESPERADO HORA 1 (Libreta del Alumno):
-1. ¿Cómo pierden Méritos los personajes en la serie? (Ropa virtual, saltar anuncios, comida de máquinas).
-2. Conclusión: Quien no cuenta sus créditos, trabaja sin darse cuenta para el sistema.
+🏷️ CÓMO DEBE QUEDAR (Libreta):
+Cuadro comparativo de 2 columnas: "Gasto en la Serie" vs "Mi Gasto Real Escolar" + conclusión de 1 línea.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · De la Pantalla a la Hoja: Estructura de la Bitácora
+⏱️ HORA 2 (50 min) · Maquetación de la Bitácora (Estructura Base)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 DICTADO HORA 2:
-Al salir de la ficción de *Fifteen Million Merits*, nos damos cuenta de que nuestra hoja de cálculo en Google Sheets es nuestro propio tablero de control. A diferencia del sistema de Bing, aquí nosotros somos los programadores de nuestro destino.
+🗣️ DICTADO BREVE:
+"Una hoja de cálculo sin estructura es como pedalear a ciegas. Para dominar nuestras finanzas necesitamos un tablero con reglas claras que defina qué entra, qué sale y cuánto nos queda disponible en cada momento."
 
-Escribir números sin orden en una hoja es como el menú confuso de las bicicletas: no sabes qué estás pagando. Por ello, debemos estructurar una bitácora contable limpia con columnas claras para cada variable.
+💡 EJEMPLO:
+Hoja titulada \`Mi_Presupuesto_Semanal_301\` con membrete A1:F1 institucional azul marino y 6 encabezados en A3:F3: Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($).
 
-Organizaremos nuestra tabla en seis columnas fundamentales: Día, Categoría, Descripción, Ingresos (Méritos ganados), Egresos (Méritos gastados) y Saldo Disponible.
+💻 PASOS SENCILLOS:
+1. Crear hoja nueva en Google Sheets y nombrarla \`Mi_Presupuesto_Semanal_301\`.
+2. Combinar A1:F1 para membrete, centrar y aplicar fondo azul marino con letra blanca negrita.
+3. Escribir los 6 encabezados en A3:F3 y aplicar bordes limpios de celda.
 
-Maquetar correctamente estos encabezados es el primer paso para tomar el control de la pantalla y evitar que nuestros recursos se evaporen en compras no planificadas.
-
-🖥️ DEMO EN CAÑÓN (5 min):
-Mostrar el layout en pantalla:
-A1:F1 combinada ➔ CONALEP PACHUCA II - CONTROL DE PRESUPUESTO PERSONAL
-A3:F3 ➔ Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($)
-
-💻 RETO 2 (40 min en PC):
-Maquetar los encabezados, combinar celdas para el membrete institucional y aplicar bordes limpios.
-
-📊 RESULTADO ESPERADO HORA 2 (Pantalla Google Sheets):
-Membrete A1:F1 en azul marino con letra blanca en negrita + Encabezados A3:F3 con bordes limpios.
+🏷️ CÓMO DEBE QUEDAR (Pantalla Sheets):
+Membrete A1:F1 azul marino institucional + 6 columnas A3:F3 con bordes limpios.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 3 (50 min) · Formato Moneda ($) & Registro de Gastos Hormiga
+⏱️ HORA 3 (50 min) · Formato Moneda ($) y 15 Movimientos
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 DICTADO HORA 3:
-En *Fifteen Million Merits*, las cifras numéricas no son simples números aislados; llevan el símbolo de Méritos para indicar su valor real. En contabilidad profesional, un número sin formato como 50 no le dice nada a un auditor.
+🗣️ DICTADO BREVE:
+"Para Google Sheets el número 50 es solo un valor abstracto. Al aplicar el formato Moneda ($), le indicamos que es dinero real, activando el signo de pesos y dos decimales para rastrear cada centavo que entra y sale."
 
-Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el signo de pesos, comas de miles y dos decimales automáticos.
+💡 EJEMPLO:
+Al escribir 15 en Egreso, Google Sheets muestra automáticamente $ 15.00 con coma y decimales.
 
-Una vez formateada la tabla, capturaremos 15 movimientos financieros de tu semana en CONALEP: pasajes de colectivo, lonches, copias, recargas de celular y esos antojos cotidianos que equivalen a la ropa virtual de la serie.
+💻 PASOS SENCILLOS:
+1. Seleccionar el rango contable D4:F19.
+2. Aplicar menú: Formato > Número > Moneda ($).
+3. Registrar 15 movimientos escolares (1 ingreso semanal de beca/apoyo y 14 egresos como pasajes, copias, comida).
 
-Al ponerles nombre, categoría y monto exacto a tus gastos, estarás encendiendo el radar para identificar tus propios 'gastos hormiga' y proteger tu capital.
-
-🖥️ DEMO EN CAÑÓN (5 min):
-Seleccionar rango D4:F20 ➔ Formato > Número > Moneda ($). Aplicar paleta de color azul marino con texto blanco.
-
-💻 RETO 3 (40 min en PC):
-Aplicar formato Moneda ($) a todas las celdas contables y registrar 15 movimientos financieros escolares (colectivo, lonche, fotocopias, recargas, snacks).
-
-📊 RESULTADO ESPERADO HORA 3 (Pantalla Google Sheets):
-15 Filas de movimientos capturados con formato numérico Moneda ($ 0.00) en Ingresos y Egresos.
+🏷️ CÓMO DEBE QUEDAR (Pantalla Sheets):
+15 filas capturadas con formato numérico Moneda ($ 0.00) visible en ingresos y egresos.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (50 min) · El Diagnóstico Final: Tu Tablero de Libertad
+⏱️ HORA 4 (50 min) · Diagnóstico Visual y Primer Sello
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📝 DICTADO HORA 4:
-El mensaje central de *Fifteen Million Merits* es que la libertad no se logra pedaleando más rápido, sino administrando con inteligencia tus recursos para no depender de nadie.
+🗣️ DICTADO BREVE:
+"El orden visual refleja control administrativo. Una tabla sin textos cortados y con números alineados a la derecha nos permite diagnosticar al instante en qué se fuga el dinero antes de aplicar cualquier fórmula matemática."
 
-Al concluir la maquetación de tu bitácora de presupuesto personal en Google Sheets, has dejado de ser un espectador pasivo para convertirte en el dueño de tus propias finanzas.
+💡 EJEMPLO:
+Doble clic entre las columnas para autoajustar textos, categorías centradas y cantidades a la derecha.
 
-Una tabla ordenada por días, con formatos numéricos de moneda y movimientos clasificados, es la cimentación sobre la cual calcularemos restas, promedios y alertas semafóricas en las próximas clases.
+💻 PASOS SENCILLOS:
+1. Autoajustar columnas A a F haciendo doble clic en sus separadores para que ningún texto quede cortado.
+2. Alinear números a la derecha y categorías al centro.
+3. Escribir 2 líneas en libreta: "Mi mayor gasto hormiga detectado fue..."
+4. Presentar libreta y pantalla para firma del SELLO 1.
 
-Mañana cuando realices una compra en la escuela o en el transporte, recordarás el episodio de hoy y sabrás que cada peso es un crédito en tu tablero personal donde el control lo tienes tú.
-
-💻 RETO 4 (30 min en PC):
-Verificar que la tabla no tenga textos cortados y que todas las cifras tengan signo de pesos $.
-
-📝 REFLEXIÓN FINAL EN LIBRETA (10 min):
-Escribir una comparación de 3 líneas entre los Méritos de la serie y tus Gastos reales de la semana.
-
-🏷️ EVIDENCIA Y SELLO 1:
-Bitácora Maquetada con Formato Moneda ($) + 15 Movimientos Registrados + Reflexión en Libreta. 👉 SELLO 1`,
+🏷️ CÓMO DEBE QUEDAR (SELLO 1):
+Bitácora maquetada con 15 movimientos + formato $ activo + membrete limpio + conclusión en libreta firmada. 👉 SELLO 1`,
           closure: 'Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).'
         },
         {
