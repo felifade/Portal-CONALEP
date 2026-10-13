@@ -295,10 +295,11 @@ export const teachingPlan = {
       summary: 'Integración de Google Docs (pestaña y bitácora) y Google Sheets (Directorio del Grupo 301 con validación, filtros y fórmulas).',
       expectedProduct: 'Pestaña Semana 04 en Docs y Directorio Grupo 301 en Sheets.',
       notices: [
-        'Todo inicia desde Google Classroom y el documento maestro del RA 1.3.',
-        'La evidencia se documenta en la pestaña Semana 04 de Google Docs.',
-        'Las capturas deben mostrar claramente el avance técnico realizado.',
-        'Las hojas de cálculo deben quedar con datos limpios, ordenados y legibles.'
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
@@ -425,9 +426,11 @@ export const teachingPlan = {
       summary: 'Desarrollo de un Panel de Control (Dashboard) interactivo usando funciones estadísticas nativas, inserción de múltiples gráficos de datos y formateo condicional automático.',
       expectedProduct: 'Directorio ampliado con Panel de Fórmulas y 4 Gráficos dinámicos.',
       notices: [
-        '¡Semana corta! Lunes, martes y miércoles están inactivos por festividades patrias.',
-        'Solo contaremos con la sesión del Jueves para terminar el bloque técnico.',
-        'El Viernes será exclusivo para captura y subida de calificaciones del SAE.'
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
@@ -493,9 +496,11 @@ export const teachingPlan = {
       summary: 'Combinación de correspondencia por lotes (Google Docs + Sheets con Autocrat), dilemas éticos sobre reputación algorítmica y evaluación del RA 2.1.',
       expectedProduct: 'Carpeta en Google Drive con más de 30 expedientes/constancias en PDF generados automáticamente.',
       notices: [
-        'Inicio formal del RA 2.1: Fusión Masiva de Datos.',
-        'Las 4 sesiones cuentan con infografía técnica y ruta clara de trabajo.',
-        'El viernes concluye el resultado de aprendizaje con el Kahoot semanal y cierre de portafolio.'
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
@@ -615,9 +620,11 @@ La instalación de Autocrat y la combinación de correspondencia masiva se reali
       summary: 'Investigación en computadora de tipos de gráficas estadísticas, consolidación de los 3 cortes de evaluación, formato condicional tricolor (<60, 60-80, >80), normalización con =NOMPROPIO y fusión masiva con Autocrat.',
       expectedProduct: 'Directorio con fórmula de 3 cortes y semáforo tricolor, carpeta en Drive con +30 expedientes en PDF y entrega en Classroom.',
       notices: [
-        'Lunes: Kahoot inicial, investigación en computadora de 5 tipos de gráficas, fórmula de suma de los 3 cortes y semáforo tricolor (<60 rojo, 60-80 amarillo, >80 verde).',
-        'Miércoles: Normalización forense con =NOMPROPIO(), fusión masiva con Autocrat (+30 PDFs en Drive), permisos públicos y entrega oficial en Classroom.',
-        'Jueves: Sin actividades presenciales por comisión oficial sindical del docente.'
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
@@ -850,10 +857,11 @@ Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
       summary: 'Conclusión exitosa de Autocrat y Boleta de Parciales en Lunes; laboratorio de Aritmética y Matriz de Multiplicación con referencias fijas ($) el Miércoles; y Forms conectado a Sheets en tiempo real el Jueves.',
       expectedProduct: 'Reporte Técnico de Autocrat en Docs, Matriz 10x10 con $ en Sheets, y Formulario conectado a Sheets con respuestas en vivo.',
       notices: [
-        'Lunes (Horas 1-4): Conclusión exitosa de Autocrat, maquetación de la Boleta de Parciales y Reporte Técnico de Práctica.',
-        'Miércoles (Horas 5-6): Operaciones aritméticas, jerarquía de paréntesis y Matriz de Multiplicación 10x10 con referencias fijas ($).',
-        'Jueves (Horas 7-8): Diseño de Google Forms con validación de respuestas y captura de datos en vivo en Google Sheets.',
-        'Viernes (Hora 9): Dashboard express con gráfica, Kahoot sumativo y cierre del RA 2.1.'
+        'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
@@ -1125,14 +1133,14 @@ Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
       expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
       notices: [
         'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Control Financiero y Gestión de Hojas de Cálculo).',
-        'Lunes (Horas 1-4): Proyección del episodio Fifteen Million Merits de Black Mirror en Hora 1, maquetación de bitácora y registro de gastos reales/simulados.',
-        'Miércoles (Hora 5): Programación de fórmulas de balance diario (=Ingresos - Egresos).',
-        'Jueves (Horas 6-7): Resumen estadístico (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional de ahorro.',
-        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas) y corte final de sellos de la semana.'
+        'Lunes (Realizada): Proyección completa de Fifteen Million Merits (Black Mirror), debate grupal y tabla de auditoría en libreta (Sello 1).',
+        'Miércoles (Hora 5): Taller en PC — Maquetación de la bitácora en Google Sheets, formato Moneda ($) y 15 movimientos escolares (Sello 2).',
+        'Jueves (Horas 6-7): Balances diarios automáticos (=D4-E4, =F4-E5), tabla de resumen (=SUMA, =PROMEDIO, =MAX, =MIN) y semáforo condicional (Sellos 3 y 4).',
+        'Viernes (Hora 8): Dashboard gráfico (Pastel y Columnas), corte final y acreditación de Semana 09 (Sello Final).'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Fifteen Million Merits & Bitácora de Créditos',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Fifteen Million Merits: Auditoría de Gastos en Libreta',
           unlockDate: '2026-10-12',
           unlockLabel: 'Lunes 12 de Octubre, 15:00 hrs',
           start: '¿Sabes exactamente cuántos Méritos o pesos gastas en pasajes, lonche y gustos durante una semana escolar?',
@@ -1230,7 +1238,7 @@ Bitácora maquetada con 15 movimientos + formato $ activo + membrete limpio + co
           closure: 'Reflexión de Black Mirror redactada en libreta y bitácora de gastos maquetada con formato Moneda ($).'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Fórmulas de Balance Diario',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Maquetación en Google Sheets y Formato Moneda ($)',
           unlockDate: '2026-10-14',
           unlockLabel: 'Miércoles 14 de Octubre, 15:00 hrs',
           start: '¿Cómo calcular automáticamente si te queda dinero al final de cada día?',
@@ -1282,7 +1290,7 @@ Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,
           closure: 'Fórmulas de balance diario programadas y funcionando.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Resumen Estadístico & Semáforo de Ahorro',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Balances Diarios, Resumen Estadístico y Semáforo',
           unlockDate: '2026-10-15',
           unlockLabel: 'Jueves 15 de Octubre, 15:00 hrs',
           start: '¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?',
