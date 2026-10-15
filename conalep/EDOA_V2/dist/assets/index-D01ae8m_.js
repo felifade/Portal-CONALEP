@@ -515,43 +515,72 @@ Programar la columna de Saldo Acumulado en cada fila del presupuesto.
 Fila 4: =D4-E4 ($300.00) | Fila 5: =F4-E5 ($285.00) | Fila 6: =F5-E6 ($240.00)... Saldo automático.
 
 🏷️ EVIDENCIA Y SELLO 2:
-Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,closure:`Fórmulas de balance diario programadas y funcionando.`},{id:`S3`,label:`Sesión 03`,subtitle:`Jueves (2 hrs) · Laboratorio Pro en Google Sheets: Balances, Métricas & Semáforo`,unlockDate:`2026-10-15`,unlockLabel:`Jueves 15 de Octubre, 15:00 hrs`,start:`¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?`,dictation:`⏱️ HORA 1 · Maquetación Pro y Balances:
-Una hoja de cálculo profesional no solo almacena datos: piensa por nosotros. Con un membrete institucional, formato de Moneda ($) y fórmulas de resta directa, transformamos una lista simple de gastos en un sistema contable que calcula nuestro saldo disponible en tiempo real con cada compra.
+Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,closure:`Fórmulas de balance diario programadas y funcionando.`},{id:`S3`,label:`Sesión 03`,subtitle:`Jueves (2 hrs) · Laboratorio Pro en Google Sheets: Balances, Métricas & Semáforo`,unlockDate:`2026-10-15`,unlockLabel:`Jueves 15 de Octubre, 15:00 hrs`,start:`¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?`,dictation:`⏱️ HORA 1 · De la Ficción al Tablero Financiero:
+Una hoja de cálculo sin estructura es exactamente como pedalear a ciegas en el mundo de Black Mirror: trabajas y te esfuerzas todos los días, pero al final de la semana tu dinero simplemente desapareció sin dejar rastro. El verdadero poder de un profesional de la informática no radica en escribir números aislados, sino en construir un tablero de control contable donde cada variable tenga una etiqueta, un propósito y una celda asignada.
 
-⏱️ HORA 2 · Resumen Estadístico y Semáforo:
-Las funciones estadísticas sintetizan docenas de filas en indicadores ejecutivos. Con =SUMA, =PROMEDIO, =MAX y =MIN conocemos el ritmo de consumo, mientras que el formato condicional semafórico enciende alertas visuales de ahorro o peligro.`,learningResult:`Construir la tabla de resumen estadístico y configurar el semáforo condicional tricolor de ahorro.`,identification:{topic:`Estadística & Semáforo Financiero`,evidence:`Tabla Resumen + Semáforo Condicional`,organization:`Individual`,location:`Laboratorio`,time:`2 hrs`},infographicTitle:`Resumen Estadístico y Semáforo`,infographicSteps:[{title:`1. Función =SUMA`,desc:`=SUMA(E4:E18) calcula el total absoluto gastado.`},{title:`2. Función =PROMEDIO`,desc:`=PROMEDIO(E4:E18) obtiene el gasto promedio diario.`},{title:`3. Max y Min`,desc:`=MAX(E4:E18) y =MIN(E4:E18) hallan el mayor y menor gasto.`},{title:`4. Semáforo Tricolor`,desc:`Aplica verde para ahorro (>0), amarillo (0-20) y rojo (<0).`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología Pro en PC: Maquetación y Balances (Hora 1) ➔ Resumen Estadístico y Semáforo Tricolor (Hora 2)
+Para tomar el control de nuestras finanzas escolares, hoy configuraremos nuestra bitácora en seis columnas maestras: Día, Categoría, Descripción, Ingresos, Egresos y Saldo Disponible. Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el símbolo de pesos, comas de miles y centavos exactos para rastrear las fugas de capital.
+
+Finalmente, convertiremos la hoja en un consultor financiero automatizado mediante fórmulas de balance diario. Con una simple resta programada (=D4-E4 y =F4-E5), la computadora calculará en tiempo real cuánto dinero nos queda después de cada pasaje, cada lonche o cada copia, transformando una lista estática en un sistema inteligente de supervivencia económica.
+
+⏱️ HORA 2 · El Cerebro Estadístico y el Semáforo de Wall Street:
+En el mundo empresarial y financiero existe una regla indiscutible: los directores ejecutivos nunca leen listas interminables de números; lo que exigen son resúmenes analíticos e indicadores clave de rendimiento que cuenten la verdad del negocio de un solo vistazo. Cuando aprendes a sintetizar docenas de filas en cuatro datos estadísticos, dejas de ser un capturista de datos para convertirte en un estratega.
+
+Al costado de nuestro presupuesto programaremos las cuatro funciones estadísticas fundamentales: SUMA para auditar el gasto total acumulado, PROMEDIO para descubrir cuánto nos cuesta sobrevivir cada día escolar, y MAX y MIN para identificar con precisión matemática cuál fue nuestro día de mayor derroche y cuál el más disciplinado. Estas métricas revelan lo que los economistas llaman el "Gasto Vampiro": pequeñas fugas cotidianas que, multiplicadas por doscientos días de clase, representan miles de pesos evaporados.
+
+Para blindar nuestro presupuesto, colocaremos un escudo de seguridad visual llamado Formato Condicional. Diseñaremos un Semáforo Inteligente Tricolor que reaccionará en milisegundos a tus resultados: iluminará tu saldo final en verde de tranquilidad cuando logres ahorrar, en amarillo preventivo si estás en la cuerda floja, y en rojo de alarma crítica si gastaste más créditos de los que tenías, avisándote del peligro sin que tengas que buscar la cifra entre todas las celdas.`,learningResult:`Construir la tabla de resumen estadístico y configurar el semáforo condicional tricolor de ahorro.`,identification:{topic:`Estadística & Semáforo Financiero`,evidence:`Tabla Resumen + Semáforo Condicional`,organization:`Individual`,location:`Laboratorio`,time:`2 hrs`},infographicTitle:`Resumen Estadístico y Semáforo`,infographicSteps:[{title:`1. Función =SUMA`,desc:`=SUMA(E4:E18) calcula el total absoluto gastado.`},{title:`2. Función =PROMEDIO`,desc:`=PROMEDIO(E4:E18) obtiene el gasto promedio diario.`},{title:`3. Max y Min`,desc:`=MAX(E4:E18) y =MIN(E4:E18) hallan el mayor y menor gasto.`},{title:`4. Semáforo Tricolor`,desc:`Aplica verde para ahorro (>0), amarillo (0-20) y rojo (<0).`}],development:`🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Demostración Visual (5 min) ➔ Reto Autónomo en PC (40 min) ➔ Auditoría de Sellos
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (50 min) · Maquetación Pro, Formato Moneda ($) y Balances
+⏱️ HORA 1 (50 min) · Maquetación Pro, Gastos Vampiro y Balances
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO (Apertura en el cañón):
-"Ayer en su libreta clasificaron los gastos de la serie contra sus gastos reales. Hoy encendemos las computadoras para construir su tablero contable en Google Sheets: con membrete institucional, formato de dinero real y fórmulas de resta que calculan su saldo automáticamente."
+🗣️ FRASE GANCHO:
+"Muchachos, ¿sabían que gastar $38 pesos diarios en papitas y refresco equivale a $7,600 pesos al año? Literalmente se están comiendo una laptop en pura comida chatarra. Hoy abrimos Google Sheets para encender el radar contable y programar fórmulas de balance en tiempo real."
+
+📝 DICTADO HORA 1:
+Una hoja de cálculo sin estructura es exactamente como pedalear a ciegas en el mundo de Black Mirror: trabajas y te esfuerzas todos los días, pero al final de la semana tu dinero simplemente desapareció sin dejar rastro. El verdadero poder de un profesional de la informática no radica en escribir números aislados, sino en construir un tablero de control contable donde cada variable tenga una etiqueta, un propósito y una celda asignada.
+
+Para tomar el control de nuestras finanzas escolares, hoy configuraremos nuestra bitácora en seis columnas maestras: Día, Categoría, Descripción, Ingresos, Egresos y Saldo Disponible. Al aplicar el formato numérico de Moneda ($), le enseñamos a Google Sheets a tratar cada cifra como dinero real, añadiendo el símbolo de pesos, comas de miles y centavos exactos para rastrear las fugas de capital.
+
+Finalmente, convertiremos la hoja en un consultor financiero automatizado mediante fórmulas de balance diario. Con una simple resta programada (=D4-E4 y =F4-E5), la computadora calculará en tiempo real cuánto dinero nos queda después de cada pasaje, cada lonche o cada copia, transformando una lista estática en un sistema inteligente de supervivencia económica.
+
+💡 DATO CURIOSO:
+"El Efecto Latte / Gasto Vampiro: pequeñas compras de menos de $20 pesos que pasan desapercibidas en el bolsillo pero suman miles de pesos en el balance anual."
 
 🖥️ DEMO EN CAÑÓN (5 min):
 1) Abrir sheets.new. Combinar A1:F1 institucional: CONALEP PACHUCA II — CONTROL DE PRESUPUESTO PERSONAL.
-2) Encabezados A3:F3: Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($).
-3) Rango D4:F19 ➔ Formato > Número > Moneda ($).
-4) Fórmulas de balance: En F4 teclear =D4-E4. En F5 teclear =F4-E5 y arrastrar hacia abajo.
+2) Encabezados A3:F3 en verde petróleo con bordes completos: Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($).
+3) Rango D4:F18 ➔ Formato > Número > Moneda ($).
+4) Fórmulas de balance: En F4 teclear =D4-E4. En F5 teclear =F4-E5 y dar doble clic en el cuadrito azul para correr el balance hasta F18.
 
 💻 RETO 1 EN PC (40 min):
-Los alumnos abren su hoja en blanco (o descargan la plantilla del portal), maquetan la tabla, aplican formato de moneda y programan las restas de balance con sus 15 gastos.
+Maquetar la hoja, dar formato de moneda a todas las cifras numéricas, capturar 15 movimientos escolares basados en la libreta y programar la columna de saldo acumulado.
 
 🏷️ EVIDENCIA Y SELLO 3:
 Bitácora maquetada con formato moneda ($), 15 registros escolares y columna de saldo calculando restas automáticas en vivo. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (50 min) · Resumen Estadístico & Semáforo Condicional
+⏱️ HORA 2 (50 min) · Resumen Estadístico & Semáforo de Wall Street
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Un analista financiero no suma a mano ni busca renglón por renglón. Al costado programaremos 4 fórmulas estadísticas para conocer nuestro ritmo de gasto y encenderemos un semáforo inteligente que protegerá su dinero."
+"Los analistas de Wall Street no leen listas interminables de números; exigen tableros con métricas clave y semáforos inteligentes. Hoy programaremos 4 funciones matemáticas al costado de su hoja y le pondremos un escudo visual a su saldo que se iluminará en verde, amarillo o rojo."
+
+📝 DICTADO HORA 2:
+En el mundo empresarial y financiero existe una regla indiscutible: los directores ejecutivos nunca leen listas interminables de números; lo que exigen son resúmenes analíticos e indicadores clave de rendimiento que cuenten la verdad del negocio de un solo vistazo. Cuando aprendes a sintetizar docenas de filas en cuatro datos estadísticos, dejas de ser un capturista de datos para convertirte en un estratega.
+
+Al costado de nuestro presupuesto programaremos las cuatro funciones estadísticas fundamentales: SUMA para auditar el gasto total acumulado, PROMEDIO para descubrir cuánto nos cuesta sobrevivir cada día escolar, y MAX y MIN para identificar con precisión matemática cuál fue nuestro día de mayor derroche y cuál el más disciplinado. Estas métricas revelan lo que los economistas llaman el "Gasto Vampiro": pequeñas fugas cotidianas que, multiplicadas por doscientos días de clase, representan miles de pesos evaporados.
+
+Para blindar nuestro presupuesto, colocaremos un escudo de seguridad visual llamado Formato Condicional. Diseñaremos un Semáforo Inteligente Tricolor que reaccionará en milisegundos a tus resultados: iluminará tu saldo final en verde de tranquilidad cuando logres ahorrar, en amarillo preventivo si estás en la cuerda floja, y en rojo de alarma crítica si gastaste más créditos de los que tenías, avisándote del peligro sin que tengas que buscar la cifra entre todas las celdas.
+
+💡 ANÉCDOTA EMPRESARIAL:
+"Los bancos detectan fraudes y quiebras con reglas de formato condicional automáticas. Hoy construiremos ese mismo escudo financiero sobre su propio dinero."
 
 🖥️ DEMO EN CAÑÓN (5 min):
 1) Tabla lateral H3:I8.
    H4: =SUMA(D4:D18)  |  H5: =SUMA(E4:E18)
    H6: =PROMEDIO(E4:E18)  |  H7: =MAX(E4:E18)  |  H8: =MIN(E4:E18)
 2) Formato Condicional sobre Saldo Final (F18):
-   Verde (> 20 Ahorro) | Amarillo (0 a 20 Riesgo) | Rojo (< 0 Déficit).
+   Verde claro (> 20 Ahorro) | Amarillo (0 a 20 Riesgo) | Rojo vivo (< 0 Quiebra / Déficit).
+3) Prueba de estrés: Subir un gasto a $500 y ver cómo el saldo se vuelve rojo al instante.
 
 💻 RETO 2 EN PC (35 min):
 Construir la tabla estadística lateral con las 4 funciones y configurar las 3 reglas del semáforo tricolor sobre el saldo final.
