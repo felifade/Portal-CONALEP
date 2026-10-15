@@ -1290,17 +1290,15 @@ Columna de Saldo Acumulado calculando balances automáticamente. 👉 SELLO 2`,
           closure: 'Fórmulas de balance diario programadas y funcionando.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Balances Diarios, Resumen Estadístico y Semáforo',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Laboratorio Pro en Google Sheets: Balances, Métricas & Semáforo',
           unlockDate: '2026-10-15',
           unlockLabel: 'Jueves 15 de Octubre, 15:00 hrs',
           start: '¿Cuál fue tu día más caro y cuánto gastaste en promedio diariamente?',
-          dictation: `Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
+          dictation: `⏱️ HORA 1 · Maquetación Pro y Balances:
+Una hoja de cálculo profesional no solo almacena datos: piensa por nosotros. Con un membrete institucional, formato de Moneda ($) y fórmulas de resta directa, transformamos una lista simple de gastos en un sistema contable que calcula nuestro saldo disponible en tiempo real con cada compra.
 
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Además, le colocaremos un escudo visual a nuestro presupuesto llamado Formato Condicional. Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro, haciendo que la hoja te hable para proteger tu dinero.`,
+⏱️ HORA 2 · Resumen Estadístico y Semáforo:
+Las funciones estadísticas sintetizan docenas de filas en indicadores ejecutivos. Con =SUMA, =PROMEDIO, =MAX y =MIN conocemos el ritmo de consumo, mientras que el formato condicional semafórico enciende alertas visuales de ahorro o peligro.`,
           learningResult: 'Construir la tabla de resumen estadístico y configurar el semáforo condicional tricolor de ahorro.',
           identification: { topic: 'Estadística & Semáforo Financiero', evidence: 'Tabla Resumen + Semáforo Condicional', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
           infographicTitle: 'Resumen Estadístico y Semáforo',
@@ -1311,59 +1309,44 @@ Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el 
             { title: '4. Semáforo Tricolor', desc: 'Aplica verde para ahorro (>0), amarillo (0-20) y rojo (<0).' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Explicación Breve (5 min) ➔ Práctica Autónoma en PC (35 min) ➔ Auditoría
+Metodología Pro en PC: Maquetación y Balances (Hora 1) ➔ Resumen Estadístico y Semáforo Tricolor (Hora 2)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 6 (50 min) · Tabla de Métricas (=SUMA, =PROMEDIO, =MAX, =MIN)
+⏱️ HORA 1 (50 min) · Maquetación Pro, Formato Moneda ($) y Balances
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"No basta con ver gastos sueltos: un verdadero analista usa funciones estadísticas para descubrir cuál fue su día más caro y cuánto gasta en promedio por día."
-
-📝 DICTADO HORA 6:
-Cuando un administrador revisa una hoja de cálculo con docenas de filas, no tiene tiempo de leer celda por celda; lo que necesita son respuestas rápidas y métricas clave de un solo vistazo.
-
-Hoy interrogaremos a nuestros datos utilizando cuatro funciones estadísticas poderosas: SUMA para conocer el gasto total semanal, PROMEDIO para medir el ritmo de consumo diario, y MAX y MIN para identificar de inmediato tus días más caro y más económico.
-
-Estas cuatro fórmulas nos permitirán sintetizar docenas de registros numéricos en indicadores financieros de precisión profesional.
+🗣️ FRASE GANCHO (Apertura en el cañón):
+"Ayer en su libreta clasificaron los gastos de la serie contra sus gastos reales. Hoy encendemos las computadoras para construir su tablero contable en Google Sheets: con membrete institucional, formato de dinero real y fórmulas de resta que calculan su saldo automáticamente."
 
 🖥️ DEMO EN CAÑÓN (5 min):
-Explicar la sintaxis de =SUMA(E4:E11), =PROMEDIO(E4:E11), =MAX(E4:E11) y =MIN(E4:E11).
+1) Abrir sheets.new. Combinar A1:F1 institucional: CONALEP PACHUCA II — CONTROL DE PRESUPUESTO PERSONAL.
+2) Encabezados A3:F3: Día | Categoría | Descripción | Ingreso ($) | Egreso ($) | Saldo ($).
+3) Rango D4:F19 ➔ Formato > Número > Moneda ($).
+4) Fórmulas de balance: En F4 teclear =D4-E4. En F5 teclear =F4-E5 y arrastrar hacia abajo.
 
-💻 RETO 2 (35 min en PC):
-Construir la tabla de resumen semanal con las 4 funciones estadísticas.
-
-📊 RESULTADO ESPERADO HORA 6 (Pantalla Google Sheets):
-Tabla de Resumen al costado: Total Egresos ($210.00), Promedio ($26.25), Máximo ($50.00), Mínimo ($10.00).
+💻 RETO 1 EN PC (40 min):
+Los alumnos abren su hoja en blanco (o descargan la plantilla del portal), maquetan la tabla, aplican formato de moneda y programan las restas de balance con sus 15 gastos.
 
 🏷️ EVIDENCIA Y SELLO 3:
-Tabla de resumen estadístico funcionando con las 4 fórmulas. 👉 SELLO 3
+Bitácora maquetada con formato moneda ($), 15 registros escolares y columna de saldo calculando restas automáticas en vivo. 👉 SELLO 3
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (50 min) · Semáforo Condicional de Salud Financiera
+⏱️ HORA 2 (50 min) · Resumen Estadístico & Semáforo Condicional
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Pondremos un escudo visual a nuestro presupuesto. Si estamos ahorrando se pondrá verde; si gastamos de más se pondrá rojo como señal de alerta."
-
-📝 DICTADO HORA 7:
-Además de las fórmulas estadísticas, le colocaremos un escudo de seguridad visual a nuestro presupuesto llamado Formato Condicional.
-
-Configuraremos un Semáforo Financiero Tricolor que reaccionará automáticamente a tus resultados.
-
-Si tu saldo final es positivo se iluminará en verde de ahorro; si estás en el límite cambiará a amarillo preventivo; y si caes en números rojos se encenderá en alerta de peligro.
-
-De esta forma, la hoja de cálculo te hablará visualmente para proteger tu dinero sin tener que buscar la cifra entre todas las celdas.
+"Un analista financiero no suma a mano ni busca renglón por renglón. Al costado programaremos 4 fórmulas estadísticas para conocer nuestro ritmo de gasto y encenderemos un semáforo inteligente que protegerá su dinero."
 
 🖥️ DEMO EN CAÑÓN (5 min):
-Mostrar la regla de Formato Condicional sobre el Saldo Final (Verde > 0, Amarillo 0-20, Rojo < 0).
+1) Tabla lateral H3:I8.
+   H4: =SUMA(D4:D18)  |  H5: =SUMA(E4:E18)
+   H6: =PROMEDIO(E4:E18)  |  H7: =MAX(E4:E18)  |  H8: =MIN(E4:E18)
+2) Formato Condicional sobre Saldo Final (F18):
+   Verde (> 20 Ahorro) | Amarillo (0 a 20 Riesgo) | Rojo (< 0 Déficit).
 
-💻 RETO 3 (35 min en PC):
-Configurar el semáforo condicional tricolor sobre el Saldo Final de la semana.
-
-📊 RESULTADO ESPERADO HORA 7 (Pantalla Google Sheets):
-Celda de Saldo Final en Verde Claro con letra verde oscura ($90.00 Ahorro Logrado).
+💻 RETO 2 EN PC (35 min):
+Construir la tabla estadística lateral con las 4 funciones y configurar las 3 reglas del semáforo tricolor sobre el saldo final.
 
 🏷️ EVIDENCIA Y SELLO 4:
-Semáforo condicional tricolor reactivo en el Saldo Final. 👉 SELLO 4`,
+Tabla de resumen estadístico funcionando con las 4 funciones y semáforo condicional reactivo sobre el Saldo Final. 👉 SELLO 4`,
           closure: 'Resumen estadístico y semáforo condicional de ahorro terminados.'
         },
         {
