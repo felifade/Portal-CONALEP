@@ -1354,7 +1354,7 @@ export const teachingPlan = {
         'Apertura oficial del RA 2.2 (Segundo Corte - 15% · Protocolos y Confidencialidad).',
         'Miércoles 14 Oct: El Triángulo del Riesgo (Activo, Amenaza y Vulnerabilidad) + Matriz de Libreta (Sello 1).',
         'Jueves 15 Oct: La Guerra de las Contraseñas (Fuerza Bruta vs Diccionarios) y Claves Militares con OpenSSL (Sello 2).',
-        'Viernes 16 Oct: La Trampa de las Redes Públicas (HTTP vs HTTPS con curl), Escudo MFA y Gran Kahoot Semana 09 (Sello 3).',
+        'Viernes 16 Oct: Auditoría Forense con Black Mirror (Triángulo del Riesgo en Videojuegos Inmersivos) y Gran Kahoot Semana 09 (Sello 3).',
       ],
       hours: [
         {
@@ -1464,60 +1464,61 @@ export const teachingPlan = {
         {
           id: 'H04',
           label: 'Sesión 03 (Viernes 16 Oct · Hora 1)',
-          title: 'El Peligro del Tráfico en Texto Plano: HTTP vs HTTPS y Escudo MFA',
-          hook: 'Si van a un café con WiFi gratis y entran a un sitio HTTP, cualquiera con una app gratuita puede ver en el aire su usuario y contraseña. Hoy veremos la diferencia real entre el puerto 80 inseguro y el 443 blindado.',
-          start: '¿Por qué navegar en HTTP transmite credenciales en texto plano y cómo lo resuelve HTTPS?',
-          dictationTitle: 'EL PELIGRO DEL TRÁFICO EN TEXTO PLANO: HTTP FRENTE A HTTPS',
-          dictation: 'La comunicación entre clientes y servidores web opera mediante protocolos de la capa de aplicación: 1) HTTP (Hypertext Transfer Protocol, puerto predeterminado 80): Transmite toda la información en texto plano sin ningún tipo de cifrado. Cualquier usuario conectado al mismo medio de transmisión (como una red WiFi pública o un switch sin bastionar) puede interceptar credenciales, cookies de sesión y mensajes privados empleando herramientas de análisis de tráfico; 2) HTTPS (HTTP Secure, puerto predeterminado 443): Incorpora una capa criptográfica basada en TLS/SSL (Transport Layer Security), cifrando el canal completo de comunicación de extremo a extremo mediante criptografía asimétrica y de clave pública. Asimismo, la Autenticación Multifactor (MFA/2FA) complementa esta defensa exigiendo al menos dos de tres factores probatorios: algo que sabes (contraseña), algo que tienes (dispositivo móvil o llave física de seguridad) y algo que eres (biometría), neutralizando intrusiones incluso si la contraseña llegase a ser interceptada.',
+          title: 'Auditoría Forense de Videojuegos: El Triángulo del Riesgo en Black Mirror',
+          hook: 'Imaginen un videojuego tan inmersivo que se conecta directamente a sus neuronas para leer sus peores miedos... pero el sujeto olvida apagar su celular y no existe ningún botón de apagado de emergencia. Hoy veremos cómo un fallo físico destruye la mente en segundos.',
+          start: '¿Cómo se materializa el Triángulo del Riesgo y colapsa la Tríada CIA en un videojuego neuronal?',
+          dictationTitle: 'AUDITORÍA FORENSE DE SISTEMAS INMERSIVOS Y EL TRIÁNGULO DEL RIESGO',
+          dictation: 'En ciberseguridad, la evaluación de riesgos en entornos inmersivos y tecnologías neuronales exige la aplicación estricta de la Tríada CIA y controles de mitigación física. Cuando un sistema interactúa con datos biométricos y neuronales, el Activo más crítico es la integridad mental y privacidad del usuario. La ausencia de mecanismos de desconexión física de emergencia (Kill Switch), la omisión de aislamiento electromagnético (como permitir teléfonos celulares encendidos) y la firma de acuerdos abusivos representan vulnerabilidades críticas que exponen al sistema a fallas catastróficas. Toda tecnología sin controles de riesgo auditados vulnera simultáneamente la Confidencialidad, Integridad y Disponibilidad del sujeto.',
           workBlock: {
             duration: '25 minutos',
-            title: 'Inspección Forense con curl y Escudo MFA',
+            title: 'Ficha de Auditoría Forense: Caso Black Mirror en Libreta',
             steps: [
-              'Anotar título centrado (tamaño 20) y dictado justificado (tamaño 14).',
-              'En Cloud Shell, consultar sitio inseguro en puerto 80: curl -I http://neverssl.com (observar texto plano).',
-              'Consultar sitio blindado con HTTPS en puerto 443: curl -I https://google.com (observar certificado TLS/SSL).',
-              'Dibujar en libreta el Escudo MFA: Factor 1 (Contraseña) + Factor 2 (Celular) = Acceso Seguro.'
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Identificar el Activo en riesgo: la mente, recuerdos y datos neuronales del protagonista.',
+              'Señalar la Vulnerabilidad crítica: el celular encendido causando interferencia y la falta de un Kill Switch.',
+              'Explicar el colapso de la Tríada CIA: Confidencialidad (miedos expuestos), Integridad (alucinación) y Disponibilidad (bloqueo mental).',
+              'Proponer 2 medidas de mitigación que el docente o auditor habría exigido antes de conectar el chip.'
             ]
           },
           visualExample: {
-            title: 'Comparativa HTTP vs HTTPS & Escudo MFA',
-            badge: 'Ciberdefensa de Red',
+            title: 'Ficha Forense de Ciberseguridad: Caso Black Mirror',
+            badge: 'Auditoría de Ciberdefensa',
             description: 'Esquema visual para plasmar en libreta:',
-            mockup: '┌──────────────────────────────────────┬──────────────────────────────────────┐\n│  HTTP (Puerto 80) · INSEGURO         │  HTTPS (Puerto 443) · BLINDADO       │\n├──────────────────────────────────────┼──────────────────────────────────────┤\n│ 🔓 Candado Abierto                   │ 🔒 Candado Verde / Cerrado           │\n│ • Texto en claro (sin cifrar)        │ • Cifrado extremo a extremo (TLS)    │\n│ • Vulnerable a intercepción WiFi     │ • Datos ininteligibles para hackers  │\n├──────────────────────────────────────┴──────────────────────────────────────┤\n│  ESCUDO MULTIFACTOR (MFA / 2FA):                                            │\n│  [ Contraseña (Lo que sabes) ] + [ Celular / Token (Lo que tienes) ]        │\n│  ➔ ¡Cuenta protegida incluso si te roban la contraseña!                     │\n└─────────────────────────────────────────────────────────────────────────────┘'
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│         FICHA FORENSE: EL TRIÁNGULO DEL RIESGO EN BLACK MIRROR              │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 1. EL ACTIVO CRÍTICO (Valor):                                               │\n│    • El cerebro, recuerdos íntimos y sistema nervioso del usuario.          │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 2. LA VULNERABILIDAD (Falla):                                               │\n│    • Celular encendido (sin modo avión) + Falta de botón Kill Switch.       │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 3. LA AMENAZA (Peligro):                                                    │\n│    • Interferencia electromagnética externa + Software experimental.        │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 4. IMPACTO EN TRÍADA CIA:                                                   │\n│    • Confidencialidad: Rota (extrae secretos y miedos privados).            │\n│    • Integridad: Rota (la señal corrompe la percepción de la realidad).     │\n│    • Disponibilidad: Rota (el sistema se congela y no permite salir).       │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 5. MEDIDA DE MITIGACIÓN (Solución):                                         │\n│    • Jaula de Faraday (aislamiento total) + Botón físico de corte de luz.   │\n└─────────────────────────────────────────────────────────────────────────────┘'
           },
-          terminalRadar: 'curl -I http://neverssl.com ➔ HTTP/1.1 200 OK (Puerto 80 sin cifrar)\ncurl -I https://google.com ➔ HTTP/2 200 (Puerto 443 TLS blindado)',
-          learningResult: 'El estudiante diferencia el tráfico web plano de los canales cifrados TLS/SSL y diseña estrategias de autenticación multifactor.',
-          identification: 'Tema: Protocolos Web y Autenticación MFA. Evidencia: Pruebas con curl e infografía de HTTP vs HTTPS en libreta.',
-          development: 'Análisis de puertos web 80 y 443 en Cloud Shell. Experimentación forense con curl y explicación de los 3 factores de autenticación.',
-          closure: 'Revisión de libretas y preparación para el Kahoot.',
+          terminalRadar: 'Análisis Forense ➔ RIESGO = AMENAZA (Interferencia) × VULNERABILIDAD (Celular encendido sin Kill Switch)',
+          learningResult: 'El estudiante aplica el Triángulo del Riesgo y la Tríada CIA al análisis crítico de incidentes tecnológicos en entornos inmersivos.',
+          identification: 'Tema: Auditoría Forense Caso Black Mirror. Evidencia: Ficha de Triángulo del Riesgo y Tríada CIA en libreta.',
+          development: 'Proyección del episodio, debate guiado sobre fallas de seguridad física y redacción de la ficha forense en libreta.',
+          closure: 'Revisión de libretas y preparación para el Kahoot de cierre.',
           faq: [
-            { q: '¿Qué significan los 3 factores de autenticación?', a: 'Algo que sabes (contraseña), algo que tienes (celular/token) y algo que eres (huella/rostro).' }
+            { q: '¿Qué es un Kill Switch?', a: 'Un interruptor físico de emergencia que corta la energía y desconecta el sistema de golpe si algo sale mal.' }
           ],
           sello: {
-            num: 'Sello 3 (Parte 1)',
-            desc: 'Prueba forense con curl y esquema del Escudo MFA en libreta.'
+            num: 'Sello 3',
+            desc: 'Ficha Forense de Black Mirror y podio de Kahoot registrado en libreta.'
           }
         },
         {
           id: 'H05',
           label: 'Sesión 03 (Viernes 16 Oct · Hora 2)',
-          title: '🏆 Gran Kahoot de Cierre Semana 09 y Sellado Final',
-          hook: 'Llegó el momento de la verdad: Activos, Amenazas, Vulnerabilidades, ataques de Fuerza Bruta, claves militares y el duelo HTTP vs HTTPS. Abran kahoot.it y que gane el mejor estratega de 501.',
+          title: '🏆 Gran Kahoot de Cierre Semana 09 (Riesgo, Claves y Black Mirror)',
+          hook: 'Llegó el momento de la verdad: Activos, Amenazas, Vulnerabilidades, ataques de Fuerza Bruta, claves militares con OpenSSL y el análisis forense de Black Mirror. Abran kahoot.it y que gane el mejor estratega de 501.',
           start: '¿Quién dominará el podio en la batalla de ciberseguridad de la Semana 09?',
-          dictationTitle: 'EVALUACIÓN INTEGRAL DE VECTORES DE RIESGO Y AUTENTICACIÓN',
-          dictation: 'La evaluación formativa de apertura del RA 2.2 permite consolidar el análisis de protocolos tecnológicos, la identificación de puertos de red vulnerables (80 vs 443), el cálculo de entropía en contraseñas y la aplicación de mecanismos defensivos en sistemas Linux. La ciberseguridad práctica exige capacidad de respuesta ágil y fundamentación técnica sólida ante escenarios de ataque simulados.',
+          dictationTitle: 'EVALUACIÓN INTEGRAL DEL TRIÁNGULO DEL RIESGO Y CASO BLACK MIRROR',
+          dictation: 'La evaluación formativa al cierre de la Semana 09 consolida el análisis integral de riesgos informáticos, la generación matemática de credenciales robustas y el análisis crítico de incidentes tecnológicos. La comprensión de los fallos de seguridad en sistemas inmersivos refuerza la necesidad de implementar controles preventivos, protocolos de aislamiento y salvaguardas antes de desplegar cualquier software en entornos de producción.',
           workBlock: {
             duration: '30 minutos',
             title: 'Batalla Gamificada Kahoot y Cierre Semanal',
             steps: [
               'Ingresar a kahoot.it con el PIN proyectado en pantalla.',
-              'Competir en los 20 reactivos oficiales sobre Gestión de Riesgos, Claves y Protocolos.',
+              'Competir en los 20 reactivos oficiales sobre Riesgos, Contraseñas y el Caso Black Mirror.',
               'Anotar puntaje, podio y conclusiones en libreta.',
               'Revisión final de evidencias de la semana y estampado del Sello 3.'
             ]
           },
-          learningResult: 'El estudiante demuestra dominio integral de los conceptos de riesgo, autenticación y protocolos web en una evaluación gamificada.',
-          identification: 'Tema: Evaluación Formativa RA 2.2. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
+          learningResult: 'El estudiante demuestra dominio integral de los conceptos de riesgo, contraseñas y ciberdefensa en una evaluación gamificada.',
+          identification: 'Tema: Evaluación Formativa Integral Semana 09. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
           development: 'Desarrollo de la sesión interactiva en Kahoot con 20 reactivos, retroalimentación técnica de reactivos clave y sellado de libretas.',
           closure: 'Firma y sellado del Sello 3, felicitación al grupo y cierre de semana.',
           faq: [
@@ -1525,7 +1526,7 @@ export const teachingPlan = {
           ],
           sello: {
             num: 'Sello 3',
-            desc: 'Comparativa HTTP/HTTPS + Podio de Kahoot Semana 09 registrado en libreta.'
+            desc: 'Ficha Forense de Black Mirror + Podio de Kahoot Semana 09 registrado en libreta.'
           }
         }
       ],
@@ -1554,9 +1555,9 @@ export const teachingPlan = {
           id: 'S03',
           label: 'Sesión 03',
           duration: '2 horas',
-          title: 'HTTP vs HTTPS, Escudo MFA y Gran Kahoot Semana 09',
+          title: 'Auditoría Forense con Black Mirror y Gran Kahoot Semana 09',
           hourIds: ['H04', 'H05'],
-          product: 'Comparativa HTTP vs HTTPS, prueba de curl, esquema de MFA y podio de Kahoot registrado.',
+          product: 'Ficha de auditoría forense (Triángulo del Riesgo y Tríada CIA) y podio de Kahoot Semana 09 en libreta.',
           unlockDate: '2026-10-16',
           unlockLabel: 'Viernes 16 de Octubre (18:30 hrs)',
         },
