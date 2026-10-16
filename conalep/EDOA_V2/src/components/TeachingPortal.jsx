@@ -464,13 +464,13 @@ const TeachingPortal = () => {
             {currentWeekData.templateUrl && (
               <a 
                 href={currentWeekData.templateUrl} 
-                download="Plantilla_Presupuesto_Personal_Semana09.xlsx"
+                download={currentWeekData.templateFileName || "Plantilla_Presupuesto_Personal_Semana09.xlsx"}
                 className="btn-plantilla-sheets"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: '#16a34a',
+                  background: currentWeekData.templateBtnColor || '#16a34a',
                   color: 'white',
                   padding: '9px 16px',
                   borderRadius: '8px',
@@ -480,11 +480,11 @@ const TeachingPortal = () => {
                   boxShadow: '0 2px 6px rgba(22, 163, 74, 0.25)'
                 }}
               >
-                <Download size={16} /> Descargar Plantilla (.xlsx / Sheets)
+                <Download size={16} /> {currentWeekData.templateBtnText || "Descargar Plantilla (.xlsx / Sheets)"}
               </a>
             )}
             <a 
-              href="https://sheets.new" 
+              href={currentWeekData.toolUrl || "https://sheets.new"} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-sheets-direct"
@@ -492,7 +492,7 @@ const TeachingPortal = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#047857',
+                background: currentWeekData.toolBtnColor || '#047857',
                 color: 'white',
                 padding: '9px 16px',
                 borderRadius: '8px',
@@ -502,7 +502,7 @@ const TeachingPortal = () => {
                 boxShadow: '0 2px 6px rgba(4, 120, 87, 0.25)'
               }}
             >
-              <ExternalLink size={16} /> Abrir Hoja en Blanco (sheets.new)
+              <ExternalLink size={16} /> {currentWeekData.toolBtnText || "Abrir Hoja en Blanco (sheets.new)"}
             </a>
           </div>
         </div>
