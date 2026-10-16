@@ -43,7 +43,8 @@ export const teachingPlan = {
       deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
-        { id: 'RA 2.2', title: 'Control Financiero y Gestión de Hojas de Cálculo', peso: '15%', weeks: ['W09'] }
+        { id: 'RA 2.2', title: 'Control Financiero y Gestión de Hojas de Cálculo', peso: '15%', weeks: ['W09'] },
+        { id: 'RA 2.3', title: 'Desarrollo de Apps Móviles y Documentación Técnica', peso: '15%', weeks: ['W10'] }
       ]
     },
     {
@@ -1429,7 +1430,275 @@ Gráfica de Pastel mostrando porcentajes por categoría + Gráfica de Columnas m
 Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados. 👉 SELLO FINAL`,
           closure: 'Dashboard de Presupuesto Personal terminado con gráficos de pastel y columnas.'
         }
+      ],
+
+    'W10': {
+      id: 'W10',
+      label: 'Semana 10',
+      title: 'App Móvil GeoCalc en App Inventor & Manual de Usuario',
+      dates: '19 Oct - 23 Oct',
+      status: 'active',
+      templateUrl: './templates/GeoCalc_CONALEP.aia',
+      templateFileName: 'GeoCalc_CONALEP.aia',
+      templateBtnText: 'Descargar Proyecto Maestro (.aia)',
+      templateBtnColor: '#005C42',
+      toolUrl: 'https://ai2.appinventor.mit.edu',
+      toolBtnText: 'Abrir MIT App Inventor',
+      summary: 'Construcción desde cero de una app móvil multi-pantalla en MIT App Inventor para calcular áreas y perímetros de 5 figuras geométricas (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), emulación en vivo con MIT AI2 Companion y redacción de Manual de Usuario.',
+      expectedProduct: 'App GeoCalc corriendo en celular Android + Manual de Usuario en PDF con casos de prueba.',
+      sessions: [
+        {
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Portada, Menú & Maquetación 7 Screens',
+          start: '¿Cómo se transforma una fórmula geométrica en una app interactiva para celular?',
+          dictation: `⏱️ HORA 1 · De la Pantalla Táctil a la Arquitectura UI/UX:
+El desarrollo de aplicaciones móviles se fundamenta en la arquitectura basada en eventos, donde el flujo de ejecución responde a las interacciones del usuario. En la industria, el diseño de interfaces se rige por los principios de Experiencia de Usuario (UX) y Diseño Visual (UI), buscando minimizar la carga mental con botones ergonómicos y etiquetas claras.
+
+⏱️ HORA 2 · El Enrutador de Pantallas y el Menú Principal:
+Las aplicaciones complejas distribuyen sus módulos en múltiples pantallas para optimizar memoria RAM y facilitar la navegación. En App Inventor, la transición entre vistas se gestiona mediante el controlador de pantallas nativo, el cual suspende temporalmente la vista previa y carga en primer plano el nuevo lienzo de trabajo.
+
+⏱️ HORA 3 · Blindaje Numérico: Cuadrado y Rectángulo:
+La validación de entradas es la primera línea de defensa en ingeniería de software. Al activar la restricción de solo números (NumbersOnly = True) en los campos de captura, forzamos al teclado de Android a desplegar únicamente dígitos, impidiendo que el usuario ingrese letras que provocarían una falla crítica del sistema.
+
+⏱️ HORA 4 · Polígonos de Orden Superior: Triángulo, Círculo y Pentágono:
+El cálculo de polígonos regulares en computación geométrica requiere descomponer la figura en subsistemas triangulares equivalentes, donde el apotema actúa como la altura perpendicular fundamental. El desarrollador debe proveer campos diferenciados para cada dimensión física sin ambigüedades operativas.`,
+          learningResult: 'Crear el proyecto en App Inventor y maquetar las 7 pantallas con portada institucional, menú y tarjetas de fórmulas.',
+          identification: { topic: 'Arquitectura Móvil & UI/UX', evidence: '7 Pantallas Maquetadas en Designer', organization: 'Individual', location: 'Laboratorio', time: '4 hrs' },
+          infographicTitle: 'Ruta de Maquetación Multi-Screen (7 Pantallas)',
+          infographicSteps: [
+            { title: '1. Portada Institucional', desc: 'Screen1 con escudo CONALEP, datos del módulo, docente y caja para alumno.' },
+            { title: '2. Menú Principal', desc: '5 botones estilizados para acceder a cada figura geométrica.' },
+            { title: '3. Fórmulas Visibles', desc: 'Tarjetas didácticas con las fórmulas de Área y Perímetro en cada pantalla.' },
+            { title: '4. Entradas Numéricas', desc: 'Campos de texto con NumbersOnly=True y botones de calcular y limpiar.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
+Metodología: Demostración en Cañón (5 min) ➔ Reto Autónomo en PC (40 min) ➔ Auditoría de Sellos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 (50 min) · De la Pantalla Táctil a la Arquitectura UI/UX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Todos los días tocan cientos de botones en TikTok o WhatsApp, pero ¿alguna vez se han preguntado qué ocurre en el microprocesador de su teléfono cuando el dedo presiona un píxel? Hoy dejamos de ser simples consumidores de tecnología para convertirnos en creadores de software móvil."
+
+📝 DICTADO HORA 1:
+El desarrollo de aplicaciones para dispositivos móviles se fundamenta en la arquitectura basada en eventos, un paradigma computacional donde el flujo de ejecución no sigue una línea rígida, sino que responde de manera asíncrona a las interacciones del usuario, tales como toques táctiles, deslizamientos o lecturas de sensores integrados. En la industria del software, el diseño de interfaces se rige por los principios de la Experiencia de Usuario (UX) y el Diseño Visual (UI), cuya prioridad consiste en minimizar la carga cognitiva del operador mediante una jerarquía visual limpia, botones de tamaño ergonómico y etiquetas autoexplicativas.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Abrir ai2.appinventor.mit.edu con cuenta Google.
+2) Iniciar nuevo proyecto: GeoCalc_Grupo301.
+3) Explicar las 4 columnas: Paleta, Visor, Componentes y Propiedades.
+4) Subir logo_conalep.png a la sección de Medios/Assets.
+
+💻 RETO 1 EN PC (40 min):
+Maquetar Screen1 con: Disposición vertical de encabezado verde (#005C42), logo CONALEP, título de módulo EDOA-20, datos del Dr. Felipe López Salazar, campo de texto para nombre del alumno y botón 'INGRESAR AL MENÚ'.
+
+🏷️ EVIDENCIA Y SELLO 1:
+Portada institucional maquetada y nombrada profesionalmente en Screen1. 👉 SELLO 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 2 (50 min) · El Enrutador de Pantallas y el Menú Principal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Una app profesional nunca amontona todo en una sola pantalla. Hoy conectaremos dos dimensiones digitales creando un Menú Principal con botones de salto."
+
+📝 DICTADO HORA 2:
+Las aplicaciones móviles complejas distribuyen sus módulos funcionales en múltiples pantallas independientes, optimizando el consumo de memoria RAM del dispositivo y garantizando una navegación intuitiva. En el entorno de App Inventor, la transición entre vistas se gestiona mediante el controlador de pantallas nativo, el cual suspende temporalmente la vista previa y carga en primer plano el nuevo lienzo de trabajo, asegurando que los recursos gráficos se liberen eficientemente.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Clic en 'Add Screen' ➔ Nombrarla MenuPrincipal.
+2) Disposición vertical con ancho 'Fill parent' y 5 botones estilizados (Cuadrado, Rectángulo, Triángulo, Círculo, Pentágono).
+3) Bloque básico: when Btn_Ingresar.Click do open another screen "MenuPrincipal".
+
+💻 RETO 2 EN PC (40 min):
+Crear la pantalla MenuPrincipal con sus 5 botones y programar la transición desde Screen1.
+
+🏷️ EVIDENCIA Y SELLO 2:
+Transición fluida de Screen1 a MenuPrincipal probada en pantalla. 👉 SELLO 2
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (50 min) · Blindaje Numérico: Cuadrado y Rectángulo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"En la pantalla de un celular, el espacio es oro. Aprenderemos a diseñar tarjetas de entrada numérica con bloqueo de letras para que ningún usuario despistado truene nuestra app."
+
+📝 DICTADO HORA 3:
+La validación de entradas de datos constituye la primera línea de defensa en la ingeniería de software, impidiendo que el sistema intente ejecutar operaciones aritméticas con caracteres de texto que provocarían una detención inesperada del sistema. Al activar la restricción de solo números en los campos de captura, forzamos al teclado del sistema operativo Android a desplegar únicamente el panel numérico, garantizando que las variables reciban exclusivamente valores computables.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Add Screen: ScreenCuadrado y ScreenRectangulo.
+2) Tarjeta con fórmula visible en gris suave (#F8FAFC).
+3) Campo TextBox con casilla NumbersOnly activada.
+4) Botones Calcular y Limpiar + Tarjeta verde de resultados.
+
+💻 RETO 3 EN PC (40 min):
+Maquetar ScreenCuadrado y ScreenRectangulo con sus etiquetas de fórmulas y botones de volver al menú.
+
+🏷️ EVIDENCIA Y SELLO 3:
+Screens de Cuadrado y Rectángulo maquetadas con fórmulas visibles. 👉 SELLO 3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (50 min) · Polígonos de Orden Superior: Triángulo, Círculo y Pentágono
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Cerramos la estructura de nuestra app con el rey de los polígonos regulares: el pentágono y su apotema."
+
+📝 DICTADO HORA 4:
+El cálculo de polígonos regulares en computación geométrica requiere la descomposición de la figura en subsistemas triangulares equivalentes, donde el apotema actúa como la altura perpendicular fundamental para determinar la superficie total. Al trasladar estas fórmulas al entorno móvil, el desarrollador debe proveer campos diferenciados para cada dimensión física, permitiendo que el usuario ingrese la base, el radio o el apotema sin ambigüedades operativas.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Add Screen: ScreenTriangulo, ScreenCirculo y ScreenPentagono.
+2) Entradas para Pentágono: TextBox_Lado y TextBox_Apotema.
+3) Botón de volver al menú en todas las pantallas.
+
+💻 RETO 4 EN PC (40 min):
+Completar la maquetación visual de las 7 pantallas del proyecto y verificar la navegación de retorno.
+
+🏷️ EVIDENCIA Y SELLO 4:
+Las 7 pantallas maquetadas y enlazadas en el Designer. 👉 SELLO 4`,
+          closure: 'Las 7 pantallas de GeoCalc quedaron maquetadas y enlazadas en el Designer.'
+        },
+        {
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Blocks Editor: Cuadrado y Rectángulo',
+          start: '¿Cómo traduce el procesador un toque táctil en operaciones matemáticas?',
+          dictation: `⏱️ HORA 5 · Programación de Eventos Aritméticos:
+En la programación visual por bloques, los manejadores de eventos actúan como receptores que detectan el momento exacto en que el usuario interactúa con un componente de la interfaz. Al dispararse el evento del clic, el microprocesador extrae el valor alfanumérico contenido en la caja de texto, lo procesa mediante los operadores aritméticos del compilador y canaliza el resultado hacia una etiqueta de salida, aplicando funciones de concatenación para adjuntar las unidades de medida correspondientes al sistema métrico.`,
+          learningResult: 'Programar la lógica de eventos, operadores matemáticos y concatenación en Cuadrado y Rectángulo.',
+          identification: { topic: 'Programación por Bloques', evidence: 'Bloques de Cuadrado y Rectángulo Operativos', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Lógica del Blocks Editor',
+          infographicSteps: [
+            { title: '1. Evento Click', desc: 'Captura el evento when Btn_Calcular.Click.' },
+            { title: '2. Operadores Math', desc: 'Usa bloques de multiplicación y suma con los TextBox.' },
+            { title: '3. Concatenación', desc: 'Usa el bloque text_join para mostrar resultado + unidades (cm² y cm).' },
+            { title: '4. Botón Limpiar', desc: 'Resetea textos a vacío para un nuevo cálculo.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Demostración en Cañón (5 min) ➔ Reto Autónomo en PC (40 min) ➔ Auditoría de Sellos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (50 min) · Blocks Editor: Lógica de Cuadrado y Rectángulo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"El diseño visual sin bloques es como un auto de carreras sin motor: se ve hermoso, pero no avanza. Hoy le conectamos el cerebro matemático a nuestra app."
+
+📝 DICTADO HORA 5:
+En la programación visual por bloques, los manejadores de eventos actúan como receptores que detectan el momento exacto en que el usuario interactúa con un componente de la interfaz. Al dispararse el evento del clic, el microprocesador extrae el valor alfanumérico contenido en la caja de texto, lo procesa mediante los operadores aritméticos del compilador y canaliza el resultado hacia una etiqueta de salida, aplicando funciones de concatenación para adjuntar las unidades de medida correspondientes al sistema métrico.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Pasar al Blocks Editor en ScreenCuadrado.
+2) Arrastrar when Btn_Calcular.Click.
+3) Set Lbl_ResArea.Text to join("Área = ", Txt_Lado.Text * Txt_Lado.Text, " cm²").
+4) Set Lbl_ResPerimetro.Text to join("Perímetro = ", 4 * Txt_Lado.Text, " cm").
+5) Programar Btn_Limpiar.
+
+💻 RETO 5 EN PC (40 min):
+Programar los bloques de cálculo y limpieza para ScreenCuadrado y ScreenRectangulo (Área = Base * Altura, Perímetro = 2*Base + 2*Altura).
+
+🏷️ EVIDENCIA Y SELLO 5:
+Bloques de Cuadrado y Rectángulo programados y calculando correctamente. 👉 SELLO 5`,
+          closure: 'Bloques matemáticos de Cuadrado y Rectángulo concluidos y operando.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Pentágono, Triángulo, Círculo & Prueba en Celular',
+          start: '¿Cómo conectar tu teléfono celular para probar tu aplicación en vivo sin cables?',
+          dictation: `⏱️ HORA 6 · Lógica de Triángulo, Círculo y Pentágono Regular:
+Las operaciones geométricas de orden superior exigen el anidamiento jerárquico de bloques matemáticos, respetando la precedencia de operadores para evitar discrepancias en el resultado final. En el cálculo del círculo y polígonos regulares, el algoritmo debe declarar con exactitud la constante Pi y coordinar multiplicaciones sucesivas antes de ejecutar la división fraccionaria, garantizando que la precisión decimal se mantenga íntegra en la tarjeta de resultados.
+
+⏱️ HORA 7 · Emulación en Vivo en Celular (MIT AI2 Companion vía QR):
+La depuración de aplicaciones móviles en tiempo real mediante emulación inalámbrica permite al ingeniero de software verificar el comportamiento de la interfaz, el rendimiento táctil y la estabilidad del código en hardware real sin necesidad de compilar paquetes binarios extensos. El protocolo de enlace de MIT Companion establece un puente de comunicación sobre la red local mediante un código QR efímero, transmitiendo instantáneamente cualquier modificación del código fuente hacia el teléfono móvil.`,
+          learningResult: 'Completar la lógica de las 5 figuras y verificar el funcionamiento de la app en vivo en el celular con AI Companion.',
+          identification: { topic: 'Depuración Móvil & Algoritmos Compuestos', evidence: 'App Funcionando en Celular + Sellos 6 y 7', organization: 'Individual', location: 'Laboratorio', time: '2 hrs' },
+          infographicTitle: 'Prueba en Hardware Real (AI Companion)',
+          infographicSteps: [
+            { title: '1. Bloque de Pentágono', desc: 'Perímetro = 5 * Lado y Área = (Perímetro * Apotema) / 2.' },
+            { title: '2. Constante Pi', desc: 'Usa 3.1416 para área y circunferencia del círculo.' },
+            { title: '3. Escaneo QR', desc: 'Abre MIT AI2 Companion en el celular y escanea el código del cañón.' },
+            { title: '4. Captura de Pruebas', desc: 'Toma fotos/capturas de los 5 cálculos para el manual.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Demostración en Cañón (5 min) ➔ Reto Autónomo en PC (40 min) ➔ Auditoría de Sellos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 6 (50 min) · Lógica de Triángulo, Círculo y Pentágono Regular
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"¿Cómo le explicamos a un procesador qué es el número Pi (π) y cómo calcular el apotema de un pentágono en nanosegundos? Hoy programamos fórmulas compuestas."
+
+📝 DICTADO HORA 6:
+Las operaciones geométricas de orden superior exigen el anidamiento jerárquico de bloques matemáticos, respetando la precedencia de operadores para evitar discrepancias en el resultado final. En el cálculo del círculo y polígonos regulares, el algoritmo debe declarar con exactitud la constante Pi y coordinar multiplicaciones sucesivas antes de ejecutar la división fraccionaria, garantizando que la precisión decimal se mantenga íntegra en la tarjeta de resultados.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) ScreenPentagono: Calcular Perímetro = 5 * Lado.
+2) Calcular Área = (Perímetro * Apotema) / 2.
+3) ScreenCirculo: Área = 3.1416 * (Radio * Radio).
+
+💻 RETO 6 EN PC (40 min):
+Programar los bloques de Triángulo, Círculo y Pentágono.
+
+🏷️ EVIDENCIA Y SELLO 6:
+Las 5 figuras programadas con todos sus bloques operativos en App Inventor. 👉 SELLO 6
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (50 min) · Emulación en Vivo en Celular (MIT AI2 Companion vía QR)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Saquen sus teléfonos: llegó el momento cumbre. Escanearemos el código QR y verán su app CONALEP corriendo en vivo en sus manos."
+
+📝 DICTADO HORA 7:
+La depuración de aplicaciones móviles en tiempo real mediante emulación inalámbrica permite al ingeniero de software verificar el comportamiento de la interfaz, el rendimiento táctil y la estabilidad del código en hardware real sin necesidad de compilar paquetes binarios extensos. El protocolo de enlace de MIT Companion establece un puente de comunicación sobre la red local mediante un código QR efímero, transmitiendo instantáneamente cualquier modificación del código fuente hacia el teléfono móvil.
+
+🖥️ DEMO EN CAÑÓN (5 min):
+1) Menú 'Connect' ➔ 'AI Companion'.
+2) Abrir la app en el teléfono y escanear el código QR.
+3) Demostración del cálculo de un Pentágono (Lado 6, Apotema 4.13 = Perímetro 30 cm, Área 61.95 cm²).
+
+💻 RETO 7 EN PC (40 min):
+Conectar el celular, navegar por las 7 pantallas, resolver los 5 casos de prueba y tomar capturas de pantalla de cada resultado.
+
+🏷️ EVIDENCIA Y SELLO 7:
+App verificada y corriendo en el celular del alumno con prueba matemática validada. 👉 SELLO 7`,
+          closure: 'App probada exitosamente en celulares de los alumnos con los 5 cálculos validados.'
+        },
+        {
+          id: 'S4', label: 'Sesión 04', subtitle: 'Viernes (1 hr) · Redacción del Manual de Usuario & Cierre',
+          start: '¿Por qué ningún software profesional puede entregarse sin su manual de usuario?',
+          dictation: `⏱️ HORA 8 · Documentación Técnica y Manual de Usuario:
+La documentación técnica y el manual de usuario constituyen la fase de cierre imprescindible en todo ciclo de vida de desarrollo de sistemas informáticos. Un manual bien elaborado guía al usuario final a través de los requisitos mínimos de operación, la arquitectura visual de la aplicación y la validación de resultados mediante tablas de casos de prueba, asegurando la transferibilidad, mantenimiento y profesionalismo del producto tecnológico entregado.`,
+          learningResult: 'Redactar el Manual de Usuario en Word/Docs con capturas reales de la app y tabla de validación matemática.',
+          identification: { topic: 'Documentación Técnica Ejecutiva', evidence: 'Manual de Usuario en PDF + Portafolio de Sellos', organization: 'Individual', location: 'Laboratorio', time: '1 hr' },
+          infographicTitle: 'Estructura del Manual de Usuario',
+          infographicSteps: [
+            { title: '1. Portada Institucional', desc: 'Membrete CONALEP, módulo EDOA, docente y alumno.' },
+            { title: '2. Mapa de Navegación', desc: 'Diagrama de flujo entre las 7 pantallas del sistema.' },
+            { title: '3. Guía Paso a Paso', desc: 'Capturas de pantalla del celular explicando cada botón.' },
+            { title: '4. Casos de Prueba', desc: 'Tabla cotejando el cálculo de la app con el cálculo a mano.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Redacción Técnica en PC (35 min) ➔ Auditoría Final y Corte de Calificaciones (15 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 8 (50 min) · Redacción del Manual de Usuario y Cierre de Semana 10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Un software sin manual no sirve en la industria profesional. Hoy redactamos la documentación ejecutiva de nuestra aplicación móvil."
+
+📝 DICTADO HORA 8:
+La documentación técnica y el manual de usuario constituyen la fase de cierre imprescindible en todo ciclo de vida de desarrollo de sistemas informáticos. Un manual bien elaborado guía al usuario final a través de los requisitos mínimos de operación, la arquitectura visual de la aplicación y la validación de resultados mediante tablas de casos de prueba, asegurando la transferibilidad, mantenimiento y profesionalismo del producto tecnológico entregado.
+
+💻 RETO 8 EN PC (35 min):
+Elaborar el documento 'Manual_Usuario_GeoCalc_Apellido_Nombre.pdf' con:
+1. Portada oficial con membrete CONALEP.
+2. Ficha Técnica (Requisitos: Android 8.0+, MIT AI2 Companion).
+3. Diagrama de flujo de las 7 pantallas.
+4. Guía ilustrada con capturas de pantalla de la app en su celular.
+5. Tabla de casos de prueba (Cuadrado L=8, Rectángulo 12x6, Triángulo 10x7, Círculo R=5, Pentágono L=6 Ap=4.13).
+6. Conclusiones y código QR.
+
+🏷️ EVIDENCIA Y SELLO FINAL (SELLO 8):
+Manual de Usuario concluido en PDF + Portafolio completo de sellos de la Semana 10. 👉 SELLO FINAL`,
+          closure: 'Manual de Usuario entregado y corte de sellos de la Semana 10 completado.'
+        }
       ]
+    }
+
     }
 
   }
