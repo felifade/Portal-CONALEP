@@ -1339,7 +1339,7 @@ export const teachingPlan = {
       id: 'W09',
       label: 'Semana 09',
       dateRange: '12 - 16 Oct',
-      status: 'Próxima',
+      status: 'Completada',
       corteId: 'C2',
       raId: 'RA 2.2',
       title: 'El Asalto a las Contraseñas: Fuerza Bruta, OpenSSL y Escudo MFA',
@@ -1560,6 +1560,241 @@ export const teachingPlan = {
           product: 'Ficha de auditoría forense (Triángulo del Riesgo y Tríada CIA) y podio de Kahoot Semana 09 en libreta.',
           unlockDate: '2026-10-16',
           unlockLabel: 'Viernes 16 de Octubre (18:30 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W10',
+      label: 'Semana 10',
+      dateRange: '19 - 23 Oct',
+      status: 'En curso',
+      corteId: 'C2',
+      raId: 'RA 2.2',
+      title: 'Protocolos Web TLS, Técnica de Salting y Escudo MFA',
+      result: 'Distingue protocolos seguros de capa de aplicación, experimentando con análisis forense de puertos HTTP/HTTPS, técnica de salting con OpenSSL y autenticación multifactor (MFA).',
+      pdfUrl: './pdf/Guia_Laboratorio_Forense_Linux_MTCS_Semana07.pdf',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual con libreta y Google Cloud Shell',
+        product: 'Diagrama HTTP vs HTTPS con curl, práctica de Salting con OpenSSL, infografía MFA y Gran Kahoot',
+      },
+      notices: [
+        'Consolidación del RA 2.2 (Segundo Corte - 15% · Protocolos y Confidencialidad).',
+        'Miércoles 21 Oct: La Trampa de las Redes Abiertas (HTTP 80 vs HTTPS 443 con curl) (Sello 1).',
+        'Jueves 22 Oct: Técnica de Salting con OpenSSL y neutralización de Tablas Rainbow (Sello 2).',
+        'Viernes 23 Oct: El Escudo Multifactor (MFA / 2FA) y Gran Kahoot Semana 10 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 21 Oct)',
+          title: 'La Trampa de las Redes Públicas: HTTP (80) vs HTTPS (443)',
+          hook: 'Navegar en una web HTTP en una plaza comercial es como gritar tu contraseña con un megáfono: viaja en texto plano en el aire. Hoy aprenderemos a inspeccionar cabeceras con curl y blindar el canal con HTTPS.',
+          start: '¿Cómo expone el protocolo HTTP las contraseñas en redes abiertas y qué capa agrega HTTPS?',
+          dictationTitle: 'EL TRÁFICO WEB EN TEXTO PLANO FRENTE AL BLINDAJE HTTPS',
+          dictation: 'En las redes de comunicación, los protocolos de la capa de aplicación determinan la privacidad de los datos transmitidos: 1) HTTP (Hypertext Transfer Protocol, puerto predeterminado 80): Transmite credenciales y contenido en texto claro sin cifrar, siendo vulnerable a ataques de intermediario (Man-in-the-Middle) e intercepción en redes abiertas; 2) HTTPS (HTTP Secure, puerto predeterminado 443): Incorpora la capa de seguridad TLS/SSL (Transport Layer Security), estableciendo un túnel criptográfico asimétrico de extremo a extremo que vuelve los datos ininteligibles para cualquier observador no autorizado. Toda plataforma digital moderna exige el redireccionamiento obligatorio hacia HTTPS para preservar la confidencialidad.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Inspección Forense con curl en Cloud Shell',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'En Cloud Shell, consultar sitio inseguro: curl -I http://neverssl.com (observar HTTP/1.1 en puerto 80).',
+              'Consultar sitio blindado: curl -I https://google.com (observar TLS y protocolo HTTP/2 en puerto 443).',
+              'Dibujar en libreta el esquema comparativo de Candado Abierto vs Candado Cerrado.'
+            ]
+          },
+          visualExample: {
+            title: 'Diferencia de Puertos: HTTP (80) vs HTTPS (443)',
+            badge: 'Seguridad en Redes Web',
+            description: 'Esquema visual para plasmar en libreta:',
+            mockup: '┌──────────────────────────────────────┬──────────────────────────────────────┐\n│  HTTP (Puerto 80) · INSEGURO         │  HTTPS (Puerto 443) · BLINDADO       │\n├──────────────────────────────────────┼──────────────────────────────────────┤\n│ 🔓 Candado Abierto                   │ 🔒 Candado Verde / Cerrado           │\n│ • Texto en claro (sin cifrar)        │ • Cifrado extremo a extremo (TLS)    │\n│ • Vulnerable a intercepción WiFi     │ • Datos ininteligibles para hackers  │\n└──────────────────────────────────────┴──────────────────────────────────────┘'
+          },
+          terminalRadar: 'curl -I http://neverssl.com ➔ HTTP/1.1 200 OK (Puerto 80 texto plano)\ncurl -I https://google.com ➔ HTTP/2 200 (Puerto 443 TLS blindado)',
+          learningResult: 'El estudiante identifica la vulnerabilidad del tráfico en texto claro y verifica el blindaje de canales web mediante inspección de cabeceras.',
+          identification: 'Tema: Protocolos de Aplicación HTTP/HTTPS. Evidencia: Pruebas con curl e infografía comparativa en libreta.',
+          development: 'Análisis de puertos 80 y 443 en terminal, experimentación forense con curl y debate sobre riesgos de WiFi público.',
+          closure: 'Revisión de libretas y estampado del Sello 1.',
+          faq: [
+            { q: '¿Por qué no debemos usar banca móvil en WiFi público?', a: 'Porque si el sitio o app no usa cifrado estricto, cualquier persona en la misma red WiFi puede interceptar el tráfico.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Prueba forense con curl e infografía HTTP vs HTTPS en libreta.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 22 Oct · Hora 1)',
+          title: 'Tablas Rainbow y la Técnica Criptográfica de Salting',
+          hook: 'Si todos usamos contraseñas comunes, un atacante no las adivina: busca el hash en un catálogo precalculado llamado Tablas Rainbow. ¿Cómo lo neutralizan los ingenieros? Echándole SAL criptográfica a la clave.',
+          start: '¿Por qué el hash simple es vulnerable a diccionarios y cómo el Salting anula las Tablas Rainbow?',
+          dictationTitle: 'CONTROLES DE INTEGRIDAD Y LA TÉCNICA CRIPTOGRÁFICA DE SALTING',
+          dictation: 'El almacenamiento seguro de contraseñas prohíbe el uso de texto en claro y exige algoritmos de resumen criptográfico (hashing). Sin embargo, un atacante que posee hashes simples puede descifrarlos mediante ataques de diccionario y tablas precomputadas (Rainbow Tables). Para anular este vector, se implementa la técnica de Salting: Consiste en anexar una secuencia aleatoria de caracteres única («sal») a la contraseña del usuario antes de procesarla con la función hash. Al alterar drásticamente la entrada, el Efecto Avalancha genera un hash totalmente impredecible, inutilizando por completo las listas filtradas y obligando a calcular cada intento de forma individual.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Concepto y Mecánica del Salting en Libreta',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Dibujar el flujo del Salting: [ Contraseña ] + [ Sal Aleatoria ] ➔ Hash Criptográfico.',
+              'Anotar la regla de oro: La sal inutiliza las tablas Rainbow porque convierte cada clave en única.',
+              'Responder: ¿Dónde se almacena la sal? (R: Se guarda junto al hash en la base de datos de usuarios).'
+            ]
+          },
+          visualExample: {
+            title: 'Mecánica de Salting y Tablas Rainbow',
+            badge: 'Criptografía Defensiva',
+            description: 'Esquema visual para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│                       LA TÉCNICA DEL SALTING                                │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 1. HASH SIMPLE (Vulnerable):                                                │\n│    "conalep123" ➔ [ MD5 ] ➔ d2b78... (¡Está en la Tabla Rainbow!)           │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 2. HASH CON SALTING (Blindado):                                             │\n│    "conalep123" + [ Sal: 8a4f9c1b ] ➔ [ MD5 ] ➔ e7f10... (¡Imposible!)     │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ ➔ El Efecto Avalancha destruye la efectividad de la lista RockYou.          │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'openssl rand -hex 4 ➔ Generador de sal criptográfica aleatoria de alta entropía',
+          learningResult: 'El estudiante explica la vulnerabilidad de hashes simples y la necesidad de incorporar salting para neutralizar ataques de diccionario.',
+          identification: 'Tema: Salting y Tablas Rainbow. Evidencia: Esquema del proceso de salting y respuesta de análisis en libreta.',
+          development: 'Explicación de ataques precalculados (Rainbow Tables), demostración conceptual del salting y redacción en libreta.',
+          closure: 'Preparación para el laboratorio práctico en Cloud Shell.',
+          faq: [
+            { q: '¿Qué es una Tabla Rainbow?', a: 'Una base de datos gigantesca con millones de contraseñas ya convertidas a hash para buscar coincidencias al instante.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Apunte formal de Salting y esquema de defensa contra Tablas Rainbow.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 22 Oct · Hora 2)',
+          title: 'Taller en Cloud Shell: Salting con OpenSSL y Candado 600',
+          hook: 'Es hora de poner a prueba la sal en consola: veremos cómo dos alumnos con la misma contraseña generan dos hashes totalmente distintos gracias a la sal de OpenSSL.',
+          start: '¿Cómo generamos una sal en Linux y cómo altera el hash de nuestra contraseña?',
+          dictationTitle: 'GENERACIÓN DE SAL Y BÓVEDA DE CREDENCIALES EN LINUX',
+          dictation: 'En entornos GNU/Linux y servidores de autenticación, la generación de sal se realiza mediante fuentes criptográficas del sistema operativo (/dev/urandom). Al acoplar el generador pseudoaleatorio con OpenSSL mediante el comando openssl rand -hex, el sistema crea valores únicos e irrepetibles para cada usuario. La persistencia de estas credenciales se protege mediante el principio de mínimo privilegio en el sistema de archivos, restringiendo los permisos con chmod 600 para impedir la lectura no autorizada por otros procesos o usuarios locales.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Laboratorio de Salting en Google Cloud Shell',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Calcular hash sin sal: echo -n "conalep123" | md5sum (anotar huella en libreta).',
+              'Generar sal aleatoria: SAL=$(openssl rand -hex 4); echo "Sal: $SAL".',
+              'Calcular hash con sal: echo -n "conalep123$SAL" | md5sum (comprobar el cambio radical).',
+              'Guardar credencial: echo "Usuario: alumno501 | Sal: $SAL" >> credenciales_seguras.txt && chmod 600 credenciales_seguras.txt.'
+            ]
+          },
+          visualExample: {
+            title: 'Flujo del Laboratorio en Terminal',
+            badge: 'Laboratorio de Ciberdefensa',
+            description: 'Comandos ejecutados en consola:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│ $ echo -n "conalep123" | md5sum                                             │\n│ d2b78a946...  ➔ HASH ESTÁTICO VULNERABLE                                    │\n│                                                                             │\n│ $ SAL=$(openssl rand -hex 4)                                                │\n│ $ echo "Sal: $SAL"                                                          │\n│ Sal: 4f8b2e1a                                                               │\n│                                                                             │\n│ $ echo -n "conalep123$SAL" | md5sum                                         │\n│ c9a103f75...  ➔ HASH ÚNICO BLINDADO CON EFECTO AVALANCHA                    │\n│                                                                             │\n│ $ chmod 600 credenciales_seguras.txt ➔ BÓVEDA PRIVADA DEL DUEÑO             │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'echo -n "clave$SAL" | md5sum ➔ Hash personalizado inmune a tablas precalculadas',
+          learningResult: 'El estudiante aplica técnicas prácticas de salting y gestión de permisos en consola para salvaguardar credenciales.',
+          identification: 'Tema: Práctica de Salting con OpenSSL. Evidencia: Captura de comandos y salida de consola anotada en libreta.',
+          development: 'Ejecución del taller en Google Cloud Shell, comprobación del Efecto Avalancha y blindaje del archivo con chmod 600.',
+          closure: 'Revisión de pantallas, sellado del Sello 2 y conclusión.',
+          faq: [
+            { q: '¿Por qué usamos echo -n?', a: 'El parámetro -n evita agregar un salto de línea invisible al final del texto para que el hash sea exacto.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Práctica de Salting con OpenSSL, hashes comparados y archivo blindado en libreta.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 23 Oct · Hora 1)',
+          title: 'El Escudo Multifactor (MFA / 2FA) y Tokens de Tiempo TOTP',
+          hook: 'Si un hacker adivina tu contraseña y tu sal, ¿está todo perdido? NO, si tienes activado el Escudo Multifactor. Aunque tenga tu clave, el sistema le pedirá un código de 6 dígitos que solo existe en tu celular y cambia cada 30 segundos.',
+          start: '¿Cuáles son los 3 factores de autenticación y cómo un código TOTP detiene una intrusión?',
+          dictationTitle: 'EL ESCUDO MULTIFACTOR (MFA) Y ALTA DISPONIBILIDAD DE ACCESOS',
+          dictation: 'La Autenticación Multifactor (MFA/2FA) es una salvaguarda de control de acceso que exige validar al menos dos categorías probatorias independientes antes de autorizar el ingreso a un sistema: 1) Factor de Conocimiento: Algo que sabes (contraseña o PIN); 2) Factor de Posesión: Algo que tienes (teléfono móvil, llave física FIDO o token generador de contraseñas de un solo uso TOTP); 3) Factor de Inherencia: Algo que eres (huella dactilar, biometría facial o de iris). La implementación de MFA neutraliza el 99.9% de los ataques de usurpación de identidad y fuerza bruta, garantizando la defensa en profundidad institucional.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Infografía de los 3 Factores de Autenticación en Libreta',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Dibujar los 3 pilares de MFA: 1) Lo que sabes, 2) Lo que tienes, 3) Lo que eres.',
+              'Anotar la definición de TOTP (Time-based One-Time Password) y su ciclo de 30 segundos.',
+              'Concluir: ¿Por qué un código por SMS es menos seguro que una app como Google Authenticator? (R: Por ataques de clonación SIM).'
+            ]
+          },
+          visualExample: {
+            title: 'Los 3 Factores de Autenticación (MFA)',
+            badge: 'Control de Accesos',
+            description: 'Infografía para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│                   🛡️ LOS 3 FACTORES DE AUTENTICACIÓN (MFA)                  │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 1. FACTOR DE CONOCIMIENTO (Algo que SABES):                                 │\n│    • Contraseñas alfanuméricas, PIN de 4 dígitos, respuestas secretas.      │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 2. FACTOR DE POSESIÓN (Algo que TIENES):                                    │\n│    • Celular con Google Authenticator (TOTP que cambia cada 30 segundos).   │\n│    • Llave física USB FIDO / YubiKey.                                       │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 3. FACTOR DE INHERENCIA (Algo que ERES · Biometría):                        │\n│    • Sensor de huella dactilar, reconocimiento facial 3D, escáner de iris.  │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ ➔ Regla de Oro: [ Contraseña ] + [ Celular ] = 100% Protegido               │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'MFA Defense ➔ [ Conocimiento ] + [ Posesión ] neutraliza el 99.9% de ataques automatizados',
+          learningResult: 'El estudiante diseña esquemas de autenticación multifactor diferenciando los factores probatorios para proteger accesos críticos.',
+          identification: 'Tema: Autenticación Multifactor y Tokens TOTP. Evidencia: Infografía de los 3 factores en libreta.',
+          development: 'Explicación interactiva de factores de prueba, demostración del funcionamiento de TOTP y dibujo de infografía en libreta.',
+          closure: 'Preparación de dispositivos para el Kahoot de cierre de semana.',
+          faq: [
+            { q: '¿Qué significa TOTP?', a: 'Time-based One-Time Password: una contraseña de un solo uso que expira automáticamente cada 30 segundos.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Infografía de los 3 Factores de Autenticación y esquema TOTP en libreta.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 23 Oct · Hora 2)',
+          title: '🏆 Gran Kahoot de Cierre Semana 10 y Sellado Final',
+          hook: 'Llegó el momento de la verdad: HTTP vs HTTPS, Salting con OpenSSL, Tablas Rainbow y los 3 factores del Escudo MFA. Abran kahoot.it y compitan por el podio de 501.',
+          start: '¿Quién dominará el podio en la batalla de ciberseguridad de la Semana 10?',
+          dictationTitle: 'EVALUACIÓN INTEGRAL DE PROTOCOLOS, INTEGRIDAD Y AUTENTICACIÓN',
+          dictation: 'La evaluación formativa al cierre de la Semana 10 consolida los principios técnicos del RA 2.2: el blindaje del transporte de datos mediante TLS, la neutralización de ataques de diccionario precalculados con la técnica de Salting, y la implementación de controles de acceso robustos mediante Autenticación Multifactor. El dominio de estos mecanismos constituye la base de la ingeniería de ciberdefensa profesional.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Batalla Gamificada Kahoot y Cierre Semanal',
+            steps: [
+              'Ingresar a kahoot.it con el PIN proyectado en pantalla.',
+              'Competir en los 20 reactivos oficiales sobre Protocolos TLS, Salting y Escudo MFA.',
+              'Anotar puntaje, podio y conclusiones en libreta.',
+              'Revisión final de evidencias de la semana y estampado del Sello 3.'
+            ]
+          },
+          learningResult: 'El estudiante demuestra dominio integral de los conceptos de protocolos seguros, salting y autenticación en una evaluación gamificada.',
+          identification: 'Tema: Evaluación Formativa Integral Semana 10. Evidencia: Podio de Kahoot y libreta sellada con Sello 3.',
+          development: 'Desarrollo de la sesión interactiva en Kahoot con 20 reactivos, retroalimentación técnica de reactivos clave y sellado de libretas.',
+          closure: 'Firma y sellado del Sello 3, felicitación al grupo y cierre de semana.',
+          faq: [
+            { q: '¿Cómo subo mi evidencia a Classroom?', a: 'Toma foto de tus libretas con los sellos 1, 2 y 3 y súbela a la tarea de la Semana 10 (código j6bnku3j).' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Infografía de los 3 Factores de MFA + Podio de Kahoot Semana 10 registrado en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'La Trampa de las Redes Públicas: HTTP (80) vs HTTPS (443)',
+          hourIds: ['H01'],
+          product: 'Prueba forense con curl e infografía comparativa HTTP vs HTTPS en libreta.',
+          unlockDate: '2026-10-21',
+          unlockLabel: 'Miércoles 21 de Octubre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Tablas Rainbow y la Técnica Criptográfica de Salting con OpenSSL',
+          hourIds: ['H02', 'H03'],
+          product: 'Práctica de Salting con OpenSSL, comparación de hashes y archivo blindado con chmod 600.',
+          unlockDate: '2026-10-22',
+          unlockLabel: 'Jueves 22 de Octubre (16:50 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'El Escudo Multifactor (MFA / 2FA) y Gran Kahoot Semana 10',
+          hourIds: ['H04', 'H05'],
+          product: 'Infografía de los 3 factores de autenticación, esquema TOTP y podio de Kahoot registrado.',
+          unlockDate: '2026-10-23',
+          unlockLabel: 'Viernes 23 de Octubre (18:30 hrs)',
         },
       ],
     },
