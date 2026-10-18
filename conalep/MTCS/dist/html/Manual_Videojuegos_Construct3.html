@@ -2149,6 +2149,71 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 </li>
                                 <li>Pinta el color de fondo de la Capa <code>Fondo</code> en azul noche cyber (<code>#090d16</code>) y coloca gabinetes decorativos con opacidad al 40%.</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 280" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <text x="20" y="28" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="bold">ESQUEMA VISUAL DE LAS 3 CAPAS EN CONSTRUCT 3 (PARALLAX 3D)</text>
+
+  <!-- Capa 0: Fondo -->
+  <g transform="translate(30, 45)">
+    <rect x="0" y="0" width="210" height="195" rx="8" fill="url(#bgGrad)" stroke="#475569" stroke-width="1.5" stroke-dasharray="4"/>
+    <text x="12" y="22" fill="#94a3b8" font-family="Fira Code, monospace" font-size="11" font-weight="bold">CAPA 0: "Fondo" 🔒</text>
+    <rect x="12" y="30" width="130" height="18" rx="4" fill="#1e293b"/>
+    <text x="18" y="43" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">Parallax: 50% x 50%</text>
+    <!-- Racks de fondo oscuros -->
+    <rect x="25" y="75" width="35" height="95" fill="#1e293b" opacity="0.6" stroke="#334155"/>
+    <circle cx="35" cy="90" r="2.5" fill="#22c55e" opacity="0.5"/>
+    <circle cx="48" cy="90" r="2.5" fill="#3b82f6" opacity="0.5"/>
+    <rect x="85" y="65" width="40" height="105" fill="#1e293b" opacity="0.6" stroke="#334155"/>
+    <circle cx="98" cy="82" r="2.5" fill="#ef4444" opacity="0.5"/>
+    <rect x="150" y="80" width="35" height="90" fill="#1e293b" opacity="0.6" stroke="#334155"/>
+    <text x="18" y="185" fill="#64748b" font-family="Inter, sans-serif" font-size="10">Se mueve lento (Efecto lejanía)</text>
+  </g>
+
+  <text x="252" y="145" fill="#34d399" font-size="22" font-weight="bold">+</text>
+
+  <!-- Capa 1: Juego -->
+  <g transform="translate(280, 45)">
+    <rect x="0" y="0" width="220" height="195" rx="8" fill="#090d16" stroke="#10b981" stroke-width="2"/>
+    <text x="12" y="22" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">CAPA 1: "Juego" (Activa)</text>
+    <rect x="12" y="30" width="145" height="18" rx="4" fill="rgba(16,185,129,0.15)"/>
+    <text x="18" y="43" fill="#34d399" font-family="Fira Code, monospace" font-size="10">Parallax: 100% x 100%</text>
+    <!-- Plataformas y Jugador -->
+    <rect x="15" y="145" width="190" height="18" fill="#334155" stroke="#64748b"/>
+    <rect x="105" y="105" width="75" height="14" fill="#334155" stroke="#64748b"/>
+    <!-- Mini Héroe -->
+    <rect x="35" y="118" width="18" height="27" fill="#0f172a" stroke="#38bdf8"/>
+    <rect x="39" y="123" width="12" height="5" fill="#00ff66"/>
+    <!-- Mini Bot -->
+    <circle cx="142" cy="93" r="9" fill="#ef4444"/>
+    <rect x="137" y="90" width="10" height="4" fill="#facc15"/>
+    <text x="18" y="185" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">Velocidad Real 1:1 (Colisiones)</text>
+  </g>
+
+  <text x="512" y="145" fill="#34d399" font-size="22" font-weight="bold">+</text>
+
+  <!-- Capa 2: HUD -->
+  <g transform="translate(540, 45)">
+    <rect x="0" y="0" width="230" height="195" rx="8" fill="#090d16" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="12" y="22" fill="#fbbf24" font-family="Fira Code, monospace" font-size="11" font-weight="bold">CAPA 2: "HUD" (Interfaz)</text>
+    <rect x="12" y="30" width="130" height="18" rx="4" fill="rgba(245,158,11,0.15)"/>
+    <text x="18" y="43" fill="#fbbf24" font-family="Fira Code, monospace" font-size="10">Parallax: 0% x 0%</text>
+    <!-- Elementos HUD arriba -->
+    <rect x="15" y="60" width="200" height="28" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="24" y="78" fill="#ef4444" font-size="12">❤️❤️❤️</text>
+    <text x="82" y="78" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">PTS: 0150 | TLS: 1</text>
+    <rect x="15" y="95" width="200" height="70" rx="4" fill="none" stroke="#334155" stroke-dasharray="3"/>
+    <text x="45" y="135" fill="#64748b" font-family="Inter, sans-serif" font-size="10">[ Ventana de Cámara 640×360 ]</text>
+    <text x="18" y="185" fill="#fbbf24" font-family="Inter, sans-serif" font-size="10">Fija en pantalla (No se mueve)</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 2.1: Superposición de las 3 capas en Construct 3 mostrando cómo el Parallax genera profundidad tridimensional.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Bloqueo de Seguridad</div>
@@ -2178,6 +2243,67 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Clona los bloques manteniendo presionada la tecla <code>Ctrl + Arrastrar</code> para construir:
                                     1) Una zona segura de inicio, 2) Tres plataformas elevadas de salto, 3) Dos fosos de caída y 4) El pasillo final bloqueado por la <code>Puerta_Servidor</code>.</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 820 270" width="100%" style="max-width:800px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid16" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="820" height="270" fill="url(#grid16)"/>
+  <text x="20" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="13" font-weight="bold">PLANO ARQUITECTÓNICO DEL NIVEL (1920 × 360 PX · SNAP TO GRID 16×16)</text>
+
+  <!-- Divisiones de Pantallas -->
+  <line x1="275" y1="38" x2="275" y2="235" stroke="#38bdf8" stroke-dasharray="4" stroke-width="1"/>
+  <line x1="545" y1="38" x2="545" y2="235" stroke="#38bdf8" stroke-dasharray="4" stroke-width="1"/>
+  <text x="90" y="50" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">PANTALLA 1 (0 a 640 px)</text>
+  <text x="345" y="50" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">PANTALLA 2 (640 a 1280 px)</text>
+  <text x="615" y="50" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">PANTALLA 3 (1280 a 1920 px)</text>
+
+  <!-- Piso Base 1 (Zona Segura) -->
+  <rect x="20" y="195" width="190" height="24" fill="#334155" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="55" y="211" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">1. ZONA DE INICIO</text>
+  <!-- Héroe en inicio -->
+  <rect x="45" y="165" width="18" height="30" fill="#0f172a" stroke="#00ff66" stroke-width="1.5"/>
+  <rect x="50" y="170" width="10" height="5" fill="#00ff66"/>
+
+  <!-- Foso 1 -->
+  <text x="218" y="228" fill="#ef4444" font-family="Fira Code, monospace" font-size="9">⚠️ FOSO 1</text>
+
+  <!-- Plataformas Escalón -->
+  <rect x="230" y="155" width="85" height="16" fill="#334155" stroke="#22c55e"/>
+  <rect x="340" y="115" width="95" height="16" fill="#334155" stroke="#22c55e"/>
+  <text x="346" y="107" fill="#fbbf24" font-family="Fira Code, monospace" font-size="9">🔑 Llave TLS (Arriba)</text>
+  <rect x="378" y="90" width="16" height="18" rx="3" fill="#facc15" stroke="#b45309"/>
+
+  <!-- Piso Central (Pasillo Infectado) -->
+  <rect x="300" y="195" width="230" height="24" fill="#334155" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="340" y="211" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">2. PASILLO DE SERVIDORES</text>
+  <!-- Gema Salting -->
+  <polygon points="325,172 333,180 325,188 317,180" fill="#06b6d4" stroke="#fff"/>
+  <text x="295" y="167" fill="#06b6d4" font-family="Fira Code, monospace" font-size="9">💎 Salting</text>
+
+  <!-- Foso 2 -->
+  <text x="542" y="228" fill="#ef4444" font-family="Fira Code, monospace" font-size="9">⚠️ FOSO 2</text>
+
+  <!-- Plataforma Final y Puerta chmod 600 -->
+  <rect x="595" y="195" width="205" height="24" fill="#334155" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="635" y="211" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">3. TERMINAL MAESTRA</text>
+
+  <!-- Compuerta chmod 600 -->
+  <rect x="695" y="125" width="24" height="70" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <rect x="701" y="150" width="12" height="14" fill="#facc15"/>
+  <text x="655" y="115" fill="#ef4444" font-family="Fira Code, monospace" font-size="10" font-weight="bold">🚪 Puerta chmod 600</text>
+
+  <!-- Meta Terminal -->
+  <rect x="755" y="150" width="32" height="45" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+  <rect x="760" y="156" width="22" height="14" fill="#00ff66"/>
+  <text x="748" y="142" fill="#34d399" font-family="Fira Code, monospace" font-size="9">🏆 META</text>
+
+  <text x="20" y="255" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11">Regla de Diseño: Máximo 4 bloques (64 px) de separación horizontal entre plataformas para garantizar saltos cómodos.</text>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 2.2: Mapa completo sugerido para que los estudiantes maqueten sus bloques sólidos en la Hora 07.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Revisión de Distancias de Salto</div>
@@ -2214,6 +2340,38 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                     </pre>
                                 </li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 780 230" width="100%" style="max-width:760px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="28" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="bold">CURVA CINEMÁTICA DE SALTO Y DOBLE SALTO (BEHAVIOR: PLATFORM)</text>
+
+  <!-- Piso de inicio y plataforma alta -->
+  <rect x="30" y="185" width="220" height="20" fill="#334155" stroke="#64748b"/>
+  <rect x="490" y="115" width="240" height="20" fill="#334155" stroke="#64748b"/>
+
+  <!-- Parábola 1: Primer Salto -->
+  <path d="M 100 180 Q 195 65 290 140" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6"/>
+  <circle cx="100" cy="180" r="6" fill="#00ff66"/>
+  <text x="65" y="165" fill="#00ff66" font-family="Fira Code, monospace" font-size="10">1° Salto (480 px/s)</text>
+
+  <!-- Punto de Doble Salto en el aire -->
+  <circle cx="290" cy="140" r="8" fill="#facc15" stroke="#ef4444" stroke-width="2"/>
+  <text x="235" y="168" fill="#facc15" font-family="Fira Code, monospace" font-size="10" font-weight="bold">⚡ 2° Impulso en el Aire</text>
+
+  <!-- Parábola 2: Doble Salto -->
+  <path d="M 290 140 Q 400 15 530 112" fill="none" stroke="#34d399" stroke-width="3" stroke-dasharray="6"/>
+  <circle cx="530" cy="112" r="6" fill="#34d399"/>
+
+  <!-- Vectores de Gravedad y Velocidad -->
+  <line x1="400" y1="55" x2="400" y2="105" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="395,102 405,102 400,112" fill="#ef4444"/>
+  <text x="410" y="88" fill="#ef4444" font-family="Fira Code, monospace" font-size="10">Gravedad: 1100 px/s²</text>
+
+  <line x1="550" y1="95" x2="640" y2="95" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="638,90 638,100 648,95" fill="#38bdf8"/>
+  <text x="550" y="83" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">Max Speed: 220 px/s</text>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 2.3: Trayectoria parabólica generada por los parámetros físicos de la Hora 08.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Primera Prueba de Salto</div>
@@ -2244,6 +2402,43 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Añade a <code>Llave_TLS</code> y <code>Cristal_Salting</code> el comportamiento <strong>Seno (Sine)</strong>:
                                     <code>Movimiento: Vertical | Periodo: 2 seg | Magnitud: 5 px</code> (efecto de levitación mágica).</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 780 220" width="100%" style="max-width:760px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="28" fill="#34d399" font-family="Inter, sans-serif" font-size="13" font-weight="bold">COMPORTAMIENTO MATEMÁTICO SENO (SINE) EN BOTS Y COLECCIONABLES</text>
+
+  <!-- Panel Izquierdo: Patrulla Horizontal -->
+  <g transform="translate(25, 45)">
+    <rect x="0" y="0" width="350" height="150" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="15" y="24" fill="#ef4444" font-family="Fira Code, monospace" font-size="11" font-weight="bold">A) Malware_Bot ➔ Sine Horizontal</text>
+    <rect x="45" y="110" width="260" height="16" fill="#334155" stroke="#64748b"/>
+    <!-- Flecha bidireccional -->
+    <line x1="75" y1="85" x2="275" y2="85" stroke="#facc15" stroke-width="2" stroke-dasharray="4"/>
+    <polygon points="75,80 75,90 65,85" fill="#facc15"/>
+    <polygon points="275,80 275,90 285,85" fill="#facc15"/>
+    <!-- Bot en el centro -->
+    <circle cx="175" cy="85" r="14" fill="#ef4444" stroke="#1e1b4b" stroke-width="2"/>
+    <rect x="167" y="81" width="16" height="6" fill="#facc15"/>
+    <text x="55" y="55" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">Magnitud: 60 px (Izquierda ↔ Derecha)</text>
+    <text x="55" y="140" fill="#94a3b8" font-family="Fira Code, monospace" font-size="10">Periodo: 3.0 segundos por ciclo</text>
+  </g>
+
+  <!-- Panel Derecho: Levitación Vertical -->
+  <g transform="translate(400, 45)">
+    <rect x="0" y="0" width="355" height="150" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="15" y="24" fill="#fbbf24" font-family="Fira Code, monospace" font-size="11" font-weight="bold">B) Llave_TLS y Gema ➔ Sine Vertical</text>
+    <!-- Flecha vertical -->
+    <line x1="110" y1="50" x2="110" y2="120" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
+    <polygon points="105,52 115,52 110,42" fill="#38bdf8"/>
+    <polygon points="105,118 115,118 110,128" fill="#38bdf8"/>
+    <!-- Candado Dorado -->
+    <rect x="96" y="73" width="28" height="24" rx="4" fill="#facc15" stroke="#b45309" stroke-width="2"/>
+    <text x="145" y="75" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">Magnitud: 5 px (Arriba ↕ Abajo)</text>
+    <text x="145" y="95" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">Periodo: 2.0 segundos</text>
+    <text x="145" y="115" fill="#34d399" font-family="Inter, sans-serif" font-size="10">Efecto: Levitación Magnética</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 2.4: Comparativa visual entre el comportamiento Seno Horizontal (patrulla) y Seno Vertical (flotación).</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Distribución Estratégica de Ítems</div>
@@ -2271,6 +2466,38 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Intercambia lugar con el compañero de al lado durante 10 minutos y recorre su nivel de principio a fin.</li>
                                 <li>Corrige cualquier bloque donde el personaje se quede atorado o salte fuera de la pantalla.</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 780 210" width="100%" style="max-width:760px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="28" fill="#fbbf24" font-family="Inter, sans-serif" font-size="13" font-weight="bold">GUÍA DE AUDITORÍA VISUAL (PLAYTESTING): ERRORES COMUNES VS DISEÑO CORRECTO</text>
+
+  <!-- Caso Incorrecto -->
+  <g transform="translate(25, 45)">
+    <rect x="0" y="0" width="350" height="145" rx="8" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="15" y="24" fill="#ef4444" font-family="Fira Code, monospace" font-size="11" font-weight="bold">❌ INCORRECTO (El jugador se atora)</text>
+    <!-- Bloques desalineados con escalón de 2px -->
+    <rect x="30" y="105" width="90" height="18" fill="#334155" stroke="#ef4444"/>
+    <rect x="120" y="101" width="90" height="18" fill="#334155" stroke="#ef4444"/>
+    <rect x="210" y="106" width="90" height="18" fill="#334155" stroke="#ef4444"/>
+    <circle cx="120" cy="103" r="10" fill="none" stroke="#facc15" stroke-width="2"/>
+    <text x="25" y="65" fill="#fca5a5" font-family="Inter, sans-serif" font-size="10">• Bloques colocados a mano sin Snap to Grid.</text>
+    <text x="25" y="82" fill="#fca5a5" font-family="Inter, sans-serif" font-size="10">• Escalón de 1 píxel frena en seco al personaje.</text>
+  </g>
+
+  <!-- Caso Correcto -->
+  <g transform="translate(400, 45)">
+    <rect x="0" y="0" width="355" height="145" rx="8" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="15" y="24" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">✅ CORRECTO (Deslizamiento fluido)</text>
+    <!-- Bloques perfectamente nivelados -->
+    <rect x="30" y="105" width="90" height="18" fill="#334155" stroke="#10b981"/>
+    <rect x="120" y="105" width="90" height="18" fill="#334155" stroke="#10b981"/>
+    <rect x="210" y="105" width="90" height="18" fill="#334155" stroke="#10b981"/>
+    <line x1="20" y1="105" x2="320" y2="105" stroke="#00ff66" stroke-width="2" stroke-dasharray="3"/>
+    <text x="25" y="65" fill="#a7f3d0" font-family="Inter, sans-serif" font-size="10">• Bloques alineados con Snap to Grid (16×16).</text>
+    <text x="25" y="82" fill="#a7f3d0" font-family="Inter, sans-serif" font-size="10">• Superficie continua en la misma coordenada Y.</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 2.5: Lista de verificación visual durante el Playtesting Cruzado de la Hora 10.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (15 min) — Evaluación y Firma del Sello 2</div>
