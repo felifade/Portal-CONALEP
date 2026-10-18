@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual Oficial de Creación de Videojuegos - Construct 3 (MTCS-20)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f8fafc;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+        h1 {
+            color: #0f172a;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #00563F;
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #00563F;
+            font-size: 1.6rem;
+            margin-top: 2.2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #1e293b;
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        pre {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 16px 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            border: 1px solid #1e293b;
+        }
+        code {
+            font-family: 'Fira Code', monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            text-align: left;
+        }
+        th {
+            background: #00563F;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        blockquote {
+            border-left: 4px solid #00563F;
+            margin: 1.5rem 0;
+            padding: 12px 20px;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 0 8px 8px 0;
+        }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border: none; padding: 20px 0; max-width: 100%; }
+            pre { background: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Manual Oficial de Prácticas: Creación de Videojuegos 2D con Construct 3</h1>
+<h3>Módulo: Manejo de Tecnologías de Ciberseguridad (MTCS-20)</h3>
+<p><strong>Institución:</strong> CONALEP Plantel Pachuca de Soto (CCT: 13DPT0001D)<br />
+<strong>Carrera:</strong> Profesional Técnico-Bachiller en Informática<br />
+<strong>Grupo:</strong> 501 | <strong>Semestre:</strong> Quinto Semestre (Ciclo Escolar 2026-2027 · Semestre 1.26.27)<br />
+<strong>Docente:</strong> Dr. Felipe López Salazar<br />
+<strong>Unidad de Aprendizaje:</strong> Unidad 3 — <em>Programación y uso de lenguajes informáticos (30 hrs)</em><br />
+<strong>Proyecto Integrador:</strong> <em>«CyberDefender: Infiltración en el Servidor»</em><br />
+<strong>Herramienta Oficial:</strong> Construct 3 (<a href="https://editor.construct.net">editor.construct.net</a>)  </p>
+<hr />
+<h2>📑 ÍNDICE GENERAL DEL MANUAL</h2>
+<ol>
+<li><a href="#1-presentación-del-proyecto">Presentación del Proyecto y Reglas del Laboratorio</a></li>
+<li><a href="#práctica-01-creación-de-sprites-pixel-art-y-animaciones">Práctica 01 (Semana 1): Creación de Sprites Pixel-Art y Animaciones</a></li>
+<li><a href="#práctica-02-escenarios-físicas-y-comportamientos">Práctica 02 (Semana 2): Escenarios, Físicas y Comportamientos (Behaviors)</a></li>
+<li><a href="#práctica-03-hoja-de-eventos-y-lógica-algorítmica">Práctica 03 (Semana 3): Hoja de Eventos, Lógica Algorítmica y Ciberseguridad</a></li>
+<li><a href="#práctica-04-interfaz-hud-audio-y-publicación-web">Práctica 04 (Semana 4): Interfaz HUD, Efectos de Audio y Publicación Web</a></li>
+<li><a href="#rúbrica-de-evaluación-oficial">Rúbrica de Evaluación Oficial del Videojuego (Tercer Corte)</a></li>
+</ol>
+<hr />
+<h2>1. PRESENTACIÓN DEL PROYECTO</h2>
+<h3>🎯 Propósito Formativo</h3>
+<p>El propósito de este proyecto es que los estudiantes de 501 consoliden los conceptos teóricos de ciberdefensa (la Tríada CIA, vectores de ataque, cifrado TLS, salting y control de accesos) mediante la <strong>programación visual y algorítmica de un videojuego funcional</strong>.</p>
+<p>A través de <strong>Construct 3</strong>, los alumnos aprenderán:
+- Estructuración de objetos gráficos en memoria (<em>Sprites, Tilemaps</em>).
+- Declaración y manipulación de variables globales y locales (<em>Vidas, Puntos, Estado de Claves</em>).
+- Algoritmos de control de flujo condicional (<em>If/Else, Bucles, Disparadores de Eventos</em>).
+- Físicas simuladas (<em>Gravedad, Aceleración, Detección de Colisiones AABB</em>).
+- Exportación e integración de aplicaciones web enriquecidas para el portal escolar.</p>
+<h3>🕹️ Sinopsis Argumental del Juego</h3>
+<blockquote>
+<p><em>«En el año 2026, el servidor central del plantel ha sido infectado por una cepa desconocida de Ransomware que amenaza con cifrar permanentemente las calificaciones y expedientes escolares. El jugador asume el rol del </em><em>Analista de Ciberdefensa</em><em>, quien debe infiltrarse en los pasillos lógicos del Centro de Datos, esquivar centinelas de malware, recolectar llaves criptográficas TLS para desbloquear puertas de máxima seguridad (<code>chmod 600</code>) y alcanzar la terminal maestra para aplicar el parche de mitigación antes de que el contador de riesgo alcance el 100%.»</em></p>
+</blockquote>
+<hr />
+<h2>PRÁCTICA 01: CREACIÓN DE SPRITES PIXEL-ART Y ANIMACIONES</h2>
+<p><strong>Duración:</strong> 5 Horas (Semana 1 del Proyecto)<br />
+<strong>Herramientas:</strong> Editor de Animaciones de Construct 3 / <a href="https://www.piskelapp.com">Piskel</a>  </p>
+<h3>🎯 Objetivo de la Sesión</h3>
+<p>Diseñar la hoja de sprites (<em>SpriteSheet</em>) y los elementos visuales del juego en formato Pixel-Art (resolución de 32×32 píxeles), estableciendo los puntos de colisión y las secuencias de animación requeridas para el motor.</p>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+│                       CATÁLOGO DE SPRITES A CREAR                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. HÉROE (Analista): 32x32 px · Traje oscuro con visor cian/verde.          │
+│    • Animación 'Idle' (Quieto): 2 cuadros de respiración.                   │
+│    • Animación 'Run' (Corriendo): 4 a 6 cuadros de movimiento de piernas.   │
+│    • Animación 'Jump' (Saltando): 1 cuadro suspendido en el aire.           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 2. ENEMIGO (Bot Malware): 32x32 px · Aspecto robótico/bicho con luz roja.   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 3. LLAVE TLS (Puerto 443): 16x16 px · Candado dorado brillante.             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 4. CRISTAL DE SALTING: 16x16 px · Gema azul de alta entropía.               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 5. TILESET DEL SERVIDOR: 32x32 px · Gabinetes de servidores, luces y piso.  │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>📋 Paso a Paso en Construct 3:</h3>
+<ol>
+<li><strong>Crear el Proyecto Nuevo:</strong></li>
+<li>Entra a <a href="https://editor.construct.net">editor.construct.net</a>.</li>
+<li>Haz clic en <strong>«Nuevo Proyecto»</strong>.</li>
+<li>Nombre: <code>CyberDefender_Apellido_501</code>.</li>
+<li>Tamaño de la ventana (<em>Viewport Size</em>): <code>640 x 360</code> (Relación panorámica 16:9 ideal para Pixel-Art).</li>
+<li>
+<p>Orientación: <strong>Horizontal (Landscape)</strong>.</p>
+</li>
+<li>
+<p><strong>Crear el Sprite del Héroe:</strong></p>
+</li>
+<li>Haz doble clic en el lienzo central de trabajo.</li>
+<li>En la lista de objetos, selecciona <strong>«Sprite»</strong> y nómbralo <code>Jugador</code>.</li>
+<li>Haz clic en cualquier parte de la pantalla para abrir el <strong>Editor de Animaciones</strong>.</li>
+<li>En la barra superior del editor, ajusta el tamaño a <code>32 x 32</code> píxeles.</li>
+<li>
+<p>Utiliza la paleta de colores para dibujar al analista con su visor tecnológico.</p>
+</li>
+<li>
+<p><strong>Configurar las Animaciones del Personaje:</strong></p>
+</li>
+<li>En la ventana derecha del editor (<em>Animations</em>), haz clic derecho sobre <code>Default</code> y renómbrala como <code>Idle</code>.</li>
+<li>Crea una nueva animación llamada <code>Run</code> y añade 4 cuadros de movimiento.</li>
+<li>Velocidad (<em>Speed</em>): Pon <code>8</code> cuadros por segundo y marca la casilla <strong>Bucle (Loop)</strong> en <code>Sí</code>.</li>
+<li>
+<p>Crea la animación <code>Jump</code> (1 solo cuadro con las piernas flexionadas).</p>
+</li>
+<li>
+<p><strong>Ajuste del Punto de Origen y Caja de Colisión:</strong></p>
+</li>
+<li>En la herramienta izquierda del editor, haz clic en el icono de mira (<strong>«Punto de Origen»</strong> / <em>Origin</em>).</li>
+<li>Presiona en el teclado numérico el <code>2</code> (o haz clic abajo al centro de los pies del personaje).<br />
+<em>(Regla de Oro: El punto de apoyo de un personaje siempre debe estar en la base de sus pies).</em></li>
+<li>
+<p>Haz clic en la herramienta <strong>«Editar polígono de colisión»</strong> y ajusta el recuadro para que cubra exactamente el cuerpo del héroe (sin dejar espacios vacíos).</p>
+</li>
+<li>
+<p><strong>Guardar el Proyecto:</strong></p>
+</li>
+<li>Menú ➔ Proyecto ➔ Guardar como ➔ <strong>Descargar una copia</strong> (archivo <code>.c3p</code>).</li>
+</ol>
+<p><em>📦 Producto a Sellar (Sello 1 - Videojuegos):</em> Catálogo de 5 sprites diseñados con animaciones activas en Construct 3.</p>
+<hr />
+<h2>PRÁCTICA 02: ESCENARIOS, FÍSICAS Y COMPORTAMIENTOS</h2>
+<p><strong>Duración:</strong> 5 Horas (Semana 2 del Proyecto)<br />
+<strong>Herramientas:</strong> Construct 3 (Capas, Comportamientos y Físicas)  </p>
+<h3>🎯 Objetivo de la Sesión</h3>
+<p>Construir la arquitectura del nivel (pasillos del centro de datos y plataformas sólidas) y programar las físicas cinemáticas de movimiento del jugador mediante los comportamientos nativos de Construct 3.</p>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+│                     ESTRUCTURA DE CAPAS (LAYERS)                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 3. Capa 'HUD': [Parallax 0%, 0%] ➔ Marcador fijo en pantalla (Texto, Vidas).│
+│ 2. Capa 'Juego': [Parallax 100%, 100%] ➔ Jugador, Enemigos, Plataformas.   │
+│ 1. Capa 'Fondo': [Parallax 50%, 50%] ➔ Paredes oscuras, servidores lejanos.│
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>📋 Paso a Paso en Construct 3:</h3>
+<ol>
+<li><strong>Configuración de Capas (<em>Layers</em>):</strong></li>
+<li>En el panel derecho, abre la pestaña <strong>Capas</strong> (<em>Layers</em>).</li>
+<li>Nombra la capa actual como <code>Juego</code>.</li>
+<li>Añade una capa debajo llamada <code>Fondo</code> y bloquea su candado para no moverla por error.</li>
+<li>
+<p>Añade una capa arriba llamada <code>HUD</code> (aquí irá el marcador en la Semana 4).</p>
+</li>
+<li>
+<p><strong>Asignar Comportamientos al Jugador:</strong></p>
+</li>
+<li>Selecciona a tu sprite <code>Jugador</code>.</li>
+<li>En el panel izquierdo de <strong>Propiedades</strong>, busca la sección <strong>Comportamientos</strong> (<em>Behaviors</em>) y haz clic en <strong>«Añadir nuevo comportamiento»</strong>.</li>
+<li>
+<p>Agrega los siguientes 3 comportamientos esenciales:</p>
+<ul>
+<li>🏃 <strong>Plataforma (Platform):</strong> Le otorga aceleración, velocidad y gravedad automática.</li>
+<li>🎥 <strong>Desplazar hasta (ScrollTo):</strong> Hace que la cámara del juego siga al jugador suavemente.</li>
+<li>🛑 <strong>Restringido a la escena (BoundToLayout):</strong> Impide que el jugador camine fuera de los límites del nivel.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ajuste de Parámetros Físicos del Jugador:</strong></p>
+</li>
+<li>
+<p>En las propiedades de <em>Plataforma</em>, configura:</p>
+<ul>
+<li><strong>Velocidad máxima:</strong> <code>220</code> px/seg.</li>
+<li><strong>Aceleración:</strong> <code>1000</code> px/seg².</li>
+<li><strong>Fuerza de salto:</strong> <code>480</code> px/seg.</li>
+<li><strong>Gravedad:</strong> <code>1100</code> px/seg².</li>
+</ul>
+</li>
+<li>
+<p><strong>Construir el Piso y Plataformas Sólidas:</strong></p>
+</li>
+<li>Haz doble clic en el lienzo y añade un nuevo Sprite llamado <code>Piso_Servidor</code>.</li>
+<li>Píntalo con apariencia metálica de rejilla de centro de datos.</li>
+<li>En <strong>Comportamientos</strong>, agrégale el comportamiento <strong>«Sólido» (Solid)</strong>.</li>
+<li>
+<p>Duplica el piso por todo el escenario usando <code>Ctrl + Arrastrar</code> para crear plataformas elevadas y escalones.</p>
+</li>
+<li>
+<p><strong>Añadir el Enemigo Patrullero:</strong></p>
+</li>
+<li>Inserta el sprite <code>Malware_Bot</code>.</li>
+<li>
+<p>Agrégale el comportamiento <strong>«Seno» (Sine)</strong> o <strong>«Plataforma»</strong> para que se mueva horizontalmente patrullando una plataforma fija.</p>
+</li>
+<li>
+<p><strong>Comprobación:</strong> Presiona el botón de <strong>Play (▶️)</strong>. El héroe debe correr, saltar sobre las plataformas y la cámara debe acompañar su avance por todo el mapa.</p>
+</li>
+</ol>
+<p><em>📦 Producto a Sellar (Sello 2 - Videojuegos):</em> Nivel transitable con físicas afinadas, plataformas sólidas y cámara de seguimiento.</p>
+<hr />
+<h2>PRÁCTICA 03: HOJA DE EVENTOS, LÓGICA ALGORÍTMICA Y CIBERSEGURIDAD</h2>
+<p><strong>Duración:</strong> 5 Horas (Semana 3 del Proyecto)<br />
+<strong>Herramientas:</strong> Hoja de Eventos (<em>Event Sheet</em>) de Construct 3  </p>
+<h3>🎯 Objetivo de la Sesión</h3>
+<p>Traducir los conceptos de ciberseguridad a lógica algorítmica de eventos, variables de estado y detección de colisiones dentro de la Hoja de Eventos.</p>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+│                    TABLA DE VARIABLES GLOBALES DEL JUEGO                    │
+├─────────────────┬───────────┬───────────────┬───────────────────────────────┤
+│ NOMBRE VARIABLE │ TIPO      │ VALOR INICIAL │ PROPÓSITO TÉCNICO             │
+├─────────────────┼───────────┼───────────────┼───────────────────────────────┤
+│ Vidas           │ Número    │ 3             │ Contador de integridad física │
+│ Puntos          │ Número    │ 0             │ Mitigación acumulada          │
+│ TieneLlaveTLS   │ Booleano  │ 0 (Falso)     │ Permiso de apertura de puerto │
+│ Invulnerable    │ Booleano  │ 0 (Falso)     │ Escudo activo por Salting     │
+└─────────────────┴───────────┴───────────────┴───────────────────────────────┘
+</code></pre>
+<h3>📋 Paso a Paso en la Hoja de Eventos (<em>Event Sheet 1</em>):</h3>
+<h4>1. Creación de Variables Globales:</h4>
+<ul>
+<li>Abre la pestaña <strong>Event Sheet 1</strong>.</li>
+<li>Haz clic derecho en el espacio vacío ➔ <strong>«Añadir variable global»</strong>.</li>
+<li>Declara las 4 variables de la tabla anterior.</li>
+</ul>
+<h4>2. Evento 1: Control de Animaciones del Jugador</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Jugador ➔ Está moviéndose (Is moving)</code><br />
+  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Run"</code></li>
+<li><strong>Evento:</strong> <code>Jugador ➔ Está en el suelo (Is on floor)</code> <strong>Y</strong> <code>Jugador ➔ Invertir (No se mueve)</code><br />
+  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Idle"</code></li>
+<li><strong>Evento:</strong> <code>Jugador ➔ Está saltando (Is jumping)</code><br />
+  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Jump"</code></li>
+</ul>
+<h4>3. Evento 2: Inversión del Sprite al Cambiar de Dirección</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Teclado ➔ Al presionar tecla Flecha Izquierda</code><br />
+  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer reflejado (Set mirrored)</code></li>
+<li><strong>Evento:</strong> <code>Teclado ➔ Al presionar tecla Flecha Derecha</code><br />
+  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer NO reflejado (Set not mirrored)</code></li>
+</ul>
+<h4>4. Evento 3: Mecánica de Daño por Malware (Pérdida de Integridad)</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con otro objeto (Malware_Bot)</code> <strong>Y</strong> <code>Invulnerable = 0</code><br />
+  ➔ <strong>Acción 1:</strong> <code>Sistema ➔ Restar a Vidas: 1</code><br />
+  ➔ <strong>Acción 2:</strong> <code>Jugador ➔ Parpadear (Comportamiento Flash: 0.1s on, 0.1s off, duración 1.5s)</code><br />
+  ➔ <strong>Acción 3:</strong> <code>Sistema ➔ Establecer Invulnerable = 1</code><br />
+  ➔ <strong>Acción 4:</strong> <code>Sistema ➔ Esperar 1.5 segundos ➔ Establecer Invulnerable = 0</code></li>
+</ul>
+<h4>5. Evento 4: Mecánica Criptográfica de la Llave TLS (Puerto 443)</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Llave_TLS</code><br />
+  ➔ <strong>Acción 1:</strong> <code>Llave_TLS ➔ Destruir</code><br />
+  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Establecer TieneLlaveTLS = 1</code><br />
+  ➔ <strong>Acción 3:</strong> <code>Sistema ➔ Sumar a Puntos: 50</code></li>
+</ul>
+<h4>6. Evento 5: Desbloqueo de la Puerta del Servidor (<code>chmod 600</code>)</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Puerta_Servidor</code> <strong>Y</strong> <code>TieneLlaveTLS = 1</code><br />
+  ➔ <strong>Acción 1:</strong> <code>Puerta_Servidor ➔ Destruir (Se abre el candado)</code><br />
+  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Ir a Escena "Victoria"</code></li>
+</ul>
+<h4>7. Evento 6: Mecánica de Salting (Escudo Antivirus)</h4>
+<ul>
+<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Cristal_Salting</code><br />
+  ➔ <strong>Acción 1:</strong> <code>Cristal_Salting ➔ Destruir</code><br />
+  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Establecer Invulnerable = 1</code><br />
+  ➔ <strong>Acción 3:</strong> <code>Jugador ➔ Establecer opacidad: 60% (Efecto visual de escudo)</code><br />
+  ➔ <strong>Acción 4:</strong> <code>Sistema ➔ Esperar 6 segundos ➔ Establecer Invulnerable = 0 y opacidad 100%</code></li>
+</ul>
+<p><em>📦 Producto a Sellar (Sello 3 - Videojuegos):</em> Hoja de eventos programada con colisiones, variables y mecánicas de ciberseguridad operando sin errores.</p>
+<hr />
+<h2>PRÁCTICA 04: INTERFAZ HUD, AUDIO Y PUBLICACIÓN WEB</h2>
+<p><strong>Duración:</strong> 5 Horas (Semana 4 del Proyecto)<br />
+<strong>Herramientas:</strong> Construct 3 (Objeto Texto, Audio y Exportador HTML5)  </p>
+<h3>🎯 Objetivo de la Sesión</h3>
+<p>Incorporar la visualización en tiempo real del estado del sistema (corazones de vida, puntuación de mitigación), efectos de sonido inmersivos y realizar el despliegue web final para su ejecución en computadoras y teléfonos celulares.</p>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+│                       DISEÑO DE LA INTERFAZ HUD                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ❤️ ❤️ ❤️ (Vidas)          PUNTOS: 00150          ESTADO: [ CIFRADO TLS ]     │
+│                                                                             │
+│                                                                             │
+│                       [ ESCENARIO DEL JUEGO ]                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>📋 Paso a Paso en Construct 3:</h3>
+<ol>
+<li><strong>Creación del HUD Fijo en Pantalla:</strong></li>
+<li>Selecciona la capa <code>HUD</code> en el panel de capas.</li>
+<li>En las propiedades de la capa, cambia <strong>Paralaje (Parallax)</strong> a <code>0%, 0%</code>.<br />
+<em>(Esto congela los elementos en la pantalla sin importar hacia dónde camine el jugador).</em></li>
+<li>Inserta un objeto de tipo <strong>Texto</strong> y nómbralo <code>Txt_Puntos</code>.</li>
+<li>
+<p>Inserta un objeto Sprite con 3 cuadros de animación que represente los corazones y nómbralo <code>Sprite_Vidas</code>.</p>
+</li>
+<li>
+<p><strong>Actualizar el HUD en Cada Cuadro (<em>Every Tick</em>):</strong></p>
+</li>
+<li>
+<p>En la Hoja de Eventos, añade el evento:<br />
+<code>Sistema ➔ Cada tick (Every tick)</code><br />
+     ➔ <strong>Acción 1:</strong> <code>Txt_Puntos ➔ Establecer texto a: "PUNTOS: " &amp; Puntos</code><br />
+     ➔ <strong>Acción 2:</strong> <code>Sprite_Vidas ➔ Establecer cuadro de animación a: Vidas</code></p>
+</li>
+<li>
+<p><strong>Condición de Game Over (Brecha de Seguridad):</strong></p>
+</li>
+<li>
+<p><strong>Evento:</strong> <code>Sistema ➔ Comparar variable: Vidas &lt;= 0</code><br />
+     ➔ <strong>Acción 1:</strong> <code>Sistema ➔ Ir a Escena "GameOver"</code><br />
+     ➔ <strong>Acción 2:</strong> <code>Audio ➔ Reproducir sonido de alarma</code></p>
+</li>
+<li>
+<p><strong>Integración de Efectos de Sonido:</strong></p>
+</li>
+<li>En el panel de proyecto, haz clic derecho en la carpeta <strong>Sonidos</strong> ➔ <strong>Importar sonidos</strong>.</li>
+<li>Descarga o genera sonidos retro en <a href="https://sfxr.me">jsfxr</a> (salto, disparo, campana de llave, impacto).</li>
+<li>Añade el objeto <strong>Audio</strong> al proyecto.</li>
+<li>
+<p>Vincula cada acción (salto, colisión de llave, daño) con su sonido correspondiente.</p>
+</li>
+<li>
+<p><strong>Exportación Final a la Web (HTML5):</strong></p>
+</li>
+<li>Menú de Construct 3 ➔ Proyecto ➔ <strong>Exportar</strong>.</li>
+<li>Selecciona la opción <strong>«Web (HTML5)»</strong>.</li>
+<li>Descarga el archivo comprimido <code>.zip</code> generado.</li>
+<li>Descomprime la carpeta y renómbrala con el nombre de tu equipo (ejemplo: <code>Equipo01_G501_CyberDefender</code>).</li>
+<li>Los archivos quedan listos para alojarse en un servidor web local o en el <strong>Portal Web CONALEP</strong> de la materia.</li>
+</ol>
+<p><em>📦 Producto a Sellar (Sello 4 - Videojuegos):</em> Videojuego finalizado, jugable al 100% y entregado en carpeta web HTML5.</p>
+<hr />
+<h2>RÚBRICA DE EVALUACIÓN OFICIAL (PROYECTO TERCER CORTE)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterio de Evaluación</th>
+<th style="text-align: left;">Nivel Excelente (10 - 9)</th>
+<th style="text-align: left;">Nivel Bueno (8 - 7)</th>
+<th style="text-align: left;">Nivel Básico (6)</th>
+<th style="text-align: left;">Insuficiente (5 - 0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Arte y Sprites (25%)</strong></td>
+<td style="text-align: left;">Sprites originales con temática de ciberseguridad, animaciones fluidas (Idle, Run, Jump) y colisiones perfectamente ajustadas.</td>
+<td style="text-align: left;">Sprites temáticos pero con animaciones estáticas o colisiones ligeramente desfasadas.</td>
+<td style="text-align: left;">Sprites básicos geométricos sin animaciones ni detalles visuales.</td>
+<td style="text-align: left;">No presenta sprites propios o utiliza cuadros sin editar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Físicas y Nivel (25%)</strong></td>
+<td style="text-align: left;">Nivel con diseño balanceado, plataformas sólidas sin bugs y física de salto y cámara cinematográfica.</td>
+<td style="text-align: left;">El personaje se mueve bien pero el nivel es muy corto o presenta pequeños saltos bruscos.</td>
+<td style="text-align: left;">Plataformas con huecos o caídas donde el personaje se queda atorado.</td>
+<td style="text-align: left;">El personaje no se mueve o cae al vacío indefinidamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lógica Algorítmica (30%)</strong></td>
+<td style="text-align: left;">Hoja de eventos impecable: variables de vidas y puntos funcionales, daño por malware, llave TLS operativa y mecánica de salting activa.</td>
+<td style="text-align: left;">Lógica funcional pero faltó implementar una de las mecánicas (salting o llaves).</td>
+<td style="text-align: left;">Solo registra movimiento y daño básico; no cuenta con mecánicas de seguridad.</td>
+<td style="text-align: left;">Hoja de eventos con errores graves que bloquean la ejecución del juego.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HUD, Audio y Entrega (20%)</strong></td>
+<td style="text-align: left;">Marcador fijo en pantalla, audio retro inmersivo, pantallas de victoria/derrota y exportación web HTML5 sin fallas.</td>
+<td style="text-align: left;">Cuenta con HUD y audio pero la exportación web presentó errores de formato.</td>
+<td style="text-align: left;">Solo funciona dentro del editor de Construct; carece de sonidos o pantallas finales.</td>
+<td style="text-align: left;">No entregó el juego exportado ni presentó el archivo de proyecto <code>.c3p</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Elaboró:</strong> Dr. Felipe López Salazar · Docente Titular de Ciberseguridad (MTCS-20)<br />
+<strong>CONALEP Plantel Pachuca de Soto</strong> · Semestre 1.26.27</p>
+    </div>
+</body>
+</html>
