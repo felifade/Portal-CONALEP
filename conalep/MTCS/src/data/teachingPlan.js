@@ -77,7 +77,7 @@ export const teachingPlan = {
           title: 'Fundamentos y optimizacion',
           weight: '20%',
           weeks: 3,
-          description: 'Aplica criterios basicos para mejorar seguridad y funcionamiento.',
+          description: 'Proyecto Videojuegos: Arte pixel-art, mecánicas y físicas de plataformas en Construct 3.',
           weekIds: ['W14', 'W15', 'W16'],
         },
         {
@@ -85,7 +85,7 @@ export const teachingPlan = {
           title: 'Estructuras de control',
           weight: '15%',
           weeks: 3,
-          description: 'Documenta y evalua controles de seguridad en escenarios practicos.',
+          description: 'Proyecto Videojuegos: Lógica algorítmica, variables de ciberseguridad, HUD y exportación web.',
           weekIds: ['W17', 'W18', 'W19'],
         },
       ],
