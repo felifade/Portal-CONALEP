@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Oficial de Creación de Videojuegos - Construct 3 | MTCS-20</title>
+    <title>Manual Oficial por Horas: Videojuegos Construct 3 | MTCS-20</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
 
@@ -12,7 +12,7 @@
             --primary-dark: #003d2c;
             --primary-light: #0d8262;
             --secondary: #0f172a;
-            --bg-body: #0b0f19;
+            --bg-body: #090d16;
             --bg-sidebar: #0f172a;
             --bg-card: #1e293b;
             --border-card: #334155;
@@ -41,8 +41,8 @@
 
         /* SIDEBAR NAVEGACIÓN */
         aside.sidebar {
-            width: 320px;
-            min-width: 300px;
+            width: 310px;
+            min-width: 290px;
             background-color: var(--bg-sidebar);
             border-right: 1px solid var(--border-card);
             display: flex;
@@ -52,8 +52,8 @@
         }
 
         .sidebar-header {
-            padding: 24px 20px;
-            background: linear-gradient(180deg, rgba(0,86,63,0.3) 0%, rgba(15,23,42,0) 100%);
+            padding: 22px 20px;
+            background: linear-gradient(180deg, rgba(0,86,63,0.35) 0%, rgba(15,23,42,0) 100%);
             border-bottom: 1px solid var(--border-card);
         }
 
@@ -61,7 +61,7 @@
             display: inline-block;
             background: rgba(16, 185, 129, 0.15);
             color: #34d399;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
             padding: 4px 10px;
             border-radius: 999px;
@@ -79,13 +79,13 @@
         }
 
         .sidebar-header p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             margin-top: 4px;
         }
 
         .nav-menu {
-            padding: 16px 12px;
+            padding: 14px 12px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -93,7 +93,7 @@
         }
 
         .nav-group-title {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 700;
             color: #64748b;
             text-transform: uppercase;
@@ -104,16 +104,31 @@
         .nav-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
             padding: 10px 14px;
             border-radius: 8px;
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 500;
             transition: all 0.2s ease;
             cursor: pointer;
             border: 1px solid transparent;
+        }
+
+        .nav-item-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hours-tag {
+            font-size: 0.68rem;
+            background: rgba(255,255,255,0.08);
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: #94a3b8;
+            font-family: 'Fira Code', monospace;
         }
 
         .nav-item:hover {
@@ -122,36 +137,37 @@
         }
 
         .nav-item.active {
-            background: linear-gradient(90deg, rgba(0,86,63,0.85) 0%, rgba(13,130,98,0.7) 100%);
+            background: linear-gradient(90deg, rgba(0,86,63,0.9) 0%, rgba(13,130,98,0.75) 100%);
             color: #ffffff;
             font-weight: 600;
-            border-color: rgba(52, 211, 153, 0.4);
+            border-color: rgba(52, 211, 153, 0.45);
             box-shadow: 0 4px 12px rgba(0, 86, 63, 0.3);
         }
 
-        .nav-icon {
-            font-size: 1.1rem;
+        .nav-item.active .hours-tag {
+            background: rgba(0,0,0,0.3);
+            color: #34d399;
         }
 
         .sidebar-footer {
             padding: 16px 20px;
             border-top: 1px solid var(--border-card);
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             color: #64748b;
-            line-height: 1.4;
-            background: #090d16;
+            line-height: 1.45;
+            background: #06090f;
         }
 
         /* ÁREA PRINCIPAL DE CONTENIDO */
         main.content-area {
             flex: 1;
             overflow-y: auto;
-            padding: 40px 48px;
+            padding: 36px 48px;
             scroll-behavior: smooth;
         }
 
         .content-container {
-            max-width: 960px;
+            max-width: 980px;
             margin: 0 auto;
         }
 
@@ -172,7 +188,7 @@
 
         /* ESTILOS TIPOGRÁFICOS */
         h1.main-title {
-            font-size: 2rem;
+            font-size: 1.95rem;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 8px;
@@ -193,56 +209,171 @@
             margin-bottom: 24px;
         }
 
-        .card {
+        /* BARRA DE FILTRO RÁPIDO DE HORAS */
+        .hour-pills-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            background: #0f172a;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .hour-jump {
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            background: #1e293b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            transition: all 0.15s;
+        }
+
+        .hour-jump:hover {
+            background: #00563F;
+            color: #ffffff;
+            border-color: #34d399;
+        }
+
+        /* TARJETA POR HORA DIDÁCTICA */
+        .hour-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 12px;
-            padding: 28px;
+            padding: 26px 30px;
             margin-bottom: 28px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+            position: relative;
         }
 
-        h2.card-title {
-            font-size: 1.35rem;
+        .hour-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hour-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(90deg, #00563F 0%, #0d8262 100%);
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid #34d399;
+        }
+
+        .hour-time {
+            font-size: 0.78rem;
+            font-family: 'Fira Code', monospace;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h2.hour-title {
+            font-size: 1.3rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 16px;
+            margin-top: 6px;
+            width: 100%;
+        }
+
+        /* MOMENTOS DIDÁCTICOS (INICIO, DESARROLLO, CIERRE) */
+        .didactic-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin: 16px 0;
+        }
+
+        .moment-box {
+            background: #0f172a;
+            border-left: 4px solid #38bdf8;
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid #1e293b;
+            border-right: 1px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .moment-box.inicio { border-left-color: #f59e0b; }
+        .moment-box.desarrollo { border-left-color: #38bdf8; }
+        .moment-box.cierre { border-left-color: #10b981; }
+
+        .moment-label {
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .moment-box.inicio .moment-label { color: #fbbf24; }
+        .moment-box.desarrollo .moment-label { color: #38bdf8; }
+        .moment-box.cierre .moment-label { color: #34d399; }
+
+        .deliverable-banner {
+            margin-top: 16px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #ecfdf5;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid var(--border-card);
-            padding-bottom: 12px;
-        }
-
-        h3.session-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #38bdf8;
-            margin: 24px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         p {
-            line-height: 1.68;
+            line-height: 1.65;
             color: #cbd5e1;
-            margin-bottom: 14px;
-            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-size: 0.93rem;
+        }
+
+        ul.clean-list {
+            margin-left: 20px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            font-size: 0.91rem;
+        }
+
+        ul.clean-list li {
+            margin-bottom: 6px;
         }
 
         /* BLOQUES DE CÓDIGO Y RETRO */
         pre {
-            background: #090d16;
+            background: #06090f;
             color: #38bdf8;
-            padding: 16px 20px;
+            padding: 14px 18px;
             border-radius: 8px;
             overflow-x: auto;
             font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
+            font-size: 0.83rem;
             border: 1px solid #1e293b;
             line-height: 1.45;
-            margin: 14px 0;
+            margin: 12px 0;
         }
 
         code {
@@ -251,19 +382,19 @@
             color: #34d399;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.88em;
+            font-size: 0.86em;
         }
 
         /* GRID DE PIXEL ART MEJORADO */
         .sprite-showcase {
             display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 24px;
-            background: #0f172a;
+            grid-template-columns: 250px 1fr;
+            gap: 22px;
+            background: #090d16;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 24px;
-            margin: 20px 0;
+            padding: 20px;
+            margin: 16px 0;
             align-items: center;
         }
 
@@ -272,16 +403,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #090d16;
-            padding: 16px;
+            background: #06090f;
+            padding: 14px;
             border-radius: 10px;
             border: 1px solid #1e293b;
         }
 
         .sprite-visual span.label {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            margin-top: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -289,20 +420,20 @@
 
         .pixel-art-canvas {
             border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
             border: 2px solid #334155;
         }
 
         .sprite-details h4 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #f1f5f9;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .palette-bar {
             display: flex;
             gap: 8px;
-            margin: 10px 0 14px 0;
+            margin: 8px 0 12px 0;
             flex-wrap: wrap;
         }
 
@@ -310,7 +441,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-family: 'Fira Code', monospace;
             background: #1e293b;
             padding: 4px 8px;
@@ -323,84 +454,35 @@
             width: 12px;
             height: 12px;
             border-radius: 3px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.25);
         }
 
-        /* BOTÓN COPIAR CUADRÍCULA */
         .btn-copy {
             background: #00563F;
             color: #ffffff;
-            border: none;
-            padding: 8px 14px;
+            border: 1px solid #34d399;
+            padding: 7px 14px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .btn-copy:hover {
             background: #0d8262;
         }
 
-        /* SESIONES DESGLOSADAS */
-        .session-badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        .step-list {
-            list-style: none;
-            counter-reset: step-counter;
-            margin: 16px 0;
-        }
-
-        .step-list li {
-            counter-increment: step-counter;
-            position: relative;
-            padding-left: 42px;
-            margin-bottom: 16px;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-        }
-
-        .step-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 26px;
-            height: 26px;
-            background: #00563F;
-            color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #34d399;
-        }
-
         /* TABLAS MODERNAS */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
+            margin: 16px 0;
+            font-size: 0.88rem;
             background: #0f172a;
             border-radius: 8px;
             overflow: hidden;
@@ -408,7 +490,7 @@
         }
 
         th, td {
-            padding: 12px 16px;
+            padding: 11px 14px;
             text-align: left;
             border-bottom: 1px solid var(--border-card);
         }
@@ -418,42 +500,19 @@
             color: #ffffff;
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             letter-spacing: 0.05em;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) {
-            background: rgba(255,255,255,0.02);
-        }
-
-        /* CALLOUTS INSTITUCIONALES */
-        .callout {
-            border-left: 4px solid var(--primary-light);
-            background: rgba(0, 86, 63, 0.15);
-            padding: 14px 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 16px 0;
-            color: #cbd5e1;
-            font-size: 0.92rem;
-        }
-
-        .callout-title {
-            font-weight: 700;
-            color: #34d399;
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: rgba(255,255,255,0.02); }
 
         /* NAVEGACIÓN INFERIOR ENTRE PÁGINAS */
         .page-nav-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 36px;
-            padding-top: 24px;
+            margin-top: 32px;
+            padding-top: 20px;
             border-top: 1px solid var(--border-card);
         }
 
@@ -466,7 +525,7 @@
             border: 1px solid var(--border-card);
             padding: 12px 20px;
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -479,38 +538,21 @@
         }
 
         @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-                height: auto;
-                overflow: auto;
-            }
-            aside.sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--border-card);
-            }
-            main.content-area {
-                padding: 24px 16px;
-            }
-            .sprite-showcase {
-                grid-template-columns: 1fr;
-            }
+            body { flex-direction: column; height: auto; overflow: auto; }
+            aside.sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-card); }
+            main.content-area { padding: 20px 14px; }
+            .sprite-showcase { grid-template-columns: 1fr; }
         }
 
         @media print {
-            body {
-                background: #fff;
-                color: #000;
-                display: block;
-                height: auto;
-            }
-            aside.sidebar { display: none; }
+            body { background: #fff; color: #000; display: block; height: auto; }
+            aside.sidebar, .hour-pills-nav, .page-nav-buttons, .btn-copy { display: none !important; }
             main.content-area { padding: 0; }
-            .page-section { display: block !important; margin-bottom: 40px; page-break-after: always; }
-            .card { border: 1px solid #ccc; background: #fff; color: #000; box-shadow: none; }
+            .page-section { display: block !important; page-break-after: always; }
+            .hour-card { border: 1px solid #ccc; background: #fff; color: #000; box-shadow: none; break-inside: avoid; }
+            .moment-box { background: #f8fafc; color: #000; border: 1px solid #cbd5e1; }
+            p, ul.clean-list, h2.hour-title { color: #000 !important; }
             pre { background: #f1f5f9; color: #000; border: 1px solid #ccc; }
-            th { background: #00563F !important; color: #fff !important; }
-            .page-nav-buttons { display: none; }
         }
     </style>
 </head>
@@ -520,112 +562,146 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <span class="brand-badge">CONALEP Pachuca II · MTCS-20</span>
-            <h2>CyberDefender</h2>
-            <p>Manual Oficial de Videojuegos 2D con Construct 3</p>
+            <h2>CyberDefender 2D</h2>
+            <p>Manual Didáctico Desglosado por Horas (20 Hrs)</p>
         </div>
 
         <nav class="nav-menu">
-            <div class="nav-group-title">General</div>
+            <div class="nav-group-title">Contexto General</div>
             <a class="nav-item active" onclick="showPage('intro')">
-                <span class="nav-icon">📖</span> 1. Presentación y Contexto
+                <span class="nav-item-left"><span>📖</span> Presentación y Mapa</span>
+                <span class="hours-tag">20h</span>
             </a>
 
-            <div class="nav-group-title">Prácticas por Sesiones</div>
+            <div class="nav-group-title">Secuencia por Semanas y Horas</div>
             <a class="nav-item" onclick="showPage('practica1')">
-                <span class="nav-icon">🎨</span> Sem 1: Sprites Pixel-Art
+                <span class="nav-item-left"><span>🎨</span> Sem 1: Sprites Pixel-Art</span>
+                <span class="hours-tag">H1-H5</span>
             </a>
             <a class="nav-item" onclick="showPage('practica2')">
-                <span class="nav-icon">🕹️</span> Sem 2: Escenarios y Físicas
+                <span class="nav-item-left"><span>🕹️</span> Sem 2: Nivel y Físicas</span>
+                <span class="hours-tag">H6-H10</span>
             </a>
             <a class="nav-item" onclick="showPage('practica3')">
-                <span class="nav-icon">⚙️</span> Sem 3: Hoja de Eventos
+                <span class="nav-item-left"><span>⚙️</span> Sem 3: Lógica y Eventos</span>
+                <span class="hours-tag">H11-H15</span>
             </a>
             <a class="nav-item" onclick="showPage('practica4')">
-                <span class="nav-icon">🚀</span> Sem 4: HUD, Audio y Web
+                <span class="nav-item-left"><span>🚀</span> Sem 4: HUD, Audio y Web</span>
+                <span class="hours-tag">H16-H20</span>
             </a>
 
-            <div class="nav-group-title">Evaluación</div>
+            <div class="nav-group-title">Evaluación Sumativa</div>
             <a class="nav-item" onclick="showPage('rubrica')">
-                <span class="nav-icon">📊</span> Rúbrica de Evaluación
+                <span class="nav-item-left"><span>📊</span> Rúbrica Tercer Corte</span>
+                <span class="hours-tag">100%</span>
             </a>
         </nav>
 
         <div class="sidebar-footer">
             <strong>Dr. Felipe López Salazar</strong><br>
-            Grupo 501 · Ciclo 2026-2027<br>
-            Plataforma: Construct 3
+            Grupo 501 · Semestre 1.26.27<br>
+            Motor: Construct 3 (HTML5)
         </div>
     </aside>
 
-    <!-- ÁREA PRINCIPAL DE CONTENIDO DINÁMICO -->
+    <!-- ÁREA PRINCIPAL DE CONTENIDO -->
     <main class="content-area">
         <div class="content-container">
 
-            <!-- PÁGINA 1: PRESENTACIÓN -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 1: PRESENTACIÓN Y MAPA DE 20 HORAS                         -->
+            <!-- ================================================================= -->
             <section id="page-intro" class="page-section active">
-                <h1 class="main-title">🎮 CyberDefender: Infiltración en el Servidor</h1>
-                <div class="badge-pill">🛡️ Proyecto Integrador de Ciberdefensa · Unidad 3 (30 Horas)</div>
+                <h1 class="main-title">🎮 Proyecto Integrador: CyberDefender (Plan de 20 Horas)</h1>
+                <div class="badge-pill">🛡️ Unidad 3: Programación y Uso de Lenguajes Informáticos · Grupo 501</div>
 
-                <div class="card">
-                    <h2 class="card-title">🎯 Propósito Formativo del Proyecto</h2>
-                    <p>El propósito de este proyecto es que los estudiantes de <strong>501</strong> consoliden los conceptos teóricos de ciberdefensa (la Tríada CIA, vectores de ataque, cifrado TLS, técnicas de salting y control de privilegios <code>chmod 600</code>) mediante la <strong>programación visual y algorítmica de un videojuego funcional</strong>.</p>
-                    <p>A través de <strong>Construct 3</strong>, los alumnos desarrollarán competencias técnicas clave:</p>
-                    <ul style="margin-left: 20px; color: #cbd5e1; line-height: 1.8; margin-bottom: 16px;">
-                        <li><strong>Estructuración Gráfica en Memoria:</strong> Creación de Sprites, Tilemaps y puntos de anclaje (Origin).</li>
-                        <li><strong>Variables Globales y de Instancia:</strong> Control de estado (Vidas, Puntos de Mitigación, Banderas de Llave TLS).</li>
-                        <li><strong>Lógica Algorítmica Condicional:</strong> Sentencias condicionales, detección de colisiones AABB y bucles de evento.</li>
-                        <li><strong>Simulación de Físicas Cinemáticas:</strong> Gravedad, aceleración, fricción y cámaras dinámicas de seguimiento.</li>
-                        <li><strong>Publicación y Despliegue Web:</strong> Compilación multiplataforma en HTML5/JavaScript para su integración al portal escolar.</li>
-                    </ul>
+                <div class="hour-card">
+                    <h2 class="hour-title" style="margin-bottom:12px;">🎯 Propósito Pedagógico y Estructura por Horas</h2>
+                    <p>Este manual está estructurado bajo la <strong>Regla Didáctica por Horas (20 sesiones de 50-60 minutos distribuidas en 4 semanas)</strong>. Cada hora de laboratorio cuenta con momentos de <strong>Inicio, Desarrollo y Cierre</strong>, así como una evidencia tangible y plantillas visuales Pixel-Art listas para que el estudiante copie el diseño píxel por píxel sin bloqueos creativos.</p>
 
-                    <div class="callout">
-                        <div class="callout-title">🕹️ Sinopsis Argumental del Nivel</div>
-                        <em>«En el año 2026, el servidor central del plantel ha sido infectado por una cepa de Ransomware que amenaza con cifrar permanentemente las calificaciones y expedientes escolares. El jugador asume el rol del <strong>Analista de Ciberdefensa</strong>, quien debe infiltrarse en los pasillos lógicos del Centro de Datos, evadir centinelas de malware, recolectar llaves criptográficas TLS para desbloquear puertas de seguridad y aplicar el parche de mitigación antes de que el servidor colapse.»</em>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2 class="card-title">📋 Datos Institucionales y Normativa de Trabajo</h2>
                     <table>
-                        <tr><th>Parámetro</th><th>Especificación Oficial</th></tr>
-                        <tr><td><strong>Institución</strong></td><td>CONALEP Plantel Pachuca de Soto (CCT: 13DPT0001D)</td></tr>
-                        <tr><td><strong>Carrera</strong></td><td>Profesional Técnico-Bachiller en Informática</td></tr>
-                        <tr><td><strong>Módulo</strong></td><td>Manejo de Tecnologías de Ciberseguridad (MTCS-20)</td></tr>
-                        <tr><td><strong>Grupo y Turno</strong></td><td>501 · Turno Matutino</td></tr>
-                        <tr><td><strong>Plataforma Oficial</strong></td><td>Construct 3 Web (<a href="https://editor.construct.net" target="_blank" style="color: #38bdf8;">editor.construct.net</a>)</td></tr>
-                        <tr><td><strong>Formato de Entrega</strong></td><td>Proyecto <code>.c3p</code> + Paquete Web HTML5 Comprimido (<code>.zip</code>)</td></tr>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Horas</th>
+                            <th>Objetivo Técnico</th>
+                            <th>Sello / Entregable Semanal</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Semana 1</strong></td>
+                            <td>Horas 01 a 05</td>
+                            <td>Diseño de los 6 Sprites Pixel-Art (16×16) y animaciones en Construct 3.</td>
+                            <td><strong>Sello 1:</strong> Catálogo de sprites y animaciones <code>.c3p</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Semana 2</strong></td>
+                            <td>Horas 06 a 10</td>
+                            <td>Arquitectura de capas Parallax, plataformas sólidas, físicas y patrullas Sine.</td>
+                            <td><strong>Sello 2:</strong> Nivel jugable con físicas afinadas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Semana 3</strong></td>
+                            <td>Horas 11 a 15</td>
+                            <td>Hoja de eventos: Variables globales, daño, llave TLS, Salting y puerta chmod 600.</td>
+                            <td><strong>Sello 3:</strong> Lógica algorítmica completa y sin bugs.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Semana 4</strong></td>
+                            <td>Horas 16 a 20</td>
+                            <td>Interfaz HUD en vivo, sonido 8-bits, Game Over y compilación Web HTML5.</td>
+                            <td><strong>Sello 4:</strong> Juego exportado en <code>.zip</code> publicado en web.</td>
+                        </tr>
                     </table>
                 </div>
 
                 <div class="page-nav-buttons">
                     <div></div>
-                    <button class="btn-page" onclick="showPage('practica1')">Siguiente: Práctica 01 (Sprites) ➔</button>
+                    <button class="btn-page" onclick="showPage('practica1')">Iniciar Semana 1 (Horas 01 a 05) ➔</button>
                 </div>
             </section>
 
 
-            <!-- PÁGINA 2: PRÁCTICA 01 (SPRITES) -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 2: SEMANA 1 (HORAS 01 A 05) - SPRITES PIXEL-ART            -->
+            <!-- ================================================================= -->
             <section id="page-practica1" class="page-section">
-                <h1 class="main-title">🎨 Práctica 01: Creación de Sprites Pixel-Art</h1>
-                <div class="badge-pill">⏱️ Semana 1 (5 Horas) · Sesiones 1 a 3 · Editor de Animaciones</div>
+                <h1 class="main-title">🎨 Semana 1: Creación de Sprites Pixel-Art y Animaciones</h1>
+                <div class="badge-pill">⏱️ Horas 01 a 05 (5 Horas Efectivas) · Laboratorio Construct 3</div>
 
-                <!-- SESIÓN 1 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 1 (2 Horas): Configuración y El Héroe Ciberdefensor</span>
-                    <h2 class="card-title">1.1 Entorno de Trabajo y El Héroe</h2>
-                    <p>En esta sesión configuraremos el lienzo de Construct 3 con resolución panorámica 16:9 optimizada para pixel-art y dibujaremos al protagonista de la aventura.</p>
+                <div class="hour-pills-nav">
+                    <a href="#h1" class="hour-jump">⏱️ Hora 1: Lienzo y Héroe</a>
+                    <a href="#h2" class="hour-jump">⏱️ Hora 2: Animaciones Héroe</a>
+                    <a href="#h3" class="hour-jump">⏱️ Hora 3: Bot Malware</a>
+                    <a href="#h4" class="hour-jump">⏱️ Hora 4: Llave TLS y Gema</a>
+                    <a href="#h5" class="hour-jump">⏱️ Hora 5: Racks y Sello 1</a>
+                </div>
 
-                    <ol class="step-list">
-                        <li>Ingresa a <a href="https://editor.construct.net" target="_blank" style="color: #38bdf8;">editor.construct.net</a> y haz clic en <strong>«Nuevo Proyecto»</strong>.</li>
-                        <li>Configura el nombre: <code>CyberDefender_Apellido_501</code> | Viewport Size: <code>640 x 360</code> | Orientación: <strong>Horizontal</strong>.</li>
-                        <li>Haz doble clic en el lienzo, selecciona <strong>Sprite</strong>, nómbralo <code>Jugador</code> y haz clic para abrir el editor.</li>
-                        <li>Ajusta las dimensiones del sprite a <code>16 x 16</code> píxeles.</li>
-                    </ol>
+                <!-- HORA 1 -->
+                <div id="h1" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 01 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 1</span>
+                        <h2 class="hour-title">Configuración del Proyecto 16:9 y Dibujo del Héroe (Analista)</h2>
+                    </div>
 
-                    <!-- SPRITE SHOWCASE 1 -->
-                    <div class="sprite-showcase">
-                        <div class="sprite-visual">
-                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Encuadre y Viewport</div>
+                            <p>El docente proyecta <a href="https://editor.construct.net" target="_blank" style="color:#38bdf8;">editor.construct.net</a> y explica por qué los juegos Pixel-Art utilizan resoluciones bajas (<code>640×360</code>) con muestreo <em>Nearest / Trilinear</em> para que los píxeles se vean nítidos y no borrosos.</p>
+                        </div>
+
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Creación del Proyecto y Trazo del Analista</div>
+                            <ul class="clean-list">
+                                <li>Crea un proyecto nuevo llamado <code>CyberDefender_Apellido_501</code> con Viewport <code>640 x 360</code> y orientación <strong>Landscape</strong>.</li>
+                                <li>En Propiedades del Proyecto ➔ Muestreo (Sampling), selecciona <strong>Punto (Point / Nearest)</strong> para nitidez pixel-art.</li>
+                                <li>Haz doble clic en el lienzo ➔ Inserta un objeto <strong>Sprite</strong> llamado <code>Jugador</code> y redimensiona el lienzo de dibujo a <code>16 x 16 px</code>.</li>
+                                <li>Copia exactamente el diseño de la cuadrícula inferior:</li>
+                            </ul>
+
+                            <div class="sprite-showcase">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
 <rect x="5" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
 <rect x="6" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
 <rect x="7" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
@@ -750,60 +826,56 @@
 <rect x="10" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="11" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="12" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
-<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
 </svg>
-                            <span class="label">Sprite 16×16 px</span>
-                        </div>
-                        <div class="sprite-details">
-                            <h4>Héroe: Analista con Visor Neón HUD</h4>
-                            <p>Analista táctico con traje aislante de datacenter y visor biométrico de terminal.</p>
-                            <div class="palette-bar">
-                                <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>Traje #0f172a</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#00ff66"></div>Visor #00ff66</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#fcd34d"></div>Rostro #fcd34d</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#334155"></div>Botas #334155</div>
+                                    <span class="label">Héroe 16×16 px</span>
+                                </div>
+                                <div class="sprite-details">
+                                    <h4>Plantilla 1: Analista de Ciberdefensa</h4>
+                                    <p>Traje táctico oscuro con visor verde neón (Terminal HUD) y núcleo de energía en el pecho.</p>
+                                    <div class="palette-bar">
+                                        <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>T: #0f172a</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#00ff66"></div>V: #00ff66</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#fcd34d"></div>P: #fcd34d</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#334155"></div>B: #334155</div>
+                                    </div>
+                                    <button class="btn-copy" onclick="copyGrid('grid-hero')">📋 Copiar Matriz de Píxeles</button>
+                                </div>
                             </div>
-                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
-                                <strong>Regla de Origen:</strong> Presiona tecla <code>2</code> en el teclado numérico para colocar el punto de anclaje (Origin) exactamente en los pies (<code>X: 8, Y: 16</code>).
-                            </div>
-                            <button class="btn-copy" onclick="copyGrid('grid-hero')">📋 Copiar Cuadrícula ASCII</button>
-                        </div>
-                    </div>
-
-                    <pre id="grid-hero" style="display:none;">
+                            <pre id="grid-hero" style="display:none;">
       0 1 2 3 4 5 6 7 8 9 A B C D E F
 Fila 0: . . . . . T T T T T T . . . . .
 Fila 1: . . . . T T T T T T T T . . . .
@@ -822,18 +894,68 @@ Fila D: . . . . B B B . . B B B . . . .
 Fila E: . . . B B B B . . B B B B . . .
 Fila F: . . . B B B B . . B B B B . . .
 </pre>
+                        </div>
+
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Punto de Origen en Pies</div>
+                            <p>Selecciona la herramienta <strong>Punto de Origen (Origin)</strong> en el editor y presiona la tecla numérica <code>2</code> para colocar el ancla exactamente en la base de las botas (<code>X: 8, Y: 16</code>). Descarga respaldo <code>.c3p</code>.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 01:</strong> Proyecto creado en Construct 3 con el Sprite del Héroe dibujado a 16×16 px y origen en la base.</div>
                 </div>
 
-                <!-- SESIÓN 2 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 2 (2 Horas): Bot Malware y Llave Criptográfica TLS</span>
-                    <h2 class="card-title">1.2 Enemigos y Coleccionables de Seguridad</h2>
-                    <p>Diseñaremos los elementos de interacción: el centinela de malware patrullero y la llave TLS obligatoria para cruzar puertos cifrados.</p>
+                <!-- HORA 2 -->
+                <div id="h2" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 02 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 1</span>
+                        <h2 class="hour-title">Animaciones Cinemáticas del Héroe (Idle, Run y Jump)</h2>
+                    </div>
 
-                    <!-- SPRITE SHOWCASE 2: ENEMIGO -->
-                    <div class="sprite-showcase">
-                        <div class="sprite-visual">
-                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Concepto de Fotogramas por Segundo (FPS)</div>
+                            <p>Explicación de cómo la ilusión de movimiento se logra alternando cuadros (*frames*) y por qué debemos habilitar la opción <strong>Loop (Bucle)</strong> en las animaciones continuas.</p>
+                        </div>
+
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Creación de las 3 Secuencias</div>
+                            <ul class="clean-list">
+                                <li><strong>Animación 1 (<code>Idle</code>):</strong> Renombra <code>Default</code> a <code>Idle</code>. Haz clic derecho en el cuadro 0 ➔ <em>Duplicar</em>. En el cuadro 1, selecciona la cabeza y el torso con la herramienta rectángulo y bájalos <code>1 píxel</code>. Pon <strong>Speed: 3</strong> y <strong>Loop: Sí</strong> (efecto de respiración).</li>
+                                <li><strong>Animación 2 (<code>Run</code>):</strong> Crea una nueva animación llamada <code>Run</code> (Speed: 8, Loop: Sí). Duplica 4 cuadros alternando la altura de las botas izquierda y derecha (subiendo 2 píxeles un pie mientras el otro baja).</li>
+                                <li><strong>Animación 3 (<code>Jump</code>):</strong> Crea la animación <code>Jump</code> (Speed: 0, Loop: No) con un solo cuadro donde ambas botas suben 2 píxeles simulando impulso en el aire.</li>
+                            </ul>
+                        </div>
+
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Polígono de Colisión Rectangular</div>
+                            <p>Abre la herramienta <strong>Polígono de Colisión</strong>, haz clic derecho ➔ <em>Ajustar a caja delimitadora (Set to bounding box)</em> y aplica a todas las animaciones para que el personaje no se atore en el piso al respirar o correr.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 02:</strong> Héroe con 3 animaciones configuradas (Idle, Run, Jump) y caja de colisión uniforme.</div>
+                </div>
+
+                <!-- HORA 3 -->
+                <div id="h3" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 03 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 1</span>
+                        <h2 class="hour-title">Diseño del Enemigo: Bot de Malware / Centinela Troyano</h2>
+                    </div>
+
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Psicología del Color en Amenazas</div>
+                            <p>En diseño de videojuegos, los objetos que causan daño utilizan colores cálidos de alta saturación (rojo `#ef4444` y amarillo `#facc15`) para que el cerebro del jugador los identifique como peligro en milisegundos.</p>
+                        </div>
+
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Dibujo del Bot Malware 16×16</div>
+                            <p>Crea un nuevo Sprite llamado <code>Malware_Bot</code> de <code>16 x 16 px</code> y replica la plantilla:</p>
+
+                            <div class="sprite-showcase">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
 <rect x="1" y="0" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
 <rect x="14" y="0" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
 <rect x="2" y="1" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
@@ -952,83 +1074,85 @@ Fila F: . . . B B B B . . B B B B . . .
 <rect x="14" y="13" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
 <rect x="1" y="14" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
 <rect x="14" y="14" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
-<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
 </svg>
-                            <span class="label">Sprite 16×16 px</span>
+                                    <span class="label">Malware Bot 16×16 px</span>
+                                </div>
+                                <div class="sprite-details">
+                                    <h4>Plantilla 2: Centinela Troyano</h4>
+                                    <p>Dron arácnido infectado con domo rojo, ojo escáner amarillo y patas mecánicas.</p>
+                                    <div class="palette-bar">
+                                        <div class="color-chip"><div class="color-dot" style="background:#ef4444"></div>R: #ef4444</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>O: #facc15</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#1e1b4b"></div>N: #1e1b4b</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#94a3b8"></div>P: #94a3b8</div>
+                                    </div>
+                                    <button class="btn-copy" onclick="copyGrid('grid-enemy')">📋 Copiar Matriz de Píxeles</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="sprite-details">
-                            <h4>Enemigo: Centinela Bot de Malware</h4>
-                            <p>Robot corruptor arácnido con chasis de alerta roja y sensor de escaneo amarillo.</p>
-                            <div class="palette-bar">
-                                <div class="color-chip"><div class="color-dot" style="background:#ef4444"></div>Carcasa #ef4444</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>Sensor #facc15</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#1e1b4b"></div>Chasis #1e1b4b</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#94a3b8"></div>Patas #94a3b8</div>
-                            </div>
-                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
-                                <strong>Colisión Octagonal:</strong> Ajusta el polígono de colisión únicamente a la cabeza esférica roja. No incluyas las patas para no castigar al jugador injustamente.
-                            </div>
-                            <button class="btn-copy" onclick="copyGrid('grid-enemy')">📋 Copiar Cuadrícula ASCII</button>
+
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Animación del Sensor y Colisión Justa</div>
+                            <p>Duplica el cuadro y mueve el punto rojo central del ojo 1 píxel a la izquierda y derecha (Speed: 5, Loop: Sí). Ajusta el polígono de colisión solo al cuerpo rojo, dejando fuera las antenas y patas.</p>
                         </div>
                     </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 03:</strong> Sprite <code>Malware_Bot</code> animado y con polígono de colisión indulgente para el jugador.</div>
+                </div>
 
-                    <pre id="grid-enemy" style="display:none;">
-      0 1 2 3 4 5 6 7 8 9 A B C D E F
-Fila 0: . P . . . . . . . . . . P . . .
-Fila 1: . . P . . . . . . . . P . . . .
-Fila 2: . . . R R R R R R R R R R . . .
-Fila 3: . . R R R R R R R R R R R R . .
-Fila 4: . R R N N N N N N N N N N R R .
-Fila 5: . R R N O O O O O O O O N R R .
-Fila 6: . R R N O O R R R R O O N R R .
-Fila 7: . R R N N N N N N N N N N R R .
-Fila 8: . . R R R R R R R R R R R R . .
-Fila 9: . . . R R R R R R R R R R . . .
-Fila A: . . . . P . . P P . . P . . . .
-Fila B: . . . P . . . P P . . . P . . .
-Fila C: . . P . . . . . . . . . . P . .
-Fila D: . P . . . . . . . . . . . . P .
-Fila E: . P . . . . . . . . . . . . P .
-Fila F: . . . . . . . . . . . . . . . .
-</pre>
+                <!-- HORA 4 -->
+                <div id="h4" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 04 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 1</span>
+                        <h2 class="hour-title">Coleccionables Criptográficos: Llave TLS y Cristal de Salting</h2>
+                    </div>
 
-                    <!-- SPRITE SHOWCASE 3: LLAVE TLS -->
-                    <div class="sprite-showcase">
-                        <div class="sprite-visual">
-                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Simbología Criptográfica</div>
+                            <p>Relación teórica: El candado dorado representa el protocolo <strong>TLS (Puerto 443)</strong> para abrir conexiones seguras, y el cristal cian representa el <strong>Salting criptográfico</strong> que añade entropía protectora.</p>
+                        </div>
+
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Trazo de los 2 Ítems de Seguridad</div>
+
+                            <div class="sprite-showcase">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
 <rect x="5" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
 <rect x="6" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
 <rect x="7" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
@@ -1139,89 +1263,59 @@ Fila F: . . . . . . . . . . . . . . . .
 <rect x="10" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
 <rect x="11" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
 <rect x="12" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
-<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
 </svg>
-                            <span class="label">Sprite 16×16 px</span>
-                        </div>
-                        <div class="sprite-details">
-                            <h4>Coleccionable: Candado / Llave TLS (Puerto 443)</h4>
-                            <p>Llave asimétrica dorada con relieve y ranura de cerrojo criptográfico.</p>
-                            <div class="palette-bar">
-                                <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>Oro #facc15</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#b45309"></div>Sombra #b45309</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#ffffff"></div>Brillo #ffffff</div>
-                                <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>Ranura #0f172a</div>
+                                    <span class="label">Llave TLS 16×16 px</span>
+                                </div>
+                                <div class="sprite-details">
+                                    <h4>Plantilla 3: Candado TLS (Puerto 443)</h4>
+                                    <p>Nombre del objeto: <code>Llave_TLS</code>. Origen en el centro (Tecla <code>5</code>).</p>
+                                    <div class="palette-bar">
+                                        <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>D: #facc15</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#b45309"></div>S: #b45309</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#ffffff"></div>B: #ffffff</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>N: #0f172a</div>
+                                    </div>
+                                    <button class="btn-copy" onclick="copyGrid('grid-key')">📋 Copiar Matriz de Píxeles</button>
+                                </div>
                             </div>
-                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
-                                <strong>Punto de Origen:</strong> Presiona tecla <code>5</code> en el teclado numérico para anclar en el centro exacto (<code>X: 8, Y: 8</code>).
-                            </div>
-                            <button class="btn-copy" onclick="copyGrid('grid-key')">📋 Copiar Cuadrícula ASCII</button>
-                        </div>
-                    </div>
 
-                    <pre id="grid-key" style="display:none;">
-      0 1 2 3 4 5 6 7 8 9 A B C D E F
-Fila 0: . . . . . . . . . . . . . . . .
-Fila 1: . . . . . S S S S S S . . . . .
-Fila 2: . . . . S B . . . . B S . . . .
-Fila 3: . . . . S B . . . . B S . . . .
-Fila 4: . . . . S S . . . . S S . . . .
-Fila 5: . . . D D D D D D D D D D . . .
-Fila 6: . . D B B D D D D D D D D S . .
-Fila 7: . . D B D D D D D D D D D S . .
-Fila 8: . . D D D D D D N D D D D S . .
-Fila 9: . . D D D D N N N D D D D S . .
-Fila A: . . D D D D D D N D D D D S . .
-Fila B: . . D D D D D D D D D D D S . .
-Fila C: . . . S S S S S S S S S S . . .
-Fila D: . . . . . . . . . . . . . . . .
-Fila E: . . . . . . . . . . . . . . . .
-Fila F: . . . . . . . . . . . . . . . .
-</pre>
-                </div>
-
-                <!-- SESIÓN 3 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 3 (1 Hora): Cristal de Salting, Racks y Sello 1</span>
-                    <h2 class="card-title">1.3 Entorno del Servidor y Animaciones</h2>
-                    <p>Completaremos los últimos 2 sprites del catálogo y configuraremos las secuencias de animación requeridas para el primer sello oficial.</p>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="sprite-visual">
-                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+                            <div class="sprite-showcase">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
 <rect x="6" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
 <rect x="7" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
 <rect x="8" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
@@ -1330,46 +1424,83 @@ Fila F: . . . . . . . . . . . . . . . .
 <rect x="7" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
 <rect x="8" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
 <rect x="9" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
-<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
 </svg>
-                            <span class="label">Cristal Salting (16×16)</span>
-                            <p style="font-size:0.8rem; text-align:center; margin-top:8px;">Gema criptográfica azul de alta entropía que otorga invulnerabilidad temporal.</p>
+                                    <span class="label">Cristal Salting 16×16 px</span>
+                                </div>
+                                <div class="sprite-details">
+                                    <h4>Plantilla 4: Cristal de Salting (Escudo Antivirus)</h4>
+                                    <p>Nombre del objeto: <code>Cristal_Salting</code>. Otorga 6 segundos de inmunidad total.</p>
+                                    <div class="palette-bar">
+                                        <div class="color-chip"><div class="color-dot" style="background:#06b6d4"></div>C: #06b6d4</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#1e3a8a"></div>B: #1e3a8a</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#ffffff"></div>W: #ffffff</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="sprite-visual">
-                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Efecto de Brillo en 2 Cuadros</div>
+                            <p>En ambos coleccionables, duplica el cuadro inicial e invierte los píxeles blancos de brillo para que titilen a <code>4 fps</code>.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 04:</strong> Sprites <code>Llave_TLS</code> y <code>Cristal_Salting</code> terminados con punto de origen central.</div>
+                </div>
+
+                <!-- HORA 5 -->
+                <div id="h5" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 05 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 1</span>
+                        <h2 class="hour-title">Bloques del Servidor, Compuerta chmod 600 y Firma de Sello 1</h2>
+                    </div>
+
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Bloques Modulares (Tiles)</div>
+                            <p>Explicación de cómo un solo bloque de 16×16 repetido en cuadrícula permite construir todo un centro de datos sin consumir memoria RAM.</p>
+                        </div>
+
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (25 min) — Racks de Piso y Compuerta Blindada</div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 14px 0;">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="1" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="2" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
@@ -1626,325 +1757,1150 @@ Fila F: . . . . . . . . . . . . . . . .
 <rect x="13" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="14" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
 <rect x="15" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
-<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
-<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
 </svg>
-                            <span class="label">Rack Servidor / Plataforma (16×16)</span>
-                            <p style="font-size:0.8rem; text-align:center; margin-top:8px;">Gabinete con luces LED de actividad de red para pisos y plataformas.</p>
+                                    <span class="label">5. Piso_Servidor (16×16)</span>
+                                    <p style="font-size:0.8rem; text-align:center; margin-top:6px;">Bloque metálico con LEDs verdes y rojos (#22c55e, #ef4444, #334155).</p>
+                                </div>
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="2" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="4" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="5" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="6" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="7" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="8" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="9" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="10" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="11" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="12" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="13" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="15" y="0" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="1" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="3" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="4" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="5" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="6" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="7" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="8" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="9" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="11" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="12" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="13" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="14" y="1" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="1" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="2" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="7" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="8" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="12" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="13" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="2" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="2" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="3" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="3" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="3" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="3" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="3" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="3" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="4" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="4" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="4" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="4" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="4" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="4" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="5" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="5" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="5" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="5" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="5" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="5" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="6" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="6" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="6" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="6" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="7" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="7" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="7" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="7" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="8" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="8" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="8" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="8" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="9" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="9" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="9" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="9" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="9" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="9" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="10" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="10" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="10" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="10" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="10" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="10" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="11" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="11" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="11" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="11" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="11" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="11" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="12" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="4" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="5" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="6" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="7" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="8" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="9" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="10" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="11" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="12" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="13" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="12" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="12" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="13" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="2" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="3" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="4" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="5" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="6" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="7" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="8" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="9" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="10" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="11" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="12" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="13" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="14" y="13" width="1" height="1" fill="#475569" shape-rendering="crispEdges"/>
+<rect x="15" y="13" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="2" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="4" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="5" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="6" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="7" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="8" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="9" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="10" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="11" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="12" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="13" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="15" y="14" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="0" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="1" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="2" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="3" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="4" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="5" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="6" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="7" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="8" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="9" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="10" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="11" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="12" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="13" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="14" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<rect x="15" y="15" width="1" height="1" fill="#1e293b" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+</svg>
+                                    <span class="label">6. Puerta_Servidor (16×16)</span>
+                                    <p style="font-size:0.8rem; text-align:center; margin-top:6px;">Compuerta blindada con emblema de candado que exige la Llave TLS.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (15 min) — Auditoría y Firma del Sello 1</div>
+                            <p>El docente revisa en pantalla los 6 objetos en el panel de Proyecto de Construct 3 y registra el <strong>Sello 1</strong>.</p>
                         </div>
                     </div>
-
-                    <div class="callout" style="margin-top: 20px;">
-                        <div class="callout-title">📦 Requisito para Firma de Sello 1 (Videojuegos)</div>
-                        El alumno debe presentar su archivo <code>.c3p</code> con los 5 sprites creados, el héroe con animación <strong>Idle</strong> (2 frames) y <strong>Run</strong> (4 frames en bucle), y orígenes en base de pies.
-                    </div>
+                    <div class="deliverable-banner">🏆 <strong>Meta de la Semana 1 (Hora 05):</strong> Firma del Sello 1 en bitácora y respaldo <code>Sem1_Sprites_Apellido.c3p</code>.</div>
                 </div>
 
                 <div class="page-nav-buttons">
                     <button class="btn-page" onclick="showPage('intro')">⬅️ Anterior: Presentación</button>
-                    <button class="btn-page" onclick="showPage('practica2')">Siguiente: Práctica 02 (Físicas) ➔</button>
+                    <button class="btn-page" onclick="showPage('practica2')">Siguiente: Semana 2 (Horas 06 a 10) ➔</button>
                 </div>
             </section>
 
 
-            <!-- PÁGINA 3: PRÁCTICA 02 (FÍSICAS) -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 3: SEMANA 2 (HORAS 06 A 10) - ESCENARIOS Y FÍSICAS         -->
+            <!-- ================================================================= -->
             <section id="page-practica2" class="page-section">
-                <h1 class="main-title">🕹️ Práctica 02: Escenarios, Físicas y Comportamientos</h1>
-                <div class="badge-pill">⏱️ Semana 2 (5 Horas) · Sesiones 4 a 6 · Behaviors y Plataformas</div>
+                <h1 class="main-title">🕹️ Semana 2: Escenarios, Físicas y Comportamientos</h1>
+                <div class="badge-pill">⏱️ Horas 06 a 10 (5 Horas Efectivas) · Arquitectura de Niveles</div>
 
-                <!-- SESIÓN 4 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 4 (2 Horas): Arquitectura de Capas y Plataformas Sólidas</span>
-                    <h2 class="card-title">2.1 Estructura del Nivel y Parallax</h2>
-                    <p>Separaremos el mundo visual en 3 niveles de profundidad para lograr una sensación de inmersión 2D profesional.</p>
-
-                    <pre>
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                     ESTRUCTURA DE CAPAS (LAYERS)                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 3. Capa 'HUD':    [Parallax 0%, 0%]   ➔ Interfaz fija (Corazones y Puntos). │
-│ 2. Capa 'Juego':  [Parallax 100%, 100%] ➔ Jugador, Bots, Llaves y Plataformas│
-│ 1. Capa 'Fondo':  [Parallax 50%, 50%] ➔ Servidores distantes con efecto 3D. │
-└─────────────────────────────────────────────────────────────────────────────┘
-                    </pre>
-
-                    <ol class="step-list">
-                        <li>En el panel lateral derecho, abre la pestaña <strong>Capas</strong> (<em>Layers</em>).</li>
-                        <li>Nombra la capa actual como <code>Juego</code>.</li>
-                        <li>Crea una capa debajo llamada <code>Fondo</code> y bloquea su candado para protegerla.</li>
-                        <li>Crea una capa superior llamada <code>HUD</code> con Parallax en <code>0%, 0%</code>.</li>
-                        <li>Crea el sprite <code>Piso_Servidor</code>, agrégale el comportamiento <strong>Sólido (Solid)</strong> y duplícalo con <code>Ctrl + Arrastrar</code>.</li>
-                    </ol>
+                <div class="hour-pills-nav">
+                    <a href="#h6" class="hour-jump">⏱️ Hora 6: Capas y Parallax</a>
+                    <a href="#h7" class="hour-jump">⏱️ Hora 7: Plataformas Sólidas</a>
+                    <a href="#h8" class="hour-jump">⏱️ Hora 8: Físicas del Jugador</a>
+                    <a href="#h9" class="hour-jump">⏱️ Hora 9: Cámara y Patrullas</a>
+                    <a href="#h10" class="hour-jump">⏱️ Hora 10: Playtesting y Sello 2</a>
                 </div>
 
-                <!-- SESIÓN 5 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 5 (2 Horas): Físicas de Plataforma y Cámara Dinámica</span>
-                    <h2 class="card-title">2.2 Cinemática del Jugador y Cámara de Seguimiento</h2>
-                    <p>Asignaremos los comportamientos que permiten al analista correr, saltar y ser enfocado por la cámara del juego.</p>
-
-                    <ol class="step-list">
-                        <li>Selecciona al <code>Jugador</code> ➔ En el panel Propiedades busca <strong>Comportamientos</strong> (<em>Behaviors</em>).</li>
-                        <li>Añade los 3 comportamientos fundamentales:
-                            <ul style="margin: 6px 0 0 16px;">
-                                <li>🏃 <strong>Plataforma (Platform):</strong> Control cinemático de salto y aceleración.</li>
-                                <li>🎥 <strong>Desplazar hasta (ScrollTo):** Cámara suave que sigue al héroe.</li>
-                                <li>🛑 <strong>Restringido a la escena (BoundToLayout):</strong> Impide salir del nivel.</li>
-                            </ul>
-                        </li>
-                        <li>Configura los valores físicos recomendados para Pixel-Art:
-                            <ul style="margin: 6px 0 0 16px;">
-                                <li><strong>Velocidad máxima:</strong> <code>220 px/s</code></li>
-                                <li><strong>Aceleración:</strong> <code>1000 px/s²</code></li>
-                                <li><strong>Fuerza de salto:</strong> <code>480 px/s</code></li>
-                                <li><strong>Gravedad:</strong> <code>1100 px/s²</code></li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-
-                <!-- SESIÓN 6 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 6 (1 Hora): Enemigos Patrulleros y Sello 2</span>
-                    <h2 class="card-title">2.3 Patrullas de Malware y Validación de Nivel</h2>
-                    <p>Programaremos la patrulla autónoma del malware usando el comportamiento <strong>Seno (Sine)</strong> horizontal y verificaremos que el nivel sea jugable.</p>
-
-                    <div class="callout">
-                        <div class="callout-title">📦 Requisito para Firma de Sello 2 (Videojuegos)</div>
-                        Nivel completo y transitable donde el jugador camina, brinca sin atorarse en las esquinas, la cámara acompaña su avance y los bots flotan/patrullan sus áreas designadas.
+                <!-- HORA 6 -->
+                <div id="h6" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 06 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 2</span>
+                        <h2 class="hour-title">Arquitectura de Capas (Layers) y Efecto Parallax 3D</h2>
                     </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Profundidad Multicapa</div>
+                            <p>Análisis de cómo los juegos 2D profesionales separan el fondo, el plano de acción y la interfaz en capas con distintas velocidades de desplazamiento (*Parallax*).</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Configuración de las 3 Capas Oficiales</div>
+                            <ul class="clean-list">
+                                <li>Amplía el tamaño del escenario (*Layout Size*) a <code>1920 x 360</code> píxeles (3 pantallas de largo).</li>
+                                <li>En el panel <strong>Capas (Layers)</strong>, crea y ordena de abajo hacia arriba:
+                                    <pre>
+Capa 2: "HUD"   ➔ Parallax: 0% x 0%     (Congelada en pantalla para marcadores)
+Capa 1: "Juego" ➔ Parallax: 100% x 100% (Velocidad real para Jugador y Plataformas)
+Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de profundidad)
+                                    </pre>
+                                </li>
+                                <li>Pinta el color de fondo de la Capa <code>Fondo</code> en azul noche cyber (<code>#090d16</code>) y coloca gabinetes decorativos con opacidad al 40%.</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Bloqueo de Seguridad</div>
+                            <p>Activa el icono de <strong>candado</strong> en la capa <code>Fondo</code> para evitar colocar por accidente al jugador o a los enemigos ahí.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 06:</strong> Escenario extendido a 1920×360 px con 3 capas configuradas con Parallax diferenciado.</div>
+                </div>
+
+                <!-- HORA 7 -->
+                <div id="h7" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 07 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 2</span>
+                        <h2 class="hour-title">Construcción del Centro de Datos y Comportamiento Sólido</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Snap to Grid (Ajuste a Cuadrícula)</div>
+                            <p>En la pestaña <strong>Vista (View)</strong>, activa <em>Ajustar a la cuadrícula (Snap to grid)</em> con tamaño <code>16 x 16</code> para que todas las plataformas encajen milimétricamente.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Trazado de Pasillos, Abismos y Escalones</div>
+                            <ul class="clean-list">
+                                <li>Selecciona la capa <code>Juego</code>.</li>
+                                <li>Añade al objeto <code>Piso_Servidor</code> y a <code>Puerta_Servidor</code> el comportamiento <strong>Sólido (Solid)</strong>.</li>
+                                <li>Clona los bloques manteniendo presionada la tecla <code>Ctrl + Arrastrar</code> para construir:
+                                    1) Una zona segura de inicio, 2) Tres plataformas elevadas de salto, 3) Dos fosos de caída y 4) El pasillo final bloqueado por la <code>Puerta_Servidor</code>.</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Revisión de Distancias de Salto</div>
+                            <p>Verifica que ninguna plataforma esté separada por más de 5 bloques de ancho ni más de 3 bloques de altura.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 07:</strong> Nivel del centro de datos maquetado con bloques sólidos alineados a cuadrícula 16×16.</div>
+                </div>
+
+                <!-- HORA 8 -->
+                <div id="h8" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 08 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 2</span>
+                        <h2 class="hour-title">Físicas Cinemáticas del Jugador (Comportamiento Plataforma)</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Gravedad y Aceleración</div>
+                            <p>Diferencia entre un movimiento robótico constante y una física con inercia profesional.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Calibración del Motor de Plataforma</div>
+                            <ul class="clean-list">
+                                <li>Selecciona al <code>Jugador</code> y agrégale los comportamientos <strong>Plataforma (Platform)</strong> y <strong>Restringido a la escena (BoundToLayout)</strong>.</li>
+                                <li>Introduce los parámetros oficiales del manual en las propiedades de Plataforma:
+                                    <pre>
+• Velocidad Máxima (Max Speed): 220 px/s
+• Aceleración (Acceleration):   1000 px/s²
+• Desaceleración (Deceleration):1200 px/s²
+• Fuerza de Salto (Jump):       480 px/s
+• Gravedad (Gravity):           1100 px/s²
+• Doble Salto (Double Jump):    Activado (Habilitado)
+                                    </pre>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Primera Prueba de Salto</div>
+                            <p>Presiona <strong>Play (▶️)</strong> y comprueba que el analista responde a las flechas del teclado y realiza el doble salto con fluidez.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 08:</strong> Jugador con físicas calibradas y doble salto operativo.</div>
+                </div>
+
+                <!-- HORA 9 -->
+                <div id="h9" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 09 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 2</span>
+                        <h2 class="hour-title">Cámara de Seguimiento (ScrollTo) y Patrullas con Onda Senoidal (Sine)</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — El Comportamiento Matemático Seno (Sine)</div>
+                            <p>Explicación de cómo la función trigonométrica $\sin(t)$ permite mover enemigos de izquierda a derecha o hacer flotar llaves suavemente sin escribir una sola línea de código.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Cámara y Movimiento de Entidades</div>
+                            <ul class="clean-list">
+                                <li>Añade al <code>Jugador</code> el comportamiento <strong>Desplazar hasta (ScrollTo)</strong> para que la cámara lo siga por todo el nivel de 1920 px.</li>
+                                <li>Añade al <code>Malware_Bot</code> el comportamiento <strong>Seno (Sine)</strong>:
+                                    <code>Movimiento: Horizontal | Periodo: 3 seg | Magnitud: 60 px</code>. Coloca 4 bots patrullando pasillos clave.</li>
+                                <li>Añade a <code>Llave_TLS</code> y <code>Cristal_Salting</code> el comportamiento <strong>Seno (Sine)</strong>:
+                                    <code>Movimiento: Vertical | Periodo: 2 seg | Magnitud: 5 px</code> (efecto de levitación mágica).</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Distribución Estratégica de Ítems</div>
+                            <p>Coloca el <code>Cristal_Salting</code> antes de la zona con más bots de malware, y la <code>Llave_TLS</code> en la plataforma más alta del nivel.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 09:</strong> Cámara dinámica activa, 4 bots patrullando y coleccionables levitando en el escenario.</div>
+                </div>
+
+                <!-- HORA 10 -->
+                <div id="h10" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 10 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 2</span>
+                        <h2 class="hour-title">Pruebas de Recorrido (Playtesting Cruzado) y Firma de Sello 2</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — ¿Qué es el Playtesting?</div>
+                            <p>El creador de un nivel suele conocer sus propios trucos; por ello, otro compañero debe probarlo para detectar saltos imposibles o plataformas mal colocadas.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (25 min) — Auditoría entre Pares</div>
+                            <ul class="clean-list">
+                                <li>Intercambia lugar con el compañero de al lado durante 10 minutos y recorre su nivel de principio a fin.</li>
+                                <li>Corrige cualquier bloque donde el personaje se quede atorado o salte fuera de la pantalla.</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (15 min) — Evaluación y Firma del Sello 2</div>
+                            <p>El docente verifica el movimiento de cámara, Parallax y patrullas, otorgando el <strong>Sello 2</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">🏆 <strong>Meta de la Semana 2 (Hora 10):</strong> Firma del Sello 2 y respaldo <code>Sem2_Nivel_Apellido.c3p</code>.</div>
                 </div>
 
                 <div class="page-nav-buttons">
-                    <button class="btn-page" onclick="showPage('practica1')">⬅️ Anterior: Práctica 01</button>
-                    <button class="btn-page" onclick="showPage('practica3')">Siguiente: Práctica 03 (Lógica) ➔</button>
+                    <button class="btn-page" onclick="showPage('practica1')">⬅️ Anterior: Semana 1</button>
+                    <button class="btn-page" onclick="showPage('practica3')">Siguiente: Semana 3 (Horas 11 a 15) ➔</button>
                 </div>
             </section>
 
 
-            <!-- PÁGINA 4: PRÁCTICA 03 (LÓGICA) -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 4: SEMANA 3 (HORAS 11 A 15) - HOJA DE EVENTOS              -->
+            <!-- ================================================================= -->
             <section id="page-practica3" class="page-section">
-                <h1 class="main-title">⚙️ Práctica 03: Hoja de Eventos y Ciberseguridad</h1>
-                <div class="badge-pill">⏱️ Semana 3 (5 Horas) · Sesiones 7 a 9 · Event Sheet y Algoritmos</div>
+                <h1 class="main-title">⚙️ Semana 3: Hoja de Eventos y Lógica de Ciberseguridad</h1>
+                <div class="badge-pill">⏱️ Horas 11 a 15 (5 Horas Efectivas) · Programación Algorítmica</div>
 
-                <!-- SESIÓN 7 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 7 (2 Horas): Variables Globales y Máquina de Estados</span>
-                    <h2 class="card-title">3.1 Control de Animaciones y Memoria del Sistema</h2>
-                    <p>Declararemos las variables de ciberdefensa en memoria y programaremos el selector automático de animaciones (Idle, Run, Jump).</p>
+                <div class="hour-pills-nav">
+                    <a href="#h11" class="hour-jump">⏱️ Hora 11: Variables y Teclado</a>
+                    <a href="#h12" class="hour-jump">⏱️ Hora 12: Máquina de Estados</a>
+                    <a href="#h13" class="hour-jump">⏱️ Hora 13: Daño y Flash</a>
+                    <a href="#h14" class="hour-jump">⏱️ Hora 14: Llave TLS y chmod 600</a>
+                    <a href="#h15" class="hour-jump">⏱️ Hora 15: Escudo Salting y Sello 3</a>
+                </div>
 
-                    <table>
-                        <tr><th>Variable Global</th><th>Tipo</th><th>Valor Inicial</th><th>Propósito Técnico</th></tr>
-                        <tr><td><code>Vidas</code></td><td>Número</td><td>3</td><td>Contador de integridad del héroe</td></tr>
-                        <tr><td><code>Puntos</code></td><td>Número</td><td>0</td><td>Registros de mitigación acumulada</td></tr>
-                        <tr><td><code>TieneLlaveTLS</code></td><td>Booleano</td><td>0 (Falso)</td><td>Permiso de apertura de puerta chmod 600</td></tr>
-                        <tr><td><code>Invulnerable</code></td><td>Booleano</td><td>0 (Falso)</td><td>Escudo de hash salting activo</td></tr>
-                    </table>
+                <!-- HORA 11 -->
+                <div id="h11" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 11 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 3</span>
+                        <h2 class="hour-title">Variables Globales en Memoria y Control de Dirección (Teclado)</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Paradigma Condición ➔ Acción</div>
+                            <p>En Construct 3 cada bloque lógico evalúa una condición (<em>Si ocurre esto...</em>) y dispara una o varias acciones (<em>...ejecuta aquello</em>).</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Declaración de Variables y Espejado</div>
+                            <ul class="clean-list">
+                                <li>Haz doble clic en el escenario e inserta el objeto <strong>Teclado (Keyboard)</strong>.</li>
+                                <li>Abre <code>Event Sheet 1</code>, haz clic derecho en el área vacía ➔ <strong>Añadir variable global</strong> y crea las 4 variables:
+                                    <code>Vidas = 3</code> (Número), <code>Puntos = 0</code> (Número), <code>TieneLlaveTLS = 0</code> (Número/Booleano), <code>Invulnerable = 0</code> (Número).</li>
+                                <li>Programa el giro visual del personaje al caminar:
+                                    <pre>
+[Evento 1]: Teclado ➔ Al presionar Flecha Izquierda
+  ➔ [Acción]: Jugador ➔ Establecer reflejado (Set mirrored)
 
-                    <pre>
-// EVENT SHEET 1: CONTROL DE ANIMACIONES DEL JUGADOR
-[Evento]: Jugador ➔ Está moviéndose (Is moving)
+[Evento 2]: Teclado ➔ Al presionar Flecha Derecha
+  ➔ [Acción]: Jugador ➔ Establecer NO reflejado (Set not mirrored)
+                                    </pre>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Prueba de Giro</div>
+                            <p>Ejecuta el juego y verifica que el visor verde del héroe voltea hacia la izquierda y derecha correctamente.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 11:</strong> 4 variables globales en memoria y eventos de dirección operando.</div>
+                </div>
+
+                <!-- HORA 12 -->
+                <div id="h12" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 12 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 3</span>
+                        <h2 class="hour-title">Máquina de Estados: Control Automático de Animaciones</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — ¿Qué es una Máquina de Estados?</div>
+                            <p>El jugador solo puede estar en un estado físico a la vez: quieto en el piso (<code>Idle</code>), corriendo en el piso (<code>Run</code>) o en el aire (<code>Jump</code>).</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Programación de Animaciones y Caída al Abismo</div>
+                            <pre>
+[Evento 3]: Jugador ➔ Plataforma: Está moviéndose (Is moving)
+            Jugador ➔ Plataforma: Está en el suelo (Is on floor)
   ➔ [Acción]: Jugador ➔ Establecer animación a "Run"
 
-[Evento]: Jugador ➔ Está en el suelo (Is on floor) Y Jugador ➔ Invertir (No se mueve)
+[Evento 4]: Jugador ➔ Plataforma: NO se está moviendo (Invertir Is moving)
+            Jugador ➔ Plataforma: Está en el suelo (Is on floor)
   ➔ [Acción]: Jugador ➔ Establecer animación a "Idle"
 
-[Evento]: Jugador ➔ Está saltando (Is jumping)
+[Evento 5]: Jugador ➔ Plataforma: Está saltando (Is jumping)
   ➔ [Acción]: Jugador ➔ Establecer animación a "Jump"
-                    </pre>
+
+// DETECCIÓN DE CAÍDA AL VACÍO:
+[Evento 6]: Jugador ➔ Comparar Y > 380 (Salió por debajo del nivel)
+  ➔ [Acción]: Sistema ➔ Reiniciar escena (Restart layout) y Restar 1 a Vidas
+                            </pre>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Depuración de Transiciones</div>
+                            <p>Comprueba que el personaje cambia instantáneamente entre respirar, correr y saltar.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 12:</strong> Máquina de estados de animación funcionando sin parpadeos.</div>
                 </div>
 
-                <!-- SESIÓN 8 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 8 (2 Horas): Mecánicas de Ciberdefensa (Colisiones y Llaves)</span>
-                    <h2 class="card-title">3.2 Cifrado TLS, Salting y Pérdida de Integridad</h2>
-                    <p>Traduciremos los conceptos de ciberseguridad en eventos lógicos de juego:</p>
-
-                    <pre>
-// DAÑO POR MALWARE (PÉRDIDA DE INTEGRIDAD):
-[Evento]: Jugador ➔ Al colisionar con Malware_Bot Y Invulnerable = 0
+                <!-- HORA 13 -->
+                <div id="h13" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 13 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 3</span>
+                        <h2 class="hour-title">Mecánica de Daño por Malware y Parpadeo de Inmunidad (Flash)</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — ¿Por qué necesitamos 1.5s de inmunidad tras un golpe?</div>
+                            <p>Si no bloqueamos el daño temporalmente tras tocar un enemigo, el motor restará 60 vidas por segundo y el jugador morirá al instante.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Comportamiento Flash y Evento de Impacto</div>
+                            <ul class="clean-list">
+                                <li>Añade al <code>Jugador</code> el comportamiento <strong>Parpadeo (Flash)</strong>.</li>
+                                <li>Programa el evento compuesto en la Hoja de Eventos:
+                                    <pre>
+[Evento 7]: Jugador ➔ Al colisionar con Malware_Bot
+            Sistema ➔ Comparar variable: Invulnerable = 0
   ➔ [Acción 1]: Sistema ➔ Restar a Vidas: 1
-  ➔ [Acción 2]: Jugador ➔ Parpadear (Flash: 0.1s on, 0.1s off, 1.5s total)
-  ➔ [Acción 3]: Sistema ➔ Establecer Invulnerable = 1
-  ➔ [Acción 4]: Sistema ➔ Esperar 1.5 s ➔ Establecer Invulnerable = 0
+  ➔ [Acción 2]: Sistema ➔ Establecer Invulnerable = 1
+  ➔ [Acción 3]: Jugador ➔ Parpadear (0.1s encendido, 0.1s apagado, durante 1.5s)
+  ➔ [Acción 4]: Sistema ➔ Esperar 1.5 segundos
+  ➔ [Acción 5]: Sistema ➔ Establecer Invulnerable = 0
+                                    </pre>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Prueba de Impacto</div>
+                            <p>Choca contra un bot de malware y verifica que el héroe parpadea durante 1.5 segundos antes de poder recibir otro impacto.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 13:</strong> Sistema de daño e inmunidad post-impacto programado.</div>
+                </div>
 
-// LLAVE CRIPTOGRÁFICA TLS (PUERTO 443):
-[Evento]: Jugador ➔ Al colisionar con Llave_TLS
+                <!-- HORA 14 -->
+                <div id="h14" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 14 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 3</span>
+                        <h2 class="hour-title">Autenticación Criptográfica: Llave TLS y Apertura de Puerta chmod 600</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Control de Acceso Basado en Llaves</div>
+                            <p>Analogía directa con Linux y redes: la compuerta del servidor tiene permisos <code>chmod 600</code> (solo propietario con llave autorizada puede cruzar).</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Recolección y Validación Condicional</div>
+                            <pre>
+// RECOLECCIÓN DE LA LLAVE TLS:
+[Evento 8]: Jugador ➔ Al colisionar con Llave_TLS
   ➔ [Acción 1]: Llave_TLS ➔ Destruir
   ➔ [Acción 2]: Sistema ➔ Establecer TieneLlaveTLS = 1
-  ➔ [Acción 3]: Sistema ➔ Sumar a Puntos: 50
+  ➔ [Acción 3]: Sistema ➔ Sumar a Puntos: 100
 
-// ESCUDO DE SALTING (ALTA ENTROPÍA):
-[Evento]: Jugador ➔ Al colisionar con Cristal_Salting
-  ➔ [Acción 1]: Cristal_Salting ➔ Destruir
-  ➔ [Acción 2]: Sistema ➔ Establecer Invulnerable = 1
-  ➔ [Acción 3]: Jugador ➔ Opacidad: 60% (Efecto Escudo)
-  ➔ [Acción 4]: Sistema ➔ Esperar 6 s ➔ Invulnerable = 0 y Opacidad 100%
-                    </pre>
+// APERTURA DE LA COMPUERTA DEL SERVIDOR:
+[Evento 9]: Jugador ➔ Al colisionar con Puerta_Servidor
+            Sistema ➔ Comparar variable: TieneLlaveTLS = 1
+  ➔ [Acción 1]: Puerta_Servidor ➔ Destruir
+  ➔ [Acción 2]: Sistema ➔ Sumar a Puntos: 250
+                            </pre>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Validación de Seguridad</div>
+                            <p>Comprueba dos escenarios: 1) Intentar cruzar la puerta sin llave (debe bloquear el paso), 2) Tomar la llave y tocar la puerta (debe abrirse).</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 14:</strong> Mecánica de llave TLS y desbloqueo de compuerta funcionando.</div>
                 </div>
 
-                <!-- SESIÓN 9 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 9 (1 Hora): Puerta del Servidor (chmod 600) y Sello 3</span>
-                    <h2 class="card-title">3.3 Desbloqueo de Puertos y Victoria</h2>
-                    <p>Si el jugador tiene la llave TLS (<code>TieneLlaveTLS = 1</code>), la puerta de máxima seguridad se destruye y permite acceder a la terminal de victoria.</p>
-
-                    <div class="callout">
-                        <div class="callout-title">📦 Requisito para Firma de Sello 3 (Videojuegos)</div>
-                        Hoja de eventos con variables globales operando, pérdida de vidas por impacto, recolección de llave TLS y apertura exitosa de la puerta.
+                <!-- HORA 15 -->
+                <div id="h15" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 15 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 3</span>
+                        <h2 class="hour-title">Escudo Antivirus (Cristal Salting) y Firma de Sello 3</h2>
                     </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Power-Ups Temporales</div>
+                            <p>Cómo otorgar al jugador una ventaja táctica temporal para atravesar pasillos densamente infectados.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (25 min) — Programación del Escudo y Destrucción de Bots</div>
+                            <pre>
+// ACTIVACIÓN DEL ESCUDO DE SALTING (6 SEGUNDOS):
+[Evento 10]: Jugador ➔ Al colisionar con Cristal_Salting
+  ➔ [Acción 1]: Cristal_Salting ➔ Destruir
+  ➔ [Acción 2]: Sistema ➔ Establecer Invulnerable = 1
+  ➔ [Acción 3]: Jugador ➔ Establecer opacidad a 55% (Efecto holográfico)
+  ➔ [Acción 4]: Sistema ➔ Sumar a Puntos: 50
+  ➔ [Acción 5]: Sistema ➔ Esperar 6.0 segundos
+  ➔ [Acción 6]: Sistema ➔ Establecer Invulnerable = 0 y Opacidad a 100%
+                            </pre>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (15 min) — Auditoría de la Hoja de Eventos y Sello 3</div>
+                            <p>El docente verifica los 10 eventos programados y firma el <strong>Sello 3</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">🏆 <strong>Meta de la Semana 3 (Hora 15):</strong> Firma del Sello 3 y respaldo <code>Sem3_Logica_Apellido.c3p</code>.</div>
                 </div>
 
                 <div class="page-nav-buttons">
-                    <button class="btn-page" onclick="showPage('practica2')">⬅️ Anterior: Práctica 02</button>
-                    <button class="btn-page" onclick="showPage('practica4')">Siguiente: Práctica 04 (HUD y Web) ➔</button>
+                    <button class="btn-page" onclick="showPage('practica2')">⬅️ Anterior: Semana 2</button>
+                    <button class="btn-page" onclick="showPage('practica4')">Siguiente: Semana 4 (Horas 16 a 20) ➔</button>
                 </div>
             </section>
 
 
-            <!-- PÁGINA 5: PRÁCTICA 04 (HUD Y WEB) -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 5: SEMANA 4 (HORAS 16 A 20) - HUD, AUDIO Y PUBLICACIÓN WEB -->
+            <!-- ================================================================= -->
             <section id="page-practica4" class="page-section">
-                <h1 class="main-title">🚀 Práctica 04: Interfaz HUD, Audio y Publicación Web</h1>
-                <div class="badge-pill">⏱️ Semana 4 (5 Horas) · Sesiones 10 a 12 · Exportación HTML5</div>
+                <h1 class="main-title">🚀 Semana 4: Interfaz HUD, Audio Retro y Despliegue Web</h1>
+                <div class="badge-pill">⏱️ Horas 16 a 20 (5 Horas Efectivas) · Cierre del Proyecto</div>
 
-                <!-- SESIÓN 10 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 10 (2 Horas): Marcador HUD en Tiempo Real</span>
-                    <h2 class="card-title">4.1 Interfaz Fija en Pantalla (Every Tick)</h2>
-                    <p>Diseñaremos el marcador visual que muestra las vidas restantes y los puntos de mitigación permanentemente fijos en la capa HUD.</p>
-
-                    <pre>
-// ACTUALIZACIÓN CONTINUA DEL MARCADOR EN PANTALLA:
-[Evento]: Sistema ➔ Cada tick (Every tick)
-  ➔ [Acción 1]: Txt_Puntos ➔ Establecer texto a: "PUNTOS: " & Puntos
-  ➔ [Acción 2]: Sprite_Vidas ➔ Establecer cuadro de animación a: Vidas
-                    </pre>
+                <div class="hour-pills-nav">
+                    <a href="#h16" class="hour-jump">⏱️ Hora 16: Diseño del HUD</a>
+                    <a href="#h17" class="hour-jump">⏱️ Hora 17: Every Tick y Estado</a>
+                    <a href="#h18" class="hour-jump">⏱️ Hora 18: Sonido 8-Bits</a>
+                    <a href="#h19" class="hour-jump">⏱️ Hora 19: Game Over y Victoria</a>
+                    <a href="#h20" class="hour-jump">⏱️ Hora 20: Exportación HTML5 y Sello 4</a>
                 </div>
 
-                <!-- SESIÓN 11 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 11 (2 Horas): Efectos de Audio y Pantallas de Cierre</span>
-                    <h2 class="card-title">4.2 Paisaje Sonoro Retro y Condiciones de Fin</h2>
-                    <p>Importaremos efectos generados en <a href="https://sfxr.me" target="_blank" style="color: #38bdf8;">sfxr.me</a> y programaremos el Game Over cuando las vidas lleguen a cero.</p>
-
-                    <ol class="step-list">
-                        <li>En la carpeta <strong>Sonidos</strong> del proyecto, importa efectos para: <em>Salto, Llave TLS, Impacto de Malware y Alarma</em>.</li>
-                        <li>Inserta el objeto <strong>Audio</strong> al proyecto.</li>
-                        <li>Configura la condición de derrota:
-                            <pre style="margin-top: 8px;">
-[Evento]: Sistema ➔ Comparar variable: Vidas <= 0
-  ➔ [Acción 1]: Audio ➔ Reproducir sonido "Alarma_Brecha"
-  ➔ [Acción 2]: Sistema ➔ Ir a Escena "GameOver"
-                            </pre>
-                        </li>
-                    </ol>
-                </div>
-
-                <!-- SESIÓN 12 -->
-                <div class="card">
-                    <span class="session-badge">Sesión 12 (1 Hora): Compilación Web HTML5 y Sello 4</span>
-                    <h2 class="card-title">4.3 Exportación y Despliegue en el Portal CONALEP</h2>
-                    <p>El paso culminante del módulo: convertir el proyecto en una aplicación web estándar lista para jugarse en navegadores.</p>
-
-                    <ol class="step-list">
-                        <li>Menú ➔ Proyecto ➔ <strong>Exportar</strong> ➔ Selecciona <strong>«Web (HTML5)»</strong>.</li>
-                        <li>Descarga el archivo <code>.zip</code> y renómbralo con el nombre de tu equipo (ejemplo: <code>Equipo01_CyberDefender_501.zip</code>).</li>
-                        <li>Entrega al docente tanto el archivo fuente <code>.c3p</code> como el paquete web desplegable.</li>
-                    </ol>
-
-                    <div class="callout">
-                        <div class="callout-title">📦 Requisito para Firma de Sello 4 (Videojuegos)</div>
-                        Videojuego completo funcionando en navegador web, con audio sincronizado, pantalla de victoria/derrota y carpeta HTML5 entregada.
+                <!-- HORA 16 -->
+                <div id="h16" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 16 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 4</span>
+                        <h2 class="hour-title">Diseño Visual del HUD Fijo (Corazones de Integridad y Textos)</h2>
                     </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — ¿Por qué la capa HUD lleva Parallax 0,0?</div>
+                            <p>Porque sus coordenadas quedan clavadas al monitor, funcionando como el tablero de instrumentos de un vehículo.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Creación del Corazón y Etiquetas de Texto</div>
+                            <ul class="clean-list">
+                                <li>Selecciona la capa <code>HUD</code>.</li>
+                                <li>Crea un Sprite llamado <code>Icono_Vida</code> de <code>16 x 16 px</code> con la siguiente plantilla y colócalo en la esquina superior izquierda:</li>
+                            </ul>
+                            <div class="sprite-showcase">
+                                <div class="sprite-visual">
+                                    <svg viewBox="0 0 16 16" width="230" height="230" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="1" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="0" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="15" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="0" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="15" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="0" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="15" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="0" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="15" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="11" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="12" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="12" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="12" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="12" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="13" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="13" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.09)" stroke-width="0.04"/>
+</svg>
+                                    <span class="label">Corazón HUD 16×16 px</span>
+                                </div>
+                                <div class="sprite-details">
+                                    <h4>Plantilla 7: Indicador de Integridad del Sistema</h4>
+                                    <p>Corazón pixel-art rojo brillante con destello superior blanco.</p>
+                                    <div class="palette-bar">
+                                        <div class="color-chip"><div class="color-dot" style="background:#ef4444"></div>R: #ef4444</div>
+                                        <div class="color-chip"><div class="color-dot" style="background:#ffffff"></div>W: #ffffff</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="clean-list">
+                                <li>Inserta dos objetos de tipo <strong>Texto (Text)</strong> en la capa <code>HUD</code> con fuente monoespaciada blanca/verde:
+                                    <code>Txt_Vidas</code> (junto al corazón) y <code>Txt_Marcador</code> (en el centro superior).</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Comprobación de Inmovilidad</div>
+                            <p>Corre por el escenario y verifica que el corazón y los textos permanecen fijos en la parte superior de la pantalla.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 16:</strong> Capa HUD maquetada con icono de integridad y textos alineados.</div>
+                </div>
+
+                <!-- HORA 17 -->
+                <div id="h17" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 17 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 4</span>
+                        <h2 class="hour-title">Sincronización en Tiempo Real (Every Tick) de Vidas, Puntos y TLS</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Concatenación de Textos y Variables con <code>&</code></div>
+                            <p>En Construct 3 el operador ampersand (<code>&</code>) une texto estático entre comillas con el valor vivo de una variable.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Programación del Ciclo Every Tick</div>
+                            <pre>
+[Evento 11]: Sistema ➔ Cada tick (Every tick)
+  ➔ [Acción 1]: Txt_Vidas ➔ Establecer texto a: "x " & Vidas
+  ➔ [Acción 2]: Txt_Marcador ➔ Establecer texto a: "MITIGACIÓN: " & Puntos & " PTS | TLS: " & TieneLlaveTLS
+                            </pre>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Verificación en Vivo</div>
+                            <p>Juega el nivel y observa cómo el marcador sube al recoger la llave TLS y las vidas bajan al tocar un bot.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 17:</strong> Telemetría HUD actualizándose a 60 cuadros por segundo.</div>
+                </div>
+
+                <!-- HORA 18 -->
+                <div id="h18" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 18 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 4</span>
+                        <h2 class="hour-title">Ingeniería de Sonido Retro 8-Bits (Sintetizador sfxr.me)</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Retroalimentación Auditiva</div>
+                            <p>Un salto o una llave recolectada se siente diez veces más satisfactoria cuando emite un sonido sintetizado instantáneo.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Generación e Importación de 4 Efectos `.wav`</div>
+                            <ul class="clean-list">
+                                <li>Abre <a href="https://sfxr.me" target="_blank" style="color:#38bdf8;">sfxr.me</a> y genera 4 archivos <code>.wav</code> usando los botones rápidos:
+                                    1) <code>Salto.wav</code> (Jump), 2) <code>Llave.wav</code> (Pickup/Coin), 3) <code>Escudo.wav</code> (Powerup), 4) <code>Daño.wav</code> (Hit/Hurt).</li>
+                                <li>Haz clic derecho en la carpeta <strong>Sonidos (Sounds)</strong> de Construct 3 ➔ <em>Importar sonidos</em>.</li>
+                                <li>Inserta el objeto <strong>Audio</strong> en el proyecto y agrega la acción <code>Audio ➔ Reproducir</code> dentro de tus eventos de salto, llave, cristal y daño.</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Prueba Acústica</div>
+                            <p>Verifica con audífonos o bocinas que cada acción dispara su efecto de sonido sin retraso.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 18:</strong> Juego sonorizado con 4 efectos retro generados por el alumno.</div>
+                </div>
+
+                <!-- HORA 19 -->
+                <div id="h19" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 19 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 4</span>
+                        <h2 class="hour-title">Condiciones de Cierre: Brecha de Seguridad (Game Over) y Victoria</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — Ciclo Completo de Partida</div>
+                            <p>Todo videojuego debe reiniciar limpiamente sus variables cuando el jugador pierde sus 3 vidas o cuando logra superar la misión.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Reinicio de Estado y Mensaje de Parche Aplicado</div>
+                            <pre>
+// CONDICIÓN DE DERROTA (BRECHA CRÍTICA):
+[Evento 12]: Sistema ➔ Comparar variable: Vidas <= 0
+  ➔ [Acción 1]: Sistema ➔ Restablecer variables globales a valores iniciales (Reset global variables)
+  ➔ [Acción 2]: Sistema ➔ Reiniciar escena (Restart layout)
+
+// CONDICIÓN DE VICTORIA (AL CRUZAR LA PUERTA DEL SERVIDOR):
+[En el Evento 9 (Puerta_Servidor)]:
+  ➔ Añadir Acción: Txt_Marcador ➔ Establecer texto a: "🏆 ¡SERVIDOR PARCHADO CON ÉXITO! PUNTOS: " & Puntos
+                            </pre>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (10 min) — Partida Completa</div>
+                            <p>Prueba perder las 3 vidas para confirmar que todo se restaura a 3 vidas y 0 puntos automáticamente.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">📦 <strong>Producto de la Hora 19:</strong> Ciclo de Victoria y Game Over cerrado sin errores lógicos.</div>
+                </div>
+
+                <!-- HORA 20 -->
+                <div id="h20" class="hour-card">
+                    <div class="hour-header">
+                        <span class="hour-badge">⏱️ Hora 20 de 20</span>
+                        <span class="hour-time">50 Minutos · Semana 4</span>
+                        <h2 class="hour-title">Empaquetado Web HTML5, Entrega Oficial y Firma de Sello 4</h2>
+                    </div>
+                    <div class="didactic-grid">
+                        <div class="moment-box inicio">
+                            <div class="moment-label">🟡 Inicio (10 min) — De Proyecto `.c3p` a Aplicación Web de Producción</div>
+                            <p>Explicación de cómo Construct 3 compila el motor en HTML5, Canvas WebGL y JavaScript listo para alojarse en GitHub Pages o en el Portal CONALEP.</p>
+                        </div>
+                        <div class="moment-box desarrollo">
+                            <div class="moment-label">🔵 Desarrollo (25 min) — Exportación de Paquetes Finales</div>
+                            <ul class="clean-list">
+                                <li>Guarda tu código fuente final: Menú ➔ Proyecto ➔ Guardar como ➔ Descargar copia (<code>Apellido_Nombre_501_Final.c3p</code>).</li>
+                                <li>Exporta para web: Menú ➔ Proyecto ➔ <strong>Exportar</strong> ➔ Selecciona <strong>Web (HTML5)</strong> ➔ Siguiente ➔ Descarga el archivo <code>.zip</code>.</li>
+                                <li>Sube ambos archivos (<code>.c3p</code> y <code>.zip</code>) al canal oficial de entrega indicado por el docente.</li>
+                            </ul>
+                        </div>
+                        <div class="moment-box cierre">
+                            <div class="moment-label">🟢 Cierre (15 min) — Muestra Arcade del Grupo 501 y Sello 4</div>
+                            <p>Exhibición de los videojuegos terminados en el laboratorio y firma del <strong>Sello 4 (Evaluación Final de Unidad 3)</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-banner">🏆 <strong>Meta Final (Hora 20):</strong> Videojuego publicado en HTML5 y los 4 Sellos del Tercer Corte completados.</div>
                 </div>
 
                 <div class="page-nav-buttons">
-                    <button class="btn-page" onclick="showPage('practica3')">⬅️ Anterior: Práctica 03</button>
+                    <button class="btn-page" onclick="showPage('practica3')">⬅️ Anterior: Semana 3</button>
                     <button class="btn-page" onclick="showPage('rubrica')">Siguiente: Rúbrica Oficial ➔</button>
                 </div>
             </section>
 
 
-            <!-- PÁGINA 6: RÚBRICA DE EVALUACIÓN -->
+            <!-- ================================================================= -->
+            <!-- PÁGINA 6: RÚBRICA DE EVALUACIÓN                                   -->
+            <!-- ================================================================= -->
             <section id="page-rubrica" class="page-section">
                 <h1 class="main-title">📊 Rúbrica Oficial de Evaluación (Tercer Corte)</h1>
-                <div class="badge-pill">📋 Ponderación: 100% de la Unidad 3 · Grupo 501</div>
+                <div class="badge-pill">📋 Ponderación: 100% de la Unidad 3 (20 Horas de Laboratorio) · Grupo 501</div>
 
-                <div class="card">
-                    <h2 class="card-title">Matriz Analítica de Desempeño</h2>
+                <div class="hour-card">
+                    <h2 class="hour-title" style="margin-bottom:14px;">Matriz Analítica de Desempeño por Sellos Semanales</h2>
                     <table>
                         <tr>
-                            <th>Criterio de Evaluación</th>
+                            <th>Criterio y Sello</th>
                             <th>Excelente (10 - 9)</th>
                             <th>Bueno (8 - 7)</th>
                             <th>Básico (6)</th>
                             <th>Insuficiente (5 - 0)</th>
                         </tr>
                         <tr>
-                            <td><strong>Arte y Sprites (25%)</strong></td>
-                            <td>Sprites originales de ciberseguridad, animaciones fluidas (Idle, Run, Jump) y colisiones perfectamente ajustadas.</td>
-                            <td>Sprites temáticos pero con animaciones estáticas o colisiones ligeramente desfasadas.</td>
-                            <td>Sprites básicos geométricos sin animaciones ni detalles visuales.</td>
+                            <td><strong>Sello 1: Arte y Sprites (25%)</strong><br><em>Horas 01 a 05</em></td>
+                            <td>Los 6 sprites diseñados a 16×16 px con temática de ciberseguridad, animaciones fluidas (Idle, Run, Jump) y orígenes/colisiones exactos.</td>
+                            <td>Sprites completos pero con animaciones estáticas o polígonos de colisión ligeramente desfasados.</td>
+                            <td>Sprites geométricos incompletos sin animaciones ni detalles visuales.</td>
                             <td>No presenta sprites propios o utiliza cuadros vacíos.</td>
                         </tr>
                         <tr>
-                            <td><strong>Físicas y Nivel (25%)</strong></td>
-                            <td>Nivel balanceado, plataformas sólidas sin bugs y física de salto y cámara cinematográfica.</td>
-                            <td>El personaje se mueve bien pero el nivel es muy corto o presenta pequeños saltos bruscos.</td>
-                            <td>Plataformas con huecos donde el personaje se queda atorado.</td>
-                            <td>El personaje no se mueve o cae al vacío indefinidamente.</td>
+                            <td><strong>Sello 2: Nivel y Físicas (25%)</strong><br><em>Horas 06 a 10</em></td>
+                            <td>Nivel de 1920×360 en 3 capas Parallax, plataformas sólidas alineadas a cuadrícula, física de doble salto y patrullas Sine.</td>
+                            <td>El personaje se mueve bien pero el nivel es corto o no utiliza Parallax en las capas.</td>
+                            <td>Plataformas desalineadas donde el personaje se atora al caminar.</td>
+                            <td>El personaje no se mueve o cae al vacío al iniciar.</td>
                         </tr>
                         <tr>
-                            <td><strong>Lógica Algorítmica (30%)</strong></td>
-                            <td>Hoja de eventos impecable: vidas y puntos funcionales, daño por malware, llave TLS operativa y salting activo.</td>
-                            <td>Lógica funcional pero faltó implementar una mecánica (salting o llaves).</td>
-                            <td>Solo registra movimiento y daño básico; no cuenta con mecánicas de seguridad.</td>
-                            <td>Hoja de eventos con errores graves que impiden jugar.</td>
+                            <td><strong>Sello 3: Lógica y Eventos (30%)</strong><br><em>Horas 11 a 15</em></td>
+                            <td>Los 10 eventos operativos: variables globales, máquina de estados, daño con Flash, llave TLS, puerta chmod 600 y escudo Salting.</td>
+                            <td>Lógica funcional pero faltó programar una mecánica secundaria (Salting o caída al vacío).</td>
+                            <td>Solo registra movimiento básico; carece de llave TLS o sistema de vidas.</td>
+                            <td>Hoja de eventos sin programar o con errores que bloquean el juego.</td>
                         </tr>
                         <tr>
-                            <td><strong>HUD, Audio y Entrega (20%)</strong></td>
-                            <td>Marcador fijo, audio retro inmersivo, pantallas de victoria/derrota y exportación web HTML5 sin fallas.</td>
-                            <td>Cuenta con HUD y audio pero la exportación web presentó errores menores.</td>
-                            <td>Solo funciona dentro de Construct; carece de sonidos o pantallas finales.</td>
-                            <td>No entregó el juego exportado ni presentó el archivo <code>.c3p</code>.</td>
+                            <td><strong>Sello 4: HUD, Audio y Web (20%)</strong><br><em>Horas 16 a 20</em></td>
+                            <td>HUD fijo actualizándose en Every Tick, 4 sonidos 8-bits importados, ciclo de Game Over y paquete HTML5 <code>.zip</code> + <code>.c3p</code> entregados.</td>
+                            <td>Cuenta con HUD y audio pero faltó exportar el paquete Web HTML5.</td>
+                            <td>Solo funciona en vista previa sin sonidos ni marcador de puntos.</td>
+                            <td>No entregó el archivo de proyecto ni completó las sesiones.</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="page-nav-buttons">
-                    <button class="btn-page" onclick="showPage('practica4')">⬅️ Anterior: Práctica 04</button>
+                    <button class="btn-page" onclick="showPage('practica4')">⬅️ Anterior: Semana 4</button>
                     <div></div>
                 </div>
             </section>
@@ -1955,31 +2911,22 @@ Fila F: . . . . . . . . . . . . . . . .
     <!-- SCRIPT DE NAVEGACIÓN Y COPIADO -->
     <script>
         function showPage(pageId) {
-            // Ocultar todas las secciones
             document.querySelectorAll('.page-section').forEach(sec => {
                 sec.classList.remove('active');
             });
-
-            // Desmarcar menú
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
-
-            // Mostrar sección seleccionada
             const target = document.getElementById('page-' + pageId);
             if (target) {
                 target.classList.add('active');
             }
-
-            // Marcar elemento de menú
             const navLink = Array.from(document.querySelectorAll('.nav-item')).find(item => {
                 return item.getAttribute('onclick') && item.getAttribute('onclick').includes(pageId);
             });
             if (navLink) {
                 navLink.classList.add('active');
             }
-
-            // Scroll al inicio
             document.querySelector('.content-area').scrollTop = 0;
         }
 
@@ -1987,7 +2934,7 @@ Fila F: . . . . . . . . . . . . . . . .
             const el = document.getElementById(elementId);
             if (el) {
                 navigator.clipboard.writeText(el.innerText.trim()).then(() => {
-                    alert('¡Cuadrícula ASCII copiada al portapapeles! Puedes pegarla como referencia.');
+                    alert('¡Matriz de píxeles copiada al portapapeles!');
                 }).catch(err => {
                     console.error('Error al copiar:', err);
                 });
