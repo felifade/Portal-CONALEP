@@ -2557,6 +2557,42 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                     </pre>
                                 </li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 245" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="bold">VISTA REAL DE LA HOJA DE EVENTOS (EVENT SHEET 1): VARIABLES Y TECLADO</text>
+
+  <!-- Cabecera de Variables Globales estilo Construct 3 -->
+  <g transform="translate(20, 42)">
+    <rect x="0" y="0" width="760" height="26" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+    <text x="12" y="17" fill="#34d399" font-family="Fira Code, monospace" font-size="11">🌐 Global number Vidas = 3</text>
+
+    <rect x="0" y="30" width="760" height="26" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+    <text x="12" y="47" fill="#34d399" font-family="Fira Code, monospace" font-size="11">🌐 Global number Puntos = 0</text>
+
+    <rect x="0" y="60" width="760" height="26" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+    <text x="12" y="77" fill="#fbbf24" font-family="Fira Code, monospace" font-size="11">🌐 Global number TieneLlaveTLS = 0   <tspan fill="#64748b">// 0 = Bloqueado, 1 = Con Llave</tspan></text>
+
+    <rect x="0" y="90" width="760" height="26" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+    <text x="12" y="107" fill="#38bdf8" font-family="Fira Code, monospace" font-size="11">🌐 Global number Invulnerable = 0    <tspan fill="#64748b">// 0 = Normal, 1 = Escudo Activo</tspan></text>
+  </g>
+
+  <!-- Bloques Condición -> Acción de Teclado -->
+  <g transform="translate(20, 172)">
+    <!-- Evento 1 -->
+    <rect x="0" y="0" width="370" height="28" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="10" y="18" fill="#f1f5f9" font-family="Fira Code, monospace" font-size="10">⌨️ Teclado | Al presionar ⬅️ Izquierda</text>
+    <rect x="380" y="0" width="380" height="28" rx="4" fill="#0f172a" stroke="#38bdf8"/>
+    <text x="392" y="18" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">🏃 Jugador | Establecer Reflejado (Mirrored)</text>
+
+    <!-- Evento 2 -->
+    <rect x="0" y="34" width="370" height="28" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="10" y="52" fill="#f1f5f9" font-family="Fira Code, monospace" font-size="10">⌨️ Teclado | Al presionar ➡️ Derecha</text>
+    <rect x="380" y="34" width="380" height="28" rx="4" fill="#0f172a" stroke="#34d399"/>
+    <text x="392" y="52" fill="#34d399" font-family="Fira Code, monospace" font-size="10">🏃 Jugador | Establecer NO Reflejado (Not mirrored)</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 3.1: Estructura visual de las 4 variables globales y los eventos de inversión de mirada en Construct 3.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Prueba de Giro</div>
@@ -2596,6 +2632,53 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
 [Evento 6]: Jugador ➔ Comparar Y > 380 (Salió por debajo del nivel)
   ➔ [Acción]: Sistema ➔ Reiniciar escena (Restart layout) y Restar 1 a Vidas
                             </pre>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 220" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="13" font-weight="bold">DIAGRAMA DE LA MÁQUINA DE ESTADOS DE ANIMACIÓN DEL JUGADOR</text>
+
+  <!-- Nodo 1: IDLE -->
+  <g transform="translate(45, 65)">
+    <rect x="0" y="0" width="185" height="105" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <text x="45" y="28" fill="#38bdf8" font-family="Fira Code, monospace" font-size="13" font-weight="bold">ESTADO: "Idle"</text>
+    <text x="18" y="52" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• Is on floor (En suelo)</text>
+    <text x="18" y="70" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• ❌ NOT Is moving</text>
+    <text x="18" y="90" fill="#64748b" font-family="Inter, sans-serif" font-size="10">Respiración a 3 FPS</text>
+  </g>
+
+  <!-- Flechas IDLE <-> RUN -->
+  <line x1="235" y1="100" x2="305" y2="100" stroke="#34d399" stroke-width="2"/>
+  <polygon points="303,95 303,105 313,100" fill="#34d399"/>
+  <text x="242" y="92" fill="#34d399" font-family="Fira Code, monospace" font-size="9">Is moving</text>
+
+  <line x1="310" y1="135" x2="240" y2="135" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="242,130 242,140 232,135" fill="#94a3b8"/>
+  <text x="245" y="150" fill="#94a3b8" font-family="Fira Code, monospace" font-size="9">Se detiene</text>
+
+  <!-- Nodo 2: RUN -->
+  <g transform="translate(315, 65)">
+    <rect x="0" y="0" width="185" height="105" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="45" y="28" fill="#34d399" font-family="Fira Code, monospace" font-size="13" font-weight="bold">ESTADO: "Run"</text>
+    <text x="18" y="52" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• Is on floor (En suelo)</text>
+    <text x="18" y="70" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• ✅ Is moving</text>
+    <text x="18" y="90" fill="#64748b" font-family="Inter, sans-serif" font-size="10">Carrera 4 cuadros (8 FPS)</text>
+  </g>
+
+  <!-- Flecha hacia JUMP -->
+  <line x1="505" y1="115" x2="575" y2="115" stroke="#facc15" stroke-width="2"/>
+  <polygon points="573,110 573,120 583,115" fill="#facc15"/>
+  <text x="512" y="105" fill="#facc15" font-family="Fira Code, monospace" font-size="9">Salta (Arriba)</text>
+
+  <!-- Nodo 3: JUMP -->
+  <g transform="translate(585, 65)">
+    <rect x="0" y="0" width="185" height="105" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="40" y="28" fill="#fbbf24" font-family="Fira Code, monospace" font-size="13" font-weight="bold">ESTADO: "Jump"</text>
+    <text x="18" y="52" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• Is jumping (Saltando)</text>
+    <text x="18" y="70" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">• Suspendido en el aire</text>
+    <text x="18" y="90" fill="#64748b" font-family="Inter, sans-serif" font-size="10">1 cuadro (Botas arriba)</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 3.2: Flujo de transición automática entre las 3 animaciones del héroe según sus condiciones de movimiento.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Depuración de Transiciones</div>
@@ -2633,6 +2716,36 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                     </pre>
                                 </li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 215" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#ef4444" font-family="Inter, sans-serif" font-size="13" font-weight="bold">LÍNEA DE TIEMPO: VENTANA DE INMUNIDAD DE 1.5 SEGUNDOS TRAS IMPACTO (FLASH)</text>
+
+  <!-- Eje de tiempo -->
+  <line x1="40" y1="145" x2="750" y2="145" stroke="#475569" stroke-width="3"/>
+
+  <!-- Hito 1: t = 0.0s (Choque) -->
+  <circle cx="90" cy="145" r="9" fill="#ef4444"/>
+  <text x="45" y="175" fill="#ef4444" font-family="Fira Code, monospace" font-size="11" font-weight="bold">t = 0.0 seg (Colisión)</text>
+  <rect x="35" y="50" width="180" height="72" rx="6" fill="rgba(239,68,68,0.12)" stroke="#ef4444"/>
+  <text x="45" y="70" fill="#fca5a5" font-family="Fira Code, monospace" font-size="10">1. Vidas = Vidas - 1</text>
+  <text x="45" y="88" fill="#fca5a5" font-family="Fira Code, monospace" font-size="10">2. Invulnerable = 1</text>
+  <text x="45" y="106" fill="#fca5a5" font-family="Fira Code, monospace" font-size="10">3. Inicia Flash (1.5s)</text>
+
+  <!-- Zona de Parpadeo (0.0s a 1.5s) -->
+  <rect x="240" y="65" width="280" height="55" rx="6" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-dasharray="5"/>
+  <text x="265" y="88" fill="#facc15" font-family="Fira Code, monospace" font-size="11" font-weight="bold">⚡ PARPADEO ACTIVO (Wait 1.5s)</text>
+  <text x="255" y="108" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">El Malware NO puede restar más vidas aquí</text>
+  <line x1="99" y1="145" x2="620" y2="145" stroke="#facc15" stroke-width="5" stroke-dasharray="10,6"/>
+
+  <!-- Hito 2: t = 1.5s (Fin de Inmunidad) -->
+  <circle cx="630" cy="145" r="9" fill="#10b981"/>
+  <text x="565" y="175" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">t = 1.5 seg (Normalidad)</text>
+  <rect x="545" y="55" width="215" height="65" rx="6" fill="rgba(16,185,129,0.12)" stroke="#10b981"/>
+  <text x="558" y="80" fill="#a7f3d0" font-family="Fira Code, monospace" font-size="10">4. Termina espera (Wait)</text>
+  <text x="558" y="100" fill="#34d399" font-family="Fira Code, monospace" font-size="10" font-weight="bold">5. Invulnerable = 0</text>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 3.3: Cronograma que explica cómo la variable Invulnerable evita que el jugador pierda sus 3 vidas en un solo choque.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Prueba de Impacto</div>
@@ -2669,6 +2782,41 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
   ➔ [Acción 1]: Puerta_Servidor ➔ Destruir
   ➔ [Acción 2]: Sistema ➔ Sumar a Puntos: 250
                             </pre>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 220" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#fbbf24" font-family="Inter, sans-serif" font-size="13" font-weight="bold">COMPUERTA LÓGICA DE CONTROL DE ACCESO (PUERTO 443 · CHMOD 600)</text>
+
+  <!-- Escenario A: Sin Llave -->
+  <g transform="translate(25, 45)">
+    <rect x="0" y="0" width="355" height="150" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="15" y="24" fill="#ef4444" font-family="Fira Code, monospace" font-size="11" font-weight="bold">CASO A: TieneLlaveTLS == 0 (Sin Llave)</text>
+    <!-- Jugador chocando con puerta cerrada -->
+    <rect x="85" y="75" width="22" height="36" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect x="92" y="81" width="12" height="5" fill="#00ff66"/>
+    <text x="120" y="98" fill="#ef4444" font-size="18" font-weight="bold">✖</text>
+    <rect x="150" y="50" width="28" height="65" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="157" y="75" width="14" height="16" fill="#facc15"/>
+    <text x="195" y="78" fill="#fca5a5" font-family="Inter, sans-serif" font-size="10">Acceso Denegado:</text>
+    <text x="195" y="95" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">El comportamiento Sólido</text>
+    <text x="195" y="110" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">impide el paso a la terminal.</text>
+  </g>
+
+  <!-- Escenario B: Con Llave -->
+  <g transform="translate(410, 45)">
+    <rect x="0" y="0" width="365" height="150" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <text x="15" y="24" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">CASO B: TieneLlaveTLS == 1 (Autenticado)</text>
+    <!-- Jugador pasando y puerta destruida -->
+    <rect x="65" y="75" width="22" height="36" fill="#0f172a" stroke="#00ff66" stroke-width="1.5"/>
+    <text x="98" y="68" fill="#facc15" font-size="12">🔑</text>
+    <line x1="95" y1="92" x2="145" y2="92" stroke="#34d399" stroke-width="2" stroke-dasharray="4"/>
+    <rect x="155" y="50" width="28" height="65" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4"/>
+    <text x="198" y="75" fill="#34d399" font-family="Fira Code, monospace" font-size="10">✅ Puerta.Destroy()</text>
+    <text x="198" y="95" fill="#facc15" font-family="Fira Code, monospace" font-size="10">✅ Puntos + 250</text>
+    <text x="198" y="115" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">Se desbloquea el servidor.</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 3.4: Condición lógica AND que verifica si el jugador posee la Llave TLS antes de abrir la compuerta chmod 600.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Validación de Seguridad</div>
@@ -2702,6 +2850,41 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
   ➔ [Acción 5]: Sistema ➔ Esperar 6.0 segundos
   ➔ [Acción 6]: Sistema ➔ Establecer Invulnerable = 0 y Opacidad a 100%
                             </pre>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 205" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#06b6d4" font-family="Inter, sans-serif" font-size="13" font-weight="bold">EFECTO DEL CRISTAL DE SALTING: MODO HOLOGRÁFICO E INMUNIDAD (6.0 SEGUNDOS)</text>
+
+  <!-- Paso 1 -->
+  <g transform="translate(25, 48)">
+    <rect x="0" y="0" width="225" height="130" rx="8" fill="#0f172a" stroke="#06b6d4"/>
+    <text x="15" y="25" fill="#06b6d4" font-family="Fira Code, monospace" font-size="11" font-weight="bold">1. Toca Cristal_Salting</text>
+    <polygon points="110,55 122,70 110,85 98,70" fill="#06b6d4" stroke="#fff" stroke-width="1.5"/>
+    <text x="20" y="112" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">Cristal.Destroy() | +50 PTS</text>
+  </g>
+
+  <text x="262" y="118" fill="#06b6d4" font-size="22" font-weight="bold">➔</text>
+
+  <!-- Paso 2 -->
+  <g transform="translate(288, 48)">
+    <rect x="0" y="0" width="225" height="130" rx="8" fill="rgba(6,182,212,0.12)" stroke="#38bdf8" stroke-width="2"/>
+    <text x="15" y="25" fill="#38bdf8" font-family="Fira Code, monospace" font-size="11" font-weight="bold">2. Escudo Holográfico (6s)</text>
+    <circle cx="112" cy="70" r="24" fill="rgba(6,182,212,0.25)" stroke="#06b6d4" stroke-dasharray="4" stroke-width="2"/>
+    <rect x="103" y="54" width="18" height="32" fill="#0f172a" opacity="0.55" stroke="#00ff66"/>
+    <text x="16" y="112" fill="#a5f3fc" font-family="Fira Code, monospace" font-size="10">Invulnerable=1 | Opacidad 55%</text>
+  </g>
+
+  <text x="525" y="118" fill="#34d399" font-size="22" font-weight="bold">➔</text>
+
+  <!-- Paso 3 -->
+  <g transform="translate(550, 48)">
+    <rect x="0" y="0" width="225" height="130" rx="8" fill="#0f172a" stroke="#10b981"/>
+    <text x="15" y="25" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">3. Fin de Wait (6.0 seg)</text>
+    <rect x="103" y="54" width="18" height="32" fill="#0f172a" stroke="#00ff66" stroke-width="1.5"/>
+    <text x="16" y="112" fill="#34d399" font-family="Fira Code, monospace" font-size="10">Invulnerable=0 | Opacidad 100%</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 3.5: Ciclo visual del escudo de Salting utilizando opacidad al 55% y el temporizador asíncrono Wait 6.0s.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (15 min) — Auditoría de la Hoja de Eventos y Sello 3</div>
@@ -2944,6 +3127,31 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Inserta dos objetos de tipo <strong>Texto (Text)</strong> en la capa <code>HUD</code> con fuente monoespaciada blanca/verde:
                                     <code>Txt_Vidas</code> (junto al corazón) y <code>Txt_Marcador</code> (en el centro superior).</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 240" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="bold">MAQUETACIÓN Y COORDENADAS DEL MARCADOR EN LA CAPA "HUD" (640 × 360 PX)</text>
+
+  <!-- Marco de Viewport 640x360 -->
+  <rect x="80" y="42" width="640" height="175" rx="6" fill="#090d16" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Barra superior oscura del HUD -->
+  <rect x="82" y="44" width="636" height="38" fill="rgba(15,23,42,0.9)" stroke="#1e293b"/>
+
+  <!-- Icono_Vida y Txt_Vidas -->
+  <rect x="98" y="53" width="20" height="20" rx="4" fill="#ef4444"/>
+  <text x="103" y="68" fill="#fff" font-size="12">❤️</text>
+  <text x="126" y="68" fill="#f1f5f9" font-family="Fira Code, monospace" font-size="13" font-weight="bold">x 3</text>
+  <text x="95" y="102" fill="#fbbf24" font-family="Fira Code, monospace" font-size="10">↖ Icono_Vida (X:24, Y:20) + Txt_Vidas (X:48, Y:14)</text>
+
+  <!-- Txt_Marcador -->
+  <text x="315" y="68" fill="#34d399" font-family="Fira Code, monospace" font-size="13" font-weight="bold">MITIGACIÓN: 0250 PTS | TLS: 1</text>
+  <text x="360" y="102" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">⬆️ Txt_Marcador (X:220, Y:14)</text>
+
+  <!-- Escenario de fondo simulado -->
+  <text x="290" y="155" fill="#475569" font-family="Inter, sans-serif" font-size="12">[ Área de Juego Activa · Viewport 640×360 ]</text>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 4.1: Distribución exacta de los elementos gráficos dentro del recuadro punteado del Viewport en la capa HUD.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Comprobación de Inmovilidad</div>
@@ -2972,6 +3180,37 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
   ➔ [Acción 1]: Txt_Vidas ➔ Establecer texto a: "x " & Vidas
   ➔ [Acción 2]: Txt_Marcador ➔ Establecer texto a: "MITIGACIÓN: " & Puntos & " PTS | TLS: " & TieneLlaveTLS
                             </pre>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 205" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="13" font-weight="bold">FÓRMULA DE CONCATENACIÓN CON EL OPERADOR AMPERSAND (&amp;) EN EVERY TICK</text>
+
+  <!-- Bloques de la expresión -->
+  <g transform="translate(25, 50)">
+    <rect x="0" y="0" width="215" height="65" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#fbbf24" font-family="Fira Code, monospace" font-size="10">1. TEXTO ENTRE COMILLAS</text>
+    <text x="22" y="48" fill="#ffffff" font-family="Fira Code, monospace" font-size="13" font-weight="bold">"MITIGACIÓN: "</text>
+
+    <circle cx="242" cy="32" r="15" fill="#00563F" stroke="#34d399"/>
+    <text x="236" y="38" fill="#ffffff" font-family="Fira Code, monospace" font-size="15" font-weight="bold">&amp;</text>
+
+    <rect x="268" y="0" width="165" height="65" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="282" y="25" fill="#38bdf8" font-family="Fira Code, monospace" font-size="10">2. VARIABLE GLOBAL</text>
+    <text x="310" y="48" fill="#38bdf8" font-family="Fira Code, monospace" font-size="14" font-weight="bold">Puntos</text>
+
+    <circle cx="460" cy="32" r="15" fill="#00563F" stroke="#34d399"/>
+    <text x="454" y="38" fill="#ffffff" font-family="Fira Code, monospace" font-size="15" font-weight="bold">&amp;</text>
+
+    <rect x="485" y="0" width="260" height="65" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="500" y="25" fill="#34d399" font-family="Fira Code, monospace" font-size="10">3. TEXTO + VARIABLE TLS</text>
+    <text x="498" y="48" fill="#ffffff" font-family="Fira Code, monospace" font-size="12" font-weight="bold">" PTS | TLS: " &amp; TieneLlaveTLS</text>
+  </g>
+
+  <!-- Resultado en pantalla -->
+  <rect x="135" y="135" width="530" height="45" rx="8" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+  <text x="160" y="163" fill="#34d399" font-family="Fira Code, monospace" font-size="14" font-weight="bold">RESULTADO EN VIVO:  MITIGACIÓN: 100 PTS | TLS: 1</text>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 4.2: Anatomía de la expresión de texto en Construct 3 para unir cadenas estáticas con variables numéricas.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Verificación en Vivo</div>
@@ -3001,6 +3240,52 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Haz clic derecho en la carpeta <strong>Sonidos (Sounds)</strong> de Construct 3 ➔ <em>Importar sonidos</em>.</li>
                                 <li>Inserta el objeto <strong>Audio</strong> en el proyecto y agrega la acción <code>Audio ➔ Reproducir</code> dentro de tus eventos de salto, llave, cristal y daño.</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 215" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#fbbf24" font-family="Inter, sans-serif" font-size="13" font-weight="bold">FLUJO DE INGENIERÍA DE SONIDO RETRO: DE SFXR.ME A LA HOJA DE EVENTOS</text>
+
+  <!-- Paso 1: sfxr.me -->
+  <g transform="translate(20, 48)">
+    <rect x="0" y="0" width="235" height="140" rx="8" fill="#0f172a" stroke="#f59e0b"/>
+    <text x="15" y="24" fill="#fbbf24" font-family="Fira Code, monospace" font-size="11" font-weight="bold">1. Generador sfxr.me</text>
+    <rect x="15" y="36" width="95" height="22" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="25" y="51" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">🪙 Pickup/Coin</text>
+    <rect x="120" y="36" width="95" height="22" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="132" y="51" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">🚀 Jump</text>
+    <rect x="15" y="66" width="95" height="22" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="25" y="81" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">⚡ Powerup</text>
+    <rect x="120" y="66" width="95" height="22" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="132" y="81" fill="#e2e8f0" font-family="Fira Code, monospace" font-size="10">💥 Hit/Hurt</text>
+    <text x="18" y="118" fill="#34d399" font-family="Fira Code, monospace" font-size="10">📥 Exportar 4 archivos .WAV</text>
+  </g>
+
+  <text x="266" y="122" fill="#38bdf8" font-size="22" font-weight="bold">➔</text>
+
+  <!-- Paso 2: Carpeta Sounds -->
+  <g transform="translate(292, 48)">
+    <rect x="0" y="0" width="215" height="140" rx="8" fill="#0f172a" stroke="#38bdf8"/>
+    <text x="15" y="24" fill="#38bdf8" font-family="Fira Code, monospace" font-size="11" font-weight="bold">2. Carpeta "Sonidos"</text>
+    <text x="20" y="52" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">📁 Sounds (Clic derecho)</text>
+    <text x="35" y="72" fill="#34d399" font-family="Fira Code, monospace" font-size="10">├── 🔊 Salto.webm</text>
+    <text x="35" y="90" fill="#34d399" font-family="Fira Code, monospace" font-size="10">├── 🔊 Llave.webm</text>
+    <text x="35" y="108" fill="#34d399" font-family="Fira Code, monospace" font-size="10">├── 🔊 Escudo.webm</text>
+    <text x="35" y="126" fill="#34d399" font-family="Fira Code, monospace" font-size="10">└── 🔊 Dano.webm</text>
+  </g>
+
+  <text x="518" y="122" fill="#34d399" font-size="22" font-weight="bold">➔</text>
+
+  <!-- Paso 3: Acción Audio -->
+  <g transform="translate(542, 48)">
+    <rect x="0" y="0" width="235" height="140" rx="8" fill="#0f172a" stroke="#10b981"/>
+    <text x="15" y="24" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">3. Acción en Eventos</text>
+    <rect x="15" y="45" width="205" height="35" rx="6" fill="#1e293b" stroke="#34d399"/>
+    <text x="24" y="67" fill="#ffffff" font-family="Fira Code, monospace" font-size="10">🔊 Audio | Reproducir "Llave"</text>
+    <text x="18" y="108" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Construct 3 convierte .wav a</text>
+    <text x="18" y="124" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">.webm automáticamente.</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 4.3: Ruta de creación e integración de efectos de sonido sintetizados en 8-bits.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Prueba Acústica</div>
@@ -3034,6 +3319,32 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
 [En el Evento 9 (Puerta_Servidor)]:
   ➔ Añadir Acción: Txt_Marcador ➔ Establecer texto a: "🏆 ¡SERVIDOR PARCHADO CON ÉXITO! PUNTOS: " & Puntos
                             </pre>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 215" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="bold">DIAGRAMA DE CIERRE DE PARTIDA: CONDICIÓN DE GAME OVER VS VICTORIA</text>
+
+  <!-- Rama Izquierda: Derrota -->
+  <g transform="translate(25, 48)">
+    <rect x="0" y="0" width="355" height="140" rx="8" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#ef4444" font-family="Fira Code, monospace" font-size="11" font-weight="bold">💀 SI VIDAS &lt;= 0 (BRECHA DE SEGURIDAD)</text>
+    <text x="20" y="55" fill="#fca5a5" font-family="Fira Code, monospace" font-size="10">1. Sistema ➔ Reset global variables</text>
+    <text x="35" y="72" fill="#94a3b8" font-family="Fira Code, monospace" font-size="9">(Restaura Vidas=3, Puntos=0, Llave=0)</text>
+    <text x="20" y="98" fill="#fca5a5" font-family="Fira Code, monospace" font-size="10">2. Sistema ➔ Restart layout</text>
+    <text x="35" y="115" fill="#94a3b8" font-family="Fira Code, monospace" font-size="9">(Regresa al analista al inicio del nivel)</text>
+  </g>
+
+  <!-- Rama Derecha: Victoria -->
+  <g transform="translate(415, 48)">
+    <rect x="0" y="0" width="360" height="140" rx="8" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">🏆 SI ABRE PUERTA CHMOD 600 (VICTORIA)</text>
+    <text x="20" y="55" fill="#a7f3d0" font-family="Fira Code, monospace" font-size="10">1. Puerta_Servidor ➔ Destroy()</text>
+    <text x="20" y="80" fill="#facc15" font-family="Fira Code, monospace" font-size="10">2. Txt_Marcador ➔ Set text:</text>
+    <rect x="20" y="92" width="320" height="30" rx="4" fill="#090d16" stroke="#34d399"/>
+    <text x="30" y="111" fill="#00ff66" font-family="Fira Code, monospace" font-size="10">"🏆 ¡SERVIDOR PARCHADO! PTS: " &amp; Puntos</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 4.4: Lógica de reinicio automático de variables globales en caso de derrota y mensaje de éxito al ganar.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (10 min) — Partida Completa</div>
@@ -3062,6 +3373,47 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                                 <li>Exporta para web: Menú ➔ Proyecto ➔ <strong>Exportar</strong> ➔ Selecciona <strong>Web (HTML5)</strong> ➔ Siguiente ➔ Descarga el archivo <code>.zip</code>.</li>
                                 <li>Sube ambos archivos (<code>.c3p</code> y <code>.zip</code>) al canal oficial de entrega indicado por el docente.</li>
                             </ul>
+<div style="margin: 18px 0; text-align: center;">
+<svg viewBox="0 0 800 215" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" fill="#34d399" font-family="Inter, sans-serif" font-size="13" font-weight="bold">FLUJO DE EMPAQUETADO Y DESPLIEGUE WEB HTML5 (ENTREGABLES DE SELLO 4)</text>
+
+  <!-- Archivo Fuente .c3p -->
+  <g transform="translate(25, 48)">
+    <rect x="0" y="0" width="225" height="140" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#38bdf8" font-family="Fira Code, monospace" font-size="11" font-weight="bold">ENTREGABLE 1: FUENTE</text>
+    <text x="20" y="55" fill="#f1f5f9" font-family="Fira Code, monospace" font-size="11">💾 Apellido_501.c3p</text>
+    <text x="20" y="82" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Menú ➔ Proyecto ➔</text>
+    <text x="20" y="98" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Guardar como ➔ Descargar</text>
+    <text x="20" y="122" fill="#38bdf8" font-family="Fira Code, monospace" font-size="9">Editable en Construct 3</text>
+  </g>
+
+  <text x="262" y="120" fill="#34d399" font-size="22" font-weight="bold">+</text>
+
+  <!-- Paquete Web HTML5 .zip -->
+  <g transform="translate(290, 48)">
+    <rect x="0" y="0" width="235" height="140" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="15" y="25" fill="#fbbf24" font-family="Fira Code, monospace" font-size="11" font-weight="bold">ENTREGABLE 2: WEB ZIP</text>
+    <text x="18" y="50" fill="#f1f5f9" font-family="Fira Code, monospace" font-size="10">📦 Exportar ➔ Web (HTML5)</text>
+    <text x="28" y="72" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">├── 📄 index.html</text>
+    <text x="28" y="90" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">├── ⚙️ scripts/c3runtime.js</text>
+    <text x="28" y="108" fill="#cbd5e1" font-family="Fira Code, monospace" font-size="10">└── 🖼️ images/ (Sprites)</text>
+    <text x="18" y="128" fill="#fbbf24" font-family="Fira Code, monospace" font-size="9">Listo para servidor web</text>
+  </g>
+
+  <text x="537" y="120" fill="#34d399" font-size="22" font-weight="bold">➔</text>
+
+  <!-- Portal CONALEP -->
+  <g transform="translate(565, 48)">
+    <rect x="0" y="0" width="210" height="140" rx="8" fill="rgba(0,86,63,0.25)" stroke="#10b981" stroke-width="2"/>
+    <text x="15" y="25" fill="#34d399" font-family="Fira Code, monospace" font-size="11" font-weight="bold">🏆 PORTAL CONALEP</text>
+    <text x="18" y="58" fill="#ffffff" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Muestra Arcade 501</text>
+    <text x="18" y="80" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">Jugable en PC, celular</text>
+    <text x="18" y="96" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10">y navegador sin instalar</text>
+    <text x="18" y="122" fill="#34d399" font-family="Fira Code, monospace" font-size="10" font-weight="bold">✅ Sello 4 Acreditado</text>
+  </g>
+</svg>
+<div style="font-size:0.78rem; color:#94a3b8; margin-top:6px;">Figura 4.5: Estructura interna del paquete exportado en HTML5 y entrega final de los 2 archivos del proyecto.</div>
+</div>
                         </div>
                         <div class="moment-box cierre">
                             <div class="moment-label">🟢 Cierre (15 min) — Muestra Arcade del Grupo 501 y Sello 4</div>
