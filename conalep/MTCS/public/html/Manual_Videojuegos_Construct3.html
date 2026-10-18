@@ -41,6 +41,18 @@
             font-size: 1.25rem;
             margin-top: 1.5rem;
         }
+        h4 {
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-top: 1.2rem;
+        }
+        h5 {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
         pre {
             background: #0f172a;
             color: #38bdf8;
@@ -48,8 +60,9 @@
             border-radius: 8px;
             overflow-x: auto;
             font-family: 'Fira Code', monospace;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             border: 1px solid #1e293b;
+            line-height: 1.45;
         }
         code {
             font-family: 'Fira Code', monospace;
@@ -100,7 +113,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎮 Manual Oficial de Prácticas: Creación de Videojuegos 2D con Construct 3</h1>
+<h1>🎮 Manual Oficial de Prácticas: Creación de Videojuegos 2D con Construct 3</h1>
 <h3>Módulo: Manejo de Tecnologías de Ciberseguridad (MTCS-20)</h3>
 <p><strong>Institución:</strong> CONALEP Plantel Pachuca de Soto (CCT: 13DPT0001D)<br />
 <strong>Carrera:</strong> Profesional Técnico-Bachiller en Informática<br />
@@ -156,6 +169,122 @@
 │ 5. TILESET DEL SERVIDOR: 32x32 px · Gabinetes de servidores, luces y piso.  │
 └─────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
+<h3>🎨 Guía de Diseño Pixel-Art: 3 Ejemplos Clave (Paso a Paso)</h3>
+<p>Para que los alumnos de 501 dominen el editor de animaciones sin frustración, a continuación se desglosan <strong>3 plantillas oficiales en cuadrícula 16×16 px</strong> (ampliables a 32×32) con sus paletas de color y mapa píxel por píxel.</p>
+<hr />
+<h4>🟩 Ejemplo 1: El Héroe — "Analista de Ciberseguridad"</h4>
+<ul>
+<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles (escalable x2 a 32x32).</li>
+<li><strong>Paleta de Colores:</strong></li>
+<li><code>.</code> Transparente / Fondo.</li>
+<li><code>T</code> Traje oscuro (<code>#0f172a</code> / azul noche).</li>
+<li><code>P</code> Piel / Rostro (<code>#fcd34d</code> / tono cálido).</li>
+<li><code>V</code> Visor Neón HUD (<code>#00ff66</code> / verde terminal cyber).</li>
+<li><code>B</code> Botas / Guantes (<code>#334155</code> / gris pizarra).</li>
+</ul>
+<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
+<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
+Fila 0: . . . . . T T T T T T . . . . .  &lt;- Cabello / Casco superior
+Fila 1: . . . . T T T T T T T T . . . .  &lt;- Casco
+Fila 2: . . . . T P P P P P P T . . . .  &lt;- Rostro
+Fila 3: . . . . T V V V V V V T . . . .  &lt;- Visor Cibernético (Verde Neón)
+Fila 4: . . . . T P P P P P P T . . . .  &lt;- Barbilla
+Fila 5: . . . . . T T T T T T . . . . .  &lt;- Cuello
+Fila 6: . . B B T T T T T T T T B B . .  &lt;- Hombros y Guantes
+Fila 7: . . B B T T T T T T T T B B . .  &lt;- Pecho (Traje táctico)
+Fila 8: . . . . T T V V V V T T . . . .  &lt;- Núcleo del traje (Luz verde)
+Fila 9: . . . . T T T T T T T T . . . .  &lt;- Cinturón
+Fila A: . . . . T T T . . T T T . . . .  &lt;- Inicio de Piernas
+Fila B: . . . . T T T . . T T T . . . .  &lt;- Piernas
+Fila C: . . . . T T T . . T T T . . . .  &lt;- Rodillas
+Fila D: . . . . B B B . . B B B . . . .  &lt;- Espinillas
+Fila E: . . . B B B B . . B B B B . . .  &lt;- Botas
+Fila F: . . . B B B B . . B B B B . . .  &lt;- Suelas (Base de contacto)
+</code></pre>
+<h5>🛠️ Configuración en Construct 3:</h5>
+<ol>
+<li><strong>Punto de Origen (<em>Origin</em>):</strong> Abre el editor ➔ Herramienta <em>Origin</em> ➔ Presiona el número <code>2</code> en el teclado numérico (o ubícalo en el punto central de la base de los pies: <code>X: 8, Y: 16</code>).</li>
+<li><strong>Animación de Respiración (<em>Idle</em>):</strong></li>
+<li>Cuadro 1: Dibuja la cuadrícula base.</li>
+<li>Cuadro 2: Duplica el cuadro 1 y desplaza el torso/cabeza 1 píxel hacia abajo (bajando hombros).</li>
+<li>Velocidad: <code>3</code> fps, Bucle: <code>Sí</code>.</li>
+</ol>
+<hr />
+<h4>🔴 Ejemplo 2: El Enemigo — "Bot de Malware / Centinela Troyano"</h4>
+<ul>
+<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles.</li>
+<li><strong>Paleta de Colores:</strong></li>
+<li><code>.</code> Transparente.</li>
+<li><code>R</code> Carcasa infectada (<code>#ef4444</code> / rojo alerta).</li>
+<li><code>O</code> Ojo escáner central (<code>#facc15</code> / amarillo advertencia).</li>
+<li><code>N</code> Chasis interno / Sombra (<code>#1e1b4b</code> / azul oscuro/negro).</li>
+<li><code>P</code> Patas / Antenas metálicas (<code>#64748b</code> / gris acero).</li>
+</ul>
+<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
+<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
+Fila 0: . . P . . . . . . . . . . P . .  &lt;- Puntas de Antenas
+Fila 1: . . . P . . . . . . . . P . . .  &lt;- Antenas receptoras
+Fila 2: . . . . R R R R R R R R . . . .  &lt;- Borde superior de Carcasa
+Fila 3: . . . R R R R R R R R R R . . .  &lt;- Domo protector
+Fila 4: . . R R N N N N N N N N R R . .  &lt;- Cavidad del escáner
+Fila 5: . . R R N O O O O O O N R R . .  &lt;- Ojo Escáner (Amarillo Alerta)
+Fila 6: . . R R N O O R R O O N R R . .  &lt;- Iris del sensor
+Fila 7: . . R R N N N N N N N N R R . .  &lt;- Base del visor
+Fila 8: . . . R R R R R R R R R R . . .  &lt;- Chasis inferior
+Fila 9: . . . . R R R R R R R R . . . .  &lt;- Núcleo del motor
+Fila A: . . . . . P . P P . P . . . . .  &lt;- Articulaciones de patas
+Fila B: . . . . P . . P P . . P . . . .  &lt;- Patas arácnidas
+Fila C: . . . P . . . . . . . . P . . .  &lt;- Extensiones
+Fila D: . . P . . . . . . . . . . P . .  &lt;- Puntos de apoyo laterales
+Fila E: . . P . . . . . . . . . . P . .  &lt;- Garras
+Fila F: . . . . . . . . . . . . . . . .  &lt;- Espacio de levitación
+</code></pre>
+<h5>🛠️ Configuración en Construct 3:</h5>
+<ol>
+<li><strong>Punto de Origen (<em>Origin</em>):</strong> Tecla <code>5</code> (Centro exacto del sprite: <code>X: 8, Y: 8</code>).</li>
+<li><strong>Caja de Colisión (<em>Collision Polygon</em>):</strong> Ajustar a un octágono alrededor de la cabeza roja; no incluir las patas para evitar que el jugador sufra daño injusto por roce milimétrico.</li>
+<li><strong>Efecto de Levitación / Patrulla:</strong></li>
+<li>Comportamiento <em>Sine</em> (Seno): Magnitud <code>6</code>, Periodo <code>1.5</code> s (flotará suavemente arriba y abajo).</li>
+</ol>
+<hr />
+<h4>🟡 Ejemplo 3: El Coleccionable — "Llave Criptográfica TLS (Puerto 443)"</h4>
+<ul>
+<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles.</li>
+<li><strong>Paleta de Colores:</strong></li>
+<li><code>.</code> Transparente.</li>
+<li><code>D</code> Dorado brillante (<code>#facc15</code> / oro criptográfico).</li>
+<li><code>S</code> Sombra de oro / Bronce (<code>#b45309</code> / relieve).</li>
+<li><code>B</code> Brillo blanco (<code>#ffffff</code> / reflejo de seguridad).</li>
+<li><code>N</code> Ranura del cerrojo (<code>#0f172a</code> / negro).</li>
+</ul>
+<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
+<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
+Fila 0: . . . . . . . . . . . . . . . .
+Fila 1: . . . . . S S S S S . . . . . .  &lt;- Arco del grillete superior
+Fila 2: . . . . S B . . . B S . . . . .  &lt;- Arco con reflejo
+Fila 3: . . . . S B . . . B S . . . . .  &lt;- Altura del grillete
+Fila 4: . . . . S S . . . S S . . . . .  &lt;- Inserción en cuerpo
+Fila 5: . . . D D D D D D D D D . . . .  &lt;- Techo del candado
+Fila 6: . . D B B D D D D D D D S . . .  &lt;- Destello de luz TLS
+Fila 7: . . D B D D D D D D D D S . . .  &lt;- Placa frontal de oro
+Fila 8: . . D D D D D N D D D D S . . .  &lt;- Entrada de llave (Ranura)
+Fila 9: . . D D D D N N N D D D S . . .  &lt;- Ojo de la cerradura
+Fila A: . . D D D D D N D D D D S . . .  &lt;- Canal de la cerradura
+Fila B: . . D D D D D D D D D D S . . .  &lt;- Cuerpo macizo
+Fila C: . . . S S S S S S S S S . . . .  &lt;- Bisel inferior
+Fila D: . . . . . . . . . . . . . . . .
+Fila E: . . . . . . . . . . . . . . . .
+Fila F: . . . . . . . . . . . . . . . .
+</code></pre>
+<h5>🛠️ Configuración en Construct 3:</h5>
+<ol>
+<li><strong>Punto de Origen (<em>Origin</em>):</strong> Tecla <code>5</code> (Centro: <code>X: 8, Y: 8</code>).</li>
+<li><strong>Animación de Rotación o Giro (2 cuadros):</strong></li>
+<li>Cuadro 1: Candado de frente (ancho 11 px).</li>
+<li>Cuadro 2: Duplicar y comprimir horizontalmente el candado a 6 px de ancho. Al reproducir en bucle a 4 fps parecerá que gira sobre su propio eje.</li>
+<li><strong>Comportamiento Flotante (<em>Sine</em>):</strong> Asignar movimiento vertical continuo (Magnitud: <code>4</code> px, Periodo: <code>2</code> seg).</li>
+</ol>
+<hr />
 <h3>📋 Paso a Paso en Construct 3:</h3>
 <ol>
 <li><strong>Crear el Proyecto Nuevo:</strong></li>
@@ -172,9 +301,9 @@
 <li>Haz doble clic en el lienzo central de trabajo.</li>
 <li>En la lista de objetos, selecciona <strong>«Sprite»</strong> y nómbralo <code>Jugador</code>.</li>
 <li>Haz clic en cualquier parte de la pantalla para abrir el <strong>Editor de Animaciones</strong>.</li>
-<li>En la barra superior del editor, ajusta el tamaño a <code>32 x 32</code> píxeles.</li>
+<li>En la barra superior del editor, ajusta el tamaño a <code>16 x 16</code> o <code>32 x 32</code> píxeles.</li>
 <li>
-<p>Utiliza la paleta de colores para dibujar al analista con su visor tecnológico.</p>
+<p>Utiliza la plantilla de cuadrícula del <strong>Ejemplo 1</strong> para dibujar al analista con su visor tecnológico.</p>
 </li>
 <li>
 <p><strong>Configurar las Animaciones del Personaje:</strong></p>
