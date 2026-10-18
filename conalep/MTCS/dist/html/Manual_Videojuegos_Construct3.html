@@ -2,579 +2,1997 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Manual Oficial de Creación de Videojuegos - Construct 3 (MTCS-20)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Oficial de Creación de Videojuegos - Construct 3 | MTCS-20</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+        :root {
+            --primary: #00563F;
+            --primary-dark: #003d2c;
+            --primary-light: #0d8262;
+            --secondary: #0f172a;
+            --bg-body: #0b0f19;
+            --bg-sidebar: #0f172a;
+            --bg-card: #1e293b;
+            --border-card: #334155;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background-color: #f8fafc;
-            padding: 40px 20px;
-            margin: 0;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 50px 60px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
+
+        /* SIDEBAR NAVEGACIÓN */
+        aside.sidebar {
+            width: 320px;
+            min-width: 300px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-card);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            z-index: 10;
         }
-        h1 {
-            color: #0f172a;
-            font-size: 2.2rem;
-            border-bottom: 3px solid #00563F;
-            padding-bottom: 12px;
-            margin-top: 0;
+
+        .sidebar-header {
+            padding: 24px 20px;
+            background: linear-gradient(180deg, rgba(0,86,63,0.3) 0%, rgba(15,23,42,0) 100%);
+            border-bottom: 1px solid var(--border-card);
         }
-        h2 {
-            color: #00563F;
-            font-size: 1.6rem;
-            margin-top: 2.2rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-        h3 {
-            color: #1e293b;
-            font-size: 1.25rem;
-            margin-top: 1.5rem;
-        }
-        h4 {
-            color: #0f172a;
-            font-size: 1.1rem;
-            margin-top: 1.2rem;
-        }
-        h5 {
-            color: #475569;
-            font-size: 0.95rem;
-            margin-top: 1rem;
+
+        .brand-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            margin-bottom: 8px;
         }
+
+        .sidebar-header h2 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .sidebar-header p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .nav-menu {
+            padding: 16px 12px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-group-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 12px 12px 6px 12px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(0,86,63,0.85) 0%, rgba(13,130,98,0.7) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            border-color: rgba(52, 211, 153, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 86, 63, 0.3);
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-card);
+            font-size: 0.75rem;
+            color: #64748b;
+            line-height: 1.4;
+            background: #090d16;
+        }
+
+        /* ÁREA PRINCIPAL DE CONTENIDO */
+        main.content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 48px;
+            scroll-behavior: smooth;
+        }
+
+        .content-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* VISTAS DE PÁGINAS */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ESTILOS TIPOGRÁFICOS */
+        h1.main-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 86, 63, 0.25);
+            color: #34d399;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        }
+
+        h2.card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-card);
+            padding-bottom: 12px;
+        }
+
+        h3.session-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin: 24px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            line-height: 1.68;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        /* BLOQUES DE CÓDIGO Y RETRO */
         pre {
-            background: #0f172a;
+            background: #090d16;
             color: #38bdf8;
             padding: 16px 20px;
             border-radius: 8px;
             overflow-x: auto;
             font-family: 'Fira Code', monospace;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             border: 1px solid #1e293b;
             line-height: 1.45;
+            margin: 14px 0;
         }
+
         code {
             font-family: 'Fira Code', monospace;
-            background: #f1f5f9;
-            color: #0f172a;
+            background: rgba(255,255,255,0.08);
+            color: #34d399;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 0.9em;
+            font-size: 0.88em;
         }
-        pre code {
-            background: transparent;
-            color: inherit;
-            padding: 0;
+
+        /* GRID DE PIXEL ART MEJORADO */
+        .sprite-showcase {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 24px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            align-items: center;
         }
+
+        .sprite-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #090d16;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #1e293b;
+        }
+
+        .sprite-visual span.label {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pixel-art-canvas {
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            border: 2px solid #334155;
+        }
+
+        .sprite-details h4 {
+            font-size: 1.1rem;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .palette-bar {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0 14px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-family: 'Fira Code', monospace;
+            background: #1e293b;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* BOTÓN COPIAR CUADRÍCULA */
+        .btn-copy {
+            background: #00563F;
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .btn-copy:hover {
+            background: #0d8262;
+        }
+
+        /* SESIONES DESGLOSADAS */
+        .session-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            margin: 16px 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 42px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            background: #00563F;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #34d399;
+        }
+
+        /* TABLAS MODERNAS */
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            background: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-card);
         }
+
         th, td {
-            padding: 12px 14px;
-            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
             text-align: left;
+            border-bottom: 1px solid var(--border-card);
         }
+
         th {
             background: #00563F;
             color: #ffffff;
             font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
         }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         tr:nth-child(even) {
-            background: #f8fafc;
+            background: rgba(255,255,255,0.02);
         }
-        blockquote {
-            border-left: 4px solid #00563F;
-            margin: 1.5rem 0;
-            padding: 12px 20px;
-            background: #f0fdf4;
-            color: #166534;
+
+        /* CALLOUTS INSTITUCIONALES */
+        .callout {
+            border-left: 4px solid var(--primary-light);
+            background: rgba(0, 86, 63, 0.15);
+            padding: 14px 20px;
             border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            color: #cbd5e1;
+            font-size: 0.92rem;
         }
+
+        .callout-title {
+            font-weight: 700;
+            color: #34d399;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* NAVEGACIÓN INFERIOR ENTRE PÁGINAS */
+        .page-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .btn-page {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: #f1f5f9;
+            border: 1px solid var(--border-card);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-page:hover {
+            background: #00563F;
+            border-color: #34d399;
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: auto;
+            }
+            aside.sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-card);
+            }
+            main.content-area {
+                padding: 24px 16px;
+            }
+            .sprite-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; border: none; padding: 20px 0; max-width: 100%; }
-            pre { background: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; }
+            body {
+                background: #fff;
+                color: #000;
+                display: block;
+                height: auto;
+            }
+            aside.sidebar { display: none; }
+            main.content-area { padding: 0; }
+            .page-section { display: block !important; margin-bottom: 40px; page-break-after: always; }
+            .card { border: 1px solid #ccc; background: #fff; color: #000; box-shadow: none; }
+            pre { background: #f1f5f9; color: #000; border: 1px solid #ccc; }
+            th { background: #00563F !important; color: #fff !important; }
+            .page-nav-buttons { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-<h1>🎮 Manual Oficial de Prácticas: Creación de Videojuegos 2D con Construct 3</h1>
-<h3>Módulo: Manejo de Tecnologías de Ciberseguridad (MTCS-20)</h3>
-<p><strong>Institución:</strong> CONALEP Plantel Pachuca de Soto (CCT: 13DPT0001D)<br />
-<strong>Carrera:</strong> Profesional Técnico-Bachiller en Informática<br />
-<strong>Grupo:</strong> 501 | <strong>Semestre:</strong> Quinto Semestre (Ciclo Escolar 2026-2027 · Semestre 1.26.27)<br />
-<strong>Docente:</strong> Dr. Felipe López Salazar<br />
-<strong>Unidad de Aprendizaje:</strong> Unidad 3 — <em>Programación y uso de lenguajes informáticos (30 hrs)</em><br />
-<strong>Proyecto Integrador:</strong> <em>«CyberDefender: Infiltración en el Servidor»</em><br />
-<strong>Herramienta Oficial:</strong> Construct 3 (<a href="https://editor.construct.net">editor.construct.net</a>)  </p>
-<hr />
-<h2>📑 ÍNDICE GENERAL DEL MANUAL</h2>
-<ol>
-<li><a href="#1-presentación-del-proyecto">Presentación del Proyecto y Reglas del Laboratorio</a></li>
-<li><a href="#práctica-01-creación-de-sprites-pixel-art-y-animaciones">Práctica 01 (Semana 1): Creación de Sprites Pixel-Art y Animaciones</a></li>
-<li><a href="#práctica-02-escenarios-físicas-y-comportamientos">Práctica 02 (Semana 2): Escenarios, Físicas y Comportamientos (Behaviors)</a></li>
-<li><a href="#práctica-03-hoja-de-eventos-y-lógica-algorítmica">Práctica 03 (Semana 3): Hoja de Eventos, Lógica Algorítmica y Ciberseguridad</a></li>
-<li><a href="#práctica-04-interfaz-hud-audio-y-publicación-web">Práctica 04 (Semana 4): Interfaz HUD, Efectos de Audio y Publicación Web</a></li>
-<li><a href="#rúbrica-de-evaluación-oficial">Rúbrica de Evaluación Oficial del Videojuego (Tercer Corte)</a></li>
-</ol>
-<hr />
-<h2>1. PRESENTACIÓN DEL PROYECTO</h2>
-<h3>🎯 Propósito Formativo</h3>
-<p>El propósito de este proyecto es que los estudiantes de 501 consoliden los conceptos teóricos de ciberdefensa (la Tríada CIA, vectores de ataque, cifrado TLS, salting y control de accesos) mediante la <strong>programación visual y algorítmica de un videojuego funcional</strong>.</p>
-<p>A través de <strong>Construct 3</strong>, los alumnos aprenderán:
-- Estructuración de objetos gráficos en memoria (<em>Sprites, Tilemaps</em>).
-- Declaración y manipulación de variables globales y locales (<em>Vidas, Puntos, Estado de Claves</em>).
-- Algoritmos de control de flujo condicional (<em>If/Else, Bucles, Disparadores de Eventos</em>).
-- Físicas simuladas (<em>Gravedad, Aceleración, Detección de Colisiones AABB</em>).
-- Exportación e integración de aplicaciones web enriquecidas para el portal escolar.</p>
-<h3>🕹️ Sinopsis Argumental del Juego</h3>
-<blockquote>
-<p><em>«En el año 2026, el servidor central del plantel ha sido infectado por una cepa desconocida de Ransomware que amenaza con cifrar permanentemente las calificaciones y expedientes escolares. El jugador asume el rol del </em><em>Analista de Ciberdefensa</em><em>, quien debe infiltrarse en los pasillos lógicos del Centro de Datos, esquivar centinelas de malware, recolectar llaves criptográficas TLS para desbloquear puertas de máxima seguridad (<code>chmod 600</code>) y alcanzar la terminal maestra para aplicar el parche de mitigación antes de que el contador de riesgo alcance el 100%.»</em></p>
-</blockquote>
-<hr />
-<h2>PRÁCTICA 01: CREACIÓN DE SPRITES PIXEL-ART Y ANIMACIONES</h2>
-<p><strong>Duración:</strong> 5 Horas (Semana 1 del Proyecto)<br />
-<strong>Herramientas:</strong> Editor de Animaciones de Construct 3 / <a href="https://www.piskelapp.com">Piskel</a>  </p>
-<h3>🎯 Objetivo de la Sesión</h3>
-<p>Diseñar la hoja de sprites (<em>SpriteSheet</em>) y los elementos visuales del juego en formato Pixel-Art (resolución de 32×32 píxeles), estableciendo los puntos de colisión y las secuencias de animación requeridas para el motor.</p>
-<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
-│                       CATÁLOGO DE SPRITES A CREAR                           │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 1. HÉROE (Analista): 32x32 px · Traje oscuro con visor cian/verde.          │
-│    • Animación 'Idle' (Quieto): 2 cuadros de respiración.                   │
-│    • Animación 'Run' (Corriendo): 4 a 6 cuadros de movimiento de piernas.   │
-│    • Animación 'Jump' (Saltando): 1 cuadro suspendido en el aire.           │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 2. ENEMIGO (Bot Malware): 32x32 px · Aspecto robótico/bicho con luz roja.   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 3. LLAVE TLS (Puerto 443): 16x16 px · Candado dorado brillante.             │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 4. CRISTAL DE SALTING: 16x16 px · Gema azul de alta entropía.               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 5. TILESET DEL SERVIDOR: 32x32 px · Gabinetes de servidores, luces y piso.  │
-└─────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
-<h3>🎨 Guía de Diseño Pixel-Art: 3 Ejemplos Clave (Paso a Paso)</h3>
-<p>Para que los alumnos de 501 dominen el editor de animaciones sin frustración, a continuación se desglosan <strong>3 plantillas oficiales en cuadrícula 16×16 px</strong> (ampliables a 32×32) con sus paletas de color y mapa píxel por píxel.</p>
-<hr />
-<h4>🟩 Ejemplo 1: El Héroe — "Analista de Ciberseguridad"</h4>
-<ul>
-<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles (escalable x2 a 32x32).</li>
-<li><strong>Paleta de Colores:</strong></li>
-<li><code>.</code> Transparente / Fondo.</li>
-<li><code>T</code> Traje oscuro (<code>#0f172a</code> / azul noche).</li>
-<li><code>P</code> Piel / Rostro (<code>#fcd34d</code> / tono cálido).</li>
-<li><code>V</code> Visor Neón HUD (<code>#00ff66</code> / verde terminal cyber).</li>
-<li><code>B</code> Botas / Guantes (<code>#334155</code> / gris pizarra).</li>
-</ul>
-<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
-<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
-Fila 0: . . . . . T T T T T T . . . . .  &lt;- Cabello / Casco superior
-Fila 1: . . . . T T T T T T T T . . . .  &lt;- Casco
-Fila 2: . . . . T P P P P P P T . . . .  &lt;- Rostro
-Fila 3: . . . . T V V V V V V T . . . .  &lt;- Visor Cibernético (Verde Neón)
-Fila 4: . . . . T P P P P P P T . . . .  &lt;- Barbilla
-Fila 5: . . . . . T T T T T T . . . . .  &lt;- Cuello
-Fila 6: . . B B T T T T T T T T B B . .  &lt;- Hombros y Guantes
-Fila 7: . . B B T T T T T T T T B B . .  &lt;- Pecho (Traje táctico)
-Fila 8: . . . . T T V V V V T T . . . .  &lt;- Núcleo del traje (Luz verde)
-Fila 9: . . . . T T T T T T T T . . . .  &lt;- Cinturón
-Fila A: . . . . T T T . . T T T . . . .  &lt;- Inicio de Piernas
-Fila B: . . . . T T T . . T T T . . . .  &lt;- Piernas
-Fila C: . . . . T T T . . T T T . . . .  &lt;- Rodillas
-Fila D: . . . . B B B . . B B B . . . .  &lt;- Espinillas
-Fila E: . . . B B B B . . B B B B . . .  &lt;- Botas
-Fila F: . . . B B B B . . B B B B . . .  &lt;- Suelas (Base de contacto)
-</code></pre>
-<h5>🛠️ Configuración en Construct 3:</h5>
-<ol>
-<li><strong>Punto de Origen (<em>Origin</em>):</strong> Abre el editor ➔ Herramienta <em>Origin</em> ➔ Presiona el número <code>2</code> en el teclado numérico (o ubícalo en el punto central de la base de los pies: <code>X: 8, Y: 16</code>).</li>
-<li><strong>Animación de Respiración (<em>Idle</em>):</strong></li>
-<li>Cuadro 1: Dibuja la cuadrícula base.</li>
-<li>Cuadro 2: Duplica el cuadro 1 y desplaza el torso/cabeza 1 píxel hacia abajo (bajando hombros).</li>
-<li>Velocidad: <code>3</code> fps, Bucle: <code>Sí</code>.</li>
-</ol>
-<hr />
-<h4>🔴 Ejemplo 2: El Enemigo — "Bot de Malware / Centinela Troyano"</h4>
-<ul>
-<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles.</li>
-<li><strong>Paleta de Colores:</strong></li>
-<li><code>.</code> Transparente.</li>
-<li><code>R</code> Carcasa infectada (<code>#ef4444</code> / rojo alerta).</li>
-<li><code>O</code> Ojo escáner central (<code>#facc15</code> / amarillo advertencia).</li>
-<li><code>N</code> Chasis interno / Sombra (<code>#1e1b4b</code> / azul oscuro/negro).</li>
-<li><code>P</code> Patas / Antenas metálicas (<code>#64748b</code> / gris acero).</li>
-</ul>
-<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
-<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
-Fila 0: . . P . . . . . . . . . . P . .  &lt;- Puntas de Antenas
-Fila 1: . . . P . . . . . . . . P . . .  &lt;- Antenas receptoras
-Fila 2: . . . . R R R R R R R R . . . .  &lt;- Borde superior de Carcasa
-Fila 3: . . . R R R R R R R R R R . . .  &lt;- Domo protector
-Fila 4: . . R R N N N N N N N N R R . .  &lt;- Cavidad del escáner
-Fila 5: . . R R N O O O O O O N R R . .  &lt;- Ojo Escáner (Amarillo Alerta)
-Fila 6: . . R R N O O R R O O N R R . .  &lt;- Iris del sensor
-Fila 7: . . R R N N N N N N N N R R . .  &lt;- Base del visor
-Fila 8: . . . R R R R R R R R R R . . .  &lt;- Chasis inferior
-Fila 9: . . . . R R R R R R R R . . . .  &lt;- Núcleo del motor
-Fila A: . . . . . P . P P . P . . . . .  &lt;- Articulaciones de patas
-Fila B: . . . . P . . P P . . P . . . .  &lt;- Patas arácnidas
-Fila C: . . . P . . . . . . . . P . . .  &lt;- Extensiones
-Fila D: . . P . . . . . . . . . . P . .  &lt;- Puntos de apoyo laterales
-Fila E: . . P . . . . . . . . . . P . .  &lt;- Garras
-Fila F: . . . . . . . . . . . . . . . .  &lt;- Espacio de levitación
-</code></pre>
-<h5>🛠️ Configuración en Construct 3:</h5>
-<ol>
-<li><strong>Punto de Origen (<em>Origin</em>):</strong> Tecla <code>5</code> (Centro exacto del sprite: <code>X: 8, Y: 8</code>).</li>
-<li><strong>Caja de Colisión (<em>Collision Polygon</em>):</strong> Ajustar a un octágono alrededor de la cabeza roja; no incluir las patas para evitar que el jugador sufra daño injusto por roce milimétrico.</li>
-<li><strong>Efecto de Levitación / Patrulla:</strong></li>
-<li>Comportamiento <em>Sine</em> (Seno): Magnitud <code>6</code>, Periodo <code>1.5</code> s (flotará suavemente arriba y abajo).</li>
-</ol>
-<hr />
-<h4>🟡 Ejemplo 3: El Coleccionable — "Llave Criptográfica TLS (Puerto 443)"</h4>
-<ul>
-<li><strong>Dimensiones:</strong> <code>16 x 16</code> píxeles.</li>
-<li><strong>Paleta de Colores:</strong></li>
-<li><code>.</code> Transparente.</li>
-<li><code>D</code> Dorado brillante (<code>#facc15</code> / oro criptográfico).</li>
-<li><code>S</code> Sombra de oro / Bronce (<code>#b45309</code> / relieve).</li>
-<li><code>B</code> Brillo blanco (<code>#ffffff</code> / reflejo de seguridad).</li>
-<li><code>N</code> Ranura del cerrojo (<code>#0f172a</code> / negro).</li>
-</ul>
-<h5>Mapa de Cuadrícula Píxel a Píxel (16x16):</h5>
-<pre><code class="language-text">      0 1 2 3 4 5 6 7 8 9 A B C D E F
+
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="brand-badge">CONALEP Pachuca II · MTCS-20</span>
+            <h2>CyberDefender</h2>
+            <p>Manual Oficial de Videojuegos 2D con Construct 3</p>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-group-title">General</div>
+            <a class="nav-item active" onclick="showPage('intro')">
+                <span class="nav-icon">📖</span> 1. Presentación y Contexto
+            </a>
+
+            <div class="nav-group-title">Prácticas por Sesiones</div>
+            <a class="nav-item" onclick="showPage('practica1')">
+                <span class="nav-icon">🎨</span> Sem 1: Sprites Pixel-Art
+            </a>
+            <a class="nav-item" onclick="showPage('practica2')">
+                <span class="nav-icon">🕹️</span> Sem 2: Escenarios y Físicas
+            </a>
+            <a class="nav-item" onclick="showPage('practica3')">
+                <span class="nav-icon">⚙️</span> Sem 3: Hoja de Eventos
+            </a>
+            <a class="nav-item" onclick="showPage('practica4')">
+                <span class="nav-icon">🚀</span> Sem 4: HUD, Audio y Web
+            </a>
+
+            <div class="nav-group-title">Evaluación</div>
+            <a class="nav-item" onclick="showPage('rubrica')">
+                <span class="nav-icon">📊</span> Rúbrica de Evaluación
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <strong>Dr. Felipe López Salazar</strong><br>
+            Grupo 501 · Ciclo 2026-2027<br>
+            Plataforma: Construct 3
+        </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL DE CONTENIDO DINÁMICO -->
+    <main class="content-area">
+        <div class="content-container">
+
+            <!-- PÁGINA 1: PRESENTACIÓN -->
+            <section id="page-intro" class="page-section active">
+                <h1 class="main-title">🎮 CyberDefender: Infiltración en el Servidor</h1>
+                <div class="badge-pill">🛡️ Proyecto Integrador de Ciberdefensa · Unidad 3 (30 Horas)</div>
+
+                <div class="card">
+                    <h2 class="card-title">🎯 Propósito Formativo del Proyecto</h2>
+                    <p>El propósito de este proyecto es que los estudiantes de <strong>501</strong> consoliden los conceptos teóricos de ciberdefensa (la Tríada CIA, vectores de ataque, cifrado TLS, técnicas de salting y control de privilegios <code>chmod 600</code>) mediante la <strong>programación visual y algorítmica de un videojuego funcional</strong>.</p>
+                    <p>A través de <strong>Construct 3</strong>, los alumnos desarrollarán competencias técnicas clave:</p>
+                    <ul style="margin-left: 20px; color: #cbd5e1; line-height: 1.8; margin-bottom: 16px;">
+                        <li><strong>Estructuración Gráfica en Memoria:</strong> Creación de Sprites, Tilemaps y puntos de anclaje (Origin).</li>
+                        <li><strong>Variables Globales y de Instancia:</strong> Control de estado (Vidas, Puntos de Mitigación, Banderas de Llave TLS).</li>
+                        <li><strong>Lógica Algorítmica Condicional:</strong> Sentencias condicionales, detección de colisiones AABB y bucles de evento.</li>
+                        <li><strong>Simulación de Físicas Cinemáticas:</strong> Gravedad, aceleración, fricción y cámaras dinámicas de seguimiento.</li>
+                        <li><strong>Publicación y Despliegue Web:</strong> Compilación multiplataforma en HTML5/JavaScript para su integración al portal escolar.</li>
+                    </ul>
+
+                    <div class="callout">
+                        <div class="callout-title">🕹️ Sinopsis Argumental del Nivel</div>
+                        <em>«En el año 2026, el servidor central del plantel ha sido infectado por una cepa de Ransomware que amenaza con cifrar permanentemente las calificaciones y expedientes escolares. El jugador asume el rol del <strong>Analista de Ciberdefensa</strong>, quien debe infiltrarse en los pasillos lógicos del Centro de Datos, evadir centinelas de malware, recolectar llaves criptográficas TLS para desbloquear puertas de seguridad y aplicar el parche de mitigación antes de que el servidor colapse.»</em>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">📋 Datos Institucionales y Normativa de Trabajo</h2>
+                    <table>
+                        <tr><th>Parámetro</th><th>Especificación Oficial</th></tr>
+                        <tr><td><strong>Institución</strong></td><td>CONALEP Plantel Pachuca de Soto (CCT: 13DPT0001D)</td></tr>
+                        <tr><td><strong>Carrera</strong></td><td>Profesional Técnico-Bachiller en Informática</td></tr>
+                        <tr><td><strong>Módulo</strong></td><td>Manejo de Tecnologías de Ciberseguridad (MTCS-20)</td></tr>
+                        <tr><td><strong>Grupo y Turno</strong></td><td>501 · Turno Matutino</td></tr>
+                        <tr><td><strong>Plataforma Oficial</strong></td><td>Construct 3 Web (<a href="https://editor.construct.net" target="_blank" style="color: #38bdf8;">editor.construct.net</a>)</td></tr>
+                        <tr><td><strong>Formato de Entrega</strong></td><td>Proyecto <code>.c3p</code> + Paquete Web HTML5 Comprimido (<code>.zip</code>)</td></tr>
+                    </table>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <div></div>
+                    <button class="btn-page" onclick="showPage('practica1')">Siguiente: Práctica 01 (Sprites) ➔</button>
+                </div>
+            </section>
+
+
+            <!-- PÁGINA 2: PRÁCTICA 01 (SPRITES) -->
+            <section id="page-practica1" class="page-section">
+                <h1 class="main-title">🎨 Práctica 01: Creación de Sprites Pixel-Art</h1>
+                <div class="badge-pill">⏱️ Semana 1 (5 Horas) · Sesiones 1 a 3 · Editor de Animaciones</div>
+
+                <!-- SESIÓN 1 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 1 (2 Horas): Configuración y El Héroe Ciberdefensor</span>
+                    <h2 class="card-title">1.1 Entorno de Trabajo y El Héroe</h2>
+                    <p>En esta sesión configuraremos el lienzo de Construct 3 con resolución panorámica 16:9 optimizada para pixel-art y dibujaremos al protagonista de la aventura.</p>
+
+                    <ol class="step-list">
+                        <li>Ingresa a <a href="https://editor.construct.net" target="_blank" style="color: #38bdf8;">editor.construct.net</a> y haz clic en <strong>«Nuevo Proyecto»</strong>.</li>
+                        <li>Configura el nombre: <code>CyberDefender_Apellido_501</code> | Viewport Size: <code>640 x 360</code> | Orientación: <strong>Horizontal</strong>.</li>
+                        <li>Haz doble clic en el lienzo, selecciona <strong>Sprite</strong>, nómbralo <code>Jugador</code> y haz clic para abrir el editor.</li>
+                        <li>Ajusta las dimensiones del sprite a <code>16 x 16</code> píxeles.</li>
+                    </ol>
+
+                    <!-- SPRITE SHOWCASE 1 -->
+                    <div class="sprite-showcase">
+                        <div class="sprite-visual">
+                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="5" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="0" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="1" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="7" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="8" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#fcd34d" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#00ff66" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="11" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="5" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="6" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="10" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="11" y="12" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="4" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="5" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="6" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="9" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="10" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="11" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="5" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="6" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="9" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="10" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="11" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="12" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="5" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="6" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="9" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="10" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="11" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="12" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+</svg>
+                            <span class="label">Sprite 16×16 px</span>
+                        </div>
+                        <div class="sprite-details">
+                            <h4>Héroe: Analista con Visor Neón HUD</h4>
+                            <p>Analista táctico con traje aislante de datacenter y visor biométrico de terminal.</p>
+                            <div class="palette-bar">
+                                <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>Traje #0f172a</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#00ff66"></div>Visor #00ff66</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#fcd34d"></div>Rostro #fcd34d</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#334155"></div>Botas #334155</div>
+                            </div>
+                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
+                                <strong>Regla de Origen:</strong> Presiona tecla <code>2</code> en el teclado numérico para colocar el punto de anclaje (Origin) exactamente en los pies (<code>X: 8, Y: 16</code>).
+                            </div>
+                            <button class="btn-copy" onclick="copyGrid('grid-hero')">📋 Copiar Cuadrícula ASCII</button>
+                        </div>
+                    </div>
+
+                    <pre id="grid-hero" style="display:none;">
+      0 1 2 3 4 5 6 7 8 9 A B C D E F
+Fila 0: . . . . . T T T T T T . . . . .
+Fila 1: . . . . T T T T T T T T . . . .
+Fila 2: . . . . T P P P P P P T . . . .
+Fila 3: . . . . T V V V V V V T . . . .
+Fila 4: . . . . T P P P P P P T . . . .
+Fila 5: . . . . . T T T T T T . . . . .
+Fila 6: . . B B T T T T T T T T B B . .
+Fila 7: . . B B T T T T T T T T B B . .
+Fila 8: . . . . T T V V V V T T . . . .
+Fila 9: . . . . T T T T T T T T . . . .
+Fila A: . . . . T T T . . T T T . . . .
+Fila B: . . . . T T T . . T T T . . . .
+Fila C: . . . . T T T . . T T T . . . .
+Fila D: . . . . B B B . . B B B . . . .
+Fila E: . . . B B B B . . B B B B . . .
+Fila F: . . . B B B B . . B B B B . . .
+</pre>
+                </div>
+
+                <!-- SESIÓN 2 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 2 (2 Horas): Bot Malware y Llave Criptográfica TLS</span>
+                    <h2 class="card-title">1.2 Enemigos y Coleccionables de Seguridad</h2>
+                    <p>Diseñaremos los elementos de interacción: el centinela de malware patrullero y la llave TLS obligatoria para cruzar puertos cifrados.</p>
+
+                    <!-- SPRITE SHOWCASE 2: ENEMIGO -->
+                    <div class="sprite-showcase">
+                        <div class="sprite-visual">
+                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="0" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="14" y="0" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="2" y="1" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="13" y="1" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="3" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="2" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="12" y="4" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="13" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="4" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="13" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="5" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="6" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="1" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#1e1b4b" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="7" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="3" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="9" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="3" y="11" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="7" y="11" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="8" y="11" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="12" y="11" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="2" y="12" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="13" y="12" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="1" y="13" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="14" y="13" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="1" y="14" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<rect x="14" y="14" width="1" height="1" fill="#94a3b8" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+</svg>
+                            <span class="label">Sprite 16×16 px</span>
+                        </div>
+                        <div class="sprite-details">
+                            <h4>Enemigo: Centinela Bot de Malware</h4>
+                            <p>Robot corruptor arácnido con chasis de alerta roja y sensor de escaneo amarillo.</p>
+                            <div class="palette-bar">
+                                <div class="color-chip"><div class="color-dot" style="background:#ef4444"></div>Carcasa #ef4444</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>Sensor #facc15</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#1e1b4b"></div>Chasis #1e1b4b</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#94a3b8"></div>Patas #94a3b8</div>
+                            </div>
+                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
+                                <strong>Colisión Octagonal:</strong> Ajusta el polígono de colisión únicamente a la cabeza esférica roja. No incluyas las patas para no castigar al jugador injustamente.
+                            </div>
+                            <button class="btn-copy" onclick="copyGrid('grid-enemy')">📋 Copiar Cuadrícula ASCII</button>
+                        </div>
+                    </div>
+
+                    <pre id="grid-enemy" style="display:none;">
+      0 1 2 3 4 5 6 7 8 9 A B C D E F
+Fila 0: . P . . . . . . . . . . P . . .
+Fila 1: . . P . . . . . . . . P . . . .
+Fila 2: . . . R R R R R R R R R R . . .
+Fila 3: . . R R R R R R R R R R R R . .
+Fila 4: . R R N N N N N N N N N N R R .
+Fila 5: . R R N O O O O O O O O N R R .
+Fila 6: . R R N O O R R R R O O N R R .
+Fila 7: . R R N N N N N N N N N N R R .
+Fila 8: . . R R R R R R R R R R R R . .
+Fila 9: . . . R R R R R R R R R R . . .
+Fila A: . . . . P . . P P . . P . . . .
+Fila B: . . . P . . . P P . . . P . . .
+Fila C: . . P . . . . . . . . . . P . .
+Fila D: . P . . . . . . . . . . . . P .
+Fila E: . P . . . . . . . . . . . . P .
+Fila F: . . . . . . . . . . . . . . . .
+</pre>
+
+                    <!-- SPRITE SHOWCASE 3: LLAVE TLS -->
+                    <div class="sprite-showcase">
+                        <div class="sprite-visual">
+                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="5" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="6" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="7" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="8" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="9" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="2" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="9" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="9" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="2" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#0f172a" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="10" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="10" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="2" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="3" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="4" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="5" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="6" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="7" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="8" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="9" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="10" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="11" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="12" y="11" width="1" height="1" fill="#facc15" shape-rendering="crispEdges"/>
+<rect x="13" y="11" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="3" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="4" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="5" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="6" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="7" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="8" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="9" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="10" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="11" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<rect x="12" y="12" width="1" height="1" fill="#b45309" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+</svg>
+                            <span class="label">Sprite 16×16 px</span>
+                        </div>
+                        <div class="sprite-details">
+                            <h4>Coleccionable: Candado / Llave TLS (Puerto 443)</h4>
+                            <p>Llave asimétrica dorada con relieve y ranura de cerrojo criptográfico.</p>
+                            <div class="palette-bar">
+                                <div class="color-chip"><div class="color-dot" style="background:#facc15"></div>Oro #facc15</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#b45309"></div>Sombra #b45309</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#ffffff"></div>Brillo #ffffff</div>
+                                <div class="color-chip"><div class="color-dot" style="background:#0f172a"></div>Ranura #0f172a</div>
+                            </div>
+                            <div class="callout" style="margin: 8px 0; padding: 10px 14px; font-size: 0.85rem;">
+                                <strong>Punto de Origen:</strong> Presiona tecla <code>5</code> en el teclado numérico para anclar en el centro exacto (<code>X: 8, Y: 8</code>).
+                            </div>
+                            <button class="btn-copy" onclick="copyGrid('grid-key')">📋 Copiar Cuadrícula ASCII</button>
+                        </div>
+                    </div>
+
+                    <pre id="grid-key" style="display:none;">
+      0 1 2 3 4 5 6 7 8 9 A B C D E F
 Fila 0: . . . . . . . . . . . . . . . .
-Fila 1: . . . . . S S S S S . . . . . .  &lt;- Arco del grillete superior
-Fila 2: . . . . S B . . . B S . . . . .  &lt;- Arco con reflejo
-Fila 3: . . . . S B . . . B S . . . . .  &lt;- Altura del grillete
-Fila 4: . . . . S S . . . S S . . . . .  &lt;- Inserción en cuerpo
-Fila 5: . . . D D D D D D D D D . . . .  &lt;- Techo del candado
-Fila 6: . . D B B D D D D D D D S . . .  &lt;- Destello de luz TLS
-Fila 7: . . D B D D D D D D D D S . . .  &lt;- Placa frontal de oro
-Fila 8: . . D D D D D N D D D D S . . .  &lt;- Entrada de llave (Ranura)
-Fila 9: . . D D D D N N N D D D S . . .  &lt;- Ojo de la cerradura
-Fila A: . . D D D D D N D D D D S . . .  &lt;- Canal de la cerradura
-Fila B: . . D D D D D D D D D D S . . .  &lt;- Cuerpo macizo
-Fila C: . . . S S S S S S S S S . . . .  &lt;- Bisel inferior
+Fila 1: . . . . . S S S S S S . . . . .
+Fila 2: . . . . S B . . . . B S . . . .
+Fila 3: . . . . S B . . . . B S . . . .
+Fila 4: . . . . S S . . . . S S . . . .
+Fila 5: . . . D D D D D D D D D D . . .
+Fila 6: . . D B B D D D D D D D D S . .
+Fila 7: . . D B D D D D D D D D D S . .
+Fila 8: . . D D D D D D N D D D D S . .
+Fila 9: . . D D D D N N N D D D D S . .
+Fila A: . . D D D D D D N D D D D S . .
+Fila B: . . D D D D D D D D D D D S . .
+Fila C: . . . S S S S S S S S S S . . .
 Fila D: . . . . . . . . . . . . . . . .
 Fila E: . . . . . . . . . . . . . . . .
 Fila F: . . . . . . . . . . . . . . . .
-</code></pre>
-<h5>🛠️ Configuración en Construct 3:</h5>
-<ol>
-<li><strong>Punto de Origen (<em>Origin</em>):</strong> Tecla <code>5</code> (Centro: <code>X: 8, Y: 8</code>).</li>
-<li><strong>Animación de Rotación o Giro (2 cuadros):</strong></li>
-<li>Cuadro 1: Candado de frente (ancho 11 px).</li>
-<li>Cuadro 2: Duplicar y comprimir horizontalmente el candado a 6 px de ancho. Al reproducir en bucle a 4 fps parecerá que gira sobre su propio eje.</li>
-<li><strong>Comportamiento Flotante (<em>Sine</em>):</strong> Asignar movimiento vertical continuo (Magnitud: <code>4</code> px, Periodo: <code>2</code> seg).</li>
-</ol>
-<hr />
-<h3>📋 Paso a Paso en Construct 3:</h3>
-<ol>
-<li><strong>Crear el Proyecto Nuevo:</strong></li>
-<li>Entra a <a href="https://editor.construct.net">editor.construct.net</a>.</li>
-<li>Haz clic en <strong>«Nuevo Proyecto»</strong>.</li>
-<li>Nombre: <code>CyberDefender_Apellido_501</code>.</li>
-<li>Tamaño de la ventana (<em>Viewport Size</em>): <code>640 x 360</code> (Relación panorámica 16:9 ideal para Pixel-Art).</li>
-<li>
-<p>Orientación: <strong>Horizontal (Landscape)</strong>.</p>
-</li>
-<li>
-<p><strong>Crear el Sprite del Héroe:</strong></p>
-</li>
-<li>Haz doble clic en el lienzo central de trabajo.</li>
-<li>En la lista de objetos, selecciona <strong>«Sprite»</strong> y nómbralo <code>Jugador</code>.</li>
-<li>Haz clic en cualquier parte de la pantalla para abrir el <strong>Editor de Animaciones</strong>.</li>
-<li>En la barra superior del editor, ajusta el tamaño a <code>16 x 16</code> o <code>32 x 32</code> píxeles.</li>
-<li>
-<p>Utiliza la plantilla de cuadrícula del <strong>Ejemplo 1</strong> para dibujar al analista con su visor tecnológico.</p>
-</li>
-<li>
-<p><strong>Configurar las Animaciones del Personaje:</strong></p>
-</li>
-<li>En la ventana derecha del editor (<em>Animations</em>), haz clic derecho sobre <code>Default</code> y renómbrala como <code>Idle</code>.</li>
-<li>Crea una nueva animación llamada <code>Run</code> y añade 4 cuadros de movimiento.</li>
-<li>Velocidad (<em>Speed</em>): Pon <code>8</code> cuadros por segundo y marca la casilla <strong>Bucle (Loop)</strong> en <code>Sí</code>.</li>
-<li>
-<p>Crea la animación <code>Jump</code> (1 solo cuadro con las piernas flexionadas).</p>
-</li>
-<li>
-<p><strong>Ajuste del Punto de Origen y Caja de Colisión:</strong></p>
-</li>
-<li>En la herramienta izquierda del editor, haz clic en el icono de mira (<strong>«Punto de Origen»</strong> / <em>Origin</em>).</li>
-<li>Presiona en el teclado numérico el <code>2</code> (o haz clic abajo al centro de los pies del personaje).<br />
-<em>(Regla de Oro: El punto de apoyo de un personaje siempre debe estar en la base de sus pies).</em></li>
-<li>
-<p>Haz clic en la herramienta <strong>«Editar polígono de colisión»</strong> y ajusta el recuadro para que cubra exactamente el cuerpo del héroe (sin dejar espacios vacíos).</p>
-</li>
-<li>
-<p><strong>Guardar el Proyecto:</strong></p>
-</li>
-<li>Menú ➔ Proyecto ➔ Guardar como ➔ <strong>Descargar una copia</strong> (archivo <code>.c3p</code>).</li>
-</ol>
-<p><em>📦 Producto a Sellar (Sello 1 - Videojuegos):</em> Catálogo de 5 sprites diseñados con animaciones activas en Construct 3.</p>
-<hr />
-<h2>PRÁCTICA 02: ESCENARIOS, FÍSICAS Y COMPORTAMIENTOS</h2>
-<p><strong>Duración:</strong> 5 Horas (Semana 2 del Proyecto)<br />
-<strong>Herramientas:</strong> Construct 3 (Capas, Comportamientos y Físicas)  </p>
-<h3>🎯 Objetivo de la Sesión</h3>
-<p>Construir la arquitectura del nivel (pasillos del centro de datos y plataformas sólidas) y programar las físicas cinemáticas de movimiento del jugador mediante los comportamientos nativos de Construct 3.</p>
-<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+</pre>
+                </div>
+
+                <!-- SESIÓN 3 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 3 (1 Hora): Cristal de Salting, Racks y Sello 1</span>
+                    <h2 class="card-title">1.3 Entorno del Servidor y Animaciones</h2>
+                    <p>Completaremos los últimos 2 sprites del catálogo y configuraremos las secuencias de animación requeridas para el primer sello oficial.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="sprite-visual">
+                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="6" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="7" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="8" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="9" y="0" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="4" y="1" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="5" y="1" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="6" y="1" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="1" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="1" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="1" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="11" y="1" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="2" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="2" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="12" y="2" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="13" y="2" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="3" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="12" y="3" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="13" y="3" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="4" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="12" y="4" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="13" y="4" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="5" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="13" y="5" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#06b6d4" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#1e3a8a" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+</svg>
+                            <span class="label">Cristal Salting (16×16)</span>
+                            <p style="font-size:0.8rem; text-align:center; margin-top:8px;">Gema criptográfica azul de alta entropía que otorga invulnerabilidad temporal.</p>
+                        </div>
+                        <div class="sprite-visual">
+                            <svg viewBox="0 0 16 16" width="240" height="240" class="pixel-art-canvas" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="2" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="5" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="6" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="7" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="8" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="9" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="10" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="11" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="12" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="13" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="14" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="15" y="0" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="1" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="3" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="13" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="1" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="1" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="2" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="2" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="3" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="4" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="5" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="6" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="7" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="8" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="9" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="10" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="11" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="12" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="13" y="2" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="14" y="2" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="2" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="3" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="3" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="3" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="4" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="5" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="6" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="7" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="8" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="9" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="10" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="11" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="12" y="3" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="13" y="3" width="1" height="1" fill="#ef4444" shape-rendering="crispEdges"/>
+<rect x="14" y="3" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="3" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="4" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="3" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="4" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="5" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="6" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="7" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="8" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="9" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="10" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="11" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="12" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="13" y="4" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="14" y="4" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="4" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="5" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="3" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="13" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="5" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="5" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="3" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="4" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="5" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="6" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="7" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="8" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="9" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="10" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="11" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="12" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="13" y="6" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="14" y="6" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="6" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="7" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="3" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="4" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="5" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="6" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="7" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="8" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="9" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="10" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="11" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="12" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="13" y="7" width="1" height="1" fill="#3b82f6" shape-rendering="crispEdges"/>
+<rect x="14" y="7" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="7" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="8" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="3" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="13" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="8" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="8" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="9" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="3" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="4" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="5" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="6" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="7" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="8" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="9" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="10" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="11" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="12" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="13" y="9" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="14" y="9" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="9" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="10" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="3" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="5" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="7" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="9" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="11" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="10" width="1" height="1" fill="#22c55e" shape-rendering="crispEdges"/>
+<rect x="13" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="10" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="10" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="11" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="3" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="13" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="11" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="11" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="12" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="12" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="3" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="4" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="5" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="6" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="7" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="8" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="9" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="10" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="11" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="12" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="13" y="12" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="14" y="12" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="12" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="3" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="5" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="7" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="9" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="11" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="13" width="1" height="1" fill="#64748b" shape-rendering="crispEdges"/>
+<rect x="13" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="13" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="13" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="2" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="3" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="4" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="5" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="6" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="7" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="8" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="9" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="10" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="11" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="12" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="13" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="14" y="14" width="1" height="1" fill="#090d16" shape-rendering="crispEdges"/>
+<rect x="15" y="14" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="0" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="1" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="2" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="3" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="4" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="5" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="6" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="7" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="8" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="9" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="10" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="11" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="12" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="13" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="14" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<rect x="15" y="15" width="1" height="1" fill="#334155" shape-rendering="crispEdges"/>
+<line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="1" y1="0" x2="1" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="2" y1="0" x2="2" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="3" y1="0" x2="3" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="4" y1="0" x2="4" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="5" y1="0" x2="5" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="6" y1="0" x2="6" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="7" y1="0" x2="7" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="9" y1="0" x2="9" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="10" y1="0" x2="10" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="11" y1="0" x2="11" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="12" y1="0" x2="12" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="13" y1="0" x2="13" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="14" y1="0" x2="14" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="15" y1="0" x2="15" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="16" y1="0" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="0" x2="16" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="1" x2="16" y2="1" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="2" x2="16" y2="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="3" x2="16" y2="3" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="4" x2="16" y2="4" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="5" x2="16" y2="5" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="6" x2="16" y2="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="7" x2="16" y2="7" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="9" x2="16" y2="9" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="11" x2="16" y2="11" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="12" x2="16" y2="12" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="15" x2="16" y2="15" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+<line x1="0" y1="16" x2="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.04"/>
+</svg>
+                            <span class="label">Rack Servidor / Plataforma (16×16)</span>
+                            <p style="font-size:0.8rem; text-align:center; margin-top:8px;">Gabinete con luces LED de actividad de red para pisos y plataformas.</p>
+                        </div>
+                    </div>
+
+                    <div class="callout" style="margin-top: 20px;">
+                        <div class="callout-title">📦 Requisito para Firma de Sello 1 (Videojuegos)</div>
+                        El alumno debe presentar su archivo <code>.c3p</code> con los 5 sprites creados, el héroe con animación <strong>Idle</strong> (2 frames) y <strong>Run</strong> (4 frames en bucle), y orígenes en base de pies.
+                    </div>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('intro')">⬅️ Anterior: Presentación</button>
+                    <button class="btn-page" onclick="showPage('practica2')">Siguiente: Práctica 02 (Físicas) ➔</button>
+                </div>
+            </section>
+
+
+            <!-- PÁGINA 3: PRÁCTICA 02 (FÍSICAS) -->
+            <section id="page-practica2" class="page-section">
+                <h1 class="main-title">🕹️ Práctica 02: Escenarios, Físicas y Comportamientos</h1>
+                <div class="badge-pill">⏱️ Semana 2 (5 Horas) · Sesiones 4 a 6 · Behaviors y Plataformas</div>
+
+                <!-- SESIÓN 4 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 4 (2 Horas): Arquitectura de Capas y Plataformas Sólidas</span>
+                    <h2 class="card-title">2.1 Estructura del Nivel y Parallax</h2>
+                    <p>Separaremos el mundo visual en 3 niveles de profundidad para lograr una sensación de inmersión 2D profesional.</p>
+
+                    <pre>
+┌─────────────────────────────────────────────────────────────────────────────┐
 │                     ESTRUCTURA DE CAPAS (LAYERS)                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ 3. Capa 'HUD': [Parallax 0%, 0%] ➔ Marcador fijo en pantalla (Texto, Vidas).│
-│ 2. Capa 'Juego': [Parallax 100%, 100%] ➔ Jugador, Enemigos, Plataformas.   │
-│ 1. Capa 'Fondo': [Parallax 50%, 50%] ➔ Paredes oscuras, servidores lejanos.│
+│ 3. Capa 'HUD':    [Parallax 0%, 0%]   ➔ Interfaz fija (Corazones y Puntos). │
+│ 2. Capa 'Juego':  [Parallax 100%, 100%] ➔ Jugador, Bots, Llaves y Plataformas│
+│ 1. Capa 'Fondo':  [Parallax 50%, 50%] ➔ Servidores distantes con efecto 3D. │
 └─────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
-<h3>📋 Paso a Paso en Construct 3:</h3>
-<ol>
-<li><strong>Configuración de Capas (<em>Layers</em>):</strong></li>
-<li>En el panel derecho, abre la pestaña <strong>Capas</strong> (<em>Layers</em>).</li>
-<li>Nombra la capa actual como <code>Juego</code>.</li>
-<li>Añade una capa debajo llamada <code>Fondo</code> y bloquea su candado para no moverla por error.</li>
-<li>
-<p>Añade una capa arriba llamada <code>HUD</code> (aquí irá el marcador en la Semana 4).</p>
-</li>
-<li>
-<p><strong>Asignar Comportamientos al Jugador:</strong></p>
-</li>
-<li>Selecciona a tu sprite <code>Jugador</code>.</li>
-<li>En el panel izquierdo de <strong>Propiedades</strong>, busca la sección <strong>Comportamientos</strong> (<em>Behaviors</em>) y haz clic en <strong>«Añadir nuevo comportamiento»</strong>.</li>
-<li>
-<p>Agrega los siguientes 3 comportamientos esenciales:</p>
-<ul>
-<li>🏃 <strong>Plataforma (Platform):</strong> Le otorga aceleración, velocidad y gravedad automática.</li>
-<li>🎥 <strong>Desplazar hasta (ScrollTo):</strong> Hace que la cámara del juego siga al jugador suavemente.</li>
-<li>🛑 <strong>Restringido a la escena (BoundToLayout):</strong> Impide que el jugador camine fuera de los límites del nivel.</li>
-</ul>
-</li>
-<li>
-<p><strong>Ajuste de Parámetros Físicos del Jugador:</strong></p>
-</li>
-<li>
-<p>En las propiedades de <em>Plataforma</em>, configura:</p>
-<ul>
-<li><strong>Velocidad máxima:</strong> <code>220</code> px/seg.</li>
-<li><strong>Aceleración:</strong> <code>1000</code> px/seg².</li>
-<li><strong>Fuerza de salto:</strong> <code>480</code> px/seg.</li>
-<li><strong>Gravedad:</strong> <code>1100</code> px/seg².</li>
-</ul>
-</li>
-<li>
-<p><strong>Construir el Piso y Plataformas Sólidas:</strong></p>
-</li>
-<li>Haz doble clic en el lienzo y añade un nuevo Sprite llamado <code>Piso_Servidor</code>.</li>
-<li>Píntalo con apariencia metálica de rejilla de centro de datos.</li>
-<li>En <strong>Comportamientos</strong>, agrégale el comportamiento <strong>«Sólido» (Solid)</strong>.</li>
-<li>
-<p>Duplica el piso por todo el escenario usando <code>Ctrl + Arrastrar</code> para crear plataformas elevadas y escalones.</p>
-</li>
-<li>
-<p><strong>Añadir el Enemigo Patrullero:</strong></p>
-</li>
-<li>Inserta el sprite <code>Malware_Bot</code>.</li>
-<li>
-<p>Agrégale el comportamiento <strong>«Seno» (Sine)</strong> o <strong>«Plataforma»</strong> para que se mueva horizontalmente patrullando una plataforma fija.</p>
-</li>
-<li>
-<p><strong>Comprobación:</strong> Presiona el botón de <strong>Play (▶️)</strong>. El héroe debe correr, saltar sobre las plataformas y la cámara debe acompañar su avance por todo el mapa.</p>
-</li>
-</ol>
-<p><em>📦 Producto a Sellar (Sello 2 - Videojuegos):</em> Nivel transitable con físicas afinadas, plataformas sólidas y cámara de seguimiento.</p>
-<hr />
-<h2>PRÁCTICA 03: HOJA DE EVENTOS, LÓGICA ALGORÍTMICA Y CIBERSEGURIDAD</h2>
-<p><strong>Duración:</strong> 5 Horas (Semana 3 del Proyecto)<br />
-<strong>Herramientas:</strong> Hoja de Eventos (<em>Event Sheet</em>) de Construct 3  </p>
-<h3>🎯 Objetivo de la Sesión</h3>
-<p>Traducir los conceptos de ciberseguridad a lógica algorítmica de eventos, variables de estado y detección de colisiones dentro de la Hoja de Eventos.</p>
-<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
-│                    TABLA DE VARIABLES GLOBALES DEL JUEGO                    │
-├─────────────────┬───────────┬───────────────┬───────────────────────────────┤
-│ NOMBRE VARIABLE │ TIPO      │ VALOR INICIAL │ PROPÓSITO TÉCNICO             │
-├─────────────────┼───────────┼───────────────┼───────────────────────────────┤
-│ Vidas           │ Número    │ 3             │ Contador de integridad física │
-│ Puntos          │ Número    │ 0             │ Mitigación acumulada          │
-│ TieneLlaveTLS   │ Booleano  │ 0 (Falso)     │ Permiso de apertura de puerto │
-│ Invulnerable    │ Booleano  │ 0 (Falso)     │ Escudo activo por Salting     │
-└─────────────────┴───────────┴───────────────┴───────────────────────────────┘
-</code></pre>
-<h3>📋 Paso a Paso en la Hoja de Eventos (<em>Event Sheet 1</em>):</h3>
-<h4>1. Creación de Variables Globales:</h4>
-<ul>
-<li>Abre la pestaña <strong>Event Sheet 1</strong>.</li>
-<li>Haz clic derecho en el espacio vacío ➔ <strong>«Añadir variable global»</strong>.</li>
-<li>Declara las 4 variables de la tabla anterior.</li>
-</ul>
-<h4>2. Evento 1: Control de Animaciones del Jugador</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Jugador ➔ Está moviéndose (Is moving)</code><br />
-  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Run"</code></li>
-<li><strong>Evento:</strong> <code>Jugador ➔ Está en el suelo (Is on floor)</code> <strong>Y</strong> <code>Jugador ➔ Invertir (No se mueve)</code><br />
-  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Idle"</code></li>
-<li><strong>Evento:</strong> <code>Jugador ➔ Está saltando (Is jumping)</code><br />
-  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer animación a "Jump"</code></li>
-</ul>
-<h4>3. Evento 2: Inversión del Sprite al Cambiar de Dirección</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Teclado ➔ Al presionar tecla Flecha Izquierda</code><br />
-  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer reflejado (Set mirrored)</code></li>
-<li><strong>Evento:</strong> <code>Teclado ➔ Al presionar tecla Flecha Derecha</code><br />
-  ➔ <strong>Acción:</strong> <code>Jugador ➔ Establecer NO reflejado (Set not mirrored)</code></li>
-</ul>
-<h4>4. Evento 3: Mecánica de Daño por Malware (Pérdida de Integridad)</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con otro objeto (Malware_Bot)</code> <strong>Y</strong> <code>Invulnerable = 0</code><br />
-  ➔ <strong>Acción 1:</strong> <code>Sistema ➔ Restar a Vidas: 1</code><br />
-  ➔ <strong>Acción 2:</strong> <code>Jugador ➔ Parpadear (Comportamiento Flash: 0.1s on, 0.1s off, duración 1.5s)</code><br />
-  ➔ <strong>Acción 3:</strong> <code>Sistema ➔ Establecer Invulnerable = 1</code><br />
-  ➔ <strong>Acción 4:</strong> <code>Sistema ➔ Esperar 1.5 segundos ➔ Establecer Invulnerable = 0</code></li>
-</ul>
-<h4>5. Evento 4: Mecánica Criptográfica de la Llave TLS (Puerto 443)</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Llave_TLS</code><br />
-  ➔ <strong>Acción 1:</strong> <code>Llave_TLS ➔ Destruir</code><br />
-  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Establecer TieneLlaveTLS = 1</code><br />
-  ➔ <strong>Acción 3:</strong> <code>Sistema ➔ Sumar a Puntos: 50</code></li>
-</ul>
-<h4>6. Evento 5: Desbloqueo de la Puerta del Servidor (<code>chmod 600</code>)</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Puerta_Servidor</code> <strong>Y</strong> <code>TieneLlaveTLS = 1</code><br />
-  ➔ <strong>Acción 1:</strong> <code>Puerta_Servidor ➔ Destruir (Se abre el candado)</code><br />
-  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Ir a Escena "Victoria"</code></li>
-</ul>
-<h4>7. Evento 6: Mecánica de Salting (Escudo Antivirus)</h4>
-<ul>
-<li><strong>Evento:</strong> <code>Jugador ➔ Al colisionar con Cristal_Salting</code><br />
-  ➔ <strong>Acción 1:</strong> <code>Cristal_Salting ➔ Destruir</code><br />
-  ➔ <strong>Acción 2:</strong> <code>Sistema ➔ Establecer Invulnerable = 1</code><br />
-  ➔ <strong>Acción 3:</strong> <code>Jugador ➔ Establecer opacidad: 60% (Efecto visual de escudo)</code><br />
-  ➔ <strong>Acción 4:</strong> <code>Sistema ➔ Esperar 6 segundos ➔ Establecer Invulnerable = 0 y opacidad 100%</code></li>
-</ul>
-<p><em>📦 Producto a Sellar (Sello 3 - Videojuegos):</em> Hoja de eventos programada con colisiones, variables y mecánicas de ciberseguridad operando sin errores.</p>
-<hr />
-<h2>PRÁCTICA 04: INTERFAZ HUD, AUDIO Y PUBLICACIÓN WEB</h2>
-<p><strong>Duración:</strong> 5 Horas (Semana 4 del Proyecto)<br />
-<strong>Herramientas:</strong> Construct 3 (Objeto Texto, Audio y Exportador HTML5)  </p>
-<h3>🎯 Objetivo de la Sesión</h3>
-<p>Incorporar la visualización en tiempo real del estado del sistema (corazones de vida, puntuación de mitigación), efectos de sonido inmersivos y realizar el despliegue web final para su ejecución en computadoras y teléfonos celulares.</p>
-<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
-│                       DISEÑO DE LA INTERFAZ HUD                             │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ ❤️ ❤️ ❤️ (Vidas)          PUNTOS: 00150          ESTADO: [ CIFRADO TLS ]     │
-│                                                                             │
-│                                                                             │
-│                       [ ESCENARIO DEL JUEGO ]                               │
-└─────────────────────────────────────────────────────────────────────────────┘
-</code></pre>
-<h3>📋 Paso a Paso en Construct 3:</h3>
-<ol>
-<li><strong>Creación del HUD Fijo en Pantalla:</strong></li>
-<li>Selecciona la capa <code>HUD</code> en el panel de capas.</li>
-<li>En las propiedades de la capa, cambia <strong>Paralaje (Parallax)</strong> a <code>0%, 0%</code>.<br />
-<em>(Esto congela los elementos en la pantalla sin importar hacia dónde camine el jugador).</em></li>
-<li>Inserta un objeto de tipo <strong>Texto</strong> y nómbralo <code>Txt_Puntos</code>.</li>
-<li>
-<p>Inserta un objeto Sprite con 3 cuadros de animación que represente los corazones y nómbralo <code>Sprite_Vidas</code>.</p>
-</li>
-<li>
-<p><strong>Actualizar el HUD en Cada Cuadro (<em>Every Tick</em>):</strong></p>
-</li>
-<li>
-<p>En la Hoja de Eventos, añade el evento:<br />
-<code>Sistema ➔ Cada tick (Every tick)</code><br />
-     ➔ <strong>Acción 1:</strong> <code>Txt_Puntos ➔ Establecer texto a: "PUNTOS: " &amp; Puntos</code><br />
-     ➔ <strong>Acción 2:</strong> <code>Sprite_Vidas ➔ Establecer cuadro de animación a: Vidas</code></p>
-</li>
-<li>
-<p><strong>Condición de Game Over (Brecha de Seguridad):</strong></p>
-</li>
-<li>
-<p><strong>Evento:</strong> <code>Sistema ➔ Comparar variable: Vidas &lt;= 0</code><br />
-     ➔ <strong>Acción 1:</strong> <code>Sistema ➔ Ir a Escena "GameOver"</code><br />
-     ➔ <strong>Acción 2:</strong> <code>Audio ➔ Reproducir sonido de alarma</code></p>
-</li>
-<li>
-<p><strong>Integración de Efectos de Sonido:</strong></p>
-</li>
-<li>En el panel de proyecto, haz clic derecho en la carpeta <strong>Sonidos</strong> ➔ <strong>Importar sonidos</strong>.</li>
-<li>Descarga o genera sonidos retro en <a href="https://sfxr.me">jsfxr</a> (salto, disparo, campana de llave, impacto).</li>
-<li>Añade el objeto <strong>Audio</strong> al proyecto.</li>
-<li>
-<p>Vincula cada acción (salto, colisión de llave, daño) con su sonido correspondiente.</p>
-</li>
-<li>
-<p><strong>Exportación Final a la Web (HTML5):</strong></p>
-</li>
-<li>Menú de Construct 3 ➔ Proyecto ➔ <strong>Exportar</strong>.</li>
-<li>Selecciona la opción <strong>«Web (HTML5)»</strong>.</li>
-<li>Descarga el archivo comprimido <code>.zip</code> generado.</li>
-<li>Descomprime la carpeta y renómbrala con el nombre de tu equipo (ejemplo: <code>Equipo01_G501_CyberDefender</code>).</li>
-<li>Los archivos quedan listos para alojarse en un servidor web local o en el <strong>Portal Web CONALEP</strong> de la materia.</li>
-</ol>
-<p><em>📦 Producto a Sellar (Sello 4 - Videojuegos):</em> Videojuego finalizado, jugable al 100% y entregado en carpeta web HTML5.</p>
-<hr />
-<h2>RÚBRICA DE EVALUACIÓN OFICIAL (PROYECTO TERCER CORTE)</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Criterio de Evaluación</th>
-<th style="text-align: left;">Nivel Excelente (10 - 9)</th>
-<th style="text-align: left;">Nivel Bueno (8 - 7)</th>
-<th style="text-align: left;">Nivel Básico (6)</th>
-<th style="text-align: left;">Insuficiente (5 - 0)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Arte y Sprites (25%)</strong></td>
-<td style="text-align: left;">Sprites originales con temática de ciberseguridad, animaciones fluidas (Idle, Run, Jump) y colisiones perfectamente ajustadas.</td>
-<td style="text-align: left;">Sprites temáticos pero con animaciones estáticas o colisiones ligeramente desfasadas.</td>
-<td style="text-align: left;">Sprites básicos geométricos sin animaciones ni detalles visuales.</td>
-<td style="text-align: left;">No presenta sprites propios o utiliza cuadros sin editar.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Físicas y Nivel (25%)</strong></td>
-<td style="text-align: left;">Nivel con diseño balanceado, plataformas sólidas sin bugs y física de salto y cámara cinematográfica.</td>
-<td style="text-align: left;">El personaje se mueve bien pero el nivel es muy corto o presenta pequeños saltos bruscos.</td>
-<td style="text-align: left;">Plataformas con huecos o caídas donde el personaje se queda atorado.</td>
-<td style="text-align: left;">El personaje no se mueve o cae al vacío indefinidamente.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Lógica Algorítmica (30%)</strong></td>
-<td style="text-align: left;">Hoja de eventos impecable: variables de vidas y puntos funcionales, daño por malware, llave TLS operativa y mecánica de salting activa.</td>
-<td style="text-align: left;">Lógica funcional pero faltó implementar una de las mecánicas (salting o llaves).</td>
-<td style="text-align: left;">Solo registra movimiento y daño básico; no cuenta con mecánicas de seguridad.</td>
-<td style="text-align: left;">Hoja de eventos con errores graves que bloquean la ejecución del juego.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>HUD, Audio y Entrega (20%)</strong></td>
-<td style="text-align: left;">Marcador fijo en pantalla, audio retro inmersivo, pantallas de victoria/derrota y exportación web HTML5 sin fallas.</td>
-<td style="text-align: left;">Cuenta con HUD y audio pero la exportación web presentó errores de formato.</td>
-<td style="text-align: left;">Solo funciona dentro del editor de Construct; carece de sonidos o pantallas finales.</td>
-<td style="text-align: left;">No entregó el juego exportado ni presentó el archivo de proyecto <code>.c3p</code>.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><strong>Elaboró:</strong> Dr. Felipe López Salazar · Docente Titular de Ciberseguridad (MTCS-20)<br />
-<strong>CONALEP Plantel Pachuca de Soto</strong> · Semestre 1.26.27</p>
-    </div>
+                    </pre>
+
+                    <ol class="step-list">
+                        <li>En el panel lateral derecho, abre la pestaña <strong>Capas</strong> (<em>Layers</em>).</li>
+                        <li>Nombra la capa actual como <code>Juego</code>.</li>
+                        <li>Crea una capa debajo llamada <code>Fondo</code> y bloquea su candado para protegerla.</li>
+                        <li>Crea una capa superior llamada <code>HUD</code> con Parallax en <code>0%, 0%</code>.</li>
+                        <li>Crea el sprite <code>Piso_Servidor</code>, agrégale el comportamiento <strong>Sólido (Solid)</strong> y duplícalo con <code>Ctrl + Arrastrar</code>.</li>
+                    </ol>
+                </div>
+
+                <!-- SESIÓN 5 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 5 (2 Horas): Físicas de Plataforma y Cámara Dinámica</span>
+                    <h2 class="card-title">2.2 Cinemática del Jugador y Cámara de Seguimiento</h2>
+                    <p>Asignaremos los comportamientos que permiten al analista correr, saltar y ser enfocado por la cámara del juego.</p>
+
+                    <ol class="step-list">
+                        <li>Selecciona al <code>Jugador</code> ➔ En el panel Propiedades busca <strong>Comportamientos</strong> (<em>Behaviors</em>).</li>
+                        <li>Añade los 3 comportamientos fundamentales:
+                            <ul style="margin: 6px 0 0 16px;">
+                                <li>🏃 <strong>Plataforma (Platform):</strong> Control cinemático de salto y aceleración.</li>
+                                <li>🎥 <strong>Desplazar hasta (ScrollTo):** Cámara suave que sigue al héroe.</li>
+                                <li>🛑 <strong>Restringido a la escena (BoundToLayout):</strong> Impide salir del nivel.</li>
+                            </ul>
+                        </li>
+                        <li>Configura los valores físicos recomendados para Pixel-Art:
+                            <ul style="margin: 6px 0 0 16px;">
+                                <li><strong>Velocidad máxima:</strong> <code>220 px/s</code></li>
+                                <li><strong>Aceleración:</strong> <code>1000 px/s²</code></li>
+                                <li><strong>Fuerza de salto:</strong> <code>480 px/s</code></li>
+                                <li><strong>Gravedad:</strong> <code>1100 px/s²</code></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- SESIÓN 6 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 6 (1 Hora): Enemigos Patrulleros y Sello 2</span>
+                    <h2 class="card-title">2.3 Patrullas de Malware y Validación de Nivel</h2>
+                    <p>Programaremos la patrulla autónoma del malware usando el comportamiento <strong>Seno (Sine)</strong> horizontal y verificaremos que el nivel sea jugable.</p>
+
+                    <div class="callout">
+                        <div class="callout-title">📦 Requisito para Firma de Sello 2 (Videojuegos)</div>
+                        Nivel completo y transitable donde el jugador camina, brinca sin atorarse en las esquinas, la cámara acompaña su avance y los bots flotan/patrullan sus áreas designadas.
+                    </div>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('practica1')">⬅️ Anterior: Práctica 01</button>
+                    <button class="btn-page" onclick="showPage('practica3')">Siguiente: Práctica 03 (Lógica) ➔</button>
+                </div>
+            </section>
+
+
+            <!-- PÁGINA 4: PRÁCTICA 03 (LÓGICA) -->
+            <section id="page-practica3" class="page-section">
+                <h1 class="main-title">⚙️ Práctica 03: Hoja de Eventos y Ciberseguridad</h1>
+                <div class="badge-pill">⏱️ Semana 3 (5 Horas) · Sesiones 7 a 9 · Event Sheet y Algoritmos</div>
+
+                <!-- SESIÓN 7 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 7 (2 Horas): Variables Globales y Máquina de Estados</span>
+                    <h2 class="card-title">3.1 Control de Animaciones y Memoria del Sistema</h2>
+                    <p>Declararemos las variables de ciberdefensa en memoria y programaremos el selector automático de animaciones (Idle, Run, Jump).</p>
+
+                    <table>
+                        <tr><th>Variable Global</th><th>Tipo</th><th>Valor Inicial</th><th>Propósito Técnico</th></tr>
+                        <tr><td><code>Vidas</code></td><td>Número</td><td>3</td><td>Contador de integridad del héroe</td></tr>
+                        <tr><td><code>Puntos</code></td><td>Número</td><td>0</td><td>Registros de mitigación acumulada</td></tr>
+                        <tr><td><code>TieneLlaveTLS</code></td><td>Booleano</td><td>0 (Falso)</td><td>Permiso de apertura de puerta chmod 600</td></tr>
+                        <tr><td><code>Invulnerable</code></td><td>Booleano</td><td>0 (Falso)</td><td>Escudo de hash salting activo</td></tr>
+                    </table>
+
+                    <pre>
+// EVENT SHEET 1: CONTROL DE ANIMACIONES DEL JUGADOR
+[Evento]: Jugador ➔ Está moviéndose (Is moving)
+  ➔ [Acción]: Jugador ➔ Establecer animación a "Run"
+
+[Evento]: Jugador ➔ Está en el suelo (Is on floor) Y Jugador ➔ Invertir (No se mueve)
+  ➔ [Acción]: Jugador ➔ Establecer animación a "Idle"
+
+[Evento]: Jugador ➔ Está saltando (Is jumping)
+  ➔ [Acción]: Jugador ➔ Establecer animación a "Jump"
+                    </pre>
+                </div>
+
+                <!-- SESIÓN 8 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 8 (2 Horas): Mecánicas de Ciberdefensa (Colisiones y Llaves)</span>
+                    <h2 class="card-title">3.2 Cifrado TLS, Salting y Pérdida de Integridad</h2>
+                    <p>Traduciremos los conceptos de ciberseguridad en eventos lógicos de juego:</p>
+
+                    <pre>
+// DAÑO POR MALWARE (PÉRDIDA DE INTEGRIDAD):
+[Evento]: Jugador ➔ Al colisionar con Malware_Bot Y Invulnerable = 0
+  ➔ [Acción 1]: Sistema ➔ Restar a Vidas: 1
+  ➔ [Acción 2]: Jugador ➔ Parpadear (Flash: 0.1s on, 0.1s off, 1.5s total)
+  ➔ [Acción 3]: Sistema ➔ Establecer Invulnerable = 1
+  ➔ [Acción 4]: Sistema ➔ Esperar 1.5 s ➔ Establecer Invulnerable = 0
+
+// LLAVE CRIPTOGRÁFICA TLS (PUERTO 443):
+[Evento]: Jugador ➔ Al colisionar con Llave_TLS
+  ➔ [Acción 1]: Llave_TLS ➔ Destruir
+  ➔ [Acción 2]: Sistema ➔ Establecer TieneLlaveTLS = 1
+  ➔ [Acción 3]: Sistema ➔ Sumar a Puntos: 50
+
+// ESCUDO DE SALTING (ALTA ENTROPÍA):
+[Evento]: Jugador ➔ Al colisionar con Cristal_Salting
+  ➔ [Acción 1]: Cristal_Salting ➔ Destruir
+  ➔ [Acción 2]: Sistema ➔ Establecer Invulnerable = 1
+  ➔ [Acción 3]: Jugador ➔ Opacidad: 60% (Efecto Escudo)
+  ➔ [Acción 4]: Sistema ➔ Esperar 6 s ➔ Invulnerable = 0 y Opacidad 100%
+                    </pre>
+                </div>
+
+                <!-- SESIÓN 9 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 9 (1 Hora): Puerta del Servidor (chmod 600) y Sello 3</span>
+                    <h2 class="card-title">3.3 Desbloqueo de Puertos y Victoria</h2>
+                    <p>Si el jugador tiene la llave TLS (<code>TieneLlaveTLS = 1</code>), la puerta de máxima seguridad se destruye y permite acceder a la terminal de victoria.</p>
+
+                    <div class="callout">
+                        <div class="callout-title">📦 Requisito para Firma de Sello 3 (Videojuegos)</div>
+                        Hoja de eventos con variables globales operando, pérdida de vidas por impacto, recolección de llave TLS y apertura exitosa de la puerta.
+                    </div>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('practica2')">⬅️ Anterior: Práctica 02</button>
+                    <button class="btn-page" onclick="showPage('practica4')">Siguiente: Práctica 04 (HUD y Web) ➔</button>
+                </div>
+            </section>
+
+
+            <!-- PÁGINA 5: PRÁCTICA 04 (HUD Y WEB) -->
+            <section id="page-practica4" class="page-section">
+                <h1 class="main-title">🚀 Práctica 04: Interfaz HUD, Audio y Publicación Web</h1>
+                <div class="badge-pill">⏱️ Semana 4 (5 Horas) · Sesiones 10 a 12 · Exportación HTML5</div>
+
+                <!-- SESIÓN 10 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 10 (2 Horas): Marcador HUD en Tiempo Real</span>
+                    <h2 class="card-title">4.1 Interfaz Fija en Pantalla (Every Tick)</h2>
+                    <p>Diseñaremos el marcador visual que muestra las vidas restantes y los puntos de mitigación permanentemente fijos en la capa HUD.</p>
+
+                    <pre>
+// ACTUALIZACIÓN CONTINUA DEL MARCADOR EN PANTALLA:
+[Evento]: Sistema ➔ Cada tick (Every tick)
+  ➔ [Acción 1]: Txt_Puntos ➔ Establecer texto a: "PUNTOS: " & Puntos
+  ➔ [Acción 2]: Sprite_Vidas ➔ Establecer cuadro de animación a: Vidas
+                    </pre>
+                </div>
+
+                <!-- SESIÓN 11 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 11 (2 Horas): Efectos de Audio y Pantallas de Cierre</span>
+                    <h2 class="card-title">4.2 Paisaje Sonoro Retro y Condiciones de Fin</h2>
+                    <p>Importaremos efectos generados en <a href="https://sfxr.me" target="_blank" style="color: #38bdf8;">sfxr.me</a> y programaremos el Game Over cuando las vidas lleguen a cero.</p>
+
+                    <ol class="step-list">
+                        <li>En la carpeta <strong>Sonidos</strong> del proyecto, importa efectos para: <em>Salto, Llave TLS, Impacto de Malware y Alarma</em>.</li>
+                        <li>Inserta el objeto <strong>Audio</strong> al proyecto.</li>
+                        <li>Configura la condición de derrota:
+                            <pre style="margin-top: 8px;">
+[Evento]: Sistema ➔ Comparar variable: Vidas <= 0
+  ➔ [Acción 1]: Audio ➔ Reproducir sonido "Alarma_Brecha"
+  ➔ [Acción 2]: Sistema ➔ Ir a Escena "GameOver"
+                            </pre>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- SESIÓN 12 -->
+                <div class="card">
+                    <span class="session-badge">Sesión 12 (1 Hora): Compilación Web HTML5 y Sello 4</span>
+                    <h2 class="card-title">4.3 Exportación y Despliegue en el Portal CONALEP</h2>
+                    <p>El paso culminante del módulo: convertir el proyecto en una aplicación web estándar lista para jugarse en navegadores.</p>
+
+                    <ol class="step-list">
+                        <li>Menú ➔ Proyecto ➔ <strong>Exportar</strong> ➔ Selecciona <strong>«Web (HTML5)»</strong>.</li>
+                        <li>Descarga el archivo <code>.zip</code> y renómbralo con el nombre de tu equipo (ejemplo: <code>Equipo01_CyberDefender_501.zip</code>).</li>
+                        <li>Entrega al docente tanto el archivo fuente <code>.c3p</code> como el paquete web desplegable.</li>
+                    </ol>
+
+                    <div class="callout">
+                        <div class="callout-title">📦 Requisito para Firma de Sello 4 (Videojuegos)</div>
+                        Videojuego completo funcionando en navegador web, con audio sincronizado, pantalla de victoria/derrota y carpeta HTML5 entregada.
+                    </div>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('practica3')">⬅️ Anterior: Práctica 03</button>
+                    <button class="btn-page" onclick="showPage('rubrica')">Siguiente: Rúbrica Oficial ➔</button>
+                </div>
+            </section>
+
+
+            <!-- PÁGINA 6: RÚBRICA DE EVALUACIÓN -->
+            <section id="page-rubrica" class="page-section">
+                <h1 class="main-title">📊 Rúbrica Oficial de Evaluación (Tercer Corte)</h1>
+                <div class="badge-pill">📋 Ponderación: 100% de la Unidad 3 · Grupo 501</div>
+
+                <div class="card">
+                    <h2 class="card-title">Matriz Analítica de Desempeño</h2>
+                    <table>
+                        <tr>
+                            <th>Criterio de Evaluación</th>
+                            <th>Excelente (10 - 9)</th>
+                            <th>Bueno (8 - 7)</th>
+                            <th>Básico (6)</th>
+                            <th>Insuficiente (5 - 0)</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Arte y Sprites (25%)</strong></td>
+                            <td>Sprites originales de ciberseguridad, animaciones fluidas (Idle, Run, Jump) y colisiones perfectamente ajustadas.</td>
+                            <td>Sprites temáticos pero con animaciones estáticas o colisiones ligeramente desfasadas.</td>
+                            <td>Sprites básicos geométricos sin animaciones ni detalles visuales.</td>
+                            <td>No presenta sprites propios o utiliza cuadros vacíos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Físicas y Nivel (25%)</strong></td>
+                            <td>Nivel balanceado, plataformas sólidas sin bugs y física de salto y cámara cinematográfica.</td>
+                            <td>El personaje se mueve bien pero el nivel es muy corto o presenta pequeños saltos bruscos.</td>
+                            <td>Plataformas con huecos donde el personaje se queda atorado.</td>
+                            <td>El personaje no se mueve o cae al vacío indefinidamente.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lógica Algorítmica (30%)</strong></td>
+                            <td>Hoja de eventos impecable: vidas y puntos funcionales, daño por malware, llave TLS operativa y salting activo.</td>
+                            <td>Lógica funcional pero faltó implementar una mecánica (salting o llaves).</td>
+                            <td>Solo registra movimiento y daño básico; no cuenta con mecánicas de seguridad.</td>
+                            <td>Hoja de eventos con errores graves que impiden jugar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HUD, Audio y Entrega (20%)</strong></td>
+                            <td>Marcador fijo, audio retro inmersivo, pantallas de victoria/derrota y exportación web HTML5 sin fallas.</td>
+                            <td>Cuenta con HUD y audio pero la exportación web presentó errores menores.</td>
+                            <td>Solo funciona dentro de Construct; carece de sonidos o pantallas finales.</td>
+                            <td>No entregó el juego exportado ni presentó el archivo <code>.c3p</code>.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('practica4')">⬅️ Anterior: Práctica 04</button>
+                    <div></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT DE NAVEGACIÓN Y COPIADO -->
+    <script>
+        function showPage(pageId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.page-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // Desmarcar menú
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Mostrar sección seleccionada
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Marcar elemento de menú
+            const navLink = Array.from(document.querySelectorAll('.nav-item')).find(item => {
+                return item.getAttribute('onclick') && item.getAttribute('onclick').includes(pageId);
+            });
+            if (navLink) {
+                navLink.classList.add('active');
+            }
+
+            // Scroll al inicio
+            document.querySelector('.content-area').scrollTop = 0;
+        }
+
+        function copyGrid(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                navigator.clipboard.writeText(el.innerText.trim()).then(() => {
+                    alert('¡Cuadrícula ASCII copiada al portapapeles! Puedes pegarla como referencia.');
+                }).catch(err => {
+                    console.error('Error al copiar:', err);
+                });
+            }
+        }
+    </script>
 </body>
 </html>
