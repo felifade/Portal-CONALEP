@@ -43,8 +43,7 @@ export const teachingPlan = {
       deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
-        { id: 'RA 2.2', title: 'Control Financiero y Gestión de Hojas de Cálculo', peso: '15%', weeks: ['W09'] },
-        { id: 'RA 2.3', title: 'Desarrollo de Apps Móviles y Documentación Técnica', peso: '15%', weeks: ['W10'] }
+        { id: 'RA 2.2', title: 'Control Financiero, Modelos de Cálculo y Apps Móviles', peso: '15%', weeks: ['W09', 'W10'] }
       ]
     },
     {
@@ -55,7 +54,7 @@ export const teachingPlan = {
       captureDates: '10 al 11 Dic 2026',
       deadline: '11 Dic 2026',
       ras: [
-        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W10', 'W11', 'W12'] },
+        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W11', 'W12'] },
         { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W13', 'W14', 'W15'] }
       ]
     }
@@ -1128,7 +1127,7 @@ Encuadre del RA 2.2: Control Financiero y Gestión de Hojas de Cálculo.`,
       label: 'Semana 09',
       title: 'Presupuesto Personal y Control de Gastos (Black Mirror)',
       dates: '12 Oct - 16 Oct',
-      status: 'active',
+      status: 'historical',
       templateUrl: './templates/Plantilla_Presupuesto_Personal_Semana09.xlsx',
       summary: 'Desarrollo de un sistema interactivo de Presupuesto Personal en Google Sheets con proyección de Fifteen Million Merits (Black Mirror), formato moneda ($), balance diario, resúmenes estadísticos (=SUMA, =PROMEDIO, =MAX, =MIN), semáforo condicional y dashboard gráfico.',
       expectedProduct: 'Presupuesto Personal con Registro de Gastos + Resumen Estadístico + Semáforo de Ahorro + Dashboard Gráfico.',
@@ -1430,8 +1429,8 @@ Gráfica de Pastel mostrando porcentajes por categoría + Gráfica de Columnas m
 Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados. 👉 SELLO FINAL`,
           closure: 'Dashboard de Presupuesto Personal terminado con gráficos de pastel y columnas.'
         }
-      ],
-
+      ]
+    },
     'W10': {
       id: 'W10',
       label: 'Semana 10',
@@ -1446,6 +1445,13 @@ Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados.
       toolBtnText: 'Abrir MIT App Inventor',
       summary: 'Construcción desde cero de una app móvil multi-pantalla en MIT App Inventor para calcular áreas y perímetros de 5 figuras geométricas (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), emulación en vivo con MIT AI2 Companion y redacción de Manual de Usuario.',
       expectedProduct: 'App GeoCalc corriendo en celular Android + Manual de Usuario en PDF con casos de prueba.',
+      notices: [
+        'Alineación Curricular: Actividad integradora del RA 2.2 (Segundo Corte · 15%).',
+        'Lunes (Horas 1-4): Arquitectura UI/UX multi-pantalla, portada institucional, menú principal y maquetación de 5 figuras (Sellos 1 al 4).',
+        'Miércoles (Hora 5): Blocks Editor en App Inventor — Programación aritmética de Cuadrado y Rectángulo (Sello 5).',
+        'Jueves (Horas 6-7): Algoritmos de Triángulo, Círculo, Pentágono y prueba en vivo en celular con AI Companion (Sellos 6 y 7).',
+        'Viernes (Hora 8): Documentación técnica ejecutiva: redacción y entrega del Manual de Usuario en PDF (Sello Final).'
+      ],
       sessions: [
         {
           id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Portada, Menú & Maquetación 7 Screens',
@@ -1698,8 +1704,5 @@ Manual de Usuario concluido en PDF + Portafolio completo de sellos de la Semana 
         }
       ]
     }
-
-    }
-
   }
 };
