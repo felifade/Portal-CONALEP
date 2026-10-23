@@ -43,7 +43,7 @@ export const teachingPlan = {
       deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
-        { id: 'RA 2.2', title: 'Control Financiero, Modelos de Cálculo y Apps Móviles', peso: '15%', weeks: ['W09', 'W10'] }
+        { id: 'RA 2.2', title: 'Control Financiero, Modelos de Cálculo y Apps Móviles', peso: '15%', weeks: ['W09', 'W10', 'W11'] }
       ]
     },
     {
@@ -54,8 +54,8 @@ export const teachingPlan = {
       captureDates: '10 al 11 Dic 2026',
       deadline: '11 Dic 2026',
       ras: [
-        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W11', 'W12'] },
-        { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W13', 'W14', 'W15'] }
+        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W12', 'W13'] },
+        { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W14', 'W15', 'W16'] }
       ]
     }
   ],
@@ -1434,23 +1434,21 @@ Dashboard de Presupuesto Personal completado con 2 gráficas y sellos revisados.
     'W10': {
       id: 'W10',
       label: 'Semana 10',
-      title: 'App Móvil GeoCalc en App Inventor & Manual de Usuario',
+      title: 'App Móvil GeoCalc en App Inventor (Portada, Menú, Cuadrado y Rectángulo)',
       dates: '19 Oct - 23 Oct',
-      status: 'active',
+      status: 'historical',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
       templateFileName: 'GeoCalc_CONALEP.aia',
       templateBtnText: 'Descargar Proyecto Maestro (.aia)',
       templateBtnColor: '#005C42',
       toolUrl: 'https://ai2.appinventor.mit.edu',
       toolBtnText: 'Abrir MIT App Inventor',
-      summary: 'Construcción desde cero de una app móvil multi-pantalla en MIT App Inventor para calcular áreas y perímetros de 5 figuras geométricas (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), emulación en vivo con MIT AI2 Companion y redacción de Manual de Usuario.',
-      expectedProduct: 'App GeoCalc corriendo en celular Android + Manual de Usuario en PDF con casos de prueba.',
+      summary: 'Inicio de la app GeoCalc en MIT App Inventor: diseño en libreta y maquetación en PC de Screen1 (Portada), Screen2 (Menú Principal), Screen3 (Cuadrado con área y perímetro) y Screen4 (Rectángulo con área y perímetro).',
+      expectedProduct: 'Proyecto GeoCalc con Portada, Menú, Cuadrado y Rectángulo maquetados y programados con bloques aritméticos.',
       notices: [
         'Alineación Curricular: Actividad integradora del RA 2.2 (Segundo Corte · 15%).',
-        'Lunes (Realizada): Diseño y bocetado en libreta de Screen1 (Portada) y Screen2 (Menú Principal), y arranque de maquetación en MIT App Inventor (Sello 1).',
-        'Miércoles (Hora 5): Conclusión en PC de Portada y Menú, verificación de transición de pantallas y maquetación de ScreenCuadrado (Sello 2).',
-        'Jueves (Horas 6-7): Maquetación de figuras restantes y programación de bloques aritméticos en Blocks Editor (Sellos 3 y 4).',
-        'Viernes (Hora 8): Prueba en celulares con AI Companion (código QR), casos de control y Manual de Usuario en PDF (Sello Final).'
+        'Avance Concluido en Semana 10: Screen1 (Portada), Screen2 (Menú Principal), Screen3 (Cuadrado) y Screen4 (Rectángulo) con cálculo de área y perímetro programados.',
+        'Continuación en Semana 11: Pantallas de Triángulo, Círculo y Pentágono, conclusión de bloques, AI Companion y evaluación sumativa.'
       ],
       sessions: [
         {
@@ -1644,6 +1642,170 @@ Metodología: Prueba en Celular (20 min) ➔ Redacción Técnica (20 min) ➔ Co
 🏷️ EVIDENCIA Y SELLO FINAL:
 App probada en vivo en el celular + Manual de Usuario entregado en PDF. 👉 SELLO FINAL (SELLO 5)`,
           closure: 'App probada exitosamente en celulares y entrega del Manual de Usuario completada.'
+        }
+      ]
+    },
+    'W11': {
+      id: 'W11',
+      label: 'Semana 11',
+      title: 'App GeoCalc: Círculo, Triángulo, Pentágono & Evaluación RA 2.2',
+      dates: '26 Oct - 30 Oct',
+      status: 'active',
+      templateUrl: './templates/GeoCalc_CONALEP.aia',
+      templateFileName: 'GeoCalc_CONALEP.aia',
+      templateBtnText: 'Descargar Proyecto Maestro (.aia)',
+      templateBtnColor: '#005C42',
+      toolUrl: 'https://ai2.appinventor.mit.edu',
+      toolBtnText: 'Abrir MIT App Inventor',
+      summary: 'Conclusión integral de la app móvil GeoCalc en MIT App Inventor: maquetación de pantallas restantes (Triángulo, Círculo y Pentágono), programación de bloques aritméticos y apotema, pruebas en vivo con MIT AI2 Companion y evaluación sumativa del RA 2.2 (15%).',
+      expectedProduct: 'App GeoCalc concluida al 100% con 7 pantallas funcionales y 5 casos de control verificados en teléfono o emulador.',
+      notices: [
+        '⚠️ Viernes 30 de Octubre sin clases presenciales (suspensión oficial de labores / reunión colegiada docente).',
+        'Estructura de la Semana: 7 horas efectivas distribuidas en Lunes (4 hrs), Miércoles (1 hr) y Jueves (2 hrs).',
+        'Lunes (Sesión 01 · 4 hrs): 2 hrs maquetación visual en Designer (Triángulo, Círculo, Pentágono) + 2 hrs programación de bloques matemáticos (Triángulo y Círculo).',
+        'Miércoles (Sesión 02 · 1 hr): Conclusión de bloques aritméticos (Pentágono Regular con apotema y botones de limpieza en todas las pantallas).',
+        'Jueves (Sesión 03 · 2 hrs): Pruebas con MIT AI2 Companion (5 casos de control) y evaluación sumativa / calificación en lista del RA 2.2 (15%).'
+      ],
+      sessions: [
+        {
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Maquetación (Triángulo, Círculo, Pentágono) & Bloques',
+          start: '¿Cómo transformamos fórmulas con división y número Pi en bloques que cualquier celular entienda?',
+          dictation: `⏱️ HORA 1-2 · Estandarización de Pantallas Móviles:
+En el desarrollo de interfaces móviles bajo estándares profesionales (Design System), la uniformidad visual reduce drásticamente la curva de aprendizaje del usuario. Al integrar pantallas para el cálculo de áreas y perímetros en figuras geométricas complejas, se debe replicar de forma estricta: 1) la barra superior con navegación de retorno al menú principal, 2) la tarjeta informativa con la fórmula visible, 3) las cajas de texto restringidas a entrada puramente numérica (NumbersOnly = True) y 4) el contenedor de resultados de alto impacto visual.
+
+⏱️ HORA 3-4 · Expresiones Matemáticas en el Blocks Editor:
+El motor de ejecución de MIT App Inventor procesa cálculos mediante árboles de sintaxis abstracta. Para fórmulas compuestas que demandan división como el área del triángulo (A = (b·h)/2), el bloque math_division recibe en su entrada superior el producto math_multiply de base y altura, y en su conector inferior la constante numérica 2. En el círculo, la precisión decimal se garantiza multiplicando la constante pi = 3.1416 por el radio al cuadrado. La salida debe formatearse con text_join para asociar el valor escalar con su unidad física (cm² y cm).`,
+          learningResult: 'Maquetar las 3 pantallas restantes y programar los bloques de cálculo para Triángulo y Círculo.',
+          identification: { topic: 'Maquetación y Bloques GeoCalc', evidence: 'App en Progreso (Pantallas + Bloques)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '4 hrs' },
+          infographicTitle: 'Ruta Sesión 01 (4 Horas)',
+          infographicSteps: [
+            { title: '1. Designer (2 hrs)', desc: 'Maqueta ScreenTriangulo, ScreenCirculo y ScreenPentagono con cajas NumbersOnly y botones.' },
+            { title: '2. Enlace de Menú', desc: 'Conecta cada botón de la pantalla al MenuPrincipal usando open another screen.' },
+            { title: '3. Bloques Triángulo (1 hr)', desc: 'Programa el botón Calcular con math_division [b*h, 2] y perímetro 3*L.' },
+            { title: '4. Bloques Círculo (1 hr)', desc: 'Multiplica 3.1416 por radio al cuadrado para el área y 2*pi*r para el perímetro.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
+Metodología: 2 Horas Designer (Maquetación) ➔ 2 Horas Blocks (Triángulo y Círculo)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 1 Y 2 (16:50 - 18:30) · Maquetación Visual en Designer (Triángulo, Círculo, Pentágono)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Ya tenemos el 50% de la app viva: la portada, el menú, el cuadrado y el rectángulo responden perfecto. Hoy vamos a maquetar en tiempo récord las tres figuras que faltan: Triángulo, Círculo y Pentágono, respetando la misma estética ejecutiva."
+
+🖥️ DEMO EN CAÑÓN (15 min):
+1) Abrir ScreenTriangulo: mostrar cómo acomodar 3 TextBox (txtBase, txtAltura, txtLado).
+2) Abrir ScreenCirculo: mostrar 1 TextBox (txtRadio) y tarjeta con A = π·r².
+3) Abrir ScreenPentagono: mostrar 2 TextBox (txtLado y txtApotema).
+4) En todas las pantallas: colocar btnCalcular, btnLimpiar y botón superior btnVolverMenu con open another screen 'MenuPrincipal'.
+
+💻 RETO EN PC (85 min):
+1. Crear las 3 pantallas en App Inventor.
+2. Comprobar que todos los botones de volver al menú funcionen.
+👉 SELLO 1: Las 3 pantallas maquetadas y enlazadas con navegación ida y vuelta.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 3 Y 4 (18:30 - 20:10) · Programación de Bloques: Triángulo y Círculo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"En el cuadrado y el rectángulo solo multiplicamos. Pero en el triángulo entra la división y en el círculo entra el número Pi. Vamos a enseñarle a App Inventor a no equivocarse nunca con las fórmulas."
+
+🖥️ DEMO EN CAÑÓN (15 min):
+1) En ScreenTriangulo: armar when btnCalcular.Click.
+   - Área: set lblArea.Text to join [ math_division [ txtBase * txtAltura , 2 ], ' cm²' ]
+   - Perímetro: set lblPerimetro.Text to join [ 3 * txtLado , ' cm' ]
+2) En ScreenCirculo:
+   - Área: join [ 3.1416 * (txtRadio * txtRadio) , ' cm²' ]
+   - Perímetro: join [ 2 * 3.1416 * txtRadio , ' cm' ]
+
+💻 RETO EN PC (80 min):
+Programar y testear los bloques de Triángulo y Círculo en máquina.
+👉 SELLO 2: Bloques matemáticos de Triángulo y Círculo programados y funcionales.`,
+          closure: 'Pantallas maquetadas al 100% y bloques de Triángulo y Círculo operando correctamente.'
+        },
+        {
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Conclusión de Bloques (Pentágono & Botones Limpiar)',
+          start: '¿Cómo programamos una figura donde el área depende directamente del perímetro?',
+          dictation: `⏱️ HORA 5 · Rutinas de Cálculo Compuesto y Limpieza de Interfaz:
+En la lógica de aplicaciones móviles, los algoritmos jerárquicos resuelven problemas encadenados donde una variable calculada sirve de insumo para la siguiente operación. En el pentágono regular, el perímetro (P = 5·L) debe calcularse previo al área (A = (P·ap)/2). Asimismo, el ciclo de vida del dato concluye con la rutina de reseteo: un botón 'Limpiar' debe restaurar las entradas a texto vacío ('') y las etiquetas a su valor neutro ('- -'), previniendo errores de persistencia involuntaria.`,
+          learningResult: 'Completar la programación del Pentágono Regular y los botones de limpieza en todas las pantallas.',
+          identification: { topic: 'Bloques Pentágono & Reseteo UI', evidence: 'Bloques Pentágono y Limpieza', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          infographicTitle: 'Ruta Sesión 02 (1 Hora)',
+          infographicSteps: [
+            { title: '1. Perímetro Pentágono', desc: 'Multiplica 5 * txtLado y guarda o asigna el resultado a la etiqueta de perímetro.' },
+            { title: '2. Área Pentágono', desc: 'Divide el producto del Perímetro por el Apotema entre 2 y añade cm².' },
+            { title: '3. Botón Limpiar', desc: 'Asigna texto vacío a las cajas y restaura las etiquetas a guiones.' },
+            { title: '4. Revisión Global', desc: 'Verifica que ninguna pantalla tenga advertencias o bloques desconectados.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Demo Cañón Pentágono (10 min) ➔ Reto en PC (35 min) ➔ Revisión de Sello (5 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (17:40 - 18:30) · Conclusión de la Programación de Bloques
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"El pentágono es el jefe final de las fórmulas: el área depende del perímetro. Hoy cerramos la última figura y programamos los botones de limpieza para dejar la app impecable."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) En ScreenPentagono: armar when btnCalcular.Click.
+   - Perímetro: 5 * txtLado.Text
+   - Área: math_division [ (5 * txtLado.Text) * txtApotema.Text , 2 ]
+2) Rutina de btnLimpiar:
+   - set txtLado.Text to ''
+   - set txtApotema.Text to ''
+   - set lblArea.Text to '- - cm²'
+   - set lblPerimetro.Text to '- - cm'
+
+💻 RETO EN PC (35 min):
+1. Completar la programación del Pentágono.
+2. Programar el botón Limpiar en las 5 figuras.
+👉 SELLO 3: Programación de bloques de las 5 figuras concluida al 100% y botones de limpieza activos.`,
+          closure: 'Toda la lógica de programación en bloques de las 5 figuras y 7 pantallas concluida al 100%.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Pruebas en AI Companion & Evaluación Sumativa RA 2.2',
+          start: '¿Cómo comprobamos que nuestra aplicación arroja cálculos matemáticos 100% exactos?',
+          dictation: `⏱️ HORA 6 · Aseguramiento de Calidad (QA) y Emulación Móvil:
+El proceso de Testing en ingeniería de software móvil garantiza que la interfaz y la lógica de negocio operen sin fallas bajo condiciones reales. Mediante MIT AI2 Companion, la app se interpreta directamente en el hardware del teléfono inteligente. La validación se ejecuta contrastando los resultados de la app frente a un banco de casos de prueba previamente calculados.
+
+⏱️ HORA 7 · Rúbrica de Evaluación y Asentamiento de Calificaciones:
+El cierre del RA 2.2 evalúa la competencia técnica integral: diseño centrado en el usuario, estandarización visual, navegación consistente sin bloqueos de memoria, exactitud algorítmica y control de excepciones (entradas numéricas). La evidencia se califica directamente en la lista oficial del grupo.`,
+          learningResult: 'Validar la app en celular mediante casos de control y obtener la calificación final del RA 2.2.',
+          identification: { topic: 'Testing en Vivo y Evaluación RA 2.2', evidence: 'App Funcionando + Calificación en Lista', organization: 'Individual en PC / Móvil', location: 'Laboratorio de Informática', time: '2 hrs' },
+          infographicTitle: 'Ruta Sesión 03 (2 Horas)',
+          infographicSteps: [
+            { title: '1. Conexión QR', desc: 'Conecta con MIT AI2 Companion desde Connect ➔ AI Companion.' },
+            { title: '2. Banco de Pruebas', desc: 'Introduce los 5 casos de control y valida los resultados de área y perímetro.' },
+            { title: '3. Cotejo Docente', desc: 'Presenta tu app corriendo en el teléfono o emulador al profesor.' },
+            { title: '4. Calificación RA 2.2', desc: 'Asentamiento de calificación en la lista oficial (15% del 2do Corte).' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Banco de Pruebas Móvil (45 min) ➔ Evaluación y Asentamiento en Lista (45 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 6 (16:50 - 17:40) · Emulación en Smartphone & Banco de Pruebas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"El software no existe hasta que corre en las manos del cliente. Conecten sus teléfonos al Wi-Fi, escaneen el código QR y vamos a someter a GeoCalc a la prueba de fuego con los 5 casos de control."
+
+📱 BANCO DE PRUEBAS DE CONTROL:
+1) Cuadrado: Lado = 8 cm ➔ Área = 64 cm², Perímetro = 32 cm.
+2) Rectángulo: Base = 12 cm, Altura = 5 cm ➔ Área = 60 cm², Perímetro = 34 cm.
+3) Triángulo: Base = 10 cm, Altura = 6 cm, Lado = 10 cm ➔ Área = 30 cm², Perímetro = 30 cm.
+4) Círculo: Radio = 7 cm ➔ Área = 153.94 cm², Perímetro = 43.98 cm.
+5) Pentágono: Lado = 6 cm, Apotema = 4.13 cm ➔ Área = 61.95 cm², Perímetro = 30 cm.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (17:40 - 18:30) · Cotejo en Lista, Calificación Sumativa y Sellos Finales
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 RÚBRICA DE REVISIÓN:
+1. Portada completa y personalizada con datos institucionales.
+2. Navegación fluida de ida y vuelta en las 7 pantallas.
+3. Precisión en los 5 casos de prueba de control.
+4. Botones de Limpiar operativos.
+
+👉 EVALUACIÓN FINAL: Calificación asentada en la lista oficial del grupo 301-INFO25 (Valor: 15% del Segundo Corte). Cierre formal del RA 2.2.`,
+          closure: 'Evaluación sumativa concluida y calificaciones del RA 2.2 registradas en la lista oficial.'
         }
       ]
     }
