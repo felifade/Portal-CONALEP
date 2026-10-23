@@ -1567,7 +1567,7 @@ export const teachingPlan = {
       id: 'W10',
       label: 'Semana 10',
       dateRange: '19 - 23 Oct',
-      status: 'En curso',
+      status: 'Histórico',
       corteId: 'C2',
       raId: 'RA 2.2',
       title: 'Protocolos Web TLS, Técnica de Salting y Escudo MFA',
@@ -1795,6 +1795,162 @@ export const teachingPlan = {
           product: 'Infografía de los 3 factores de autenticación, esquema TOTP y podio de Kahoot registrado.',
           unlockDate: '2026-10-23',
           unlockLabel: 'Viernes 23 de Octubre (18:30 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W11',
+      label: 'Semana 11',
+      dateRange: '26 - 30 Oct',
+      status: 'En curso',
+      corteId: 'C2',
+      raId: 'RA 2.2',
+      title: 'Ingeniería Social, Phishing y Enlaces Trampa (Typosquatting)',
+      result: 'Identifica técnicas de manipulación psicológica (Ingeniería Social, Phishing y Spear Phishing) y detecta enlaces fraudulentos mediante inspección visual y en consola Linux.',
+      pdfUrl: './pdf/Guia_Laboratorio_Forense_Linux_MTCS_Semana07.pdf',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual en libreta, Linux Shell y evaluación Kahoot (2 sesiones por suspensión del viernes 30 Oct)',
+        product: 'Cuadro de los 3 Anzuelos Mentales, Tabla de 2 Columnas en Linux Shell, Las 5 Banderas Rojas y Gran Kahoot Semana 11',
+      },
+      notices: [
+        'Ajuste Oficial de Calendario: Viernes 30 de Octubre Suspensión de Actividades (Semana concentrada en Miércoles y Jueves).',
+        'Miércoles 28 Oct (Sesión 01 · 1 hr): Ingeniería Social, Phishing y Cuadro de los 3 Anzuelos Mentales (Sello 1).',
+        'Jueves 29 Oct (Sesión 02 · 2 hrs): Enlaces Trampa (Typosquatting) en Linux Shell, Las 5 Banderas Rojas y Gran Kahoot Semana 11 (Sellos 2 y 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 28 Oct · 1 Hora)',
+          title: 'Ingeniería Social, Phishing y los 3 Botones Mentales',
+          hook: 'Cuando la computadora ya está blindada con HTTPS, Salting y MFA, el hacker ya no ataca a la máquina: ataca a la persona disfrazándose de banco, beca o jefe para que tú solito entregues tu clave.',
+          start: '¿Por qué las personas caen en estafas digitales y cuáles son los 3 botones mentales que usa un atacante?',
+          dictationTitle: 'INGENIERÍA SOCIAL, PHISHING Y GATILLOS DE MANIPULACIÓN',
+          dictation: 'La Ingeniería Social es la técnica de manipular psicológicamente a una persona para que ella misma entregue sus contraseñas o información confidencial sin necesidad de hackear el sistema. Su método más común es el Phishing (pesca masiva), que envía millones de mensajes falsos iguales esperando que alguien caiga, mientras que el Spear Phishing (pesca con arpón) investiga a una sola víctima para enviarle un engaño personalizado con su nombre real y datos de su escuela o trabajo. Para lograr que la víctima actúe rápido y sin pensar, los estafadores presionan tres botones mentales: 1) Urgencia o Miedo (amenazar con cancelar una cuenta o beca en pocos minutos); 2) Curiosidad o Premio (prometer regalos, sorteos falsos o chismes); y 3) Autoridad (fingir ser un jefe, banco o director escolar para exigir obediencia inmediata).',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Cuadro de los 3 Anzuelos de la Ingeniería Social en Libreta',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Trazar en libreta el Cuadro de los 3 Anzuelos Mentales (Urgencia/Miedo, Premio/Codicia y Autoridad).',
+              'Escribir un ejemplo de mensaje trampa escolar para cada botón mental y la acción correcta para evitarlo.',
+              'Revisión y estampado del Sello 1.'
+            ]
+          },
+          visualExample: {
+            title: 'Los 3 Anzuelos de la Ingeniería Social',
+            badge: 'Factor Humano',
+            description: 'Cuadro comparativo para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│                🎣 LOS 3 ANZUELOS DE LA INGENIERÍA SOCIAL                    │\n├──────────────────────┬───────────────────────────────────┬──────────────────┤\n│ BOTÓN MENTAL         │ EJEMPLO DE MENSAJE TRAMPA         │ ¿CÓMO LO EVITO?  │\n├──────────────────────┼───────────────────────────────────┼──────────────────┤\n│ 1. URGENCIA / MIEDO  │ "¡Tu beca CONALEP se cancelará    │ Respirar, no dar │\n│    (Te asusta)       │  en 15 min si no entras aquí!"    │ clic y preguntar │\n├──────────────────────┼───────────────────────────────────┼──────────────────┤\n│ 2. PREMIO / CODICIA  │ "¡Felicidades! Ganaste un iPhone, │ Desconfiar: nada │\n│    (Te emociona)     │  pon tu clave para reclamarlo."   │ es gratis en red │\n├──────────────────────┼───────────────────────────────────┼──────────────────┤\n│ 3. AUTORIDAD         │ "Soy el Director, pásame el       │ Confirmar en     │\n│    (Te intimida)     │  código de 6 dígitos que te llegó"│ persona o llamar │\n└──────────────────────┴───────────────────────────────────┴──────────────────┘'
+          },
+          terminalRadar: 'Regla de Oro: Ninguna institución legítima (Banco, Gobierno o CONALEP) te pedirá jamás tu contraseña ni tu código de 6 dígitos por mensaje.',
+          learningResult: 'El estudiante distingue entre Phishing masivo y Spear Phishing, identificando los gatillos psicológicos de manipulación.',
+          identification: 'Tema: Ingeniería Social y Phishing. Evidencia: Dictado y Cuadro de los 3 Anzuelos en libreta.',
+          development: 'Explicación con ejemplos cotidianos de WhatsApp y becas, registro de dictado y elaboración del cuadro de anzuelos.',
+          closure: 'Revisión de libretas y firma del Sello 1.',
+          faq: [
+            { q: '¿Qué es el Smishing?', a: 'Es el mismo ataque de Phishing pero enviado por mensaje SMS o WhatsApp en lugar de correo electrónico.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Dictado de Ingeniería Social y Cuadro de los 3 Anzuelos en libreta.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 29 Oct · Hora 1)',
+          title: 'Enlaces Trampa (Typosquatting) y Tabla de 2 Columnas en Linux Shell',
+          hook: '¿Cómo engaña un hacker a tus ojos cuando miras rápido el celular? Cambia la letra "o" por un cero (faceb00k.com) o junta una "r" y una "n" para simular una "m" (rnicrosoft.com). Hoy programaremos una tabla de 2 columnas en Linux que caza enlaces falsos.',
+          start: '¿Qué es el Typosquatting y cómo podemos detectar dominios falsos en una tabla de 2 columnas en la terminal?',
+          dictationTitle: 'ENLACES FALSOS Y SUPLANTACIÓN DE DOMINIOS (TYPOSQUATTING)',
+          dictation: 'El Typosquatting (secuestro por error tipográfico) es una trampa visual que consiste en registrar nombres de páginas web casi idénticos a los sitios oficiales para robar contraseñas. Los atacantes aprovechan que las personas leen rápido en el celular y cambian letras parecidas: sustituyen la letra "o" por un cero (g00gle.com), cambian la letra "m" por una "r" y una "n" juntas (rnicrosoft.com), o agregan palabras con guiones (becas-conalep-gob.xyz). Antes de escribir cualquier contraseña, la regla de oro es revisar letra por letra el dominio principal de la página.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Práctica en Linux Shell: Tabla Detectora de 2 Columnas',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Ejecutar en Linux Shell el bucle comparador de enlaces reales vs enlaces con números cero o terminación .xyz.',
+              'Copiar en la libreta la Tabla de 2 Columnas generada por la terminal (Columna 1: Enlace | Columna 2: Veredicto).',
+              'Revisión y firma del Sello 2.'
+            ]
+          },
+          visualExample: {
+            title: 'Tabla de 2 Columnas en Linux Shell (Detector Typosquatting)',
+            badge: 'Laboratorio Linux Shell',
+            description: 'Comando y tabla de 2 columnas para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│ $ for url in "google.com" "g00gle.com" "facebook.com" "faceb00k.com" \\      │\n│              "conalep.edu.mx" "c0nalep-beca.xyz"; do                        │\n│     if [[ "$url" == *"0"* || "$url" == *".xyz"* ]]; then                    │\n│       printf "%-20s | 🚨 FALSO (TRAMPA DETECTADA)\\n" "$url"                 │\n│     else                                                                    │\n│       printf "%-20s | ✅ SITIO OFICIAL SEGURO\\n" "$url"                     │\n│     fi                                                                      │\n│   done                                                                      │\n├──────────────────────┬──────────────────────────────────────────────────────┤\n│ COLUMNA 1: ENLACE    │ COLUMNA 2: VEREDICTO AUTOMÁTICO                      │\n├──────────────────────┼──────────────────────────────────────────────────────┤\n│ google.com           │ ✅ SITIO OFICIAL SEGURO                              │\n│ g00gle.com           │ 🚨 FALSO (TRAMPA DETECTADA - Usa ceros)              │\n│ facebook.com         │ ✅ SITIO OFICIAL SEGURO                              │\n│ faceb00k.com         │ 🚨 FALSO (TRAMPA DETECTADA - Usa ceros)              │\n│ conalep.edu.mx       │ ✅ SITIO OFICIAL SEGURO                              │\n│ c0nalep-beca.xyz     │ 🚨 FALSO (TRAMPA DETECTADA - Dominio .xyz)           │\n└──────────────────────┴──────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'Typosquatting Detector ➔ Revisa siempre ceros por letras "o" (0/o), "i" mayúscula por "l" (I/l) y terminaciones extrañas (.xyz, .top).',
+          learningResult: 'El estudiante inspecciona URLs para identificar suplantación tipográfica (Typosquatting) apoyándose en scripts básicos de consola.',
+          identification: 'Tema: Typosquatting y Análisis de Enlaces. Evidencia: Dictado y Tabla de 2 columnas en libreta.',
+          development: 'Demostración visual de dominios engañosos, ejecución de la tabla de 2 columnas en Linux Shell y registro en libreta.',
+          closure: 'Revisión de la tabla en libreta y estampado del Sello 2.',
+          faq: [
+            { q: '¿Si un enlace trampa tiene candado HTTPS significa que ya es real?', a: '¡No! Hoy los estafadores también pueden ponerle candado HTTPS gratuito a sus páginas falsas. Por eso debes leer bien las letras del nombre.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Dictado de Typosquatting y Tabla de 2 Columnas de enlaces verificada en libreta.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 29 Oct · Hora 2)',
+          title: 'Reto "Las 5 Banderas Rojas" y 🏆 Gran Kahoot Semana 11',
+          hook: 'Antes de irnos al puente del viernes 30, pondremos a prueba su ojo de detective: encontraremos las 5 Banderas Rojas ocultas en un mensaje falso de becas y competiremos en el Gran Kahoot "¿Real o Estafa?".',
+          start: '¿Cuáles son las 5 señales de alerta en un correo fraudulento y quién dominará el podio del Kahoot Semana 11?',
+          dictationTitle: 'AUDITORÍA DE LAS 5 BANDERAS ROJAS Y REGLAS DE VERIFICACIÓN',
+          dictation: 'Todo mensaje de Phishing deja cinco rastros o Banderas Rojas que permiten descubrir el engaño antes de hacer clic: 1) Remitente extraño que no pertenece a la institución oficial; 2) Saludo genérico como "Estimado usuario" porque desconocen tu nombre real; 3) Amenaza urgente que exige actuar en pocos minutos; 4) Enlace falsificado mediante Typosquatting o sin protocolo seguro; y 5) Solicitud directa de contraseñas o códigos de verificación. Ante cualquier alerta, la regla defensiva es nunca abrir el enlace recibido y verificar la información por un canal independiente.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Detección de las 5 Banderas Rojas y Batalla Kahoot Semana 11',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Identificar y anotar en libreta las 5 Banderas Rojas del correo simulado de Becas proyectado en clase.',
+              'Ingresar a kahoot.it para competir en los 20 reactivos de la Semana 11 ("¿Real o Estafa?").',
+              'Registrar puntaje obtenido y pasar por el Sello 3 (Cierre Semanal).'
+            ]
+          },
+          visualExample: {
+            title: 'Radiografía de una Estafa: Las 5 Banderas Rojas',
+            badge: 'Auditoría Anti-Phishing',
+            description: 'Mensaje trampa analizado en clase:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│ 📧 De: soporte-urgente@becas-benitojuarez.xyz          [🚩 1. Correo raro]  │\n│ Para: Estimado Alumno Seleccionado                     [🚩 2. Sin tu nombre]│\n│ Asunto: ¡ÚLTIMO AVISO! TU BECA SERÁ CANCELADA HOY      [🚩 3. Mete miedo]   │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ Detectamos un error en tu pago. Tienes 15 minutos para entrar al siguiente  │\n│ enlace y escribir tu contraseña y el código de 6 dígitos de tu celular:     │\n│                                                                             │\n│ 👉 http://www.gob-mx-becas2026.xyz/login               [🚩 4. Sin HTTPS/.xyz]│\n│                                                                             │\n│ Si no envías tu contraseña y código ahorita, perderás el apoyo.             │\n│                                                        [🚩 5. Pide claves]  │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'Kahoot Semana 11 (20 Reactivos) ➔ Ingeniería Social, Phishing vs Spear Phishing, Botones Mentales y Typosquatting.',
+          learningResult: 'El estudiante audita mensajes sospechosos identificando las 5 banderas rojas y acredita los conocimientos de la Semana 11.',
+          identification: 'Tema: Auditoría Anti-Phishing y Evaluación Kahoot. Evidencia: Las 5 Banderas Rojas y podio de Kahoot con Sello 3.',
+          development: 'Inspección grupal del mensaje simulado de becas, competencia en vivo en Kahoot y sellado final de libretas.',
+          closure: 'Firma del Sello 3 y cierre de actividades previo a la suspensión oficial del viernes 30 de octubre.',
+          faq: [
+            { q: '¿Habrá sesión el viernes 30 de octubre?', a: 'No, por suspensión oficial de labores las actividades y los 3 sellos de la Semana 11 concluyen el jueves 29 de octubre.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Análisis de las 5 Banderas Rojas + Puntaje del Kahoot Semana 11 en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'Ingeniería Social, Phishing y los 3 Botones Mentales',
+          hourIds: ['H01'],
+          product: 'Dictado oficial y Cuadro de los 3 Anzuelos Mentales en libreta (Sello 1).',
+          unlockDate: '2026-10-28',
+          unlockLabel: 'Miércoles 28 de Octubre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Enlaces Trampa (Typosquatting), Las 5 Banderas Rojas y Gran Kahoot Semana 11',
+          hourIds: ['H02', 'H03'],
+          product: 'Tabla de 2 Columnas en Linux Shell, las 5 Banderas Rojas y podio de Kahoot Semana 11 (Sellos 2 y 3).',
+          unlockDate: '2026-10-29',
+          unlockLabel: 'Jueves 29 de Octubre (16:50 hrs)',
         },
       ],
     },
