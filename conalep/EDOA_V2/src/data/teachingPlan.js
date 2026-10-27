@@ -1648,7 +1648,7 @@ App probada en vivo en el celular + Manual de Usuario entregado en PDF. 👉 SEL
     'W11': {
       id: 'W11',
       label: 'Semana 11',
-      title: 'App GeoCalc: Círculo, Triángulo, Pentágono & Evaluación RA 2.2',
+      title: 'App GeoCalc: Diseños, Navegación y Pruebas en Vivo (Cierre de Semana)',
       dates: '26 Oct - 30 Oct',
       status: 'active',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
@@ -1657,155 +1657,110 @@ App probada en vivo en el celular + Manual de Usuario entregado en PDF. 👉 SEL
       templateBtnColor: '#005C42',
       toolUrl: 'https://ai2.appinventor.mit.edu',
       toolBtnText: 'Abrir MIT App Inventor',
-      summary: 'Conclusión integral de la app móvil GeoCalc en MIT App Inventor: maquetación de pantallas restantes (Triángulo, Círculo y Pentágono), programación de bloques aritméticos y apotema, pruebas en vivo con MIT AI2 Companion y evaluación sumativa del RA 2.2 (15%).',
-      expectedProduct: 'App GeoCalc concluida al 100% con 7 pantallas funcionales y 5 casos de control verificados en teléfono o emulador.',
+      summary: 'Consolidación de la app GeoCalc en MIT App Inventor: maquetación visual de las 7 pantallas, enlaces de navegación, pruebas en vivo en celulares con MIT AI2 Companion y apoyo institucional en proyectos de robótica para el aniversario.',
+      expectedProduct: 'Proyecto GeoCalc con las 7 pantallas maquetadas y probadas en smartphones vía MIT AI2 Companion.',
       notices: [
-        '⚠️ Viernes 30 de Octubre sin clases presenciales (suspensión oficial de labores / reunión colegiada docente).',
-        'Estructura de la Semana: 7 horas efectivas distribuidas en Lunes (4 hrs), Miércoles (1 hr) y Jueves (2 hrs).',
-        'Lunes (Sesión 01 · 4 hrs): 2 hrs maquetación visual en Designer (Triángulo, Círculo, Pentágono) + 2 hrs programación de bloques matemáticos (Triángulo y Círculo).',
-        'Miércoles (Sesión 02 · 1 hr): Conclusión de bloques aritméticos (Pentágono Regular con apotema y botones de limpieza en todas las pantallas).',
-        'Jueves (Sesión 03 · 2 hrs): Pruebas con MIT AI2 Companion (5 casos de control) y evaluación sumativa / calificación en lista del RA 2.2 (15%).'
+        'Lunes (Realizada): Maquetación al 100% de las 7 pantallas en Designer y programación de los botones de navegación iniciales (Portada ➔ Menú ➔ Figuras).',
+        'Miércoles (Hora 5): Sesión de prueba y emulación de la app en smartphones mediante MIT AI2 Companion (código QR), ajustes de interfaz y cierre de la entrega en EDOA (Sello 2).',
+        'Jueves (Sesión Cedida): Apoyo al Profr. Alex en proyectos de Robots para el Aniversario del Plantel con los alumnos del grupo 301-INFO25.',
+        'Viernes: Actividad Institucional y Festival Conmemorativo del Día de Muertos en CONALEP Pachuca II (sin laboratorio ordinario).'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Maquetación (Triángulo, Círculo, Pentágono) & Bloques',
-          start: '¿Cómo transformamos fórmulas con división y número Pi en bloques que cualquier celular entienda?',
-          dictation: `⏱️ HORA 1-2 · Estandarización de Pantallas Móviles:
-En el desarrollo de interfaces móviles bajo estándares profesionales (Design System), la uniformidad visual reduce drásticamente la curva de aprendizaje del usuario. Al integrar pantallas para el cálculo de áreas y perímetros en figuras geométricas complejas, se debe replicar de forma estricta: 1) la barra superior con navegación de retorno al menú principal, 2) la tarjeta informativa con la fórmula visible, 3) las cajas de texto restringidas a entrada puramente numérica (NumbersOnly = True) y 4) el contenedor de resultados de alto impacto visual.
-
-⏱️ HORA 3-4 · Expresiones Matemáticas en el Blocks Editor:
-El motor de ejecución de MIT App Inventor procesa cálculos mediante árboles de sintaxis abstracta. Para fórmulas compuestas que demandan división como el área del triángulo (A = (b·h)/2), el bloque math_division recibe en su entrada superior el producto math_multiply de base y altura, y en su conector inferior la constante numérica 2. En el círculo, la precisión decimal se garantiza multiplicando la constante pi = 3.1416 por el radio al cuadrado. La salida debe formatearse con text_join para asociar el valor escalar con su unidad física (cm² y cm).`,
-          learningResult: 'Maquetar las 3 pantallas restantes y programar los bloques de cálculo para Triángulo y Círculo.',
-          identification: { topic: 'Maquetación y Bloques GeoCalc', evidence: 'App en Progreso (Pantallas + Bloques)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '4 hrs' },
-          infographicTitle: 'Ruta Sesión 01 (4 Horas)',
+          id: 'S1', label: 'Sesión 01', subtitle: 'Lunes (4 hrs) · Maquetación de 7 Pantallas y Botones de Navegación (REALIZADA)',
+          start: '¿Cómo estructuramos una arquitectura completa de 7 pantallas para que un usuario navegue fluidamente en su teléfono?',
+          dictation: `⏱️ HORA 1-4 · Arquitectura UI y Flujo de Navegación Multi-Pantalla:
+En el desarrollo de aplicaciones móviles profesionales, la fase de maquetación en el Designer define la experiencia espacial del usuario. La consistencia visual se logra aplicando un sistema de diseño homogéneo en las 7 pantallas del sistema: Portada institucional con membrete oficial, Menú principal centrado con accesos ergonómicos y 5 pantallas de figuras geométricas con tarjetas de fórmulas, entradas numéricas restringidas y botones de acción. La navegación se programa con el bloque nativo open another screen, estableciendo un flujo bidireccional estable entre la portada, el menú y cada una de las calculadoras.`,
+          learningResult: 'Completar la maquetación visual de las 7 pantallas y programar los enlaces de navegación iniciales.',
+          identification: { topic: 'Maquetación Total y Navegación GeoCalc', evidence: 'App en App Inventor con 7 Pantallas', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '4 hrs' },
+          infographicTitle: 'Ruta Sesión 01 (REALIZADA)',
           infographicSteps: [
-            { title: '1. Designer (2 hrs)', desc: 'Maqueta ScreenTriangulo, ScreenCirculo y ScreenPentagono con cajas NumbersOnly y botones.' },
-            { title: '2. Enlace de Menú', desc: 'Conecta cada botón de la pantalla al MenuPrincipal usando open another screen.' },
-            { title: '3. Bloques Triángulo (1 hr)', desc: 'Programa el botón Calcular con math_division [b*h, 2] y perímetro 3*L.' },
-            { title: '4. Bloques Círculo (1 hr)', desc: 'Multiplica 3.1416 por radio al cuadrado para el área y 2*pi*r para el perímetro.' }
+            { title: '1. Portada y Menú', desc: 'Maqueta Screen1 institucional y Screen2 con los 5 botones centrados.' },
+            { title: '2. 5 Pantallas Figuras', desc: 'Diseña Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono con cajas NumbersOnly.' },
+            { title: '3. Botón de Entrada', desc: 'Programa el salto de Screen1 a MenuPrincipal mediante open another screen.' },
+            { title: '4. Enlaces de Menú', desc: 'Conecta cada botón de figura y asegura el botón de retorno al menú.' }
           ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
-Metodología: 2 Horas Designer (Maquetación) ➔ 2 Horas Blocks (Triángulo y Círculo)
+          development: `🎙️ REGISTRO DE AVANCE DOCENTE · LUNES (4 HORAS)
+Estatus: ¡Sesión completada con éxito rotundo en laboratorio!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORAS 1 Y 2 (16:50 - 18:30) · Maquetación Visual en Designer (Triángulo, Círculo, Pentágono)
+⏱️ HORAS 1 A 4 (16:50 - 20:10) · Maquetación Total y Navegación
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Ya tenemos el 50% de la app viva: la portada, el menú, el cuadrado y el rectángulo responden perfecto. Hoy vamos a maquetar en tiempo récord las tres figuras que faltan: Triángulo, Círculo y Pentágono, respetando la misma estética ejecutiva."
+Se logró la meta técnica de la jornada:
+1) Maquetación visual (Designer) de la totalidad de las 7 pantallas:
+   - Screen1 (Portada con membrete CONALEP Pachuca II, datos y botón de ingreso).
+   - Screen2 (MenuPrincipal con 5 accesos directos ergonómicos).
+   - ScreenCuadrado, ScreenRectangulo, ScreenTriangulo, ScreenCirculo y ScreenPentagono.
+2) Primeros bloques de navegación:
+   - Programación del salto inicial: when btnIngresar.Click do open another screen 'MenuPrincipal'.
+   - Programación de botones de menú hacia pantallas secundarias y botones de retorno al menú.
 
-🖥️ DEMO EN CAÑÓN (15 min):
-1) Abrir ScreenTriangulo: mostrar cómo acomodar 3 TextBox (txtBase, txtAltura, txtLado).
-2) Abrir ScreenCirculo: mostrar 1 TextBox (txtRadio) y tarjeta con A = π·r².
-3) Abrir ScreenPentagono: mostrar 2 TextBox (txtLado y txtApotema).
-4) En todas las pantallas: colocar btnCalcular, btnLimpiar y botón superior btnVolverMenu con open another screen 'MenuPrincipal'.
-
-💻 RETO EN PC (85 min):
-1. Crear las 3 pantallas en App Inventor.
-2. Comprobar que todos los botones de volver al menú funcionen.
-👉 SELLO 1: Las 3 pantallas maquetadas y enlazadas con navegación ida y vuelta.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORAS 3 Y 4 (18:30 - 20:10) · Programación de Bloques: Triángulo y Círculo
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"En el cuadrado y el rectángulo solo multiplicamos. Pero en el triángulo entra la división y en el círculo entra el número Pi. Vamos a enseñarle a App Inventor a no equivocarse nunca con las fórmulas."
-
-🖥️ DEMO EN CAÑÓN (15 min):
-1) En ScreenTriangulo: armar when btnCalcular.Click.
-   - Área: set lblArea.Text to join [ math_division [ txtBase * txtAltura , 2 ], ' cm²' ]
-   - Perímetro: set lblPerimetro.Text to join [ 3 * txtLado , ' cm' ]
-2) En ScreenCirculo:
-   - Área: join [ 3.1416 * (txtRadio * txtRadio) , ' cm²' ]
-   - Perímetro: join [ 2 * 3.1416 * txtRadio , ' cm' ]
-
-💻 RETO EN PC (80 min):
-Programar y testear los bloques de Triángulo y Círculo en máquina.
-👉 SELLO 2: Bloques matemáticos de Triángulo y Círculo programados y funcionales.`,
-          closure: 'Pantallas maquetadas al 100% y bloques de Triángulo y Círculo operando correctamente.'
+👉 EVIDENCIA REGISTRADA (SELLO 1): Las 7 pantallas maquetadas al 100% en Designer y botones de navegación operando.`,
+          closure: 'Maquetación de las 7 pantallas y navegación base completada exitosamente.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Conclusión de Bloques (Pentágono & Botones Limpiar)',
-          start: '¿Cómo programamos una figura donde el área depende directamente del perímetro?',
-          dictation: `⏱️ HORA 5 · Rutinas de Cálculo Compuesto y Limpieza de Interfaz:
-En la lógica de aplicaciones móviles, los algoritmos jerárquicos resuelven problemas encadenados donde una variable calculada sirve de insumo para la siguiente operación. En el pentágono regular, el perímetro (P = 5·L) debe calcularse previo al área (A = (P·ap)/2). Asimismo, el ciclo de vida del dato concluye con la rutina de reseteo: un botón 'Limpiar' debe restaurar las entradas a texto vacío ('') y las etiquetas a su valor neutro ('- -'), previniendo errores de persistencia involuntaria.`,
-          learningResult: 'Completar la programación del Pentágono Regular y los botones de limpieza en todas las pantallas.',
-          identification: { topic: 'Bloques Pentágono & Reseteo UI', evidence: 'Bloques Pentágono y Limpieza', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          id: 'S2', label: 'Sesión 02', subtitle: 'Miércoles (1 hr) · Pruebas en Celular con MIT AI2 Companion & Cierre EDOA',
+          start: '¿Cómo se siente nuestra aplicación al tocarla directamente en la pantalla de un smartphone real?',
+          dictation: `⏱️ HORA 5 · Emulación en Hardware Real y Pruebas de Usabilidad:
+Las pruebas de aceptación en dispositivos móviles permiten comprobar en vivo la ergonomía táctil, los tiempos de carga y el comportamiento de las pantallas bajo hardware real. Mediante MIT AI2 Companion, el entorno se conecta por red local vía código QR, permitiendo validar la fluidez del paso entre la portada institucional, el catálogo de figuras y el retorno al menú sin bloqueos.`,
+          learningResult: 'Conectar la app a smartphones mediante código QR y validar la navegación táctil en tiempo real.',
+          identification: { topic: 'Testing Móvil con AI Companion', evidence: 'App Corriendo en Smartphone', organization: 'Individual / Parejas', location: 'Laboratorio de Informática', time: '1 hr' },
           infographicTitle: 'Ruta Sesión 02 (1 Hora)',
           infographicSteps: [
-            { title: '1. Perímetro Pentágono', desc: 'Multiplica 5 * txtLado y guarda o asigna el resultado a la etiqueta de perímetro.' },
-            { title: '2. Área Pentágono', desc: 'Divide el producto del Perímetro por el Apotema entre 2 y añade cm².' },
-            { title: '3. Botón Limpiar', desc: 'Asigna texto vacío a las cajas y restaura las etiquetas a guiones.' },
-            { title: '4. Revisión Global', desc: 'Verifica que ninguna pantalla tenga advertencias o bloques desconectados.' }
+            { title: '1. Connect AI Companion', desc: 'Despliega el código QR de 6 caracteres desde el menú Connect.' },
+            { title: '2. Escaneo en Celular', desc: 'Abre MIT AI2 Companion en Android y escanea el código.' },
+            { title: '3. Navegación Táctil', desc: 'Prueba el paso entre Portada, Menú y las 5 pantallas de figuras.' },
+            { title: '4. Ajustes y Sello', desc: 'Corrige dimensiones visuales desbordadas y sella la práctica de la semana.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
-Metodología: Demo Cañón Pentágono (10 min) ➔ Reto en PC (35 min) ➔ Revisión de Sello (5 min)
+Metodología: Demo Cañón QR (8 min) ➔ Emulación y Pruebas en Celular (35 min) ➔ Cierre y Sellos (7 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 5 (17:40 - 18:30) · Conclusión de la Programación de Bloques
+⏱️ HORA 5 (17:40 - 18:30) · Pruebas en Vivo en Smartphone
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"El pentágono es el jefe final de las fórmulas: el área depende del perímetro. Hoy cerramos la última figura y programamos los botones de limpieza para dejar la app impecable."
+"El diseño ya está listo en la computadora; hoy hacemos magia: escaneamos el código QR, descargamos la app a nuestro teléfono y comprobamos cómo se siente en nuestras propias manos antes de cerrar el proyecto."
 
-🖥️ DEMO EN CAÑÓN (10 min):
-1) En ScreenPentagono: armar when btnCalcular.Click.
-   - Perímetro: 5 * txtLado.Text
-   - Área: math_division [ (5 * txtLado.Text) * txtApotema.Text , 2 ]
-2) Rutina de btnLimpiar:
-   - set txtLado.Text to ''
-   - set txtApotema.Text to ''
-   - set lblArea.Text to '- - cm²'
-   - set lblPerimetro.Text to '- - cm'
+🖥️ DEMO EN CAÑÓN (8 min):
+1) Menú 'Connect' ➔ 'AI Companion'.
+2) Proyectar el código QR de 6 letras.
+3) Escanear con la cámara del teléfono y mostrar en pantalla cómo cambia de Portada a Menú al toque del dedo.
+4) Indicar a los alumnos que verifiquen que ningún texto se corte en pantallas pequeñas.
 
-💻 RETO EN PC (35 min):
-1. Completar la programación del Pentágono.
-2. Programar el botón Limpiar en las 5 figuras.
-👉 SELLO 3: Programación de bloques de las 5 figuras concluida al 100% y botones de limpieza activos.`,
-          closure: 'Toda la lógica de programación en bloques de las 5 figuras y 7 pantallas concluida al 100%.'
+💻 RETO EN PC Y MÓVIL (35 min):
+1. Abrir su proyecto GeoCalc en App Inventor.
+2. Conectar su celular mediante MIT AI2 Companion (Wi-Fi o código).
+3. Recorrer el flujo completo de las 7 pantallas.
+4. Ajustar propiedades 'Width = Fill parent' si algún botón se ve estrecho.
+
+👉 EVIDENCIA DE CIERRE (SELLO 2): App GeoCalc probada y ejecutándose en vivo en el celular del alumno mediante AI Companion.`,
+          closure: 'Pruebas en vivo con AI Companion concluidas y cierre de entrega de GeoCalc.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Pruebas en AI Companion & Evaluación Sumativa RA 2.2',
-          start: '¿Cómo comprobamos que nuestra aplicación arroja cálculos matemáticos 100% exactos?',
-          dictation: `⏱️ HORA 6 · Aseguramiento de Calidad (QA) y Emulación Móvil:
-El proceso de Testing en ingeniería de software móvil garantiza que la interfaz y la lógica de negocio operen sin fallas bajo condiciones reales. Mediante MIT AI2 Companion, la app se interpreta directamente en el hardware del teléfono inteligente. La validación se ejecuta contrastando los resultados de la app frente a un banco de casos de prueba previamente calculados.
-
-⏱️ HORA 7 · Rúbrica de Evaluación y Asentamiento de Calificaciones:
-El cierre del RA 2.2 evalúa la competencia técnica integral: diseño centrado en el usuario, estandarización visual, navegación consistente sin bloqueos de memoria, exactitud algorítmica y control de excepciones (entradas numéricas). La evidencia se califica directamente en la lista oficial del grupo.`,
-          learningResult: 'Validar la app en celular mediante casos de control y obtener la calificación final del RA 2.2.',
-          identification: { topic: 'Testing en Vivo y Evaluación RA 2.2', evidence: 'App Funcionando + Calificación en Lista', organization: 'Individual en PC / Móvil', location: 'Laboratorio de Informática', time: '2 hrs' },
-          infographicTitle: 'Ruta Sesión 03 (2 Horas)',
+          id: 'S3', label: 'Sesión 03', subtitle: 'Jueves (2 hrs) · Apoyo Interdisciplinario: Proyectos de Robótica para el Aniversario',
+          start: '¿Cómo colaboramos en equipo para que los proyectos tecnológicos del plantel brillen en el aniversario?',
+          dictation: `⏱️ HORAS 6 Y 7 · Colaboración Tecnológica Inter-Áreas y Robótica:
+La transversalidad educativa fortalece el perfil de egreso técnico al integrar conocimientos ofimáticos, de software y de control algorítmico en proyectos mecánicos y electrónicos. En apoyo al compañero docente Profr. Alex, se orienta la sesión hacia el ensamblaje, cableado y programación de prototipos robóticos estudiantiles para las demostraciones institucionales del Aniversario de CONALEP Pachuca II.`,
+          learningResult: 'Colaborar en el armado, calibración y pruebas de prototipos robóticos para el Aniversario.',
+          identification: { topic: 'Vinculación Tecnológica y Robótica', evidence: 'Avance de Prototipos Robóticos', organization: 'Equipos de Trabajo', location: 'Laboratorio de Cómputo / Taller', time: '2 hrs' },
+          infographicTitle: 'Ruta Sesión 03 (Jueves)',
           infographicSteps: [
-            { title: '1. Conexión QR', desc: 'Conecta con MIT AI2 Companion desde Connect ➔ AI Companion.' },
-            { title: '2. Banco de Pruebas', desc: 'Introduce los 5 casos de control y valida los resultados de área y perímetro.' },
-            { title: '3. Cotejo Docente', desc: 'Presenta tu app corriendo en el teléfono o emulador al profesor.' },
-            { title: '4. Calificación RA 2.2', desc: 'Asentamiento de calificación en la lista oficial (15% del 2do Corte).' }
+            { title: '1. Coordinación Colegiada', desc: 'Sesión cedida en apoyo al Profr. Alex para proyectos del aniversario.' },
+            { title: '2. Ensamble de Hardware', desc: 'Montaje de chasis, motores y conexiones electrónicas de los robots.' },
+            { title: '3. Lógica y Sensores', desc: 'Revisión de rutinas de control y sensores de seguimiento.' },
+            { title: '4. Pruebas de Pista', desc: 'Calibración de desplazamiento rumbo a las demostraciones oficiales.' }
           ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Banco de Pruebas Móvil (45 min) ➔ Evaluación y Asentamiento en Lista (45 min)
+          development: `🎙️ GUÍA DE ACOMPAÑAMIENTO DOCENTE · JUEVES (2 HORAS)
+Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robótica estudiantil.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 6 (16:50 - 17:40) · Emulación en Smartphone & Banco de Pruebas
+⏱️ HORAS 6 Y 7 (16:50 - 18:30) · Acompañamiento en Proyectos de Robótica
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"El software no existe hasta que corre en las manos del cliente. Conecten sus teléfonos al Wi-Fi, escaneen el código QR y vamos a someter a GeoCalc a la prueba de fuego con los 5 casos de control."
-
-📱 BANCO DE PRUEBAS DE CONTROL:
-1) Cuadrado: Lado = 8 cm ➔ Área = 64 cm², Perímetro = 32 cm.
-2) Rectángulo: Base = 12 cm, Altura = 5 cm ➔ Área = 60 cm², Perímetro = 34 cm.
-3) Triángulo: Base = 10 cm, Altura = 6 cm, Lado = 10 cm ➔ Área = 30 cm², Perímetro = 30 cm.
-4) Círculo: Radio = 7 cm ➔ Área = 153.94 cm², Perímetro = 43.98 cm.
-5) Pentágono: Lado = 6 cm, Apotema = 4.13 cm ➔ Área = 61.95 cm², Perímetro = 30 cm.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (17:40 - 18:30) · Cotejo en Lista, Calificación Sumativa y Sellos Finales
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 RÚBRICA DE REVISIÓN:
-1. Portada completa y personalizada con datos institucionales.
-2. Navegación fluida de ida y vuelta en las 7 pantallas.
-3. Precisión en los 5 casos de prueba de control.
-4. Botones de Limpiar operativos.
-
-👉 EVALUACIÓN FINAL: Calificación asentada en la lista oficial del grupo 301-INFO25 (Valor: 15% del Segundo Corte). Cierre formal del RA 2.2.`,
-          closure: 'Evaluación sumativa concluida y calificaciones del RA 2.2 registradas en la lista oficial.'
+1) Coordinación con el Profr. Alex para organizar a los equipos del grupo 301-INFO25.
+2) Asesoría a los estudiantes en estructuración de diagramas, pruebas de motores y depuración de código de control.
+3) Pruebas de movilidad y alistamiento de los prototipos para las exhibiciones del Aniversario del Plantel.
+4) Registro de participación y trabajo colaborativo de los alumnos.`,
+          closure: 'Jornada de robótica estudiantil concluida con éxito en apoyo al aniversario.'
         }
       ]
     }
