@@ -57,9 +57,9 @@ export const teachingPlan = {
           id: 'RA 2.2',
           title: 'Protocolos y confidencialidad',
           weight: '15%',
-          weeks: 5,
+          weeks: 3,
           description: 'Distingue protocolos seguros y criterios de confidencialidad.',
-          weekIds: ['W09', 'W10', 'W11', 'W12', 'W13'],
+          weekIds: ['W09', 'W10', 'W11'],
         },
       ],
     },
@@ -67,8 +67,8 @@ export const teachingPlan = {
       id: 'C3',
       label: 'Tercer corte',
       weight: '35%',
-      weeks: 6,
-      dates: '05 Nov - 11 Dic',
+      weeks: 8,
+      dates: '02 Nov - 11 Dic',
       captureDates: '10 al 11 Dic 2026',
       deadline: '11 Dic 2026',
       ras: [
@@ -76,17 +76,17 @@ export const teachingPlan = {
           id: 'RA 3.1',
           title: 'Fundamentos y optimizacion',
           weight: '20%',
-          weeks: 3,
+          weeks: 4,
           description: 'Proyecto Videojuegos: Arte pixel-art, mecánicas y físicas de plataformas en Construct 3.',
-          weekIds: ['W14', 'W15', 'W16'],
+          weekIds: ['W12', 'W13', 'W14', 'W15'],
         },
         {
           id: 'RA 3.2',
           title: 'Estructuras de control',
           weight: '15%',
-          weeks: 3,
+          weeks: 4,
           description: 'Proyecto Videojuegos: Lógica algorítmica, variables de ciberseguridad, HUD y exportación web.',
-          weekIds: ['W17', 'W18', 'W19'],
+          weekIds: ['W16', 'W17', 'W18', 'W19'],
         },
       ],
     },
@@ -1802,7 +1802,7 @@ export const teachingPlan = {
       id: 'W11',
       label: 'Semana 11',
       dateRange: '26 - 30 Oct',
-      status: 'En curso',
+      status: 'Histórico',
       corteId: 'C2',
       raId: 'RA 2.2',
       title: 'Ingeniería Social, Phishing y Enlaces Trampa (Typosquatting)',
@@ -1951,6 +1951,240 @@ export const teachingPlan = {
           product: 'Tabla de 2 Columnas en Linux Shell, las 5 Banderas Rojas y podio de Kahoot Semana 11 (Sellos 2 y 3).',
           unlockDate: '2026-10-29',
           unlockLabel: 'Jueves 29 de Octubre (16:50 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W12',
+      label: 'Semana 12',
+      dateRange: '02 - 06 Nov',
+      status: 'En curso',
+      corteId: 'C3',
+      raId: 'RA 3.1',
+      title: 'Cierre de 2° Corte y Proyecto Videojuego: Sprites Pixel-Art en Construct 3',
+      result: 'Comprende la estructura gráfica de un motor de videojuegos 2D y diseña el catálogo de 6 sprites en cuadrícula de 16×16 píxeles con animaciones, puntos de origen y polígonos de colisión en Construct 3.',
+      htmlUrl: './html/Manual_Videojuegos_Construct3.html',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual en libreta y en editor web Construct 3 (editor.construct.net)',
+        product: 'Ficha Técnica en libreta, proyecto .c3p con los 6 sprites de 16×16 px animados y Gran Kahoot Semana 12',
+      },
+      notices: [
+        'Inicio oficial del Tercer Corte (35% · Unidad 3: Programación y Videojuegos en Construct 3).',
+        'Miércoles 04 Nov (Sesión 01 · 1 hr): Cierre de promedios 2° Corte + ¿Qué es un Sprite, FPS y Punto de Origen? (Sello 1).',
+        'Jueves 05 Nov (Sesión 02 · 2 hrs): Lienzo 640×360, Héroe Analista (16×16 px) y animaciones Idle, Run y Jump (Sello 2).',
+        'Viernes 06 Nov (Sesión 03 · 2 hrs): Bot Malware, Llave TLS, Cristal Salting, Bloques y Gran Kahoot Semana 12 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 04 Nov · 1 Hora)',
+          title: 'Cierre de 2° Corte e Introducción a los Motores de Videojuegos 2D (Construct 3)',
+          hook: '¡Bienvenidos al Tercer Corte! Durante las próximas 4 semanas todo lo que aprendieron de ciberseguridad cobrará vida en su propio videojuego 2D llamado CyberDefender usando Construct 3.',
+          start: '¿Qué es un Sprite, cómo funcionan los Fotogramas por Segundo (FPS) y por qué el Punto de Origen va en los pies?',
+          dictationTitle: 'FUNDAMENTOS DE VIDEOJUEGOS 2D: SPRITES, ANIMACIONES Y COLISIONES',
+          dictation: 'Un motor de videojuegos como Construct 3 es una plataforma que permite programar mundos interactivos mediante objetos gráficos y reglas lógicas sin escribir miles de líneas de código. El elemento visual básico de todo juego 2D es el Sprite, que consiste en una imagen bidimensional capaz de moverse e interactuar en la pantalla. Para darle vida a un Sprite se utilizan Fotogramas (Frames) que cambian rápidamente creando la ilusión de movimiento (como respirar, correr o saltar). Todo Sprite requiere dos ajustes técnicos esenciales: 1) El Punto de Origen (Origin), que es el punto exacto de apoyo donde se mide la posición del personaje (ubicado siempre en la planta de los pies para que pise el suelo correctamente); y 2) El Polígono de Colisión (Hitbox), que es la caja invisible que detecta cuando el jugador toca una plataforma, recoge una llave o choca contra un enemigo.',
+          workBlock: {
+            duration: '25 minutos',
+            title: 'Ficha Técnica del Proyecto CyberDefender en Libreta',
+            steps: [
+              'Confirmar calificación final del Segundo Corte y hacer el separador del Tercer Corte en la libreta.',
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Trazar en la libreta la Ficha Técnica de CyberDefender con los 6 sprites que crearemos esta semana.',
+              'Revisión y firma del Sello 1.'
+            ]
+          },
+          visualExample: {
+            title: 'Ficha Técnica de Mi Videojuego: CyberDefender',
+            badge: 'Unidad 3 · Construct 3',
+            description: 'Ficha de planificación para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│             🎮 FICHA TÉCNICA DE MI PROYECTO: "CYBERDEFENDER"                │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ • Motor Oficial: Construct 3 (editor.construct.net)                         │\n│ • Resolución de Ventana (Viewport): 640 × 360 píxeles (16:9 Retro)          │\n│ • Tamaño de los Sprites: Cuadrícula de 16 × 16 píxeles (Muestreo: Point)    │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ • CATÁLOGO DE 6 SPRITES A CREAR ESTA SEMANA:                                │\n│   1. 🟩 Jugador (Héroe): Analista con visor verde #00ff66 (Origen: Tecla 2).│\n│   2. 🔴 Malware_Bot: Dron rojo #ef4444 con sensor amarillo (Origen: Tecla 5)│\n│   3. 🟡 Llave_TLS: Candado dorado #facc15 para abrir puerto 443.            │\n│   4. 🔵 Cristal_Salting: Gema azul #06b6d4 que otorga escudo de 6 seg.      │\n│   5. ⬜ Piso_Servidor y Puerta_Servidor: Bloques sólidos del datacenter.    │\n└─────────────────────────────────────────────────────────────────────────────┘'
+          },
+          terminalRadar: 'Construct 3 Setup ➔ Viewport: 640×360 px | Orientación: Landscape | Sampling: Point (Nitidez Pixel-Art)',
+          learningResult: 'El estudiante comprende los conceptos de Sprite, FPS, Punto de Origen y Polígono de Colisión dentro de un motor 2D.',
+          identification: 'Tema: Fundamentos de Videojuegos 2D. Evidencia: Separador de 3er Corte, dictado y Ficha Técnica en libreta.',
+          development: 'Cierre de promedios del 2° Corte, presentación del Manual Interactivo de Construct 3 y registro de la Ficha Técnica.',
+          closure: 'Revisión de libretas y estampado del Sello 1.',
+          faq: [
+            { q: '¿Necesito instalar algún programa pesado en mi computadora?', a: 'No, Construct 3 funciona 100% en el navegador web entrando a editor.construct.net.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Separador del 3er Corte, Dictado de Sprites y Ficha Técnica en libreta.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 05 Nov · Hora 1)',
+          title: 'Lienzo Retro 640×360 y Trazo del Héroe Analista (16×16 px)',
+          hook: 'Hoy abrimos Construct 3 y dibujamos a nuestro protagonista píxel por píxel usando la plantilla de 16×16 del Manual del Portal.',
+          start: '¿Cómo configuramos un proyecto Pixel-Art nítido y dónde colocamos el Punto de Origen del Héroe?',
+          dictationTitle: 'CONFIGURACIÓN DE VIEWPORT Y MATRIZ PIXEL-ART DEL JUGADOR',
+          dictation: 'Para que un videojuego de estética Pixel-Art conserve bordes nítidos al escalarse en pantallas modernas, el proyecto debe configurarse en una resolución base de 640 por 360 píxeles (relación 16:9) con el modo de muestreo en Punto (Point). El personaje principal se diseña sobre un lienzo de 16 por 16 píxeles utilizando una paleta de alto contraste (traje oscuro #0f172a y visor verde neón #00ff66), fijando su Punto de Origen en la base inferior central mediante la tecla numérica 2.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Práctica en Construct 3: Creación del Proyecto y del Héroe',
+            steps: [
+              'Entrar a editor.construct.net y abrir a un lado el Manual de Videojuegos del Portal CONALEP.',
+              'Crear proyecto CyberDefender_Apellido_501 (Viewport 640×360, Landscape, Sampling: Point).',
+              'Insertar Sprite Jugador (16×16 px) y copiar el diseño del Analista con visor verde.',
+              'Seleccionar la herramienta Origin y presionar la tecla 2 (base de las botas).'
+            ]
+          },
+          visualExample: {
+            title: 'Plantilla 16×16 del Héroe Analista',
+            badge: 'Editor de Sprites',
+            description: 'Cuadrícula oficial de 16×16 píxeles (T=#0f172a, V=#00ff66, P=#fcd34d, B=#334155):',
+            mockup: '      0 1 2 3 4 5 6 7 8 9 A B C D E F\nFila 0: . . . . . T T T T T T . . . . .  <- Casco superior\nFila 1: . . . . T T T T T T T T . . . .\nFila 2: . . . . T P P P P P P T . . . .  <- Rostro\nFila 3: . . . . T V V V V V V T . . . .  <- Visor Neón (#00ff66)\nFila 4: . . . . T P P P P P P T . . . .\nFila 5: . . . . . T T T T T T . . . . .\nFila 6: . . B B T T T T T T T T B B . .  <- Hombros y Guantes\nFila 7: . . B B T T T T T T T T B B . .\nFila 8: . . . . T T V V V V T T . . . .  <- Núcleo verde\nFila 9: . . . . T T T T T T T T . . . .\nFila A: . . . . T T T . . T T T . . . .  <- Piernas\nFila B: . . . . T T T . . T T T . . . .\nFila C: . . . . T T T . . T T T . . . .\nFila D: . . . . B B B . . B B B . . . .\nFila E: . . . B B B B . . B B B B . . .  <- Botas\nFila F: . . . B B B B . . B B B B . . .  <- Suelas (Origen: Tecla 2)'
+          },
+          terminalRadar: 'Regla de Oro del Origen ➔ Presiona Tecla 2 en el teclado numérico para anclar en los pies (X:8, Y:16).',
+          learningResult: 'El estudiante configura el entorno de Construct 3 y traza el sprite del protagonista con su punto de anclaje correcto.',
+          identification: 'Tema: Lienzo Pixel-Art y Trazo del Héroe. Evidencia: Sprite Jugador en pantalla.',
+          development: 'Configuración guiada del proyecto en Construct 3 y dibujo píxel por píxel del protagonista.',
+          closure: 'Verificación del punto de origen en los pies antes de pasar a las animaciones.',
+          faq: [
+            { q: '¿Qué pasa si mi sprite se ve borroso?', a: 'Ve a las Propiedades del Proyecto a la izquierda y cambia Muestreo (Sampling) de Trilinear a Punto (Point).' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Sprite del Héroe dibujado a 16×16 px con punto de origen en los pies.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 05 Nov · Hora 2)',
+          title: 'Animaciones del Héroe (Idle, Run y Jump) y Caja de Colisión',
+          hook: 'Un dibujo estático parece una estatua; con solo duplicar el cuadro y mover las botas 1 píxel, nuestro Analista empezará a respirar y correr.',
+          start: '¿Cómo creamos las animaciones de Respirar (Idle), Correr (Run) y Saltar (Jump) en Construct 3?',
+          dictationTitle: 'CONFIGURACIÓN DE ANIMACIONES Y POLÍGONO DE COLISIÓN EN CONSTRUCT 3',
+          dictation: 'En el editor de Construct 3, un personaje utiliza tres secuencias básicas de animación: 1) Idle (Reposo), configurada a 3 fotogramas por segundo (FPS) con la opción Loop (Bucle) activada para simular la respiración cuando el jugador está quieto; 2) Run (Correr), configurada a 8 FPS en bucle alternando la altura de las botas para simular el paso; y 3) Jump (Salto), compuesta por un solo cuadro con las piernas flexionadas sin bucle. Finalmente, el polígono de colisión debe ajustarse a una caja rectangular uniforme para evitar que el personaje se atore en el piso al cambiar de cuadro.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Práctica en Construct 3: Las 3 Animaciones del Héroe',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Renombrar Default a Idle (2 cuadros bajando el torso 1 px, Speed: 3, Loop: Sí).',
+              'Crear animación Run (4 cuadros alternando pies, Speed: 8, Loop: Sí) y animación Jump (1 cuadro, Loop: No).',
+              'Ajustar el Polígono de Colisión a caja delimitadora (Bounding box), guardar respaldo .c3p y pasar por el Sello 2.'
+            ]
+          },
+          visualExample: {
+            title: 'Tabla de Configuración de Animaciones del Jugador',
+            badge: 'Animación 2D',
+            description: 'Parámetros exactos en el panel Animations de Construct 3:',
+            mockup: '┌──────────────────┬────────────┬───────────────┬───────────────────────────────┐\n│ NOMBRE ANIMACIÓN │ CUADROS    │ VELOCIDAD FPS │ BUCLE (LOOP) Y FUNCIÓN        │\n├──────────────────┼────────────┼───────────────┼───────────────────────────────┤\n│ 1. Idle          │ 2 frames   │ 3 FPS         │ ✅ Sí (Respiración quieto)    │\n│ 2. Run           │ 4 frames   │ 8 FPS         │ ✅ Sí (Carrera alternando pie)│\n│ 3. Jump          │ 1 frame    │ 0 FPS         │ ❌ No (Suspendido en el aire) │\n└──────────────────┴────────────┴───────────────┴───────────────────────────────┘'
+          },
+          terminalRadar: 'Guardado Seguro ➔ Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (.c3p)',
+          learningResult: 'El estudiante programa ciclos de animación en bucle y calibra cajas de colisión uniformes en su personaje.',
+          identification: 'Tema: Animaciones Idle, Run y Jump. Evidencia: Personaje animado en Construct 3 y apunte en libreta.',
+          development: 'Duplicación de fotogramas, edición de píxeles para simular respiración y paso, y ajuste de colisiones.',
+          closure: 'Descarga de respaldo .c3p y firma del Sello 2.',
+          faq: [
+            { q: '¿Cómo duplico un cuadro rápido?', a: 'En la tira inferior de cuadros (Frames), haz clic derecho sobre el cuadro 0 y elige Duplicar.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Héroe con animaciones Idle, Run y Jump funcionando + Dictado en libreta.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 06 Nov · Hora 1)',
+          title: 'Diseño del Bot Malware, Llave TLS, Cristal Salting y Bloques',
+          hook: 'Un héroe necesita desafíos: hoy dibujaremos al centinela Troyano rojo, el candado dorado TLS del puerto 443, el cristal azul de Salting y los pisos del servidor.',
+          start: '¿Cómo diseñamos los enemigos, coleccionables criptográficos y bloques del escenario en 16×16 px?',
+          dictationTitle: 'DISEÑO DE ENEMIGOS, ÍTEMS CRIPTOGRÁFICOS Y BLOQUES MODULARES',
+          dictation: 'El catálogo visual del videojuego integra la simbología técnica de ciberseguridad en objetos interactivos de 16 por 16 píxeles: 1) Malware_Bot: Utiliza colores de alerta (rojo #ef4444 y amarillo #facc15) con un polígono de colisión reducido al domo central para garantizar jugabilidad justa; 2) Llave_TLS y Cristal_Salting: Coleccionables con punto de origen en el centro exacto (tecla numérica 5) y animación de brillo a 4 FPS; y 3) Piso_Servidor y Puerta_Servidor: Bloques modulares repetibles que conforman la estructura física del centro de datos.',
+          workBlock: {
+            duration: '35 minutos',
+            title: 'Laboratorio en Construct 3: Completar los 6 Sprites del Catálogo',
+            steps: [
+              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
+              'Crear el Sprite Malware_Bot (16×16 px) copiando la plantilla roja del Manual del Portal (Origen: Tecla 5).',
+              'Crear los Sprites Llave_TLS (candado dorado) y Cristal_Salting (gema azul) con 2 cuadros de brillo.',
+              'Crear los Sprites Piso_Servidor y Puerta_Servidor (compuerta chmod 600).'
+            ]
+          },
+          visualExample: {
+            title: 'Plantilla 16×16 del Bot de Malware y Llave TLS',
+            badge: 'Catálogo de Sprites',
+            description: 'Usa el botón del Manual Interactivo en el Portal para ver las 7 cuadrículas a color:',
+            mockup: '┌──────────────────────────────────────┬──────────────────────────────────────┐\n│ 🔴 MALWARE_BOT (16×16 px)            │ 🟡 LLAVE_TLS (16×16 px)              │\n├──────────────────────────────────────┼──────────────────────────────────────┤\n│ • Carcasa Roja: #ef4444              │ • Oro Brillante: #facc15             │\n│ • Ojo Escáner:  #facc15              │ • Sombra Bronce: #b45309             │\n│ • Patas Acero:  #94a3b8              │ • Reflejo Luz:   #ffffff             │\n│ • Origen: Tecla 5 (Centro X:8, Y:8)  │ • Origen: Tecla 5 (Centro X:8, Y:8)  │\n│ • Colisión: Solo en la cabeza roja   │ • Animación: 2 cuadros a 4 FPS       │\n└──────────────────────────────────────┴──────────────────────────────────────┘'
+          },
+          terminalRadar: 'Recurso en Vivo ➔ Abre el Manual de Videojuegos Construct 3 en la cabecera del Portal para copiar cada píxel.',
+          learningResult: 'El estudiante completa el catálogo de 6 objetos gráficos de su videojuego aplicando paletas cromáticas y puntos de origen.',
+          identification: 'Tema: Catálogo de Sprites de Ciberseguridad. Evidencia: Los 6 objetos creados en el panel de Construct 3.',
+          development: 'Dibujo guiado en el editor de Construct 3 apoyándose en los lienzos SVG del Manual del Portal.',
+          closure: 'Verificación de los 6 objetos en el proyecto.',
+          faq: [
+            { q: '¿Dónde veo los dibujos a color grandes para copiarlos?', a: 'Haz clic en el botón del Manual de Construct 3 aquí mismo en el Portal y entra a la pestaña Sem 1: Sprites Pixel-Art.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Catálogo completo de 6 sprites diseñados en Construct 3.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 06 Nov · Hora 2)',
+          title: '🏆 Gran Kahoot Semana 12 y Entrega del Archivo .c3p',
+          hook: '¡Llegó la hora de demostrar quién domina Construct 3! Guardamos nuestro archivo .c3p de la Semana 1 del juego y competimos en el Gran Kahoot de la Semana 12.',
+          start: '¿Quién conquistará el primer podio del Tercer Corte en el Kahoot de Construct 3 y Sprites Pixel-Art?',
+          dictationTitle: 'AUDITORÍA DEL CATÁLOGO GRÁFICO Y RESPALDO DE PROYECTO (.C3P)',
+          dictation: 'Al concluir la primera fase de desarrollo del videojuego, todo proyecto en Construct 3 debe empaquetarse y respaldarse en formato nativo .c3p (Construct 3 Project). La auditoría técnica verifica que los seis objetos gráficos posean dimensiones estandarizadas de 16 por 16 píxeles, muestreo en modo Punto, puntos de origen correctamente anclados y polígonos de colisión optimizados para preparar la programación física del nivel en la siguiente semana.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Respaldo .c3p y Batalla Gamificada Kahoot Semana 12',
+            steps: [
+              'Descargar el archivo del proyecto: Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (Sem12_Sprites_Apellido_501.c3p).',
+              'Ingresar a kahoot.it con el PIN proyectado en el pizarrón.',
+              'Competir en los 20 reactivos oficiales sobre Construct 3, Sprites, FPS, Origen y Colisiones.',
+              'Anotar puntaje en la libreta, revisar los 6 sprites en pantalla con el docente y recibir el Sello 3.'
+            ]
+          },
+          learningResult: 'El estudiante respalda su proyecto fuente .c3p y acredita el dominio conceptual de diseño de sprites y animaciones 2D.',
+          identification: 'Tema: Evaluación Semana 12 y Entrega de Sello 1 de Videojuegos. Evidencia: Archivo .c3p, Kahoot y Sello 3.',
+          development: 'Respaldo de archivos .c3p para la siguiente semana, aplicación del Kahoot de 20 preguntas y firma de libretas.',
+          closure: 'Estampado del Sello 3 y cierre exitoso de la Semana 12.',
+          faq: [
+            { q: '¿Por qué es obligatorio guardar mi archivo .c3p en mi Google Drive o Classroom?', a: 'Porque la próxima semana abriremos ese mismo archivo .c3p para armar el escenario y ponerle gravedad a tus dibujos.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Catálogo de 6 sprites en archivo .c3p + Puntaje del Kahoot Semana 12 en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'Cierre de 2° Corte e Introducción a los Videojuegos 2D en Construct 3',
+          hourIds: ['H01'],
+          product: 'Separador de 3er Corte, Dictado de Sprites y Ficha Técnica de CyberDefender en libreta (Sello 1).',
+          unlockDate: '2026-11-04',
+          unlockLabel: 'Miércoles 04 de Noviembre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Lienzo 640×360, Trazo del Héroe (16×16 px) y Animaciones (Idle, Run, Jump)',
+          hourIds: ['H02', 'H03'],
+          product: 'Proyecto creado en Construct 3 con el Héroe dibujado y sus 3 animaciones activas (Sello 2).',
+          unlockDate: '2026-11-05',
+          unlockLabel: 'Jueves 05 de Noviembre (16:50 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'Catálogo Completo (Malware_Bot, Llave_TLS, Cristal_Salting) y Gran Kahoot Semana 12',
+          hourIds: ['H04', 'H05'],
+          product: 'Los 6 sprites terminados en archivo .c3p y puntaje del Gran Kahoot Semana 12 (Sello 3).',
+          unlockDate: '2026-11-06',
+          unlockLabel: 'Viernes 06 de Noviembre (18:30 hrs)',
         },
       ],
     },
