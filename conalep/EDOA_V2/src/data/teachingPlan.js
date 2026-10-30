@@ -1767,7 +1767,7 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
     'W12': {
       id: 'W12',
       label: 'Semana 12',
-      title: 'App GeoCalc: Programación Lógica, Síntesis de Voz y Evaluación RA 2.2',
+      title: 'App GeoCalc: Programación de Fórmulas Matemáticas en Bloques',
       dates: '02 Nov - 06 Nov',
       status: 'active',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
@@ -1776,128 +1776,140 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
       templateBtnColor: '#005C42',
       toolUrl: 'https://ai2.appinventor.mit.edu',
       toolBtnText: 'Abrir MIT App Inventor',
-      summary: 'Programación en bloques de las 5 figuras geométricas (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), incorporación de síntesis de voz (TextToSpeech), pruebas en smartphones con MIT AI2 Companion y evaluación sumativa del RA 2.2 (15%).',
-      expectedProduct: 'App GeoCalc 100% funcional con bloques de cálculo, TextToSpeech, botones de limpieza y casos de prueba verificados.',
+      summary: 'Programación exclusiva y rigurosa en el Blocks Editor de las fórmulas de área y perímetro de las 5 figuras (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), verificando la exactitud de los operadores aritméticos sin prisas.',
+      expectedProduct: 'Proyecto GeoCalc con los bloques aritméticos de las 5 figuras programados, depurados y funcionales en máquina.',
       notices: [
-        '⚠️ Lunes 02 de Noviembre: Suspensión oficial de labores (Día de Muertos / Feriado Nacional).',
-        'Carga lectiva ajustada: 4 horas de laboratorio distribuidas en Miércoles (1 hr), Jueves (2 hrs) y Viernes (1 hr).',
-        'Miércoles (Sesión 01 · 1 hr): Programación de bloques aritméticos de Cuadrado, Rectángulo y Triángulo (Sello 1).',
-        'Jueves (Sesión 02 · 2 hrs): Bloques de Círculo (π), Pentágono (Apotema), botones de reseteo y síntesis de voz TextToSpeech (Sello 2).',
-        'Viernes (Sesión 03 · 1 hr): Batería de pruebas en smartphones con MIT AI2 Companion (5 casos de control) y calificación oficial del RA 2.2 (15%).'
+        '⚠️ Lunes 02 de Noviembre: Suspensión oficial de labores docentes (Día de Muertos / Feriado Nacional).',
+        'Carga lectiva ajustada: 4 horas de laboratorio dedicadas EXCLUSIVAMENTE a la programación matemática de fórmulas.',
+        'Miércoles (Sesión 01 · 1 hr): Cuadrado y Rectángulo paso a paso con operadores básicos y unidades cm² / cm (Sello 1).',
+        'Jueves (Sesión 02 · 2 hrs): Triángulo (operador de división con b*h/2) y Círculo (constante pi = 3.1416 y radio al cuadrado) (Sello 2).',
+        'Viernes (Sesión 03 · 1 hr): Pentágono Regular (algoritmo jerárquico de apotema y perímetro) y cierre de bloques (Sello 3).',
+        'Semana 13 (Proyección): Botones de reseteo, TextToSpeech, emulación en smartphones con AI Companion y evaluación final del RA 2.2.'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Miércoles (1 hr) · Bloques Aritméticos: Cuadrado, Rectángulo y Triángulo',
-          start: '¿Cómo transformamos las fórmulas matemáticas de la libreta en bloques que calculen automáticamente?',
-          dictation: `⏱️ HORA 1 · De la Expresión Matemática al Bloque Aritmético:
-En el desarrollo de software bajo App Inventor, la programación orientada a eventos enlaza la interfaz con el motor algorítmico. Al activarse el evento when btnCalcular.Click, los valores capturados en las cajas de texto se procesan con los operadores aritméticos math_multiply y math_division. Mediante el bloque text_join, el resultado numérico se concatena con su unidad física (cm² o cm), formateando la etiqueta de visualización de forma profesional y clara.`,
-          learningResult: 'Programar los bloques de cálculo de área y perímetro para Cuadrado, Rectángulo y Triángulo.',
-          identification: { topic: 'Bloques Aritméticos Base', evidence: 'Bloques en App Inventor (3 Figuras)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          id: 'S1', label: 'Sesión 01', subtitle: 'Miércoles (1 hr) · Bloques Aritméticos: Cuadrado y Rectángulo',
+          start: '¿Cómo le enseñamos a la aplicación a leer los números de la pantalla y calcular automáticamente?',
+          dictation: `⏱️ HORA 1 · De la Caja de Texto al Operador Aritmético:
+En el entorno visual de MIT App Inventor, la programación orientada a eventos procesa las acciones del usuario a través del evento when btnCalcular.Click. Los valores capturados en las propiedades .Text de las cajas se convierten en magnitudes numéricas mediante los operadores de la librería Math. Con el bloque text_join, el valor escalar resultante se concatena con su unidad física (cm² y cm), actualizando las etiquetas de resultados sin errores de sintaxis.`,
+          learningResult: 'Programar los bloques de cálculo de área y perímetro para Cuadrado y Rectángulo.',
+          identification: { topic: 'Bloques Aritméticos: Cuadrado y Rectángulo', evidence: 'Bloques Programados (2 Figuras)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
           infographicTitle: 'Ruta Sesión 01 (Miércoles)',
           infographicSteps: [
-            { title: '1. Cuadrado', desc: 'Calcula Área con Lado * Lado y Perímetro con 4 * Lado concatenando cm² y cm.' },
-            { title: '2. Rectángulo', desc: 'Multiplica Base * Altura y suma el doble de cada dimensión para el perímetro.' },
-            { title: '3. Triángulo', desc: 'Usa math_division para (Base * Altura) / 2 y 3 * Lado para perímetro equilátero.' },
-            { title: '4. Verificación', desc: 'Comprueba que no existan bloques desconectados o advertencias amarillas.' }
+            { title: '1. Evento Click', desc: 'Saca el bloque when btnCalcular.Click en ScreenCuadrado.' },
+            { title: '2. Fórmulas Cuadrado', desc: 'Área con txtLado * txtLado y Perímetro con 4 * txtLado.' },
+            { title: '3. Fórmulas Rectángulo', desc: 'Área con txtBase * txtAltura y Perímetro con 2*b + 2*h.' },
+            { title: '4. Conexión cm² y cm', desc: 'Usa text_join para agregar las unidades de medida en el resultado.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
-Metodología: Demo Cañón (10 min) ➔ Reto en PC (35 min) ➔ Revisión de Sello (5 min)
+Metodología: Demo Cañón Paso a Paso (15 min) ➔ Reto en PC (25 min) ➔ Revisión de Sello (10 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (17:40 - 18:30) · El Despertar de la Lógica Aritmética
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Nuestras pantallas ya tienen cuerpo, pero hoy les ponemos cerebro. Vamos a conectar los primeros bloques para que cuando el usuario escriba los números y presione Calcular, la aplicación resuelva el problema al instante."
-
-🖥️ DEMO EN CAÑÓN (10 min):
-1) Proyectar ScreenCuadrado:
-   - when btnCalcular.Click do
-   - set lblArea.Text to join [ txtLado.Text * txtLado.Text , ' cm²' ]
-   - set lblPerimetro.Text to join [ 4 * txtLado.Text , ' cm' ]
-2) Proyectar ScreenRectangulo: Base * Altura y 2 * Base + 2 * Altura.
-3) Proyectar ScreenTriangulo: math_division [ txtBase * txtAltura , 2 ].
-
-💻 RETO EN PC (35 min):
-Programar y testear los bloques de Cuadrado, Rectángulo y Triángulo.
-👉 SELLO 1: Bloques aritméticos programados y probados en máquina para las primeras 3 figuras.`,
-          closure: 'Bloques de Cuadrado, Rectángulo y Triángulo concluidos exitosamente.'
-        },
-        {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Jueves (2 hrs) · Fórmulas Compuestas, Reset y Síntesis de Voz (TextToSpeech)',
-          start: '¿Cómo hacemos que nuestra aplicación no solo calcule, sino que le hable al usuario con voz clara?',
-          dictation: `⏱️ HORA 2-3 · Algoritmos Compuestos y Accesibilidad con Síntesis de Voz:
-Para figuras de geometría compuesta como el círculo y el pentágono regular, el motor de bloques requiere variables jerárquicas: en el círculo se multiplica la constante pi = 3.1416 por el radio al cuadrado, mientras que en el pentágono el perímetro (5·L) sirve de insumo para el cálculo del área con apotema ((P·ap)/2). La accesibilidad y la experiencia de usuario (UX) se elevan integrando el componente no visible TextToSpeech, el cual convierte en audio nativo los resultados obtenidos, complementado por rutinas de reseteo para limpiar los formularios.`,
-          learningResult: 'Completar los bloques de Círculo y Pentágono, botones de limpieza y la síntesis de voz TextToSpeech.',
-          identification: { topic: 'Fórmulas Compuestas, Reset & TextToSpeech', evidence: '5 Figuras con Voz y Botón Limpiar', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '2 hrs' },
-          infographicTitle: 'Ruta Sesión 02 (Jueves)',
-          infographicSteps: [
-            { title: '1. Círculo y Pentágono', desc: 'Programa constante pi = 3.1416 y fórmula de apotema encadenada.' },
-            { title: '2. Rutina de Limpieza', desc: 'Programa btnLimpiar para vaciar cajas y restablecer etiquetas a guiones.' },
-            { title: '3. TextToSpeech', desc: 'Arrastra el componente desde Media y agrega call TextToSpeech.Speak.' },
-            { title: '4. Audio Interactivo', desc: 'Concatena el mensaje hablado: El área es... y el perímetro es...' }
-          ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Fórmulas Compuestas (45 min) ➔ Botones Limpiar (15 min) ➔ TextToSpeech (45 min) ➔ Sello (15 min)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORAS 2 Y 3 (16:50 - 18:30) · Círculo, Pentágono y Síntesis de Voz
+⏱️ HORA 1 (17:40 - 18:30) · Cuadrado y Rectángulo con Calma
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"¿Se imaginan que al presionar Calcular, el celular hable y les dicte el resultado con voz clara? Vamos a agregar el componente TextToSpeech para darle voz a GeoCalc."
+"Nuestras pantallas ya se ven increíbles, pero hoy empezamos a programar su mente matemática. No vamos a correr: hoy nos aseguramos de dominar cómo se conectan los bloques para el cuadrado y el rectángulo para que nadie se quede atrás."
 
 🖥️ DEMO EN CAÑÓN (15 min):
-1) ScreenCirculo: área con 3.1416 * (txtRadio * txtRadio) y perímetro 2 * 3.1416 * txtRadio.
-2) ScreenPentagono: primero calcular perímetro (5 * txtLado) y luego área ((Perímetro * apotema) / 2).
-3) Botón Limpiar: set txt a '' y set lbl a '- - cm²'.
-4) Componente TextToSpeech:
-   - Arrastrar desde la paleta 'Media'.
-   - Bloque: call TextToSpeech1.Speak message: join [ 'El área es ', lblArea.Text, ' y el perímetro es ', lblPerimetro.Text ].
+1) Proyectar ScreenCuadrado:
+   - Sacar when btnCalcular.Click do.
+   - set lblResultadoArea.Text to join [ txtLado.Text * txtLado.Text , ' cm²' ].
+   - set lblResultadoPerimetro.Text to join [ 4 * txtLado.Text , ' cm' ].
+2) Proyectar ScreenRectangulo:
+   - Área: txtBase.Text * txtAltura.Text concatenado con ' cm²'.
+   - Perímetro: math_add [ 2 * txtBase.Text , 2 * txtAltura.Text ] concatenado con ' cm'.
+3) Explicar cómo eliminar bloques desconectados y advertencias amarillas.
 
-💻 RETO EN PC (75 min):
-1. Completar la lógica de Círculo y Pentágono.
-2. Programar botones de limpiar en las 5 figuras.
-3. Activar TextToSpeech en las pantallas de figuras.
-👉 SELLO 2: Las 5 figuras programadas al 100% con botón de limpiar y síntesis de voz activa.`,
-          closure: 'Toda la lógica de programación y síntesis de voz concluida en el proyecto.'
+💻 RETO EN PC (25 min):
+Cada alumno programa y prueba en máquina los bloques de Cuadrado y Rectángulo.
+👉 SELLO 1: Bloques aritméticos de Cuadrado y Rectángulo concluidos y probados sin advertencias.`,
+          closure: 'Bloques de Cuadrado y Rectángulo concluidos exitosamente.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Viernes (1 hr) · Pruebas en Smartphone (AI Companion) & Evaluación RA 2.2',
-          start: '¿Cómo comprobamos que nuestra aplicación pasa la auditoría de calidad en un celular real?',
-          dictation: `⏱️ HORA 4 · Control de Calidad Móvil (QA) y Cierre Sumativo RA 2.2:
-La fase de aseguramiento de calidad (QA) contrasta los resultados en hardware real contra un banco de pruebas estandarizado. Al correr GeoCalc en teléfonos vía MIT AI2 Companion, se valida la exactitud matemática de las 5 figuras, la audibilidad de la síntesis de voz y la fluidez de navegación. El docente asienta la calificación formal del RA 2.2 (15% del Segundo Corte) con base en la rúbrica institucional.`,
-          learningResult: 'Validar la app en smartphone mediante casos de control y obtener la calificación final del RA 2.2.',
-          identification: { topic: 'Testing en Vivo y Evaluación RA 2.2', evidence: 'App Evaluada + Calificación en Lista', organization: 'Individual en PC / Móvil', location: 'Laboratorio de Informática', time: '1 hr' },
-          infographicTitle: 'Ruta Sesión 03 (Viernes)',
+          id: 'S2', label: 'Sesión 02', subtitle: 'Jueves (2 hrs) · Operadores Complejos: División (Triángulo) y Número Pi (Círculo)',
+          start: '¿Cómo programamos una división fraccionaria y cómo usamos la constante Pi en los bloques?',
+          dictation: `⏱️ HORA 2-3 · Jerarquía de Operaciones y Constantes Matemáticas:
+En algoritmos geométricos avanzados, el orden de evaluación matemática exige ensamblar bloques anidados. Para el área del triángulo (A = (b·h)/2), el bloque math_division recibe en su conector superior el producto math_multiply de base y altura, y en su conector inferior la constante numérica 2. En el círculo, la precisión decimal se garantiza multiplicando la constante pi = 3.1416 por el radio al cuadrado (r·r). Ambos resultados deben formatearse con text_join para asociar el valor escalar con su magnitud física.`,
+          learningResult: 'Programar los bloques de cálculo con división para Triángulo y con constante Pi para Círculo.',
+          identification: { topic: 'División y Constante Pi en Bloques', evidence: 'Bloques de Triángulo y Círculo', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '2 hrs' },
+          infographicTitle: 'Ruta Sesión 02 (Jueves)',
           infographicSteps: [
-            { title: '1. Connect QR', desc: 'Conecta con MIT AI2 Companion desde Connect ➔ AI Companion.' },
-            { title: '2. Banco de Pruebas', desc: 'Resuelve los 5 casos de control (Cuadrado, Rectángulo, Triángulo, Círculo, Pentágono).' },
-            { title: '3. Cotejo Docente', desc: 'Muestra al profesor la navegación, el cálculo exacto y la voz en el teléfono.' },
-            { title: '4. Calificación RA 2.2', desc: 'Registro formal de la calificación en la lista oficial (15% del Segundo Corte).' }
+            { title: '1. Triángulo (1 hr)', desc: 'Inserta math_division: arriba (Base * Altura) y abajo el número 2.' },
+            { title: '2. Perímetro Triángulo', desc: 'Multiplica 3 * txtLado para triángulo equilátero.' },
+            { title: '3. Círculo (1 hr)', desc: 'Usa 3.1416 * (txtRadio * txtRadio) para Área y 2 * 3.1416 * txtRadio para Perímetro.' },
+            { title: '4. Depuración PC', desc: 'Verifica que ningún bloque tenga advertencias o desconexiones.' }
           ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Banco de Pruebas en Smartphone (25 min) ➔ Revisión y Calificación en Lista (25 min)
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Triángulo y División (50 min) ➔ Círculo y Pi (50 min) ➔ Sellos de Revisión (20 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (15:00 - 15:50) · Batería de Pruebas de QA y Calificación
+⏱️ HORA 2 (16:50 - 17:40) · El Triángulo: Dominando la División
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Llegó la hora de la verdad: pasamos la app a nuestro propio celular mediante código QR, resolvemos los 5 casos de control y asentamos la calificación definitiva del RA 2.2."
+"En el cuadrado y rectángulo solo multiplicamos y sumamos. Pero en el triángulo entra el bloque de división: arriba va la multiplicación de base por altura y abajo la constante 2."
 
-📱 BANCO DE PRUEBAS OFICIAL:
-1) Cuadrado: L = 8 cm ➔ Área = 64 cm², Perímetro = 32 cm.
-2) Rectángulo: b = 12 cm, h = 5 cm ➔ Área = 60 cm², Perímetro = 34 cm.
-3) Triángulo: b = 10 cm, h = 6 cm, L = 10 cm ➔ Área = 30 cm², Perímetro = 30 cm.
-4) Círculo: r = 7 cm ➔ Área = 153.94 cm², Perímetro = 43.98 cm.
-5) Pentágono: L = 6 cm, ap = 4.13 cm ➔ Área = 61.95 cm², Perímetro = 30 cm.
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Abrir ScreenTriangulo.
+2) Sacar el bloque math_division.
+3) En conector superior colocar txtBase.Text * txtAltura.Text.
+4) En conector inferior colocar el número 2.
+5) Perímetro: 3 * txtLado.Text concatenado con ' cm'.
 
-📋 RÚBRICA DE EVALUACIÓN (RA 2.2 · 15%):
-- Interfaz y navegación fluida en 7 pantallas (3 pts).
-- Precisión matemática en las 5 figuras (4 pts).
-- Funcionalidad extra: TextToSpeech y botones Limpiar (2 pts).
-- Testing real en celular con AI Companion (1 pt).
+💻 RETO EN PC (40 min):
+Alumnos arman y verifican los bloques de ScreenTriangulo en máquina.
 
-👉 EVALUACIÓN FINAL: Calificación asentada en la lista oficial del grupo 301-INFO25 (Valor: 15% del Segundo Corte).`,
-          closure: 'Evaluación sumativa concluida y calificaciones del RA 2.2 asentadas en lista oficial.'
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (17:40 - 18:30) · El Círculo: La Constante Pi y el Radio al Cuadrado
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"¿Cómo le decimos a la app que use el número Pi? Muy fácil: sacamos una constante matemática con 3.1416 y la multiplicamos dos veces por el radio."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Abrir ScreenCirculo.
+2) Área: 3.1416 * (txtRadio.Text * txtRadio.Text) concatenado con ' cm²'.
+3) Perímetro: 2 * 3.1416 * txtRadio.Text concatenado con ' cm'.
+
+💻 RETO EN PC (30 min):
+Programar y testear los bloques de ScreenCirculo en máquina.
+👉 SELLO 2: Bloques matemáticos de Triángulo y Círculo programados y funcionales.`,
+          closure: 'Bloques de Triángulo y Círculo completados al 100% en las computadoras.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Viernes (1 hr) · El Gran Reto Algorítmico: Pentágono Regular',
+          start: '¿Cómo programamos una figura donde el área depende directamente del perímetro calculado?',
+          dictation: `⏱️ HORA 4 · Algoritmos Jerárquicos y Lógica con Apotema:
+El cálculo del área de un polígono regular (A = (P·ap)/2) constituye un algoritmo encadenado de dos fases: en la primera fase se obtiene el perímetro multiplicando la longitud del lado por el número de aristas (5·L). En la segunda fase, dicho producto alimenta el numerador de la expresión fraccionaria multiplicándose por el apotema (ap), resolviendo la división final entre 2. Concluir este bloque completa formalmente la totalidad de las 5 calculadoras geométricas del sistema.`,
+          learningResult: 'Completar la programación del Pentágono Regular y verificar que las 5 figuras calculen correctamente.',
+          identification: { topic: 'Bloques Pentágono & Cierre de Fórmulas', evidence: '5 Calculadoras Programadas al 100%', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          infographicTitle: 'Ruta Sesión 03 (Viernes)',
+          infographicSteps: [
+            { title: '1. Perímetro Pentágono', desc: 'Multiplica 5 * txtLado.Text y concatena con cm.' },
+            { title: '2. Área Pentágono', desc: 'Divide el producto de (5 * txtLado.Text) * txtApotema.Text entre 2.' },
+            { title: '3. Chequeo de 5 Figuras', desc: 'Recorre Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono en Blocks.' },
+            { title: '4. Sello de la Semana', desc: 'Obtén el sello tras verificar que las 5 figuras tienen sus fórmulas listas.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Demo Cañón Pentágono (10 min) ➔ Reto en PC (30 min) ➔ Revisión General de Fórmulas (10 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (15:00 - 15:50) · El Pentágono Regular y Cierre de Bloques
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"El pentágono es el rey de las figuras planas: para saber su área primero necesitamos calcular su perímetro. Vamos a encadenar las dos operaciones para cerrar todas las fórmulas de la app."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Abrir ScreenPentagono:
+   - Perímetro: set lblResultadoPerimetro.Text to join [ 5 * txtLado.Text , ' cm' ].
+   - Área: math_division [ (5 * txtLado.Text) * txtApotema.Text , 2 ] concatenado con ' cm²'.
+2) Chequeo visual en el árbol de componentes para validar nombres técnicos.
+
+💻 RETO EN PC (30 min):
+1. Completar la programación del Pentágono.
+2. Hacer una revisión exhaustiva de que las 5 figuras calculen sin trabarse.
+
+👉 SELLO 3: La totalidad de las 5 figuras geométricas programadas con sus fórmulas al 100%.
+📢 AVISO SEMANA 13: La próxima semana afinaremos detalles: botones de reseteo, TextToSpeech, emulación en celulares con AI Companion y evaluación definitiva del RA 2.2.`,
+          closure: 'Las 5 fórmulas geométricas programadas con éxito en App Inventor.'
         }
       ]
     }
