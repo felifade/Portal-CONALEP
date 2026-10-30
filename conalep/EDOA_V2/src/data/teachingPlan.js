@@ -43,19 +43,19 @@ export const teachingPlan = {
       deadline: '04 Nov 2026',
       ras: [
         { id: 'RA 2.1', title: 'Fusión Masiva de Datos', peso: '20%', weeks: ['W06', 'W07', 'W08'] },
-        { id: 'RA 2.2', title: 'Control Financiero, Modelos de Cálculo y Apps Móviles', peso: '15%', weeks: ['W09', 'W10', 'W11'] }
+        { id: 'RA 2.2', title: 'Control Financiero, Modelos de Cálculo y Apps Móviles', peso: '15%', weeks: ['W09', 'W10', 'W11', 'W12'] }
       ]
     },
     {
       id: 'C3',
       label: 'Tercer Corte',
       peso: '35%',
-      dates: '05 Nov - 11 Dic 2026',
+      dates: '09 Nov - 11 Dic 2026',
       captureDates: '10 al 11 Dic 2026',
       deadline: '11 Dic 2026',
       ras: [
-        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W12', 'W13'] },
-        { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W14', 'W15', 'W16'] }
+        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W13', 'W14'] },
+        { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W15', 'W16'] }
       ]
     }
   ],
@@ -1650,7 +1650,7 @@ App probada en vivo en el celular + Manual de Usuario entregado en PDF. 👉 SEL
       label: 'Semana 11',
       title: 'App GeoCalc: Diseños, Navegación y Pruebas en Vivo (Cierre de Semana)',
       dates: '26 Oct - 30 Oct',
-      status: 'active',
+      status: 'historical',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
       templateFileName: 'GeoCalc_CONALEP.aia',
       templateBtnText: 'Descargar Proyecto Maestro (.aia)',
@@ -1761,6 +1761,143 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
 3) Pruebas de movilidad y alistamiento de los prototipos para las exhibiciones del Aniversario del Plantel.
 4) Registro de participación y trabajo colaborativo de los alumnos.`,
           closure: 'Jornada de robótica estudiantil concluida con éxito en apoyo al aniversario.'
+        }
+      ]
+    },
+    'W12': {
+      id: 'W12',
+      label: 'Semana 12',
+      title: 'App GeoCalc: Programación Lógica, Síntesis de Voz y Evaluación RA 2.2',
+      dates: '02 Nov - 06 Nov',
+      status: 'active',
+      templateUrl: './templates/GeoCalc_CONALEP.aia',
+      templateFileName: 'GeoCalc_CONALEP.aia',
+      templateBtnText: 'Descargar Proyecto Maestro (.aia)',
+      templateBtnColor: '#005C42',
+      toolUrl: 'https://ai2.appinventor.mit.edu',
+      toolBtnText: 'Abrir MIT App Inventor',
+      summary: 'Programación en bloques de las 5 figuras geométricas (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), incorporación de síntesis de voz (TextToSpeech), pruebas en smartphones con MIT AI2 Companion y evaluación sumativa del RA 2.2 (15%).',
+      expectedProduct: 'App GeoCalc 100% funcional con bloques de cálculo, TextToSpeech, botones de limpieza y casos de prueba verificados.',
+      notices: [
+        '⚠️ Lunes 02 de Noviembre: Suspensión oficial de labores (Día de Muertos / Feriado Nacional).',
+        'Carga lectiva ajustada: 4 horas de laboratorio distribuidas en Miércoles (1 hr), Jueves (2 hrs) y Viernes (1 hr).',
+        'Miércoles (Sesión 01 · 1 hr): Programación de bloques aritméticos de Cuadrado, Rectángulo y Triángulo (Sello 1).',
+        'Jueves (Sesión 02 · 2 hrs): Bloques de Círculo (π), Pentágono (Apotema), botones de reseteo y síntesis de voz TextToSpeech (Sello 2).',
+        'Viernes (Sesión 03 · 1 hr): Batería de pruebas en smartphones con MIT AI2 Companion (5 casos de control) y calificación oficial del RA 2.2 (15%).'
+      ],
+      sessions: [
+        {
+          id: 'S1', label: 'Sesión 01', subtitle: 'Miércoles (1 hr) · Bloques Aritméticos: Cuadrado, Rectángulo y Triángulo',
+          start: '¿Cómo transformamos las fórmulas matemáticas de la libreta en bloques que calculen automáticamente?',
+          dictation: `⏱️ HORA 1 · De la Expresión Matemática al Bloque Aritmético:
+En el desarrollo de software bajo App Inventor, la programación orientada a eventos enlaza la interfaz con el motor algorítmico. Al activarse el evento when btnCalcular.Click, los valores capturados en las cajas de texto se procesan con los operadores aritméticos math_multiply y math_division. Mediante el bloque text_join, el resultado numérico se concatena con su unidad física (cm² o cm), formateando la etiqueta de visualización de forma profesional y clara.`,
+          learningResult: 'Programar los bloques de cálculo de área y perímetro para Cuadrado, Rectángulo y Triángulo.',
+          identification: { topic: 'Bloques Aritméticos Base', evidence: 'Bloques en App Inventor (3 Figuras)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          infographicTitle: 'Ruta Sesión 01 (Miércoles)',
+          infographicSteps: [
+            { title: '1. Cuadrado', desc: 'Calcula Área con Lado * Lado y Perímetro con 4 * Lado concatenando cm² y cm.' },
+            { title: '2. Rectángulo', desc: 'Multiplica Base * Altura y suma el doble de cada dimensión para el perímetro.' },
+            { title: '3. Triángulo', desc: 'Usa math_division para (Base * Altura) / 2 y 3 * Lado para perímetro equilátero.' },
+            { title: '4. Verificación', desc: 'Comprueba que no existan bloques desconectados o advertencias amarillas.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Demo Cañón (10 min) ➔ Reto en PC (35 min) ➔ Revisión de Sello (5 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 (17:40 - 18:30) · El Despertar de la Lógica Aritmética
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Nuestras pantallas ya tienen cuerpo, pero hoy les ponemos cerebro. Vamos a conectar los primeros bloques para que cuando el usuario escriba los números y presione Calcular, la aplicación resuelva el problema al instante."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Proyectar ScreenCuadrado:
+   - when btnCalcular.Click do
+   - set lblArea.Text to join [ txtLado.Text * txtLado.Text , ' cm²' ]
+   - set lblPerimetro.Text to join [ 4 * txtLado.Text , ' cm' ]
+2) Proyectar ScreenRectangulo: Base * Altura y 2 * Base + 2 * Altura.
+3) Proyectar ScreenTriangulo: math_division [ txtBase * txtAltura , 2 ].
+
+💻 RETO EN PC (35 min):
+Programar y testear los bloques de Cuadrado, Rectángulo y Triángulo.
+👉 SELLO 1: Bloques aritméticos programados y probados en máquina para las primeras 3 figuras.`,
+          closure: 'Bloques de Cuadrado, Rectángulo y Triángulo concluidos exitosamente.'
+        },
+        {
+          id: 'S2', label: 'Sesión 02', subtitle: 'Jueves (2 hrs) · Fórmulas Compuestas, Reset y Síntesis de Voz (TextToSpeech)',
+          start: '¿Cómo hacemos que nuestra aplicación no solo calcule, sino que le hable al usuario con voz clara?',
+          dictation: `⏱️ HORA 2-3 · Algoritmos Compuestos y Accesibilidad con Síntesis de Voz:
+Para figuras de geometría compuesta como el círculo y el pentágono regular, el motor de bloques requiere variables jerárquicas: en el círculo se multiplica la constante pi = 3.1416 por el radio al cuadrado, mientras que en el pentágono el perímetro (5·L) sirve de insumo para el cálculo del área con apotema ((P·ap)/2). La accesibilidad y la experiencia de usuario (UX) se elevan integrando el componente no visible TextToSpeech, el cual convierte en audio nativo los resultados obtenidos, complementado por rutinas de reseteo para limpiar los formularios.`,
+          learningResult: 'Completar los bloques de Círculo y Pentágono, botones de limpieza y la síntesis de voz TextToSpeech.',
+          identification: { topic: 'Fórmulas Compuestas, Reset & TextToSpeech', evidence: '5 Figuras con Voz y Botón Limpiar', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '2 hrs' },
+          infographicTitle: 'Ruta Sesión 02 (Jueves)',
+          infographicSteps: [
+            { title: '1. Círculo y Pentágono', desc: 'Programa constante pi = 3.1416 y fórmula de apotema encadenada.' },
+            { title: '2. Rutina de Limpieza', desc: 'Programa btnLimpiar para vaciar cajas y restablecer etiquetas a guiones.' },
+            { title: '3. TextToSpeech', desc: 'Arrastra el componente desde Media y agrega call TextToSpeech.Speak.' },
+            { title: '4. Audio Interactivo', desc: 'Concatena el mensaje hablado: El área es... y el perímetro es...' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Fórmulas Compuestas (45 min) ➔ Botones Limpiar (15 min) ➔ TextToSpeech (45 min) ➔ Sello (15 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 2 Y 3 (16:50 - 18:30) · Círculo, Pentágono y Síntesis de Voz
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"¿Se imaginan que al presionar Calcular, el celular hable y les dicte el resultado con voz clara? Vamos a agregar el componente TextToSpeech para darle voz a GeoCalc."
+
+🖥️ DEMO EN CAÑÓN (15 min):
+1) ScreenCirculo: área con 3.1416 * (txtRadio * txtRadio) y perímetro 2 * 3.1416 * txtRadio.
+2) ScreenPentagono: primero calcular perímetro (5 * txtLado) y luego área ((Perímetro * apotema) / 2).
+3) Botón Limpiar: set txt a '' y set lbl a '- - cm²'.
+4) Componente TextToSpeech:
+   - Arrastrar desde la paleta 'Media'.
+   - Bloque: call TextToSpeech1.Speak message: join [ 'El área es ', lblArea.Text, ' y el perímetro es ', lblPerimetro.Text ].
+
+💻 RETO EN PC (75 min):
+1. Completar la lógica de Círculo y Pentágono.
+2. Programar botones de limpiar en las 5 figuras.
+3. Activar TextToSpeech en las pantallas de figuras.
+👉 SELLO 2: Las 5 figuras programadas al 100% con botón de limpiar y síntesis de voz activa.`,
+          closure: 'Toda la lógica de programación y síntesis de voz concluida en el proyecto.'
+        },
+        {
+          id: 'S3', label: 'Sesión 03', subtitle: 'Viernes (1 hr) · Pruebas en Smartphone (AI Companion) & Evaluación RA 2.2',
+          start: '¿Cómo comprobamos que nuestra aplicación pasa la auditoría de calidad en un celular real?',
+          dictation: `⏱️ HORA 4 · Control de Calidad Móvil (QA) y Cierre Sumativo RA 2.2:
+La fase de aseguramiento de calidad (QA) contrasta los resultados en hardware real contra un banco de pruebas estandarizado. Al correr GeoCalc en teléfonos vía MIT AI2 Companion, se valida la exactitud matemática de las 5 figuras, la audibilidad de la síntesis de voz y la fluidez de navegación. El docente asienta la calificación formal del RA 2.2 (15% del Segundo Corte) con base en la rúbrica institucional.`,
+          learningResult: 'Validar la app en smartphone mediante casos de control y obtener la calificación final del RA 2.2.',
+          identification: { topic: 'Testing en Vivo y Evaluación RA 2.2', evidence: 'App Evaluada + Calificación en Lista', organization: 'Individual en PC / Móvil', location: 'Laboratorio de Informática', time: '1 hr' },
+          infographicTitle: 'Ruta Sesión 03 (Viernes)',
+          infographicSteps: [
+            { title: '1. Connect QR', desc: 'Conecta con MIT AI2 Companion desde Connect ➔ AI Companion.' },
+            { title: '2. Banco de Pruebas', desc: 'Resuelve los 5 casos de control (Cuadrado, Rectángulo, Triángulo, Círculo, Pentágono).' },
+            { title: '3. Cotejo Docente', desc: 'Muestra al profesor la navegación, el cálculo exacto y la voz en el teléfono.' },
+            { title: '4. Calificación RA 2.2', desc: 'Registro formal de la calificación en la lista oficial (15% del Segundo Corte).' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Banco de Pruebas en Smartphone (25 min) ➔ Revisión y Calificación en Lista (25 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (15:00 - 15:50) · Batería de Pruebas de QA y Calificación
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Llegó la hora de la verdad: pasamos la app a nuestro propio celular mediante código QR, resolvemos los 5 casos de control y asentamos la calificación definitiva del RA 2.2."
+
+📱 BANCO DE PRUEBAS OFICIAL:
+1) Cuadrado: L = 8 cm ➔ Área = 64 cm², Perímetro = 32 cm.
+2) Rectángulo: b = 12 cm, h = 5 cm ➔ Área = 60 cm², Perímetro = 34 cm.
+3) Triángulo: b = 10 cm, h = 6 cm, L = 10 cm ➔ Área = 30 cm², Perímetro = 30 cm.
+4) Círculo: r = 7 cm ➔ Área = 153.94 cm², Perímetro = 43.98 cm.
+5) Pentágono: L = 6 cm, ap = 4.13 cm ➔ Área = 61.95 cm², Perímetro = 30 cm.
+
+📋 RÚBRICA DE EVALUACIÓN (RA 2.2 · 15%):
+- Interfaz y navegación fluida en 7 pantallas (3 pts).
+- Precisión matemática en las 5 figuras (4 pts).
+- Funcionalidad extra: TextToSpeech y botones Limpiar (2 pts).
+- Testing real en celular con AI Companion (1 pt).
+
+👉 EVALUACIÓN FINAL: Calificación asentada en la lista oficial del grupo 301-INFO25 (Valor: 15% del Segundo Corte).`,
+          closure: 'Evaluación sumativa concluida y calificaciones del RA 2.2 asentadas en lista oficial.'
         }
       ]
     }
