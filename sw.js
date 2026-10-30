@@ -4,7 +4,7 @@
                Network-first para calendar.ics (datos en vivo)
    ============================================================ */
 
-const CACHE_NAME   = 'conalep-portal-v225';
+const CACHE_NAME   = 'conalep-portal-v226';
 const BASE         = '/Portal-CONALEP';
 
 // Recursos a cachear en la instalación
@@ -44,6 +44,12 @@ self.addEventListener('activate', event => {
 // ── Fetch: estrategia según tipo de recurso ───────────────
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+
+  // Calificaciones en vivo → bypass total de caché (siempre fresco desde la red)
+  if (url.pathname.includes('calificaciones.html')) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
 
   // HTML → Network-first: siempre verifica si hay versión nueva en el servidor
   if (url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
