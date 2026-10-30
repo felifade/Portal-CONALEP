@@ -1979,38 +1979,38 @@ export const teachingPlan = {
         {
           id: 'H01',
           label: 'Sesión 01 (Miércoles 04 Nov · 1 Hora)',
-          title: 'Cierre de 2° Corte e Introducción a los Motores de Videojuegos 2D (Construct 3)',
-          hook: '¡Bienvenidos al Tercer Corte! Durante las próximas 4 semanas todo lo que aprendieron de ciberseguridad cobrará vida en su propio videojuego 2D llamado CyberDefender usando Construct 3.',
-          start: '¿Qué es un Sprite, cómo funcionan los Fotogramas por Segundo (FPS) y por qué el Punto de Origen va en los pies?',
-          dictationTitle: 'FUNDAMENTOS DE VIDEOJUEGOS 2D: SPRITES, ANIMACIONES Y COLISIONES',
-          dictation: 'Un motor de videojuegos como Construct 3 es una plataforma que permite programar mundos interactivos mediante objetos gráficos y reglas lógicas sin escribir miles de líneas de código. El elemento visual básico de todo juego 2D es el Sprite, que consiste en una imagen bidimensional capaz de moverse e interactuar en la pantalla. Para darle vida a un Sprite se utilizan Fotogramas (Frames) que cambian rápidamente creando la ilusión de movimiento (como respirar, correr o saltar). Todo Sprite requiere dos ajustes técnicos esenciales: 1) El Punto de Origen (Origin), que es el punto exacto de apoyo donde se mide la posición del personaje (ubicado siempre en la planta de los pies para que pise el suelo correctamente); y 2) El Polígono de Colisión (Hitbox), que es la caja invisible que detecta cuando el jugador toca una plataforma, recoge una llave o choca contra un enemigo.',
+          title: '¿Qué es un Videojuego, Por Qué lo Hacemos en Ciberseguridad y Cuál es el Objetivo?',
+          hook: '¡Bienvenidos al Tercer Corte! Un videojuego no son solo dibujos: es un sistema en tiempo real que usa las mismas variables y condiciones (SI/ENTONCES) que un Firewall o un sistema de defensa.',
+          start: '¿Qué es realmente un videojuego para un programador, por qué lo creamos en Ciberseguridad y cuál es el objetivo de CyberDefender?',
+          dictationTitle: '¿QUÉ ES UN VIDEOJUEGO Y POR QUÉ LO PROGRAMAMOS EN CIBERSEGURIDAD?',
+          dictation: 'Desde el punto de vista de la informática, un videojuego es un programa interactivo en tiempo real que ejecuta un ciclo continuo de tres pasos: leer las órdenes del usuario (teclado o pantalla), evaluar reglas lógicas en la memoria (variables y condiciones) y actualizar los gráficos llamados Sprites en el monitor. En el módulo de Ciberseguridad desarrollamos un videojuego porque nos permite programar de forma visual las mismas estructuras de control que utiliza un sistema de defensa real: variables de estado (vidas y puntos), condiciones de acceso (verificar si el usuario posee la Llave TLS antes de abrir una puerta chmod 600) y escudos de protección temporal (Salting). El objetivo de nuestro proyecto integrador "CyberDefender" en Construct 3 es diseñar en cuatro semanas un videojuego 2D completo donde un Analista de Ciberdefensa se infiltra en un servidor infectado, esquiva centinelas de malware, recolecta llaves criptográficas para desbloquear puertos seguros y finalmente exporta el juego en formato web HTML5 funcional.',
           workBlock: {
             duration: '25 minutos',
-            title: 'Ficha Técnica del Proyecto CyberDefender en Libreta',
+            title: 'Las 3 Claves de Nuestro Videojuego en Libreta',
             steps: [
               'Confirmar calificación final del Segundo Corte y hacer el separador del Tercer Corte en la libreta.',
               'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
-              'Trazar en la libreta la Ficha Técnica de CyberDefender con los 6 sprites que crearemos esta semana.',
+              'Trazar en la libreta el cuadro "Las 3 Claves de Nuestro Proyecto de Videojuego" (Qué es, Por qué en Ciberseguridad y Objetivo de las 4 semanas).',
               'Revisión y firma del Sello 1.'
             ]
           },
           visualExample: {
-            title: 'Ficha Técnica de Mi Videojuego: CyberDefender',
+            title: 'Las 3 Claves de Nuestro Proyecto: CyberDefender',
             badge: 'Unidad 3 · Construct 3',
-            description: 'Ficha de planificación para plasmar en libreta:',
-            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│             🎮 FICHA TÉCNICA DE MI PROYECTO: "CYBERDEFENDER"                │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ • Motor Oficial: Construct 3 (editor.construct.net)                         │\n│ • Resolución de Ventana (Viewport): 640 × 360 píxeles (16:9 Retro)          │\n│ • Tamaño de los Sprites: Cuadrícula de 16 × 16 píxeles (Muestreo: Point)    │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ • CATÁLOGO DE 6 SPRITES A CREAR ESTA SEMANA:                                │\n│   1. 🟩 Jugador (Héroe): Analista con visor verde #00ff66 (Origen: Tecla 2).│\n│   2. 🔴 Malware_Bot: Dron rojo #ef4444 con sensor amarillo (Origen: Tecla 5)│\n│   3. 🟡 Llave_TLS: Candado dorado #facc15 para abrir puerto 443.            │\n│   4. 🔵 Cristal_Salting: Gema azul #06b6d4 que otorga escudo de 6 seg.      │\n│   5. ⬜ Piso_Servidor y Puerta_Servidor: Bloques sólidos del datacenter.    │\n└─────────────────────────────────────────────────────────────────────────────┘'
+            description: 'Cuadro explicativo para plasmar en libreta:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│        🎯 LAS 3 CLAVES DE NUESTRO PROYECTO DE VIDEOJUEGO (UNIDAD 3)         │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 1. ¿QUÉ ES UN VIDEOJUEGO?                                                   │\n│    Es un programa en tiempo real que une: [Dibujos (Sprites)] +             │\n│    [Físicas (Gravedad/Colisiones)] + [Lógica (Variables y Condiciones SI)]. │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 2. ¿POR QUÉ LO HACEMOS EN CIBERSEGURIDAD?                                   │\n│    Porque programar un juego usa la misma lógica que un sistema de defensa: │\n│    • Vida del Jugador   = Integridad del Servidor (Variable Vidas = 3).     │\n│    • Bot de Malware     = Amenaza que resta integridad al chocar.           │\n│    • Llave Dorada TLS   = Permiso criptográfico para abrir la Puerta 600.   │\n│    • Cristal de Salting = Escudo antivirus que da 6 seg de inmunidad.       │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 3. ¿CUÁL ES EL OBJETIVO EN ESTAS 4 SEMANAS?                                 │\n│    • Sem 1 (Sem 12): Dibujar los 6 Sprites Pixel-Art (16×16) y animarlos.   │\n│    • Sem 2 (Sem 13): Armar el escenario de servidores y físicas de salto.   │\n│    • Sem 3 (Sem 14): Programar las reglas de daño, llaves y escudos.        │\n│    • Sem 4 (Sem 15): Poner marcador HUD, sonidos 8-bits y publicar en Web.  │\n└─────────────────────────────────────────────────────────────────────────────┘'
           },
-          terminalRadar: 'Construct 3 Setup ➔ Viewport: 640×360 px | Orientación: Landscape | Sampling: Point (Nitidez Pixel-Art)',
-          learningResult: 'El estudiante comprende los conceptos de Sprite, FPS, Punto de Origen y Polígono de Colisión dentro de un motor 2D.',
-          identification: 'Tema: Fundamentos de Videojuegos 2D. Evidencia: Separador de 3er Corte, dictado y Ficha Técnica en libreta.',
-          development: 'Cierre de promedios del 2° Corte, presentación del Manual Interactivo de Construct 3 y registro de la Ficha Técnica.',
+          terminalRadar: 'Ciclo de un Videojuego (60 veces por segundo) ➔ [ 1. Leer Teclado ] ➔ [ 2. Evaluar Reglas Lógicas ] ➔ [ 3. Dibujar Sprites ]',
+          learningResult: 'El estudiante explica qué es un videojuego a nivel algorítmico, su relación con las reglas de ciberseguridad y el objetivo del proyecto.',
+          identification: 'Tema: Qué es un Videojuego y Objetivo del Proyecto. Evidencia: Separador de 3er Corte, dictado y Cuadro de las 3 Claves en libreta.',
+          development: 'Cierre de promedios del 2° Corte, explicación de las 3 preguntas clave y registro del cuadro en libreta.',
           closure: 'Revisión de libretas y estampado del Sello 1.',
           faq: [
-            { q: '¿Necesito instalar algún programa pesado en mi computadora?', a: 'No, Construct 3 funciona 100% en el navegador web entrando a editor.construct.net.' }
+            { q: '¿Por qué un videojuego sirve para aprender a programar seguridad?', a: 'Porque validar si el jugador tiene la Llave TLS para abrir una puerta usa la misma condición lógica IF (SI/ENTONCES) que validar un certificado real en un servidor.' }
           ],
           sello: {
             num: 'Sello 1',
-            desc: 'Separador del 3er Corte, Dictado de Sprites y Ficha Técnica en libreta.'
+            desc: 'Separador del 3er Corte, Dictado y Cuadro de las 3 Claves del Videojuego en libreta.'
           }
         },
         {
