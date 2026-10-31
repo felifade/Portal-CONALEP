@@ -703,20 +703,23 @@
 
     .day-cell-5days {
       background: var(--bg-surface);
-      min-height: 64px;
-      padding: 6px;
+      min-height: 84px;
+      padding: 6px 8px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 4px;
       cursor: pointer;
       position: relative;
-      transition: background 0.12s ease;
+      transition: all 0.15s ease;
+      overflow: hidden;
     }
 
     @media (min-width: 768px) {
       .day-cell-5days {
-        min-height: 94px;
+        min-height: 112px;
         padding: 8px 10px;
+        gap: 5px;
       }
     }
 
@@ -726,7 +729,7 @@
 
     .day-cell-5days.other-month {
       background: var(--bg-body);
-      opacity: 0.35;
+      opacity: 0.3;
       cursor: default;
     }
 
@@ -756,7 +759,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      width: 100%;
     }
 
     .day-cell-num {
@@ -774,46 +778,66 @@
       color: var(--text-muted);
     }
 
-    /* Event pills inside cells */
+    /* Event pills inside cells - Visible en móvil y desktop con información real */
     .cell-events-list {
       display: flex;
       flex-direction: column;
       gap: 3px;
+      width: 100%;
     }
 
-    .cell-event-chip {
-      font-size: 10.5px;
-      font-weight: 600;
+    .cal-mini-badge {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2.5px 5px;
+      border-radius: 5px;
+      line-height: 1.25;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      border-radius: 4px;
-      padding: 1.5px 5px;
-      line-height: 1.25;
-      border-left: 2.5px solid transparent;
-    }
-
-    /* En móvil mostrar micro-puntos */
-    .cell-dots-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3px;
-      margin-top: 4px;
-    }
-
-    .cell-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: var(--radius-full);
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      transition: filter 0.12s ease;
     }
 
     @media (min-width: 768px) {
-      .cell-dots-row { display: none; }
-      .cell-events-list { display: flex; }
+      .cal-mini-badge {
+        font-size: 10.5px;
+        padding: 3px 6px;
+      }
     }
-    @media (max-width: 767px) {
-      .cell-dots-row { display: flex; }
-      .cell-events-list { display: none; }
+
+    .cal-mini-badge:hover {
+      filter: brightness(0.92);
+    }
+
+    .mini-badge-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cal-mini-extra {
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 1px 5px;
+      text-align: center;
+      margin-top: 1px;
+    }
+
+    .cell-regular-hint {
+      font-size: 9px;
+      color: var(--text-muted);
+      opacity: 0.55;
+      font-style: italic;
+      margin-top: 2px;
     }
 
     /* Inspector del Día Seleccionado */
@@ -2569,18 +2593,45 @@
           const weekNum = getWeekNumberForDate(dayItem.iso);
 
           let chipsHtml = '';
-          let dotsHtml = '';
 
           if (events.length > 0) {
             chipsHtml = `<div class="cell-events-list">`;
-            dotsHtml = `<div class="cell-dots-row">`;
-            events.forEach(ev => {
+            const maxVisible = window.innerWidth < 640 ? 2 : 3;
+
+            events.slice(0, maxVisible).forEach(ev => {
               const catColor = getCategoryColor(ev.category);
-              chipsHtml += `<div class="cell-event-chip" style="background:${catColor}18; color:${catColor}; border-left-color:${catColor};" title="${ev.title}">${ev.title}</div>`;
-              dotsHtml += `<span class="cell-dot" style="background:${catColor};" title="${ev.title}"></span>`;
+              let icon = "📌";
+              if (ev.badge === "badge-corte") icon = "⭐";
+              else if (ev.badge === "badge-asueto") icon = "🇲🇽";
+              else if (ev.badge === "badge-urgente") icon = "🔴";
+              else if (ev.badge === "badge-cumple") icon = "🎂";
+              else if (ev.id.includes("ft")) icon = "💻";
+              else if (ev.id.includes("ctems")) icon = "🏛️";
+              else if (ev.id.includes("can")) icon = "🩺";
+              else if (ev.id.includes("plan")) icon = "📝";
+              else if (ev.id.includes("asist")) icon = "📊";
+              else if (ev.id.includes("simulacro")) icon = "🚨";
+              else if (ev.id.includes("catrinas")) icon = "🎭";
+
+              // Título abreviado limpio sin emojis duplicados
+              let cleanTitle = ev.title.replace(/^[^\w\s\u00C0-\u017F]+/, '').trim();
+
+              chipsHtml += `
+                <div class="cal-mini-badge" style="background:${catColor}18; color:${catColor}; border-left: 2.5px solid ${catColor};" title="${ev.title}: ${ev.desc}">
+                  <span>${icon}</span>
+                  <span class="mini-badge-title">${cleanTitle}</span>
+                </div>
+              `;
             });
+
+            if (events.length > maxVisible) {
+              const extra = events.length - maxVisible;
+              chipsHtml += `<div class="cal-mini-extra">+${extra} más...</div>`;
+            }
+
             chipsHtml += `</div>`;
-            dotsHtml += `</div>`;
+          } else {
+            chipsHtml = `<div class="cell-regular-hint">Módulos</div>`;
           }
 
           cell.innerHTML = `
@@ -2589,7 +2640,6 @@
               ${weekNum !== null ? `<span class="day-cell-weektag">S${weekNum}</span>` : ''}
             </div>
             ${chipsHtml}
-            ${dotsHtml}
           `;
 
           cell.addEventListener('click', () => {
