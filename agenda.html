@@ -466,30 +466,52 @@
     }
 
     /* ==========================================================================
-       PANEL EJECUTIVO Y RADAR INSTITUCIONAL AL PIE DE PÁGINA (COMPACTO)
+       RADAR DE FECHAS CRÍTICAS (ADAPTATIVO: ARRIBA EN PC, ABAJO EN MÓVIL)
        ========================================================================== */
-    .app-executive-footer {
-      margin-top: 2rem;
-      padding-top: 1.25rem;
-      border-top: 1px dashed var(--border-medium);
+    .radar-adaptive-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .footer-section-title {
+    .radar-adaptive-header {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .footer-section-title h3 {
+    .radar-header-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .radar-adaptive-title {
       font-family: var(--font-title);
       font-size: 12px;
       font-weight: 800;
       color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+
+    .radar-header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .radar-badge-pill {
+      font-size: 10.5px;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
     }
 
     .radar-container {
@@ -513,7 +535,7 @@
       background: var(--bg-surface);
       border-radius: var(--radius-md);
       border: 1px solid var(--border-subtle);
-      padding: 8px 12px;
+      padding: 9px 12px;
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -545,7 +567,7 @@
       font-size: 11px;
       font-weight: 600;
       color: var(--text-main);
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .radar-sub {
@@ -618,7 +640,7 @@
     }
 
     /* ==========================================================================
-       CONTENEDOR DE VISTAS
+       CONTENEDOR DE VISTAS (FLEXBOX ADAPTATIVO MÓVIL VS DESKTOP)
        ========================================================================== */
     .app-main {
       flex: 1;
@@ -626,21 +648,74 @@
       width: 100%;
       margin: 0 auto;
       padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
     }
 
-    @media (min-width: 768px) {
-      .app-main {
-        padding: 18px 24px;
-      }
+    /* En Móvil (Default):
+       1. Micro-Banner de Hoy (order: 1)
+       2. Vistas del Calendario (order: 2 - ¡Prioridad visual absoluta!)
+       3. Radar de Fechas (order: 10 - ¡Abajo al pie para no estorbar!)
+       4. Micro-Ficha Institucional al Pie (order: 11)
+    */
+    .today-status-banner {
+      order: 1;
     }
 
     .view-section {
+      order: 2;
       display: none;
       animation: fadeInView 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .view-section.active {
       display: block;
+    }
+
+    .radar-adaptive-wrapper {
+      order: 10;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--border-medium);
+    }
+
+    .conalep-hero-footer {
+      order: 11;
+      margin-top: 1rem;
+    }
+
+    /* En Computadora / Desktop (>= 768px):
+       1. Micro-Banner de Hoy (order: 1)
+       2. Radar Institucional en 4 Columnas (order: 2 - ¡Arriba en escritorio!)
+       3. Vistas del Calendario (order: 3)
+       4. Micro-Ficha Institucional al Pie (order: 10)
+    */
+    @media (min-width: 768px) {
+      .app-main {
+        padding: 18px 24px;
+      }
+
+      .today-status-banner {
+        order: 1;
+        margin-bottom: 10px;
+      }
+
+      .radar-adaptive-wrapper {
+        order: 2;
+        margin-top: 0;
+        margin-bottom: 14px;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .view-section {
+        order: 3;
+      }
+
+      .conalep-hero-footer {
+        order: 10;
+        margin-top: 2rem;
+      }
     }
 
     @keyframes fadeInView {
@@ -1888,6 +1963,46 @@
     </div>
 
     <!-- ====================================================================
+         RADAR DE FECHAS CRÍTICAS (ADAPTATIVO: ARRIBA EN PC, ABAJO EN MÓVIL)
+         ==================================================================== -->
+    <section class="radar-adaptive-wrapper" id="radarSectionWrapper">
+      <div class="radar-adaptive-header">
+        <div class="radar-header-left">
+          <span style="font-size:13px;">🧭</span>
+          <h3 class="radar-adaptive-title">Radar de Fechas Críticas • Semestre 1.26.27</h3>
+        </div>
+        <div class="radar-header-right">
+          <span class="radar-badge-pill">19 Semanas Oficiales</span>
+          <span class="radar-badge-pill">3 Cortes SAE</span>
+          <span class="radar-badge-pill">OneDrive Institucional</span>
+        </div>
+      </div>
+
+      <div class="radar-container">
+        <div class="radar-card urgente">
+          <div class="radar-header">🚨 Entregas Críticas</div>
+          <div class="radar-content">Planeaciones didácticas y Descarga Académica en plataforma.</div>
+          <div class="radar-sub">Avances: 10 Ago • 10 Sep • 30 Sep</div>
+        </div>
+        <div class="radar-card sae">
+          <div class="radar-header">⭐ Vaciado en SAE</div>
+          <div class="radar-content">Captura de ponderaciones y rúbricas oficiales de cortes parciales.</div>
+          <div class="radar-sub">1er: 21-22 Sep • 2do: 03-04 Nov • 3er: 10-11 Dic</div>
+        </div>
+        <div class="radar-card proximo">
+          <div class="radar-header">🩺 Tutorías y Preceptorías</div>
+          <div class="radar-content">Entrega de canalizaciones de alumnos en riesgo académico.</div>
+          <div class="radar-sub">14 Sep • 30 Oct • 27 Nov</div>
+        </div>
+        <div class="radar-card consejo">
+          <div class="radar-header">👥 Colegiados y PEVIDD</div>
+          <div class="radar-content">Sesiones de CTEMS, reuniones de Formación Técnica y evaluación docente.</div>
+          <div class="radar-sub">CTEMS: 14 Ago, 23 Oct • PEVIDD: Oct</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          VISTA 1: 🗓️ CALENDARIO ESCOLAR (STRICT 5 DÍAS: LUN A VIE)
          ==================================================================== -->
     <section class="view-section active" id="tab-calendar">
@@ -2082,51 +2197,17 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         RADAR INSTITUCIONAL Y PANEL EJECUTIVO (UBICADO AL PIE DE PÁGINA)
-         ==================================================================== -->
-    <footer class="app-executive-footer">
-      <div class="footer-section-title">
-        <span>🧭</span>
-        <h3>Radar Semestral y Fechas Críticas • Plantel Pachuca II</h3>
+    <!-- MICRO-FICHA INSTITUCIONAL AL PIE -->
+    <footer class="conalep-hero-footer">
+      <div class="hero-footer-left">
+        <strong>Agenda Ejecutiva Semestral CONALEP • Ciclo 2026-2027</strong>
+        <span>Plantel Pachuca II (Hidalgo) • Semestre 1.26.27 • 19 Semanas Oficiales</span>
       </div>
-
-      <!-- RADAR DE FECHAS (ESTILO CEB 5/4 - COMPACTO AL PIE) -->
-      <section class="radar-container">
-        <div class="radar-card urgente">
-          <div class="radar-header">🚨 Entregas Críticas</div>
-          <div class="radar-content">Planeaciones didácticas y Descarga Académica en plataforma.</div>
-          <div class="radar-sub">Avances: 10 Ago • 10 Sep • 30 Sep</div>
-        </div>
-        <div class="radar-card sae">
-          <div class="radar-header">⭐ Vaciado en SAE</div>
-          <div class="radar-content">Captura de ponderaciones y rúbricas oficiales de cortes parciales.</div>
-          <div class="radar-sub">1er: 21-22 Sep • 2do: 03-04 Nov • 3er: 10-11 Dic</div>
-        </div>
-        <div class="radar-card proximo">
-          <div class="radar-header">🩺 Tutorías y Preceptorías</div>
-          <div class="radar-content">Entrega de canalizaciones de alumnos en riesgo académico.</div>
-          <div class="radar-sub">14 Sep • 30 Oct • 27 Nov</div>
-        </div>
-        <div class="radar-card consejo">
-          <div class="radar-header">👥 Colegiados y PEVIDD</div>
-          <div class="radar-content">Sesiones de CTEMS, reuniones de Formación Técnica y evaluación docente.</div>
-          <div class="radar-sub">CTEMS: 14 Ago, 23 Oct • PEVIDD: Oct</div>
-        </div>
-      </section>
-
-      <!-- MICRO-HERO INSTITUCIONAL COMPACTO -->
-      <section class="conalep-hero-footer">
-        <div class="hero-footer-left">
-          <strong>Agenda Ejecutiva Semestral CONALEP • Ciclo 2026-2027</strong>
-          <span>Plantel Pachuca II (Hidalgo) • Semestre 1.26.27 • 19 Semanas Oficiales</span>
-        </div>
-        <div class="hero-stats-row">
-          <div class="hero-stat-pill">Semanas: <strong>19</strong></div>
-          <div class="hero-stat-pill">Cortes SAE: <strong>3 + Asesorías</strong></div>
-          <div class="hero-stat-pill">Medio Adecuado: <strong>OneDrive</strong></div>
-        </div>
-      </section>
+      <div class="hero-stats-row">
+        <div class="hero-stat-pill">Semanas: <strong>19</strong></div>
+        <div class="hero-stat-pill">Cortes SAE: <strong>3 + Asesorías</strong></div>
+        <div class="hero-stat-pill">Medio Adecuado: <strong>OneDrive</strong></div>
+      </div>
     </footer>
 
   </main>
