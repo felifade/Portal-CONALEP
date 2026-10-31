@@ -871,7 +871,218 @@
     .jerarquia-container {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
+    }
+
+    /* Panel Selector y Navegador de Semanas (Cero Scroll Infinito) */
+    .week-nav-panel {
+      position: sticky;
+      top: calc(var(--header-height) + 6px);
+      z-index: 80;
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .week-nav-panel {
+        top: calc(var(--header-height) + 48px);
+      }
+    }
+
+    .week-nav-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .week-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-week-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+      border: 1px solid var(--conalep-primary);
+      transition: all 0.15s ease;
+    }
+
+    .btn-week-action:hover {
+      background: var(--conalep-primary);
+      color: #FFFFFF;
+    }
+
+    .week-nav-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .week-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .week-nav-arrows {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-arrow-nav {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+      transition: all 0.15s ease;
+    }
+
+    .btn-arrow-nav:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-medium);
+    }
+
+    .week-view-toggle {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .btn-toggle-view {
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .btn-toggle-view.active {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Carrusel horizontal de píldoras de semanas */
+    .weeks-chips-scroller {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+      scroll-behavior: smooth;
+    }
+
+    .weeks-chips-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .week-chip-btn {
+      padding: 5px 11px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .week-chip-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .week-chip-btn.active {
+      background: var(--conalep-primary);
+      color: #FFFFFF;
+      border-color: var(--conalep-primary);
+      box-shadow: 0 2px 8px var(--conalep-glow);
+    }
+
+    .week-chip-btn.is-today-week::after {
+      content: '•';
+      color: #22C55E;
+      font-size: 18px;
+      line-height: 0;
+      margin-left: 1px;
+    }
+
+    .week-chip-btn.active.is-today-week::after {
+      color: #A7F3D0;
+    }
+
+    /* Navegación al pie de semana individual */
+    .single-week-footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .btn-nav-week-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      transition: all 0.15s ease;
+    }
+
+    .btn-nav-week-footer:hover:not(:disabled) {
+      background: var(--bg-subtle);
+      border-color: var(--conalep-primary);
+    }
+
+    .btn-nav-week-footer:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
     }
 
     .mes-seccion {
@@ -1194,6 +1405,73 @@
     }
 
     .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Agrupamiento por Mes con Encabezado Sticky y Deslizamiento Continuo */
+    .eventos-mes-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .eventos-mes-header-sticky {
+      position: sticky;
+      top: calc(var(--header-height) + 6px);
+      z-index: 40;
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-left: 4.5px solid var(--conalep-primary);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 768px) {
+      .eventos-mes-header-sticky {
+        top: calc(var(--header-height) + 48px);
+      }
+    }
+
+    .eventos-mes-header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eventos-mes-header-title h3 {
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .eventos-mes-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--conalep-primary);
+      display: inline-block;
+    }
+
+    .eventos-mes-count-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+      padding: 2px 9px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+    }
+
+    .eventos-mes-cards {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -1648,8 +1926,39 @@
          VISTA 2: 📅 SEMANAS Y JERARQUÍA (DISEÑO MAESTRO CEB 5/4)
          ==================================================================== -->
     <section class="view-section" id="tab-hierarchy">
+      
+      <!-- Panel Selector y Controlador de Semanas (Cero Scroll Infinito) -->
+      <div class="week-nav-panel" id="weekNavPanel">
+        <div class="week-nav-top-row">
+          <div class="week-nav-left">
+            <button class="btn-week-action" id="btnWeekGoCurrent" title="Ir y enfocar la semana en curso">
+              <span class="pulsing-dot"></span>
+              <span>📍 Semana Actual</span>
+            </button>
+            <div class="week-nav-meta" id="weekNavCurrentMeta">
+              <strong>Semana en Curso</strong>
+            </div>
+          </div>
+          <div class="week-nav-right">
+            <div class="week-nav-arrows">
+              <button class="btn-arrow-nav" id="btnWeekPrev" title="Semana anterior">‹</button>
+              <button class="btn-arrow-nav" id="btnWeekNext" title="Semana siguiente">›</button>
+            </div>
+            <div class="week-view-toggle">
+              <button class="btn-toggle-view active" id="btnModeSingleWeek" title="Ver solo la semana seleccionada (sin scroll infinito)">🎯 Semana</button>
+              <button class="btn-toggle-view" id="btnModeAllWeeks" title="Ver todas las 19 semanas completas">📜 Todas</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrusel horizontal de píldoras de semanas -->
+        <div class="weeks-chips-scroller" id="weeksChipsScroller" aria-label="Carrusel de Semanas">
+          <!-- Poblado dinámicamente con chips: [Sem 00] [Sem 01] ... [Sem 19] -->
+        </div>
+      </div>
+
       <div class="jerarquia-container" id="jerarquiaContainer">
-        <!-- Renderizado dinámicamente por JavaScript agrupado por Mes y Semanas -->
+        <!-- Renderizado dinámicamente por JavaScript -->
       </div>
     </section>
 
@@ -2349,19 +2658,47 @@
 
       const MONTH_KEYS = Object.keys(MONTH_CONFIG);
 
-      // Detección automática del día actual
+      // Detección automática del día actual y de la semana en curso
       const realTodayIso = new Date().toISOString().slice(0, 10);
       const realTodayMonth = realTodayIso.slice(0, 7);
 
-      // Si hoy está en el rango del semestre usarlo, sino por defecto Octubre 2026 o el mes inicial
-      const initialMonthKey = MONTH_CONFIG[realTodayMonth] ? realTodayMonth : "2026-10";
+      function getCurrentWeek() {
+        const todayIso = new Date().toISOString().slice(0, 10);
+        // 1. Coincidencia directa (Lunes a Viernes)
+        for (let i = 0; i < WEEKS_MASTER.length; i++) {
+          const w = WEEKS_MASTER[i];
+          if (todayIso >= w.start && todayIso <= w.end) {
+            return w;
+          }
+        }
+        // 2. Coincidencia en fines de semana intermedios
+        for (let i = 0; i < WEEKS_MASTER.length - 1; i++) {
+          const w1 = WEEKS_MASTER[i];
+          const w2 = WEEKS_MASTER[i + 1];
+          if (todayIso > w1.end && todayIso < w2.start) {
+            return w1;
+          }
+        }
+        // 3. Antes de inicio de ciclo (10 Ago 2026) -> Semana 00
+        if (todayIso < WEEKS_MASTER[0].start) return WEEKS_MASTER[0];
+        // 4. Posterior a fin de ciclo (15 Ene 2027) -> Semana 19
+        if (todayIso > WEEKS_MASTER[WEEKS_MASTER.length - 1].end) return WEEKS_MASTER[WEEKS_MASTER.length - 1];
+        return WEEKS_MASTER[0];
+      }
+
+      const currentActiveWeekObj = getCurrentWeek();
+
+      // Si hoy está en el rango del semestre usarlo, sino por defecto el mes de la semana actual
+      const initialMonthKey = MONTH_CONFIG[realTodayMonth] ? realTodayMonth : currentActiveWeekObj.start.slice(0, 7);
 
       const state = {
         activeMonthKey: initialMonthKey,
         selectedDate: realTodayIso,
         activeCategory: "all",
         searchFilter: "",
-        activeView: "tab-calendar"
+        activeView: "tab-calendar",
+        selectedWeekNum: currentActiveWeekObj.num,
+        hierarchyMode: "single" // "single" para enfocar semana sin scroll infinito, o "all" para ver todas
       };
 
       /* ======================================================================
@@ -2420,16 +2757,14 @@
           state.activeMonthKey = nowMonth;
         }
         state.selectedDate = nowIso;
+        state.selectedWeekNum = getCurrentWeek().num;
 
         // Si estamos en la vista de calendario
         render5DaysCalendar(state.activeMonthKey);
 
-        // Si estamos en la vista de jerarquía, hacer scroll suave a la semana actual
+        // Si estamos en la vista de jerarquía
         if (state.activeView === 'tab-hierarchy') {
-          const currentWeekEl = document.querySelector('.semana-bloque.active-current-week');
-          if (currentWeekEl) {
-            currentWeekEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
+          renderJerarquiaSemanas();
         }
       }
 
@@ -2456,6 +2791,7 @@
         if (tabId === 'tab-calendar') {
           render5DaysCalendar(state.activeMonthKey);
         } else if (tabId === 'tab-hierarchy') {
+          renderWeekChipsScroller();
           renderJerarquiaSemanas();
         } else if (tabId === 'tab-events') {
           renderTimelineEvents();
@@ -2739,8 +3075,242 @@
          10. VISTA 2: 📅 SEMANAS Y JERARQUÍA (ESTILO MAESTRO CEB 5/4)
          ====================================================================== */
       const jerarquiaContainer = document.getElementById('jerarquiaContainer');
+      const weeksChipsScroller = document.getElementById('weeksChipsScroller');
+      const weekNavCurrentMeta = document.getElementById('weekNavCurrentMeta');
+      const btnWeekGoCurrent = document.getElementById('btnWeekGoCurrent');
+      const btnWeekPrev = document.getElementById('btnWeekPrev');
+      const btnWeekNext = document.getElementById('btnWeekNext');
+      const btnModeSingleWeek = document.getElementById('btnModeSingleWeek');
+      const btnModeAllWeeks = document.getElementById('btnModeAllWeeks');
+
+      function renderWeekChipsScroller() {
+        if (!weeksChipsScroller) return;
+        const curWeek = getCurrentWeek();
+
+        let chipsHtml = '';
+        WEEKS_MASTER.forEach(sem => {
+          const isSelected = sem.num === state.selectedWeekNum;
+          const isTodayWeek = sem.num === curWeek.num;
+
+          let chipClass = 'week-chip-btn';
+          if (isSelected) chipClass += ' active';
+          if (isTodayWeek) chipClass += ' is-today-week';
+
+          let iconTag = '';
+          if (sem.tipo === 'sae') iconTag = '⭐ ';
+          else if (sem.tipo === 'asueto') iconTag = '🌴 ';
+          else if (sem.tipo === 'diagnostico') iconTag = '📝 ';
+          else if (sem.tipo === 'cierre') iconTag = '🏁 ';
+          else if (sem.tipo === 'asesorias') iconTag = '📘 ';
+
+          chipsHtml += `
+            <button class="${chipClass}" data-week="${sem.num}" title="${sem.label}: ${sem.start} al ${sem.end}">
+              <span>${iconTag}Sem ${sem.num < 10 ? '0' + sem.num : sem.num}</span>
+            </button>
+          `;
+        });
+
+        weeksChipsScroller.innerHTML = chipsHtml;
+
+        // Eventos a cada chip
+        weeksChipsScroller.querySelectorAll('.week-chip-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const wNum = parseInt(btn.getAttribute('data-week'), 10);
+            selectWeek(wNum, true);
+          });
+        });
+
+        // Auto-centrar el chip activo en el scroll horizontal
+        const activeChip = weeksChipsScroller.querySelector('.week-chip-btn.active');
+        if (activeChip) {
+          activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+
+      function selectWeek(weekNum, shouldScrollInAllMode = true) {
+        state.selectedWeekNum = Math.max(0, Math.min(19, weekNum));
+        renderJerarquiaSemanas();
+        renderWeekChipsScroller();
+
+        if (state.hierarchyMode === 'all' && shouldScrollInAllMode) {
+          const el = document.getElementById(`semana-${state.selectedWeekNum}`);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            el.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease';
+            el.style.boxShadow = '0 0 0 3px var(--conalep-primary)';
+            setTimeout(() => { el.style.boxShadow = ''; }, 1600);
+          }
+        }
+      }
+
+      if (btnWeekGoCurrent) {
+        btnWeekGoCurrent.addEventListener('click', () => {
+          const curWeek = getCurrentWeek();
+          selectWeek(curWeek.num, true);
+        });
+      }
+
+      if (btnWeekPrev) {
+        btnWeekPrev.addEventListener('click', () => {
+          if (state.selectedWeekNum > 0) {
+            selectWeek(state.selectedWeekNum - 1, true);
+          }
+        });
+      }
+
+      if (btnWeekNext) {
+        btnWeekNext.addEventListener('click', () => {
+          if (state.selectedWeekNum < 19) {
+            selectWeek(state.selectedWeekNum + 1, true);
+          }
+        });
+      }
+
+      if (btnModeSingleWeek) {
+        btnModeSingleWeek.addEventListener('click', () => {
+          state.hierarchyMode = 'single';
+          btnModeSingleWeek.classList.add('active');
+          if (btnModeAllWeeks) btnModeAllWeeks.classList.remove('active');
+          renderJerarquiaSemanas();
+        });
+      }
+
+      if (btnModeAllWeeks) {
+        btnModeAllWeeks.addEventListener('click', () => {
+          state.hierarchyMode = 'all';
+          btnModeAllWeeks.classList.add('active');
+          if (btnModeSingleWeek) btnModeSingleWeek.classList.remove('active');
+          renderJerarquiaSemanas();
+          const el = document.getElementById(`semana-${state.selectedWeekNum}`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
+      function buildWeekCardHtml(sem, isCurrentWeek) {
+        // Eventos que caen en esta semana (Lun a Vie)
+        const eventosSemana = CONALEP_EVENTS.filter(ev => {
+          if (ev.endDate) {
+            return (ev.date <= sem.end && ev.endDate >= sem.start);
+          }
+          return (ev.date >= sem.start && ev.date <= sem.end);
+        });
+
+        // Cumpleaños de la semana
+        const cumplesSemana = CONALEP_CUMPLEANOS.filter(c => c.fecha >= sem.start && c.fecha <= sem.end);
+
+        let bloqueClass = 'semana-bloque';
+        if (isCurrentWeek) bloqueClass += ' active-current-week';
+        if (sem.tipo === 'sae') bloqueClass += ' corte-sae';
+        else if (sem.tipo === 'asueto') bloqueClass += ' asueto-oficial';
+        else if (sem.tipo === 'cierre') bloqueClass += ' cierre-semestral';
+        else if (sem.tipo === 'asesorias') bloqueClass += ' asesorias-recup';
+
+        let cardsHtml = '';
+        if (eventosSemana.length > 0) {
+          cardsHtml = `<div class="eventos-grid-semana">`;
+          eventosSemana.forEach(ev => {
+            const catColor = getCategoryColor(ev.category);
+            let heroCardClass = 'evento-card';
+            if (ev.badge === 'badge-asueto') heroCardClass += ' hero-asueto';
+            else if (ev.badge === 'badge-corte') heroCardClass += ' hero-sae';
+            else if (ev.badge === 'badge-urgente') heroCardClass += ' hero-cierre';
+
+            cardsHtml += `
+              <div class="${heroCardClass}" style="border-left-color: ${catColor};">
+                <div class="evento-header-row">
+                  <h4 class="evento-titulo-text">${ev.title}</h4>
+                  <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
+                </div>
+                <p class="evento-desc-text">${ev.desc}</p>
+                <div class="evento-meta-row">
+                  <span>📅 ${ev.date}</span>
+                  <span>⏰ ${ev.time || 'Oficial'}</span>
+                  <span>📍 ${ev.location}</span>
+                </div>
+              </div>
+            `;
+          });
+          cardsHtml += `</div>`;
+        } else {
+          cardsHtml = `
+            <div style="font-size:12.5px; color:var(--text-muted); padding:8px 0; font-style:italic;">
+              ☕ Sin eventos institucionales extraordinarios programados. Avance regular de contenidos y actividades modulares en aula / taller.
+            </div>
+          `;
+        }
+
+        let cumpleHtml = '';
+        if (cumplesSemana.length > 0) {
+          cumpleHtml = `
+            <div class="cumple-strip-semana">
+              <span style="font-size:11px; font-weight:800; color:var(--cat-cumple); text-transform:uppercase;">🎂 Cumpleaños</span>
+              ${cumplesSemana.map(c => `
+                <span style="font-size:11.5px; font-weight:600; color:var(--text-main);">
+                  ${c.nombre} (${c.fecha.slice(8,10)} ${MONTH_CONFIG[c.fecha.slice(0,7)] ? MONTH_CONFIG[c.fecha.slice(0,7)].name.slice(0,3) : ''})
+                </span>
+              `).join(' • ')}
+            </div>
+          `;
+        }
+
+        return `
+          <div class="${bloqueClass}" id="semana-${sem.num}">
+            <div class="semana-header">
+              <span class="semana-num-pill">${sem.label}</span>
+              <span class="semana-rango-text">${sem.start} al ${sem.end}</span>
+              <span class="semana-tipo-badge">${sem.tag}</span>
+              ${isCurrentWeek ? '<span style="background:var(--conalep-primary); color:white; font-size:10.5px; font-weight:800; padding:2px 9px; border-radius:999px;">📍 SEMANA ACTUAL</span>' : ''}
+              <span style="font-size:11.5px; font-weight:700; color:var(--conalep-primary); margin-left:auto;">
+                ${sem.corte === 4 ? 'Periodo de Asesorías' : `Corte ${sem.corte}`}
+              </span>
+            </div>
+            <div class="semana-foco-desc">📌 <strong>Foco Pedagógico:</strong> ${sem.focus}</div>
+            ${cardsHtml}
+            ${cumpleHtml}
+          </div>
+        `;
+      }
 
       function renderJerarquiaSemanas() {
+        const curWeek = getCurrentWeek();
+        const curSem = WEEKS_MASTER.find(w => w.num === state.selectedWeekNum) || WEEKS_MASTER[0];
+
+        // Actualizar indicador de cabecera
+        if (weekNavCurrentMeta) {
+          const corteStr = curSem.corte === 4 ? 'Asesorías / Cierre' : `Corte ${curSem.corte}`;
+          weekNavCurrentMeta.innerHTML = `<strong>${curSem.label}</strong> • ${corteStr}`;
+        }
+
+        // Modo 1: Semana Seleccionada (CERO scroll infinito)
+        if (state.hierarchyMode === 'single') {
+          const isCurrentWeek = curSem.num === curWeek.num;
+          const cardHtml = buildWeekCardHtml(curSem, isCurrentWeek);
+
+          const footerHtml = `
+            <div class="single-week-footer-nav">
+              <button class="btn-nav-week-footer" id="btnFooterPrevWeek" ${curSem.num === 0 ? 'disabled' : ''}>
+                ‹ Semana ${curSem.num > 0 ? (curSem.num - 1 < 10 ? '0' + (curSem.num - 1) : curSem.num - 1) : ''}
+              </button>
+              <span style="font-size:12px; font-weight:700; color:var(--conalep-primary);">
+                Semana ${curSem.num} de 19
+              </span>
+              <button class="btn-nav-week-footer" id="btnFooterNextWeek" ${curSem.num === 19 ? 'disabled' : ''}>
+                Semana ${curSem.num < 19 ? (curSem.num + 1 < 10 ? '0' + (curSem.num + 1) : curSem.num + 1) : ''} ›
+              </button>
+            </div>
+          `;
+
+          jerarquiaContainer.innerHTML = cardHtml + footerHtml;
+
+          const fPrev = document.getElementById('btnFooterPrevWeek');
+          const fNext = document.getElementById('btnFooterNextWeek');
+          if (fPrev && curSem.num > 0) fPrev.addEventListener('click', () => selectWeek(curSem.num - 1, true));
+          if (fNext && curSem.num < 19) fNext.addEventListener('click', () => selectWeek(curSem.num + 1, true));
+
+          return;
+        }
+
+        // Modo 2: Ver Todas las Semanas Agrupadas por Mes
         const mesesGrupos = {
           "2026-08": { name: "Agosto 2026", semanas: [] },
           "2026-09": { name: "Septiembre 2026", semanas: [] },
@@ -2758,100 +3328,14 @@
         });
 
         let fullHtml = '';
-        const todayIso = new Date().toISOString().slice(0, 10);
-
         Object.keys(mesesGrupos).forEach(mKey => {
           const mData = mesesGrupos[mKey];
           if (mData.semanas.length === 0) return;
 
           let semanasHtml = '';
-
           mData.semanas.forEach(sem => {
-            const isCurrentWeek = todayIso >= sem.start && todayIso <= sem.end;
-
-            // Obtener eventos que caigan en esta semana (Lun a Vie)
-            const eventosSemana = CONALEP_EVENTS.filter(ev => {
-              if (ev.endDate) {
-                return (ev.date <= sem.end && ev.endDate >= sem.start);
-              }
-              return (ev.date >= sem.start && ev.date <= sem.end);
-            });
-
-            // Cumpleaños de la semana
-            const cumplesSemana = CONALEP_CUMPLEANOS.filter(c => c.fecha >= sem.start && c.fecha <= sem.end);
-
-            let bloqueClass = 'semana-bloque';
-            if (isCurrentWeek) bloqueClass += ' active-current-week';
-            if (sem.tipo === 'sae') bloqueClass += ' corte-sae';
-            else if (sem.tipo === 'asueto') bloqueClass += ' asueto-oficial';
-            else if (sem.tipo === 'cierre') bloqueClass += ' cierre-semestral';
-            else if (sem.tipo === 'asesorias') bloqueClass += ' asesorias-recup';
-
-            let cardsHtml = '';
-            if (eventosSemana.length > 0) {
-              cardsHtml = `<div class="eventos-grid-semana">`;
-              eventosSemana.forEach(ev => {
-                const catColor = getCategoryColor(ev.category);
-                let heroCardClass = 'evento-card';
-                if (ev.badge === 'badge-asueto') heroCardClass += ' hero-asueto';
-                else if (ev.badge === 'badge-corte') heroCardClass += ' hero-sae';
-                else if (ev.badge === 'badge-urgente') heroCardClass += ' hero-cierre';
-
-                cardsHtml += `
-                  <div class="${heroCardClass}" style="border-left-color: ${catColor};">
-                    <div class="evento-header-row">
-                      <h4 class="evento-titulo-text">${ev.title}</h4>
-                      <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
-                    </div>
-                    <p class="evento-desc-text">${ev.desc}</p>
-                    <div class="evento-meta-row">
-                      <span>📅 ${ev.date}</span>
-                      <span>⏰ ${ev.time || 'Oficial'}</span>
-                      <span>📍 ${ev.location}</span>
-                    </div>
-                  </div>
-                `;
-              });
-              cardsHtml += `</div>`;
-            } else {
-              cardsHtml = `
-                <div style="font-size:12px; color:var(--text-muted); padding:6px 0; font-style:italic;">
-                  ☕ Sin eventos institucionales extraordinarios programados. Avance de contenidos y actividades modulares en aula / taller.
-                </div>
-              `;
-            }
-
-            // Tira de cumpleaños si hay
-            let cumpleHtml = '';
-            if (cumplesSemana.length > 0) {
-              cumpleHtml = `
-                <div class="cumple-strip-semana">
-                  <span style="font-size:11px; font-weight:800; color:var(--cat-cumple); text-transform:uppercase;">🎂 Cumpleaños</span>
-                  ${cumplesSemana.map(c => `
-                    <span style="font-size:11.5px; font-weight:600; color:var(--text-main);">
-                      ${c.nombre} (${c.fecha.slice(8,10)} ${MONTH_CONFIG[c.fecha.slice(0,7)].name.slice(0,3)})
-                    </span>
-                  `).join(' • ')}
-                </div>
-              `;
-            }
-
-            semanasHtml += `
-              <div class="${bloqueClass}" id="semana-${sem.num}">
-                <div class="semana-header">
-                  <span class="semana-num-pill">${sem.label}</span>
-                  <span class="semana-rango-text">${sem.start} al ${sem.end}</span>
-                  <span class="semana-tipo-badge">${sem.tag}</span>
-                  ${isCurrentWeek ? '<span style="background:var(--conalep-primary); color:white; font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px;">📍 SEMANA ACTUAL</span>' : ''}
-                  <span style="font-size:11px; font-weight:700; color:var(--conalep-primary); margin-left:auto;">
-                    ${sem.corte === 4 ? 'Periodo de Asesorías' : `Corte ${sem.corte}`}
-                  </span>
-                </div>
-                <div class="semana-foco-desc">📌 Foco Pedagógico: ${sem.focus}</div>
-                ${cardsHtml}
-                ${cumpleHtml}
-              </div>
-            `;
+            const isCurrentWeek = sem.num === curWeek.num;
+            semanasHtml += buildWeekCardHtml(sem, isCurrentWeek);
           });
 
           fullHtml += `
@@ -2866,7 +3350,7 @@
       }
 
       /* ======================================================================
-         11. VISTA 3: 🎭 EVENTOS Y BUSCADOR POR CATEGORÍAS
+         11. VISTA 3: 🎭 EVENTOS AGRUPADOS POR MES CON DESLIZAMIENTO CONTINUO
          ====================================================================== */
       const eventsTimelineList = document.getElementById('eventsTimelineList');
       const eventsSearchInput = document.getElementById('eventsSearchInput');
@@ -2917,8 +3401,8 @@
 
         if (filtered.length === 0) {
           eventsTimelineList.innerHTML = `
-            <div class="guide-box" style="text-align:center; padding:24px; color:var(--text-muted);">
-              No se encontraron fechas o eventos para el filtro seleccionado.
+            <div class="guide-box" style="text-align:center; padding:28px; color:var(--text-muted);">
+              🔍 No se encontraron fechas o eventos para el filtro seleccionado.
             </div>
           `;
           return;
@@ -2929,34 +3413,65 @@
           "07": "JUL", "08": "AGO", "09": "SEP", "10": "OCT", "11": "NOV", "12": "DIC"
         };
 
-        let html = '';
+        // Agrupación de eventos por Mes (YYYY-MM)
+        const monthGroups = {};
         filtered.forEach(ev => {
-          const parts = ev.date.split('-');
-          const mText = MONTH_MAP[parts[1]] || parts[1];
-          const dText = parts[2];
-          const catColor = getCategoryColor(ev.category);
+          const mKey = ev.date.slice(0, 7);
+          if (!monthGroups[mKey]) monthGroups[mKey] = [];
+          monthGroups[mKey].push(ev);
+        });
 
-          html += `
-            <div class="timeline-item-card">
-              <div class="tl-date-badge">
-                <span class="tl-month-str">${mText}</span>
-                <span class="tl-day-num">${dText}</span>
-              </div>
-              <div style="flex:1; display:flex; flex-direction:column; gap:4px;">
-                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                  <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
-                  <span style="font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">${ev.time || 'Fecha Institucional'}</span>
-                  <span style="font-size:10px; font-weight:700; color:${catColor};">#${ev.category}</span>
+        let fullHtml = '';
+        Object.keys(monthGroups).sort().forEach(mKey => {
+          const evs = monthGroups[mKey];
+          const monthConfig = MONTH_CONFIG[mKey];
+          const monthName = monthConfig ? monthConfig.name : mKey;
+          const countStr = evs.length === 1 ? '1 actividad' : `${evs.length} actividades`;
+
+          let cardsHtml = '';
+          evs.forEach(ev => {
+            const parts = ev.date.split('-');
+            const mText = MONTH_MAP[parts[1]] || parts[1];
+            const dText = parts[2];
+            const catColor = getCategoryColor(ev.category);
+
+            cardsHtml += `
+              <div class="timeline-item-card">
+                <div class="tl-date-badge">
+                  <span class="tl-month-str">${mText}</span>
+                  <span class="tl-day-num">${dText}</span>
                 </div>
-                <div class="evento-titulo-text" style="font-size:14px;">${ev.title}</div>
-                <div class="evento-desc-text">${ev.desc}</div>
-                <div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">📍 ${ev.location}</div>
+                <div style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
+                    <span style="font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">${ev.time || 'Fecha Institucional'}</span>
+                    <span style="font-size:10px; font-weight:700; color:${catColor};">#${ev.category}</span>
+                  </div>
+                  <div class="evento-titulo-text" style="font-size:14px;">${ev.title}</div>
+                  <div class="evento-desc-text">${ev.desc}</div>
+                  <div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">📍 ${ev.location}</div>
+                </div>
+              </div>
+            `;
+          });
+
+          fullHtml += `
+            <div class="eventos-mes-grupo" id="eventos-mes-${mKey}">
+              <div class="eventos-mes-header-sticky">
+                <div class="eventos-mes-header-title">
+                  <span class="eventos-mes-dot"></span>
+                  <h3>${monthName}</h3>
+                </div>
+                <span class="eventos-mes-count-badge">${countStr}</span>
+              </div>
+              <div class="eventos-mes-cards">
+                ${cardsHtml}
               </div>
             </div>
           `;
         });
 
-        eventsTimelineList.innerHTML = html;
+        eventsTimelineList.innerHTML = fullHtml;
       }
 
       /* ======================================================================
@@ -3036,6 +3551,7 @@
       setupTheme();
       updateTodayBanner();
       render5DaysCalendar(state.activeMonthKey);
+      renderWeekChipsScroller();
       renderJerarquiaSemanas();
       renderTimelineEvents();
 
