@@ -1,0 +1,499 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CONALEP Plantel Pachuca II//Agenda Semestral 1.26.27//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CONALEP Pachuca II - Semestre 1.26.27
+X-WR-CALDESC:Calendario y Agenda Ejecutiva Docente CONALEP Pachuca II (Semestre 1.26.27 - Ciclo 2026-2027)
+X-WR-TIMEZONE:America/Mexico_City
+BEGIN:VTIMEZONE
+TZID:America/Mexico_City
+X-LIC-LOCATION:America/Mexico_City
+BEGIN:STANDARD
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:conalep-20260727-descarga@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260808
+SUMMARY:📋 Periodo de Descarga Académica y Horarios
+DESCRIPTION:Entrega de módulos, horarios y formalización de contratos de Descarga Académica 1.26.27.
+LOCATION:Plantel Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260810-inicio@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20260815
+SUMMARY:🟢 Inicio de Semestre 1.26.27 y Semana 00 de Diagnóstico
+DESCRIPTION:Inicio oficial del periodo semestral 1.26.27. Encuadre didáctico, diagnóstico pedagógico, libreta de trabajo y práctica cero.
+LOCATION:CONALEP Plantel Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260810-planeacion-1@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20260811
+SUMMARY:📝 Entrega 1er Avance de Planeaciones Didácticas
+DESCRIPTION:Registro del 1er avance de planeaciones en plataforma institucional (periodo 10 Ago - 30 Sep) y productos de Descarga Académica.
+LOCATION:Plataforma CONALEP / OneDrive Institucional
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260811-ft-1@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260811T120000
+DTEND:20260811T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (1)
+DESCRIPTION:Reunión estatal colegiada de Formación Técnica y Coordinación Académica.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260814-ctems-1@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260814T100000
+DTEND:20260814T130000
+SUMMARY:🏛️ Primera Sesión Ordinaria de CTEMS
+DESCRIPTION:Sesión del Comité Técnico de Educación Media Superior (CTEMS) y colegiado docente de inicio.
+LOCATION:Sala de Juntas CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260817-academias@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260817
+DTEND;VALUE=DATE:20260818
+SUMMARY:📚 Publicación Calendario de Reuniones de Academia
+DESCRIPTION:Difusión del calendario de academias por campo disciplinar para el semestre 1.26.27.
+LOCATION:Formación Técnica
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260825-ft-2@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260825T120000
+DTEND:20260825T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (2)
+DESCRIPTION:Seguimiento académico y reporte preliminar de grupos del semestre.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260826-tutorias-comite@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260826
+DTEND;VALUE=DATE:20260827
+SUMMARY:🩺 Integración del Comité de Tutorías y Programaciones
+DESCRIPTION:Entrega de Programación semestral de Tutorías, Orientación Educativa y Programa Escuela para Padres.
+LOCATION:Área de Tutorías y Preceptorías
+CATEGORIES:Tutorías y Preceptorías
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260901-sid@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260902
+SUMMARY:📋 Apertura de Registro en Sistema Integral Docente (SID)
+DESCRIPTION:Inicio de registro y actualización curricular docente en la plataforma SID.
+LOCATION:Portal SID CONALEP
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260908-ft-3@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260908T120000
+DTEND:20260908T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (3)
+DESCRIPTION:Monitoreo y evaluación previa al cierre del primer corte.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260910-planeacion-2@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+SUMMARY:📝 2do Avance de Planeaciones Didácticas
+DESCRIPTION:Fecha límite para registrar en plataforma el 2do avance de planeaciones (01 Octubre al 30 Noviembre 2026).
+LOCATION:Plataforma CONALEP / Formación Técnica
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260914-canalizaciones-1@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260915
+SUMMARY:🩺 Entrega de Canalizaciones de Alumnos - 1er Corte
+DESCRIPTION:Recepción de fichas de canalización de estudiantes en riesgo hacia Orientación y Tutorías.
+LOCATION:Coordinación de Tutorías
+CATEGORIES:Tutorías y Preceptorías
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260916-asueto@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:🇲🇽 Asueto Oficial: Independencia de México
+DESCRIPTION:Suspensión oficial general de labores docentes y administrativas.
+LOCATION:Nacional / CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260919-simulacro@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260919T110000
+DTEND:20260919T120000
+SUMMARY:🚨 Simulacro Nacional de Protección Civil
+DESCRIPTION:Protocolo institucional de evacuación y repliegue seguro.
+LOCATION:Plantel Pachuca II
+CATEGORIES:Protección Civil
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260921-sae-1er-corte@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260923
+SUMMARY:⭐ Captura en SAE: 1er Corte Académico y Asesorías
+DESCRIPTION:Periodo perentorio para el vaciado oficial de ponderaciones y rúbricas del Primer Corte en SAE.
+LOCATION:Sistema SAE CONALEP
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260922-ft-4@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20260922T120000
+DTEND:20260922T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (4)
+DESCRIPTION:Revisión estatal del cierre de captura del primer corte.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20260930-planeacion-fin@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:📝 Conclusión del Registro de Planeaciones Didácticas
+DESCRIPTION:Cierre definitivo del sistema de planeación docente para la totalidad de módulos del semestre 1.26.27.
+LOCATION:Plataforma CONALEP
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261001-pevidd@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:👥 Arranque del PEVIDD (Evaluación del Desempeño Docente)
+DESCRIPTION:Inicio formal del Programa de Evaluación Integral del Desempeño Docente (PEVIDD).
+LOCATION:Aulas y Talleres CONALEP Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261001-asistencias@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261003
+SUMMARY:📊 Entrega de Listas de Asistencia (Riesgos)
+DESCRIPTION:Entrega a Servicios Escolares de listas de asistencia consolidadas del primer bloque para prevención de deserción.
+LOCATION:Servicios Escolares
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261006-ft-5@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261006T120000
+DTEND:20261006T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (5)
+DESCRIPTION:Seguimiento académico mensual de indicadores de permanencia.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261015-descarga-nuevo@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:📋 Entrega Descarga Académica (Nuevo Ingreso / >4 Módulos)
+DESCRIPTION:Entrega de productos de Descarga Académica para docentes de nuevo ingreso o con más de cuatro módulos.
+LOCATION:Formación Técnica
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261016-estimulo@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261016T110000
+DTEND:20261016T130000
+SUMMARY:🏛️ Validación de Convocatoria Estímulo Docente (EDD)
+DESCRIPTION:Reunión para validación de la Convocatoria del Estímulo al Desempeño Docente.
+LOCATION:Dirección General / Plantel
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261020-ft-6@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261020T120000
+DTEND:20261020T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (6)
+DESCRIPTION:Evaluación preliminar de productos del segundo corte.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261023-ctems-2@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261023T100000
+DTEND:20261023T130000
+SUMMARY:🏛️ Segunda Sesión Ordinaria de CTEMS
+DESCRIPTION:Reunión de análisis colegiado sobre aprovechamiento y retención estudiantil.
+LOCATION:Sala de Juntas CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261029-dia-muertos@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261029T140000
+DTEND:20261029T190000
+SUMMARY:🎭 Festival Institucional de Día de Muertos y Concurso de Catrinas
+DESCRIPTION:Exposición de altares tradicionales, certamen de catrinas y catrines, lectura de calaveritas literarias institucionales.
+LOCATION:Plaza Cívica Plantel Pachuca II
+CATEGORIES:Cultural y Deportivo
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261030-canalizaciones-2@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:🩺 Entrega de Canalizaciones de Alumnos - 2do Corte
+DESCRIPTION:Recepción de expedientes y canalizaciones para preceptorías y tutorías del segundo corte.
+LOCATION:Coordinación de Tutorías
+CATEGORIES:Tutorías y Preceptorías
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261102-asueto@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🕯️ Asueto Oficial: Tradición de Día de Muertos
+DESCRIPTION:Suspensión oficial de actividades escolares conforme al calendario oficial.
+LOCATION:Nacional / CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261103-sae-2do-corte@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261105
+SUMMARY:⭐ Captura en SAE: 2do Corte Académico y Asesorías
+DESCRIPTION:Periodo perentorio para registrar calificaciones y rúbricas del Segundo Corte en SAE.
+LOCATION:Sistema SAE CONALEP
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261104-eval-docente@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261104T080000
+DTEND:20261104T180000
+SUMMARY:👥 Evaluación Docente Institucional por Alumnos
+DESCRIPTION:Aplicación de la encuesta institucional de evaluación docente en laboratorios de cómputo.
+LOCATION:Laboratorios de Cómputo CONALEP Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261106-stem@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261106T200000
+DTEND:20261106T235900
+SUMMARY:🚨 Vencimiento Oficial: Certificación Docente STEM
+DESCRIPTION:Límite oficial para presentación del examen de Certificación STEM en plataforma.
+LOCATION:Plataforma STEM
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261116-asueto@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:🇲🇽 Asueto Oficial: Conmemoración de la Revolución Mexicana
+DESCRIPTION:Suspensión oficial de labores docentes (conmemoración del 20 de Noviembre).
+LOCATION:Nacional / CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261117-ft-7@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261117T120000
+DTEND:20261117T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (7)
+DESCRIPTION:Revisión colegiada sobre avance de proyectos técnicos integradores.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261127-canalizaciones-3@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:🩺 Entrega de Canalizaciones de Alumnos - 3er Corte
+DESCRIPTION:Tercera ronda de canalización a preceptorías para estudiantes que requieren asesorías complementarias.
+LOCATION:Coordinación de Tutorías
+CATEGORIES:Tutorías y Preceptorías
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261201-ft-8@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART:20261201T120000
+DTEND:20261201T133000
+SUMMARY:💻 Reunión Virtual de Formación Técnica (8)
+DESCRIPTION:Lineamientos para el cierre semestral y logística de asesorías intersemestrales.
+LOCATION:Microsoft Teams / Virtual
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261210-corte-cierre@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261212
+SUMMARY:🔴 Corte de Cierre Semestral y Cierre de Rúbricas
+DESCRIPTION:Conclusión de clases regulares, portafolios de evidencias y cierre de rúbricas al 100%.
+LOCATION:CONALEP Plantel Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261214-asesorias-fase1@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261219
+SUMMARY:📘 Asesorías Complementarias Intersemestrales (Fase 1)
+DESCRIPTION:Periodo intensivo de asesorías de regularización y recuperación de competencias técnicas.
+LOCATION:Aulas y Talleres CONALEP Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261218-asistencias-fin@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:📊 Entrega Final de Listas de Asistencia a Servicios Escolares
+DESCRIPTION:Entrega del concentrado semestral oficial firmado para archivo y control escolar.
+LOCATION:Servicios Escolares CONALEP
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261221-vacaciones@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20270106
+SUMMARY:🎄 Receso Escolar y Periodo Vacacional de Invierno
+DESCRIPTION:Periodo vacacional de fin de año para docentes, personal administrativo y comunidad estudiantil.
+LOCATION:CONALEP Pachuca II
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20270106-asesorias-fase2@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270115
+SUMMARY:📘 Asesorías Complementarias Intersemestrales (Fase 2)
+DESCRIPTION:Reanudación de asesorías intersemestrales, evaluación de planes de recuperación y aplicación de instrumentos de acreditación.
+LOCATION:Aulas y Talleres CONALEP Pachuca II
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20270115-cierre-contrato@pachuca2.conalep.edu.mx
+DTSTAMP:20260801T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:🔴 Captura Final SAE y Conclusión Contrato Docente 1.26.27
+DESCRIPTION:Captura final en SAE de calificaciones de asesorías intersemestrales y término formal del contrato del periodo semestral 1.26.27.
+LOCATION:SAE CONALEP / Recursos Humanos
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,2998 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Agenda Ejecutiva CONALEP Pachuca II • Semestre 1.26.27</title>
+  <meta name="description" content="Agenda Ejecutiva y Calendario Semestral Interactivo para Docentes de CONALEP Plantel Pachuca II (Semestre 1.26.27 - Ciclo 2026-2027).">
+  <meta name="theme-color" content="#007A54">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23007A54'/><path d='M25 50a25 25 0 0 1 50 0v10H55V50a10 10 0 0 0-20 0v15h40v10H25Z' fill='white'/></svg>">
+  
+  <!-- Tipografía Profesional: Outfit (Títulos y Números) + Inter (Lectura y Metadatos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y SISTEMA DE DISEÑO (INSPIRADO EN CEB 5/4 + LINEAR / APPLE)
+       ========================================================================== */
+    :root {
+      --conalep-primary: #007A54;
+      --conalep-primary-dark: #005A3E;
+      --conalep-primary-light: #E6F4EF;
+      --conalep-glow: rgba(0, 122, 84, 0.16);
+
+      --color-corte-1: #059669;
+      --color-corte-1-bg: #ECFDF5;
+      --color-corte-2: #D97706;
+      --color-corte-2-bg: #FFFBEB;
+      --color-corte-3: #DC2626;
+      --color-corte-3-bg: #FEF2F2;
+      --color-asesoria: #2563EB;
+      --color-asesoria-bg: #EFF6FF;
+
+      /* Categorías */
+      --cat-modulos: #059669;
+      --cat-sindicato: #4F46E5;
+      --cat-cultural: #EC4899;
+      --cat-tutorias: #0284C7;
+      --cat-pcivil: #EA580C;
+      --cat-cumple: #DB2777;
+
+      /* Modo Claro (Default) */
+      --bg-body: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-surface-elevated: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --bg-hover: #E2E8F0;
+
+      --border-subtle: #E2E8F0;
+      --border-medium: #CBD5E1;
+      --border-strong: #94A3B8;
+
+      --text-main: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-inverse: #FFFFFF;
+
+      --header-bg: rgba(255, 255, 255, 0.92);
+      --dock-bg: rgba(255, 255, 255, 0.94);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.09);
+
+      --font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --radius-full: 9999px;
+
+      --header-height: 48px;
+      --dock-height: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #090D16;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #161F32;
+      --bg-subtle: #1E293B;
+      --bg-hover: #2D3748;
+
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-medium: rgba(255, 255, 255, 0.16);
+      --border-strong: rgba(255, 255, 255, 0.28);
+
+      --text-main: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+
+      --header-bg: rgba(17, 24, 39, 0.92);
+      --dock-bg: rgba(17, 24, 39, 0.94);
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.55);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.65);
+      --conalep-primary-light: rgba(0, 122, 84, 0.22);
+    }
+
+    /* ==========================================================================
+       RESET Y BASE
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: var(--header-height);
+      padding-bottom: var(--dock-height);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 40px;
+      }
+    }
+
+    a {
+      color: var(--conalep-primary);
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    /* ==========================================================================
+       ENCABEZADO ULTRA-COMPACTO (48px)
+       ========================================================================== */
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: var(--header-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      gap: 8px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-title);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(0, 122, 84, 0.2);
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Botón directo "HOY" */
+    .btn-today-quick {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+      border: 1px solid rgba(0, 122, 84, 0.25);
+      border-radius: var(--radius-full);
+      padding: 3px 8px;
+      font-size: 10.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-today-quick:hover {
+      background: var(--conalep-primary);
+      color: white;
+    }
+
+    .pulsing-dot {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Chips de meses compactos sin año */
+    .header-month-chips {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px 0;
+    }
+
+    .header-month-chips::-webkit-scrollbar {
+      display: none;
+    }
+
+    .m-chip-btn {
+      padding: 4px 9px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .m-chip-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .m-chip-btn.active {
+      background: var(--conalep-primary);
+      color: var(--text-inverse);
+      box-shadow: 0 2px 8px var(--conalep-glow);
+    }
+
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .btn-ics-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 9px;
+      background: var(--conalep-primary);
+      color: var(--text-inverse);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px var(--conalep-glow);
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-ics-tool:hover {
+      opacity: 0.92;
+    }
+
+    .btn-theme-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-theme-circle:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       NAVEGACIÓN DUAL ADAPTATIVA (SIN BARRAS DUPLICADAS)
+       ========================================================================== */
+    .desktop-nav {
+      display: none;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+        position: sticky;
+        top: var(--header-height);
+        z-index: 90;
+      }
+    }
+
+    .desktop-nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .desktop-nav-tab:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .desktop-nav-tab.active {
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+    }
+
+    /* Mobile Floating Dock */
+    .mobile-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--dock-height);
+      background: var(--dock-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 4px calc(env(safe-area-inset-bottom, 0px) + 2px);
+      z-index: 99;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-dock {
+        display: none !important;
+      }
+    }
+
+    .dock-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 8px;
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 700;
+      flex: 1;
+      max-width: 76px;
+      transition: all 0.15s ease;
+    }
+
+    .dock-tab .dock-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .dock-tab.active {
+      color: var(--conalep-primary);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       HERO BANNER INSTITUCIONAL (ESTILO CEB 5/4)
+       ========================================================================== */
+    .conalep-hero-header {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #005A3E 100%);
+      color: #FFFFFF;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-xl);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .conalep-hero-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+      }
+    }
+
+    .hero-title-group h1 {
+      font-family: var(--font-title);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero-title-group p {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    .hero-stats-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-pill {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      padding: 4px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-stat-pill strong {
+      color: #34D399;
+      font-family: var(--font-mono);
+    }
+
+    /* Banner "HOY EN CURSO" */
+    .today-status-banner {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--conalep-primary);
+      border-radius: var(--radius-lg);
+      padding: 10px 16px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px var(--conalep-glow);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .today-status-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .today-title-text {
+      font-family: var(--font-title);
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .today-week-badge {
+      background: var(--conalep-primary-light);
+      color: var(--conalep-primary);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       RADAR DE FECHAS (ESTILO CEB 5/4)
+       ========================================================================== */
+    .radar-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .radar-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .radar-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .radar-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-left: 4px solid var(--border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .radar-card.urgente { border-left-color: #DC2626; background: var(--bg-surface); }
+    .radar-card.proximo { border-left-color: #D97706; }
+    .radar-card.sae { border-left-color: #059669; }
+    .radar-card.consejo { border-left-color: #2563EB; }
+
+    .radar-header {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .radar-card.urgente .radar-header { color: #DC2626; }
+    .radar-card.proximo .radar-header { color: #D97706; }
+    .radar-card.sae .radar-header { color: #059669; }
+    .radar-card.consejo .radar-header { color: #2563EB; }
+
+    .radar-content {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    .radar-sub {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* ==========================================================================
+       CONTENEDOR DE VISTAS
+       ========================================================================== */
+    .app-main {
+      flex: 1;
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 14px;
+    }
+
+    @media (min-width: 768px) {
+      .app-main {
+        padding: 18px 24px;
+      }
+    }
+
+    .view-section {
+      display: none;
+      animation: fadeInView 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeInView {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       VISTA 1: 🗓️ CALENDARIO ESCOLAR (STRICT 5 DÍAS: LUN A VIE - SIN SÁB/DOM)
+       ========================================================================== */
+    .cal-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 10px 16px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cal-month-name {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .cal-corte-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .cal-nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cal-arrow-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      font-weight: 700;
+      transition: background 0.15s ease;
+    }
+
+    .cal-arrow-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    /* CUADRÍCULA DE 5 DÍAS (20% por columna) */
+    .calendar-container-5days {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
+    }
+
+    .weekdays-header-5days {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+      padding: 8px 0;
+    }
+
+    .weekday-col-title {
+      font-family: var(--font-title);
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .days-grid-5days {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border-subtle);
+    }
+
+    .day-cell-5days {
+      background: var(--bg-surface);
+      min-height: 64px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.12s ease;
+    }
+
+    @media (min-width: 768px) {
+      .day-cell-5days {
+        min-height: 94px;
+        padding: 8px 10px;
+      }
+    }
+
+    .day-cell-5days:hover {
+      background: var(--bg-subtle);
+    }
+
+    .day-cell-5days.other-month {
+      background: var(--bg-body);
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .day-cell-5days.selected {
+      outline: 2.5px solid var(--conalep-primary);
+      outline-offset: -2.5px;
+      background: var(--conalep-primary-light);
+    }
+
+    .day-cell-5days.today {
+      box-shadow: inset 0 0 0 2px var(--conalep-primary);
+    }
+
+    .day-cell-5days.today .day-cell-num {
+      background: var(--conalep-primary);
+      color: var(--text-inverse);
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      font-weight: 900;
+    }
+
+    .day-cell-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .day-cell-num {
+      font-family: var(--font-title);
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    .day-cell-weektag {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Event pills inside cells */
+    .cell-events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cell-event-chip {
+      font-size: 10.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-radius: 4px;
+      padding: 1.5px 5px;
+      line-height: 1.25;
+      border-left: 2.5px solid transparent;
+    }
+
+    /* En móvil mostrar micro-puntos */
+    .cell-dots-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .cell-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-full);
+    }
+
+    @media (min-width: 768px) {
+      .cell-dots-row { display: none; }
+      .cell-events-list { display: flex; }
+    }
+    @media (max-width: 767px) {
+      .cell-dots-row { display: flex; }
+      .cell-events-list { display: none; }
+    }
+
+    /* Inspector del Día Seleccionado */
+    .day-inspector-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .inspector-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .inspector-date-text {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       VISTA 2: 📅 SEMANAS Y JERARQUÍA (EL CORAZÓN DEL SISTEMA CEB 5/4)
+       ========================================================================== */
+    .jerarquia-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .mes-seccion {
+      position: relative;
+    }
+
+    .mes-titulo-ceb {
+      font-family: var(--font-title);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2.5px solid var(--conalep-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .mes-titulo-ceb::before {
+      content: '';
+      width: 7px;
+      height: 22px;
+      background: var(--conalep-primary);
+      border-radius: 4px;
+    }
+
+    /* Semanas Escolares (Bloques CEB 5/4) */
+    .semana-bloque {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      transition: all 0.25s ease;
+      border-left: 6px solid var(--conalep-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .semana-bloque:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .semana-bloque.active-current-week {
+      border: 2px solid var(--conalep-primary);
+      border-left-width: 8px;
+      background: var(--conalep-primary-light);
+    }
+
+    /* Tematización por tipo de semana */
+    .semana-bloque.corte-sae {
+      border-left-color: var(--color-corte-2);
+    }
+
+    .semana-bloque.asueto-oficial {
+      border-left-color: #22C55E;
+    }
+
+    .semana-bloque.cierre-semestral {
+      border-left-color: var(--color-corte-3);
+    }
+
+    .semana-bloque.asesorias-recup {
+      border-left-color: var(--color-asesoria);
+    }
+
+    .semana-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .semana-num-pill {
+      font-family: var(--font-title);
+      font-weight: 800;
+      color: var(--conalep-primary);
+      font-size: 0.92rem;
+      background: var(--conalep-primary-light);
+      padding: 3px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .semana-bloque.corte-sae .semana-num-pill {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .semana-bloque.cierre-semestral .semana-num-pill {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+
+    .semana-rango-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .semana-tipo-badge {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .semana-foco-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.85rem;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    /* Grid de tarjetas de evento dentro de la semana */
+    .eventos-grid-semana {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 640px) {
+      .eventos-grid-semana {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+
+    /* Tarjetas de Evento Estilo CEB */
+    .evento-card {
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .evento-card:hover {
+      border-color: var(--conalep-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .evento-card.hero-asueto {
+      border-left: 5px solid #22C55E;
+      background: #F0FDF4;
+    }
+    [data-theme="dark"] .evento-card.hero-asueto {
+      background: rgba(34, 197, 94, 0.12);
+    }
+
+    .evento-card.hero-sae {
+      border-left: 5px solid #D97706;
+      background: #FFFBEB;
+    }
+    [data-theme="dark"] .evento-card.hero-sae {
+      background: rgba(217, 119, 6, 0.12);
+    }
+
+    .evento-card.hero-cierre {
+      border-left: 5px solid #DC2626;
+      background: #FEF2F2;
+    }
+    [data-theme="dark"] .evento-card.hero-cierre {
+      background: rgba(220, 38, 38, 0.12);
+    }
+
+    .evento-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .evento-titulo-text {
+      font-family: var(--font-title);
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .evento-badge-status {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-corte { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+    .badge-asueto { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+    .badge-oficial { background: #E0F2FE; color: #075985; border: 1px solid #BAE6FD; }
+    .badge-urgente { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+    .badge-cumple { background: #FCE7F3; color: #9D174D; border: 1px solid #FBCFE8; }
+
+    .evento-desc-text {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .evento-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 6px;
+      margin-top: 2px;
+      flex-wrap: wrap;
+    }
+
+    .evento-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Fila de Cumpleaños Estilo CEB */
+    .cumple-strip-semana {
+      margin-top: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.9rem;
+      border-top: 1px dashed var(--border-subtle);
+      align-items: center;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==========================================================================
+       VISTA 3: 🎭 EVENTOS Y BUSCADOR POR CATEGORÍAS
+       ========================================================================== */
+    .events-toolbar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      gap: 8px;
+    }
+
+    .search-input-wrap input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text-main);
+      width: 100%;
+    }
+
+    .cat-chips-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .cat-chips-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-filter-btn {
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cat-filter-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .cat-filter-btn.active {
+      background: var(--text-main);
+      color: var(--bg-surface);
+      border-color: var(--text-main);
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .timeline-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s ease;
+    }
+
+    .timeline-item-card:hover {
+      transform: translateY(-1px);
+    }
+
+    .tl-date-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 52px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+
+    .tl-month-str {
+      font-family: var(--font-title);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--conalep-primary);
+      text-transform: uppercase;
+    }
+
+    .tl-day-num {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+       VISTA 4: 📋 MÓDULOS Y PONDERACIÓN INSTITUCIONAL
+       ========================================================================== */
+    .modules-guide-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .guide-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .guide-box-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 8px;
+    }
+
+    .guide-box-header h3 {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .ponderacion-trio {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .ponderacion-trio {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .corte-stat-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .corte-stat-val {
+      font-family: var(--font-title);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--conalep-primary);
+    }
+
+    .corte-stat-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       VISTA 5: 📬 MEDIOS Y CANALES INSTITUCIONALES
+       ========================================================================== */
+    .channels-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .channels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .channel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .channel-tag-pill {
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--conalep-primary);
+    }
+
+    .channel-card h4 {
+      font-family: var(--font-title);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .channel-card p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       MODAL DE SUSCRIPCIÓN .ICS (RFC 5545)
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      max-width: 440px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      animation: popModal 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes popModal {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .modal-hdr h3 {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .btn-close-dlg {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    .modal-content-text {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-dl-ics-big {
+      background: var(--conalep-primary);
+      color: var(--text-inverse);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-size: 13.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px var(--conalep-glow);
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-dl-ics-big:hover {
+      opacity: 0.92;
+    }
+
+    .dlg-instructions {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+
+    .dlg-instructions ol {
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    /* ESTILOS DE IMPRESIÓN OFICIAL (PDF) */
+    @media print {
+      body {
+        padding: 0 !important;
+        background: white !important;
+        color: black !important;
+      }
+      .app-header, .desktop-nav, .mobile-dock, .header-tools, .cal-nav-buttons, .modal-backdrop, .btn-today-quick {
+        display: none !important;
+      }
+      .app-main {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .conalep-hero-header {
+        background: none !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+      }
+      .hero-title-group h1, .hero-stat-pill {
+        color: black !important;
+      }
+      .semana-bloque {
+        page-break-inside: avoid;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       ENCABEZADO ULTRA-COMPACTO (48px)
+       ======================================================================== -->
+  <header class="app-header">
+    <div class="brand-group">
+      <div class="brand-pill">
+        <span>CONALEP</span>
+        <span class="brand-sub">1.26.27</span>
+      </div>
+      <!-- Botón inteligente "HOY" -->
+      <button class="btn-today-quick" id="btnGoToday" title="Ir al día de hoy">
+        <span class="pulsing-dot"></span>
+        <span>Hoy</span>
+      </button>
+    </div>
+
+    <!-- Micro-píldoras de meses estilo chips (sin repetir año) -->
+    <nav class="header-month-chips" id="monthChipsBar" aria-label="Navegación de Meses">
+      <button class="m-chip-btn" data-month="2026-08">Ago</button>
+      <button class="m-chip-btn" data-month="2026-09">Sep</button>
+      <button class="m-chip-btn" data-month="2026-10">Oct</button>
+      <button class="m-chip-btn" data-month="2026-11">Nov</button>
+      <button class="m-chip-btn" data-month="2026-12">Dic</button>
+      <button class="m-chip-btn" data-month="2027-01">Ene</button>
+    </nav>
+
+    <div class="header-tools">
+      <button class="btn-ics-tool" id="btnOpenIcsModal" title="Suscripción de Calendario">
+        <span>📅</span>
+        <span style="font-size:10px;">.ICS</span>
+      </button>
+      <button class="btn-theme-circle" id="btnThemeToggle" title="Modo Oscuro / Claro" aria-label="Cambiar tema">
+        <span id="themeEmoji">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       BARRA SUPERIOR (SOLO COMPUTADORA / DESKTOP)
+       ======================================================================== -->
+  <nav class="desktop-nav" id="desktopNav" aria-label="Navegación Principal">
+    <button class="desktop-nav-tab active" data-view="tab-calendar">🗓️ Calendario Escolar (5 Días)</button>
+    <button class="desktop-nav-tab" data-view="tab-hierarchy">📅 Semanas y Jerarquía</button>
+    <button class="desktop-nav-tab" data-view="tab-events">🎭 Eventos y Fechas</button>
+    <button class="desktop-nav-tab" data-view="tab-modules">📋 Módulos y Ponderación</button>
+    <button class="desktop-nav-tab" data-view="tab-channels">📬 Medios Institucionales</button>
+  </nav>
+
+  <!-- ========================================================================
+       CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <main class="app-main">
+
+    <!-- HERO HEADER INSTITUCIONAL (ESTILO CEB 5/4) -->
+    <section class="conalep-hero-header">
+      <div class="hero-title-group">
+        <h1>Agenda Ejecutiva Semestral CONALEP</h1>
+        <p>Plantel Pachuca II (Hidalgo) • Semestre 1.26.27 • 19 Semanas Oficiales</p>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat-pill">Semanas: <strong>19</strong></div>
+        <div class="hero-stat-pill">Cortes SAE: <strong>3 + Asesorías</strong></div>
+        <div class="hero-stat-pill">Medio Adecuado: <strong>OneDrive</strong></div>
+      </div>
+    </section>
+
+    <!-- BANNER DINÁMICO DEL DÍA DE HOY -->
+    <div class="today-status-banner" id="todayDynamicBanner">
+      <div class="today-status-left">
+        <span class="pulsing-dot"></span>
+        <span class="today-title-text" id="todayBannerText">Hoy en CONALEP: Cargando fecha...</span>
+      </div>
+      <div class="today-status-right" style="display:flex; align-items:center; gap:8px;">
+        <span class="today-week-badge" id="todayWeekTag">Semana en Curso</span>
+        <button id="btnPrintAgenda" style="font-size:11.5px; font-weight:700; background:var(--bg-subtle); padding:3px 9px; border-radius:var(--radius-full); border:1px solid var(--border-subtle); display:inline-flex; align-items:center; gap:4px;">
+          <span>🖨️</span><span>Imprimir</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- RADAR DE FECHAS (ESTILO CEB 5/4) -->
+    <section class="radar-container">
+      <div class="radar-card urgente">
+        <div class="radar-header">🚨 Entregas Críticas</div>
+        <div class="radar-content">Planeaciones didácticas y Descarga Académica en plataforma.</div>
+        <div class="radar-sub">Avances: 10 Ago • 10 Sep • 30 Sep</div>
+      </div>
+      <div class="radar-card sae">
+        <div class="radar-header">⭐ Vaciado en SAE</div>
+        <div class="radar-content">Captura de ponderaciones y rúbricas oficiales de cortes parciales.</div>
+        <div class="radar-sub">1er: 21-22 Sep • 2do: 03-04 Nov • 3er: 10-11 Dic</div>
+      </div>
+      <div class="radar-card proximo">
+        <div class="radar-header">🩺 Tutorías y Preceptorías</div>
+        <div class="radar-content">Entrega de canalizaciones de alumnos en riesgo académico.</div>
+        <div class="radar-sub">14 Sep • 30 Oct • 27 Nov</div>
+      </div>
+      <div class="radar-card consejo">
+        <div class="radar-header">👥 Colegiados y PEVIDD</div>
+        <div class="radar-content">Sesiones de CTEMS, reuniones de Formación Técnica y evaluación docente.</div>
+        <div class="radar-sub">CTEMS: 14 Ago, 23 Oct • PEVIDD: Oct</div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISTA 1: 🗓️ CALENDARIO ESCOLAR (STRICT 5 DÍAS: LUN A VIE)
+         ==================================================================== -->
+    <section class="view-section active" id="tab-calendar">
+      <div class="cal-header-bar">
+        <div class="cal-title-wrap">
+          <h2 class="cal-month-name" id="calMonthTitleText">Agosto 2026</h2>
+          <span class="cal-corte-tag" id="calCorteBadge" style="background:var(--color-corte-1-bg); color:var(--color-corte-1);">1er Corte</span>
+        </div>
+        <div class="cal-nav-buttons">
+          <button class="cal-arrow-btn" id="btnCalPrevMonth" title="Mes anterior">‹</button>
+          <button class="cal-arrow-btn" id="btnCalNextMonth" title="Mes siguiente">›</button>
+        </div>
+      </div>
+
+      <!-- Cuadrícula Escolar de 5 Columnas (Sin Sábados ni Domingos) -->
+      <div class="calendar-container-5days">
+        <div class="weekdays-header-5days">
+          <div class="weekday-col-title">Lunes</div>
+          <div class="weekday-col-title">Martes</div>
+          <div class="weekday-col-title">Miércoles</div>
+          <div class="weekday-col-title">Jueves</div>
+          <div class="weekday-col-title">Viernes</div>
+        </div>
+        <div class="days-grid-5days" id="calendarDaysGrid5">
+          <!-- Renderizado dinámicamente por JavaScript -->
+        </div>
+      </div>
+
+      <!-- Ficha de Inspección del Día -->
+      <div class="day-inspector-box" id="calDayInspector">
+        <div class="inspector-top-row">
+          <div class="inspector-date-text" id="inspectorDateLabel">Selecciona una fecha del calendario</div>
+          <span class="cal-corte-tag" id="inspectorCorteTag" style="display:none;">1er Corte</span>
+        </div>
+        <div id="inspectorEventsContainer">
+          <p style="font-size:12.5px; color:var(--text-muted); text-align:center; padding:12px 0;">
+            Toca cualquier día hábil (Lunes a Viernes) para consultar actividades oficiales, cortes o sesiones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISTA 2: 📅 SEMANAS Y JERARQUÍA (DISEÑO MAESTRO CEB 5/4)
+         ==================================================================== -->
+    <section class="view-section" id="tab-hierarchy">
+      <div class="jerarquia-container" id="jerarquiaContainer">
+        <!-- Renderizado dinámicamente por JavaScript agrupado por Mes y Semanas -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISTA 3: 🎭 EVENTOS Y FILTRO POR CATEGORÍAS
+         ==================================================================== -->
+    <section class="view-section" id="tab-events">
+      <div class="events-toolbar">
+        <div class="search-input-wrap">
+          <span>🔍</span>
+          <input type="text" id="eventsSearchInput" placeholder="Filtrar por actividad, fecha, SAE, asueto o palabra clave...">
+        </div>
+        <div class="cat-chips-bar" id="categoryChipsBar">
+          <button class="cat-filter-btn active" data-cat="all">⭐ Todos</button>
+          <button class="cat-filter-btn" data-cat="modulos">📚 Formación Técnica</button>
+          <button class="cat-filter-btn" data-cat="sindicato">🏛️ Sindicato / Laboral</button>
+          <button class="cat-filter-btn" data-cat="cultural">🎭 Cultural y Deportivo</button>
+          <button class="cat-filter-btn" data-cat="tutorias">🩺 Tutorías</button>
+          <button class="cat-filter-btn" data-cat="pcivil">🚨 Protección Civil</button>
+          <button class="cat-filter-btn" data-cat="cumple">🎂 Cumpleaños</button>
+        </div>
+      </div>
+
+      <div class="timeline-list" id="eventsTimelineList">
+        <!-- Poblado dinámicamente -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISTA 4: 📋 MÓDULOS Y PONDERACIÓN INSTITUCIONAL
+         ==================================================================== -->
+    <section class="view-section" id="tab-modules">
+      <div class="modules-guide-wrap">
+        
+        <div class="guide-box">
+          <div class="guide-box-header">
+            <span>📊</span>
+            <h3>Estructura Semestral de Ponderación Oficial (CONALEP)</h3>
+          </div>
+          <div class="ponderacion-trio">
+            <div class="corte-stat-block" style="border-left:4px solid var(--color-corte-1);">
+              <div class="corte-stat-val">30%</div>
+              <div class="corte-stat-name">Primer Corte (Semanas 00 a 05)</div>
+              <p style="font-size:11.5px; color:var(--text-secondary);">Diagnóstico inicial, encuadre pedagógico, primeras rúbricas de RA y captura en SAE (21-22 Sep).</p>
+            </div>
+            <div class="corte-stat-block" style="border-left:4px solid var(--color-corte-2);">
+              <div class="corte-stat-val">35%</div>
+              <div class="corte-stat-name">Segundo Corte (Semanas 06 a 11)</div>
+              <p style="font-size:11.5px; color:var(--text-secondary);">Avance de formación técnica modular, PEVIDD, evaluación docente por alumnos y captura en SAE (03-04 Nov).</p>
+            </div>
+            <div class="corte-stat-block" style="border-left:4px solid var(--color-corte-3);">
+              <div class="corte-stat-val">35%</div>
+              <div class="corte-stat-name">Tercer Corte / Cierre (Semanas 12 a 18)</div>
+              <p style="font-size:11.5px; color:var(--text-secondary);">Proyectos integradores de fin de semestre, cierre de rúbricas al 100% y corte regular (10-11 Dic).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-box">
+          <div class="guide-box-header">
+            <span>🎯</span>
+            <h3>Criterios de Evaluación y Niveles de Desempeño</h3>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; font-size:12.5px;">
+            <div style="display:flex; align-items:flex-start; gap:10px;">
+              <span style="background:var(--conalep-primary); color:white; padding:2px 8px; border-radius:4px; font-weight:800; font-size:11px;">E</span>
+              <div><strong>Excelente (100%):</strong> Domina con solvencia los Resultados de Aprendizaje, demuestra autonomía metodológica y resolución de problemas prácticos.</div>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:10px;">
+              <span style="background:#0284C7; color:white; padding:2px 8px; border-radius:4px; font-weight:800; font-size:11px;">S</span>
+              <div><strong>Suficiente (80%):</strong> Cumple satisfactoriamente con los desempeños y productos mínimos requeridos en la matriz de valoración.</div>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:10px;">
+              <span style="background:#DC2626; color:white; padding:2px 8px; border-radius:4px; font-weight:800; font-size:11px;">NC</span>
+              <div><strong>No Competente (&lt;60%):</strong> Requiere canalización preventiva inmediata a asesorías complementarias intersemestrales.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISTA 5: 📬 MEDIOS Y CANALES INSTITUCIONALES
+         ==================================================================== -->
+    <section class="view-section" id="tab-channels">
+      <div class="channels-grid">
+        
+        <div class="channel-card">
+          <span class="channel-tag-pill">Canal y Medio Adecuado</span>
+          <h4>OneDrive Institucional CONALEP</h4>
+          <p>Ecosistema en la nube formalmente establecido para la recepción de oficios, normativa académica, plantillas de planeación didáctica y respaldo de evidencias docentes de CONALEP Pachuca II.</p>
+        </div>
+
+        <div class="channel-card">
+          <span class="channel-tag-pill">Control Escolar</span>
+          <h4>Sistema SAE CONALEP</h4>
+          <p>Plataforma para la captura de calificaciones y ponderaciones por corte, emisión de actas parciales, registro de asistencias y captura final de asesorías intersemestrales.</p>
+        </div>
+
+        <div class="channel-card">
+          <span class="channel-tag-pill">Registro y Carrera Docente</span>
+          <h4>Sistema Integral Docente (SID)</h4>
+          <p>Portal nacional para la actualización del perfil docente, cursos de capacitación, constancias y acreditaciones institucionales.</p>
+        </div>
+
+        <div class="channel-card">
+          <span class="channel-tag-pill">Acompañamiento y Prevención</span>
+          <h4>Coordinación de Tutorías y Preceptorías</h4>
+          <p>Mecanismo de atención tutorial y canalización oportuna de alumnos en riesgo académico o psicosocial en cada uno de los tres cortes.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       BARRA DOCK FLOTANTE INFERIOR (SOLO MÓVIL)
+       ======================================================================== -->
+  <nav class="mobile-dock" id="mobileDock" aria-label="Navegación Móvil">
+    <button class="dock-tab active" data-view="tab-calendar">
+      <span class="dock-icon">🗓️</span>
+      <span>Mes (5D)</span>
+    </button>
+    <button class="dock-tab" data-view="tab-hierarchy">
+      <span class="dock-icon">📅</span>
+      <span>Semanas</span>
+    </button>
+    <button class="dock-tab" data-view="tab-events">
+      <span class="dock-icon">🎭</span>
+      <span>Eventos</span>
+    </button>
+    <button class="dock-tab" data-view="tab-modules">
+      <span class="dock-icon">📋</span>
+      <span>Módulos</span>
+    </button>
+    <button class="dock-tab" data-view="tab-channels">
+      <span class="dock-icon">📬</span>
+      <span>Medios</span>
+    </button>
+  </nav>
+
+  <!-- ========================================================================
+       MODAL DE SUSCRIPCIÓN .ICS (RFC 5545)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="icsModalDlg">
+    <div class="modal-dialog">
+      <div class="modal-hdr">
+        <h3>📅 Calendario Digital CONALEP</h3>
+        <button class="btn-close-dlg" id="btnCloseIcsDlg">✕</button>
+      </div>
+      <div class="modal-content-text">
+        <p>Sincroniza todas las fechas clave, cortes SAE, asesorías y asuetos oficiales de CONALEP Pachuca II directamente en tu calendario de Apple, Outlook o Google Calendar.</p>
+        
+        <button class="btn-dl-ics-big" id="btnDownloadIcsDirectly">
+          <span>⬇️</span>
+          <span>Descargar agenda_conalep.ics</span>
+        </button>
+
+        <div class="dlg-instructions">
+          <strong>Pasos rápidos de importación:</strong>
+          <ol>
+            <li><strong>iPhone / iPad / Mac:</strong> Abre el archivo descargado y presiona <em>"Añadir a Calendarios"</em>.</li>
+            <li><strong>Microsoft Outlook:</strong> En el calendario web, selecciona <em>"Agregar calendario" &gt; "Cargar desde archivo"</em>.</li>
+            <li><strong>Google Calendar:</strong> En Configuración &gt; <em>"Importar y exportar"</em> sube el archivo `.ics`.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       LÓGICA JAVASCRIPT MODULAR Y AUTÓNOMA
+       ======================================================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ======================================================================
+         1. DICCIONARIO JS MAESTRO INMUTABLE (OFICIAL CONALEP 1.26.27)
+         ====================================================================== */
+      const CONALEP_EVENTS = Object.freeze([
+        {
+          id: "ev-0727-descarga",
+          date: "2026-07-27",
+          endDate: "2026-08-07",
+          title: "📋 Periodo de Descarga Académica y Horarios",
+          desc: "Entrega de módulos, horarios a docentes y firma de contratos de Descarga Académica del semestre 1.26.27.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "DESCARGA",
+          location: "Plantel Pachuca II"
+        },
+        {
+          id: "ev-0810-inicio",
+          date: "2026-08-10",
+          endDate: "2026-08-14",
+          title: "🟢 Inicio de Semestre 1.26.27 y Diagnóstico",
+          desc: "Arranque de Semana 00 de Diagnóstico Pedagógico, encuadre didáctico modular y práctica cero.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "OFICIAL",
+          location: "CONALEP Plantel Pachuca II"
+        },
+        {
+          id: "ev-0810-plan1",
+          date: "2026-08-10",
+          title: "📝 Entrega 1er Avance de Planeaciones Didácticas",
+          desc: "Registro de planeaciones didácticas en plataforma (periodo 10 Ago - 30 Sep) y productos de Descarga Académica.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-corte",
+          statusText: "ENTREGA",
+          location: "Plataforma CONALEP / OneDrive"
+        },
+        {
+          id: "ev-0811-ft1",
+          date: "2026-08-11",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (1)",
+          desc: "Reunión colegiada estatal de Formación Técnica y Coordinación Académica.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "COLEGIADO",
+          location: "Microsoft Teams / Virtual"
+        },
+        {
+          id: "ev-0814-ctems1",
+          date: "2026-08-14",
+          time: "10:00 - 13:00",
+          title: "🏛️ Primera Sesión Ordinaria de CTEMS",
+          desc: "Sesión del Comité Técnico de Educación Media Superior de inicio de ciclo.",
+          category: "sindicato",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "SESIÓN CTEMS",
+          location: "Sala de Juntas Plantel Pachuca II"
+        },
+        {
+          id: "ev-0817-acad",
+          date: "2026-08-17",
+          title: "📚 Publicación Calendario de Reuniones de Academia",
+          desc: "Envío oficial del calendario de reuniones de academias por campo disciplinar para el semestre 1.26.27.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "ACADEMIA",
+          location: "Formación Técnica"
+        },
+        {
+          id: "ev-0825-ft2",
+          date: "2026-08-25",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (2)",
+          desc: "Seguimiento académico estatal sobre el avance didáctico.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-0826-tutorias",
+          date: "2026-08-26",
+          title: "🩺 Integración del Comité de Tutorías",
+          desc: "Entrega de programaciones semestrales de Tutorías, Orientación Educativa y Escuela para Padres.",
+          category: "tutorias",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "TUTORÍAS",
+          location: "Área de Tutorías"
+        },
+        {
+          id: "ev-0901-sid",
+          date: "2026-09-01",
+          title: "📋 Apertura Sistema Integral Docente (SID)",
+          desc: "Inicio de registro y actualización curricular docente en plataforma SID.",
+          category: "sindicato",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "SID",
+          location: "Portal SID CONALEP"
+        },
+        {
+          id: "ev-0908-ft3",
+          date: "2026-09-08",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (3)",
+          desc: "Evaluación preliminar de desempeño estudiantil del primer corte.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-0910-plan2",
+          date: "2026-09-10",
+          title: "📝 2do Avance de Planeaciones Didácticas",
+          desc: "Fecha límite para registro del segundo avance de planeación (01 Octubre - 30 Noviembre 2026).",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-corte",
+          statusText: "ENTREGA",
+          location: "Plataforma CONALEP"
+        },
+        {
+          id: "ev-0914-can1",
+          date: "2026-09-14",
+          title: "🩺 Entrega de Canalizaciones de Alumnos (1er Corte)",
+          desc: "Entrega de formatos de canalización para alumnos en rezago hacia Tutorías y Orientación.",
+          category: "tutorias",
+          corte: 1,
+          badge: "badge-corte",
+          statusText: "CANALIZACIÓN",
+          location: "Coordinación de Tutorías"
+        },
+        {
+          id: "ev-0916-asueto",
+          date: "2026-09-16",
+          title: "🇲🇽 Asueto Oficial: Independencia de México",
+          desc: "Suspensión oficial de actividades escolares y administrativas.",
+          category: "sindicato",
+          corte: 1,
+          badge: "badge-asueto",
+          statusText: "ASUETO OFICIAL",
+          location: "Nacional / Pachuca II"
+        },
+        {
+          id: "ev-0919-simulacro",
+          date: "2026-09-19",
+          time: "11:00",
+          title: "🚨 Simulacro Nacional de Protección Civil",
+          desc: "Protocolo de evacuación y repliegue seguro en instalaciones de CONALEP Pachuca II.",
+          category: "pcivil",
+          corte: 1,
+          badge: "badge-urgente",
+          statusText: "PROTECCIÓN CIVIL",
+          location: "Instalaciones Plantel Pachuca II"
+        },
+        {
+          id: "ev-0921-sae1",
+          date: "2026-09-21",
+          endDate: "2026-09-22",
+          title: "⭐ Captura en SAE: 1er Corte y Asesorías",
+          desc: "Periodo perentorio para vaciar calificaciones y rúbricas del Primer Corte en SAE.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-corte",
+          statusText: "CAPTURA SAE",
+          location: "Sistema SAE CONALEP"
+        },
+        {
+          id: "ev-0922-ft4",
+          date: "2026-09-22",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (4)",
+          desc: "Revisión estatal del cierre de captura del primer corte.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-0930-planfin",
+          date: "2026-09-30",
+          title: "📝 Conclusión Registro de Planeaciones Didácticas",
+          desc: "Cierre definitivo del sistema de planeación docente para la totalidad de módulos.",
+          category: "modulos",
+          corte: 1,
+          badge: "badge-corte",
+          statusText: "CIERRE SISTEMA",
+          location: "Plataforma CONALEP"
+        },
+        {
+          id: "ev-1001-pevidd",
+          date: "2026-10-01",
+          title: "👥 Arranque PEVIDD (Evaluación del Desempeño)",
+          desc: "Inicio formal del Programa de Evaluación Integral del Desempeño Docente.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "PEVIDD",
+          location: "Aulas y Talleres"
+        },
+        {
+          id: "ev-1001-asist",
+          date: "2026-10-01",
+          endDate: "2026-10-02",
+          title: "📊 Entrega Listas de Asistencia (Riesgos)",
+          desc: "Entrega a Servicios Escolares de concentrado de asistencia para control de deserción.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "ASISTENCIA",
+          location: "Servicios Escolares"
+        },
+        {
+          id: "ev-1006-ft5",
+          date: "2026-10-06",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (5)",
+          desc: "Seguimiento estatal mensual de aprovechamiento y asesorías.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-1015-descarga-nuevo",
+          date: "2026-10-15",
+          title: "📋 Entrega Descarga Académica (Nuevo Ingreso / >4 Módulos)",
+          desc: "Entrega de productos de Descarga Académica para docentes de nuevo ingreso o con más de cuatro módulos.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "DESCARGA",
+          location: "Formación Técnica"
+        },
+        {
+          id: "ev-1016-estimulo",
+          date: "2026-10-16",
+          time: "11:00 - 13:00",
+          title: "🏛️ Validación Convocatoria Estímulo Docente (EDD)",
+          desc: "Reunión institucional para validación de la convocatoria del Estímulo al Desempeño Docente.",
+          category: "sindicato",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "ESTÍMULO",
+          location: "Dirección / Sala Juntas"
+        },
+        {
+          id: "ev-1020-ft6",
+          date: "2026-10-20",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (6)",
+          desc: "Evaluación preliminar de productos del segundo corte.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-1023-ctems2",
+          date: "2026-10-23",
+          time: "10:00 - 13:00",
+          title: "🏛️ Segunda Sesión Ordinaria de CTEMS",
+          desc: "Análisis colegiado de aprovechamiento y retención del segundo corte.",
+          category: "sindicato",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "SESIÓN CTEMS",
+          location: "Sala de Juntas Plantel Pachuca II"
+        },
+        {
+          id: "ev-1029-catrinas",
+          date: "2026-10-29",
+          time: "14:00 - 19:00",
+          title: "🎭 Festival Día de Muertos y Concurso de Catrinas",
+          desc: "Muestra de altares tradicionales, certamen de catrinas y calaveritas literarias institucionales.",
+          category: "cultural",
+          corte: 2,
+          badge: "badge-oficial",
+          statusText: "FESTIVAL CULTURAL",
+          location: "Plaza Cívica Plantel Pachuca II"
+        },
+        {
+          id: "ev-1030-can2",
+          date: "2026-10-30",
+          title: "🩺 Entrega de Canalizaciones de Alumnos (2do Corte)",
+          desc: "Entrega de fichas de atención a tutorías previas al corte de calificaciones.",
+          category: "tutorias",
+          corte: 2,
+          badge: "badge-corte",
+          statusText: "CANALIZACIÓN",
+          location: "Coordinación de Tutorías"
+        },
+        {
+          id: "ev-1102-asueto",
+          date: "2026-11-02",
+          title: "🕯️ Asueto Oficial: Tradición de Día de Muertos",
+          desc: "Suspensión de labores docentes y administrativas conforme a calendario oficial.",
+          category: "sindicato",
+          corte: 2,
+          badge: "badge-asueto",
+          statusText: "ASUETO OFICIAL",
+          location: "Nacional / Pachuca II"
+        },
+        {
+          id: "ev-1103-sae2",
+          date: "2026-11-03",
+          endDate: "2026-11-04",
+          title: "⭐ Captura en SAE: 2do Corte y Asesorías",
+          desc: "Vaciado oficial de ponderaciones y rúbricas del Segundo Corte en el sistema SAE.",
+          category: "modulos",
+          corte: 2,
+          badge: "badge-corte",
+          statusText: "CAPTURA SAE",
+          location: "Sistema SAE CONALEP"
+        },
+        {
+          id: "ev-1104-evaldoc",
+          date: "2026-11-04",
+          title: "👥 Evaluación Docente Institucional por Alumnos",
+          desc: "Jornada de aplicación de la encuesta de evaluación docente en centros de cómputo.",
+          category: "modulos",
+          corte: 3,
+          badge: "badge-oficial",
+          statusText: "EVALUACIÓN",
+          location: "Laboratorios de Cómputo"
+        },
+        {
+          id: "ev-1106-stem",
+          date: "2026-11-06",
+          time: "20:00 - 23:59",
+          title: "🚨 Vencimiento Oficial: Certificación Docente STEM",
+          desc: "Límite oficial para presentación del examen de Certificación STEM en plataforma.",
+          category: "modulos",
+          corte: 3,
+          badge: "badge-urgente",
+          statusText: "CERTIFICACIÓN",
+          location: "Plataforma STEM"
+        },
+        {
+          id: "ev-1116-asueto",
+          date: "2026-11-16",
+          title: "🇲🇽 Asueto Oficial: Revolución Mexicana",
+          desc: "Suspensión oficial de labores docentes (conmemoración del 20 de Noviembre).",
+          category: "sindicato",
+          corte: 3,
+          badge: "badge-asueto",
+          statusText: "ASUETO OFICIAL",
+          location: "Nacional / Pachuca II"
+        },
+        {
+          id: "ev-1117-ft7",
+          date: "2026-11-17",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (7)",
+          desc: "Revisión colegiada sobre avance de proyectos técnicos integradores.",
+          category: "modulos",
+          corte: 3,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-1127-can3",
+          date: "2026-11-27",
+          title: "🩺 Entrega de Canalizaciones de Alumnos (3er Corte)",
+          desc: "Tercera ronda de canalizaciones preventivas a preceptorías para asesorías complementarias.",
+          category: "tutorias",
+          corte: 3,
+          badge: "badge-corte",
+          statusText: "CANALIZACIÓN",
+          location: "Coordinación de Tutorías"
+        },
+        {
+          id: "ev-1201-ft8",
+          date: "2026-12-01",
+          time: "12:00 - 13:30",
+          title: "💻 Reunión Virtual de Formación Técnica (8)",
+          desc: "Lineamientos de cierre semestral y logística de asesorías intersemestrales.",
+          category: "modulos",
+          corte: 3,
+          badge: "badge-oficial",
+          statusText: "REUNIÓN",
+          location: "Microsoft Teams"
+        },
+        {
+          id: "ev-1210-cierre",
+          date: "2026-12-10",
+          endDate: "2026-12-11",
+          title: "🔴 Corte de Cierre Semestral Regular",
+          desc: "Conclusión de clases regulares, entrega de portafolios de evidencias y cierre de rúbricas al 100%.",
+          category: "modulos",
+          corte: 3,
+          badge: "badge-urgente",
+          statusText: "CORTE CIERRE",
+          location: "CONALEP Plantel Pachuca II"
+        },
+        {
+          id: "ev-1214-ases1",
+          date: "2026-12-14",
+          endDate: "2026-12-18",
+          title: "📘 Asesorías Complementarias (Fase 1)",
+          desc: "Periodo intensivo de asesorías de regularización y recuperación de competencias técnicas.",
+          category: "modulos",
+          corte: 4,
+          badge: "badge-oficial",
+          statusText: "ASESORÍAS",
+          location: "Aulas y Talleres"
+        },
+        {
+          id: "ev-1218-asistfin",
+          date: "2026-12-18",
+          title: "📊 Entrega Final de Listas de Asistencia a Servicios Escolares",
+          desc: "Concentrado semestral oficial firmado para archivo y control escolar.",
+          category: "modulos",
+          corte: 4,
+          badge: "badge-oficial",
+          statusText: "ENTREGA FINAL",
+          location: "Servicios Escolares"
+        },
+        {
+          id: "ev-1221-vac",
+          date: "2026-12-21",
+          endDate: "2027-01-05",
+          title: "🎄 Periodo Vacacional de Invierno / Receso Escolar",
+          desc: "Receso de fin de año para docentes, personal administrativo y alumnos.",
+          category: "sindicato",
+          corte: 4,
+          badge: "badge-asueto",
+          statusText: "VACACIONES",
+          location: "Plantel Pachuca II"
+        },
+        {
+          id: "ev-0106-ases2",
+          date: "2027-01-06",
+          endDate: "2027-01-14",
+          title: "📘 Continuidad de Asesorías Complementarias (Fase 2)",
+          desc: "Reanudación de asesorías intersemestrales y evaluación de instrumentos de recuperación.",
+          category: "modulos",
+          corte: 4,
+          badge: "badge-oficial",
+          statusText: "ASESORÍAS",
+          location: "Aulas y Talleres"
+        },
+        {
+          id: "ev-0115-contrato",
+          date: "2027-01-15",
+          title: "🔴 Captura Final SAE y Conclusión Contrato 1.26.27",
+          desc: "Captura en SAE de calificaciones de asesorías intersemestrales y término administrativo del semestre 1.26.27.",
+          category: "sindicato",
+          corte: 4,
+          badge: "badge-urgente",
+          statusText: "CIERRE CONTRATO",
+          location: "SAE / Recursos Humanos"
+        }
+      ]);
+
+      /* ======================================================================
+         2. CATÁLOGO EXTENSIBLE DE CUMPLEAÑOS (PLANTEL PACHUCA II)
+         ====================================================================== */
+      const CONALEP_CUMPLEANOS = [
+        { nombre: "Alex Martínez", fecha: "2026-08-18", cargo: "Docente Formación Técnica" },
+        { nombre: "Silvia Diego", fecha: "2026-09-24", cargo: "Docente Formación Técnica" },
+        { nombre: "Roberto Guarneros", fecha: "2026-10-14", cargo: "Docente Especialidad" },
+        { nombre: "Coordinación de Formación Técnica", fecha: "2026-11-20", cargo: "Plantel Pachuca II" },
+        { nombre: "Dirección de Plantel", fecha: "2026-12-15", cargo: "CONALEP Pachuca II" }
+      ];
+
+      /* ======================================================================
+         3. CATÁLOGO MAESTRO DE LAS 19 SEMANAS OFICIALES (LUNES A VIERNES)
+         ====================================================================== */
+      const WEEKS_MASTER = [
+        { num: 0, label: "Semana 00 (Diagnóstico)", start: "2026-08-10", end: "2026-08-14", corte: 1, tipo: "diagnostico", tag: "DIAGNÓSTICO", focus: "Encuadre didáctico institucional, diagnóstico pedagógico, libreta de trabajo y práctica cero." },
+        { num: 1, label: "Semana 01 (Inicio RA 1.1)", start: "2026-08-17", end: "2026-08-21", corte: 1, tipo: "tecnica", tag: "FORMACIÓN", focus: "Arranque de formación modular y conceptos clave del núcleo técnico." },
+        { num: 2, label: "Semana 02 (Desarrollo)", start: "2026-08-24", end: "2026-08-28", corte: 1, tipo: "tecnica", tag: "FORMACIÓN", focus: "Desarrollo de prácticas guiadas en taller y laboratorio de cómputo." },
+        { num: 3, label: "Semana 03 (Consolidación)", start: "2026-08-31", end: "2026-09-04", corte: 1, tipo: "tecnica", tag: "EVALUACIÓN RA", focus: "Consolidación de primeros productos y rúbricas del Resultado de Aprendizaje 1.1." },
+        { num: 4, label: "Semana 04 (Avance RA 1.2)", start: "2026-09-07", end: "2026-09-11", corte: 1, tipo: "tecnica", tag: "FORMACIÓN", focus: "Automatización de procesos y revisión previa al cierre del primer bloque." },
+        { num: 5, label: "Semana 05 (Cierre 1er Corte)", start: "2026-09-14", end: "2026-09-18", corte: 1, tipo: "asueto", tag: "ASUETO Y CIERRE", focus: "14 Sep: Canalizaciones. 16 Sep: Asueto Independencia. Cierre de evidencias del 1er corte." },
+        { num: 6, label: "Semana 06 (SAE 1er Corte)", start: "2026-09-21", end: "2026-09-25", corte: 2, tipo: "sae", tag: "CAPTURA SAE", focus: "21-22 Sep: Captura del 1er Corte en SAE. Inicio de temas del segundo bloque." },
+        { num: 7, label: "Semana 07 (Planeaciones Fin)", start: "2026-09-28", end: "2026-10-02", corte: 2, tipo: "evaluacion", tag: "PEVIDD / PLAN", focus: "30 Sep: Conclusión planeaciones en plataforma. 01 Oct: Inicio de PEVIDD y entrega de asistencias." },
+        { num: 8, label: "Semana 08 (Laboratorios)", start: "2026-10-05", end: "2026-10-09", corte: 2, tipo: "tecnica", tag: "PRÁCTICA", focus: "Desarrollo técnico y aplicación de protocolos en laboratorios." },
+        { num: 9, label: "Semana 09 (Evaluación RA 2.1)", start: "2026-10-12", end: "2026-10-16", corte: 2, tipo: "tecnica", tag: "EVALUACIÓN RA", focus: "Evaluación intermedia del segundo bloque y retroalimentación individual." },
+        { num: 10, label: "Semana 10 (Protocolos)", start: "2026-10-19", end: "2026-10-23", corte: 2, tipo: "tecnica", tag: "FORMACIÓN", focus: "23 Oct: CTEMS. Fortalecimiento de competencias técnicas y control de rezago." },
+        { num: 11, label: "Semana 11 (Cierre 2do Corte)", start: "2026-10-26", end: "2026-10-30", corte: 2, tipo: "asueto", tag: "CULTURAL / CAN", focus: "29 Oct: Festival Día de Muertos. 30 Oct: Canalizaciones 2do corte y rúbricas." },
+        { num: 12, label: "Semana 12 (SAE 2do Corte)", start: "2026-11-02", end: "2026-11-06", corte: 3, tipo: "sae", tag: "ASUETO Y SAE", focus: "02 Nov: Asueto Oficial. 03-04 Nov: Captura en SAE 2do corte. 04 Nov: Evaluación Docente." },
+        { num: 13, label: "Semana 13 (Inicio 3er Corte)", start: "2026-11-09", end: "2026-11-13", corte: 3, tipo: "tecnica", tag: "PROYECTOS", focus: "Inicio de contenidos del 3er corte y definición de proyectos integradores." },
+        { num: 14, label: "Semana 14 (Optimización)", start: "2026-11-16", end: "2026-11-20", corte: 3, tipo: "asueto", tag: "ASUETO Y TALLER", focus: "16 Nov: Asueto Revolución Mexicana. Optimización de proyectos técnicos." },
+        { num: 15, label: "Semana 15 (Evaluación RA 3.1)", start: "2026-11-23", end: "2026-11-27", corte: 3, tipo: "tecnica", tag: "EVALUACIÓN RA", focus: "27 Nov: Entrega de canalizaciones preventivas del 3er corte hacia preceptorías." },
+        { num: 16, label: "Semana 16 (Proyectos)", start: "2026-11-30", end: "2026-12-04", corte: 3, tipo: "tecnica", tag: "PROYECTOS", focus: "01 Dic: Reunión Formación Técnica. Integración de evidencias y cierre de portafolios." },
+        { num: 17, label: "Semana 17 (Corte de Cierre)", start: "2026-12-07", end: "2026-12-11", corte: 3, tipo: "cierre", tag: "CORTE CIERRE", focus: "10-11 Dic: Corte de cierre semestral regular y consolidación de calificaciones." },
+        { num: 18, label: "Semana 18 (Asesorías Fase 1)", start: "2026-12-14", end: "2026-12-18", corte: 4, tipo: "asesorias", tag: "ASESORÍAS", focus: "Asesorías complementarias intersemestrales intensivas y entrega final de asistencias (18 Dic)." },
+        { num: 19, label: "Semana 19 (Asesorías Fase 2)", start: "2027-01-06", end: "2027-01-15", corte: 4, tipo: "cierre", tag: "CIERRE FINAL", focus: "06-14 Ene: Asesorías fase 2. 15 Ene: Captura definitiva en SAE y cierre de contrato 1.26.27." }
+      ];
+
+      /* ======================================================================
+         4. ESTADO GLOBAL DE LA APP CON AUTO-DETECCIÓN DE HOY
+         ====================================================================== */
+      const MONTH_CONFIG = {
+        "2026-08": { name: "Agosto 2026", corte: "1er Corte", style: "background:var(--color-corte-1-bg); color:var(--color-corte-1);" },
+        "2026-09": { name: "Septiembre 2026", corte: "1er Corte (Cierre)", style: "background:var(--color-corte-1-bg); color:var(--color-corte-1);" },
+        "2026-10": { name: "Octubre 2026", corte: "2do Corte", style: "background:var(--color-corte-2-bg); color:var(--color-corte-2);" },
+        "2026-11": { name: "Noviembre 2026", corte: "2do y 3er Corte", style: "background:var(--color-corte-2-bg); color:var(--color-corte-2);" },
+        "2026-12": { name: "Diciembre 2026", corte: "3er Corte / Cierre", style: "background:var(--color-corte-3-bg); color:var(--color-corte-3);" },
+        "2027-01": { name: "Enero 2027", corte: "Asesorías y Cierre", style: "background:var(--color-asesoria-bg); color:var(--color-asesoria);" }
+      };
+
+      const MONTH_KEYS = Object.keys(MONTH_CONFIG);
+
+      // Detección automática del día actual
+      const realTodayIso = new Date().toISOString().slice(0, 10);
+      const realTodayMonth = realTodayIso.slice(0, 7);
+
+      // Si hoy está en el rango del semestre usarlo, sino por defecto Octubre 2026 o el mes inicial
+      const initialMonthKey = MONTH_CONFIG[realTodayMonth] ? realTodayMonth : "2026-10";
+
+      const state = {
+        activeMonthKey: initialMonthKey,
+        selectedDate: realTodayIso,
+        activeCategory: "all",
+        searchFilter: "",
+        activeView: "tab-calendar"
+      };
+
+      /* ======================================================================
+         5. MODO OSCURO / CLARO PERSISTENTE (LIGHT MODE FIRST)
+         ====================================================================== */
+      const btnThemeToggle = document.getElementById('btnThemeToggle');
+      const themeEmoji = document.getElementById('themeEmoji');
+
+      function setupTheme() {
+        const saved = localStorage.getItem('conalep_theme_mode');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          themeEmoji.textContent = '☀️';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          themeEmoji.textContent = '🌙';
+        }
+      }
+
+      btnThemeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        themeEmoji.textContent = next === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('conalep_theme_mode', next);
+      });
+
+      /* ======================================================================
+         6. AUTO-NAVEGACIÓN A "HOY" Y BANNER INTELIGENTE
+         ====================================================================== */
+      const todayBannerText = document.getElementById('todayBannerText');
+      const todayWeekTag = document.getElementById('todayWeekTag');
+      const btnGoToday = document.getElementById('btnGoToday');
+
+      function updateTodayBanner() {
+        const dObj = new Date();
+        const formatter = new Intl.DateTimeFormat('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        const textDate = formatter.format(dObj);
+
+        const currentWeekNum = getWeekNumberForDate(realTodayIso);
+        
+        if (currentWeekNum !== null) {
+          todayBannerText.innerHTML = `<strong>Hoy:</strong> ${textDate}`;
+          todayWeekTag.textContent = `Semana ${currentWeekNum} Activa`;
+        } else {
+          todayBannerText.innerHTML = `<strong>Hoy:</strong> ${textDate}`;
+          todayWeekTag.textContent = `Ciclo 2026-2027`;
+        }
+      }
+
+      function jumpToToday() {
+        const nowIso = new Date().toISOString().slice(0, 10);
+        const nowMonth = nowIso.slice(0, 7);
+
+        if (MONTH_CONFIG[nowMonth]) {
+          state.activeMonthKey = nowMonth;
+        }
+        state.selectedDate = nowIso;
+
+        // Si estamos en la vista de calendario
+        render5DaysCalendar(state.activeMonthKey);
+
+        // Si estamos en la vista de jerarquía, hacer scroll suave a la semana actual
+        if (state.activeView === 'tab-hierarchy') {
+          const currentWeekEl = document.querySelector('.semana-bloque.active-current-week');
+          if (currentWeekEl) {
+            currentWeekEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }
+
+      btnGoToday.addEventListener('click', jumpToToday);
+
+      /* ======================================================================
+         7. NAVEGACIÓN DUAL ADAPTATIVA (DESKTOP & MOBILE DOCK)
+         ====================================================================== */
+      function switchViewTab(tabId) {
+        state.activeView = tabId;
+
+        document.querySelectorAll('.view-section').forEach(sec => {
+          sec.classList.toggle('active', sec.id === tabId);
+        });
+
+        document.querySelectorAll('.desktop-nav-tab').forEach(tab => {
+          tab.classList.toggle('active', tab.getAttribute('data-view') === tabId);
+        });
+
+        document.querySelectorAll('.dock-tab').forEach(tab => {
+          tab.classList.toggle('active', tab.getAttribute('data-view') === tabId);
+        });
+
+        if (tabId === 'tab-calendar') {
+          render5DaysCalendar(state.activeMonthKey);
+        } else if (tabId === 'tab-hierarchy') {
+          renderJerarquiaSemanas();
+        } else if (tabId === 'tab-events') {
+          renderTimelineEvents();
+        }
+      }
+
+      document.querySelectorAll('.desktop-nav-tab, .dock-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.getAttribute('data-view');
+          if (tabId) switchViewTab(tabId);
+        });
+      });
+
+      /* ======================================================================
+         8. HELPERS DE FECHAS Y EVENTOS
+         ====================================================================== */
+      function getEventsByDate(dateStr) {
+        const evs = CONALEP_EVENTS.filter(ev => {
+          if (ev.endDate) {
+            return dateStr >= ev.date && dateStr <= ev.endDate;
+          }
+          return ev.date === dateStr;
+        });
+
+        // Revisar si hay cumpleaños
+        const cumples = CONALEP_CUMPLEANOS.filter(c => c.fecha === dateStr);
+        cumples.forEach(c => {
+          evs.push({
+            id: `cumple-${c.nombre}`,
+            date: c.fecha,
+            title: `🎂 Cumpleaños: ${c.nombre}`,
+            desc: `Felicitación institucional al docente/personal: ${c.cargo}.`,
+            category: "cumple",
+            corte: null,
+            badge: "badge-cumple",
+            statusText: "CUMPLEAÑOS",
+            location: "Plantel Pachuca II"
+          });
+        });
+
+        return evs;
+      }
+
+      function getCategoryColor(cat) {
+        switch(cat) {
+          case 'modulos': return 'var(--cat-modulos)';
+          case 'sindicato': return 'var(--cat-sindicato)';
+          case 'cultural': return 'var(--cat-cultural)';
+          case 'tutorias': return 'var(--cat-tutorias)';
+          case 'pcivil': return 'var(--cat-pcivil)';
+          case 'cumple': return 'var(--cat-cumple)';
+          default: return 'var(--conalep-primary)';
+        }
+      }
+
+      function getWeekNumberForDate(dateStr) {
+        for (let i = 0; i < WEEKS_MASTER.length; i++) {
+          const w = WEEKS_MASTER[i];
+          if (dateStr >= w.start && dateStr <= w.end) {
+            return w.num;
+          }
+        }
+        return null;
+      }
+
+      /* ======================================================================
+         9. VISTA 1: 🗓️ CALENDARIO STRICT 5 DÍAS (LUNES A VIERNES)
+         ====================================================================== */
+      const calMonthTitleText = document.getElementById('calMonthTitleText');
+      const calCorteBadge = document.getElementById('calCorteBadge');
+      const calendarDaysGrid5 = document.getElementById('calendarDaysGrid5');
+      const btnCalPrevMonth = document.getElementById('btnCalPrevMonth');
+      const btnCalNextMonth = document.getElementById('btnCalNextMonth');
+      const monthChipsBar = document.getElementById('monthChipsBar');
+
+      function updateChipsBar(monthKey) {
+        monthChipsBar.querySelectorAll('.m-chip-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-month') === monthKey);
+        });
+      }
+
+      function render5DaysCalendar(monthKey) {
+        state.activeMonthKey = monthKey;
+        const cfg = MONTH_CONFIG[monthKey] || { name: monthKey, corte: "Semestre", style: "" };
+        calMonthTitleText.textContent = cfg.name;
+        calCorteBadge.textContent = cfg.corte;
+        calCorteBadge.setAttribute('style', cfg.style);
+
+        updateChipsBar(monthKey);
+
+        const [yStr, mStr] = monthKey.split('-');
+        const year = parseInt(yStr, 10);
+        const month = parseInt(mStr, 10);
+
+        const daysInMonth = new Date(year, month, 0).getDate();
+        const weekdaysInMonth = [];
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const dateObj = new Date(year, month - 1, d);
+          const dow = dateObj.getDay();
+          // Excluir Sábados (6) y Domingos (0)
+          if (dow !== 0 && dow !== 6) {
+            const dayFormatted = String(d).padStart(2, '0');
+            const iso = `${yStr}-${mStr}-${dayFormatted}`;
+            weekdaysInMonth.push({
+              dayNum: d,
+              dow: dow,
+              iso: iso
+            });
+          }
+        }
+
+        calendarDaysGrid5.innerHTML = '';
+        if (weekdaysInMonth.length === 0) return;
+
+        const firstDow = weekdaysInMonth[0].dow;
+        const leadingEmptyCells = firstDow - 1;
+
+        for (let i = 0; i < leadingEmptyCells; i++) {
+          const emptyCell = document.createElement('div');
+          emptyCell.className = 'day-cell-5days other-month';
+          emptyCell.innerHTML = `<span class="day-cell-num" style="opacity:0.25;">•</span>`;
+          calendarDaysGrid5.appendChild(emptyCell);
+        }
+
+        const todayIso = new Date().toISOString().slice(0, 10);
+
+        weekdaysInMonth.forEach(dayItem => {
+          const cell = document.createElement('div');
+          cell.className = 'day-cell-5days';
+          if (dayItem.iso === todayIso) cell.classList.add('today');
+          if (dayItem.iso === state.selectedDate) cell.classList.add('selected');
+
+          const events = getEventsByDate(dayItem.iso);
+          const weekNum = getWeekNumberForDate(dayItem.iso);
+
+          let chipsHtml = '';
+          let dotsHtml = '';
+
+          if (events.length > 0) {
+            chipsHtml = `<div class="cell-events-list">`;
+            dotsHtml = `<div class="cell-dots-row">`;
+            events.forEach(ev => {
+              const catColor = getCategoryColor(ev.category);
+              chipsHtml += `<div class="cell-event-chip" style="background:${catColor}18; color:${catColor}; border-left-color:${catColor};" title="${ev.title}">${ev.title}</div>`;
+              dotsHtml += `<span class="cell-dot" style="background:${catColor};" title="${ev.title}"></span>`;
+            });
+            chipsHtml += `</div>`;
+            dotsHtml += `</div>`;
+          }
+
+          cell.innerHTML = `
+            <div class="day-cell-top">
+              <span class="day-cell-num">${dayItem.dayNum}</span>
+              ${weekNum !== null ? `<span class="day-cell-weektag">S${weekNum}</span>` : ''}
+            </div>
+            ${chipsHtml}
+            ${dotsHtml}
+          `;
+
+          cell.addEventListener('click', () => {
+            document.querySelectorAll('.day-cell-5days.selected').forEach(c => c.classList.remove('selected'));
+            cell.classList.add('selected');
+            state.selectedDate = dayItem.iso;
+            renderInspectorDay(dayItem.iso);
+          });
+
+          calendarDaysGrid5.appendChild(cell);
+        });
+
+        const totalRendered = leadingEmptyCells + weekdaysInMonth.length;
+        const trailingEmpty = (totalRendered % 5 === 0) ? 0 : 5 - (totalRendered % 5);
+        for (let j = 0; j < trailingEmpty; j++) {
+          const emptyCell = document.createElement('div');
+          emptyCell.className = 'day-cell-5days other-month';
+          emptyCell.innerHTML = `<span class="day-cell-num" style="opacity:0.25;">•</span>`;
+          calendarDaysGrid5.appendChild(emptyCell);
+        }
+
+        renderInspectorDay(state.selectedDate);
+      }
+
+      // Inspector de Día Seleccionado
+      const inspectorDateLabel = document.getElementById('inspectorDateLabel');
+      const inspectorCorteTag = document.getElementById('inspectorCorteTag');
+      const inspectorEventsContainer = document.getElementById('inspectorEventsContainer');
+
+      function renderInspectorDay(dateIso) {
+        if (!dateIso) return;
+        const [y, m, d] = dateIso.split('-');
+        const dObj = new Date(parseInt(y, 10), parseInt(m, 10) - 1, parseInt(d, 10));
+        const formatter = new Intl.DateTimeFormat('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        inspectorDateLabel.textContent = formatter.format(dObj);
+
+        const events = getEventsByDate(dateIso);
+        const weekNum = getWeekNumberForDate(dateIso);
+
+        if (events.length === 0) {
+          inspectorEventsContainer.innerHTML = `
+            <div style="font-size:12px; color:var(--text-muted); padding:10px 0;">
+              <strong>Actividad Modular Regular:</strong> Sesiones didácticas en aula y talleres conforme a horario oficial docente.
+              ${weekNum !== null ? `<div style="margin-top:4px; font-size:11px; color:var(--conalep-primary); font-weight:700;">Semana ${weekNum} oficial del semestre 1.26.27</div>` : ''}
+            </div>
+          `;
+          inspectorCorteTag.style.display = 'none';
+          return;
+        }
+
+        inspectorCorteTag.style.display = 'inline-block';
+        inspectorCorteTag.textContent = events[0].corte === 4 ? 'Asesorías' : (events[0].corte ? `Corte ${events[0].corte}` : 'Institucional');
+        inspectorCorteTag.style.background = events[0].corte === 4 ? 'var(--color-asesoria-bg)' : (events[0].corte ? `var(--color-corte-${events[0].corte}-bg)` : 'var(--bg-subtle)');
+        inspectorCorteTag.style.color = events[0].corte === 4 ? 'var(--color-asesoria)' : (events[0].corte ? `var(--color-corte-${events[0].corte})` : 'var(--text-main)');
+
+        let html = '<div style="display:flex; flex-direction:column; gap:8px;">';
+        events.forEach(ev => {
+          const catColor = getCategoryColor(ev.category);
+          html += `
+            <div class="evento-card" style="border-left: 4px solid ${catColor};">
+              <div class="evento-header-row">
+                <span class="evento-titulo-text">${ev.title}</span>
+                <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
+              </div>
+              <div class="evento-desc-text">${ev.desc}</div>
+              <div class="evento-meta-row">
+                <span>⏰ ${ev.time || 'Fecha Institucional'}</span>
+                <span>📍 ${ev.location}</span>
+                <span style="color:${catColor}; font-weight:700;">#${ev.category}</span>
+              </div>
+            </div>
+          `;
+        });
+        html += '</div>';
+
+        inspectorEventsContainer.innerHTML = html;
+      }
+
+      btnCalPrevMonth.addEventListener('click', () => {
+        const idx = MONTH_KEYS.indexOf(state.activeMonthKey);
+        if (idx > 0) render5DaysCalendar(MONTH_KEYS[idx - 1]);
+      });
+
+      btnCalNextMonth.addEventListener('click', () => {
+        const idx = MONTH_KEYS.indexOf(state.activeMonthKey);
+        if (idx < MONTH_KEYS.length - 1) render5DaysCalendar(MONTH_KEYS[idx + 1]);
+      });
+
+      monthChipsBar.querySelectorAll('.m-chip-btn').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const m = chip.getAttribute('data-month');
+          if (m) render5DaysCalendar(m);
+        });
+      });
+
+      /* ======================================================================
+         10. VISTA 2: 📅 SEMANAS Y JERARQUÍA (ESTILO MAESTRO CEB 5/4)
+         ====================================================================== */
+      const jerarquiaContainer = document.getElementById('jerarquiaContainer');
+
+      function renderJerarquiaSemanas() {
+        const mesesGrupos = {
+          "2026-08": { name: "Agosto 2026", semanas: [] },
+          "2026-09": { name: "Septiembre 2026", semanas: [] },
+          "2026-10": { name: "Octubre 2026", semanas: [] },
+          "2026-11": { name: "Noviembre 2026", semanas: [] },
+          "2026-12": { name: "Diciembre 2026", semanas: [] },
+          "2027-01": { name: "Enero 2027", semanas: [] }
+        };
+
+        WEEKS_MASTER.forEach(w => {
+          const mKey = w.start.slice(0, 7);
+          if (mesesGrupos[mKey]) {
+            mesesGrupos[mKey].semanas.push(w);
+          }
+        });
+
+        let fullHtml = '';
+        const todayIso = new Date().toISOString().slice(0, 10);
+
+        Object.keys(mesesGrupos).forEach(mKey => {
+          const mData = mesesGrupos[mKey];
+          if (mData.semanas.length === 0) return;
+
+          let semanasHtml = '';
+
+          mData.semanas.forEach(sem => {
+            const isCurrentWeek = todayIso >= sem.start && todayIso <= sem.end;
+
+            // Obtener eventos que caigan en esta semana (Lun a Vie)
+            const eventosSemana = CONALEP_EVENTS.filter(ev => {
+              if (ev.endDate) {
+                return (ev.date <= sem.end && ev.endDate >= sem.start);
+              }
+              return (ev.date >= sem.start && ev.date <= sem.end);
+            });
+
+            // Cumpleaños de la semana
+            const cumplesSemana = CONALEP_CUMPLEANOS.filter(c => c.fecha >= sem.start && c.fecha <= sem.end);
+
+            let bloqueClass = 'semana-bloque';
+            if (isCurrentWeek) bloqueClass += ' active-current-week';
+            if (sem.tipo === 'sae') bloqueClass += ' corte-sae';
+            else if (sem.tipo === 'asueto') bloqueClass += ' asueto-oficial';
+            else if (sem.tipo === 'cierre') bloqueClass += ' cierre-semestral';
+            else if (sem.tipo === 'asesorias') bloqueClass += ' asesorias-recup';
+
+            let cardsHtml = '';
+            if (eventosSemana.length > 0) {
+              cardsHtml = `<div class="eventos-grid-semana">`;
+              eventosSemana.forEach(ev => {
+                const catColor = getCategoryColor(ev.category);
+                let heroCardClass = 'evento-card';
+                if (ev.badge === 'badge-asueto') heroCardClass += ' hero-asueto';
+                else if (ev.badge === 'badge-corte') heroCardClass += ' hero-sae';
+                else if (ev.badge === 'badge-urgente') heroCardClass += ' hero-cierre';
+
+                cardsHtml += `
+                  <div class="${heroCardClass}" style="border-left-color: ${catColor};">
+                    <div class="evento-header-row">
+                      <h4 class="evento-titulo-text">${ev.title}</h4>
+                      <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
+                    </div>
+                    <p class="evento-desc-text">${ev.desc}</p>
+                    <div class="evento-meta-row">
+                      <span>📅 ${ev.date}</span>
+                      <span>⏰ ${ev.time || 'Oficial'}</span>
+                      <span>📍 ${ev.location}</span>
+                    </div>
+                  </div>
+                `;
+              });
+              cardsHtml += `</div>`;
+            } else {
+              cardsHtml = `
+                <div style="font-size:12px; color:var(--text-muted); padding:6px 0; font-style:italic;">
+                  ☕ Sin eventos institucionales extraordinarios programados. Avance de contenidos y actividades modulares en aula / taller.
+                </div>
+              `;
+            }
+
+            // Tira de cumpleaños si hay
+            let cumpleHtml = '';
+            if (cumplesSemana.length > 0) {
+              cumpleHtml = `
+                <div class="cumple-strip-semana">
+                  <span style="font-size:11px; font-weight:800; color:var(--cat-cumple); text-transform:uppercase;">🎂 Cumpleaños</span>
+                  ${cumplesSemana.map(c => `
+                    <span style="font-size:11.5px; font-weight:600; color:var(--text-main);">
+                      ${c.nombre} (${c.fecha.slice(8,10)} ${MONTH_CONFIG[c.fecha.slice(0,7)].name.slice(0,3)})
+                    </span>
+                  `).join(' • ')}
+                </div>
+              `;
+            }
+
+            semanasHtml += `
+              <div class="${bloqueClass}" id="semana-${sem.num}">
+                <div class="semana-header">
+                  <span class="semana-num-pill">${sem.label}</span>
+                  <span class="semana-rango-text">${sem.start} al ${sem.end}</span>
+                  <span class="semana-tipo-badge">${sem.tag}</span>
+                  ${isCurrentWeek ? '<span style="background:var(--conalep-primary); color:white; font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px;">📍 SEMANA ACTUAL</span>' : ''}
+                  <span style="font-size:11px; font-weight:700; color:var(--conalep-primary); margin-left:auto;">
+                    ${sem.corte === 4 ? 'Periodo de Asesorías' : `Corte ${sem.corte}`}
+                  </span>
+                </div>
+                <div class="semana-foco-desc">📌 Foco Pedagógico: ${sem.focus}</div>
+                ${cardsHtml}
+                ${cumpleHtml}
+              </div>
+            `;
+          });
+
+          fullHtml += `
+            <div class="mes-seccion">
+              <h3 class="mes-titulo-ceb">${mData.name}</h3>
+              ${semanasHtml}
+            </div>
+          `;
+        });
+
+        jerarquiaContainer.innerHTML = fullHtml;
+      }
+
+      /* ======================================================================
+         11. VISTA 3: 🎭 EVENTOS Y BUSCADOR POR CATEGORÍAS
+         ====================================================================== */
+      const eventsTimelineList = document.getElementById('eventsTimelineList');
+      const eventsSearchInput = document.getElementById('eventsSearchInput');
+      const categoryChipsBar = document.getElementById('categoryChipsBar');
+
+      categoryChipsBar.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryChipsBar.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.activeCategory = btn.getAttribute('data-cat');
+          renderTimelineEvents();
+        });
+      });
+
+      eventsSearchInput.addEventListener('input', (e) => {
+        state.searchFilter = e.target.value.toLowerCase().trim();
+        renderTimelineEvents();
+      });
+
+      function renderTimelineEvents() {
+        let allItems = [...CONALEP_EVENTS];
+
+        CONALEP_CUMPLEANOS.forEach(c => {
+          allItems.push({
+            id: `cumple-${c.nombre}`,
+            date: c.fecha,
+            title: `🎂 Cumpleaños: ${c.nombre}`,
+            desc: `Felicitación institucional al docente/personal: ${c.cargo}.`,
+            category: "cumple",
+            corte: null,
+            badge: "badge-cumple",
+            statusText: "CUMPLEAÑOS",
+            location: "Plantel Pachuca II"
+          });
+        });
+
+        allItems.sort((a, b) => a.date.localeCompare(b.date));
+
+        const filtered = allItems.filter(ev => {
+          const matchCat = state.activeCategory === 'all' || ev.category === state.activeCategory;
+          const matchSearch = !state.searchFilter ||
+            ev.title.toLowerCase().includes(state.searchFilter) ||
+            ev.desc.toLowerCase().includes(state.searchFilter) ||
+            ev.location.toLowerCase().includes(state.searchFilter) ||
+            ev.date.includes(state.searchFilter);
+          return matchCat && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+          eventsTimelineList.innerHTML = `
+            <div class="guide-box" style="text-align:center; padding:24px; color:var(--text-muted);">
+              No se encontraron fechas o eventos para el filtro seleccionado.
+            </div>
+          `;
+          return;
+        }
+
+        const MONTH_MAP = {
+          "01": "ENE", "02": "FEB", "03": "MAR", "04": "ABR", "05": "MAY", "06": "JUN",
+          "07": "JUL", "08": "AGO", "09": "SEP", "10": "OCT", "11": "NOV", "12": "DIC"
+        };
+
+        let html = '';
+        filtered.forEach(ev => {
+          const parts = ev.date.split('-');
+          const mText = MONTH_MAP[parts[1]] || parts[1];
+          const dText = parts[2];
+          const catColor = getCategoryColor(ev.category);
+
+          html += `
+            <div class="timeline-item-card">
+              <div class="tl-date-badge">
+                <span class="tl-month-str">${mText}</span>
+                <span class="tl-day-num">${dText}</span>
+              </div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                  <span class="evento-badge-status ${ev.badge}">${ev.statusText}</span>
+                  <span style="font-size:10px; font-family:var(--font-mono); color:var(--text-muted);">${ev.time || 'Fecha Institucional'}</span>
+                  <span style="font-size:10px; font-weight:700; color:${catColor};">#${ev.category}</span>
+                </div>
+                <div class="evento-titulo-text" style="font-size:14px;">${ev.title}</div>
+                <div class="evento-desc-text">${ev.desc}</div>
+                <div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">📍 ${ev.location}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        eventsTimelineList.innerHTML = html;
+      }
+
+      /* ======================================================================
+         12. IMPRESIÓN OFICIAL
+         ====================================================================== */
+      document.getElementById('btnPrintAgenda').addEventListener('click', () => {
+        window.print();
+      });
+
+      /* ======================================================================
+         13. GENERADOR Y DESCARGA DINÁMICA .ICS (RFC 5545)
+         ====================================================================== */
+      const btnOpenIcsModal = document.getElementById('btnOpenIcsModal');
+      const icsModalDlg = document.getElementById('icsModalDlg');
+      const btnCloseIcsDlg = document.getElementById('btnCloseIcsDlg');
+      const btnDownloadIcsDirectly = document.getElementById('btnDownloadIcsDirectly');
+
+      btnOpenIcsModal.addEventListener('click', () => icsModalDlg.classList.add('open'));
+      btnCloseIcsDlg.addEventListener('click', () => icsModalDlg.classList.remove('open'));
+      icsModalDlg.addEventListener('click', (e) => {
+        if (e.target === icsModalDlg) icsModalDlg.classList.remove('open');
+      });
+
+      function generateIcsString() {
+        let ics = "BEGIN:VCALENDAR\r\n";
+        ics += "VERSION:2.0\r\n";
+        ics += "PRODID:-//CONALEP Plantel Pachuca II//Agenda Semestral 1.26.27//ES\r\n";
+        ics += "CALSCALE:GREGORIAN\r\n";
+        ics += "METHOD:PUBLISH\r\n";
+        ics += "X-WR-CALNAME:CONALEP Pachuca II - Semestre 1.26.27\r\n";
+        ics += "X-WR-CALDESC:Calendario y Agenda Docente CONALEP Pachuca II Semestre 1.26.27\r\n";
+        ics += "X-WR-TIMEZONE:America/Mexico_City\r\n";
+
+        CONALEP_EVENTS.forEach(ev => {
+          const cleanDate = ev.date.replace(/-/g, '');
+          let dtend = cleanDate;
+          if (ev.endDate) {
+            const nextDay = new Date(ev.endDate);
+            nextDay.setDate(nextDay.getDate() + 1);
+            dtend = nextDay.toISOString().slice(0, 10).replace(/-/g, '');
+          }
+
+          ics += "BEGIN:VEVENT\r\n";
+          ics += `UID:${ev.id}@pachuca2.conalep.edu.mx\r\n`;
+          ics += "DTSTAMP:20260801T000000Z\r\n";
+          ics += `DTSTART;VALUE=DATE:${cleanDate}\r\n`;
+          ics += `DTEND;VALUE=DATE:${dtend}\r\n`;
+          ics += `SUMMARY:${ev.title}\r\n`;
+          ics += `DESCRIPTION:${ev.desc}\r\n`;
+          ics += `LOCATION:${ev.location}\r\n`;
+          ics += `CATEGORIES:${ev.category}\r\n`;
+          ics += "STATUS:CONFIRMED\r\n";
+          ics += "TRANSP:TRANSPARENT\r\n";
+          ics += "END:VEVENT\r\n";
+        });
+
+        ics += "END:VCALENDAR\r\n";
+        return ics;
+      }
+
+      btnDownloadIcsDirectly.addEventListener('click', () => {
+        const icsData = generateIcsString();
+        const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'agenda_conalep.ics';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      /* ======================================================================
+         14. INICIALIZACIÓN GENERAL
+         ====================================================================== */
+      setupTheme();
+      updateTodayBanner();
+      render5DaysCalendar(state.activeMonthKey);
+      renderJerarquiaSemanas();
+      renderTimelineEvents();
+
+      // Al abrir, posicionarse en el día de hoy
+      jumpToToday();
+
+    })();
+  </script>
+</body>
+</html>
