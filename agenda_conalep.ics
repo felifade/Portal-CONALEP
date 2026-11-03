@@ -353,6 +353,18 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:conalep-20261103-estimulo-convocatoria@pachuca2.conalep.edu.mx
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261104
+SUMMARY:🏛️ Convocatoria Oficial: Estímulo al Desempeño Docente 1.2627
+DESCRIPTION:Emisión oficial de la convocatoria por Dirección General CONALEP Hidalgo. Apertura del periodo de registro y entrega de solicitudes (09:00 a 17:00 hrs).
+LOCATION:Jefatura de Formación Técnica / Dirección
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:conalep-20261104-eval-docente@pachuca2.conalep.edu.mx
 DTSTAMP:20260801T000000Z
 DTSTART:20261104T080000
@@ -413,6 +425,30 @@ STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:conalep-20261128-estimulo-vigencia@pachuca2.conalep.edu.mx
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:📜 Límite de Vigencia: Constancias de Capacitación (Estímulo)
+DESCRIPTION:Cierre de ventana estricta de 1 año (28 nov 2025 al 28 nov 2026) para constancias de cursos recibidos (1.4) e impartidos (2.4) para Estímulo Docente.
+LOCATION:Expediente Estímulo Docente
+CATEGORIES:Formación Técnica / Módulos
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261130-estimulo-cierre@pachuca2.conalep.edu.mx
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:🔴 FECHA LÍMITE IMPRORROGABLE: Entrega de Expediente Físico Estímulo
+DESCRIPTION:Cierre improrrogable para entrega física de carpeta completa con 22 carátulas, Solicitud oficial y Carta bajo protesta con firma autógrafa ante Formación Técnica (09:00 a 17:00 hrs).
+LOCATION:Jefatura de Proyecto de Formación Técnica
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:conalep-20261201-ft-8@pachuca2.conalep.edu.mx
 DTSTAMP:20260801T000000Z
 DTSTART:20261201T120000
@@ -423,6 +459,18 @@ LOCATION:Microsoft Teams / Virtual
 CATEGORIES:Formación Técnica / Módulos
 STATUS:CONFIRMED
 TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:conalep-20261204-estimulo-resultados@pachuca2.conalep.edu.mx
+DTSTAMP:20261103T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:🏆 Dictamen y Publicación de Resultados: Estímulo Docente 1.2627
+DESCRIPTION:Publicación oficial del dictamen emitido por el Comité Técnico de Evaluación en estrados del plantel y medios institucionales.
+LOCATION:Estrados del Plantel / Medios Oficiales
+CATEGORIES:Sindicato / Laboral
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:conalep-20261210-corte-cierre@pachuca2.conalep.edu.mx
