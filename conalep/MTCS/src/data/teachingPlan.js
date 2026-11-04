@@ -1979,38 +1979,38 @@ export const teachingPlan = {
         {
           id: 'H01',
           label: 'Sesión 01 (Miércoles 04 Nov · 1 Hora)',
-          title: '¿Qué es un Videojuego, Por Qué lo Hacemos en Ciberseguridad y Cuál es el Objetivo?',
-          hook: '¡Bienvenidos al Tercer Corte! Un videojuego no son solo dibujos: es un sistema en tiempo real que usa las mismas variables y condiciones (SI/ENTONCES) que un Firewall o un sistema de defensa.',
-          start: '¿Qué es realmente un videojuego para un programador, por qué lo creamos en Ciberseguridad y cuál es el objetivo de CyberDefender?',
+          title: '¿Qué es un Videojuego, Investigación de Conceptos y Aplicación en CyberDefender?',
+          hook: '¡Bienvenidos al Tercer Corte! Antes de abrir Construct 3, hoy investigaremos y definiremos los 8 conceptos clave que tendrá nuestro videojuego y cómo cada concepto de ciberseguridad se convierte en una regla del juego.',
+          start: '¿Qué es un videojuego, por qué lo programamos en Ciberseguridad y cómo se aplican sus conceptos técnicos en nuestro proyecto?',
           dictationTitle: '¿QUÉ ES UN VIDEOJUEGO Y POR QUÉ LO PROGRAMAMOS EN CIBERSEGURIDAD?',
           dictation: 'Desde el punto de vista de la informática, un videojuego es un programa interactivo en tiempo real que ejecuta un ciclo continuo de tres pasos: leer las órdenes del usuario (teclado o pantalla), evaluar reglas lógicas en la memoria (variables y condiciones) y actualizar los gráficos llamados Sprites en el monitor. En el módulo de Ciberseguridad desarrollamos un videojuego porque nos permite programar de forma visual las mismas estructuras de control que utiliza un sistema de defensa real: variables de estado (vidas y puntos), condiciones de acceso (verificar si el usuario posee la Llave TLS antes de abrir una puerta chmod 600) y escudos de protección temporal (Salting). El objetivo de nuestro proyecto integrador "CyberDefender" en Construct 3 es diseñar en cuatro semanas un videojuego 2D completo donde un Analista de Ciberdefensa se infiltra en un servidor infectado, esquiva centinelas de malware, recolecta llaves criptográficas para desbloquear puertos seguros y finalmente exporta el juego en formato web HTML5 funcional.',
           workBlock: {
-            duration: '25 minutos',
-            title: 'Las 3 Claves de Nuestro Videojuego en Libreta',
+            duration: '30 minutos',
+            title: 'Investigación en Libreta: Tabla de 3 Columnas de Conceptos Aplicados al Videojuego',
             steps: [
               'Confirmar calificación final del Segundo Corte y hacer el separador del Tercer Corte en la libreta.',
               'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
-              'Trazar en la libreta el cuadro "Las 3 Claves de Nuestro Proyecto de Videojuego" (Qué es, Por qué en Ciberseguridad y Objetivo de las 4 semanas).',
-              'Revisión y firma del Sello 1.'
+              'Elaborar en la libreta la Tabla de Investigación de 3 Columnas con los 8 conceptos del juego: 1) Concepto, 2) ¿Qué es y ejemplo?, 3) ¿Cómo se aplica en nuestro videojuego CyberDefender?',
+              'Revisión de la tabla completa y firma del Sello 1.'
             ]
           },
           visualExample: {
-            title: 'Las 3 Claves de Nuestro Proyecto: CyberDefender',
-            badge: 'Unidad 3 · Construct 3',
-            description: 'Cuadro explicativo para plasmar en libreta:',
-            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│        🎯 LAS 3 CLAVES DE NUESTRO PROYECTO DE VIDEOJUEGO (UNIDAD 3)         │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 1. ¿QUÉ ES UN VIDEOJUEGO?                                                   │\n│    Es un programa en tiempo real que une: [Dibujos (Sprites)] +             │\n│    [Físicas (Gravedad/Colisiones)] + [Lógica (Variables y Condiciones SI)]. │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 2. ¿POR QUÉ LO HACEMOS EN CIBERSEGURIDAD?                                   │\n│    Porque programar un juego usa la misma lógica que un sistema de defensa: │\n│    • Vida del Jugador   = Integridad del Servidor (Variable Vidas = 3).     │\n│    • Bot de Malware     = Amenaza que resta integridad al chocar.           │\n│    • Llave Dorada TLS   = Permiso criptográfico para abrir la Puerta 600.   │\n│    • Cristal de Salting = Escudo antivirus que da 6 seg de inmunidad.       │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ 3. ¿CUÁL ES EL OBJETIVO EN ESTAS 4 SEMANAS?                                 │\n│    • Sem 1 (Sem 12): Dibujar los 6 Sprites Pixel-Art (16×16) y animarlos.   │\n│    • Sem 2 (Sem 13): Armar el escenario de servidores y físicas de salto.   │\n│    • Sem 3 (Sem 14): Programar las reglas de daño, llaves y escudos.        │\n│    • Sem 4 (Sem 15): Poner marcador HUD, sonidos 8-bits y publicar en Web.  │\n└─────────────────────────────────────────────────────────────────────────────┘'
+            title: 'Tabla de Investigación: Conceptos Aplicados a CyberDefender',
+            badge: 'Investigación · Hora 1',
+            description: 'Tabla de 3 columnas para investigar y plasmar hoy en la libreta:',
+            mockup: '┌────────────────────┬────────────────────────────────┬────────────────────────────────┐\n│ 1. CONCEPTO        │ 2. ¿QUÉ ES Y EJEMPLO?          │ 3. ¿CÓMO SE APLICA EN          │\n│                    │    (Investigación)             │    NUESTRO JUEGO CYBERDEFENDER?│\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 1. Sprite          │ Imagen 2D que se mueve en      │ Nuestros dibujos de 16×16 px   │\n│    (Objeto 2D)     │ pantalla (ej. Mario o moneda). │ (Analista, Bot, Llave y Gema). │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 2. Fotogramas      │ Cuadros por segundo que crean  │ 3 FPS para respirar (Idle) y   │\n│    (FPS)           │ la ilusión de movimiento.      │ 8 FPS para correr (Run).       │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 3. Hitbox          │ Caja invisible que detecta     │ Detecta cuando el héroe pisa   │\n│    (Colisión)      │ cuando dos objetos se tocan.   │ el suelo, toma llave o choca.  │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 4. Variable Global │ Espacio en memoria que guarda  │ Guardará Vidas = 3, Puntos = 0 │\n│    (Estado)        │ datos que cambian (ej. vidas). │ y TieneLlaveTLS = 0.           │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 5. Malware / Bot   │ Programa dañino que infecta    │ Enemigo rojo patrullero que    │\n│    (Amenaza)       │ un servidor o computadora.     │ quita 1 vida al tocarlo.       │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 6. Llave TLS       │ Candado criptográfico que      │ Candado dorado coleccionable   │\n│    (Puerto 443)    │ protege conexiones web.        │ necesario para abrir puertas.  │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 7. Salting         │ Ingrediente aleatorio que      │ Cristal azul que otorga 6 seg  │\n│    (Sal / Escudo)  │ blinda las contraseñas.        │ de escudo e inmunidad total.   │\n├────────────────────┼────────────────────────────────┼────────────────────────────────┤\n│ 8. Permiso         │ Regla de Linux donde solo el   │ Compuerta blindada que solo se │\n│    chmod 600       │ dueño con llave puede pasar.   │ abre si traes la Llave TLS.    │\n└────────────────────┴────────────────────────────────┴────────────────────────────────┘'
           },
-          terminalRadar: 'Ciclo de un Videojuego (60 veces por segundo) ➔ [ 1. Leer Teclado ] ➔ [ 2. Evaluar Reglas Lógicas ] ➔ [ 3. Dibujar Sprites ]',
-          learningResult: 'El estudiante explica qué es un videojuego a nivel algorítmico, su relación con las reglas de ciberseguridad y el objetivo del proyecto.',
-          identification: 'Tema: Qué es un Videojuego y Objetivo del Proyecto. Evidencia: Separador de 3er Corte, dictado y Cuadro de las 3 Claves en libreta.',
-          development: 'Cierre de promedios del 2° Corte, explicación de las 3 preguntas clave y registro del cuadro en libreta.',
-          closure: 'Revisión de libretas y estampado del Sello 1.',
+          terminalRadar: 'Actividad de Hoy (Miércoles) ➔ Dictado + Tabla de 3 Columnas (Concepto | ¿Qué es y Ejemplo? | ¿Cómo se aplica en el Videojuego?)',
+          learningResult: 'El estudiante investiga y define los conceptos técnicos de videojuegos y ciberseguridad explicando su aplicación directa en el proyecto.',
+          identification: 'Tema: Investigación de Conceptos del Videojuego. Evidencia: Separador de 3er Corte, dictado y Tabla de 8 Conceptos en libreta.',
+          development: 'Explicación de qué es un videojuego y su objetivo, seguida de la investigación y llenado de la tabla de 3 columnas en libreta.',
+          closure: 'Revisión de la tabla de conceptos y estampado del Sello 1.',
           faq: [
-            { q: '¿Por qué un videojuego sirve para aprender a programar seguridad?', a: 'Porque validar si el jugador tiene la Llave TLS para abrir una puerta usa la misma condición lógica IF (SI/ENTONCES) que validar un certificado real en un servidor.' }
+            { q: '¿Por qué investigamos primero los conceptos antes de abrir Construct 3?', a: 'Para que al momento de crear cada objeto mañana jueves sepamos exactamente qué función cumple dentro de la seguridad del servidor.' }
           ],
           sello: {
             num: 'Sello 1',
-            desc: 'Separador del 3er Corte, Dictado y Cuadro de las 3 Claves del Videojuego en libreta.'
+            desc: 'Separador del 3er Corte, Dictado y Tabla de Investigación de los 8 Conceptos Aplicados al Videojuego.'
           }
         },
         {
