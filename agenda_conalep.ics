@@ -544,4 +544,28 @@ CATEGORIES:Sindicato / Laboral
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-rem-20261104-grupo-501-evaluaci-n-doce-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261104T120000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261104
+SUMMARY:📌 👥 Grupo 501: Evaluación Docente (Paso de alumnos a evaluación)
+DESCRIPTION:Sincronizado desde Recordatorios de Apple (15:35 hrs). Los alumnos del Grupo 501 (MTCS-20 / Tutoría) pasan a la evaluación docente institucional.
+Turno Vespertino · CONALEP Pachuca II
+Fecha: Miércoles 4 de Noviembre de 2026
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-rem-20261104-revisar-tarjeta-informati-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261104T120000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261104
+SUMMARY:📌 Revisar Tarjeta Informativa CREAD Proyecto
+DESCRIPTION:Sincronizado desde Recordatorios de Apple (17:00 hrs).
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
 END:VCALENDAR
