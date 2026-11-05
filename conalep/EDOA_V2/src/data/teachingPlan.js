@@ -1767,7 +1767,7 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
     'W12': {
       id: 'W12',
       label: 'Semana 12',
-      title: 'App GeoCalc: Programación de Fórmulas Matemáticas en Bloques',
+      title: 'App GeoCalc: Programación con Doble Botón (7 Figuras · 9 Pantallas)',
       dates: '02 Nov - 06 Nov',
       status: 'active',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
@@ -1776,140 +1776,140 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
       templateBtnColor: '#005C42',
       toolUrl: 'https://ai2.appinventor.mit.edu',
       toolBtnText: 'Abrir MIT App Inventor',
-      summary: 'Programación exclusiva y rigurosa en el Blocks Editor de las fórmulas de área y perímetro de las 5 figuras (Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono), verificando la exactitud de los operadores aritméticos sin prisas.',
-      expectedProduct: 'Proyecto GeoCalc con los bloques aritméticos de las 5 figuras programados, depurados y funcionales en máquina.',
+      summary: 'Programación exclusiva en el Blocks Editor para las 7 figuras geométricas (Círculo, Cuadrado, Rectángulo, Pentágono y los 3 Triángulos: Equilátero, Isósceles y Escaleno), implementando dos botones independientes por pantalla (Perímetro y Área).',
+      expectedProduct: 'Proyecto GeoCalc con 9 pantallas y las 7 figuras programadas con doble botón (Perímetro y Área) y botón Limpiar.',
       notices: [
         '⚠️ Lunes 02 de Noviembre: Suspensión oficial de labores docentes (Día de Muertos / Feriado Nacional).',
-        'Carga lectiva ajustada: 4 horas de laboratorio dedicadas EXCLUSIVAMENTE a la programación matemática de fórmulas.',
-        'Miércoles (Sesión 01 · 1 hr): Cuadrado y Rectángulo paso a paso con operadores básicos y unidades cm² / cm (Sello 1).',
-        'Jueves (Sesión 02 · 2 hrs): Triángulo (operador de división con b*h/2) y Círculo (constante pi = 3.1416 y radio al cuadrado) (Sello 2).',
-        'Viernes (Sesión 03 · 1 hr): Pentágono Regular (algoritmo jerárquico de apotema y perímetro) y cierre de bloques (Sello 3).',
-        'Semana 13 (Proyección): Botones de reseteo, TextToSpeech, emulación en smartphones con AI Companion y evaluación final del RA 2.2.'
+        'Estructura de la App: 9 pantallas en total (Screen1, MenuPrincipal y 7 pantallas de figuras).',
+        'Modelo Didáctico: 2 botones por pantalla (uno para Perímetro y otro para Área) más botón de Limpiar.',
+        'Miércoles (Sesión 01 · 1 hr): Círculo, Cuadrado y Rectángulo con doble botón (Sello 1).',
+        'Jueves (Sesión 02 · 2 hrs): Triángulo Equilátero, Triángulo Isósceles y Pentágono Regular (Sello 2).',
+        'Viernes (Sesión 03 · 1 hr): Triángulo Escaleno y chequeo integral de las 7 figuras (Sello 3).',
+        'Semana 13 (Proyección): Conexión con AI Companion en celular, casos de prueba y evaluación formal del RA 2.2.'
       ],
       sessions: [
         {
-          id: 'S1', label: 'Sesión 01', subtitle: 'Miércoles (1 hr) · Bloques Aritméticos: Cuadrado y Rectángulo',
-          start: '¿Cómo le enseñamos a la aplicación a leer los números de la pantalla y calcular automáticamente?',
-          dictation: `⏱️ HORA 1 · De la Caja de Texto al Operador Aritmético:
-En el entorno visual de MIT App Inventor, la programación orientada a eventos procesa las acciones del usuario a través del evento when btnCalcular.Click. Los valores capturados en las propiedades .Text de las cajas se convierten en magnitudes numéricas mediante los operadores de la librería Math. Con el bloque text_join, el valor escalar resultante se concatena con su unidad física (cm² y cm), actualizando las etiquetas de resultados sin errores de sintaxis.`,
-          learningResult: 'Programar los bloques de cálculo de área y perímetro para Cuadrado y Rectángulo.',
-          identification: { topic: 'Bloques Aritméticos: Cuadrado y Rectángulo', evidence: 'Bloques Programados (2 Figuras)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          id: 'S1', label: 'Sesión 01', subtitle: 'Miércoles (1 hr) · Doble Botón: Círculo, Cuadrado y Rectángulo',
+          start: '¿Por qué es mejor darle al usuario dos botones separados: uno para Perímetro y otro para Área?',
+          dictation: `⏱️ HORA 1 · Arquitectura de Ejecución Desacoplada:
+En el desarrollo de software móvil, desacoplar las acciones permite al usuario obtener solo la información que necesita. Al implementar dos botones independientes en cada pantalla (Btn_CalcularPerimetro y Btn_CalcularArea), el flujo de ejecución activa únicamente la rutina matemática solicitada. En el Círculo, Perímetro ejecuta 2·π·r y Área ejecuta π·r²; en el Cuadrado, 4·L y L²; y en el Rectángulo, 2b+2h y b·h. Ambas salidas formatean su etiqueta con su respectiva unidad métrica (cm o cm²).`,
+          learningResult: 'Programar los bloques de los dos botones (Perímetro y Área) para Círculo, Cuadrado y Rectángulo.',
+          identification: { topic: 'Doble Botón: Círculo, Cuadrado y Rectángulo', evidence: 'Bloques Programados (3 Figuras)', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
           infographicTitle: 'Ruta Sesión 01 (Miércoles)',
           infographicSteps: [
-            { title: '1. Evento Click', desc: 'Saca el bloque when btnCalcular.Click en ScreenCuadrado.' },
-            { title: '2. Fórmulas Cuadrado', desc: 'Área con txtLado * txtLado y Perímetro con 4 * txtLado.' },
-            { title: '3. Fórmulas Rectángulo', desc: 'Área con txtBase * txtAltura y Perímetro con 2*b + 2*h.' },
-            { title: '4. Conexión cm² y cm', desc: 'Usa text_join para agregar las unidades de medida en el resultado.' }
+            { title: '1. Botón Perímetro', desc: 'Programa when Btn_CalcularPerimetro.Click actualizando Lbl_ResPerimetro.' },
+            { title: '2. Botón Área', desc: 'Programa when Btn_CalcularArea.Click actualizando Lbl_ResArea.' },
+            { title: '3. 3 Figuras Base', desc: 'Aplica la lógica en ScreenCirculo, ScreenCuadrado y ScreenRectangulo.' },
+            { title: '4. Botón Limpiar', desc: 'Vacia cajas de texto y restaura las etiquetas a guiones.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
-Metodología: Demo Cañón Paso a Paso (15 min) ➔ Reto en PC (25 min) ➔ Revisión de Sello (10 min)
+Metodología: Demo Cañón Doble Botón (15 min) ➔ Reto en PC (25 min) ➔ Revisión de Sello (10 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (17:40 - 18:30) · Cuadrado y Rectángulo con Calma
+⏱️ HORA 1 (17:40 - 18:30) · El Modelo de Dos Botones
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Nuestras pantallas ya se ven increíbles, pero hoy empezamos a programar su mente matemática. No vamos a correr: hoy nos aseguramos de dominar cómo se conectan los bloques para el cuadrado y el rectángulo para que nadie se quede atrás."
+"Antes teníamos un solo botón que hacía todo. Ahora le damos el control total al usuario: un botón para Perímetro y otro para Área. Vamos a programar cómo cada botón responde por separado en el Círculo, Cuadrado y Rectángulo."
 
 🖥️ DEMO EN CAÑÓN (15 min):
-1) Proyectar ScreenCuadrado:
-   - Sacar when btnCalcular.Click do.
-   - set lblResultadoArea.Text to join [ txtLado.Text * txtLado.Text , ' cm²' ].
-   - set lblResultadoPerimetro.Text to join [ 4 * txtLado.Text , ' cm' ].
-2) Proyectar ScreenRectangulo:
-   - Área: txtBase.Text * txtAltura.Text concatenado con ' cm²'.
-   - Perímetro: math_add [ 2 * txtBase.Text , 2 * txtAltura.Text ] concatenado con ' cm'.
-3) Explicar cómo eliminar bloques desconectados y advertencias amarillas.
+1) ScreenCirculo:
+   - when Btn_CalcularPerimetro.Click: set Lbl_ResPerimetro to join [ 2 * 3.1416 * Txt_Radio , ' cm' ].
+   - when Btn_CalcularArea.Click: set Lbl_ResArea to join [ 3.1416 * (Txt_Radio * Txt_Radio) , ' cm²' ].
+2) ScreenCuadrado: Perímetro = 4*L y Área = L*L.
+3) ScreenRectangulo: Perímetro = 2*b + 2*h y Área = b*h.
+4) Botón Limpiar: vaciar Txt y reiniciar Lbl.
 
 💻 RETO EN PC (25 min):
-Cada alumno programa y prueba en máquina los bloques de Cuadrado y Rectángulo.
-👉 SELLO 1: Bloques aritméticos de Cuadrado y Rectángulo concluidos y probados sin advertencias.`,
-          closure: 'Bloques de Cuadrado y Rectángulo concluidos exitosamente.'
+Cada alumno programa y prueba en máquina los dos botones en las 3 pantallas.
+👉 SELLO 1: Círculo, Cuadrado y Rectángulo concluidos con doble botón y botón Limpiar.`,
+          closure: 'Bloques de Círculo, Cuadrado y Rectángulo concluidos exitosamente.'
         },
         {
-          id: 'S2', label: 'Sesión 02', subtitle: 'Jueves (2 hrs) · Operadores Complejos: División (Triángulo) y Número Pi (Círculo)',
-          start: '¿Cómo programamos una división fraccionaria y cómo usamos la constante Pi en los bloques?',
-          dictation: `⏱️ HORA 2-3 · Jerarquía de Operaciones y Constantes Matemáticas:
-En algoritmos geométricos avanzados, el orden de evaluación matemática exige ensamblar bloques anidados. Para el área del triángulo (A = (b·h)/2), el bloque math_division recibe en su conector superior el producto math_multiply de base y altura, y en su conector inferior la constante numérica 2. En el círculo, la precisión decimal se garantiza multiplicando la constante pi = 3.1416 por el radio al cuadrado (r·r). Ambos resultados deben formatearse con text_join para asociar el valor escalar con su magnitud física.`,
-          learningResult: 'Programar los bloques de cálculo con división para Triángulo y con constante Pi para Círculo.',
-          identification: { topic: 'División y Constante Pi en Bloques', evidence: 'Bloques de Triángulo y Círculo', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '2 hrs' },
+          id: 'S2', label: 'Sesión 02', subtitle: 'Jueves (2 hrs) · Triángulos (Equilátero e Isósceles) y Pentágono Regular',
+          start: '¿Cómo cambian las fórmulas de perímetro entre un triángulo de 3 lados iguales y uno de 2 lados iguales?',
+          dictation: `⏱️ HORA 2-3 · Variantes Geométricas de Triángulos y Polígonos Regulares:
+Aunque el área de cualquier triángulo responde al principio fundamental A = (b·h)/2, el cálculo perimetral varía según su morfología: en el Triángulo Equilátero se multiplica 3·L, mientras que en el Isósceles se suman los dos lados idénticos más la base (2L + b). En el Pentágono Regular, el botón de perímetro multiplica 5·L, y el botón de área procesa la relación de apotema dividiendo el producto entre 2.`,
+          learningResult: 'Programar el doble botón para Triángulo Equilátero, Triángulo Isósceles y Pentágono Regular.',
+          identification: { topic: 'Triángulos Equilátero, Isósceles y Pentágono', evidence: 'Bloques de 3 Pantallas', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '2 hrs' },
           infographicTitle: 'Ruta Sesión 02 (Jueves)',
           infographicSteps: [
-            { title: '1. Triángulo (1 hr)', desc: 'Inserta math_division: arriba (Base * Altura) y abajo el número 2.' },
-            { title: '2. Perímetro Triángulo', desc: 'Multiplica 3 * txtLado para triángulo equilátero.' },
-            { title: '3. Círculo (1 hr)', desc: 'Usa 3.1416 * (txtRadio * txtRadio) para Área y 2 * 3.1416 * txtRadio para Perímetro.' },
+            { title: '1. Triángulo Equilátero', desc: 'Perímetro con 3 * Lado y Área con (Base * Altura) / 2.' },
+            { title: '2. Triángulo Isósceles', desc: 'Perímetro con (2 * LadoIgual) + Base y Área con (Base * Altura) / 2.' },
+            { title: '3. Pentágono Regular', desc: 'Perímetro con 5 * Lado y Área con ((5*L) * Apotema) / 2.' },
             { title: '4. Depuración PC', desc: 'Verifica que ningún bloque tenga advertencias o desconexiones.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Triángulo y División (50 min) ➔ Círculo y Pi (50 min) ➔ Sellos de Revisión (20 min)
+Metodología: Triángulos Equilátero e Isósceles (50 min) ➔ Pentágono Regular (50 min) ➔ Sellos (20 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 2 (16:50 - 17:40) · El Triángulo: Dominando la División
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"En el cuadrado y rectángulo solo multiplicamos y sumamos. Pero en el triángulo entra el bloque de división: arriba va la multiplicación de base por altura y abajo la constante 2."
-
-🖥️ DEMO EN CAÑÓN (10 min):
-1) Abrir ScreenTriangulo.
-2) Sacar el bloque math_division.
-3) En conector superior colocar txtBase.Text * txtAltura.Text.
-4) En conector inferior colocar el número 2.
-5) Perímetro: 3 * txtLado.Text concatenado con ' cm'.
-
-💻 RETO EN PC (40 min):
-Alumnos arman y verifican los bloques de ScreenTriangulo en máquina.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 3 (17:40 - 18:30) · El Círculo: La Constante Pi y el Radio al Cuadrado
+⏱️ HORA 2 (16:50 - 17:40) · Triángulo Equilátero e Isósceles
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"¿Cómo le decimos a la app que use el número Pi? Muy fácil: sacamos una constante matemática con 3.1416 y la multiplicamos dos veces por el radio."
+"El área de los triángulos siempre es base por altura sobre dos, pero sus perímetros son muy distintos: en el equilátero multiplicamos por 3, y en el isósceles sumamos los dos lados iguales más la base."
+
+🖥️ DEMO EN CAÑÓN (15 min):
+1) ScreenTrianguloEquilatero:
+   - Btn_CalcularPerimetro: 3 * Txt_Lado.
+   - Btn_CalcularArea: math_division [ Txt_Base * Txt_Altura , 2 ].
+2) ScreenTrianguloIsosceles:
+   - Btn_CalcularPerimetro: (2 * Txt_LadoIgual) + Txt_Base.
+   - Btn_CalcularArea: math_division [ Txt_Base * Txt_Altura , 2 ].
+
+💻 RETO EN PC (35 min):
+Alumnos programan y prueban ambas pantallas en máquina.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (17:40 - 18:30) · Pentágono Regular: Perímetro y Apotema
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"En el pentágono, el botón de Perímetro hace 5 por Lado. Y el botón de Área toma ese perímetro y lo multiplica por el apotema antes de dividir entre 2."
 
 🖥️ DEMO EN CAÑÓN (10 min):
-1) Abrir ScreenCirculo.
-2) Área: 3.1416 * (txtRadio.Text * txtRadio.Text) concatenado con ' cm²'.
-3) Perímetro: 2 * 3.1416 * txtRadio.Text concatenado con ' cm'.
+1) ScreenPentagono:
+   - Btn_CalcularPerimetro: 5 * Txt_Lado.
+   - Btn_CalcularArea: math_division [ (5 * Txt_Lado) * Txt_Apotema , 2 ].
 
-💻 RETO EN PC (30 min):
-Programar y testear los bloques de ScreenCirculo en máquina.
-👉 SELLO 2: Bloques matemáticos de Triángulo y Círculo programados y funcionales.`,
-          closure: 'Bloques de Triángulo y Círculo completados al 100% en las computadoras.'
+💻 RETO EN PC (35 min):
+Programar y testear los bloques de ScreenPentagono en máquina.
+👉 SELLO 2: Triángulo Equilátero, Isósceles y Pentágono con doble botón y botón Limpiar funcionales.`,
+          closure: 'Bloques de Triángulo Equilátero, Isósceles y Pentágono completados al 100%.'
         },
         {
-          id: 'S3', label: 'Sesión 03', subtitle: 'Viernes (1 hr) · El Gran Reto Algorítmico: Pentágono Regular',
-          start: '¿Cómo programamos una figura donde el área depende directamente del perímetro calculado?',
-          dictation: `⏱️ HORA 4 · Algoritmos Jerárquicos y Lógica con Apotema:
-El cálculo del área de un polígono regular (A = (P·ap)/2) constituye un algoritmo encadenado de dos fases: en la primera fase se obtiene el perímetro multiplicando la longitud del lado por el número de aristas (5·L). En la segunda fase, dicho producto alimenta el numerador de la expresión fraccionaria multiplicándose por el apotema (ap), resolviendo la división final entre 2. Concluir este bloque completa formalmente la totalidad de las 5 calculadoras geométricas del sistema.`,
-          learningResult: 'Completar la programación del Pentágono Regular y verificar que las 5 figuras calculen correctamente.',
-          identification: { topic: 'Bloques Pentágono & Cierre de Fórmulas', evidence: '5 Calculadoras Programadas al 100%', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
+          id: 'S3', label: 'Sesión 03', subtitle: 'Viernes (1 hr) · Triángulo Escaleno y Cierre de las 7 Figuras',
+          start: '¿Cómo calculamos el perímetro cuando los tres lados del triángulo son completamente desiguales?',
+          dictation: `⏱️ HORA 4 · Triángulo Escaleno y Consolidación de 9 Pantallas:
+El Triángulo Escaleno presenta tres aristas de longitud dispar, por lo que su perímetro requiere la adición encadenada de sus tres componentes escalares (a + b + c), manteniendo el cálculo de superficie mediante la altura ortogonal conocida ((base·h)/2). Concluir esta pantalla cierra formalmente la arquitectura completa de 9 pantallas del sistema GeoCalc.`,
+          learningResult: 'Completar la programación del Triángulo Escaleno y verificar el funcionamiento de las 7 figuras.',
+          identification: { topic: 'Triángulo Escaleno & Cierre 7 Figuras', evidence: '7 Figuras con Doble Botón al 100%', organization: 'Individual en PC', location: 'Laboratorio de Informática', time: '1 hr' },
           infographicTitle: 'Ruta Sesión 03 (Viernes)',
           infographicSteps: [
-            { title: '1. Perímetro Pentágono', desc: 'Multiplica 5 * txtLado.Text y concatena con cm.' },
-            { title: '2. Área Pentágono', desc: 'Divide el producto de (5 * txtLado.Text) * txtApotema.Text entre 2.' },
-            { title: '3. Chequeo de 5 Figuras', desc: 'Recorre Cuadrado, Rectángulo, Triángulo, Círculo y Pentágono en Blocks.' },
-            { title: '4. Sello de la Semana', desc: 'Obtén el sello tras verificar que las 5 figuras tienen sus fórmulas listas.' }
+            { title: '1. Perímetro Escaleno', desc: 'Suma Lado A + Lado B + Lado C con bloques math_add encadenados.' },
+            { title: '2. Área Escaleno', desc: 'Aplica (Base * Altura) / 2 concatenando cm².' },
+            { title: '3. Chequeo de 7 Figuras', desc: 'Recorre las 7 pantallas comprobando que ambos botones funcionen.' },
+            { title: '4. Sello de la Semana', desc: 'Obtén el sello tras verificar las 7 figuras y el botón Limpiar.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Demo Cañón Pentágono (10 min) ➔ Reto en PC (30 min) ➔ Revisión General de Fórmulas (10 min)
+Metodología: Demo Cañón Escaleno (10 min) ➔ Reto en PC (30 min) ➔ Revisión General (10 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (15:00 - 15:50) · El Pentágono Regular y Cierre de Bloques
+⏱️ HORA 4 (15:00 - 15:50) · El Triángulo Escaleno y Cierre Total
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"El pentágono es el rey de las figuras planas: para saber su área primero necesitamos calcular su perímetro. Vamos a encadenar las dos operaciones para cerrar todas las fórmulas de la app."
+"El escaleno tiene todos sus lados distintos: para su perímetro sumamos Lado A + Lado B + Lado C. Con esta figura cerramos con broche de oro las 7 calculadoras de la app."
 
 🖥️ DEMO EN CAÑÓN (10 min):
-1) Abrir ScreenPentagono:
-   - Perímetro: set lblResultadoPerimetro.Text to join [ 5 * txtLado.Text , ' cm' ].
-   - Área: math_division [ (5 * txtLado.Text) * txtApotema.Text , 2 ] concatenado con ' cm²'.
-2) Chequeo visual en el árbol de componentes para validar nombres técnicos.
+1) ScreenTrianguloEscaleno:
+   - Btn_CalcularPerimetro: Txt_LadoA + Txt_LadoB + Txt_LadoC.
+   - Btn_CalcularArea: math_division [ Txt_Base * Txt_Altura , 2 ].
+2) Chequeo general en App Inventor: 9 pantallas enlazadas con el Menú Principal.
 
 💻 RETO EN PC (30 min):
-1. Completar la programación del Pentágono.
-2. Hacer una revisión exhaustiva de que las 5 figuras calculen sin trabarse.
+1. Completar la programación de ScreenTrianguloEscaleno.
+2. Hacer una revisión exhaustiva de que las 7 figuras tengan sus 2 botones y botón Limpiar.
 
-👉 SELLO 3: La totalidad de las 5 figuras geométricas programadas con sus fórmulas al 100%.
-📢 AVISO SEMANA 13: La próxima semana afinaremos detalles: botones de reseteo, TextToSpeech, emulación en celulares con AI Companion y evaluación definitiva del RA 2.2.`,
-          closure: 'Las 5 fórmulas geométricas programadas con éxito en App Inventor.'
+👉 SELLO 3: Las 7 figuras geométricas programadas con doble botón al 100%.
+📢 AVISO SEMANA 13: La próxima semana conectaremos los celulares con MIT AI2 Companion, comprobaremos los casos de prueba en mano y calificaremos el RA 2.2 formalmente.`,
+          closure: 'Las 7 figuras geométricas con doble botón concluidas con éxito en App Inventor.'
         }
       ]
     }
