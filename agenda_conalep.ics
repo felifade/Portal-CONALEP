@@ -568,4 +568,15 @@ LOCATION:Plantel Pachuca II
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1109-honores-501-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261106T120000Z
+DTSTART:20261109T150000
+DTEND:20261109T160000
+SUMMARY:🇲🇽 Ceremonia Cívica y Honores a la Bandera (Grupo 501)
+DESCRIPTION:Ceremonia de Honores a la Bandera dirigida por el Grupo 501 (Tutorado) y presentación del Periódico Mural de Noviembre (Efemérides: Valor Comunicación, Día Nacional del Libro, Sor Juana Inés de la Cruz, Día de la Diabetes y Gastronomía Mexicana). Turno Vespertino.
+LOCATION:Plaza Cívica · Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
