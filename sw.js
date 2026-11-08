@@ -4,7 +4,11 @@
                Network-first para calendar.ics (datos en vivo)
    ============================================================ */
 
-const CACHE_NAME   = 'conalep-portal-v228';
+<<<<<<< HEAD
+const CACHE_NAME   = 'conalep-portal-v229';
+=======
+const CACHE_NAME   = 'conalep-portal-v229';
+>>>>>>> 83b4a17 (feat(MTCS): agregar Semana 13 (Sprites Pixel-Art con IA en Construct 3) con dictado visible y desarrollo en columnas a color (SW v229))
 const BASE         = '/Portal-CONALEP';
 
 // Recursos a cachear en la instalación
