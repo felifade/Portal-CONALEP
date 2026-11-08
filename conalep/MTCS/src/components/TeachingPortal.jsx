@@ -803,12 +803,12 @@ function TeachingPortal() {
                       <p className="card-hook-body">{hour.hook}</p>
                     </div>
 
-                    {/* 2. Dictado Oficial con Formato Visual para Libreta */}
+                    {/* 2. Dictado Oficial con Formato Visual para Libreta (Súper Visible) */}
                     <div className="teacher-dictation-card">
                       <div className="card-dictation-header">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <PenLine size={16} />
-                          <strong>🎙️ Dictado Oficial para Libreta:</strong>
+                          <PenLine size={18} />
+                          <strong>🎙️ DICTADO OFICIAL PARA LIBRETA (VISIBLE PARA EL GRUPO)</strong>
                         </div>
                         <button
                           type="button"
@@ -819,22 +819,22 @@ function TeachingPortal() {
                             alert('Dictado copiado al portapapeles');
                           }}
                         >
-                          Copiar Dictado
+                          📋 Copiar Dictado
                         </button>
                       </div>
 
                       {/* Guía Visual de Formato para el Alumno */}
                       <div className="format-guidelines-banner">
                         <span className="format-pill-tag">
-                          <Type size={12} /> Reglas de Libreta
+                          <Type size={13} /> Instrucción de Libreta
                         </span>
                         <div className="format-rules-wrap">
                           <span className="format-rule-item">
-                            <strong style={{ color: '#047857' }}>Título:</strong> Centrado · Tamaño 20
+                            <strong style={{ color: '#047857' }}>1. Título:</strong> Centrado · Tamaño 20
                           </span>
                           <span className="format-rule-sep">|</span>
                           <span className="format-rule-item">
-                            <strong style={{ color: '#047857' }}>Texto:</strong> Justificado · Tamaño 14
+                            <strong style={{ color: '#1d4ed8' }}>2. Texto:</strong> Justificado · Tamaño 14
                           </span>
                         </div>
                       </div>
@@ -849,29 +849,77 @@ function TeachingPortal() {
                       </div>
                     </div>
 
-                    {/* 3. Bloque de Trabajo Autónomo (Actividades Simplificadas) */}
-                    {hour.workBlock && (
+                    {/* 3. Desarrollo en Columnas a Color (Nuevo diseño visual por columnas) */}
+                    {hour.devColumns?.length > 0 ? (
                       <div className="teacher-workblock-card">
                         <div className="card-workblock-header">
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Clock size={16} />
-                            <strong>⏱️ Actividades de Clase ({hour.workBlock.title})</strong>
+                            <Layers3 size={18} />
+                            <strong>🚀 DESARROLLO PASO A PASO ({hour.workBlock?.title || 'Guía Visual por Columnas'})</strong>
                           </div>
-                          <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
+                          {hour.workBlock?.duration && (
+                            <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
+                          )}
                         </div>
-                        <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 10px' }}>
-                          Pasos claros y simplificados para realizar en libreta y terminal:
-                        </p>
-                        <div className="workblock-steps-list">
-                          {hour.workBlock.steps.map((st, sidx) => (
-                            <div className="workblock-step-item" key={sidx}>
-                              <span className="step-circle">{sidx + 1}</span>
-                              <p>{st}</p>
+                        <div className="dev-columns-grid">
+                          {hour.devColumns.map((col, cidx) => (
+                            <div className={`dev-col-card theme-${col.color || 'blue'}`} key={cidx}>
+                              <div className="dev-col-header">
+                                <span className="dev-col-badge">{col.badge || `Columna ${cidx + 1}`}</span>
+                                <h4>{col.title}</h4>
+                              </div>
+                              <ul className="dev-col-list">
+                                {col.items?.map((it, iidx) => (
+                                  <li key={iidx}>{it}</li>
+                                ))}
+                              </ul>
+                              {col.prompt && (
+                                <div className="dev-col-prompt-box">
+                                  <div className="dev-col-prompt-top">
+                                    <span>🤖 Prompt listo para IA:</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        navigator.clipboard.writeText(col.prompt);
+                                        alert('Prompt de IA copiado al portapapeles');
+                                      }}
+                                    >
+                                      Copiar Prompt
+                                    </button>
+                                  </div>
+                                  <code>{col.prompt}</code>
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>
                       </div>
-                    )}
+                    ) : hour.workBlock ? (
+                      <div className="teacher-workblock-card">
+                        <div className="card-workblock-header">
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <Clock size={16} />
+                            <strong>⏱️ Desarrollo de Clase ({hour.workBlock.title})</strong>
+                          </div>
+                          <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
+                        </div>
+                        <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 10px' }}>
+                          Pasos organizados en tarjetas de colores para identificar rápido cada actividad:
+                        </p>
+                        <div className="workblock-steps-grid">
+                          {hour.workBlock.steps.map((st, sidx) => {
+                            const palette = ['green', 'blue', 'purple', 'amber'];
+                            const colorTheme = palette[sidx % palette.length];
+                            return (
+                              <div className={`workblock-step-item step-theme-${colorTheme}`} key={sidx}>
+                                <span className="step-circle">{sidx + 1}</span>
+                                <p>{st}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
 
                     {/* 3.1 Ejemplo Visual / Imagen Ilustrativa sin saturar */}
                     {hour.visualExample && (
@@ -888,7 +936,23 @@ function TeachingPortal() {
                         {hour.visualExample.description && (
                           <p className="visual-desc">{hour.visualExample.description}</p>
                         )}
-                        {hour.visualExample.image ? (
+                        {hour.visualExample.columns?.length > 0 ? (
+                          <div className="dev-columns-grid" style={{ marginTop: 8 }}>
+                            {hour.visualExample.columns.map((vcol, vcidx) => (
+                              <div className={`dev-col-card theme-${vcol.color || 'blue'}`} key={vcidx}>
+                                <div className="dev-col-header">
+                                  <span className="dev-col-badge">{vcol.badge}</span>
+                                  <h4>{vcol.title}</h4>
+                                </div>
+                                <ul className="dev-col-list">
+                                  {vcol.items?.map((vit, viidx) => (
+                                    <li key={viidx}>{vit}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        ) : hour.visualExample.image ? (
                           <div
                             className="visual-image-wrapper"
                             onClick={() => setZoomedImg(hour.visualExample.image)}

@@ -1958,7 +1958,7 @@ export const teachingPlan = {
       id: 'W12',
       label: 'Semana 12',
       dateRange: '02 - 06 Nov',
-      status: 'En curso',
+      status: 'Histórico',
       corteId: 'C3',
       raId: 'RA 3.1',
       title: 'Cierre de 2° Corte y Proyecto Videojuego: Sprites Pixel-Art en Construct 3',
@@ -2185,6 +2185,422 @@ export const teachingPlan = {
           product: 'Los 6 sprites terminados en archivo .c3p y puntaje del Gran Kahoot Semana 12 (Sello 3).',
           unlockDate: '2026-11-06',
           unlockLabel: 'Viernes 06 de Noviembre (18:30 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W13',
+      label: 'Semana 13',
+      dateRange: '09 - 13 Nov',
+      status: 'En curso',
+      corteId: 'C3',
+      raId: 'RA 3.1',
+      title: 'Diseño de Sprites Pixel-Art con IA y Animaciones en Construct 3',
+      result: 'Diseña el catálogo de 6 sprites en cuadrícula de 16×16 píxeles apoyándose en Inteligencia Artificial y plantillas técnicas, configurando animaciones (Idle, Run, Jump), puntos de origen y cajas de colisión en Construct 3.',
+      htmlUrl: './html/Manual_Videojuegos_Construct3.html',
+      identification: {
+        place: 'Aula de Clase y Laboratorio de Cómputo',
+        modality: 'Trabajo individual en libreta, apoyo con IA y editor Construct 3 (editor.construct.net)',
+        product: 'Dictados en libreta, los 6 sprites de 16×16 px con animaciones en archivo .c3p y Gran Kahoot Semana 13',
+      },
+      notices: [
+        'Tercer Corte en Curso (RA 3.1 · 20%): Diseño asistido por IA y programación visual en Construct 3.',
+        'Miércoles 11 Nov (Sesión 01 · 1 hr): Prompts de IA para Pixel-Art + Lienzo 640×360 y Héroe Analista 16×16 px (Sello 1).',
+        'Jueves 12 Nov (Sesión 02 · 2 hrs): Animaciones del Héroe (Idle, Run, Jump) + Diseño con IA de Malware_Bot, Llave_TLS y Cristal_Salting (Sello 2).',
+        'Viernes 13 Nov (Sesión 03 · 2 hrs): Bloques del Servidor (Piso y Puerta chmod 600), respaldo .c3p y Gran Kahoot Semana 13 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 11 Nov · 1 Hora)',
+          title: 'Prompts de IA para Videojuegos y Diseño del Héroe Analista (16×16 px)',
+          hook: 'Ya terminamos el recorrido por la interfaz de Construct 3. Hoy usaremos Inteligencia Artificial como copiloto creativo para diseñar a nuestro Héroe Analista de 16×16 píxeles en minutos y sin trabarnos.',
+          start: '¿Cómo estructuramos un Prompt de IA para generar sprites Pixel-Art de 16×16 px y cómo lo llevamos a Construct 3?',
+          dictationTitle: 'DISEÑO DE SPRITES PIXEL-ART ASISTIDO POR INTELIGENCIA ARTIFICIAL',
+          dictation: 'En el desarrollo moderno de videojuegos 2D, la Inteligencia Artificial generativa funciona como un asistente visual que acelera la creación de personajes y objetos llamados Sprites. Para obtener un diseño útil en estilo Pixel-Art, debemos redactar una instrucción precisa llamada Prompt con cuatro elementos: 1) Sujeto y Rol (un analista de ciberseguridad con casco y visor); 2) Dimensión exacta (cuadrícula de 16 por 16 píxeles, vista lateral 2D); 3) Paleta de colores de alto contraste (azul oscuro #0f172a y verde neón #00ff66); y 4) Fondo transparente o sólido para recortar fácilmente. Al llevar el personaje a Construct 3 sobre un lienzo de 640 por 360 píxeles en modo Punto (Point), es obligatorio colocar el Punto de Origen en la base de las botas (tecla numérica 2) para que apoye los pies correctamente sobre el suelo.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Ruta en 3 Columnas: Libreta ➔ IA ➔ Construct 3',
+            steps: [
+              'Copiar en libreta el Dictado Oficial y la Fórmula de los 4 Elementos del Prompt.',
+              'Usar el Prompt de IA o la cuadrícula del Manual para definir al Héroe Analista.',
+              'En Construct 3 crear proyecto 640×360 (Sampling: Point), dibujar/importar al Jugador (16×16) y fijar Origen en los pies (Tecla 2).'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · En tu Libreta',
+              title: 'Dictado y Fórmula del Prompt',
+              items: [
+                'Escribe el título centrado (tamaño 20) y el dictado justificado (tamaño 14).',
+                'Anota los 4 ingredientes del Prompt: 1) Personaje, 2) Tamaño 16×16 px, 3) Colores Neón, 4) Vista lateral 2D.',
+                'Dibuja un boceto rápido de 4 colores de tu Héroe Analista.'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 2 · Apoyo con IA',
+              title: 'Generar Idea o Paleta con IA',
+              items: [
+                'Copia el Prompt inferior en ChatGPT, Gemini o el generador de imágenes para obtener tu referencia visual.',
+                'También puedes abrir el botón "Ver Diapositivas / Manual Construct 3" arriba para copiar la cuadrícula exacta.',
+                'Colores sugeridos: Traje #0f172a, Visor #00ff66, Piel #fcd34d, Botas #334155.'
+              ],
+              prompt: 'Diseña una cuadrícula pixel-art de 16x16 píxeles de un Héroe Analista de Ciberseguridad en vista lateral 2D, con casco oscuro (#0f172a), visor verde neón (#00ff66) y botas grises (#334155), estilo retro nítido.'
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 3 · En Construct 3',
+              title: 'Crear Proyecto y Sprite Jugador',
+              items: [
+                'Abre editor.construct.net ➔ Nuevo Proyecto: CyberDefender_Apellido_501.',
+                'Configura Viewport: 640×360, Orientación: Landscape y Sampling: Point (Punto).',
+                'Doble clic en el lienzo ➔ Insertar Sprite "Jugador" ➔ Redimensionar a 16×16 px.',
+                'Pinta o pega tu Héroe y presiona la Mira (Origin) + Tecla numérica 2 (en los pies).'
+              ]
+            }
+          ],
+          visualExample: {
+            title: 'Mapa de Colores y Configuración del Héroe Analista',
+            badge: 'Guía Visual en Columnas',
+            description: 'Identifica rápidamente las 3 partes técnicas de tu primer Sprite:',
+            columns: [
+              {
+                color: 'amber',
+                badge: '🎨 Paleta de 4 Colores',
+                title: 'Colores Oficiales del Héroe',
+                items: [
+                  '⬛ Casco y Traje: #0f172a (Azul noche)',
+                  '🟩 Visor y Núcleo: #00ff66 (Verde neón)',
+                  '🟨 Rostro: #fcd34d (Dorado claro)',
+                  '⬜ Guantes y Botas: #334155 (Acero)'
+                ]
+              },
+              {
+                color: 'cyan',
+                badge: '📐 Lienzo Nítido',
+                title: 'Propiedades del Proyecto',
+                items: [
+                  'Viewport Size: 640 × 360 px (16:9)',
+                  'Muestreo (Sampling): Point (Punto)',
+                  'Tamaño del Sprite: 16 × 16 píxeles',
+                  'Evita que el dibujo se vea borroso'
+                ]
+              },
+              {
+                color: 'red',
+                badge: '🎯 Regla del Origen',
+                title: 'Punto de Anclaje (Tecla 2)',
+                items: [
+                  'Selecciona el icono de Mira (Origin) en el editor de imagen.',
+                  'Presiona la tecla 2 del teclado numérico (X: 8, Y: 16).',
+                  'El punto queda en la suela de las botas para pisar firme.'
+                ]
+              }
+            ]
+          },
+          terminalRadar: 'Revisión Sello 1 ➔ Dictado en libreta + Sprite "Jugador" (16×16 px, Sampling Point y Origen en los pies con Tecla 2).',
+          learningResult: 'El estudiante utiliza prompts de IA y plantillas técnicas para diseñar el sprite del protagonista en Construct 3.',
+          identification: 'Tema: Prompts de IA y Trazo del Héroe. Evidencia: Apunte en libreta y Sprite Jugador en Construct 3.',
+          development: 'Explicación del diseño asistido por IA, creación del proyecto 640×360 y trazo del Héroe Analista en 16×16 px.',
+          closure: 'Verificación del punto de origen en los pies y estampado del Sello 1.',
+          faq: [
+            { q: '¿Qué pasa si mi personaje de 16×16 se ve borroso en Construct 3?', a: 'En la barra izquierda (Propiedades del Proyecto), cambia Muestreo (Sampling) de Trilinear a Punto (Point).' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Dictado + Fórmula de Prompt en libreta + Sprite "Jugador" de 16×16 px creado en Construct 3.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 12 Nov · Hora 1)',
+          title: 'Animaciones del Héroe (Idle, Run y Jump) y Caja de Colisión',
+          hook: 'Nuestro Héroe ya existe, pero está congelado como estatua. Hoy le daremos vida con 3 animaciones: respirar (Idle), correr (Run) y saltar (Jump) moviendo solo 1 píxel.',
+          start: '¿Cómo creamos la ilusión de movimiento con Fotogramas por Segundo (FPS) y por qué emparejamos la Caja de Colisión?',
+          dictationTitle: 'CICLOS DE ANIMACIÓN (FPS) Y CAJA DE COLISIÓN DEL JUGADOR',
+          dictation: 'Para que un personaje 2D cobre vida dentro del videojuego, se programan tres secuencias de animación en el panel Animations de Construct 3: 1) Idle (Reposo), compuesta por 2 cuadros a una velocidad de 3 fotogramas por segundo (FPS) con la opción Loop (Bucle) activada para simular que el personaje respira; 2) Run (Correr), formada por 4 cuadros a 8 FPS con bucle activo alternando la altura de las botas para simular la carrera; y 3) Jump (Salto), de un solo cuadro sin bucle con las botas flexionadas en el aire. Finalmente, el polígono de colisión (Hitbox) debe configurarse como una caja rectangular uniforme en todos los cuadros para evitar que el jugador se atore en el piso.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Las 3 Animaciones por Colores en Construct 3',
+            steps: [
+              'Copiar el Dictado Oficial en la libreta.',
+              'Configurar la animación Idle (verde), la animación Run (azul) y la animación Jump + Hitbox (ámbar) siguiendo las 3 columnas.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · Animación Idle',
+              title: '1. Respirar Quieto (Idle)',
+              items: [
+                'En el panel derecho (Animations), cambia el nombre "Default" por "Idle".',
+                'Haz clic derecho en el cuadro 0 (abajo) ➔ Duplicar.',
+                'En el cuadro 1, baja el casco y visor 1 píxel.',
+                'En propiedades a la izquierda pon: Speed = 3 FPS y Loop = ✅ Activado.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 2 · Animación Run',
+              title: '2. Correr Alternando Pies (Run)',
+              items: [
+                'Clic derecho en la carpeta Animations ➔ Añadir animación ➔ Nómbrala "Run".',
+                'Duplica tu personaje para tener 4 cuadros (0, 1, 2 y 3).',
+                'En el cuadro 1 sube la bota izquierda 1 px; en el cuadro 3 sube la bota derecha 1 px.',
+                'En propiedades pon: Speed = 8 FPS y Loop = ✅ Activado.'
+              ]
+            },
+            {
+              color: 'amber',
+              badge: '🟠 Columna 3 · Jump y Colisión',
+              title: '3. Saltar (Jump) + Hitbox',
+              items: [
+                'Añade una tercera animación llamada "Jump" (1 solo cuadro, Speed = 0, Loop = ❌ Desactivado).',
+                'Sube ambas botas 1 píxel para que parezca suspendido en el aire.',
+                'Haz clic en el icono de Polígono de Colisión ➔ Clic derecho ➔ Establecer en caja delimitadora (Bounding box).',
+                'Guarda tu avance (.c3p).'
+              ]
+            }
+          ],
+          terminalRadar: 'Chequeo Rápido ➔ Idle (2 frames, 3 FPS, Loop Sí) | Run (4 frames, 8 FPS, Loop Sí) | Jump (1 frame, Loop No).',
+          learningResult: 'El estudiante configura secuencias de animación en bucle y estandariza el polígono de colisión de su personaje.',
+          identification: 'Tema: Animaciones Idle, Run y Jump. Evidencia: Apunte en libreta y Héroe animado en Construct 3.',
+          development: 'Duplicación de fotogramas, ajuste de FPS y bucle por cada estado del personaje y calibración de hitbox.',
+          closure: 'Prueba en vista previa de las 3 animaciones.',
+          faq: [
+            { q: '¿Cómo veo si mi animación se mueve antes de programar el juego?', a: 'En el editor de imagen haz clic en el botón Vista Previa (Preview) o presiona Ctrl + P.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Dictado en libreta + Héroe con las 3 animaciones (Idle, Run y Jump) configuradas.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 12 Nov · Hora 2)',
+          title: 'Diseño con IA del Enemigo (Malware_Bot), Llave TLS y Cristal Salting',
+          hook: 'Un héroe sin enemigos ni tesoros se aburre. Ahora usaremos IA y nuestras tarjetas por colores para crear en 16×16 px al centinela Malware_Bot, el candado dorado Llave_TLS y la gema azul Cristal_Salting.',
+          start: '¿Cómo representamos visualmente el Malware, el protocolo TLS y la técnica de Salting como objetos del videojuego?',
+          dictationTitle: 'SIMBOLOGÍA VISUAL DE AMENAZAS E ÍTEMS CRIPTOGRÁFICOS EN 16×16 PÍXELES',
+          dictation: 'En el videojuego CyberDefender, cada concepto de ciberseguridad visto en el semestre se transforma en un Sprite interactivo de 16 por 16 píxeles con su Punto de Origen en el centro exacto (tecla numérica 5): 1) Malware_Bot: Representa un programa malicioso patrullero diseñado en colores de peligro (rojo #ef4444 y ojo escáner amarillo #facc15) cuya caja de colisión se ajusta al domo central; 2) Llave_TLS: Representa el certificado criptográfico del puerto 443 mediante un candado dorado que abrirá puertas restringidas; y 3) Cristal_Salting: Representa la sal criptográfica mediante una gema azul cian (#06b6d4) con animación de destello a 4 FPS que otorgará un escudo de inmunidad.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Creación de los 3 Sprites Interactivos por Colores',
+            steps: [
+              'Copiar el Dictado Oficial en la libreta.',
+              'Diseñar en Construct 3 el Malware_Bot (Columna Roja), la Llave_TLS (Columna Ámbar) y el Cristal_Salting (Columna Cian) apoyándote en IA o en el Manual.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'red',
+              badge: '🔴 Columna 1 · Enemigo',
+              title: 'Sprite 2: Malware_Bot (16×16)',
+              items: [
+                'Inserta un nuevo Sprite llamado "Malware_Bot" de 16×16 px.',
+                'Dibuja un dron/araña roja (#ef4444) con un ojo amarillo brillante (#facc15) y patas grises (#94a3b8).',
+                'Duplica el cuadro (2 frames a 6 FPS, Loop: Sí) moviendo las patas 1 px.',
+                'Pon el Punto de Origen en el centro (Tecla numérica 5).'
+              ],
+              prompt: 'Genera un sprite pixel-art de 16x16 píxeles de un robot enemigo Malware troyano color rojo (#ef4444) con un ojo láser amarillo (#facc15) y patas metálicas.'
+            },
+            {
+              color: 'amber',
+              badge: '🟠 Columna 2 · Puerto 443',
+              title: 'Sprite 3: Llave_TLS (16×16)',
+              items: [
+                'Inserta un nuevo Sprite llamado "Llave_TLS" de 16×16 px.',
+                'Dibuja un candado o llave dorada (#facc15) con borde bronce (#b45309) y centro blanco (#ffffff).',
+                'Duplica el cuadro (2 frames a 4 FPS, Loop: Sí) cambiando un píxel blanco para que brille.',
+                'Pon el Punto de Origen en el centro (Tecla numérica 5).'
+              ],
+              prompt: 'Genera un icono pixel-art de 16x16 píxeles de un candado dorado brillante (#facc15) que representa una llave criptográfica TLS.'
+            },
+            {
+              color: 'cyan',
+              badge: '🩵 Columna 3 · Escudo Hash',
+              title: 'Sprite 4: Cristal_Salting (16×16)',
+              items: [
+                'Inserta un nuevo Sprite llamado "Cristal_Salting" de 16×16 px.',
+                'Dibuja un diamante/gema azul cian (#06b6d4) con núcleo blanco brillante (#ffffff).',
+                'Duplica el cuadro (2 frames a 4 FPS, Loop: Sí) para darle efecto de destello.',
+                'Pon el Punto de Origen en el centro (Tecla numérica 5) y pide tu Sello 2.'
+              ],
+              prompt: 'Genera un icono pixel-art de 16x16 píxeles de un cristal diamante azul cian (#06b6d4) con destello blanco para escudo de ciberseguridad.'
+            }
+          ],
+          terminalRadar: 'Sello 2 Completo ➔ Jugador animado + Malware_Bot + Llave_TLS + Cristal_Salting en el proyecto.',
+          learningResult: 'El estudiante traduce conceptos de ciberseguridad (Malware, TLS y Salting) en objetos gráficos animados dentro de Construct 3.',
+          identification: 'Tema: Diseño de Malware_Bot, Llave_TLS y Cristal_Salting. Evidencia: 4 Sprites en Construct 3 y Sello 2.',
+          development: 'Creación guiada por columnas de colores de la amenaza y los dos coleccionables criptográficos con origen centrado.',
+          closure: 'Revisión de los 4 objetos en pantalla y firma del Sello 2 en libreta.',
+          faq: [
+            { q: '¿Por qué en el Malware, la Llave y el Cristal usamos la Tecla 5 para el Origen?', a: 'Porque al estar el origen en el centro exacto (X:8, Y:8), la semana que entra podrán flotar y patrullar de forma simétrica.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Dictado + Animaciones del Héroe + Sprites Malware_Bot, Llave_TLS y Cristal_Salting terminados.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 13 Nov · Hora 1)',
+          title: 'Bloques del Escenario (Piso_Servidor y Puerta chmod 600) y Catálogo Completo',
+          hook: 'Hoy completamos los 6 objetos oficiales: diseñaremos las plataformas metálicas del servidor y la compuerta blindada chmod 600 que solo se abrirá con la Llave TLS.',
+          start: '¿Cómo diseñamos bloques modulares de 16×16 px que puedan repetirse para armar todo el centro de datos?',
+          dictationTitle: 'BLOQUES MODULARES DEL SERVIDOR Y COMPUERTA DE ACCESO CHMOD 600',
+          dictation: 'La arquitectura física del nivel se construye mediante bloques modulares de 16 por 16 píxeles que se repiten a lo largo del escenario: 1) Piso_Servidor: Bloque de acero oscuro (#334155) con una franja superior en verde neón (#22c55e) que le indica visualmente al jugador qué superficies son seguras para pisar; y 2) Puerta_Servidor: Compuerta vertical blindada con marco de alerta rojo (#ef4444) y cerrojo dorado que representa el permiso restrictivo chmod 600 de Linux, bloqueando el paso hacia la terminal maestra hasta que el jugador presente la Llave TLS.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Completar los Sprites 5 y 6 y Auditar el Catálogo',
+            steps: [
+              'Copiar el Dictado Oficial en la libreta.',
+              'Crear el Piso_Servidor (Columna Verde), la Puerta_Servidor (Columna Morada) y verificar la lista de los 6 objetos (Columna Azul).'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · Bloque de Piso',
+              title: 'Sprite 5: Piso_Servidor (16×16)',
+              items: [
+                'Inserta un nuevo Sprite llamado "Piso_Servidor" de 16×16 px.',
+                'Pinta las 2 filas de arriba de color verde neón (#22c55e) como pista luminosa.',
+                'Rellena el resto del bloque con gris metálico (#334155) y remaches oscuros (#0f172a).',
+                'Deja su animación estática (Speed = 0) y su colisión cuadrada completa.'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 2 · Compuerta Linux',
+              title: 'Sprite 6: Puerta_Servidor (16×16)',
+              items: [
+                'Inserta un nuevo Sprite llamado "Puerta_Servidor" de 16×16 px.',
+                'Pinta el fondo de acero oscuro (#1e293b) y los bordes laterales en rojo alerta (#ef4444).',
+                'En el centro dibuja un pequeño cerrojo dorado (#facc15) que indica que pide la Llave_TLS.',
+                'Verifica que su caja de colisión cubra todo el cuadro de 16×16.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 3 · Auditoría Final',
+              title: 'Checklist de los 6 Sprites',
+              items: [
+                'Revisa en la barra derecha (Carpeta Tipos de Objeto) que tengas los 6 nombres exactos:',
+                '1️⃣ Jugador (con Idle, Run, Jump) | 2️⃣ Malware_Bot',
+                '3️⃣ Llave_TLS | 4️⃣ Cristal_Salting',
+                '5️⃣ Piso_Servidor | 6️⃣ Puerta_Servidor'
+              ]
+            }
+          ],
+          terminalRadar: 'Catálogo Completo (6/6) ➔ Jugador, Malware_Bot, Llave_TLS, Cristal_Salting, Piso_Servidor, Puerta_Servidor.',
+          learningResult: 'El estudiante completa los bloques modulares del escenario y valida la integridad de los 6 objetos del proyecto.',
+          identification: 'Tema: Bloques Piso_Servidor y Puerta_Servidor. Evidencia: Los 6 Sprites completos en el panel de Construct 3.',
+          development: 'Diseño del bloque de plataforma y la compuerta chmod 600, concluyendo el catálogo gráfico de la Semana 13.',
+          closure: 'Verificación de nombres y tamaños (16×16 px) antes de exportar el respaldo .c3p.',
+          faq: [
+            { q: '¿Por qué es importante ponerles exactamente esos nombres a los 6 Sprites?', a: 'Porque al programar las físicas y la hoja de eventos usaremos esos mismos nombres para que nadie se confunda.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Dictado en libreta + Los 6 Sprites completos en el panel de Proyecto de Construct 3.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 13 Nov · Hora 2)',
+          title: '🏆 Respaldo del Proyecto (.c3p) y Gran Kahoot Semana 13',
+          hook: '¡Catálogo de 6 Sprites terminado! Ahora guardaremos bajo llave nuestro archivo .c3p para la próxima semana y competiremos por el podio en el Gran Kahoot de la Semana 13.',
+          start: '¿Cómo respaldamos nuestro archivo fuente .c3p y quién dominará el podio de Construct 3 e IA?',
+          dictationTitle: 'EMPAQUETADO DE PROYECTO NATIVO (.C3P) Y AUDITORÍA DE SPRITES',
+          dictation: 'Todo avance desarrollado en la versión web de Construct 3 debe respaldarse al finalizar la sesión en un archivo con extensión .c3p (Construct 3 Project), el cual empaqueta en un solo fichero todos los sprites, animaciones, paletas y configuraciones del proyecto. Guardar una copia en Google Drive o Classroom garantiza la disponibilidad del trabajo para la siguiente fase, donde armaremos el escenario de tres pantallas y programaremos la gravedad del jugador.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Cierre en 3 Columnas: Descarga .c3p ➔ Kahoot ➔ Sello 3',
+            steps: [
+              'Descargar el archivo Sem13_Sprites_Apellido_501.c3p y subirlo a Google Drive / Classroom.',
+              'Competir en el Gran Kahoot Semana 13 y registrar puntaje en libreta.',
+              'Pasar a revisión para el estampado del Sello 3.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'blue',
+              badge: '🔵 Columna 1 · Respaldo .c3p',
+              title: 'Guardar Proyecto en la Nube',
+              items: [
+                'En Construct 3 haz clic en Menú (☰) ➔ Proyecto ➔ Guardar como ➔ Descargar una copia.',
+                'Nómbralo: Sem13_Sprites_Apellido_501.c3p.',
+                'Súbelo de inmediato a tu Google Drive o a la tarea de Classroom (j6bnku3j).'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 2 · Gran Kahoot',
+              title: 'Batalla Gamificada (20 Reactivos)',
+              items: [
+                'Entra desde tu navegador a kahoot.it e ingresa el PIN proyectado.',
+                'Responde las 20 preguntas sobre Prompts de IA, Sprites 16×16, Sampling Point, FPS, Origen (Teclas 2 y 5) y Hitbox.',
+                'Anota tu lugar y puntaje obtenido al final de tu apunte.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 3 · Firma Sello 3',
+              title: 'Checklist para tu Sello Final',
+              items: [
+                '1. Mostrar tus 6 Sprites terminados en Construct 3.',
+                '2. Mostrar tu archivo .c3p descargado.',
+                '3. Mostrar tus dictados y puntaje de Kahoot en libreta para recibir el Sello 3.'
+              ]
+            }
+          ],
+          terminalRadar: 'Entrega Semana 13 ➔ Archivo Sem13_Sprites_Apellido_501.c3p + Sellos 1, 2 y 3 en libreta.',
+          learningResult: 'El estudiante asegura la disponibilidad de su código fuente .c3p y acredita los conocimientos de diseño de sprites con IA.',
+          identification: 'Tema: Respaldo .c3p y Evaluación Kahoot Semana 13. Evidencia: Archivo .c3p, puntaje de Kahoot y Sello 3.',
+          development: 'Descarga verificada de archivos .c3p, ejecución del Kahoot de cierre semanal y sellado de libretas.',
+          closure: 'Firma del Sello 3 y felicitación al grupo por concluir la fase gráfica del videojuego.',
+          faq: [
+            { q: '¿Qué haremos la próxima semana con este archivo .c3p?', a: 'Abriremos este mismo archivo para armar el nivel de 3 pantallas con capas Parallax, bloques sólidos, gravedad, doble salto y patrullas.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Catálogo de 6 Sprites en archivo .c3p + Dictado + Puntaje del Kahoot Semana 13 en libreta.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'Prompts de IA para Pixel-Art y Diseño del Héroe Analista (16×16 px)',
+          hourIds: ['H01'],
+          product: 'Dictado oficial, fórmula de Prompt de IA en libreta y Sprite Jugador de 16×16 px en Construct 3 (Sello 1).',
+          unlockDate: '2026-11-11',
+          unlockLabel: 'Miércoles 11 de Noviembre (18:30 hrs)',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Animaciones (Idle, Run, Jump) y Diseño con IA de Malware_Bot, Llave_TLS y Cristal_Salting',
+          hourIds: ['H02', 'H03'],
+          product: 'Héroe animado + Sprites Malware_Bot, Llave_TLS y Cristal_Salting creados en Construct 3 (Sello 2).',
+          unlockDate: '2026-11-12',
+          unlockLabel: 'Jueves 12 de Noviembre (16:50 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'Bloques del Servidor (Piso y Puerta chmod 600), Archivo .c3p y Gran Kahoot Semana 13',
+          hourIds: ['H04', 'H05'],
+          product: 'Catálogo completo de 6 sprites respaldado en archivo .c3p y puntaje del Gran Kahoot Semana 13 (Sello 3).',
+          unlockDate: '2026-11-13',
+          unlockLabel: 'Viernes 13 de Noviembre (18:30 hrs)',
         },
       ],
     },
