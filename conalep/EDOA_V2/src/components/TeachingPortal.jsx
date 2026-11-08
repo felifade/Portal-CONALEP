@@ -611,6 +611,52 @@ const TeachingPortal = () => {
                     )}
                   </div>
 
+                  {currentSessionData.developmentColumns && (
+                    <div className="dev-columns-sections">
+                      {currentSessionData.developmentColumns.map((group, gIdx) => (
+                        <div key={gIdx} className="dev-column-group">
+                          {group.groupTitle && (
+                            <div className="dev-column-group-header">
+                              <h4>{group.groupTitle}</h4>
+                              {group.groupSubtitle && <span>{group.groupSubtitle}</span>}
+                            </div>
+                          )}
+                          <div
+                            className="dev-columns-grid"
+                            style={{
+                              gridTemplateColumns: `repeat(${group.columnsCount || 2}, minmax(0, 1fr))`
+                            }}
+                          >
+                            {group.items.map((col, cIdx) => (
+                              <div
+                                key={cIdx}
+                                className="dev-column-card"
+                                style={{ borderTopColor: col.color || '#025940' }}
+                              >
+                                <div
+                                  className="dev-column-card-header"
+                                  style={{ background: col.bgHeader || '#f0fdf4', color: col.color || '#025940' }}
+                                >
+                                  <span className="dev-col-badge">{col.badge}</span>
+                                  <h5>{col.title}</h5>
+                                  {col.screen && <code>{col.screen}</code>}
+                                </div>
+                                <div className="dev-column-card-body">
+                                  {col.rows?.map((row, rIdx) => (
+                                    <div key={rIdx} className="dev-col-row">
+                                      <strong>{row.label}:</strong>
+                                      <span>{row.value}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {renderTeleprompterBlocks(currentSessionData.development)}
 
                 </div>

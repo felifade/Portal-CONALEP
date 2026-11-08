@@ -54,7 +54,7 @@ export const teachingPlan = {
       captureDates: '10 al 11 Dic 2026',
       deadline: '11 Dic 2026',
       ras: [
-        { id: 'RA 3.1', title: 'Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W13', 'W14'] },
+        { id: 'RA 3.1', title: 'Cierre de App GeoCalc y Hojas de Cálculo Avanzadas', peso: '20%', weeks: ['W13', 'W14'] },
         { id: 'RA 3.2', title: 'Proyecto Integrador EDOA', peso: '15%', weeks: ['W15', 'W16'] }
       ]
     }
@@ -1769,15 +1769,15 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
       label: 'Semana 12',
       title: 'App GeoCalc: Programación con Doble Botón (7 Figuras · 9 Pantallas)',
       dates: '02 Nov - 06 Nov',
-      status: 'active',
+      status: 'historical',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
       templateFileName: 'GeoCalc_CONALEP.aia',
       templateBtnText: 'Descargar Proyecto Maestro (.aia)',
       templateBtnColor: '#005C42',
       toolUrl: 'https://ai2.appinventor.mit.edu',
       toolBtnText: 'Abrir MIT App Inventor',
-      summary: 'Programación exclusiva en el Blocks Editor para las 7 figuras geométricas (Círculo, Cuadrado, Rectángulo, Pentágono y los 3 Triángulos: Equilátero, Isósceles y Escaleno), implementando dos botones independientes por pantalla (Perímetro y Área).',
-      expectedProduct: 'Proyecto GeoCalc con 9 pantallas y las 7 figuras programadas con doble botón (Perímetro y Área) y botón Limpiar.',
+      summary: 'Programación exclusiva en el Blocks Editor para las figuras geométricas iniciales (Círculo, Cuadrado y Rectángulo), implementando dos botones independientes por pantalla (Perímetro y Área).',
+      expectedProduct: 'Proyecto GeoCalc con 9 pantallas y las primeras figuras programadas con doble botón (Perímetro y Área) y botón Limpiar.',
       notices: [
         '⚠️ Lunes 02 de Noviembre: Suspensión oficial de labores docentes (Día de Muertos / Feriado Nacional).',
         'Estructura de la App: 9 pantallas en total (Screen1, MenuPrincipal y 7 pantallas de figuras).',
@@ -1785,7 +1785,7 @@ Propósito: Sesión cedida al Profr. Alex para el impulso de proyectos de Robót
         'Miércoles (Sesión 01 · 1 hr): Círculo, Cuadrado y Rectángulo con doble botón (Sello 1).',
         'Jueves (Sesión 02 · 2 hrs): Triángulo Equilátero, Triángulo Isósceles y Pentágono Regular (Sello 2).',
         'Viernes (Sesión 03 · 1 hr): Triángulo Escaleno y chequeo integral de las 7 figuras (Sello 3).',
-        'Semana 13 (Proyección): Conexión con AI Companion en celular, casos de prueba y evaluación formal del RA 2.2.'
+        'Semana 13 (Continuación): Conclusión de fórmulas de Pentágono y los 3 Triángulos el Lunes.'
       ],
       sessions: [
         {
@@ -1907,9 +1907,286 @@ Metodología: Demo Cañón Escaleno (10 min) ➔ Reto en PC (30 min) ➔ Revisi�
 1. Completar la programación de ScreenTrianguloEscaleno.
 2. Hacer una revisión exhaustiva de que las 7 figuras tengan sus 2 botones y botón Limpiar.
 
-👉 SELLO 3: Las 7 figuras geométricas programadas con doble botón al 100%.
-📢 AVISO SEMANA 13: La próxima semana conectaremos los celulares con MIT AI2 Companion, comprobaremos los casos de prueba en mano y calificaremos el RA 2.2 formalmente.`,
-          closure: 'Las 7 figuras geométricas con doble botón concluidas con éxito en App Inventor.'
+👉 SELLO 3: Las 7 figuras geométricas programadas con doble botón al 100%.`,
+          closure: 'Las 7 figuras geométricas con doble botón en proceso de cierre.'
+        }
+      ]
+    },
+    'W13': {
+      id: 'W13',
+      label: 'Semana 13',
+      title: 'Cierre de Fórmulas GeoCalc (Pentágono y 3 Triángulos) & Cine-Debate Black Mirror',
+      dates: '09 Nov - 13 Nov',
+      status: 'active',
+      templateUrl: './templates/GeoCalc_CONALEP.aia',
+      templateFileName: 'GeoCalc_CONALEP.aia',
+      templateBtnText: 'Descargar Proyecto Maestro (.aia)',
+      templateBtnColor: '#005C42',
+      toolUrl: 'https://ai2.appinventor.mit.edu',
+      toolBtnText: 'Abrir MIT App Inventor',
+      summary: 'Conclusión al 100% de las fórmulas en bloques pendientes de GeoCalc (Pentágono Regular y los 3 Triángulos: Equilátero, Isósceles y Escaleno con doble botón Perímetro/Área) y análisis crítico de impacto tecnológico con Black Mirror.',
+      expectedProduct: '4 pantallas restantes (Pentágono y 3 Triángulos) programadas con doble botón + Tabla de Análisis en 3 Columnas en libreta.',
+      notices: [
+        'Lunes 09 Nov (Sesión 01 · 4 hrs): Conclusión obligatoria de las 4 figuras faltantes en Blocks Editor (Pentágono Regular, Triángulo Equilátero, Triángulo Isósceles y Triángulo Escaleno) con doble botón (Perímetro y Área) y botón Limpiar.',
+        'Actividad Complementaria Lunes (Si da tiempo): Proyección y análisis en 3 columnas del episodio de Black Mirror "Joan es horrible" (Joan Is Awful · T6E1) sobre Términos y Condiciones, captura de datos móviles e IA.',
+        'Miércoles, Jueves y Viernes: Sesiones por definir de acuerdo con el avance real logrado el lunes en laboratorio.'
+      ],
+      sessions: [
+        {
+          id: 'S1',
+          label: 'Sesión 01',
+          subtitle: 'Lunes (4 hrs) · Fórmulas Faltantes (Pentágono y 3 Triángulos) + Black Mirror',
+          start: '¿Cómo concluimos los bloques matemáticos del Pentágono y los 3 Triángulos, y qué ocurre cuando aceptamos los "Términos y Condiciones" de una app sin leerlos?',
+          dictation: `⏱️ HORAS 1 Y 2 · Conclusión de Fórmulas Geométricas en Bloques (Pentágono y 3 Triángulos):
+Para cerrar las nueve pantallas de la aplicación GeoCalc en MIT App Inventor, se programan las cuatro calculadoras restantes bajo el estándar de doble botón independiente (Btn_CalcularPerimetro y Btn_CalcularArea). En el Pentágono Regular, el perímetro multiplica cinco veces el lado (5·L) y el área procesa el producto del perímetro por la apotema dividido entre dos. En las tres variantes de triángulos (Equilátero, Isósceles y Escaleno), la superficie responde a la misma fórmula universal (Base por Altura sobre dos), mientras que el perímetro se adapta a la geometría de sus lados: 3·L para tres lados iguales, 2·L + b para dos lados iguales, y la suma Lado A + Lado B + Lado C cuando sus tres aristas son diferentes.
+
+⏱️ HORAS 3 Y 4 (SI DA TIEMPO) · Documentos Digitales, Privacidad Móvil y Black Mirror ("Joan es horrible"):
+Cada vez que instalamos una aplicación móvil y presionamos el botón "Acepto los Términos y Condiciones", firmamos un contrato digital vinculante. A través del análisis del episodio "Joan es horrible" (Black Mirror), reflexionamos sobre cómo los algoritmos, la recolección de datos desde el teléfono celular y la inteligencia artificial pueden automatizar la vida privada de un usuario cuando la tecnología se diseña sin límites éticos.`,
+          learningResult: 'Programar al 100% los bloques de Perímetro, Área y Limpiar para el Pentágono Regular y los 3 Triángulos (Equilátero, Isósceles y Escaleno), y analizar en una tabla de 3 columnas el impacto de los contratos digitales y las apps móviles.',
+          identification: {
+            topic: 'Pentágono, 3 Triángulos & Análisis Black Mirror',
+            evidence: '4 Figuras en Bloques (Sello 1) + Tabla de 3 Columnas en Libreta (Sello 2)',
+            organization: 'Individual en PC y Libreta',
+            location: 'Laboratorio de Informática',
+            time: '4 hrs'
+          },
+          infographicTitle: 'Ruta Sesión 01 (Lunes · 4 Horas)',
+          infographicSteps: [
+            { title: '1. Pentágono Regular', desc: 'Programa Perímetro (5 * Lado) y Área (((5 * Lado) * Apotema) / 2) + Limpiar.' },
+            { title: '2. Triángulos Equilátero e Isósceles', desc: 'Programa Perímetro (3*L y 2*L+b) y Área ((b*h)/2) en ambas pantallas.' },
+            { title: '3. Triángulo Escaleno y Sello 1', desc: 'Programa Perímetro (A + B + C) y Área ((b*h)/2) para completar las 7 figuras.' },
+            { title: '4. Black Mirror (Si da tiempo)', desc: 'Proyección de "Joan es horrible" (T6E1) y Tabla de 3 Columnas en libreta.' }
+          ],
+          developmentColumns: [
+            {
+              groupTitle: '📐 PARTE 1 (HORAS 1 Y 2) · DESARROLLO EN COLUMNAS: FÓRMULAS FALTANTES EN BLOCKS EDITOR',
+              groupSubtitle: 'Programa en cada pantalla sus 3 eventos: Btn_CalcularPerimetro.Click, Btn_CalcularArea.Click y Btn_Limpiar.Click',
+              columnsCount: 2,
+              items: [
+                {
+                  badge: 'Columna 1 · Polígono Regular',
+                  title: 'Pentágono Regular',
+                  screen: 'ScreenPentagono',
+                  color: '#025940',
+                  bgHeader: '#ecfdf5',
+                  rows: [
+                    { label: 'Entradas (TextBox)', value: 'Txt_Lado  |  Txt_Apotema' },
+                    { label: '🟢 Btn_CalcularPerimetro.Click', value: 'set Lbl_ResPerimetro.Text to join:\n  [ 5 × Txt_Lado.Text , " cm" ]' },
+                    { label: '🔵 Btn_CalcularArea.Click', value: 'set Lbl_ResArea.Text to join:\n  [ ((5 × Txt_Lado.Text) × Txt_Apotema.Text) / 2 , " cm²" ]' },
+                    { label: '🧹 Btn_Limpiar.Click', value: 'Txt_Lado.Text = "" | Txt_Apotema.Text = ""\nLbl_ResPerimetro = "-- cm" | Lbl_ResArea = "-- cm²"' }
+                  ]
+                },
+                {
+                  badge: 'Columna 2 · 3 Lados Iguales',
+                  title: 'Triángulo Equilátero',
+                  screen: 'ScreenTrianguloEquilatero',
+                  color: '#1d4ed8',
+                  bgHeader: '#eff6ff',
+                  rows: [
+                    { label: 'Entradas (TextBox)', value: 'Txt_Lado  |  Txt_Base  |  Txt_Altura' },
+                    { label: '🟢 Btn_CalcularPerimetro.Click', value: 'set Lbl_ResPerimetro.Text to join:\n  [ 3 × Txt_Lado.Text , " cm" ]' },
+                    { label: '🔵 Btn_CalcularArea.Click', value: 'set Lbl_ResArea.Text to join:\n  [ (Txt_Base.Text × Txt_Altura.Text) / 2 , " cm²" ]' },
+                    { label: '🧹 Btn_Limpiar.Click', value: 'Vaciar Txt_Lado, Txt_Base, Txt_Altura\nRestaurar Lbl_ResPerimetro y Lbl_ResArea' }
+                  ]
+                },
+                {
+                  badge: 'Columna 3 · 2 Lados Iguales + Base',
+                  title: 'Triángulo Isósceles',
+                  screen: 'ScreenTrianguloIsosceles',
+                  color: '#7e22ce',
+                  bgHeader: '#faf5ff',
+                  rows: [
+                    { label: 'Entradas (TextBox)', value: 'Txt_LadoIgual  |  Txt_Base  |  Txt_Altura' },
+                    { label: '🟢 Btn_CalcularPerimetro.Click', value: 'set Lbl_ResPerimetro.Text to join:\n  [ (2 × Txt_LadoIgual.Text) + Txt_Base.Text , " cm" ]' },
+                    { label: '🔵 Btn_CalcularArea.Click', value: 'set Lbl_ResArea.Text to join:\n  [ (Txt_Base.Text × Txt_Altura.Text) / 2 , " cm²" ]' },
+                    { label: '🧹 Btn_Limpiar.Click', value: 'Vaciar Txt_LadoIgual, Txt_Base, Txt_Altura\nRestaurar Lbl_ResPerimetro y Lbl_ResArea' }
+                  ]
+                },
+                {
+                  badge: 'Columna 4 · 3 Lados Diferentes',
+                  title: 'Triángulo Escaleno',
+                  screen: 'ScreenTrianguloEscaleno',
+                  color: '#c2410c',
+                  bgHeader: '#fff7ed',
+                  rows: [
+                    { label: 'Entradas (TextBox)', value: 'Txt_LadoA | Txt_LadoB | Txt_LadoC | Txt_Base | Txt_Altura' },
+                    { label: '🟢 Btn_CalcularPerimetro.Click', value: 'set Lbl_ResPerimetro.Text to join:\n  [ Txt_LadoA.Text + Txt_LadoB.Text + Txt_LadoC.Text , " cm" ]' },
+                    { label: '🔵 Btn_CalcularArea.Click', value: 'set Lbl_ResArea.Text to join:\n  [ (Txt_Base.Text × Txt_Altura.Text) / 2 , " cm²" ]' },
+                    { label: '🧹 Btn_Limpiar.Click', value: 'Vaciar las 5 cajas de texto\nRestaurar Lbl_ResPerimetro y Lbl_ResArea' }
+                  ]
+                }
+              ]
+            },
+            {
+              groupTitle: '🎬 PARTE 2 (SI DA TIEMPO · HORAS 3 Y 4) · BLACK MIRROR: "JOAN ES HORRIBLE" (TABLA EN 3 COLUMNAS)',
+              groupSubtitle: 'Ya vimos el de videojuegos (Playtest) y el de calificación social (Caída en picada). Hoy analizamos "Joan Is Awful" (T6E1) o "Añicos / Smithereens" (T5E2) trazando estas 3 columnas en la libreta:',
+              columnsCount: 3,
+              items: [
+                {
+                  badge: 'Columna 1 en Libreta',
+                  title: '1. La App y la Tecnología',
+                  screen: '¿Qué sistema aparece?',
+                  color: '#0f172a',
+                  bgHeader: '#f1f5f9',
+                  rows: [
+                    { label: 'En "Joan es horrible" (T6E1)', value: 'La app "Streamberry" capta con el micrófono del celular todo lo que hace la usuaria y una computadora cuántica con IA genera una serie de su vida en tiempo real.' },
+                    { label: 'Alternativa "Añicos" (T5E2)', value: 'Una app de red social diseñada con algoritmos de dopamina y notificaciones para que el usuario no pueda despegar la vista del teléfono.' },
+                    { label: 'Pregunta para tu Columna 1', value: '¿Qué componentes del celular (micrófono, cámara, pantalla, botones) usa la app del capítulo?' }
+                  ]
+                },
+                {
+                  badge: 'Columna 2 en Libreta',
+                  title: '2. Documentos y Datos',
+                  screen: 'Relación con EDOA',
+                  color: '#0369a1',
+                  bgHeader: '#f0f9ff',
+                  rows: [
+                    { label: 'El Contrato Digital', value: 'Al crear su cuenta en la app, Joan presionó el botón "Aceptar Términos y Condiciones" sin leer el documento digital donde cedía su identidad.' },
+                    { label: 'Automatización Masiva', value: 'Igual que en combinación de correspondencia o en bloques de software, un documento legal digital se procesa automáticamente para millones de usuarios.' },
+                    { label: 'Pregunta para tu Columna 2', value: '¿Por qué es peligroso presionar "Aceptar" en un documento digital sin revisar qué permisos pide la app?' }
+                  ]
+                },
+                {
+                  badge: 'Columna 3 en Libreta',
+                  title: '3. Ética del Programador',
+                  screen: 'Tu Regla de Diseño',
+                  color: '#15803d',
+                  bgHeader: '#f0fdf4',
+                  rows: [
+                    { label: 'De Usuario a Creador', value: 'En MIT App Inventor ustedes ya no son solo usuarios: ahora son quienes programan qué hace cada botón cuando alguien lo toca.' },
+                    { label: 'Diseño Responsable', value: 'Una app profesional debe procesar solo los datos necesarios (como GeoCalc) sin espiar ni engañar al usuario.' },
+                    { label: 'Pregunta para tu Columna 3', value: 'Si tú fueras el creador de esa app, ¿qué regla o botón de seguridad le programarías para proteger a las personas?' }
+                  ]
+                }
+              ]
+            }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (4 HORAS)
+Metodología: Bloques en 4 Columnas: Pentágono y 3 Triángulos (Horas 1-2) ➔ Revisión y Sello 1 ➔ Black Mirror y Tabla de 3 Columnas en Libreta (Horas 3-4, si da tiempo)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 1 Y 2 (16:50 - 18:30) · Conclusión de Fórmulas: Pentágono y los 3 Triángulos
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Ya tenemos listos el Círculo, el Cuadrado y el Rectángulo. Hoy en la primera mitad de la sesión vamos a liquidar las 4 pantallas que nos faltan siguiendo el tablero de 4 columnas: el Pentágono Regular y la familia completa de los 3 Triángulos (Equilátero, Isósceles y Escaleno)."
+
+🖥️ DEMO RÁPIDA POR COLUMNAS EN CAÑÓN (15 min):
+1) Columna 1 (ScreenPentagono):
+   - Perímetro = 5 * Txt_Lado
+   - Área = ((5 * Txt_Lado) * Txt_Apotema) / 2
+2) Columna 2 (ScreenTrianguloEquilatero):
+   - Perímetro = 3 * Txt_Lado  |  Área = (Txt_Base * Txt_Altura) / 2
+3) Columna 3 (ScreenTrianguloIsosceles):
+   - Perímetro = (2 * Txt_LadoIgual) + Txt_Base  |  Área = (Txt_Base * Txt_Altura) / 2
+4) Columna 4 (ScreenTrianguloEscaleno):
+   - Perímetro = Txt_LadoA + Txt_LadoB + Txt_LadoC  |  Área = (Txt_Base * Txt_Altura) / 2
+
+💻 RETO EN PC (75 min):
+Guiándose con las 4 columnas en pantalla, cada alumno termina de programar las 4 figuras faltantes con sus botones de Perímetro, Área y Limpiar.
+
+🏷️ EVIDENCIA Y SELLO 1:
+Las 7 figuras geométricas (9 pantallas en total) 100% programadas en el Blocks Editor sin errores ni advertencias amarillas. 👉 SELLO 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 3 Y 4 (18:30 - 20:10 · SI DA TIEMPO) · Cine-Debate Black Mirror en 3 Columnas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Ya vimos qué pasa con la realidad virtual en los videojuegos y qué pasa cuando una app califica a las personas en 'Caída en picada'. Hoy veremos qué pasa cuando instalas una app en tu teléfono y presionas el botón 'Acepto los Términos y Condiciones' sin leer el documento digital."
+
+💻 RETO EN LIBRETA (TABLA DE 3 COLUMNAS):
+1. Trazar en la libreta la Tabla de Análisis de 3 Columnas que aparece arriba en el Desarrollo:
+   - Columna 1: La App y la Tecnología del episodio.
+   - Columna 2: Documentos Digitales y Datos capturados.
+   - Columna 3: Ética del Programador (¿qué regla programarías tú?).
+2. Proyección del episodio ("Joan es horrible" · T6E1) y llenado de las 3 columnas.
+
+🏷️ EVIDENCIA Y SELLO 2 (OPCIONAL / SI DA TIEMPO):
+Tabla de 3 columnas completada en la libreta con la reflexión sobre el episodio. 👉 SELLO 2`,
+          closure: 'Fórmulas de las 7 figuras concluidas al 100% en App Inventor y reflexión tecnológica registrada en columnas.'
+        },
+        {
+          id: 'S2',
+          label: 'Sesión 02',
+          subtitle: 'Miércoles (1 hr) · Sesión por definir según avance del Lunes',
+          unlockDate: '2026-11-11',
+          unlockLabel: 'Miércoles 11 de Noviembre, 17:40 hrs',
+          start: '¿Cómo validamos nuestra app GeoCalc completa con las 7 figuras directamente en el teléfono celular?',
+          dictation: `⏱️ HORA 5 · Pruebas de Integración en Smartphone con MIT AI2 Companion:
+Una vez concluida la programación en bloques de las 7 figuras geométricas, se realiza la vinculación inalámbrica mediante código QR hacia MIT AI2 Companion para comprobar en tiempo real el funcionamiento de los botones de Perímetro, Área y Limpiar en cada pantalla.`,
+          learningResult: 'Probar las 9 pantallas y 7 calculadoras geométricas en vivo desde el teléfono móvil.',
+          identification: {
+            topic: 'Seguimiento Semana 13 · Sesión 02',
+            evidence: 'Por confirmar según avance del Lunes',
+            organization: 'Individual en Laboratorio',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 02 (Miércoles)',
+          infographicSteps: [
+            { title: '1. Revisión de Avance', desc: 'Verificación del cierre de las 7 figuras del lunes.' },
+            { title: '2. Conexión Móvil', desc: 'Enlace con MIT AI2 Companion mediante código QR.' },
+            { title: '3. Pruebas de Botones', desc: 'Validación de Perímetro, Área y Limpiar en las 7 figuras.' },
+            { title: '4. Registro de Sello', desc: 'Acreditación del avance de mitad de semana.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
+Metodología: Sesión sujeta a ajuste de acuerdo con el cierre real de la Sesión 01 del Lunes.`,
+          closure: 'Avance de miércoles registrado en lista.'
+        },
+        {
+          id: 'S3',
+          label: 'Sesión 03',
+          subtitle: 'Jueves (2 hrs) · Sesión por definir según avance',
+          unlockDate: '2026-11-12',
+          unlockLabel: 'Jueves 12 de Noviembre, 16:50 hrs',
+          start: '¿Cómo aseguramos la calidad total de nuestro proyecto antes de su entrega final?',
+          dictation: `⏱️ HORAS 6 Y 7 · Consolidación Práctica de la Semana 13:
+Sesión programada para ajuste pedagógico de acuerdo con el avance del grupo 301 en el laboratorio.`,
+          learningResult: 'Consolidar las evidencias prácticas de la Semana 13.',
+          identification: {
+            topic: 'Seguimiento Semana 13 · Sesión 03',
+            evidence: 'Evidencia de Jueves en Laboratorio',
+            organization: 'Individual',
+            location: 'Laboratorio de Informática',
+            time: '2 hrs'
+          },
+          infographicTitle: 'Ruta Sesión 03 (Jueves)',
+          infographicSteps: [
+            { title: '1. Apertura', desc: 'Indicaciones generales de la sesión de jueves.' },
+            { title: '2. Práctica', desc: 'Desarrollo de la actividad en laboratorio.' },
+            { title: '3. Verificación', desc: 'Revisión de resultados con el docente.' },
+            { title: '4. Cierre', desc: 'Firma y sello de la sesión.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
+Metodología: Sesión sujeta a actualización tras la jornada del lunes.`,
+          closure: 'Sesión de jueves concluida.'
+        },
+        {
+          id: 'S4',
+          label: 'Sesión 04',
+          subtitle: 'Viernes (1 hr) · Cierre Semanal y Evaluación',
+          unlockDate: '2026-11-13',
+          unlockLabel: 'Viernes 13 de Noviembre, 15:00 hrs',
+          start: '¿Qué aprendizajes nos llevamos al concluir el desarrollo completo de nuestra aplicación móvil?',
+          dictation: `⏱️ HORA 8 · Cierre y Cotejo de Evidencias de la Semana 13:
+Revisión integral de sellos acumulados en libreta y funcionamiento final en laboratorio.`,
+          learningResult: 'Acreditar los productos y sellos de la Semana 13.',
+          identification: {
+            topic: 'Cierre de Semana 13',
+            evidence: 'Sellos completos de la Semana 13',
+            organization: 'Individual',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 04 (Viernes)',
+          infographicSteps: [
+            { title: '1. Cotejo', desc: 'Revisión de actividades de la semana.' },
+            { title: '2. Pruebas', desc: 'Validación final en equipo de cómputo.' },
+            { title: '3. Evaluación', desc: 'Registro de sellos en lista oficial.' },
+            { title: '4. Cierre', desc: 'Conclusión de la Semana 13.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
+Metodología: Revisión y registro de sellos de cierre semanal.`,
+          closure: 'Semana 13 concluida exitosamente.'
         }
       ]
     }
