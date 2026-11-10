@@ -579,4 +579,70 @@ LOCATION:Plaza Cívica · Plantel Pachuca II
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1113-visita-sec1-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261113
+SUMMARY:⚽ Visita al Plantel de la Esc. Sec. Téc. 1 (Visita STEM y Partido de Fútbol Amistoso)
+DESCRIPTION:Visita de vinculación de la Escuela Secundaria Técnica No. 1 al Plantel Pachuca II: recorrido por laboratorios y proyectos STEM, seguido de partido de fútbol amistoso.
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-1126-talleres-fin-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261126
+SUMMARY:🎭 Conclusión de Talleres Culturales y Deportivos
+DESCRIPTION:Cierre y clausura de actividades de los talleres extracurriculares culturales y deportivos del semestre 1.26.27.
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-1127-contralor-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261127
+SUMMARY:🏛️ Visita del Contralor al Plantel
+DESCRIPTION:Visita oficial de supervisión e inspección institucional del Contralor a las instalaciones y áreas operativas de CONALEP Plantel Pachuca II.
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-1127-pevidd-cierre-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261127
+SUMMARY:📋 Cierre de la Plataforma para la Evaluación de los 4 Elementos del PEVIDD
+DESCRIPTION:Fecha límite improrrogable para la carga, verificación y cierre en plataforma de los 4 elementos correspondientes a la evaluación docente PEVIDD.
+LOCATION:Plataforma PEVIDD
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-1202-pevidd-eval-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261202
+SUMMARY:📝 Evaluación PEVIDD
+DESCRIPTION:Jornada de aplicación y dictaminación de la Evaluación PEVIDD conforme a los criterios institucionales de CONALEP Hidalgo.
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ev-1211-proyectos-finales-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261110T120000Z
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261211
+SUMMARY:💡 Presentación de Proyectos Finales
+DESCRIPTION:Exhibición, demostración y evaluación colegiada de los Proyectos Integradores Finales de los módulos de formación técnica.
+LOCATION:Talleres y Laboratorios · Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
 END:VCALENDAR
