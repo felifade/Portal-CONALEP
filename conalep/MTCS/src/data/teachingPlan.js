@@ -1135,8 +1135,8 @@ export const teachingPlan = {
       id: 'W08',
       label: 'Semana 08',
       dateRange: '05 - 09 Oct',
-      status: 'En curso',
-      defaultWeek: true,
+      status: 'Histórico',
+      defaultWeek: false,
       corteId: 'C2',
       raId: 'RA 2.1',
       title: 'Tríada CIA, Cerraduras en Linux y Gran Batalla Kahoot',
@@ -2019,6 +2019,12 @@ export const teachingPlan = {
           title: 'Registro en Construct 3 (Sin Bad Request) e Importación de tu Personaje al Juego',
           hook: 'Ayer ya dibujaron y guardaron su personaje estático. Hoy primero resolveremos el error "Bad Request" registrándonos antes de iniciar sesión, y luego importaremos nuestro dibujo directo al escenario del videojuego.',
           start: '¿Por qué aparece "Bad Request" al intentar iniciar sesión sin cuenta y cómo importamos nuestro dibujo guardado hacia Construct 3?',
+          infographicTitle: 'Paso 1: Solución al error Bad Request en Construct 3',
+          infographicImage: 'construct3_paso1_registro_sin_bad_request.png',
+          infographicImages: [
+            { src: 'construct3_paso1_registro_sin_bad_request.png', title: 'Paso 1: Registro correcto en Construct 3 (Evitar Bad Request)' },
+            { src: 'construct3_paso2_importar_dibujo.png', title: 'Paso 2: Cómo importar tu dibujo de ayer al videojuego en 4 clics' }
+          ],
           dictationTitle: 'REGISTRO DE CUENTA, CONFIGURACIÓN DE VIEWPORT E IMPORTACIÓN DE SPRITE',
           dictation: 'Para conectarse a Construct 3 sin recibir el error "Bad Request", el usuario debe crear primero su cuenta en la opción Registrarse (Register) antes de utilizar el botón Iniciar Sesión (Log In). Una vez dentro del editor, el proyecto Pixel-Art se configura en una resolución de 640 por 360 píxeles con muestreo en modo Punto (Point) para conservar bordes nítidos. Para integrar el personaje dibujado previamente, se inserta un objeto Sprite llamado Jugador y se utiliza el botón de la carpeta (Cargar una imagen desde un archivo) para importar el dibujo estático, fijando finalmente su Punto de Origen en la base de los pies con la tecla numérica 2.',
           workBlock: {
@@ -2057,6 +2063,8 @@ export const teachingPlan = {
           title: 'Cómo Animar tu Personaje Importado (Idle, Run y Jump) sin Volver a Dibujar',
           hook: 'Ya tenemos a nuestro personaje estático dentro del juego. Ahora aprenderemos el truco de los animadores: duplicar el dibujo que ya importamos y mover solo 1 o 2 cuadritos para que respire y corra.',
           start: '¿Cómo convertimos nuestro dibujo estático en un personaje que respira (Idle) y corre (Run) usando fotogramas?',
+          infographicTitle: 'Paso 3: Cómo animar tu dibujo duplicando fotogramas en Construct 3',
+          infographicImage: 'construct3_paso3_animar_duplicando.png',
           dictationTitle: 'ANIMACIÓN POR DUPLICACIÓN DE FOTOGRAMAS Y CAJA DE COLISIÓN',
           dictation: 'Para animar un personaje previamente importado en Construct 3 sin redibujarlo desde cero, se utiliza la técnica de duplicación de fotogramas (Frames): 1) Animación Idle (Respirar): Se renombra la animación por defecto a Idle, se duplica el Cuadro 0 en la barra inferior y en el Cuadro 1 se selecciona la mitad superior del cuerpo para bajarla un píxel, activando Velocidad 3 FPS y Bucle (Loop); 2) Animación Run (Correr): Se crea una nueva animación a 8 FPS en bucle donde se duplica el personaje alternando la altura de los pies para simular el paso; y 3) Polígono de Colisión: Se ajusta a una caja rectangular uniforme para que el personaje pise firme sin atorarse.',
           workBlock: {
@@ -2194,6 +2202,7 @@ export const teachingPlan = {
       label: 'Semana 13',
       dateRange: '09 - 13 Nov',
       status: 'En curso',
+      defaultWeek: true,
       corteId: 'C3',
       raId: 'RA 3.1',
       title: 'Diseño de Sprites Pixel-Art con IA y Animaciones en Construct 3',

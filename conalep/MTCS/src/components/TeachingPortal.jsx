@@ -39,6 +39,9 @@ import imgCmdForense from '../assets/mtcs-bateria-pruebas-cmd-forense.jpg';
 import imgComicS04 from '../assets/mtcs-comic-redes-ciberseguridad-semana04.jpg';
 import imgCloudRecon from '../assets/mtcs-auditoria-cloud-recon-semana05.jpg';
 import imgFilesKahoot from '../assets/mtcs-gestion-archivos-nano-kahoot-semana05.jpg';
+import imgC3Registro from '../assets/construct3_paso1_registro_sin_bad_request.png';
+import imgC3Importar from '../assets/construct3_paso2_importar_dibujo.png';
+import imgC3Animar from '../assets/construct3_paso3_animar_duplicando.png';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -50,6 +53,9 @@ const ASSET_REGISTRY = {
   'mtcs-comic-redes-ciberseguridad-semana04.jpg': imgComicS04,
   'mtcs-auditoria-cloud-recon-semana05.jpg': imgCloudRecon,
   'mtcs-gestion-archivos-nano-kahoot-semana05.jpg': imgFilesKahoot,
+  'construct3_paso1_registro_sin_bad_request.png': imgC3Registro,
+  'construct3_paso2_importar_dibujo.png': imgC3Importar,
+  'construct3_paso3_animar_duplicando.png': imgC3Animar,
 };
 
 function resolveAssetUrl(src) {
