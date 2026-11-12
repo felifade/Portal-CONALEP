@@ -2226,6 +2226,10 @@ export const teachingPlan = {
           title: 'Prompts de IA para Videojuegos y Diseño del Héroe Analista (16×16 px)',
           hook: 'Ya terminamos el recorrido por la interfaz de Construct 3. Hoy usaremos Inteligencia Artificial como copiloto creativo para diseñar a nuestro Héroe Analista de 16×16 píxeles en minutos y sin trabarnos.',
           start: '¿Cómo estructuramos un Prompt de IA para generar sprites Pixel-Art de 16×16 px y cómo lo llevamos a Construct 3?',
+          infographicImages: [
+            { src: 'construct3_paso1_registro_sin_bad_request.png', title: 'Paso 1: Registro correcto en Construct 3 (Evitar Bad Request)' },
+            { src: 'construct3_paso2_importar_dibujo.png', title: 'Paso 2: Cómo importar tu dibujo al videojuego en 4 clics' }
+          ],
           dictationTitle: 'DISEÑO DE SPRITES PIXEL-ART ASISTIDO POR INTELIGENCIA ARTIFICIAL',
           dictation: 'En el desarrollo moderno de videojuegos 2D, la Inteligencia Artificial generativa funciona como un asistente visual que acelera la creación de personajes y objetos llamados Sprites. Para obtener un diseño útil en estilo Pixel-Art, debemos redactar una instrucción precisa llamada Prompt con cuatro elementos: 1) Sujeto y Rol (un analista de ciberseguridad con casco y visor); 2) Dimensión exacta (cuadrícula de 16 por 16 píxeles, vista lateral 2D); 3) Paleta de colores de alto contraste (azul oscuro #0f172a y verde neón #00ff66); y 4) Fondo transparente o sólido para recortar fácilmente. Al llevar el personaje a Construct 3 sobre un lienzo de 640 por 360 píxeles en modo Punto (Point), es obligatorio colocar el Punto de Origen en la base de las botas (tecla numérica 2) para que apoye los pies correctamente sobre el suelo.',
           workBlock: {
@@ -2326,9 +2330,14 @@ export const teachingPlan = {
         {
           id: 'H02',
           label: 'Sesión 02 (Jueves 12 Nov · Hora 1)',
-          title: 'Animaciones del Héroe (Idle, Run y Jump) y Caja de Colisión',
-          hook: 'Nuestro Héroe ya existe, pero está congelado como estatua. Hoy le daremos vida con 3 animaciones: respirar (Idle), correr (Run) y saltar (Jump) moviendo solo 1 píxel.',
-          start: '¿Cómo creamos la ilusión de movimiento con Fotogramas por Segundo (FPS) y por qué emparejamos la Caja de Colisión?',
+          title: 'Registro sin Bad Request, Importar tu Dibujo y Animaciones del Héroe (Idle, Run y Jump)',
+          hook: 'Ayer ya dibujaron y guardaron su personaje estático. Hoy primero nos registramos bien en Construct 3 (sin Bad Request), importamos el dibujo al juego y le damos vida con 3 animaciones moviendo solo 1 píxel.',
+          start: '¿Cómo nos conectamos sin "Bad Request", cómo importamos nuestro dibujo guardado y cómo lo animamos?',
+          infographicImages: [
+            { src: 'construct3_paso1_registro_sin_bad_request.png', title: '1. Solución al error Bad Request (Registrarse antes de Iniciar Sesión)' },
+            { src: 'construct3_paso2_importar_dibujo.png', title: '2. Cómo importar tu dibujo guardado ayer hacia el videojuego' },
+            { src: 'construct3_paso3_animar_duplicando.png', title: '3. Cómo animar tu dibujo estático (Idle, Run y Jump) duplicando cuadros' }
+          ],
           dictationTitle: 'CICLOS DE ANIMACIÓN (FPS) Y CAJA DE COLISIÓN DEL JUGADOR',
           dictation: 'Para que un personaje 2D cobre vida dentro del videojuego, se programan tres secuencias de animación en el panel Animations de Construct 3: 1) Idle (Reposo), compuesta por 2 cuadros a una velocidad de 3 fotogramas por segundo (FPS) con la opción Loop (Bucle) activada para simular que el personaje respira; 2) Run (Correr), formada por 4 cuadros a 8 FPS con bucle activo alternando la altura de las botas para simular la carrera; y 3) Jump (Salto), de un solo cuadro sin bucle con las botas flexionadas en el aire. Finalmente, el polígono de colisión (Hitbox) debe configurarse como una caja rectangular uniforme en todos los cuadros para evitar que el jugador se atore en el piso.',
           workBlock: {

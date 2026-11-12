@@ -961,10 +961,10 @@ function TeachingPortal() {
                         ) : hour.visualExample.image ? (
                           <div
                             className="visual-image-wrapper"
-                            onClick={() => setZoomedImg(hour.visualExample.image)}
+                            onClick={() => setZoomedImg({ src: resolveAssetUrl(hour.visualExample.image), title: hour.visualExample.title })}
                             title="Clic para ampliar imagen"
                           >
-                            <img src={hour.visualExample.image} alt={hour.visualExample.title || "Ejemplo Visual"} />
+                            <img src={resolveAssetUrl(hour.visualExample.image)} alt={hour.visualExample.title || "Ejemplo Visual"} />
                             <span className="zoom-hint">🔍 Clic para ampliar</span>
                           </div>
                         ) : hour.visualExample.mockup ? (
@@ -972,6 +972,13 @@ function TeachingPortal() {
                             <pre>{hour.visualExample.mockup}</pre>
                           </div>
                         ) : null}
+                      </div>
+                    )}
+
+                    {/* 3.2 Infografías / Guías Visuales con Imágenes */}
+                    {(hour.infographicImage || hour.infographicImages?.length > 0) && (
+                      <div className="teacher-visual-card">
+                        <InfographicPlan hour={hour} onZoomImage={setZoomedImg} />
                       </div>
                     )}
 
