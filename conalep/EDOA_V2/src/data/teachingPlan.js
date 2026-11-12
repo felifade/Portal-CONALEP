@@ -11,6 +11,8 @@ import imgW05S01 from '../assets/w05_s01_infografia.jpg';
 import imgSlide1 from '../assets/slide1_portada_lanzamiento.png';
 import imgSlide2 from '../assets/slide2_ficha_playstore.png';
 import imgSlide3 from '../assets/slide3_galeria_pantallas.png';
+import imgSlide4 from '../assets/slide4_formulas_matematicas.png';
+import imgSlide5 from '../assets/slide5_descarga_qr_creditos.png';
 
 export const teachingPlan = {
   module: {
@@ -2172,7 +2174,7 @@ En la industria tecnológica contemporánea, la ingeniería de software se compl
           developmentColumns: [
             {
               groupTitle: '📱 ARQUITECTURA DE LA PRESENTACIÓN: 5 DIAPOSITIVAS EN GOOGLE SLIDES',
-              groupSubtitle: 'Guía visual para la Ficha de Lanzamiento y Pitch Deck de GeoCalc',
+              groupSubtitle: 'Guía visual completa para el Pitch Deck de GeoCalc (Desglose por Diapositivas)',
               columnsCount: 3,
               items: [
                 {
@@ -2216,34 +2218,73 @@ En la industria tecnológica contemporánea, la ingeniería de software se compl
                     { label: 'Captura 3', value: 'Pantalla de cálculo con cm y cm²' },
                     { label: 'Estilo Visual', value: 'Borde fino y sombra paralela de teléfono' }
                   ]
+                },
+                {
+                  badge: 'Diapositiva 4 · Fórmulas',
+                  title: 'Arquitectura Matemática',
+                  screen: 'Slide 4',
+                  color: '#B45309',
+                  bgHeader: '#fffbeb',
+                  image: imgSlide4,
+                  rows: [
+                    { label: '7 Figuras', value: 'Círculo, Cuadrado, Rectángulo, Pentágono y 3 Triángulos' },
+                    { label: 'Doble Botón', value: 'Botón Perímetro (cm) y Botón Área (cm²)' },
+                    { label: 'Botón Limpiar', value: 'Reseteo instantáneo de campos y etiquetas' },
+                    { label: 'Propósito', value: 'Respaldo del orden algorítmico y fórmulas de ingeniería' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 5 · Descarga',
+                  title: 'Código QR & Créditos',
+                  screen: 'Slide 5',
+                  color: '#0F172A',
+                  bgHeader: '#f8fafc',
+                  image: imgSlide5,
+                  rows: [
+                    { label: 'Código QR', value: 'QR generado en App Inventor (Build APK)' },
+                    { label: 'Llamado Acción', value: '¡Escanea con tu cámara e instala la app!' },
+                    { label: 'Ficha Autor', value: 'Nombre, Grupo 301-INFO25, CCT 13DPT0002Y' },
+                    { label: 'Certificación', value: 'Calidad técnica aprobada en laboratorio' }
+                  ]
                 }
               ]
             }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Demostración en Cañón de las 5 Diapositivas (15 min) ➔ Trabajo en Google Slides (85 min) ➔ Calificación de Apps en Escritorio simultánea
+Metodología: Desglose Estricto por Horas (Hora 6: Slides 1 y 2 ➔ Hora 7: Slides 3, 4 y 5) + Calificación Simultánea en Escritorio
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORAS 6 Y 7 (16:50 - 18:30) · Construcción del Pitch Deck en Google Slides
+⏱️ HORA 6 (16:50 - 17:40) · Slides 1 y 2: Identidad Visual y Ficha Play Store
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Muchachos: un buen programador no solo hace código, tiene que saber vender su producto. Hoy abrimos Presentaciones de Google y vamos a construir la Ficha Oficial de Lanzamiento de su app estilo Play Store en 5 diapositivas ejecutivas."
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"Un buen programador no solo hace código: tiene que saber vender su producto. En esta primera hora vamos a crear la portada oficial de nuestra app y su ficha de tienda como si estuviera publicada en Google Play Store."
 
-🖥️ DEMO EN CAÑÓN (15 min):
+🖥️ DEMO EN CAÑÓN (10 min):
 1) Abrir slides.new en el navegador.
-2) Configuración de tema elegante (fondo verde institucional o azul marino).
-3) Mostrar los 3 mockups de ejemplo en el proyector:
-   - Slide 1: Portada con el ícono creado en Dibujos de Google.
-   - Slide 2: Ficha técnica con viñetas y propuesta de valor.
-   - Slide 3: 3 capturas del celular flotantes con sombra paralela.
-   - Slide 4: Cuadro de las 7 figuras (Círculo, Cuadrado, Rectángulo, Pentágono y los 3 Triángulos).
-   - Slide 5: Código QR generado por App Inventor para descargar el APK.
+2) Configurar tema en blanco o fondo oscuro institucional.
+3) Diapositiva 1 (Lanzamiento): Insertar el ícono creado en Dibujos de Google, título 'GeoCalc · Suite Geométrica' y datos de CONALEP.
+4) Diapositiva 2 (Ficha Técnica): Dos columnas (Especificaciones técnicas del APK a la izquierda y propuesta de valor comercial a la derecha).
 
-💻 RETO EN PC (85 min):
-Los alumnos trabajan concentrados en sus computadoras diseñando su presentación, mientras el profesor llama al escritorio a los alumnos restantes para calificar la app en físico.
+💻 RETO EN PC (30 min):
+Los alumnos diseñan sus diapositivas 1 y 2 asegurando contraste visual y ortografía ejecutiva.
+👉 CHECK HORA 6: Portada y Ficha Técnica concluidas en Google Slides.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (17:40 - 18:30) · Slides 3, 4 y 5: Galería de Pantallas, Fórmulas y Código QR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"Ahora viene la prueba visual: colocamos las capturas reales de nuestro celular, el cuadro comparativo de las 7 figuras y el código QR para que cualquier persona descargue nuestra app con solo escanear la pantalla."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Diapositiva 3 (Showcase): Pegar 3 capturas reales (Portada, Menú y Cálculo). Aplicar borde fino de 1px y sombra paralela.
+2) Diapositiva 4 (Arquitectura Matemática): Resumen de las 7 figuras con fórmulas y botones independientes.
+3) Diapositiva 5 (Descarga Oficial): Pegar la imagen del código QR generado en App Inventor (Build APK) y los créditos de autor.
+
+💻 RETO EN PC (30 min):
+Completar las diapositivas 3, 4 y 5. Guardar la presentación con el nombre: 'Pitch_GeoCalc_Apellido_Nombre'.
 
 🏷️ EVIDENCIA Y SELLO:
-Presentación de 5 diapositivas terminada en Google Slides bajo el nombre: 'Pitch_GeoCalc_Apellido_Nombre'. 👉 SELLO 2`,
+Presentación de 5 diapositivas terminada al 100% en Google Slides y compartida en Google Drive. 👉 SELLO 2`,
           closure: 'Presentaciones electrónicas de la app GeoCalc avanzadas y registradas en Google Drive.'
         },
         {
