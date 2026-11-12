@@ -2015,76 +2015,77 @@ export const teachingPlan = {
         },
         {
           id: 'H02',
-          label: 'Sesión 02 (Jueves 05 Nov · Hora 1)',
-          title: 'Lienzo Retro 640×360 y Trazo del Héroe Analista (16×16 px)',
-          hook: 'Hoy abrimos Construct 3 y dibujamos a nuestro protagonista píxel por píxel usando la plantilla de 16×16 del Manual del Portal.',
-          start: '¿Cómo configuramos un proyecto Pixel-Art nítido y dónde colocamos el Punto de Origen del Héroe?',
-          dictationTitle: 'CONFIGURACIÓN DE VIEWPORT Y MATRIZ PIXEL-ART DEL JUGADOR',
-          dictation: 'Para que un videojuego de estética Pixel-Art conserve bordes nítidos al escalarse en pantallas modernas, el proyecto debe configurarse en una resolución base de 640 por 360 píxeles (relación 16:9) con el modo de muestreo en Punto (Point). El personaje principal se diseña sobre un lienzo de 16 por 16 píxeles utilizando una paleta de alto contraste (traje oscuro #0f172a y visor verde neón #00ff66), fijando su Punto de Origen en la base inferior central mediante la tecla numérica 2.',
+          label: 'Sesión 02 (Jueves · Hora 1)',
+          title: 'Registro en Construct 3 (Sin Bad Request) e Importación de tu Personaje al Juego',
+          hook: 'Ayer ya dibujaron y guardaron su personaje estático. Hoy primero resolveremos el error "Bad Request" registrándonos antes de iniciar sesión, y luego importaremos nuestro dibujo directo al escenario del videojuego.',
+          start: '¿Por qué aparece "Bad Request" al intentar iniciar sesión sin cuenta y cómo importamos nuestro dibujo guardado hacia Construct 3?',
+          dictationTitle: 'REGISTRO DE CUENTA, CONFIGURACIÓN DE VIEWPORT E IMPORTACIÓN DE SPRITE',
+          dictation: 'Para conectarse a Construct 3 sin recibir el error "Bad Request", el usuario debe crear primero su cuenta en la opción Registrarse (Register) antes de utilizar el botón Iniciar Sesión (Log In). Una vez dentro del editor, el proyecto Pixel-Art se configura en una resolución de 640 por 360 píxeles con muestreo en modo Punto (Point) para conservar bordes nítidos. Para integrar el personaje dibujado previamente, se inserta un objeto Sprite llamado Jugador y se utiliza el botón de la carpeta (Cargar una imagen desde un archivo) para importar el dibujo estático, fijando finalmente su Punto de Origen en la base de los pies con la tecla numérica 2.',
           workBlock: {
             duration: '30 minutos',
-            title: 'Práctica en Construct 3: Creación del Proyecto y del Héroe',
+            title: 'Paso a Paso: Registro en Construct 3 e Importación de tu Dibujo',
             steps: [
-              'Entrar a editor.construct.net y abrir a un lado el Manual de Videojuegos del Portal CONALEP.',
-              'Crear proyecto CyberDefender_Apellido_501 (Viewport 640×360, Landscape, Sampling: Point).',
-              'Insertar Sprite Jugador (16×16 px) y copiar el diseño del Analista con visor verde.',
-              'Seleccionar la herramienta Origin y presionar la tecla 2 (base de las botas).'
+              '1. EVITAR BAD REQUEST: Entrar a editor.construct.net ➔ Icono de Usuario (arriba a la derecha) ➔ Elegir primero REGISTRARSE (Register) y crear cuenta. Ya registrado, ahora sí dar clic en INICIAR SESIÓN (Log In).',
+              '2. CREAR PROYECTO: Clic en Nuevo Proyecto ➔ Nombre: CyberDefender_Apellido_501 (Viewport 640×360, Landscape, y en Propiedades cambiar Muestreo / Sampling a Punto / Point).',
+              '3. IMPORTAR TU DIBUJO DE AYER: Doble clic en el lienzo blanco ➔ Insertar objeto Sprite llamado "Jugador" ➔ En la barra superior de la ventana de dibujo, hacer clic en la CARPETITA 📁 ("Cargar una imagen desde un archivo") y elegir el personaje que guardaste ayer.',
+              '4. ANCLAR EN LOS PIES: Seleccionar la herramienta Mira 🎯 (Punto de Origen) a la izquierda y presionar la Tecla 2 para poner el punto en las botas. Cerrar con [X] para ver a tu personaje dentro del juego.'
             ]
           },
           visualExample: {
-            title: 'Plantilla 16×16 del Héroe Analista',
-            badge: 'Editor de Sprites',
-            description: 'Cuadrícula oficial de 16×16 píxeles (T=#0f172a, V=#00ff66, P=#fcd34d, B=#334155):',
-            mockup: '      0 1 2 3 4 5 6 7 8 9 A B C D E F\nFila 0: . . . . . T T T T T T . . . . .  <- Casco superior\nFila 1: . . . . T T T T T T T T . . . .\nFila 2: . . . . T P P P P P P T . . . .  <- Rostro\nFila 3: . . . . T V V V V V V T . . . .  <- Visor Neón (#00ff66)\nFila 4: . . . . T P P P P P P T . . . .\nFila 5: . . . . . T T T T T T . . . . .\nFila 6: . . B B T T T T T T T T B B . .  <- Hombros y Guantes\nFila 7: . . B B T T T T T T T T B B . .\nFila 8: . . . . T T V V V V T T . . . .  <- Núcleo verde\nFila 9: . . . . T T T T T T T T . . . .\nFila A: . . . . T T T . . T T T . . . .  <- Piernas\nFila B: . . . . T T T . . T T T . . . .\nFila C: . . . . T T T . . T T T . . . .\nFila D: . . . . B B B . . B B B . . . .\nFila E: . . . B B B B . . B B B B . . .  <- Botas\nFila F: . . . B B B B . . B B B B . . .  <- Suelas (Origen: Tecla 2)'
+            title: 'Guía Visual: Evitar "Bad Request" e Importar tu Dibujo al Videojuego',
+            badge: 'Registro + Importar Sprite',
+            description: 'Sigue este diagrama paso a paso (también disponible con imágenes a color en el botón Manual de Construct 3):',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│ 🔐 PASO A: ¿POR QUÉ SALE "BAD REQUEST" Y CÓMO ENTRAR BIEN?                  │\n├──────────────────────────────────────┬──────────────────────────────────────┤\n│ ❌ ERROR COMÚN (Sale Bad Request):   │ ✅ CAMINO CORRECTO (En 2 Pasos):     │\n│ Dar clic directo en "Iniciar Sesión" │ 1° Clic en Perfil ➔ REGISTRARSE      │\n│ cuando todavía NO tienes cuenta.     │    (Crea usuario, correo y clave).   │\n│ Construct busca un usuario que no    │ 2° Ya creado, ahora sí da clic en    │\n│ existe y bloquea la ventana.         │    INICIAR SESIÓN (Log In).          │\n├──────────────────────────────────────┴──────────────────────────────────────┤\n│ 📁 PASO B: ¿CÓMO METER TU DIBUJO DE AYER AL VIDEOJUEGO? (4 CLICS)           │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ [1. Doble clic en lienzo] ➔ Elige el objeto "Sprite" (Nómbralo: Jugador).   │\n│ [2. Clic en Carpeta 📁]   ➔ Arriba a la izquierda: "Cargar imagen de archivo"│\n│                             y selecciona el dibujo .png que guardaste ayer. │\n│ [3. Mira 🎯 + Tecla 2]    ➔ Pone el Punto de Origen en la suela de los pies.│\n│ [4. Cerrar con la X]      ➔ ¡Listo! Tu personaje ya aparece en el escenario.│\n└─────────────────────────────────────────────────────────────────────────────┘'
           },
-          terminalRadar: 'Regla de Oro del Origen ➔ Presiona Tecla 2 en el teclado numérico para anclar en los pies (X:8, Y:16).',
-          learningResult: 'El estudiante configura el entorno de Construct 3 y traza el sprite del protagonista con su punto de anclaje correcto.',
-          identification: 'Tema: Lienzo Pixel-Art y Trazo del Héroe. Evidencia: Sprite Jugador en pantalla.',
-          development: 'Configuración guiada del proyecto en Construct 3 y dibujo píxel por píxel del protagonista.',
-          closure: 'Verificación del punto de origen en los pies antes de pasar a las animaciones.',
+          terminalRadar: 'Solución Bad Request ➔ 1° Registrarse (Register) y 2° Iniciar Sesión (Log In) | Importar ➔ Sprite ➔ Carpeta 📁 ➔ Mira 🎯 (Tecla 2)',
+          learningResult: 'El estudiante registra su cuenta en Construct 3, configura el lienzo 640×360 e importa su sprite estático con el punto de origen en los pies.',
+          identification: 'Tema: Registro en Construct 3 e Importación de Sprite. Evidencia: Personaje importado en el escenario del juego.',
+          development: 'Registro guiado para evitar Bad Request, creación del proyecto y carga del dibujo realizado en la sesión anterior.',
+          closure: 'Verificación del personaje en el lienzo con punto de origen en la base antes de animarlo.',
           faq: [
-            { q: '¿Qué pasa si mi sprite se ve borroso?', a: 'Ve a las Propiedades del Proyecto a la izquierda y cambia Muestreo (Sampling) de Trilinear a Punto (Point).' }
+            { q: '¿Por qué me salió "Bad Request" al querer entrar?', a: 'Porque diste clic en "Iniciar sesión" sin haber creado tu cuenta primero. Cierra esa ventana, entra a "Registrarse" (Register), crea tu cuenta y luego inicia sesión.' },
+            { q: '¿Qué hago si ayer guardé mi avance como archivo .c3p en lugar de imagen .png?', a: 'En la pantalla principal de Construct 3 ve a Menú ➔ Proyecto ➔ Abrir desde ➔ Archivo local y elige tu archivo .c3p.' }
           ],
           sello: {
             num: 'Sello 2 (Parte 1)',
-            desc: 'Sprite del Héroe dibujado a 16×16 px con punto de origen en los pies.'
+            desc: 'Cuenta conectada e importación del Sprite del Héroe en el escenario con origen en los pies.'
           }
         },
         {
           id: 'H03',
-          label: 'Sesión 02 (Jueves 05 Nov · Hora 2)',
-          title: 'Animaciones del Héroe (Idle, Run y Jump) y Caja de Colisión',
-          hook: 'Un dibujo estático parece una estatua; con solo duplicar el cuadro y mover las botas 1 píxel, nuestro Analista empezará a respirar y correr.',
-          start: '¿Cómo creamos las animaciones de Respirar (Idle), Correr (Run) y Saltar (Jump) en Construct 3?',
-          dictationTitle: 'CONFIGURACIÓN DE ANIMACIONES Y POLÍGONO DE COLISIÓN EN CONSTRUCT 3',
-          dictation: 'En el editor de Construct 3, un personaje utiliza tres secuencias básicas de animación: 1) Idle (Reposo), configurada a 3 fotogramas por segundo (FPS) con la opción Loop (Bucle) activada para simular la respiración cuando el jugador está quieto; 2) Run (Correr), configurada a 8 FPS en bucle alternando la altura de las botas para simular el paso; y 3) Jump (Salto), compuesta por un solo cuadro con las piernas flexionadas sin bucle. Finalmente, el polígono de colisión debe ajustarse a una caja rectangular uniforme para evitar que el personaje se atore en el piso al cambiar de cuadro.',
+          label: 'Sesión 02 (Jueves · Hora 2)',
+          title: 'Cómo Animar tu Personaje Importado (Idle, Run y Jump) sin Volver a Dibujar',
+          hook: 'Ya tenemos a nuestro personaje estático dentro del juego. Ahora aprenderemos el truco de los animadores: duplicar el dibujo que ya importamos y mover solo 1 o 2 cuadritos para que respire y corra.',
+          start: '¿Cómo convertimos nuestro dibujo estático en un personaje que respira (Idle) y corre (Run) usando fotogramas?',
+          dictationTitle: 'ANIMACIÓN POR DUPLICACIÓN DE FOTOGRAMAS Y CAJA DE COLISIÓN',
+          dictation: 'Para animar un personaje previamente importado en Construct 3 sin redibujarlo desde cero, se utiliza la técnica de duplicación de fotogramas (Frames): 1) Animación Idle (Respirar): Se renombra la animación por defecto a Idle, se duplica el Cuadro 0 en la barra inferior y en el Cuadro 1 se selecciona la mitad superior del cuerpo para bajarla un píxel, activando Velocidad 3 FPS y Bucle (Loop); 2) Animación Run (Correr): Se crea una nueva animación a 8 FPS en bucle donde se duplica el personaje alternando la altura de los pies para simular el paso; y 3) Polígono de Colisión: Se ajusta a una caja rectangular uniforme para que el personaje pise firme sin atorarse.',
           workBlock: {
             duration: '30 minutos',
-            title: 'Práctica en Construct 3: Las 3 Animaciones del Héroe',
+            title: 'Práctica Paso a Paso: Animar tu Dibujo Estático',
             steps: [
-              'Anotar título centrado (tamaño 20) y dictado oficial justificado (tamaño 14).',
-              'Renombrar Default a Idle (2 cuadros bajando el torso 1 px, Speed: 3, Loop: Sí).',
-              'Crear animación Run (4 cuadros alternando pies, Speed: 8, Loop: Sí) y animación Jump (1 cuadro, Loop: No).',
-              'Ajustar el Polígono de Colisión a caja delimitadora (Bounding box), guardar respaldo .c3p y pasar por el Sello 2.'
+              '1. ANIMACIÓN RESPIRAR (Idle): Doble clic a tu personaje ➔ A la derecha cambia el nombre "Default" por "Idle". Abajo en la tira de cuadros (Frames), haz clic derecho sobre el Cuadro 0 ➔ Duplicar.',
+              '2. MOVER 1 PÍXEL: Haz clic en el Cuadro 1, elige la herramienta Seleccionar [Rectángulo punteado], encierra la cabeza/pecho de tu personaje y bájalo 1 píxel con la flecha abajo del teclado. A la izquierda pon Speed: 3 y marca Loop (Bucle) ☑️.',
+              '3. ANIMACIÓN CORRER (Run): A la derecha haz clic derecho en Animations ➔ Añadir animación ("Run", Speed: 8, Loop ☑️). Carga tu dibujo en el Cuadro 0, duplícalo al Cuadro 1 y sube un pie 2 píxeles.',
+              '4. COLISIÓN Y GUARDADO: Haz clic en el icono de Polígono de Colisión ➔ Clic derecho ➔ Ajustar a caja delimitadora (Bounding box). Descarga tu archivo .c3p (Menú ➔ Proyecto ➔ Guardar como ➔ Descargar copia) y pasa por tu Sello 2.'
             ]
           },
           visualExample: {
-            title: 'Tabla de Configuración de Animaciones del Jugador',
-            badge: 'Animación 2D',
-            description: 'Parámetros exactos en el panel Animations de Construct 3:',
-            mockup: '┌──────────────────┬────────────┬───────────────┬───────────────────────────────┐\n│ NOMBRE ANIMACIÓN │ CUADROS    │ VELOCIDAD FPS │ BUCLE (LOOP) Y FUNCIÓN        │\n├──────────────────┼────────────┼───────────────┼───────────────────────────────┤\n│ 1. Idle          │ 2 frames   │ 3 FPS         │ ✅ Sí (Respiración quieto)    │\n│ 2. Run           │ 4 frames   │ 8 FPS         │ ✅ Sí (Carrera alternando pie)│\n│ 3. Jump          │ 1 frame    │ 0 FPS         │ ❌ No (Suspendido en el aire) │\n└──────────────────┴────────────┴───────────────┴───────────────────────────────┘'
+            title: 'Truco Visual: Animar tu Dibujo en 3 Pasos sin Volver a Dibujar',
+            badge: 'Animación Rápida',
+            description: 'Mira cómo animar tu personaje estático duplicando el Cuadro 0:',
+            mockup: '┌─────────────────────────────────────────────────────────────────────────────┐\n│ 🎬 PASO 1: DUPLICAR TU DIBUJO EN LA BARRA INFERIOR (FRAMES)                 │\n│    [ Cuadro 0 (Tu dibujo) ] ──(Clic derecho ➔ Duplicar)──> [ Cuadro 1 ]     │\n├─────────────────────────────────────────────────────────────────────────────┤\n│ ✂️ PASO 2: MODIFICAR SOLO EL CUADRO 1 CON LA SELECCIÓN RECTANGULAR [ ⬚ ]   │\n│    • Para IDLE (Respirar): Encierra cabeza y torso y presiona Flecha Abajo ↓│\n│    • Para RUN  (Correr):   Encierra un pie y presiona Flecha Arriba ↑       │\n├──────────────────┬────────────┬───────────────┬──────────────────────────────┤\n│ NOMBRE ANIMACIÓN │ CUADROS    │ VELOCIDAD FPS │ BUCLE (LOOP) ☑️             │\n├──────────────────┼────────────┼───────────────┼──────────────────────────────┤\n│ 1. Idle (Quieto) │ 2 frames   │ 3 FPS         │ ☑️ Sí (Respira sin parar)   │\n│ 2. Run (Correr)  │ 2 a 4 fr.  │ 8 FPS         │ ☑️ Sí (Mueve los pies)      │\n│ 3. Jump (Salto)  │ 1 frame    │ 0 FPS         │ ❌ No (Pies flexionados)    │\n└──────────────────┴────────────┴───────────────┴──────────────────────────────┘'
           },
-          terminalRadar: 'Guardado Seguro ➔ Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (.c3p)',
-          learningResult: 'El estudiante programa ciclos de animación en bucle y calibra cajas de colisión uniformes en su personaje.',
-          identification: 'Tema: Animaciones Idle, Run y Jump. Evidencia: Personaje animado en Construct 3 y apunte en libreta.',
-          development: 'Duplicación de fotogramas, edición de píxeles para simular respiración y paso, y ajuste de colisiones.',
-          closure: 'Descarga de respaldo .c3p y firma del Sello 2.',
+          terminalRadar: 'Guardado Obligatorio hoy ➔ Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (.c3p)',
+          learningResult: 'El estudiante anima su sprite importado duplicando fotogramas, configurando velocidad en FPS y bucle (Loop).',
+          identification: 'Tema: Animación de Sprite Importado (Idle, Run, Jump). Evidencia: Personaje respirando y corriendo en Construct 3.',
+          development: 'Duplicación del cuadro importado, ajuste de píxeles con la herramienta selección, activación de Loop y respaldo .c3p.',
+          closure: 'Descarga del archivo .c3p con el personaje animado y firma del Sello 2.',
           faq: [
-            { q: '¿Cómo duplico un cuadro rápido?', a: 'En la tira inferior de cuadros (Frames), haz clic derecho sobre el cuadro 0 y elige Duplicar.' }
+            { q: '¿Por qué mi personaje hace el movimiento una sola vez y luego se queda quieto?', a: 'Porque te faltó activar la casilla "Loop" (Bucle) en el panel de Propiedades de la izquierda cuando tienes seleccionada la animación Idle o Run.' }
           ],
           sello: {
             num: 'Sello 2',
-            desc: 'Héroe con animaciones Idle, Run y Jump funcionando + Dictado en libreta.'
+            desc: 'Personaje importado con animaciones Idle y Run activas + Apunte en libreta.'
           }
         },
         {
