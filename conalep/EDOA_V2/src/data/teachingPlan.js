@@ -8,6 +8,9 @@ import imgW04S02 from '../assets/w04_s02_infografia.jpg';
 import imgW04S03 from '../assets/w04_s03_infografia.png';
 
 import imgW05S01 from '../assets/w05_s01_infografia.jpg';
+import imgSlide1 from '../assets/slide1_portada_lanzamiento.png';
+import imgSlide2 from '../assets/slide2_ficha_playstore.png';
+import imgSlide3 from '../assets/slide3_galeria_pantallas.png';
 
 export const teachingPlan = {
   module: {
@@ -2178,7 +2181,7 @@ En la industria tecnológica contemporánea, la ingeniería de software se compl
                   screen: 'Slide 1',
                   color: '#005C42',
                   bgHeader: '#ecfdf5',
-                  image: './templates/slide1_portada_lanzamiento.png',
+                  image: imgSlide1,
                   rows: [
                     { label: 'Elemento Central', value: 'Ícono diseñado en Dibujos de Google' },
                     { label: 'Título', value: 'GeoCalc · Suite Geométrica Móvil' },
@@ -2192,7 +2195,7 @@ En la industria tecnológica contemporánea, la ingeniería de software se compl
                   screen: 'Slide 2',
                   color: '#1E3A8A',
                   bgHeader: '#eff6ff',
-                  image: './templates/slide2_ficha_playstore.png',
+                  image: imgSlide2,
                   rows: [
                     { label: 'Nombre Paquete', value: 'com.conalep.geocalc301' },
                     { label: 'Versión / OS', value: '1.0 (Producción) | Android 8.0+' },
@@ -2206,7 +2209,7 @@ En la industria tecnológica contemporánea, la ingeniería de software se compl
                   screen: 'Slide 3',
                   color: '#7C3AED',
                   bgHeader: '#faf5ff',
-                  image: './templates/slide3_galeria_pantallas.png',
+                  image: imgSlide3,
                   rows: [
                     { label: 'Captura 1', value: 'Screen1 Portada personalizada' },
                     { label: 'Captura 2', value: 'MenuPrincipal con los 7 botones' },
