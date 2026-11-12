@@ -2107,86 +2107,179 @@ Tabla de 3 columnas completada en la libreta con la reflexión sobre el episodio
         {
           id: 'S2',
           label: 'Sesión 02',
-          subtitle: 'Miércoles (1 hr) · Sesión por definir según avance del Lunes',
-          unlockDate: '2026-11-11',
-          unlockLabel: 'Miércoles 11 de Noviembre, 17:40 hrs',
-          start: '¿Cómo validamos nuestra app GeoCalc completa con las 7 figuras directamente en el teléfono celular?',
-          dictation: `⏱️ HORA 5 · Pruebas de Integración en Smartphone con MIT AI2 Companion:
-Una vez concluida la programación en bloques de las 7 figuras geométricas, se realiza la vinculación inalámbrica mediante código QR hacia MIT AI2 Companion para comprobar en tiempo real el funcionamiento de los botones de Perímetro, Área y Limpiar en cada pantalla.`,
-          learningResult: 'Probar las 9 pantallas y 7 calculadoras geométricas en vivo desde el teléfono móvil.',
+          subtitle: 'Miércoles (1 hr) · Auditoría Final en Celular (APK / AI Companion) & Calificación en Lista',
+          start: '¿Cómo verificamos que la aplicación instalada en el teléfono cumpla con todos los estándares técnicos y matemáticos?',
+          dictation: `⏱️ HORA 5 · Auditoría Final de Aplicación Móvil en Dispositivos Reales:
+En la fase final de entrega de software móvil, la auditoría de control de calidad evalúa la app directamente en el hardware del usuario final. Se verifica que el paquete instalado (APK) o la sesión de emulación (AI Companion) ejecute fluidamente la navegación por las 9 pantallas, que los botones de Perímetro y Área respondan sin congelamientos y que los campos de entrada se restablezcan correctamente con la rutina de reseteo. El docente registra la acreditación técnica en la lista de control del grupo.`,
+          learningResult: 'Comprobar en el smartphone la correcta ejecución de las 7 figuras y obtener la firma de aprobación técnica.',
           identification: {
-            topic: 'Seguimiento Semana 13 · Sesión 02',
-            evidence: 'Por confirmar según avance del Lunes',
-            organization: 'Individual en Laboratorio',
+            topic: 'Auditoría Móvil y Aprobación GeoCalc',
+            evidence: 'App GeoCalc Aprobada en Smartphone (Sello)',
+            organization: 'Individual en Smartphone y PC',
             location: 'Laboratorio de Informática',
             time: '1 hr'
           },
-          infographicTitle: 'Ruta Sesión 02 (Miércoles)',
+          infographicTitle: 'Ruta Sesión 02 (Miércoles · 1 Hora)',
           infographicSteps: [
-            { title: '1. Revisión de Avance', desc: 'Verificación del cierre de las 7 figuras del lunes.' },
-            { title: '2. Conexión Móvil', desc: 'Enlace con MIT AI2 Companion mediante código QR.' },
-            { title: '3. Pruebas de Botones', desc: 'Validación de Perímetro, Área y Limpiar en las 7 figuras.' },
-            { title: '4. Registro de Sello', desc: 'Acreditación del avance de mitad de semana.' }
+            { title: '1. Verificación Inicial', desc: 'Apertura de la app desde la pantalla de inicio del teléfono.' },
+            { title: '2. Banco de Pruebas', desc: 'Comprobación de resultados de Perímetro y Área en las 7 figuras.' },
+            { title: '3. Botón Limpiar', desc: 'Verificación de que los campos y etiquetas se reseteen.' },
+            { title: '4. Firma y Sello', desc: 'Asentamiento de firma y avance técnico en la lista oficial.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA)
-Metodología: Sesión sujeta a ajuste de acuerdo con el cierre real de la Sesión 01 del Lunes.`,
-          closure: 'Avance de miércoles registrado en lista.'
+Metodología: Auditoría de Dispositivos Móviles en Escritorio (40 min) ➔ Registro de Firmas (10 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (17:40 - 18:30) · Ronda de Auditoría Técnica de la App en Teléfono
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Hoy pasamos de la computadora a las manos del cliente: revisamos que su app instalada en su propio celular navegue por las 9 pantallas, calcule con precisión y no se trabe al presionar Perímetro o Área."
+
+🖥️ CRITERIOS DE REVISIÓN EN ESCRITORIO:
+1) Portada institucional con nombre del alumno y grupo 301-INFO25.
+2) Menú Principal con los 7 accesos directos a las figuras.
+3) Funcionamiento de los dos botones (Perímetro y Área) con unidades cm y cm².
+4) Botón Limpiar operativo.
+
+👉 EVIDENCIA: Firma y sello de aprobación técnica de la App GeoCalc en smartphone.`,
+          closure: 'Ronda de revisiones móviles concluida y avance registrado en lista.'
         },
         {
           id: 'S3',
           label: 'Sesión 03',
-          subtitle: 'Jueves (2 hrs) · Sesión por definir según avance',
-          unlockDate: '2026-11-12',
-          unlockLabel: 'Jueves 12 de Noviembre, 16:50 hrs',
-          start: '¿Cómo aseguramos la calidad total de nuestro proyecto antes de su entrega final?',
-          dictation: `⏱️ HORAS 6 Y 7 · Consolidación Práctica de la Semana 13:
-Sesión programada para ajuste pedagógico de acuerdo con el avance del grupo 301 en el laboratorio.`,
-          learningResult: 'Consolidar las evidencias prácticas de la Semana 13.',
+          subtitle: 'Jueves (2 hrs) · Ficha de Lanzamiento & Pitch Deck en Google Slides',
+          start: '¿Cómo presentamos y vendemos nuestra aplicación móvil con una presentación ejecutiva estilo Play Store?',
+          dictation: `⏱️ HORAS 6 Y 7 · Comunicación Ejecutiva de Software y Pitch Deck en Presentaciones de Google:
+En la industria tecnológica contemporánea, la ingeniería de software se complementa con la comunicación visual y el marketing de producto. A través de Presentaciones de Google (Google Slides), el estudiante diseña un Pitch Deck de cinco diapositivas ejecutivas que simula la ficha de publicación en Google Play Store: portada con ícono diseñado en Dibujos de Google, ficha técnica de requerimientos, galería de mockups con capturas reales del smartphone, arquitectura algorítmica de las siete figuras y código QR para descarga directa del instalador APK.`,
+          learningResult: 'Diseñar en Google Slides una presentación ejecutiva de 5 diapositivas con la ficha de lanzamiento de la app GeoCalc.',
           identification: {
-            topic: 'Seguimiento Semana 13 · Sesión 03',
-            evidence: 'Evidencia de Jueves en Laboratorio',
-            organization: 'Individual',
+            topic: 'Pitch Deck & Ficha Play Store en Slides',
+            evidence: 'Presentación Google Slides (5 Diapositivas · Sello)',
+            organization: 'Individual en PC (Google Slides)',
             location: 'Laboratorio de Informática',
             time: '2 hrs'
           },
-          infographicTitle: 'Ruta Sesión 03 (Jueves)',
+          infographicTitle: 'Ruta Sesión 03 (Jueves · 2 Horas)',
           infographicSteps: [
-            { title: '1. Apertura', desc: 'Indicaciones generales de la sesión de jueves.' },
-            { title: '2. Práctica', desc: 'Desarrollo de la actividad en laboratorio.' },
-            { title: '3. Verificación', desc: 'Revisión de resultados con el docente.' },
-            { title: '4. Cierre', desc: 'Firma y sello de la sesión.' }
+            { title: '1. Portada e Ícono', desc: 'Diapositiva 1 con ícono de Dibujos de Google y membrete CONALEP.' },
+            { title: '2. Ficha Play Store', desc: 'Diapositiva 2 con versión APK, compatibilidad y pitch comercial.' },
+            { title: '3. Mockups Reales', desc: 'Diapositiva 3 con 3 capturas del teléfono (Portada, Menú y Cálculo).' },
+            { title: '4. Fórmulas y QR', desc: 'Diapositivas 4 y 5 con tabla de 7 figuras y Código QR del instalador.' }
+          ],
+          developmentColumns: [
+            {
+              groupTitle: '📱 ARQUITECTURA DE LA PRESENTACIÓN: 5 DIAPOSITIVAS EN GOOGLE SLIDES',
+              groupSubtitle: 'Guía visual para la Ficha de Lanzamiento y Pitch Deck de GeoCalc',
+              columnsCount: 3,
+              items: [
+                {
+                  badge: 'Diapositiva 1 · Portada',
+                  title: 'Lanzamiento Oficial',
+                  screen: 'Slide 1',
+                  color: '#005C42',
+                  bgHeader: '#ecfdf5',
+                  image: './templates/slide1_portada_lanzamiento.png',
+                  rows: [
+                    { label: 'Elemento Central', value: 'Ícono diseñado en Dibujos de Google' },
+                    { label: 'Título', value: 'GeoCalc · Suite Geométrica Móvil' },
+                    { label: 'Subtítulo', value: 'Lanzamiento para Android · APK v1.0' },
+                    { label: 'Pie Institucional', value: 'CONALEP Pachuca II · Grupo 301-INFO25' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 2 · Play Store',
+                  title: 'Ficha Técnica & Pitch',
+                  screen: 'Slide 2',
+                  color: '#1E3A8A',
+                  bgHeader: '#eff6ff',
+                  image: './templates/slide2_ficha_playstore.png',
+                  rows: [
+                    { label: 'Nombre Paquete', value: 'com.conalep.geocalc301' },
+                    { label: 'Versión / OS', value: '1.0 (Producción) | Android 8.0+' },
+                    { label: 'Desarrollador', value: 'Nombre y Apellidos del Alumno' },
+                    { label: 'Propuesta Valor', value: 'Cálculo instantáneo con doble botón desacoplado' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 3 · Mockups',
+                  title: 'Galería de Pantallas',
+                  screen: 'Slide 3',
+                  color: '#7C3AED',
+                  bgHeader: '#faf5ff',
+                  image: './templates/slide3_galeria_pantallas.png',
+                  rows: [
+                    { label: 'Captura 1', value: 'Screen1 Portada personalizada' },
+                    { label: 'Captura 2', value: 'MenuPrincipal con los 7 botones' },
+                    { label: 'Captura 3', value: 'Pantalla de cálculo con cm y cm²' },
+                    { label: 'Estilo Visual', value: 'Borde fino y sombra paralela de teléfono' }
+                  ]
+                }
+              ]
+            }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Sesión sujeta a actualización tras la jornada del lunes.`,
-          closure: 'Sesión de jueves concluida.'
+Metodología: Demostración en Cañón de las 5 Diapositivas (15 min) ➔ Trabajo en Google Slides (85 min) ➔ Calificación de Apps en Escritorio simultánea
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORAS 6 Y 7 (16:50 - 18:30) · Construcción del Pitch Deck en Google Slides
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Muchachos: un buen programador no solo hace código, tiene que saber vender su producto. Hoy abrimos Presentaciones de Google y vamos a construir la Ficha Oficial de Lanzamiento de su app estilo Play Store en 5 diapositivas ejecutivas."
+
+🖥️ DEMO EN CAÑÓN (15 min):
+1) Abrir slides.new en el navegador.
+2) Configuración de tema elegante (fondo verde institucional o azul marino).
+3) Mostrar los 3 mockups de ejemplo en el proyector:
+   - Slide 1: Portada con el ícono creado en Dibujos de Google.
+   - Slide 2: Ficha técnica con viñetas y propuesta de valor.
+   - Slide 3: 3 capturas del celular flotantes con sombra paralela.
+   - Slide 4: Cuadro de las 7 figuras (Círculo, Cuadrado, Rectángulo, Pentágono y los 3 Triángulos).
+   - Slide 5: Código QR generado por App Inventor para descargar el APK.
+
+💻 RETO EN PC (85 min):
+Los alumnos trabajan concentrados en sus computadoras diseñando su presentación, mientras el profesor llama al escritorio a los alumnos restantes para calificar la app en físico.
+
+🏷️ EVIDENCIA Y SELLO:
+Presentación de 5 diapositivas terminada en Google Slides bajo el nombre: 'Pitch_GeoCalc_Apellido_Nombre'. 👉 SELLO 2`,
+          closure: 'Presentaciones electrónicas de la app GeoCalc avanzadas y registradas en Google Drive.'
         },
         {
           id: 'S4',
           label: 'Sesión 04',
-          subtitle: 'Viernes (1 hr) · Cierre Semanal y Evaluación',
-          unlockDate: '2026-11-13',
-          unlockLabel: 'Viernes 13 de Noviembre, 15:00 hrs',
-          start: '¿Qué aprendizajes nos llevamos al concluir el desarrollo completo de nuestra aplicación móvil?',
-          dictation: `⏱️ HORA 8 · Cierre y Cotejo de Evidencias de la Semana 13:
-Revisión integral de sellos acumulados en libreta y funcionamiento final en laboratorio.`,
-          learningResult: 'Acreditar los productos y sellos de la Semana 13.',
+          subtitle: 'Viernes (1 hr) · Cierre de Presentaciones y Asentamiento de Calificaciones RA 2.2',
+          start: '¿Cómo consolidamos la calificación definitiva del RA 2.2 con nuestra app móvil y su presentación de lanzamiento?',
+          dictation: `⏱️ HORA 8 · Evaluación Sumativa y Cierre del Resultado de Aprendizaje 2.2:
+Culminación integral del módulo de aplicaciones móviles: se asientan las calificaciones definitivas del RA 2.2 (15% del Segundo Corte) ponderando el funcionamiento técnico de la app GeoCalc en hardware real y la calidad de la presentación ejecutiva en Google Slides. Se ofrece retroalimentación directa a cada estudiante antes del inicio del bloque de Hojas de Cálculo Avanzadas.`,
+          learningResult: 'Acreditar la calificación sumativa del RA 2.2 (15% del Segundo Corte) en la lista oficial.',
           identification: {
-            topic: 'Cierre de Semana 13',
-            evidence: 'Sellos completos de la Semana 13',
+            topic: 'Evaluación Sumativa RA 2.2',
+            evidence: 'Calificación Asentada en Lista Oficial (RA 2.2 · 15%)',
             organization: 'Individual',
             location: 'Laboratorio de Informática',
             time: '1 hr'
           },
-          infographicTitle: 'Ruta Sesión 04 (Viernes)',
+          infographicTitle: 'Ruta Sesión 04 (Viernes · 1 Hora)',
           infographicSteps: [
-            { title: '1. Cotejo', desc: 'Revisión de actividades de la semana.' },
-            { title: '2. Pruebas', desc: 'Validación final en equipo de cómputo.' },
-            { title: '3. Evaluación', desc: 'Registro de sellos en lista oficial.' },
-            { title: '4. Cierre', desc: 'Conclusión de la Semana 13.' }
+            { title: '1. Revisión Final', desc: 'Cotejo de la presentación de 5 diapositivas en Google Slides.' },
+            { title: '2. Ponderación RA 2.2', desc: 'Promedio de App móvil en smartphone (60%) + Pitch en Slides (40%).' },
+            { title: '3. Asentamiento en Lista', desc: 'Registro formal de la calificación del 15% en lista oficial.' },
+            { title: '4. Cierre y Encuadre', desc: 'Conclusión de Apps Móviles y anuncio de Hojas de Cálculo Avanzadas.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Revisión y registro de sellos de cierre semanal.`,
-          closure: 'Semana 13 concluida exitosamente.'
+Metodología: Revisión de Enlaces de Slides (25 min) ➔ Asentamiento de Notas Finales RA 2.2 (25 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 8 (15:00 - 15:50) · Cierre de Calificaciones del RA 2.2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Hoy cerramos oficialmente el bloque de desarrollo móvil de Conalep. Cada uno de ustedes ya tiene una app funcional en su teléfono y una presentación ejecutiva de nivel profesional."
+
+📋 PONDERACIÓN DE EVALUACIÓN (RA 2.2 · 15%):
+• App GeoCalc en Celular (60%): 9 pantallas, doble botón en 7 figuras, ícono personalizado y APK funcional.
+• Pitch Deck en Google Slides (40%): 5 diapositivas completas con ficha técnica, capturas reales y código QR.
+
+👉 RESULTADO: Calificación asentada en lista oficial del grupo 301-INFO25. Cierre del Segundo Corte (C2 · 35%).`,
+          closure: 'Evaluación sumativa del RA 2.2 concluida y calificaciones registradas en la lista oficial.'
         }
       ]
     }
