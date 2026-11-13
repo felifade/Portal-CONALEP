@@ -573,6 +573,12 @@
                 <span class="hours-tag">20h</span>
             </a>
 
+            <div class="nav-group-title">Laboratorio En Vivo (Paso a Paso)</div>
+            <a class="nav-item" onclick="showPage('taller-paso-a-paso')" style="border-color: rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.08);">
+                <span class="nav-item-left"><span>🧑‍💻</span> Armar Héroe Profe HD</span>
+                <span class="hours-tag" style="background: rgba(16, 185, 129, 0.25); color:#34d399;">7 Pasos</span>
+            </a>
+
             <div class="nav-group-title">Secuencia por Semanas y Horas</div>
             <a class="nav-item" onclick="showPage('practica1')">
                 <span class="nav-item-left"><span>🎨</span> Sem 1: Sprites Pixel-Art</span>
@@ -615,6 +621,16 @@
             <section id="page-intro" class="page-section active">
                 <h1 class="main-title">🎮 Proyecto Integrador: CyberDefender (Plan de 20 Horas)</h1>
                 <div class="badge-pill">🛡️ Unidad 3: Programación y Uso de Lenguajes Informáticos · Grupo 501</div>
+
+                <div class="hour-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(59, 130, 246, 0.14)); border: 1px solid rgba(16, 185, 129, 0.45); margin-bottom: 1.5rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                        <div>
+                            <h2 class="hour-title" style="margin-bottom:6px; color:#34d399;">🕹️ Nuevo Taller Práctico: Importa al Profe Felipe (96×96 HD)</h2>
+                            <p style="font-size:0.92rem; color:#cbd5e1; margin:0;">Descarga los 13 fotogramas 16-bit reales, compara el Concept Art ideal y arma paso a paso tus animaciones <strong>Idle</strong>, <strong>Run</strong> y <strong>Jump</strong> en Construct 3.</p>
+                        </div>
+                        <button class="btn-page" onclick="showPage('taller-paso-a-paso')" style="background:linear-gradient(135deg,#10b981,#059669); color:#fff; border:none; font-weight:700; padding:0.75rem 1.25rem; border-radius:8px; cursor:pointer; box-shadow:0 4px 12px rgba(16,185,129,0.3);">🚀 Abrir Taller Paso a Paso</button>
+                    </div>
+                </div>
 
                 <div class="hour-card">
                     <h2 class="hour-title" style="margin-bottom:12px;">🎯 Propósito Pedagógico y Estructura por Horas</h2>
@@ -3700,14 +3716,412 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
 
                 <div class="page-nav-buttons">
                     <button class="btn-page" onclick="showPage('practica4')">⬅️ Anterior: Semana 4</button>
-                    <div></div>
+                    <button class="btn-page" onclick="showPage('taller-paso-a-paso')">🕹️ Ir al Taller Paso a Paso ➡️</button>
+                </div>
+            </section>
+
+            <!-- TALLER INTERACTIVO PASO A PASO: IMPORTAR PROFE FELIPE 96x96 HD -->
+            <section id="page-taller-paso-a-paso" class="page-section">
+                <style>
+                    .taller-progress-wrap {
+                        background: rgba(15, 23, 42, 0.85);
+                        border: 1px solid rgba(52, 211, 153, 0.35);
+                        border-radius: 12px;
+                        padding: 1rem 1.25rem;
+                        margin-bottom: 1.5rem;
+                        position: sticky;
+                        top: 0.75rem;
+                        z-index: 20;
+                        backdrop-filter: blur(8px);
+                    }
+                    .taller-progress-head {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 0.75rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 0.6rem;
+                    }
+                    .taller-bar-bg {
+                        width: 100%;
+                        height: 12px;
+                        background: rgba(255, 255, 255, 0.08);
+                        border-radius: 999px;
+                        overflow: hidden;
+                    }
+                    .taller-bar-fill {
+                        height: 100%;
+                        width: 0%;
+                        background: linear-gradient(90deg, #10b981, #38bdf8);
+                        transition: width 0.3s ease;
+                    }
+                    .taller-gallery {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                        gap: 1rem;
+                        margin-top: 1rem;
+                    }
+                    .taller-media-card {
+                        background: rgba(15, 23, 42, 0.65);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        padding: 0.9rem;
+                        text-align: center;
+                    }
+                    .taller-media-card img {
+                        max-width: 100%;
+                        border-radius: 8px;
+                        background: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 16px 16px;
+                    }
+                    .pixel-crisp {
+                        image-rendering: pixelated;
+                        image-rendering: crisp-edges;
+                    }
+                    .download-chips {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.45rem;
+                        margin-top: 0.75rem;
+                    }
+                    .download-chip {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.3rem;
+                        padding: 0.35rem 0.65rem;
+                        border-radius: 6px;
+                        background: rgba(56, 189, 248, 0.12);
+                        border: 1px solid rgba(56, 189, 248, 0.3);
+                        color: #bae6fd;
+                        font-size: 0.8rem;
+                        font-family: monospace;
+                        text-decoration: none;
+                        transition: all 0.2s;
+                    }
+                    .download-chip:hover {
+                        background: rgba(56, 189, 248, 0.25);
+                        transform: translateY(-1px);
+                    }
+                    .taller-step-card {
+                        border-left: 4px solid #38bdf8;
+                        transition: border-color 0.25s, opacity 0.25s;
+                    }
+                    .taller-step-card.completed {
+                        border-left-color: #10b981;
+                        background: rgba(16, 185, 129, 0.06);
+                    }
+                    .taller-check-label {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.55rem;
+                        cursor: pointer;
+                        background: rgba(255, 255, 255, 0.06);
+                        border: 1px solid rgba(255, 255, 255, 0.16);
+                        padding: 0.45rem 0.85rem;
+                        border-radius: 8px;
+                        font-size: 0.88rem;
+                        font-weight: 600;
+                        color: #e2e8f0;
+                        user-select: none;
+                    }
+                    .taller-check-label input {
+                        width: 17px;
+                        height: 17px;
+                        accent-color: #10b981;
+                        cursor: pointer;
+                    }
+                    .taller-svg-wrap {
+                        margin-top: 0.9rem;
+                        background: #0b1120;
+                        border: 1px solid rgba(148, 163, 184, 0.2);
+                        border-radius: 10px;
+                        padding: 0.75rem;
+                        overflow-x: auto;
+                    }
+                    .taller-tip {
+                        margin-top: 0.85rem;
+                        padding: 0.75rem 1rem;
+                        border-radius: 8px;
+                        background: rgba(245, 158, 11, 0.1);
+                        border: 1px solid rgba(245, 158, 11, 0.35);
+                        color: #fde68a;
+                        font-size: 0.9rem;
+                    }
+                    .taller-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 0.75rem;
+                        font-size: 0.88rem;
+                    }
+                    .taller-table th, .taller-table td {
+                        border: 1px solid rgba(255, 255, 255, 0.12);
+                        padding: 0.55rem 0.75rem;
+                        text-align: left;
+                    }
+                    .taller-table th {
+                        background: rgba(56, 189, 248, 0.15);
+                        color: #bae6fd;
+                    }
+                </style>
+
+                <h1 class="main-title">🕹️ Taller Paso a Paso: Armar al Héroe Profe Felipe (96×96 HD)</h1>
+                <div class="badge-pill">⚡ Construct 3 · 13 Fotogramas 16-Bit Reales · De la Descarga al Movimiento Jugable</div>
+
+                <!-- BARRA DE PROGRESO EN VIVO -->
+                <div class="taller-progress-wrap">
+                    <div class="taller-progress-head">
+                        <div>
+                            <strong style="color:#34d399; font-size:0.98rem;">Tu Avance en el Taller:</strong>
+                            <span id="taller-progress-text" style="color:#e2e8f0; margin-left:6px; font-weight:700;">0 / 7 pasos completados (0%)</span>
+                        </div>
+                        <button type="button" onclick="resetTallerProgress()" style="background:rgba(248,113,113,0.15); color:#fca5a5; border:1px solid rgba(248,113,113,0.35); border-radius:6px; padding:0.3rem 0.7rem; cursor:pointer; font-size:0.8rem;">↺ Reiniciar Checklist</button>
+                    </div>
+                    <div class="taller-bar-bg">
+                        <div id="taller-progress-fill" class="taller-bar-fill"></div>
+                    </div>
+                </div>
+
+                <!-- CENTRO DE DESCARGAS Y REFERENCIA VISUAL -->
+                <div class="hour-card" style="border:1px solid rgba(56,189,248,0.35);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:0.75rem;">
+                        <div>
+                            <h2 class="hour-title" style="margin:0;">📦 0. Descarga tu Paquete de Sprites (96×96 px Transparente)</h2>
+                            <p style="font-size:0.9rem; color:#94a3b8; margin:0.35rem 0 0;">Incluye los 13 PNG listos para importar en lote a Construct 3 (4 Idle + 6 Run + 3 Jump).</p>
+                        </div>
+                        <a href="../img/cyberdefender/Sprites_Profe_Felipe_96px_HD.zip" download="Sprites_Profe_Felipe_96px_HD.zip" style="display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,#10b981,#059669); color:#fff; font-weight:700; padding:0.75rem 1.25rem; border-radius:8px; text-decoration:none; box-shadow:0 4px 12px rgba(16,185,129,0.3);">⬇️ Descargar ZIP Completo (13 PNGs)</a>
+                    </div>
+
+                    <details style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.7rem 0.9rem;">
+                        <summary style="cursor:pointer; font-weight:600; color:#7dd3fc;">📂 O descárgalos uno por uno (por si no quieres descomprimir ZIP)</summary>
+                        <div class="download-chips">
+                            <a class="download-chip" href="../img/cyberdefender/Idle_01.png" download="Idle_01.png">⬇️ Idle_01.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Idle_02.png" download="Idle_02.png">⬇️ Idle_02.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Idle_03.png" download="Idle_03.png">⬇️ Idle_03.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Idle_04.png" download="Idle_04.png">⬇️ Idle_04.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_01.png" download="Run_01.png">⬇️ Run_01.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_02.png" download="Run_02.png">⬇️ Run_02.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_03.png" download="Run_03.png">⬇️ Run_03.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_04.png" download="Run_04.png">⬇️ Run_04.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_05.png" download="Run_05.png">⬇️ Run_05.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Run_06.png" download="Run_06.png">⬇️ Run_06.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Jump_01.png" download="Jump_01.png">⬇️ Jump_01.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Jump_02.png" download="Jump_02.png">⬇️ Jump_02.png</a>
+                            <a class="download-chip" href="../img/cyberdefender/Jump_03.png" download="Jump_03.png">⬇️ Jump_03.png</a>
+                        </div>
+                    </details>
+
+                    <div class="taller-gallery">
+                        <div class="taller-media-card">
+                            <div style="font-weight:700; color:#fbbf24; margin-bottom:0.5rem;">🎨 Personaje Ideal (Referencia)</div>
+                            <img src="../img/cyberdefender/Concept_Art_Profe_Felipe_Ideal.png" alt="Concept Art Profe Felipe Ideal" style="max-height:210px; object-fit:contain;">
+                            <p style="font-size:0.8rem; color:#94a3b8; margin:0.5rem 0 0;">Inspiración visual 16-bit de alta definición para explicar el diseño de personaje.</p>
+                        </div>
+                        <div class="taller-media-card">
+                            <div style="font-weight:700; color:#34d399; margin-bottom:0.5rem;">🎬 Animación Real: Idle &amp; Run</div>
+                            <div style="display:flex; justify-content:center; align-items:center; gap:1rem; padding:0.75rem 0;">
+                                <div>
+                                    <img class="pixel-crisp" src="../img/cyberdefender/Anim_Idle_Preview.gif" alt="Preview Idle" style="width:128px; height:128px;">
+                                    <div style="font-size:0.78rem; color:#cbd5e1; margin-top:4px;"><strong>Idle</strong> (4 cuadros)</div>
+                                </div>
+                                <div>
+                                    <img class="pixel-crisp" src="../img/cyberdefender/Anim_Run_Preview.gif" alt="Preview Run" style="width:128px; height:128px;">
+                                    <div style="font-size:0.78rem; color:#cbd5e1; margin-top:4px;"><strong>Run</strong> (6 cuadros)</div>
+                                </div>
+                            </div>
+                            <p style="font-size:0.8rem; color:#94a3b8; margin:0;">Así cobrará vida tu Sprite dentro de Construct 3.</p>
+                        </div>
+                        <div class="taller-media-card">
+                            <div style="font-weight:700; color:#38bdf8; margin-bottom:0.5rem;">🧩 Hoja Completa (13 Cuadros)</div>
+                            <img class="pixel-crisp" src="../img/cyberdefender/Preview_SpriteSheet_Profe_Felipe_96px_HD.png" alt="Sprite Sheet 96px HD" style="max-height:210px; object-fit:contain;">
+                            <p style="font-size:0.8rem; color:#94a3b8; margin:0.5rem 0 0;">Desglose exacto de cada fotograma 96×96 px.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 1 -->
+                <div class="hour-card taller-step-card" id="card-step-1">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 1 · Crear Proyecto HD con Estilo Pixel Art Nítido</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="1"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>Abre <a href="https://editor.construct.net" target="_blank" style="color:#38bdf8;">editor.construct.net</a> y presiona <strong>Nuevo proyecto (New)</strong>.</li>
+                        <li><strong>Nombre:</strong> <code>CyberDefender_Profe</code> · <strong>Tamaño de Ventana (Viewport Size):</strong> <code>1280 × 720</code> (HD 16:9).</li>
+                        <li><strong>Orientación:</strong> <code>Landscape (Horizontal)</code>.</li>
+                        <li>En el panel izquierdo <strong>Propiedades del Proyecto</strong>, busca <strong>Muestreo (Sampling)</strong> y cámbialo a <code>Punto (Point / Nearest)</code> para que tus píxeles 96×96 se vean filosos y jamás borrosos.</li>
+                    </ul>
+                    <div class="taller-svg-wrap">
+                        <svg viewBox="0 0 700 130" width="100%" style="max-width:700px; display:block; margin:auto;">
+                            <rect x="10" y="10" width="680" height="110" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+                            <text x="30" y="38" fill="#38bdf8" font-family="sans-serif" font-size="14" font-weight="bold">Panel Propiedades del Proyecto (Construct 3)</text>
+                            <rect x="30" y="52" width="190" height="50" rx="6" fill="#0f172a" stroke="#475569"/>
+                            <text x="42" y="72" fill="#94a3b8" font-family="sans-serif" font-size="11">Viewport Size (Ventana)</text>
+                            <text x="42" y="92" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold">1280 x 720</text>
+                            <rect x="240" y="52" width="190" height="50" rx="6" fill="#0f172a" stroke="#475569"/>
+                            <text x="252" y="72" fill="#94a3b8" font-family="sans-serif" font-size="11">Orientación</text>
+                            <text x="252" y="92" fill="#e2e8f0" font-family="monospace" font-size="14" font-weight="bold">Landscape</text>
+                            <rect x="450" y="52" width="220" height="50" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+                            <text x="462" y="72" fill="#fbbf24" font-family="sans-serif" font-size="11" font-weight="bold">Sampling (Muestreo) ★</text>
+                            <text x="462" y="92" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold">Point (Nearest)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="hour-card taller-step-card" id="card-step-2">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 2 · Insertar el Objeto Sprite "Jugador"</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="2"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>Haz <strong>doble clic en cualquier espacio en blanco</strong> de la escena (Layout 1).</li>
+                        <li>En la ventana <em>Insertar nuevo objeto</em>, ve a la categoría <strong>General</strong> y elige <strong>Sprite</strong>.</li>
+                        <li>Ponle el nombre <code>Jugador</code> abajo antes de insertar (o cámbialo después en el panel izquierdo de Propiedades).</li>
+                        <li>Cuando el cursor se convierta en una <strong>cruz (+)</strong>, haz <strong>un clic en el centro</strong> del escenario para abrir el <em>Editor de Animaciones</em>.</li>
+                    </ul>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="hour-card taller-step-card" id="card-step-3">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 3 · Importar en Lote la Animación "Idle" (4 Fotogramas)</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="3"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>En el panel derecho <strong>Animations (Animaciones)</strong>, haz clic derecho sobre <code>Animation 1</code> ➔ <strong>Renombrar</strong> y escribe exactamente <code>Idle</code>.</li>
+                        <li>En la tira inferior llamada <strong>Frames (Fotogramas)</strong>, haz <strong>clic derecho</strong> en el espacio vacío ➔ <strong>Importar fotogramas (Import frames) ➔ Desde archivos (From files)...</strong></li>
+                        <li>Selecciona juntos los 4 archivos: <code>Idle_01.png</code>, <code>Idle_02.png</code>, <code>Idle_03.png</code> e <code>Idle_04.png</code> y pulsa <strong>Abrir</strong>.</li>
+                        <li><strong>¡Paso clave!</strong> Haz clic derecho sobre el primer cuadro blanco vacío (<code>0</code>) y elige <strong>Eliminar (Delete)</strong> para quedarte solo con tus 4 cuadros reales (<code>0, 1, 2, 3</code>).</li>
+                        <li>Con la animación <code>Idle</code> seleccionada, revisa el panel izquierdo de propiedades de animación: <strong>Speed (Velocidad):</strong> <code>4</code> y <strong>Loop (Bucle):</strong> ☑️ <code>Activado</code>.</li>
+                    </ul>
+                    <div class="taller-svg-wrap">
+                        <svg viewBox="0 0 720 220" width="100%" style="max-width:720px; display:block; margin:auto;">
+                            <rect x="8" y="8" width="704" height="204" rx="8" fill="#111827" stroke="#475569" stroke-width="1.5"/>
+                            <!-- Top toolbar -->
+                            <rect x="8" y="8" width="704" height="28" rx="8" fill="#1f2937"/>
+                            <text x="22" y="26" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="bold">Editor de Animaciones - Jugador [96×96 px]</text>
+                            <!-- Left Tools -->
+                            <rect x="16" y="44" width="120" height="108" rx="6" fill="#0f172a" stroke="#334155"/>
+                            <text x="24" y="62" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">Propiedades Anim</text>
+                            <text x="24" y="84" fill="#cbd5e1" font-family="monospace" font-size="11">Speed: </text>
+                            <text x="72" y="84" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">4</text>
+                            <text x="24" y="104" fill="#cbd5e1" font-family="monospace" font-size="11">Loop:  </text>
+                            <text x="72" y="104" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">[✓] Sí</text>
+                            <rect x="24" y="116" width="104" height="26" rx="4" fill="#1e293b" stroke="#f59e0b"/>
+                            <text x="31" y="133" fill="#fbbf24" font-family="sans-serif" font-size="10" font-weight="bold">🎯 Mira + Tecla 2</text>
+                            <!-- Center Canvas -->
+                            <rect x="146" y="44" width="380" height="108" rx="6" fill="#1e293b" stroke="#334155"/>
+                            <text x="336" y="64" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="11">Lienzo 96 × 96 (Fondo Transparente)</text>
+                            <rect x="296" y="72" width="80" height="68" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-dasharray="4 3"/>
+                            <text x="336" y="110" text-anchor="middle" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold">Profe 96×96</text>
+                            <circle cx="336" cy="138" r="4" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+                            <!-- Right Animations List -->
+                            <rect x="536" y="44" width="166" height="108" rx="6" fill="#0f172a" stroke="#334155"/>
+                            <text x="546" y="62" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">Animations</text>
+                            <rect x="546" y="70" width="146" height="22" rx="4" fill="#065f46"/>
+                            <text x="554" y="85" fill="#fff" font-family="monospace" font-size="11" font-weight="bold">▶ Idle (Speed 4)</text>
+                            <rect x="546" y="96" width="146" height="22" rx="4" fill="#1e293b"/>
+                            <text x="554" y="111" fill="#cbd5e1" font-family="monospace" font-size="11">  Run  (Speed 10)</text>
+                            <rect x="546" y="122" width="146" height="22" rx="4" fill="#1e293b"/>
+                            <text x="554" y="137" fill="#cbd5e1" font-family="monospace" font-size="11">  Jump (Speed 8)</text>
+                            <!-- Bottom Frames Strip -->
+                            <rect x="16" y="160" width="686" height="44" rx="6" fill="#0f172a" stroke="#10b981"/>
+                            <text x="26" y="177" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="bold">Tira Frames (Clic derecho aquí ➔ Import frames ➔ From files...)</text>
+                            <rect x="26" y="182" width="38" height="16" rx="3" fill="#7f1d1d" stroke="#ef4444"/>
+                            <text x="45" y="194" text-anchor="middle" fill="#fecaca" font-family="monospace" font-size="9">0 ❌</text>
+                            <rect x="72" y="182" width="52" height="16" rx="3" fill="#064e3b" stroke="#10b981"/>
+                            <text x="98" y="194" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="9">Idle_01</text>
+                            <rect x="130" y="182" width="52" height="16" rx="3" fill="#064e3b" stroke="#10b981"/>
+                            <text x="156" y="194" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="9">Idle_02</text>
+                            <rect x="188" y="182" width="52" height="16" rx="3" fill="#064e3b" stroke="#10b981"/>
+                            <text x="214" y="194" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="9">Idle_03</text>
+                            <rect x="246" y="182" width="52" height="16" rx="3" fill="#064e3b" stroke="#10b981"/>
+                            <text x="272" y="194" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="9">Idle_04</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- PASO 4 Y PASO 5 TABLA MAESTRA -->
+                <div class="hour-card taller-step-card" id="card-step-4">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 4 · Añadir Animación "Run" (6 Fotogramas de Carrera)</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="4"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>En el panel derecho <strong>Animations</strong>, haz clic derecho en un área vacía ➔ <strong>Añadir animación (Add animation)</strong> y nómbrala <code>Run</code>.</li>
+                        <li>En la tira inferior <strong>Frames</strong>, clic derecho ➔ <strong>Importar fotogramas ➔ Desde archivos...</strong> y selecciona <code>Run_01.png</code> hasta <code>Run_06.png</code>.</li>
+                        <li>Elimina el cuadro <code>0</code> vacío inicial. Configura <strong>Speed:</strong> <code>10</code> y <strong>Loop:</strong> ☑️ <code>Activado</code>.</li>
+                    </ul>
+                </div>
+
+                <div class="hour-card taller-step-card" id="card-step-5">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 5 · Añadir Animación "Jump" (3 Fotogramas Sin Bucle)</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="5"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>Clic derecho en el panel <strong>Animations</strong> ➔ <strong>Añadir animación</strong> ➔ nómbrala exactamente <code>Jump</code>.</li>
+                        <li>Importa <code>Jump_01.png</code>, <code>Jump_02.png</code> y <code>Jump_03.png</code>, y elimina el cuadro <code>0</code> blanco.</li>
+                        <li>Configura <strong>Speed:</strong> <code>8</code> y deja <strong>Loop (Bucle):</strong> ❌ <code>Desactivado</code> para que no vuelva a agacharse en pleno vuelo.</li>
+                    </ul>
+                    <table class="taller-table">
+                        <thead>
+                            <tr><th>Nombre Exacto</th><th>Archivos a Importar</th><th>Speed</th><th>Loop (Bucle)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>Idle</code></td><td><code>Idle_01.png</code> … <code>Idle_04.png</code> (4)</td><td><strong>4</strong></td><td>☑️ Sí (Activado)</td></tr>
+                            <tr><td><code>Run</code></td><td><code>Run_01.png</code> … <code>Run_06.png</code> (6)</td><td><strong>10</strong></td><td>☑️ Sí (Activado)</td></tr>
+                            <tr><td><code>Jump</code></td><td><code>Jump_01.png</code> … <code>Jump_03.png</code> (3)</td><td><strong>8</strong></td><td>❌ No (Desactivado)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PASO 6 -->
+                <div class="hour-card taller-step-card" id="card-step-6">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 6 · Alinear Punto de Origen en Pies (Tecla 2) y Caja de Colisión</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="6"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li><strong>Punto de Origen en los pies:</strong> Haz clic en el ícono de la <strong>Mira / Diana 🎯 (Puntos de imagen)</strong> en la barra izquierda y presiona la <strong>tecla número <code>2</code></strong> en tu teclado (coloca el punto rojo justo abajo al centro).</li>
+                        <li>Haz clic derecho sobre <code>Origin</code> en el panel de puntos ➔ <strong>Aplicar a todas las animaciones (Apply to all animations)</strong>. ¡Esto evita que el personaje tiemble al cambiar de Idle a Run!</li>
+                        <li><strong>Caja de Colisión pareja:</strong> Clic en el último ícono izquierdo (<strong>Polígono de colisión ⬠</strong>) ➔ clic derecho dentro del cuadro ➔ <strong>Ajustar a caja delimitadora (Set to bounding box)</strong> ➔ clic derecho de nuevo ➔ <strong>Aplicar a todas las animaciones</strong>.</li>
+                        <li>Cierra el Editor de Animaciones con la <strong>X</strong> de la esquina superior derecha.</li>
+                    </ul>
+                    <div class="taller-tip">💡 <strong>¿Por qué aplicarlo a todas las animaciones?</strong> Si cada cuadro tuviera una caja de colisión distinta, el personaje podría quedarse atorado en las esquinas de las plataformas al caminar.</div>
+                </div>
+
+                <!-- PASO 7 -->
+                <div class="hour-card taller-step-card" id="card-step-7">
+                    <div class="hour-header">
+                        <h2 class="hour-title">Paso 7 · Probar en Vivo (Piso Sólido + Plataforma) y Guardar Respaldo .c3p</h2>
+                        <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="7"> Marcar como hecho</label>
+                    </div>
+                    <ul class="clean-list">
+                        <li>Inserta un Sprite sencillo de color oscuro llamado <code>Piso</code> debajo de tu personaje. En sus Propiedades ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Sólido (Solid)</strong>.</li>
+                        <li>Selecciona al <code>Jugador</code> ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Plataforma (Platform)</strong> (desactiva <em>Default controls</em> solo si después usarás teclas personalizadas; por ahora déjalo activo para probar con las flechas).</li>
+                        <li>Abre la <strong>Hoja de Eventos 1 (Event Sheet 1)</strong> y agrega estos 3 eventos rápidos para ver las animaciones cambiar al moverte:
+                            <br>• <code>Jugador ➔ Platform: On moved</code> ➔ Acción: <code>Jugador ➔ Set animation to "Run"</code>
+                            <br>• <code>Jugador ➔ Platform: On stopped</code> ➔ Acción: <code>Jugador ➔ Set animation to "Idle"</code>
+                            <br>• <code>Jugador ➔ Platform: On jumped</code> ➔ Acción: <code>Jugador ➔ Set animation to "Jump"</code>
+                        </li>
+                        <li>Presiona <strong>Play (▶ Preview)</strong> arriba y muévete con las flechas y barra/arriba.</li>
+                        <li><strong>Guarda tu proyecto:</strong> <code>Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (.c3p)</code> y nómbralo <code>CyberDefender_Sem1.c3p</code>.</li>
+                    </ul>
+                    <div class="deliverable-banner">
+                        🎉 <strong>¡Héroe Configurado!</strong> Ya tienes al Profe Felipe en 96×96 HD saltando y corriendo con animaciones fluidas, listo para la Semana 2 (enemigos, monedas y nivel CyberDefender).
+                    </div>
+                </div>
+
+                <div class="page-nav-buttons">
+                    <button class="btn-page" onclick="showPage('practica1')">📅 Ir a Semana 1 del Plan</button>
+                    <button class="btn-page" onclick="showPage('intro')">🏠 Volver al Inicio</button>
                 </div>
             </section>
 
         </div>
     </main>
 
-    <!-- SCRIPT DE NAVEGACIÓN Y COPIADO -->
+    <!-- SCRIPT DE NAVEGACIÓN, PROGRESO DEL TALLER Y COPIADO -->
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(sec => {
@@ -3726,8 +4140,60 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
             if (navLink) {
                 navLink.classList.add('active');
             }
-            document.querySelector('.content-area').scrollTop = 0;
+            const contentArea = document.querySelector('.content-area');
+            if (contentArea) {
+                contentArea.scrollTop = 0;
+            }
         }
+
+        const TALLER_STORAGE_KEY = 'c3_taller_hero_steps';
+
+        function updateTallerProgress() {
+            const checkboxes = Array.from(document.querySelectorAll('.taller-step-cb'));
+            if (!checkboxes.length) return;
+            const checkedIds = checkboxes.filter(cb => cb.checked).map(cb => cb.dataset.step);
+            try {
+                localStorage.setItem(TALLER_STORAGE_KEY, JSON.stringify(checkedIds));
+            } catch (e) {}
+
+            checkboxes.forEach(cb => {
+                const card = document.getElementById('card-step-' + cb.dataset.step);
+                if (card) {
+                    card.classList.toggle('completed', cb.checked);
+                }
+            });
+
+            const total = checkboxes.length;
+            const done = checkedIds.length;
+            const pct = Math.round((done / total) * 100);
+            const textEl = document.getElementById('taller-progress-text');
+            const fillEl = document.getElementById('taller-progress-fill');
+            if (textEl) textEl.textContent = `${done} / ${total} pasos completados (${pct}%)`;
+            if (fillEl) fillEl.style.width = `${pct}%`;
+        }
+
+        function resetTallerProgress() {
+            document.querySelectorAll('.taller-step-cb').forEach(cb => { cb.checked = false; });
+            updateTallerProgress();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const saved = JSON.parse(localStorage.getItem(TALLER_STORAGE_KEY) || '[]');
+                document.querySelectorAll('.taller-step-cb').forEach(cb => {
+                    cb.checked = saved.includes(cb.dataset.step);
+                    cb.addEventListener('change', updateTallerProgress);
+                });
+            } catch (e) {}
+            updateTallerProgress();
+
+            const rawHash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+            if (rawHash === 'taller' || rawHash === 'taller-paso-a-paso') {
+                showPage('taller-paso-a-paso');
+            } else if (rawHash && document.getElementById('page-' + rawHash)) {
+                showPage(rawHash);
+            }
+        });
 
         function copyGrid(elementId) {
             const el = document.getElementById(elementId);
