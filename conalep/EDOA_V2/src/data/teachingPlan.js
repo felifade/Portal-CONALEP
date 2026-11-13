@@ -2282,8 +2282,8 @@ Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
           label: 'Sesión 01',
           subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Las 7 Diapositivas de "El Juego" en Google Slides',
           start: '¿Cómo estructuramos la ficha técnica y las reglas de un videojuego en 7 diapositivas ejecutivas que comuniquen su valor al instante?',
-          dictation: `⏱️ HORA 1 · Diseño Ejecutivo de Videojuegos y Suite de 7 Diapositivas en Google Slides:
-En la industria tecnológica y de entretenimiento digital, un producto de software no se distribuye sin su documentación visual y su Pitch Deck. Mediante Presentaciones de Google, el estudiante crea una suite ejecutiva de siete diapositivas estandarizadas: 1) Portada oficial con logotipo e identidad CONALEP; 2) Sinopsis y objetivo ("¿Qué hace el juego?"); 3) Instrucciones y reglas de la partida paso a paso; 4) Personajes, elementos geométricos y botones de control; 5) Niveles de reto y curva de dificultad; 6) Galería de mockups con capturas reales en smartphones; y 7) Ficha de créditos de autor con código QR oficial para la descarga del paquete APK.`,
+          dictation: `⏱️ HORA 1 · El Escaparate Digital de Nuestra Aplicación Móvil:
+Crear una aplicación es como diseñar un videojuego: el código en bloques es el motor invisible que calcula las matemáticas, pero la presentación es la caja del juego que convence al público de probarlo. En el desarrollo de software, una suite de siete diapositivas funciona como la vitrina de una tienda digital: con solo mirar la portada, las reglas, los personajes y las fotos reales de la pantalla, cualquier persona entiende en tres minutos cómo se juega y cómo instalarla con un código QR sin enredarse en tecnicismos.`,
           learningResult: 'Crear en Google Slides la estructura visual de las 7 diapositivas de "El Juego" (GeoCalc) integrando textos ejecutivos, capturas reales y código QR.',
           identification: {
             topic: '7 Diapositivas de "El Juego" en Slides',
@@ -2442,8 +2442,8 @@ Presentación de 7 diapositivas completa en Google Slides. 👉 SELLO 1`,
           label: 'Sesión 02',
           subtitle: 'Jueves (2 hrs · 16:50 - 18:30) · Interactividad, Enlaces Internos y Coevaluación en Pares',
           start: '¿Cómo convertimos una presentación estática en un prototipo interactivo donde los botones cambien de diapositiva como si fuera el juego real?',
-          dictation: `⏱️ HORAS 2 Y 3 · Prototipado Interactivo, Hipervínculos Internos y Coevaluación en Google Slides:
-En el diseño contemporáneo de interfaces digitales, el prototipado interactivo simula la experiencia real del usuario antes del despliegue masivo. Mediante la herramienta de hipervínculos internos de Presentaciones de Google (Insertar > Enlace > Diapositivas de esta presentación), el estudiante conecta los botones y formas de la diapositiva hacia pantallas específicas, permitiendo saltar del Menú Principal a las instrucciones o a los niveles. En la segunda fase de la sesión, los estudiantes realizan una coevaluación en parejas, navegando la presentación de un compañero en modo pantalla completa para verificar usabilidad, consistencia estética y enlaces rotos.`,
+          dictation: `⏱️ HORAS 2 Y 3 · Interactividad y Navegación Mediante Hipervínculos:
+Una presentación tradicional se lee como un libro de papel: pasas hoja por hoja de forma obligada. En cambio, una presentación interactiva funciona como el control remoto de una consola: al hacer clic sobre un botón dibujado en la pantalla, el sistema da un salto inmediato a la sección que tú elegiste. Los hipervínculos internos conectan las diapositivas entre sí para que el usuario navegue libremente por las reglas, los niveles o el menú principal como si ya estuviera jugando dentro de la aplicación.`,
           learningResult: 'Configurar hipervínculos internos entre diapositivas en Google Slides para crear una navegación interactiva y coevaluar el proyecto de un compañero.',
           identification: {
             topic: 'Hipervínculos e Interactividad en Slides',
@@ -2506,8 +2506,8 @@ Presentación interactiva validada y coevaluación registrada. 👉 SELLO 2`,
           label: 'Sesión 03',
           subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Publicación Web en Google Slides y Evaluación Sumativa',
           start: '¿Cómo publicamos nuestra presentación en internet para que cualquiera pueda abrirla en pantalla completa sin iniciar sesión en Google?',
-          dictation: `⏱️ HORA 4 · Despliegue en la Nube, Publicación Web y Evaluación Sumativa:
-La ofimática en la nube culmina con la publicación y distribución global del contenido digital. A través de la función 'Publicar en la web' de Presentaciones de Google, la presentación se convierte en un reproductor web interactivo independiente, accesible desde cualquier navegador sin solicitar permisos de edición ni cuenta de correo. El docente evalúa sumativamente el proyecto final de la Semana 14 considerando el cumplimiento de las siete diapositivas, la calidad visual, los hipervínculos operativos y la disponibilidad del enlace público en la lista oficial.`,
+          dictation: `⏱️ HORA 4 · Publicación en la Nube y Acceso Universal:
+Guardar un archivo en tu computadora privada es como tener un dibujo guardado bajo la cama: solo tú puedes verlo. La función de publicar en la web transforma nuestras diapositivas en un enlace público que funciona como un letrero interactivo en internet. Cualquier persona con ese enlace puede abrir la presentación en pantalla completa desde su teléfono o computadora, sin necesidad de tener cuenta de Google ni pedir contraseñas, permitiendo que nuestro trabajo escolar se comparta como un producto profesional.`,
           learningResult: 'Publicar la presentación en la web mediante Google Slides, obtener el enlace público autónomo y acreditar la evaluación sumativa de la Semana 14.',
           identification: {
             topic: 'Publicación Web y Evaluación Sumativa',
