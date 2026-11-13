@@ -13,6 +13,13 @@ import imgSlide2 from '../assets/slide2_ficha_playstore.png';
 import imgSlide3 from '../assets/slide3_galeria_pantallas.png';
 import imgSlide4 from '../assets/slide4_formulas_matematicas.png';
 import imgSlide5 from '../assets/slide5_descarga_qr_creditos.png';
+import imgGSlide1 from '../assets/slide1_portada.png';
+import imgGSlide2 from '../assets/slide2_que_hace_el_juego.png';
+import imgGSlide3 from '../assets/slide3_instrucciones.png';
+import imgGSlide4 from '../assets/slide4_personajes_elementos.png';
+import imgGSlide5 from '../assets/slide5_niveles_dificultad.png';
+import imgGSlide6 from '../assets/slide6_galeria_mockups.png';
+import imgGSlide7 from '../assets/slide7_creditos.png';
 
 export const teachingPlan = {
   module: {
@@ -1922,7 +1929,7 @@ Metodología: Demo Cañón Escaleno (10 min) ➔ Reto en PC (30 min) ➔ Revisi�
       label: 'Semana 13',
       title: 'Cierre de Fórmulas GeoCalc (Pentágono y 3 Triángulos) & Cine-Debate Black Mirror',
       dates: '09 Nov - 13 Nov',
-      status: 'active',
+      status: 'historical',
       templateUrl: './templates/GeoCalc_CONALEP.aia',
       templateFileName: 'GeoCalc_CONALEP.aia',
       templateBtnText: 'Descargar Proyecto Maestro (.aia)',
@@ -2152,178 +2159,397 @@ Metodología: Auditoría de Dispositivos Móviles en Escritorio (40 min) ➔ Reg
         {
           id: 'S3',
           label: 'Sesión 03',
-          subtitle: 'Jueves (2 hrs) · Ficha de Lanzamiento & Pitch Deck en Google Slides',
-          start: '¿Cómo presentamos y vendemos nuestra aplicación móvil con una presentación ejecutiva estilo Play Store?',
-          dictation: `⏱️ HORAS 6 Y 7 · Comunicación Ejecutiva de Software y Pitch Deck en Presentaciones de Google:
-En la industria tecnológica contemporánea, la ingeniería de software se complementa con la comunicación visual y el marketing de producto. A través de Presentaciones de Google (Google Slides), el estudiante diseña un Pitch Deck de cinco diapositivas ejecutivas que simula la ficha de publicación en Google Play Store: portada con ícono diseñado en Dibujos de Google, ficha técnica de requerimientos, galería de mockups con capturas reales del smartphone, arquitectura algorítmica de las siete figuras y código QR para descarga directa del instalador APK.`,
-          learningResult: 'Diseñar en Google Slides una presentación ejecutiva de 5 diapositivas con la ficha de lanzamiento de la app GeoCalc.',
+          subtitle: 'Jueves (2 hrs) · Pruebas de APK, Ícono en Dibujos de Google y Manual de Acceso',
+          start: '¿Cómo garantizamos la autonomía del usuario con un ícono personalizado y un manual paso a paso de acceso a MIT App Inventor?',
+          dictation: `⏱️ HORAS 6 Y 7 · Documentación de Acceso, Identidad Visual y Pruebas de APK:
+En el desarrollo de soluciones ofimáticas y móviles, la adopción tecnológica depende de manuales claros de inducción. El estudiante genera en Dibujos de Google un ícono geométrico vectorial para la aplicación e instala el paquete compilado (.apk) en su dispositivo físico. De forma paralela, redacta en su libreta técnica el manual de acceso a MIT App Inventor detallando los pasos de autenticación con cuenta Google, importación de archivos de proyecto (.aia) y configuración del puente de prueba en tiempo real mediante AI Companion.`,
+          learningResult: 'Completar la instalación del APK con ícono personalizado y redactar el manual de acceso y operación de App Inventor en la libreta.',
           identification: {
-            topic: 'Pitch Deck & Ficha Play Store en Slides',
-            evidence: 'Presentación Google Slides (5 Diapositivas · Sello)',
-            organization: 'Individual en PC (Google Slides)',
+            topic: 'Pruebas APK, Ícono Vectorial y Manual',
+            evidence: 'Manual de Acceso en Libreta + APK con Ícono (Sello 2)',
+            organization: 'Individual en PC y Libreta',
             location: 'Laboratorio de Informática',
             time: '2 hrs'
           },
           infographicTitle: 'Ruta Sesión 03 (Jueves · 2 Horas)',
           infographicSteps: [
-            { title: '1. Portada e Ícono', desc: 'Diapositiva 1 con ícono de Dibujos de Google y membrete CONALEP.' },
-            { title: '2. Ficha Play Store', desc: 'Diapositiva 2 con versión APK, compatibilidad y pitch comercial.' },
-            { title: '3. Mockups Reales', desc: 'Diapositiva 3 con 3 capturas del teléfono (Portada, Menú y Cálculo).' },
-            { title: '4. Fórmulas y QR', desc: 'Diapositivas 4 y 5 con tabla de 7 figuras y Código QR del instalador.' }
-          ],
-          developmentColumns: [
-            {
-              groupTitle: '📱 ARQUITECTURA DE LA PRESENTACIÓN: 5 DIAPOSITIVAS EN GOOGLE SLIDES',
-              groupSubtitle: 'Guía visual completa para el Pitch Deck de GeoCalc (Desglose por Diapositivas)',
-              columnsCount: 3,
-              items: [
-                {
-                  badge: 'Diapositiva 1 · Portada',
-                  title: 'Lanzamiento Oficial',
-                  screen: 'Slide 1',
-                  color: '#005C42',
-                  bgHeader: '#ecfdf5',
-                  image: imgSlide1,
-                  rows: [
-                    { label: 'Elemento Central', value: 'Ícono diseñado en Dibujos de Google' },
-                    { label: 'Título', value: 'GeoCalc · Suite Geométrica Móvil' },
-                    { label: 'Subtítulo', value: 'Lanzamiento para Android · APK v1.0' },
-                    { label: 'Pie Institucional', value: 'CONALEP Pachuca II · Grupo 301-INFO25' }
-                  ]
-                },
-                {
-                  badge: 'Diapositiva 2 · Play Store',
-                  title: 'Ficha Técnica & Pitch',
-                  screen: 'Slide 2',
-                  color: '#1E3A8A',
-                  bgHeader: '#eff6ff',
-                  image: imgSlide2,
-                  rows: [
-                    { label: 'Nombre Paquete', value: 'com.conalep.geocalc301' },
-                    { label: 'Versión / OS', value: '1.0 (Producción) | Android 8.0+' },
-                    { label: 'Desarrollador', value: 'Nombre y Apellidos del Alumno' },
-                    { label: 'Propuesta Valor', value: 'Cálculo instantáneo con doble botón desacoplado' }
-                  ]
-                },
-                {
-                  badge: 'Diapositiva 3 · Mockups',
-                  title: 'Galería de Pantallas',
-                  screen: 'Slide 3',
-                  color: '#7C3AED',
-                  bgHeader: '#faf5ff',
-                  image: imgSlide3,
-                  rows: [
-                    { label: 'Captura 1', value: 'Screen1 Portada personalizada' },
-                    { label: 'Captura 2', value: 'MenuPrincipal con los 7 botones' },
-                    { label: 'Captura 3', value: 'Pantalla de cálculo con cm y cm²' },
-                    { label: 'Estilo Visual', value: 'Borde fino y sombra paralela de teléfono' }
-                  ]
-                },
-                {
-                  badge: 'Diapositiva 4 · Fórmulas',
-                  title: 'Arquitectura Matemática',
-                  screen: 'Slide 4',
-                  color: '#B45309',
-                  bgHeader: '#fffbeb',
-                  image: imgSlide4,
-                  rows: [
-                    { label: '7 Figuras', value: 'Círculo, Cuadrado, Rectángulo, Pentágono y 3 Triángulos' },
-                    { label: 'Doble Botón', value: 'Botón Perímetro (cm) y Botón Área (cm²)' },
-                    { label: 'Botón Limpiar', value: 'Reseteo instantáneo de campos y etiquetas' },
-                    { label: 'Propósito', value: 'Respaldo del orden algorítmico y fórmulas de ingeniería' }
-                  ]
-                },
-                {
-                  badge: 'Diapositiva 5 · Descarga',
-                  title: 'Código QR & Créditos',
-                  screen: 'Slide 5',
-                  color: '#0F172A',
-                  bgHeader: '#f8fafc',
-                  image: imgSlide5,
-                  rows: [
-                    { label: 'Código QR', value: 'QR generado en App Inventor (Build APK)' },
-                    { label: 'Llamado Acción', value: '¡Escanea con tu cámara e instala la app!' },
-                    { label: 'Ficha Autor', value: 'Nombre, Grupo 301-INFO25, CCT 13DPT0002Y' },
-                    { label: 'Certificación', value: 'Calidad técnica aprobada en laboratorio' }
-                  ]
-                }
-              ]
-            }
+            { title: '1. Ícono Vectorial', desc: 'Diseño de logotipo en Dibujos de Google y exportación a PNG.' },
+            { title: '2. Enlace en Screen1', desc: 'Asignación de Icon en propiedades de Screen1 y compilación del APK.' },
+            { title: '3. Manual de Acceso', desc: 'Registro en libreta de los pasos de login, carga de AIA y Companion.' },
+            { title: '4. Pruebas y Sello', desc: 'Prueba de ejecución en smartphone y acreditación en escritorio.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS)
-Metodología: Desglose Estricto por Horas (Hora 6: Slides 1 y 2 ➔ Hora 7: Slides 3, 4 y 5) + Calificación Simultánea en Escritorio
+Metodología: Desglose por Horas (Hora 6: Ícono e Instalación de APK ➔ Hora 7: Manual de Usuario en Libreta)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 6 (16:50 - 17:40) · Slides 1 y 2: Identidad Visual y Ficha Play Store
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO (Inicio · 5 min):
-"Un buen programador no solo hace código: tiene que saber vender su producto. En esta primera hora vamos a crear la portada oficial de nuestra app y su ficha de tienda como si estuviera publicada en Google Play Store."
-
-🖥️ DEMO EN CAÑÓN (10 min):
-1) Abrir slides.new en el navegador.
-2) Configurar tema en blanco o fondo oscuro institucional.
-3) Diapositiva 1 (Lanzamiento): Insertar el ícono creado en Dibujos de Google, título 'GeoCalc · Suite Geométrica' y datos de CONALEP.
-4) Diapositiva 2 (Ficha Técnica): Dos columnas (Especificaciones técnicas del APK a la izquierda y propuesta de valor comercial a la derecha).
-
-💻 RETO EN PC (30 min):
-Los alumnos diseñan sus diapositivas 1 y 2 asegurando contraste visual y ortografía ejecutiva.
-👉 CHECK HORA 6: Portada y Ficha Técnica concluidas en Google Slides.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 7 (17:40 - 18:30) · Slides 3, 4 y 5: Galería de Pantallas, Fórmulas y Código QR
+⏱️ HORA 6 (16:50 - 17:40) · Ícono Vectorial en Dibujos de Google e Instalación APK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Inicio · 5 min):
-"Ahora viene la prueba visual: colocamos las capturas reales de nuestro celular, el cuadro comparativo de las 7 figuras y el código QR para que cualquier persona descargue nuestra app con solo escanear la pantalla."
+"Una aplicación sin ícono se pierde entre cientos en el teléfono. Hoy en la primera hora le damos identidad a GeoCalc usando Dibujos de Google y dejamos el APK listo e instalado."
 
 🖥️ DEMO EN CAÑÓN (10 min):
-1) Diapositiva 3 (Showcase): Pegar 3 capturas reales (Portada, Menú y Cálculo). Aplicar borde fino de 1px y sombra paralela.
-2) Diapositiva 4 (Arquitectura Matemática): Resumen de las 7 figuras con fórmulas y botones independientes.
-3) Diapositiva 5 (Descarga Oficial): Pegar la imagen del código QR generado en App Inventor (Build APK) y los créditos de autor.
+1) Abrir drawings.google.com en el navegador.
+2) Configurar lienzo cuadrado (512x512 px) con fondo verde institucional CONALEP.
+3) Dibujar figuras geométricas con trazo blanco y texto 'GeoCalc'.
+4) Descargar en formato PNG y subirlo a App Inventor como 'Icon'.
+5) Compilar en 'Build > Android App (.apk)' y descargar en el celular.
 
 💻 RETO EN PC (30 min):
-Completar las diapositivas 3, 4 y 5. Guardar la presentación con el nombre: 'Pitch_GeoCalc_Apellido_Nombre'.
+Alumnos compilan su APK con el ícono y lo instalan en sus teléfonos móviles.
+👉 CHECK HORA 6: APK instalado con ícono propio visible en el cajón de apps del smartphone.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 7 (17:40 - 18:30) · Manual de Acceso y Operación en Libreta Técnica
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"El mejor software del mundo no sirve si nadie sabe cómo entrar a él. Vamos a redactar en su libreta el manual de acceso para que cualquier persona pueda abrir y usar el proyecto en App Inventor."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+Estructura del Manual de Acceso en libreta:
+1) Paso 1: Ingreso a ai2.appinventor.mit.edu con cuenta institucional o personal.
+2) Paso 2: Menú Projects > Import project (.aia) from my computer.
+3) Paso 3: Conexión mediante MIT AI2 Companion (código de 6 letras o QR).
+4) Paso 4: Pruebas en vivo y resolución de errores comunes.
+
+💻 RETO EN LIBRETA (30 min):
+Redactar con letra clara y diagramas el manual de 4 pasos en la libreta.
 
 🏷️ EVIDENCIA Y SELLO:
-Presentación de 5 diapositivas terminada al 100% en Google Slides y compartida en Google Drive. 👉 SELLO 2`,
-          closure: 'Presentaciones electrónicas de la app GeoCalc avanzadas y registradas en Google Drive.'
+Manual de acceso concluido en libreta y APK con ícono revisado. 👉 SELLO 2`,
+          closure: 'APK probado con ícono propio y manual de acceso registrado en la libreta técnica.'
         },
         {
           id: 'S4',
           label: 'Sesión 04',
-          subtitle: 'Viernes (1 hr) · Cierre de Presentaciones y Asentamiento de Calificaciones RA 2.2',
-          start: '¿Cómo consolidamos la calificación definitiva del RA 2.2 con nuestra app móvil y su presentación de lanzamiento?',
-          dictation: `⏱️ HORA 8 · Evaluación Sumativa y Cierre del Resultado de Aprendizaje 2.2:
-Culminación integral del módulo de aplicaciones móviles: se asientan las calificaciones definitivas del RA 2.2 (15% del Segundo Corte) ponderando el funcionamiento técnico de la app GeoCalc en hardware real y la calidad de la presentación ejecutiva en Google Slides. Se ofrece retroalimentación directa a cada estudiante antes del inicio del bloque de Hojas de Cálculo Avanzadas.`,
-          learningResult: 'Acreditar la calificación sumativa del RA 2.2 (15% del Segundo Corte) en la lista oficial.',
+          subtitle: 'Viernes (1 hr) · Cierre de Pruebas Móviles y Calificación de App GeoCalc',
+          start: '¿Cómo cerramos la evaluación de nuestra app móvil y preparamos el terreno para las presentaciones ejecutivas?',
+          dictation: `⏱️ HORA 8 · Evaluación Técnica de la Aplicación Móvil GeoCalc:
+Culminación de la fase de programación en bloques y desarrollo móvil: se realiza la revisión final en la lista de cotejo del grupo 301-INFO25, validando que cada alumno cuente con sus nueve pantallas operativas, el APK instalado en su smartphone y el manual de acceso en libreta. Se prepara la transición hacia el bloque de Presentaciones Electrónicas para la Semana 14.`,
+          learningResult: 'Acreditar la evaluación técnica de la app GeoCalc y su manual de operación en la lista oficial.',
           identification: {
-            topic: 'Evaluación Sumativa RA 2.2',
-            evidence: 'Calificación Asentada en Lista Oficial (RA 2.2 · 15%)',
+            topic: 'Cierre Técnico de GeoCalc',
+            evidence: 'Evaluación Técnica Aprobada en Lista Oficial (Sello)',
             organization: 'Individual',
             location: 'Laboratorio de Informática',
             time: '1 hr'
           },
           infographicTitle: 'Ruta Sesión 04 (Viernes · 1 Hora)',
           infographicSteps: [
-            { title: '1. Revisión Final', desc: 'Cotejo de la presentación de 5 diapositivas en Google Slides.' },
-            { title: '2. Ponderación RA 2.2', desc: 'Promedio de App móvil en smartphone (60%) + Pitch en Slides (40%).' },
-            { title: '3. Asentamiento en Lista', desc: 'Registro formal de la calificación del 15% en lista oficial.' },
-            { title: '4. Cierre y Encuadre', desc: 'Conclusión de Apps Móviles y anuncio de Hojas de Cálculo Avanzadas.' }
+            { title: '1. Revisión de Lista', desc: 'Cotejo de sellos acumulados de pantallas y fórmulas.' },
+            { title: '2. Inspección Visual', desc: 'Verificación del funcionamiento en el teléfono celular.' },
+            { title: '3. Firma de Aprobación', desc: 'Asentamiento de firma y avance en la lista oficial del grupo.' },
+            { title: '4. Encuadre Semana 14', desc: 'Anuncio de la suite de 7 diapositivas para el miércoles.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Revisión de Enlaces de Slides (25 min) ➔ Asentamiento de Notas Finales RA 2.2 (25 min)
+Metodología: Calificación en Escritorio (40 min) ➔ Encuadre de Semana 14 (10 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (15:00 - 15:50) · Cierre de Calificaciones del RA 2.2
+⏱️ HORA 8 (15:00 - 15:50) · Cierre de Calificaciones de Desarrollo Móvil
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO:
-"Hoy cerramos oficialmente el bloque de desarrollo móvil de Conalep. Cada uno de ustedes ya tiene una app funcional en su teléfono y una presentación ejecutiva de nivel profesional."
+"Hoy cerramos el código de App Inventor. Cada quien tiene su app lista y su manual en libreta. La próxima semana, el miércoles 18, convertiremos este proyecto en una presentación de nivel profesional con 7 diapositivas ejecutivas."
 
-📋 PONDERACIÓN DE EVALUACIÓN (RA 2.2 · 15%):
-• App GeoCalc en Celular (60%): 9 pantallas, doble botón en 7 figuras, ícono personalizado y APK funcional.
-• Pitch Deck en Google Slides (40%): 5 diapositivas completas con ficha técnica, capturas reales y código QR.
+📋 CRITERIOS EVALUADOS:
+• 9 Pantallas operativas en App Inventor (Pentágono, Triángulos, Círculo, Cuadrado, Rectángulo).
+• Doble botón (Perímetro y Área) con etiquetas de unidades (cm y cm²).
+• APK instalado en celular con ícono personalizado de Dibujos de Google.
+• Manual de acceso a MIT App Inventor registrado en la libreta.
 
-👉 RESULTADO: Calificación asentada en lista oficial del grupo 301-INFO25. Cierre del Segundo Corte (C2 · 35%).`,
-          closure: 'Evaluación sumativa del RA 2.2 concluida y calificaciones registradas en la lista oficial.'
+👉 RESULTADO: Avance del módulo registrado en la lista oficial de calificaciones.`,
+          closure: 'Evaluación técnica concluida y avance registrado en la lista oficial de control.'
+        }
+      ]
+    },
+    'W14': {
+      id: 'W14',
+      label: 'Semana 14',
+      title: 'Presentaciones Electrónicas: Ficha y Reglas de "El Juego" (7 Diapositivas en Google Slides)',
+      dates: '16 Nov - 20 Nov',
+      status: 'active',
+      toolUrl: 'https://slides.google.com',
+      toolBtnText: 'Abrir Google Slides',
+      summary: 'Diseño integral de una presentación ejecutiva de 7 diapositivas en Presentaciones de Google (Google Slides) con la ficha técnica, reglas, personajes, niveles, mockups y descarga de "El Juego" (GeoCalc), configurando interactividad y publicación web.',
+      expectedProduct: 'Presentación de 7 diapositivas en Google Slides con imágenes de referencia, enlaces interactivos y URL pública publicada en la web.',
+      notices: [
+        '⚠️ LUNES 16 DE NOVIEMBRE: Suspensión Oficial de Labores por la Conmemoración del Aniversario de la Revolución Mexicana. No hay clases en el plantel.',
+        'MIÉRCOLES 18 DE NOVIEMBRE (Sesión 01 · 1 hr · 17:40 - 18:30): Construcción de las 7 diapositivas de "El Juego" en Google Slides siguiendo las plantillas de referencia.',
+        'JUEVES 19 DE NOVIEMBRE (Sesión 02 · 2 hrs · 16:50 - 18:30): Hipervínculos internos, interactividad de navegación y coevaluación en pares en laboratorio.',
+        'VIERNES 20 DE NOVIEMBRE (Sesión 03 · 1 hr · 15:00 - 15:50): Publicación en la web (archivo público sin restricciones) y evaluación sumativa definitiva.'
+      ],
+      sessions: [
+        {
+          id: 'S1',
+          label: 'Sesión 01',
+          subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Las 7 Diapositivas de "El Juego" en Google Slides',
+          start: '¿Cómo estructuramos la ficha técnica y las reglas de un videojuego en 7 diapositivas ejecutivas que comuniquen su valor al instante?',
+          dictation: `⏱️ HORA 1 · Diseño Ejecutivo de Videojuegos y Suite de 7 Diapositivas en Google Slides:
+En la industria tecnológica y de entretenimiento digital, un producto de software no se distribuye sin su documentación visual y su Pitch Deck. Mediante Presentaciones de Google, el estudiante crea una suite ejecutiva de siete diapositivas estandarizadas: 1) Portada oficial con logotipo e identidad CONALEP; 2) Sinopsis y objetivo ("¿Qué hace el juego?"); 3) Instrucciones y reglas de la partida paso a paso; 4) Personajes, elementos geométricos y botones de control; 5) Niveles de reto y curva de dificultad; 6) Galería de mockups con capturas reales en smartphones; y 7) Ficha de créditos de autor con código QR oficial para la descarga del paquete APK.`,
+          learningResult: 'Crear en Google Slides la estructura visual de las 7 diapositivas de "El Juego" (GeoCalc) integrando textos ejecutivos, capturas reales y código QR.',
+          identification: {
+            topic: '7 Diapositivas de "El Juego" en Slides',
+            evidence: 'Presentación Google Slides (7 Diapositivas · Sello 1)',
+            organization: 'Individual en PC (Google Slides)',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 01 (Miércoles · 1 Hora)',
+          infographicSteps: [
+            { title: '1. Portada y Sinopsis', desc: 'Diapositivas 1 y 2 con título oficial, ícono y misión del juego.' },
+            { title: '2. Reglas y Elementos', desc: 'Diapositivas 3 y 4 con pasos de juego, vidas/puntos y botones de acción.' },
+            { title: '3. Niveles y Mockups', desc: 'Diapositivas 5 y 6 con retos progresivos y 3 celulares con capturas.' },
+            { title: '4. Créditos y QR', desc: 'Diapositiva 7 con datos del alumno, grupo 301-INFO25 y QR de descarga.' }
+          ],
+          developmentColumns: [
+            {
+              groupTitle: '🎮 ARQUITECTURA DE LAS 7 DIAPOSITIVAS DE "EL JUEGO" EN GOOGLE SLIDES',
+              groupSubtitle: 'Guía visual con imágenes de referencia para proyectar en cañón y reproducir en computadoras',
+              columnsCount: 3,
+              items: [
+                {
+                  badge: 'Diapositiva 1 · Portada',
+                  title: 'Portada Oficial del Juego',
+                  screen: 'Slide 1 · Título e Identidad',
+                  color: '#005C42',
+                  bgHeader: '#ecfdf5',
+                  image: imgGSlide1,
+                  rows: [
+                    { label: 'Título del Juego', value: 'GeoCalc · La Aventura Matemática' },
+                    { label: 'Subtítulo', value: 'Videojuego Móvil Educativo · Android APK' },
+                    { label: 'Elemento Gráfico', value: 'Logotipo / Ícono central de Dibujos de Google' },
+                    { label: 'Membrete Institucional', value: 'CONALEP Pachuca II · EDOA-20 · Grupo 301-INFO25' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 2 · Sinopsis',
+                  title: '¿Qué Hace el Juego?',
+                  screen: 'Slide 2 · Objetivo y Misión',
+                  color: '#1E3A8A',
+                  bgHeader: '#eff6ff',
+                  image: imgGSlide2,
+                  rows: [
+                    { label: 'Premisa Principal', value: 'Conviértete en el Arquitecto Digital y supera retos de cálculo geométrico.' },
+                    { label: 'Mecánica Central', value: 'Calcula perímetros y áreas en tiempo real para desbloquear mundos.' },
+                    { label: 'Características Clave', value: '7 Figuras geométricas, respuestas instantáneas y modo offline.' },
+                    { label: 'Audiencia Objetivo', value: 'Estudiantes de secundaria y bachillerato que buscan agilidad mental.' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 3 · Reglas',
+                  title: 'Instrucciones y Reglas de Juego',
+                  screen: 'Slide 3 · ¿Cómo Jugar?',
+                  color: '#B45309',
+                  bgHeader: '#fffbeb',
+                  image: imgGSlide3,
+                  rows: [
+                    { label: 'Paso 1: Selecciona', value: 'Elige una figura geométrica en el Menú Principal.' },
+                    { label: 'Paso 2: Ingresa Datos', value: 'Escribe las medidas en las cajas de texto (TextBox).' },
+                    { label: 'Paso 3: Presiona Acción', value: 'Toca Perímetro (verde) o Área (azul) para obtener tu puntaje.' },
+                    { label: 'Reglas de Partida', value: '3 Vidas por nivel, límite de tiempo de 60s y penalización por error.' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 4 · Elementos',
+                  title: 'Personajes y Mecánicas',
+                  screen: 'Slide 4 · Interfaz y Controles',
+                  color: '#7C3AED',
+                  bgHeader: '#faf5ff',
+                  image: imgGSlide4,
+                  rows: [
+                    { label: 'El Jugador', value: 'El Arquitecto Digital (Tú): resuelve figuras y acumula puntos.' },
+                    { label: 'Figuras Objetivo', value: 'Círculo, Cuadrado, Rectángulo, Pentágono y 3 Triángulos.' },
+                    { label: 'Botón Perímetro', value: 'Verde · Calcula contorno en cm (+100 puntos).' },
+                    { label: 'Botón Área', value: 'Azul · Procesa superficie en cm² (+250 puntos).' },
+                    { label: 'Botones Auxiliares', value: 'Limpiar (resetea campos) y Menú (retorna al lobby).' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 5 · Progresión',
+                  title: 'Niveles y Curva de Dificultad',
+                  screen: 'Slide 5 · Desafíos del Juego',
+                  color: '#C2410C',
+                  bgHeader: '#fff7ed',
+                  image: imgGSlide5,
+                  rows: [
+                    { label: 'Nivel 1 (Fácil)', value: 'Círculo y Cuadrado · Medidas enteras de 1 dígito.' },
+                    { label: 'Nivel 2 (Medio)', value: 'Rectángulo y Pentágono · Uso de decimales y apotema.' },
+                    { label: 'Nivel 3 (Difícil)', value: 'Triángulos Isósceles y Escaleno · Múltiples variables y lados.' },
+                    { label: 'Nivel 4 (Experto)', value: 'Desafío Contra Reloj · Resolver 5 figuras en menos de 90 segundos.' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 6 · Galería',
+                  title: 'Galería de Pantallas (Mockups)',
+                  screen: 'Slide 6 · Capturas en Teléfono',
+                  color: '#0284C7',
+                  bgHeader: '#f0f9ff',
+                  image: imgGSlide6,
+                  rows: [
+                    { label: 'Pantalla 1 (Lobby)', value: 'Screen1 con logotipo, presentación y botón Iniciar.' },
+                    { label: 'Pantalla 2 (Niveles)', value: 'Menú Principal con acceso táctil a las 7 figuras.' },
+                    { label: 'Pantalla 3 (Partida)', value: 'Pantalla de cálculo activa con resultados en cm y cm².' },
+                    { label: 'Estilo Visual', value: '3 Smartphones flotantes con marcos, sombras y alta definición.' }
+                  ]
+                },
+                {
+                  badge: 'Diapositiva 7 · Descarga',
+                  title: 'Créditos y Código QR Oficial',
+                  screen: 'Slide 7 · Instalador APK',
+                  color: '#0F172A',
+                  bgHeader: '#f8fafc',
+                  image: imgGSlide7,
+                  rows: [
+                    { label: 'Código QR Oficial', value: 'Escaneo directo con cámara móvil para descargar el APK.' },
+                    { label: 'Desarrollador Líder', value: 'Nombre y Apellidos del Estudiante.' },
+                    { label: 'Plantel Educativo', value: 'CONALEP Pachuca II · CCT 13DPT0002Y.' },
+                    { label: 'Módulo y Grupo', value: 'EDOA-20 · Grupo 301-INFO25 · Semestre 1.26.27.' }
+                  ]
+                }
+              ]
+            }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA · 17:40 - 18:30)
+Metodología: Sesión 01 de Semana 14 (Lunes sin clases) ➔ Proyección de Plantillas Visuales en Cañón (15 min) ➔ Construcción en PC (35 min) ➔ Revisión de Enlace (10 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 (17:40 - 18:30) · Montaje de las 7 Diapositivas de "El Juego"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"El lunes descansamos por la Revolución Mexicana, pero hoy arrancamos la Semana 14 con todo: su juego GeoCalc ya funciona en el celular, ahora vamos a documentarlo con una presentación ejecutiva de 7 diapositivas que simula el lanzamiento oficial de un videojuego."
+
+🖥️ DEMO EN CAÑÓN POR BLOQUES (15 min):
+1) Abrir slides.new en el navegador. Nombrar el archivo: 'El_Juego_GeoCalc_Apellido_Nombre'.
+2) Bloque Identidad (Slides 1 y 2):
+   - Diapositiva 1: Portada con el ícono diseñado en Dibujos de Google, título en negritas y datos de CONALEP Pachuca II.
+   - Diapositiva 2: ¿Qué hace el juego? Sinopsis del 'Arquitecto Digital', objetivo de cálculo y características destacadas.
+3) Bloque Jugabilidad (Slides 3, 4 y 5):
+   - Diapositiva 3: Instrucciones en 3 pasos (Selecciona figura, ingresa medidas, presiona botón) y reglas de vidas/tiempo.
+   - Diapositiva 4: Personajes y Elementos (El Jugador, las 7 figuras y los botones Perímetro verde y Área azul).
+   - Diapositiva 5: Niveles (Fácil, Medio, Difícil y Modo Contra Reloj).
+4) Bloque Showcase y Descarga (Slides 6 y 7):
+   - Diapositiva 6: Mockups con 3 teléfonos mostrando Screen1, Menú y una Pantalla de Cálculo.
+   - Diapositiva 7: Ficha técnica del alumno, datos del plantel y la imagen del Código QR generado en App Inventor (Build APK).
+
+💻 RETO EN PC (35 min):
+Cada alumno construye sus 7 diapositivas guiándose por los ejemplos proyectados en pantalla.
+👉 CHECK HORA 1: Estructura de 7 diapositivas completa con tipografía uniforme y sin errores ortográficos.
+
+🏷️ EVIDENCIA Y SELLO:
+Presentación de 7 diapositivas completa en Google Slides. 👉 SELLO 1`,
+          closure: 'Estructura de las 7 diapositivas de "El Juego" concluida en Google Slides y compartida en Google Drive.'
+        },
+        {
+          id: 'S2',
+          label: 'Sesión 02',
+          subtitle: 'Jueves (2 hrs · 16:50 - 18:30) · Interactividad, Enlaces Internos y Coevaluación en Pares',
+          start: '¿Cómo convertimos una presentación estática en un prototipo interactivo donde los botones cambien de diapositiva como si fuera el juego real?',
+          dictation: `⏱️ HORAS 2 Y 3 · Prototipado Interactivo, Hipervínculos Internos y Coevaluación en Google Slides:
+En el diseño contemporáneo de interfaces digitales, el prototipado interactivo simula la experiencia real del usuario antes del despliegue masivo. Mediante la herramienta de hipervínculos internos de Presentaciones de Google (Insertar > Enlace > Diapositivas de esta presentación), el estudiante conecta los botones y formas de la diapositiva hacia pantallas específicas, permitiendo saltar del Menú Principal a las instrucciones o a los niveles. En la segunda fase de la sesión, los estudiantes realizan una coevaluación en parejas, navegando la presentación de un compañero en modo pantalla completa para verificar usabilidad, consistencia estética y enlaces rotos.`,
+          learningResult: 'Configurar hipervínculos internos entre diapositivas en Google Slides para crear una navegación interactiva y coevaluar el proyecto de un compañero.',
+          identification: {
+            topic: 'Hipervínculos e Interactividad en Slides',
+            evidence: 'Presentación Interactiva + Ficha de Coevaluación (Sello 2)',
+            organization: 'Individual en PC y Coevaluación en Parejas',
+            location: 'Laboratorio de Informática',
+            time: '2 hrs'
+          },
+          infographicTitle: 'Ruta Sesión 02 (Jueves · 2 Horas)',
+          infographicSteps: [
+            { title: '1. Creación de Botones', desc: 'Dibujar formas redondeadas con texto ("Jugar", "Reglas", "Niveles", "Menú").' },
+            { title: '2. Enlaces Internos', desc: 'Asignar a cada botón su salto hacia la diapositiva correspondiente (Ctrl+K).' },
+            { title: '3. Botón Retorno Universal', desc: 'Colocar un botón de regreso al lobby en las diapositivas 2 a la 7.' },
+            { title: '4. Coevaluación Cruzada', desc: 'Intercambiar computadoras, probar en F5 y evaluar con rúbrica técnica.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS · 16:50 - 18:30)
+Metodología: Desglose Estricto por Horas (Hora 2: Interactividad e Hipervínculos ➔ Hora 3: Coevaluación y Calificación en Lista)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 2 (16:50 - 17:40) · Enlaces Internos y Prototipado Navegable
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"Una presentación tradicional se pasa con la barra espaciadora. Hoy vamos a convertir nuestras 7 diapositivas en una aplicación interactiva: al tocar un botón en pantalla, la presentación saltará automáticamente a esa sección del juego."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Seleccionar una forma o botón en la Diapositiva 1 (ej. 'Ver Instrucciones').
+2) Presionar Ctrl+K (o Insertar > Enlace).
+3) Desplegar 'Diapositivas en esta presentación' y seleccionar 'Diapositiva 3: Instrucciones'.
+4) En las diapositivas 2 a 7, crear un botón flotante en la esquina inferior: '🏠 Menú' vinculado a la Diapositiva 1.
+5) Presionar 'Presentar' (Ctrl+F5) y demostrar la navegación táctil/ratón.
+
+💻 RETO EN PC (30 min):
+Los alumnos vinculan todos los botones de su presentación y prueban la navegación fluida.
+👉 CHECK HORA 2: Todos los botones navegan correctamente sin salir de la presentación.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (17:40 - 18:30) · Coevaluación Cruzada en Pares y Retroalimentación
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"El mejor evaluador de un videojuego es otro jugador. Cámbiense de asiento con su compañero de al lado: van a jugar su presentación y verificar si los botones funcionan y si el diseño cumple con los 7 requisitos."
+
+🖥️ DINÁMICA DE COEVALUACIÓN (10 min):
+1) Cada alumno abre la presentación de su compañero en modo presentación completa.
+2) Cotejo de 4 puntos clave:
+   - ¿Están completas las 7 diapositivas solicitadas?
+   - ¿Los botones interactivos saltan a la diapositiva correcta?
+   - ¿Se ve nítido el código QR y los mockups de teléfono?
+   - ¿Hay buena ortografía y contraste de colores?
+3) Registro de comentarios constructivos en la libreta del compañero.
+
+💻 RETO EN PC Y LIBRETA (30 min):
+Pruebas cruzadas y ajustes finales en el archivo de Google Slides.
+
+🏷️ EVIDENCIA Y SELLO:
+Presentación interactiva validada y coevaluación registrada. 👉 SELLO 2`,
+          closure: 'Presentación de 7 diapositivas interactiva concluida y validada por pares.'
+        },
+        {
+          id: 'S3',
+          label: 'Sesión 03',
+          subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Publicación Web en Google Slides y Evaluación Sumativa',
+          start: '¿Cómo publicamos nuestra presentación en internet para que cualquiera pueda abrirla en pantalla completa sin iniciar sesión en Google?',
+          dictation: `⏱️ HORA 4 · Despliegue en la Nube, Publicación Web y Evaluación Sumativa:
+La ofimática en la nube culmina con la publicación y distribución global del contenido digital. A través de la función 'Publicar en la web' de Presentaciones de Google, la presentación se convierte en un reproductor web interactivo independiente, accesible desde cualquier navegador sin solicitar permisos de edición ni cuenta de correo. El docente evalúa sumativamente el proyecto final de la Semana 14 considerando el cumplimiento de las siete diapositivas, la calidad visual, los hipervínculos operativos y la disponibilidad del enlace público en la lista oficial.`,
+          learningResult: 'Publicar la presentación en la web mediante Google Slides, obtener el enlace público autónomo y acreditar la evaluación sumativa de la Semana 14.',
+          identification: {
+            topic: 'Publicación Web y Evaluación Sumativa',
+            evidence: 'URL Pública de Google Slides + Calificación en Lista Oficial (Sello 3)',
+            organization: 'Individual en PC y Proyección',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 03 (Viernes · 1 Hora)',
+          infographicSteps: [
+            { title: '1. Archivo > Publicar', desc: 'Ir al menú Archivo > Compartir > Publicar en la web.' },
+            { title: '2. Configuración de Enlace', desc: 'Hacer clic en el botón azul "Publicar" y aceptar el diálogo de confirmación.' },
+            { title: '3. Prueba en Incógnito', desc: 'Abrir una pestaña privada (Ctrl+Shift+N) y pegar el enlace para validar el acceso.' },
+            { title: '4. Calificación Oficial', desc: 'Presentar el enlace al docente y registrar la calificación definitiva en lista.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA · 15:00 - 15:50)
+Metodología: Publicación Web (15 min) ➔ Revisión Individual y Asentamiento de Notas (35 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (15:00 - 15:50) · Despliegue Público y Evaluación Sumativa
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO:
+"Hoy es el gran estreno: convertiremos sus diapositivas privadas en un enlace web público que pueden compartir con quien quieran o poner en su portafolio digital."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) En Google Slides, ir a: Archivo > Compartir > Publicar en la web.
+2) Pestaña 'Enlace' > Clic en 'Publicar' > Aceptar el aviso de confirmación.
+3) Copiar el enlace generado (docs.google.com/presentation/d/e/.../pub).
+4) Abrir ventana de incógnito (Ctrl+Shift+N) y comprobar que el pitch deck se despliega en pantalla completa.
+
+💻 REVISIÓN EN ESCRITORIO (35 min):
+El docente revisa en cada lugar el enlace web publicado y registra el cumplimiento de los 7 elementos clave.
+
+📋 RÚBRICA SUMATIVA SEMANA 14 (100%):
+• Diapositivas 1 y 2 (Portada institucional con ícono y ¿Qué hace el juego?): 20%
+• Diapositivas 3, 4 y 5 (Instrucciones, Personajes/Elementos y Niveles de reto): 30%
+• Diapositivas 6 y 7 (Galería de Mockups y Créditos con Código QR APK): 25%
+• Interactividad (Hipervínculos internos entre diapositivas): 15%
+• Despliegue Web (Enlace público verificado en incógnito): 10%
+
+👉 RESULTADO: Calificación asentada formalmente en la lista de calificaciones del grupo 301-INFO25.`,
+          closure: 'Semana 14 concluida satisfactoriamente con la publicación web de las presentaciones y evaluación sumativa registrada.'
         }
       ]
     }

@@ -4090,24 +4090,21 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                     </div>
                 </div>
 
-                <!-- ANATOMÍA DE PROGRAMACIÓN DEL ESCENARIO DATA CENTER (.c3p) -->
+                <!-- ESCENARIO BASE SENCILLO (.c3p) -->
                 <div class="hour-card" style="border:1px solid rgba(16,185,129,0.4); background:rgba(15,23,42,0.85);">
-                    <h2 class="hour-title" style="color:#34d399;">🧠 ¿Qué trae el archivo <code>CyberDefender_Sem1.c3p</code> y cómo enseñarlo en clase?</h2>
-                    <p style="font-size:0.92rem; color:#cbd5e1; margin-bottom:0.9rem;">Además del personaje, el archivo descargable ya incluye un escenario nocturno tipo <strong>Centro de Datos</strong> armado con 6 conceptos reales de programación para que los alumnos los vean funcionando y los repliquen contigo:</p>
-                    <a href="../img/cyberdefender/Preview_Escenario_CyberDefender_Sem1.png" target="_blank" title="Clic para abrir el escenario en pantalla completa">
-                        <img src="../img/cyberdefender/Preview_Escenario_CyberDefender_Sem1.png" alt="Escenario Data Center CyberDefender" style="width:100%; border-radius:10px; border:1px solid rgba(56,189,248,0.4); margin-bottom:1rem; display:block;">
+                    <h2 class="hour-title" style="color:#34d399;">🧠 ¿Qué trae el archivo sencillo <code>CyberDefender_Sem1.c3p</code>?</h2>
+                    <p style="font-size:0.92rem; color:#cbd5e1; margin-bottom:0.9rem;">Está armado exactamente hasta donde vamos hoy: un escenario limpio de 1 pantalla (<code>1280×720</code>) con cielo nocturno, piso continuo y 2 plataformas para que tú y los chicos prueben únicamente las animaciones <strong>Idle</strong>, <strong>Run</strong> y <strong>Jump</strong> sin adelantarnos:</p>
+                    <a href="../img/cyberdefender/Preview_Escenario_CyberDefender_Sem1.png" target="_blank" title="Clic para abrir el escenario sencillo en pantalla completa">
+                        <img src="../img/cyberdefender/Preview_Escenario_CyberDefender_Sem1.png" alt="Escenario sencillo Semana 1 CyberDefender" style="width:100%; border-radius:10px; border:1px solid rgba(56,189,248,0.4); margin-bottom:1rem; display:block;">
                     </a>
                     <table class="taller-table">
                         <thead>
-                            <tr><th>Elemento Visual en el Juego</th><th>Cómo se hizo en Construct 3</th><th>Concepto de Programación (MTCS)</th></tr>
+                            <tr><th>Elemento en Escena</th><th>Cómo está configurado</th><th>Concepto de Programación (Semana 1)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>🌃 Cielo + Racks de Servidores con profundidad</td><td>4 Capas con distinto <code>Parallax</code> (<code>25%</code>, <code>55%</code>, <code>100%</code>, <code>0%</code>).</td><td><strong>Coordenadas y Proporciones (2.5D)</strong></td></tr>
-                            <tr><td>🏃‍♂️ Cambio entre <code>Idle</code>, <code>Run</code> y <code>Jump</code></td><td><code>Is on floor</code> + sub-eventos <code>Is moving</code> / invertido + <code>Is jumping</code>.</td><td><strong>Máquina de Estados y Condicionales Anidados (<code>if/else</code>)</strong></td></tr>
-                            <tr><td>🟠 Trampolín Cibernético</td><td><code>On collision with Trampolin</code> ➔ <code>Set Vector Y = -920</code> + Doble Salto activo.</td><td><strong>Eventos + Modificación de Propiedades (Física)</strong></td></tr>
-                            <tr><td>💎 8 <code>DataBit</code> flotando</td><td>1 objeto plantilla con <code>Sine</code> (vertical) + 8 instancias en escena.</td><td><strong>Clases vs. Instancias (Reutilización)</strong></td></tr>
-                            <tr><td>✨ Explosión de 8 Chispas</td><td>Al tocar <code>DataBit</code>: <code>System ➔ Repeat 8</code> crea <code>Chispa</code> a ángulo <code>loopindex * 45</code>.</td><td><strong>Bucles (<code>For</code> / <code>Repeat</code>) + Índice de iteración</strong></td></tr>
-                            <tr><td>📟 Marcador Vivo (HUD arriba)</td><td>Variable global <code>Datos</code> + <code>"DATA_BITS: " &amp; Datos &amp; " / 8"</code>.</td><td><strong>Variables Globales, Acumuladores y Concatenación</strong></td></tr>
+                            <tr><td>🌃 Fondo + Piso + 2 Plataformas</td><td><code>Cielo</code> de fondo, <code>Piso</code> completo y 2 <code>Plataforma</code> con comportamiento <code>Solid</code>.</td><td><strong>Capas (<code>Fondo</code>, <code>Juego</code>, <code>UI</code>) y Colisiones sólidas</strong></td></tr>
+                            <tr><td>🔄 Volteo Izquierda / Derecha</td><td><code>Keyboard: On Left/Right pressed</code> ➔ <code>Set mirrored / not-mirrored</code>.</td><td><strong>Eventos de Entrada del Usuario</strong></td></tr>
+                            <tr><td>🎬 Animaciones <code>Idle</code>, <code>Run</code> y <code>Jump</code></td><td><code>Is on floor</code> + <code>Is moving</code> / invertido ➔ <code>Run</code> / <code>Idle</code>; <code>Is jumping/falling</code> ➔ <code>Jump</code>.</td><td><strong>Condicionales Básicos (<code>Si / Si no</code>)</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
