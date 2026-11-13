@@ -2221,42 +2221,40 @@ Manual de acceso concluido en libreta y APK con ícono revisado. 👉 SELLO 2`,
         {
           id: 'S4',
           label: 'Sesión 04',
-          subtitle: 'Viernes (1 hr) · Cierre de Pruebas Móviles y Calificación de App GeoCalc',
-          start: '¿Cómo cerramos la evaluación de nuestra app móvil y preparamos el terreno para las presentaciones ejecutivas?',
-          dictation: `⏱️ HORA 8 · Evaluación Técnica de la Aplicación Móvil GeoCalc:
-Culminación de la fase de programación en bloques y desarrollo móvil: se realiza la revisión final en la lista de cotejo del grupo 301-INFO25, validando que cada alumno cuente con sus nueve pantallas operativas, el APK instalado en su smartphone y el manual de acceso en libreta. Se prepara la transición hacia el bloque de Presentaciones Electrónicas para la Semana 14.`,
-          learningResult: 'Acreditar la evaluación técnica de la app GeoCalc y su manual de operación en la lista oficial.',
+          subtitle: 'Viernes (1 hr) · ⚠️ Suspensión de Labores del Grupo 301-INFO25 (Concurso Robótica Gdl)',
+          start: 'Aviso Oficial: Suspensión de actividades presenciales para el grupo 301-INFO25 el viernes 13 de noviembre.',
+          dictation: `⏱️ HORA 8 · Suspensión Justificada de Labores Escolares (Grupo 301-INFO25):
+Por disposición institucional y justificación de jornada completa, se suspenden las actividades presenciales del grupo 301-INFO25 este viernes 13 de noviembre debido a la comisión del Mtro. Cruz (titular de 5 horas de clase del grupo) al Concurso Nacional de Robótica en la ciudad de Guadalajara, sumado a permisos económicos y ausencias autorizadas del personal docente complementario. Las actividades del módulo EDOA-20 se reanudan presencialmente el Miércoles 18 de Noviembre con el arranque de las 7 Diapositivas de "El Juego" en Google Slides.`,
+          learningResult: 'Comprender la recalendarización de entrega de proyectos y preparar insumos para la Semana 14.',
           identification: {
-            topic: 'Cierre Técnico de GeoCalc',
-            evidence: 'Evaluación Técnica Aprobada en Lista Oficial (Sello)',
-            organization: 'Individual',
-            location: 'Laboratorio de Informática',
+            topic: 'Suspensión Grupal Autorizada',
+            evidence: 'Cierre Operativo Semana 13 (Justificación)',
+            organization: 'Institucional',
+            location: 'Plantel CONALEP',
             time: '1 hr'
           },
-          infographicTitle: 'Ruta Sesión 04 (Viernes · 1 Hora)',
+          infographicTitle: 'Estado de la Jornada (Viernes 13 Nov)',
           infographicSteps: [
-            { title: '1. Revisión de Lista', desc: 'Cotejo de sellos acumulados de pantallas y fórmulas.' },
-            { title: '2. Inspección Visual', desc: 'Verificación del funcionamiento en el teléfono celular.' },
-            { title: '3. Firma de Aprobación', desc: 'Asentamiento de firma y avance en la lista oficial del grupo.' },
-            { title: '4. Encuadre Semana 14', desc: 'Anuncio de la suite de 7 diapositivas para el miércoles.' }
+            { title: '1. Comisión Robótica', desc: 'Mtro. Cruz viaja a concurso en Guadalajara (5 horas del grupo).' },
+            { title: '2. Permisos Docentes', desc: 'Permisos económicos autorizados para docentes de horas complementarias.' },
+            { title: '3. Cierre Semana 13', desc: 'Semana 13 concluida formalmente con el APK y Manual del jueves.' },
+            { title: '4. Reencuentro S14', desc: 'Clase presencial el Miércoles 18 de Noviembre (17:40 hrs).' }
           ],
-          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA)
-Metodología: Calificación en Escritorio (40 min) ➔ Encuadre de Semana 14 (10 min)
+          development: `🎙️ AVISO INSTITUCIONAL DOCENTE · VIERNES 13 DE NOVIEMBRE
+Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 8 (15:00 - 15:50) · Cierre de Calificaciones de Desarrollo Móvil
+⏱️ HORA 8 (15:00 - 15:50) · Suspensión Grupal Autorizada
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Hoy cerramos el código de App Inventor. Cada quien tiene su app lista y su manual en libreta. La próxima semana, el miércoles 18, convertiremos este proyecto en una presentación de nivel profesional con 7 diapositivas ejecutivas."
+📋 MOTIVO DE SUSPENSIÓN:
+1) El Mtro. Cruz imparte 5 horas al grupo 301-INFO25 y viajó comisionado a Guadalajara al Concurso de Robótica.
+2) Permisos económicos y ausencias justificadas del resto de la plantilla del día, incluido el Dr. Felipe López Salazar.
+3) La dirección del plantel autorizó la no asistencia del grupo 301-INFO25.
 
-📋 CRITERIOS EVALUADOS:
-• 9 Pantallas operativas en App Inventor (Pentágono, Triángulos, Círculo, Cuadrado, Rectángulo).
-• Doble botón (Perímetro y Área) con etiquetas de unidades (cm y cm²).
-• APK instalado en celular con ícono personalizado de Dibujos de Google.
-• Manual de acceso a MIT App Inventor registrado en la libreta.
-
-👉 RESULTADO: Avance del módulo registrado en la lista oficial de calificaciones.`,
-          closure: 'Evaluación técnica concluida y avance registrado en la lista oficial de control.'
+📅 REANUDACIÓN DE ACTIVIDADES:
+• Lunes 16 Noviembre: Suspensión Oficial Federal (Aniversario de la Revolución Mexicana).
+• Miércoles 18 Noviembre (17:40 - 18:30): Sesión 01 de la Semana 14 (7 Diapositivas en Google Slides).`,
+          closure: 'Jornada suspendida formalmente por comisión nacional de robótica y permisos docentes.'
         }
       ]
     },
