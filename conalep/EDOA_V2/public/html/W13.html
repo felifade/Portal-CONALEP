@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Σ EDOA · Semana 14 · Las 7 Diapositivas de "El Juego"</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --paper: #f8fafc;
+      --line: #cbd5e1;
+      --green: #005C42;
+      --green-light: #10b981;
+      --green-soft: #ecfdf5;
+      --blue: #1e3a8a;
+      --blue-soft: #eff6ff;
+      --amber: #b45309;
+      --amber-soft: #fffbeb;
+      --purple: #7c3aed;
+      --purple-soft: #faf5ff;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #022c22;
+      color: var(--ink);
+      font-family: system-ui, -apple-system, 'Outfit', 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+    }
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      padding: 4vh 5vw;
+      display: none;
+      background: var(--paper);
+      overflow-y: auto;
+    }
+    .slide.active { display: block; }
+    
+    /* Tipografía para Cañón */
+    h1 { font-size: clamp(38px, 4.5vw, 64px); line-height: 1.05; color: var(--green); margin-bottom: 12px; font-weight: 900; }
+    h2 { font-size: clamp(26px, 2.8vw, 42px); line-height: 1.15; color: var(--green); margin-bottom: 14px; font-weight: 800; }
+    h3 { font-size: clamp(20px, 1.8vw, 26px); color: var(--blue); margin-bottom: 8px; font-weight: 700; }
+    p, li { font-size: clamp(17px, 1.4vw, 22px); line-height: 1.4; color: var(--muted); }
+    
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--green-soft);
+      border: 1.5px solid var(--green-light);
+      border-radius: 999px;
+      color: var(--green);
+      font-weight: 800;
+      font-size: clamp(13px, 1.1vw, 16px);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 14px;
+    }
+    
+    /* Portada */
+    .cover-box {
+      min-height: 82vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      max-width: 1200px;
+    }
+    .cover-box p.lead { font-size: clamp(20px, 1.8vw, 28px); color: var(--muted); max-width: 950px; }
+    .teacher-badge {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      width: fit-content;
+      font-weight: 700;
+      color: var(--green);
+      font-size: clamp(16px, 1.3vw, 20px);
+    }
+    
+    /* Layouts de dos columnas para guiar la diapositiva */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+      min-height: 75vh;
+      margin-top: 10px;
+    }
+    .guide-info { display: flex; flex-direction: column; gap: 16px; }
+    .guide-card {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .guide-card.callout { background: var(--green-soft); border-color: var(--green-light); }
+    .guide-card.dictado-box { background: var(--blue-soft); border-color: #93c5fd; }
+    .guide-card p { color: var(--ink); }
+    .guide-card ul { padding-left: 24px; margin-top: 8px; }
+    .guide-card li { margin-bottom: 6px; }
+    
+    .guide-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+      border: 2px solid #334155;
+    }
+    .guide-preview img {
+      max-width: 100%;
+      max-height: 60vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .guide-preview-caption {
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    
+    /* Tabla Resumen de 7 Diapositivas */
+    table.arch-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--line);
+    }
+    table.arch-table th, table.arch-table td {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: clamp(15px, 1.2vw, 18px);
+      border-bottom: 1px solid var(--line);
+    }
+    table.arch-table th { background: var(--green); color: var(--white); font-weight: 800; }
+    table.arch-table tr:last-child td { border-bottom: none; }
+    table.arch-table td.slide-num { font-weight: 900; color: var(--green); width: 140px; }
+    
+    /* Controles de Navegación y Cronómetro */
+    .timer {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .timer.min { width: 50px; height: 50px; padding: 0; justify-content: center; cursor: pointer; }
+    .timer.min::before { content: "⏱"; font-size: 26px; }
+    .timer.min .time, .timer.min button { display: none; }
+    .timer .time { font-size: 24px; font-weight: 900; color: var(--green); min-width: 75px; text-align: center; }
+    .timer button, .nav button {
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .timer button:hover, .nav button:hover { background: #024a35; }
+    
+    .nav {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .count { font-weight: 900; font-size: 17px; color: var(--green); min-width: 80px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <main class="deck">
+
+    <!-- SLIDE 0: PORTADA DE LA PRESENTACIÓN -->
+    <section class="slide active">
+      <div class="cover-box">
+        <span class="badge">CONALEP Pachuca II · Módulo EDOA-20 · Semana 14</span>
+        <h1>Presentación Ejecutiva de "El Juego"</h1>
+        <p class="lead">Guía interactiva paso a paso para cañón de aula: cómo estructurar las 7 diapositivas de la aplicación móvil <strong>GeoCalc</strong> en Google Slides.</p>
+        <div class="teacher-badge">
+          <span>👨‍🏫 Dr. Felipe López Salazar</span>
+          <span>•</span>
+          <span>Grupo 301-INFO25</span>
+          <span>•</span>
+          <span>Ciclo 1.26.27</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 1: EL DICTADO OFICIAL -->
+    <section class="slide">
+      <span class="badge">Sesión 01 · Inicio de Clase</span>
+      <h2>⏱️ Dictado Oficial en Pantalla (10 min)</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card dictado-box">
+            <h3 style="color:var(--blue); margin-bottom:12px;">📝 Dictado en Libreta Técnica</h3>
+            <p style="font-size:1.35vw; line-height:1.45; font-weight:500;">
+              "En la industria tecnológica contemporánea, un producto de software no se distribuye sin su documentación visual y su <strong>Pitch Deck</strong>. A través de <strong>Presentaciones de Google</strong>, el estudiante diseña una suite ejecutiva de siete diapositivas estandarizadas que comunican la propuesta de valor, las mecánicas de juego, la galería de pantallas reales y el código QR de instalación del paquete <strong>APK</strong>."
+            </p>
+          </div>
+          <div class="guide-card">
+            <h3>🎯 Criterios de Escritura:</h3>
+            <ul>
+              <li><strong>Título:</strong> Centrado · Tamaño destacado con pluma de color.</li>
+              <li><strong>Cuerpo:</strong> Justificado de margen a margen · Letra limpia.</li>
+              <li><strong>Palabras Clave:</strong> Subrayar <u>Pitch Deck</u>, <u>Google Slides</u>, <u>Mecánicas</u> y <u>APK</u>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="guide-preview" style="background:#1e293b; padding:30px; text-align:left;">
+          <h3 style="color:#38bdf8; margin-bottom:15px;">🗣️ Frase Gancho del Docente:</h3>
+          <p style="color:#e2e8f0; font-size:1.3vw; line-height:1.5;">
+            <em>"El lunes descansamos por la Revolución Mexicana, pero hoy arrancamos la Semana 14 con todo: su aplicación ya funciona en el teléfono, ahora vamos a documentarla como si fuéramos un estudio profesional de videojuegos que va a lanzar su juego al mercado."</em>
+          </p>
+          <div style="margin-top:25px; padding:15px; background:#0f172a; border-radius:10px; border:1px solid #475569;">
+            <p style="color:#a7f3d0; font-size:1.1vw; font-weight:700;">
+              👉 Abrir <code>slides.new</code> en Google Chrome.<br>
+              👉 Nombrar archivo: <code>El_Juego_GeoCalc_Apellido_Nombre</code>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: ARQUITECTURA DE LAS 7 DIAPOSITIVAS -->
+    <section class="slide">
+      <span class="badge">Estructura General</span>
+      <h2>🗺️ Mapa de las 7 Diapositivas Requeridas</h2>
+      <p>Cada alumno construirá en Google Slides exactamente estas 7 láminas:</p>
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Diapositiva</th>
+            <th>Nombre / Sección</th>
+            <th>Contenido Esencial que se Calificará</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="slide-num">Slide 1</td>
+            <td><strong>Portada Oficial</strong></td>
+            <td>Ícono de Dibujos de Google, título en negrita, subtítulo y datos de CONALEP.</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 2</td>
+            <td><strong>¿Qué Hace el Juego?</strong></td>
+            <td>Sinopsis del Arquitecto Digital, cálculo de áreas y perímetros en tiempo real.</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 3</td>
+            <td><strong>Instrucciones y Reglas</strong></td>
+            <td>Flujo en 3 pasos (Selección, Entrada, Botón) + Reglas (3 vidas y 60 segundos).</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 4</td>
+            <td><strong>Personajes y Elementos</strong></td>
+            <td>El Jugador, las 7 figuras y los botones Perímetro (verde), Área (azul) y Limpiar.</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 5</td>
+            <td><strong>Niveles y Dificultad</strong></td>
+            <td>Curva de 4 retos: Fácil (Círculo), Medio (Pentágono), Difícil y Contra Reloj.</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 6</td>
+            <td><strong>Galería de Mockups</strong></td>
+            <td>3 Smartphones flotantes con capturas reales de su celular (Portada, Menú y Cálculo).</td>
+          </tr>
+          <tr>
+            <td class="slide-num">Slide 7</td>
+            <td><strong>Créditos y Código QR</strong></td>
+            <td>Ficha técnica del estudiante, CCT 13DPT0002Y y Código QR oficial de descarga APK.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 3: DIAPOSITIVA 1 - PORTADA -->
+    <section class="slide">
+      <span class="badge">Paso 1 · Diapositiva 1</span>
+      <h2>Lámina 1: Portada Oficial del Juego</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>🎨 Elementos Obligatorios:</h3>
+            <ul>
+              <li><strong>Ícono Central:</strong> Insertar el logotipo en PNG diseñado en Dibujos de Google.</li>
+              <li><strong>Título del Juego:</strong> <code>GeoCalc · La Aventura Matemática</code> (Negrita, tamaño 44+).</li>
+              <li><strong>Subtítulo:</strong> <code>Videojuego Móvil Educativo · Android APK</code>.</li>
+              <li><strong>Pie Institucional:</strong> <code>CONALEP Pachuca II · EDOA-20 · Grupo 301-INFO25</code>.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"No usen fondos blancos aburridos. Pongan un fondo verde oscuro o gris azulado institucional y aseguren que el título contraste con letras blancas o doradas."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide1_portada.png" alt="Slide 1 Portada">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 1</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: DIAPOSITIVA 2 - ¿QUÉ HACE EL JUEGO? -->
+    <section class="slide">
+      <span class="badge">Paso 2 · Diapositiva 2</span>
+      <h2>Lámina 2: ¿Qué Hace el Juego? (Sinopsis)</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>📖 Estructura Narrativa en 3 Puntos:</h3>
+            <ul>
+              <li><strong>1. Premisa del Jugador:</strong> Conviértete en el <em>Arquitecto Digital</em> y supera retos geométricos resolviendo fórmulas en tiempo real.</li>
+              <li><strong>2. Dinámica Principal:</strong> Calcula perímetros y áreas instantáneas para desbloquear figuras y avanzar de pantalla.</li>
+              <li><strong>3. Características Clave:</strong> 7 Figuras geométricas, respuestas inmediatas con unidades (cm y cm²) y funcionamiento 100% offline.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"Expliquen qué soluciona el juego: ayuda a que cualquier estudiante de bachillerato aprenda geometría jugando con su celular en lugar de aburrirse con hojas de papel."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide2_que_hace_el_juego.png" alt="Slide 2 Sinopsis">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: DIAPOSITIVA 3 - INSTRUCCIONES -->
+    <section class="slide">
+      <span class="badge">Paso 3 · Diapositiva 3</span>
+      <h2>Lámina 3: Instrucciones y Reglas de Juego</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>🎮 Pasos de Partida y Reglas:</h3>
+            <ul>
+              <li><strong>Paso 1 (Selección):</strong> Toca una figura en el Menú Principal.</li>
+              <li><strong>Paso 2 (Entrada):</strong> Teclea las medidas requeridas en las cajas de texto (TextBox).</li>
+              <li><strong>Paso 3 (Acción):</strong> Presiona el botón verde (Perímetro) o el botón azul (Área) para sumar puntos.</li>
+              <li><strong>Reglas Oficiales:</strong> 3 Vidas por partida, tiempo límite de 60 segundos y penalización por error de cálculo.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"Maqueten esto con 3 columnas o cajas redondeadas para los pasos, y abajo una franja roja o amarilla destacando las 3 vidas del jugador."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide3_instrucciones.png" alt="Slide 3 Instrucciones">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: DIAPOSITIVA 4 - PERSONAJES Y ELEMENTOS -->
+    <section class="slide">
+      <span class="badge">Paso 4 · Diapositiva 4</span>
+      <h2>Lámina 4: Personajes y Mecánicas de Interfaz</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>🧩 Elementos de Juego:</h3>
+            <ul>
+              <li><strong>El Jugador:</strong> El Arquitecto Digital (Tú) que domina los algoritmos.</li>
+              <li><strong>Figuras Objetivo:</strong> Círculo, Cuadrado, Rectángulo, Pentágono y los 3 Triángulos.</li>
+              <li><strong>Botón Perímetro (Verde):</strong> Calcula el contorno en cm (+100 puntos).</li>
+              <li><strong>Botón Área (Azul):</strong> Procesa la superficie en cm² (+250 puntos).</li>
+              <li><strong>Botones Auxiliares:</strong> Limpiar (resetea valores) y Menú (vuelve al inicio).</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"Resalten los dos botones con los mismos colores que usaron en App Inventor: verde para Perímetro y azul para Área."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide4_personajes_elementos.png" alt="Slide 4 Personajes y Elementos">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 4</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: DIAPOSITIVA 5 - NIVELES Y DIFICULTAD -->
+    <section class="slide">
+      <span class="badge">Paso 5 · Diapositiva 5</span>
+      <h2>Lámina 5: Niveles y Curva de Dificultad</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>🧗 Los 4 Retos Progresivos:</h3>
+            <ul>
+              <li><strong>Nivel 1 (Fácil):</strong> Círculo y Cuadrado · Medidas enteras de 1 solo dígito.</li>
+              <li><strong>Nivel 2 (Medio):</strong> Rectángulo y Pentágono · Uso de decimales y cálculo con apotema.</li>
+              <li><strong>Nivel 3 (Difícil):</strong> Triángulos Isósceles y Escaleno · Múltiples variables y lados asimétricos.</li>
+              <li><strong>Nivel 4 (Experto):</strong> Desafío Contra Reloj · Resolver 5 figuras consecutivas en menos de 90 segundos.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"Muestren la curva de aprendizaje: empezamos fácil con círculos y terminamos con el desafío contra reloj del pentágono y triángulos."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide5_niveles_dificultad.png" alt="Slide 5 Niveles">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 5</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: DIAPOSITIVA 6 - MOCKUPS REALES -->
+    <section class="slide">
+      <span class="badge">Paso 6 · Diapositiva 6</span>
+      <h2>Lámina 6: Galería de Pantallas (Mockups)</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>📱 3 Teléfonos con Capturas Reales:</h3>
+            <ul>
+              <li><strong>Teléfono 1 (Izquierda):</strong> Pantalla de bienvenida (<code>Screen1</code>) con su portada e ícono.</li>
+              <li><strong>Teléfono 2 (Centro):</strong> Menú Principal con los 7 botones de figuras geométricas.</li>
+              <li><strong>Teléfono 3 (Derecha):</strong> Pantalla de cálculo en acción con resultados en <code>cm</code> y <code>cm²</code>.</li>
+              <li><strong>Efecto Profesional:</strong> Borde fino de 1px y sombra paralela (*Opciones de formato > Sombra paralela*).</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"No peguen capturas chuecas. Péguenlas alineadas horizontalmente, recortando barras de estado si tienen poca batería."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide6_galeria_mockups.png" alt="Slide 6 Mockups">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 6</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: DIAPOSITIVA 7 - CRÉDITOS Y QR -->
+    <section class="slide">
+      <span class="badge">Paso 7 · Diapositiva 7</span>
+      <h2>Lámina 7: Créditos y Código QR Oficial</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>🏷️ Ficha de Lanzamiento:</h3>
+            <ul>
+              <li><strong>Código QR Oficial:</strong> Pegar la imagen del código QR generado en App Inventor (*Build > Android App (.apk)*).</li>
+              <li><strong>Llamado a la Acción (CTA):</strong> <em>¡Escanea con tu teléfono e instala la app GeoCalc!</em></li>
+              <li><strong>Desarrollador Líder:</strong> Nombre y apellidos completos del estudiante.</li>
+              <li><strong>Institución:</strong> CONALEP Plantel Pachuca II · CCT 13DPT0002Y.</li>
+              <li><strong>Módulo y Grupo:</strong> EDOA-20 · Grupo 301-INFO25 · Semestre 1.26.27.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Cómo Guiarlos en Aula:</h3>
+            <p><em>"El código QR debe verse nítido para que cualquiera que apunte con la cámara de su celular descargue el archivo instalador de inmediato."</em></p>
+          </div>
+        </div>
+        <div class="guide-preview">
+          <img src="assets/slide7_creditos.png" alt="Slide 7 Créditos y QR">
+          <span class="guide-preview-caption">Ejemplo Visual de Referencia · Diapositiva 7</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: CHECKLIST DE SALIDA Y SELLO 1 -->
+    <section class="slide">
+      <span class="badge">Cierre de Sesión</span>
+      <h2>✅ Checklist de Salida y Sello 1 (Semana 14)</h2>
+      <div class="guide-layout">
+        <div class="guide-info">
+          <div class="guide-card callout">
+            <h3>📋 Criterios de Acreditación:</h3>
+            <ul>
+              <li>✔ <strong>7 Diapositivas Completas:</strong> Portada, ¿Qué hace el juego?, Instrucciones, Elementos, Niveles, Mockups y QR.</li>
+              <li>✔ <strong>Nomenclatura Oficial:</strong> Archivo nombrado <code>El_Juego_GeoCalc_Apellido_Nombre</code>.</li>
+              <li>✔ <strong>Contraste Visual:</strong> Textos legibles, tipografía uniforme y sin errores ortográficos.</li>
+              <li>✔ <strong>Drive Compartido:</strong> Guardado en la carpeta de Google Drive del alumno.</li>
+            </ul>
+          </div>
+          <div class="guide-card dictado-box">
+            <h3 style="color:var(--blue);">👉 SELLO 1 REGISTRADO EN LISTA</h3>
+            <p>El estudiante muestra sus 7 diapositivas maquetadas en pantalla completa y obtiene su primer sello de la Semana 14.</p>
+          </div>
+        </div>
+        <div class="guide-preview" style="background:#022c22; padding:30px; border-color:#059669;">
+          <h3 style="color:#6ee7b7; margin-bottom:15px;">⏭️ Próxima Sesión (Jueves · 2 Horas):</h3>
+          <p style="color:#e2e8f0; font-size:1.25vw; line-height:1.45;">
+            • <strong>Hora 2:</strong> Hipervínculos internos (<code>Ctrl + K</code>) para hacer los botones interactivos.<br>
+            • <strong>Hora 3:</strong> Coevaluación en pares en laboratorio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CRONÓMETRO FLOTANTE -->
+  <div class="timer min" id="timer" title="Clic para ampliar cronómetro">
+    <span class="time" id="time">10:00</span>
+    <button onclick="event.stopPropagation(); toggleRun()">▶</button>
+    <button onclick="event.stopPropagation(); resetTimer(600)">10</button>
+    <button onclick="event.stopPropagation(); resetTimer(0)">↺</button>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="nav">
+    <button onclick="prev()">← Anterior</button>
+    <span class="count" id="count">1 / 11</span>
+    <button onclick="next()">Siguiente →</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    let current = 0;
+    let seconds = 600;
+    let running = false;
+    let interval = null;
+
+    const timer = document.getElementById('timer');
+    timer.addEventListener('click', () => timer.classList.toggle('min'));
+
+    function show(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === current));
+      document.getElementById('count').textContent = (current + 1) + ' / ' + slides.length;
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function paintTime() {
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      document.getElementById('time').textContent = m + ':' + s;
+    }
+
+    function resetTimer(v) {
+      seconds = v;
+      running = false;
+      clearInterval(interval);
+      paintTime();
+    }
+
+    function toggleRun() {
+      running = !running;
+      if (running) {
+        interval = setInterval(() => {
+          if (seconds > 0) {
+            seconds--;
+            paintTime();
+          } else {
+            running = false;
+            clearInterval(interval);
+          }
+        }, 1000);
+      } else {
+        clearInterval(interval);
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') next();
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') prev();
+      if (e.key === ' ') { e.preventDefault(); toggleRun(); }
+    });
+
+    show(0);
+    paintTime();
+  </script>
+</body>
+</html>
