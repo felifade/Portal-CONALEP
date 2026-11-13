@@ -641,6 +641,21 @@ const TeachingPortal = () => {
                                   <h5>{col.title}</h5>
                                   {col.screen && <code>{col.screen}</code>}
                                 </div>
+                                {col.image && (
+                                  <div 
+                                    className="dev-col-image-wrapper" 
+                                    style={{ padding: '8px', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', textAlign: 'center', cursor: 'pointer' }}
+                                    onClick={() => setZoomedImg(col.image)}
+                                    title="Haz clic para ampliar la diapositiva"
+                                  >
+                                    <img 
+                                      src={col.image} 
+                                      alt={col.title} 
+                                      style={{ maxWidth: '100%', height: 'auto', borderRadius: '6px', border: '1px solid #cbd5e1', boxShadow: '0 2px 4px rgba(0,0,0,0.06)', display: 'block', margin: '0 auto' }} 
+                                    />
+                                    <span style={{ fontSize: '11px', color: '#64748b', marginTop: '4px', display: 'inline-block' }}>🔍 Clic para ampliar ejemplo</span>
+                                  </div>
+                                )}
                                 <div className="dev-column-card-body">
                                   {col.rows?.map((row, rIdx) => (
                                     <div key={rIdx} className="dev-col-row">
