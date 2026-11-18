@@ -2282,8 +2282,8 @@ Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
           label: 'Sesión 01',
           subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Las 7 Diapositivas de la App GeoCalc en Google Slides',
           start: '¿Cómo presentamos una aplicación para calcular áreas y perímetros en 7 diapositivas claras que muestren para qué sirve, cómo se usa y cómo se descarga?',
-          dictation: `⏱️ HORA 1 · El Escaparate Digital de Nuestra Aplicación Móvil:
-Crear una aplicación es como fabricar una calculadora de bolsillo: los bloques de programación son el circuito interno que hace las cuentas, pero la presentación es el manual y la vitrina que le explica a cualquier persona para qué sirve. En el desarrollo de software, una suite de siete diapositivas funciona como el folleto oficial de tu app: con solo mirar la portada, las instrucciones de uso, las figuras disponibles, las fórmulas y las fotos reales de la pantalla, cualquier usuario entiende en tres minutos cómo calcular áreas y perímetros y cómo instalarla con un código QR.`,
+          dictation: `⏱️ HORA 1 · Principios de las Presentaciones Electrónicas Avanzadas:
+Una presentación electrónica avanzada funciona como el escaparate de una tienda bien diseñada y no como un cuaderno pegado en la pared. En lugar de saturar la pantalla con párrafos largos, cada diapositiva aplica jerarquía visual: un título claro, contraste entre fondo y texto, y elementos gráficos que guían la mirada del espectador. Al combinar diapositivas maestras uniformes, esquemas visuales, hipervínculos internos y publicación en la nube, una presentación deja de ser un archivo estático para convertirse en un documento digital interactivo.`,
           learningResult: 'Crear en Google Slides la estructura visual de las 7 diapositivas de la app GeoCalc (Calculadora de Áreas y Perímetros) integrando textos ejecutivos, capturas reales y código QR.',
           identification: {
             topic: '7 Diapositivas de la App GeoCalc en Slides',
