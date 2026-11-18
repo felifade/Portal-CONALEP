@@ -656,4 +656,15 @@ LOCATION:Salón La Fuente
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1204-desfile-navideno-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261118T120000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261204
+SUMMARY:🎄 Desfile Navideño CONALEP 2026
+DESCRIPTION:Desfile Navideño institucional de CONALEP Plantel Pachuca II (horario por confirmar). Participación del Grupo 501 (Tutorado) en el Tercer Contingente (Quintos Semestres) con temática de Luchadores y entrega de bombones al público.
+LOCATION:Pachuca / Recorrido Oficial
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
 END:VCALENDAR
