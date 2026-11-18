@@ -42,6 +42,8 @@ import imgFilesKahoot from '../assets/mtcs-gestion-archivos-nano-kahoot-semana05
 import imgC3Registro from '../assets/construct3_paso1_registro_sin_bad_request.png';
 import imgC3Importar from '../assets/construct3_paso2_importar_dibujo.png';
 import imgC3Animar from '../assets/construct3_paso3_animar_duplicando.png';
+import imgC3Sem14Eventos from '../assets/construct3_semana14_hoja_eventos_paso_a_paso.png';
+import imgC3Sem14Nivel from '../assets/construct3_semana14_nivel_camara_patrulla.png';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -56,6 +58,8 @@ const ASSET_REGISTRY = {
   'construct3_paso1_registro_sin_bad_request.png': imgC3Registro,
   'construct3_paso2_importar_dibujo.png': imgC3Importar,
   'construct3_paso3_animar_duplicando.png': imgC3Animar,
+  'construct3_semana14_hoja_eventos_paso_a_paso.png': imgC3Sem14Eventos,
+  'construct3_semana14_nivel_camara_patrulla.png': imgC3Sem14Nivel,
 };
 
 function resolveAssetUrl(src) {

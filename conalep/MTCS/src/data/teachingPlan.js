@@ -2201,8 +2201,7 @@ export const teachingPlan = {
       id: 'W13',
       label: 'Semana 13',
       dateRange: '09 - 13 Nov',
-      status: 'En curso',
-      defaultWeek: true,
+      status: 'Histórico',
       corteId: 'C3',
       raId: 'RA 3.1',
       title: 'Diseño de Sprites Pixel-Art con IA y Animaciones en Construct 3',
@@ -2620,6 +2619,418 @@ export const teachingPlan = {
           product: 'Catálogo completo de 6 sprites respaldado en archivo .c3p y puntaje del Gran Kahoot Semana 13 (Sello 3).',
           unlockDate: '2026-11-13',
           unlockLabel: 'Viernes 13 de Noviembre (18:30 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W14',
+      label: 'Semana 14',
+      dateRange: '16 - 20 Nov',
+      status: 'En curso',
+      defaultWeek: true,
+      corteId: 'C3',
+      raId: 'RA 3.1',
+      title: 'Programación Visual en Construct 3: Hoja de Eventos, Animaciones y Nivel en 2 Capas',
+      result: 'Programa paso a paso la Hoja de Eventos en Construct 3 usando condiciones, sub-eventos (Si / Si no) y acciones para controlar el reflejo y las animaciones (Idle, Run, Jump) del héroe, ampliando el nivel a 1920 px con cámara móvil y patrulla Malware_Bot en 2 capas.',
+      htmlUrl: './html/Manual_Videojuegos_Construct3.html',
+      identification: {
+        place: 'Laboratorio de Cómputo y Aula de Clase',
+        modality: 'Programación guiada en vivo paso a paso en editor.construct.net (Edición Gratuita) + Apuntes en libreta',
+        product: 'Hoja de eventos (6 eventos: Espejo + Idle/Run/Jump), nivel extendido 1920 px con ScrollTo, patrulla Sine, archivo .c3p y Kahoot Sem 14',
+      },
+      notices: [
+        'Tercer Corte (RA 3.1 · 20%): Programación visual paso a paso de CyberDefender (100% compatible con Edición Gratuita / máximo 2 capas).',
+        'Miércoles 18 Nov (Sesión 01 · 1 hr): Paso a paso explícito en Hoja de Eventos 1 — Teclado (Reflejar) + Sub-eventos Si / Si no para Idle, Run y Jump (Sello 1).',
+        'Jueves 19 Nov (Sesión 02 · 2 hrs): Arquitectura de 2 capas (Fondo y Juego), escenario extendido a 1920 px, plataformas escalonadas y cámara "Desplazar hasta" (Sello 2).',
+        'Viernes 20 Nov (Sesión 03 · 2 hrs): Patrulla automática de Malware_Bot con comportamiento "Seno" (Sine), colisión básica, respaldo .c3p y Gran Kahoot Semana 14 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 18 Nov · 1 Hora)',
+          title: 'Hoja de Eventos 1: ¿Cómo Sabe Construct 3 Qué Animación Elegir?',
+          hook: 'Ya tenemos al héroe Profe Felipe con sus animaciones Idle, Run y Jump cargadas en el editor. Hoy programaremos paso a paso la "Hoja de eventos 1" para que voltee al caminar y cambie automáticamente de animación sin trabarse.',
+          start: 'Si nuestro personaje ya tiene 3 animaciones guardadas (Idle, Run, Jump), ¿cómo le ordenamos a Construct 3 exactamente cuándo reproducir cada una usando Condiciones y Acciones?',
+          infographicImages: [
+            { src: 'construct3_semana14_hoja_eventos_paso_a_paso.png', title: 'Guía Explícita · Paso 0 y los 6 Eventos exactos en Construct 3 (Español)' }
+          ],
+          dictationTitle: 'LÓGICA DE PROGRAMACIÓN EN CONSTRUCT 3 (HOJA DE EVENTOS)',
+          dictation: 'En Construct 3, la Escena (Layout) es el escenario visual y la Hoja de Eventos (Event Sheet) es el cerebro lógico del videojuego. Cada regla se construye con dos piezas: una Condición (lo que el motor pregunta en todo momento, por ejemplo "¿Está el jugador tocando el suelo?" o "¿Se pulsó la flecha izquierda?") y una Acción (la orden que se ejecuta si la pregunta es verdadera, como "Establecer reflejado" o "Establecer animación a Run"). Cuando necesitamos elegir entre dos comportamientos opuestos dentro de un mismo estado, utilizamos un Sub-evento condicional SI / SI NO (If / Else): si el jugador está en el suelo Y moviéndose muestra la animación "Run"; de lo contrario ("Sino"), muestra "Idle".',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Guía Explícita en Construct 3 (Español): Paso 0 + 5 Bloques',
+            steps: [
+              'PASO 0 (En "Escena 1"): Verifica que "Piso" tenga Comportamiento Sólido (Solid) y "Jugador" tenga Plataforma (Platform) + Restringido a (Bound to layout). Después da doble clic en el fondo vacío ➔ sección Entrada ➔ Inserta el objeto "Teclado" (Keyboard).',
+              'BLOQUES 1 y 2 (Voltear ◀ ▶): En la pestaña "Hoja de eventos 1", clic en "Añadir evento" ➔ Teclado ➔ Al pulsar una tecla (Flecha izquierda) ➔ Acción: Jugador ➔ Establecer reflejado: Reflejado. Repite con Flecha derecha ➔ Sin reflejar.',
+              'BLOQUE 3 (Suelo: Si se mueve "Run" / Sino "Idle"): Añadir evento ➔ Jugador ➔ Plataforma: "¿Está en el suelo?" (déjalo SIN acción). Clic derecho en el borde izquierdo de ese evento ➔ Añadir ➔ Añadir sub-evento (tecla S) ➔ Jugador ➔ "¿Está moviéndose?" ➔ Acción: Jugador ➔ Establecer animación: "Run" (Principio). Luego clic derecho sobre "¿Está moviéndose?" ➔ Añadir ➔ Añadir "Sino" (tecla X) ➔ Acción: Establecer animación: "Idle" (Principio).',
+              'BLOQUES 4 y 5 (Aire: "Jump"): Afuera de los sub-eventos, Añadir evento ➔ Jugador ➔ "¿Está saltando?" ➔ Establecer animación: "Jump". Repite otro evento igual con Jugador ➔ "¿Está cayendo?" ➔ Establecer animación: "Jump".'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'amber',
+              badge: '🟡 Paso 0 · Antes de Programar',
+              title: 'Checklist Obligatorio en Escena 1',
+              items: [
+                '1. Piso y Plataformas: Propiedades ➔ Comportamientos ➔ Añadir "Sólido" (Solid).',
+                '2. Sprite Jugador: Propiedades ➔ Comportamientos ➔ Añadir "Plataforma" y "Restringido a".',
+                '3. Objeto Teclado: Doble clic en el lienzo vacío ➔ Entrada ➔ Insertar "Teclado" (sin esto no salen las teclas).',
+                '4. Nombres exactos: En el Editor de Animaciones deben llamarse Idle, Run y Jump (primera letra mayúscula).'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Eventos 1 al 3 · Suelo y Giro',
+              title: 'Clic por Clic en Hoja de Eventos 1',
+              items: [
+                'Evento 1: Teclado ➔ Al pulsar tecla [Flecha izquierda] ➔ Jugador ➔ Establecer reflejado: Reflejado.',
+                'Evento 2: Teclado ➔ Al pulsar tecla [Flecha derecha] ➔ Jugador ➔ Establecer reflejado: Sin reflejar.',
+                'Evento 3 (Padre): Jugador ➔ Plataforma ➔ ¿Está en el suelo? (sin acción).',
+                'Sub-evento 3a (Tecla S): Jugador ➔ ¿Está moviéndose? ➔ Establecer animación: "Run" (Principio).',
+                'Sub-evento 3b (Tecla X sobre 3a): Sino (Else) ➔ Establecer animación: "Idle" (Principio).'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Eventos 4 y 5 · Salto y Prueba',
+              title: 'Animación en el Aire y ▶ Play',
+              items: [
+                'Evento 4 (afuera del grupo 3): Jugador ➔ Plataforma ➔ ¿Está saltando? ➔ Establecer animación: "Jump".',
+                'Evento 5 (afuera del grupo 3): Jugador ➔ Plataforma ➔ ¿Está cayendo? ➔ Establecer animación: "Jump".',
+                'IMPORTANTE: Las palabras "Run", "Idle" y "Jump" llevan comillas dobles.',
+                'Presiona el botón verde [▶ Vista previa] arriba y prueba caminar, voltear y saltar.'
+              ]
+            }
+          ],
+          visualExample: {
+            title: 'Diagnóstico Rápido en Laboratorio (Si algo falla al presionar ▶ Vista previa)',
+            badge: 'Guía de Depuración',
+            description: 'Si a algún integrante o equipo no le responde el personaje, revisa exactamente estos 4 puntos:',
+            columns: [
+              {
+                color: 'red',
+                badge: '❌ Se cae atravesando el suelo',
+                title: 'Falta Comportamiento Sólido',
+                items: [
+                  'Causa: El objeto Piso o Plataforma es solo un dibujo sin física.',
+                  'Solución: Clic en Piso ➔ Comportamientos ➔ Añadir "Sólido" (Solid).'
+                ]
+              },
+              {
+                color: 'amber',
+                badge: '⚠️ No se mueve ni brinca',
+                title: 'Falta Comportamiento Plataforma',
+                items: [
+                  'Causa: El Jugador no tiene el motor de gravedad.',
+                  'Solución: Clic en Jugador ➔ Comportamientos ➔ Añadir "Plataforma" y revisar que "Controles por defecto" esté activado.'
+                ]
+              },
+              {
+                color: 'cyan',
+                badge: '🧊 Camina tieso sin cambiar animación',
+                title: 'Nombre distinto al del Editor',
+                items: [
+                  'Causa: Escribió "run" en minúsculas o "Saltar" en lugar de "Jump".',
+                  'Solución: Verifica que el texto entre comillas sea idéntico: "Idle", "Run", "Jump".'
+                ]
+              }
+            ]
+          },
+          terminalRadar: 'Hoja de Eventos Lista ➔ 6 eventos activos (Reflejo ◀▶ + Suelo: Run/Idle + Aire: Jump) en Edición Gratuita.',
+          learningResult: 'El estudiante comprende e implementa eventos condicionales, sub-eventos SI/SI NO y control de animaciones en tiempo real.',
+          identification: 'Tema: Hoja de Eventos 1 y Lógica SI/SI NO para Animaciones. Evidencia: Dictado en libreta + Jugador animado funcionando en ▶ Vista previa.',
+          development: 'Verificación de prerrequisitos en Escena 1 y programación guiada clic por clic de los 6 eventos de control.',
+          closure: 'Pruebas en vivo con ▶ Vista previa, corrección de errores comunes y sellado de libretas/equipos.',
+          faq: [
+            { q: '¿Por qué usamos "¿Está en el suelo?" como evento padre con sub-eventos adentro?', a: 'Porque si preguntamos "¿Está moviéndose?" mientras el jugador va saltando en el aire, cambiaría a "Run" en pleno vuelo. Al meterlo dentro de "¿Está en el suelo?", solo corre o descansa cuando pisa tierra firme.' },
+            { q: '¿Por qué no me aparece "Teclado" cuando doy clic en Añadir evento?', a: 'Porque primero debes volver a "Escena 1", dar doble clic en una zona vacía e insertar el objeto "Teclado" (Keyboard) en tu proyecto.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Dictado en libreta + Jugador caminando, volteando y cambiando entre Idle, Run y Jump en ▶ Vista previa.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 19 Nov · Hora 1)',
+          title: 'Escenario en 2 Capas (Edición Gratuita) y Nivel Extendido a 1920 px',
+          hook: 'Tu héroe ya cobra vida en una pantalla fija. Hoy descubriremos cómo hacer un nivel largo de aventura respetando el límite de 2 capas de la Edición Gratuita de Construct 3.',
+          start: '¿Cómo damos sensación de profundidad y ampliamos el escenario más allá de la pantalla sin rebasar el límite de 2 capas?',
+          infographicImages: [
+            { src: 'construct3_semana14_nivel_camara_patrulla.png', title: 'Nivel Extendido 1920×720 en 2 Capas + Cámara Scroll To + Patrulla Malware_Bot' }
+          ],
+          dictationTitle: 'CAPAS (LAYERS), PARALLAX Y LÍMITE DE EDICIÓN GRATUITA',
+          dictation: 'En Construct 3, las Capas (Layers) apilan los elementos visuales del escenario desde el fondo hacia el frente. La Edición Gratuita permite un máximo de 2 capas por escena: la Capa 0 ("Fondo") para el cielo nocturno con desplazamiento Parallax reducido (50% × 50% para generar profundidad), y la Capa 1 ("Juego") con Parallax al 100% × 100% donde conviven el Piso, las Plataformas, el Jugador y los objetos interactivos. Al aumentar el ancho de la Escena (Layout Size) de 1280 a 1920 píxeles, el nivel pasa a medir el equivalente a una pantalla y media de recorrido horizontal.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Armado en 3 Columnas: Capas ➔ Lienzo 1920 px ➔ Plataformas',
+            steps: [
+              'Verifica en el panel derecho "Capas" que solo existan exactamente 2 capas: "Fondo" (abajo) y "Juego" (arriba).',
+              'En "Escena 1", haz clic en el espacio gris exterior para abrir Propiedades de la Escena y cambia Tamaño (Size) a: 1920, 720.',
+              'Estira el objeto Cielo (en capa Fondo) y el objeto Piso (en capa Juego) de X=0 hasta cubrir los 1920 px de ancho.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · Regla de 2 Capas',
+              title: 'Control de Capas en el Panel Derecho',
+              items: [
+                'Capa 0 "Fondo": Propiedad Paralaje (Parallax) en 50% x 50% y bloqueada con el candado 🔒.',
+                'Capa 1 "Juego": Propiedad Paralaje en 100% x 100% (activa para editar).',
+                'Evita crear una tercera capa "UI/HUD" en la versión gratuita para que no te bloquee el guardado.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 2 · Nivel 1920 × 720',
+              title: 'Extender Escena, Cielo y Piso',
+              items: [
+                'Clic en fondo blanco/gris de Escena 1 ➔ Propiedades ➔ Tamaño: 1920, 720.',
+                'Selecciona Cielo (Fondo) y arrastra su punto derecho hasta cubrir 1920 px.',
+                'Desbloquea si hace falta Juego, selecciona Piso y estíralo de X=0 hasta X=1920.'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 3 · Escalera de Plataformas',
+              title: 'Multiplicar Plataformas con Ctrl',
+              items: [
+                'Mantén presionada la tecla Ctrl y arrastra tu Sprite Plataforma para clonarlo rápidamente.',
+                'Coloca 4 o 5 plataformas escalonadas a lo largo de los 1920 px dejando espacio saltable entre ellas.',
+                'Verifica que cada copia conserve el comportamiento Sólido.'
+              ]
+            }
+          ],
+          terminalRadar: 'Escena 1: 1920×720 px · Capas: [Fondo 50% | Juego 100%] · Edición Gratuita OK.',
+          learningResult: 'El estudiante organiza objetos en capas con efecto Parallax respetando las restricciones de memoria/licencia del motor.',
+          identification: 'Tema: Arquitectura de 2 Capas y Nivel Extendido. Evidencia: Escena de 1920×720 con plataformas escalonadas.',
+          development: 'Ajuste de dimensiones de escena, configuración de Parallax en capa Fondo y clonación de plataformas sólidas.',
+          closure: 'Validación visual de que ningún objeto de juego quedó por error dentro de la capa Fondo.',
+          faq: [
+            { q: '¿Qué pasa si intento poner 3 capas en Construct 3 Invitado/Gratis?', a: 'Construct 3 muestra un aviso de límite alcanzado y bloquea acciones de edición. Por eso todo el proyecto CyberDefender se mantiene limpio en 2 capas.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Dictado de Capas/Parallax en libreta + Escena 1 configurada en 1920×720 px con 2 capas.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 19 Nov · Hora 2)',
+          title: 'Cámara Móvil ("Desplazar hasta" / Scroll To) y Calibración de Salto',
+          hook: 'Si corremos hacia la derecha después de los 1280 píxeles, el Profe Felipe se sale de la pantalla y desaparece de nuestra vista. ¡Hoy le pondremos una cámara que lo persiga!',
+          start: '¿Qué comportamiento hace que la cámara siga al héroe automáticamente sin escribir ni una línea de código?',
+          dictationTitle: 'SEGUIMIENTO DE CÁMARA (SCROLL TO) Y PARÁMETROS DE SALTO',
+          dictation: 'El comportamiento "Desplazar hasta" (Scroll To) convierte a un Sprite en el centro de enfoque de la cámara del juego. Al asignarlo al Jugador, Construct 3 desplaza automáticamente la vista horizontal del nivel dentro de los límites configurados en el tamaño de la escena. Si una plataforma queda demasiado alta para alcanzarla, se calibran las propiedades del comportamiento Plataforma —Fuerza de salto (Jump strength) y Velocidad máxima (Max speed)— para garantizar que todo el recorrido sea jugable.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Cámara y Calibración en Construct 3',
+            steps: [
+              'Selecciona a Jugador ➔ Propiedades ➔ Comportamientos ➔ Añadir nuevo ➔ "Desplazar hasta" (Scroll To).',
+              'Ajusta en Plataforma del Jugador: Velocidad máx: 330 | Fuerza de salto: 650 | Doble salto: Opcional (Activado/Desactivado).',
+              'Presiona ▶ Vista previa y recorre todo el nivel de extremo a extremo comprobando el efecto Parallax del fondo.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'blue',
+              badge: '🔵 Columna 1 · Activar Cámara',
+              title: 'Comportamiento Desplazar hasta',
+              items: [
+                'Clic en Sprite Jugador en Escena 1.',
+                'Panel izquierdo ➔ Comportamientos ➔ Añadir ➔ General: "Desplazar hasta" (Scroll To).',
+                'No requiere eventos en la Hoja de eventos.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 2 · Ajustar Físicas',
+              title: 'Calibrar Altura y Velocidad',
+              items: [
+                'En Propiedades de Jugador (Plataforma): Velocidad máx = 330, Aceleración = 1500.',
+                'Fuerza de salto = 650, Gravedad = 1500.',
+                'Prueba subir hasta la plataforma más alta; si no llega, bájala unos píxeles o sube Jump strength a 700.'
+              ]
+            },
+            {
+              color: 'amber',
+              badge: '🟡 Columna 3 · Prueba de Recorrido',
+              title: 'Playtesting de Extremo a Extremo',
+              items: [
+                'Presiona ▶ Vista previa.',
+                'Corre desde X=0 hasta X=1920 y regresa.',
+                'Confirma que la cámara se detiene suavemente en los bordes gracias a "Restringido a".'
+              ]
+            }
+          ],
+          terminalRadar: 'Cámara Activa ➔ Jugador con [Plataforma + Restringido a + Desplazar hasta].',
+          learningResult: 'El estudiante integra seguimiento automático de cámara y calibra parámetros físicos para garantizar jugabilidad.',
+          identification: 'Tema: Cámara Scroll To y Calibración Física. Evidencia: Recorrido fluido de 1920 px en ▶ Vista previa.',
+          development: 'Adición del comportamiento Desplazar hasta, pruebas de salto entre plataformas y registro de Sello 2.',
+          closure: 'Revisión por equipo/alumno de todo el recorrido de 1920 px para firmar Sello 2.',
+          faq: [
+            { q: '¿Por qué la cámara no se mueve al principio cuando camino hacia la izquierda?', a: 'Porque está en el borde X=0 de la escena; la cámara empieza a moverse en cuanto el jugador pasa de la mitad de la ventana (X=640).' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Nivel 1920×720 en 2 capas con cámara siguiendo al Jugador y salto calibrado entre plataformas.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 20 Nov · Hora 1)',
+          title: 'Primera Patrulla Viva: Malware_Bot con Comportamiento "Seno" (Sine) y Colisión',
+          hook: 'Un servidor cibernético sin amenazas es solo un paseo. Hoy pondremos en escena a nuestro primer enemigo patrullando de izquierda a derecha automáticamente y programaremos qué pasa si nos toca.',
+          start: '¿Cómo logramos que un enemigo patrulle solo de un lado a otro usando una onda matemática llamada Seno (Sine)?',
+          dictationTitle: 'MOVIMIENTO PERIÓDICO (SENO / SINE) Y EVENTO DE COLISIÓN',
+          dictation: 'El comportamiento "Seno" (Sine) aplica una función trigonométrica suave para oscilar una propiedad de un objeto de manera automática, como su posición horizontal, vertical o tamaño. Al configurar Movimiento Horizontal con Periodo de 4 segundos y Magnitud de 80 píxeles en Malware_Bot, el enemigo patrulla de forma continua sobre una plataforma sin consumir eventos adicionales. Para detectar cuando amenaza al héroe, usamos la condición "Al colisionar con otro objeto" (On collision with another object), que dispara una acción exactamente en el instante en que sus cajas de colisión se tocan.',
+          workBlock: {
+            duration: '35 minutos',
+            title: 'Patrulla Malware_Bot y Evento 7',
+            steps: [
+              'Inserta o arrastra tu Sprite "Malware_Bot" en la capa Juego sobre una plataforma del tramo derecho.',
+              'En Propiedades de Malware_Bot ➔ Comportamientos ➔ Añadir "Seno" (Sine): Movimiento = Horizontal | Periodo = 4 | Magnitud = 80.',
+              'En "Hoja de eventos 1" crea el Evento 7: Condición: Jugador ➔ "Al colisionar con otro objeto" ➔ elige Malware_Bot.',
+              'Acción del Evento 7: Jugador ➔ "Establecer posición" ➔ X: 220, Y: 618 (reinicia al inicio si nos atrapa).'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'purple',
+              badge: '🟣 Columna 1 · Comportamiento Seno',
+              title: 'Patrulla Sin Gastar Eventos',
+              items: [
+                'Coloca Malware_Bot sobre una plataforma.',
+                'Comportamientos ➔ Añadir ➔ Movimiento: "Seno" (Sine).',
+                'Configura: Movimiento = Horizontal, Periodo = 4, Magnitud = 80.'
+              ]
+            },
+            {
+              color: 'red',
+              badge: '🔴 Columna 2 · Evento 7 (Colisión)',
+              title: 'Regla de Daño / Reinicio',
+              items: [
+                'En Hoja de eventos 1 ➔ Añadir evento ➔ Jugador.',
+                'Colisiones ➔ "Al colisionar con otro objeto" ➔ seleccionar Malware_Bot.',
+                'Añadir acción ➔ Jugador ➔ "Establecer posición" ➔ X: 220, Y: 618.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 3 · Prueba de Esquive',
+              title: 'Probar Salto sobre el Enemigo',
+              items: [
+                'Presiona ▶ Vista previa.',
+                'Camina hacia la plataforma del Malware_Bot.',
+                'Verifica dos casos: si lo tocas te regresa a (220, 618); si saltas encima pasas ileso.'
+              ]
+            }
+          ],
+          terminalRadar: 'Evento 7 activo ➔ Malware_Bot patrullando con Seno (4s / 80px) + Respawn en (220, 618).',
+          learningResult: 'El estudiante configura movimiento autónomo con Sine e implementa detección de colisiones en la Hoja de Eventos.',
+          identification: 'Tema: Patrulla con Sine y Evento de Colisión. Evidencia: Malware_Bot patrullando y reiniciando al jugador al tocarlo.',
+          development: 'Configuración de Seno en Malware_Bot, programación del Evento 7 de colisión y pruebas de esquive.',
+          closure: 'Verificación rápida de que el total de eventos sea 7 (muy debajo del límite de 25 en modo Invitado).',
+          faq: [
+            { q: '¿Por qué usamos "Establecer posición" en vez de restar vidas todavía?', a: 'Para mantener la programación clara y sencilla esta semana. En la Semana 15 agregaremos variables globales de Vidas, Puntos y Llaves TLS.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Dictado de Seno/Colisión + Malware_Bot patrullando y regresando al jugador al chocar.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 20 Nov · Hora 2)',
+          title: '🏆 Respaldo del Proyecto (.c3p) y Gran Kahoot Semana 14',
+          hook: '¡Tu videojuego ya tiene movimiento, animaciones inteligentes, cámara móvil y un enemigo patrullando! Guardemos el código fuente .c3p antes de competir en el Gran Kahoot de la Semana 14.',
+          start: '¿Qué aprendimos esta semana sobre eventos, sub-eventos SI/SI NO, capas y comportamientos en Construct 3?',
+          dictationTitle: 'RESPALDO DE VERSIÓN (.C3P) Y CONTROL DE AVANCE',
+          dictation: 'Al concluir cada módulo funcional de un videojuego se debe generar una nueva versión respaldada en formato .c3p con nomenclatura ordenada por semana (Sem14_Nivel_Apellido_501.c3p). Esto permite conservar un punto seguro de recuperación antes de añadir variables globales, contadores de llaves criptográficas y pantallas de victoria en la siguiente semana.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Cierre en 3 Columnas: Descarga .c3p ➔ Kahoot ➔ Sello 3',
+            steps: [
+              'Exportar copia desde Menú (☰) ➔ Proyecto ➔ Guardar como ➔ Descargar una copia: Sem14_Nivel_Apellido_501.c3p.',
+              'Subir el archivo .c3p a Google Drive / Classroom.',
+              'Competir en el Gran Kahoot Semana 14 (20 reactivos sobre Hoja de eventos, Sub-eventos, 2 capas, Scroll To y Sine) y anotar puntaje.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'blue',
+              badge: '🔵 Columna 1 · Respaldo .c3p',
+              title: 'Guardar Avance de Semana 14',
+              items: [
+                'Menú (☰) ➔ Proyecto ➔ Guardar como ➔ Descargar una copia.',
+                'Nombre: Sem14_Nivel_Apellido_501.c3p.',
+                'Subir a Classroom / Google Drive para no perder cambios.'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 2 · Gran Kahoot',
+              title: 'Evaluación Semanal (20 Reactivos)',
+              items: [
+                'Ingresa a kahoot.it con el PIN proyectado.',
+                'Preguntas clave: Condición vs Acción, Sub-evento Sino (Else), comillas en "Run", límite de 2 capas, Desplazar hasta y Seno.',
+                'Anota tu posición y puntaje en tu libreta.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 3 · Revisión Sello 3',
+              title: 'Checklist Final de Semana 14',
+              items: [
+                '1. Los 7 eventos visibles en Hoja de eventos 1.',
+                '2. Juego funcionando en ▶ Vista previa (animaciones + cámara + Malware_Bot).',
+                '3. Archivo .c3p descargado y puntaje de Kahoot en libreta.'
+              ]
+            }
+          ],
+          terminalRadar: 'Entrega Semana 14 ➔ Sem14_Nivel_Apellido_501.c3p + Sellos 1, 2 y 3 en libreta.',
+          learningResult: 'El estudiante resguarda su versión funcional .c3p y consolida los conceptos de programación visual mediante evaluación gamificada.',
+          identification: 'Tema: Respaldo Sem14 .c3p y Gran Kahoot Semana 14. Evidencia: Archivo .c3p, puntaje y Sello 3.',
+          development: 'Descarga verificada de archivos .c3p, ejecución del Kahoot semanal y sellado final de libretas.',
+          closure: 'Firma del Sello 3 y adelanto de Semana 15: Llaves TLS, variables de Vidas/Puntos y Puerta chmod 600.',
+          faq: [
+            { q: '¿Qué sigue la próxima semana (Semana 15)?', a: 'Programaremos las variables globales (Vidas y Puntos), recolección de 3 Llaves_TLS, el escudo Cristal_Salting y la Puerta_Servidor.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Proyecto .c3p guardado (7 eventos + cámara + Malware_Bot) + Dictados + Puntaje Kahoot Semana 14.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'Hoja de Eventos 1 Paso a Paso: Volteo y Animaciones (Idle, Run, Jump)',
+          hourIds: ['H01'],
+          product: 'Dictado en libreta + Jugador volteando y cambiando entre Idle, Run y Jump con los 6 eventos en ▶ Vista previa (Sello 1).',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Nivel en 2 Capas (1920 px), Plataformas Sólidas y Cámara "Desplazar hasta"',
+          hourIds: ['H02', 'H03'],
+          product: 'Escena de 1920×720 en 2 capas (Fondo Parallax 50% + Juego) con cámara siguiendo al Jugador y salto calibrado (Sello 2).',
+          unlockDate: '2026-11-19',
+          unlockLabel: 'Jueves 19 de Noviembre (15:00 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'Patrulla Malware_Bot (Seno + Colisión), Archivo .c3p y Gran Kahoot Semana 14',
+          hourIds: ['H04', 'H05'],
+          product: 'Malware_Bot patrullando con Seno + Evento 7 de colisión + Sem14_Nivel_Apellido_501.c3p + Kahoot (Sello 3).',
+          unlockDate: '2026-11-20',
+          unlockLabel: 'Viernes 20 de Noviembre (15:00 hrs)',
         },
       ],
     },
