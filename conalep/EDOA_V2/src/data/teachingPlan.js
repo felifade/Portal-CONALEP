@@ -14,10 +14,10 @@ import imgSlide3 from '../assets/slide3_galeria_pantallas.png';
 import imgSlide4 from '../assets/slide4_formulas_matematicas.png';
 import imgSlide5 from '../assets/slide5_descarga_qr_creditos.png';
 import imgGSlide1 from '../assets/slide1_portada.png';
-import imgGSlide2 from '../assets/slide2_que_hace_el_juego.png';
+import imgGSlide2 from '../assets/slide2_que_hace_la_app.png';
 import imgGSlide3 from '../assets/slide3_instrucciones.png';
-import imgGSlide4 from '../assets/slide4_personajes_elementos.png';
-import imgGSlide5 from '../assets/slide5_niveles_dificultad.png';
+import imgGSlide4 from '../assets/slide4_figuras_controles.png';
+import imgGSlide5 from '../assets/slide5_formulas_matematicas.png';
 import imgGSlide6 from '../assets/slide6_galeria_mockups.png';
 import imgGSlide7 from '../assets/slide7_creditos.png';
 
@@ -2225,7 +2225,7 @@ Manual de acceso concluido en libreta y APK con ícono revisado. 👉 SELLO 2`,
           subtitle: 'Viernes (1 hr) · ⚠️ Suspensión de Labores del Grupo 301-INFO25 (Concurso Robótica Gdl)',
           start: 'Aviso Oficial: Suspensión de actividades presenciales para el grupo 301-INFO25 el viernes 13 de noviembre.',
           dictation: `⏱️ HORA 8 · Suspensión Justificada de Labores Escolares (Grupo 301-INFO25):
-Por disposición institucional y justificación de jornada completa, se suspenden las actividades presenciales del grupo 301-INFO25 este viernes 13 de noviembre debido a la comisión del Mtro. Cruz (titular de 5 horas de clase del grupo) al Concurso Nacional de Robótica en la ciudad de Guadalajara, sumado a permisos económicos y ausencias autorizadas del personal docente complementario. Las actividades del módulo EDOA-20 se reanudan presencialmente el Miércoles 18 de Noviembre con el arranque de las 7 Diapositivas de "El Juego" en Google Slides.`,
+Por disposición institucional y justificación de jornada completa, se suspenden las actividades presenciales del grupo 301-INFO25 este viernes 13 de noviembre debido a la comisión del Mtro. Cruz (titular de 5 horas de clase del grupo) al Concurso Nacional de Robótica en la ciudad de Guadalajara, sumado a permisos económicos y ausencias autorizadas del personal docente complementario. Las actividades del módulo EDOA-20 se reanudan presencialmente el Miércoles 18 de Noviembre con el arranque de las 7 Diapositivas de la App GeoCalc en Google Slides.`,
           learningResult: 'Comprender la recalendarización de entrega de proyectos y preparar insumos para la Semana 14.',
           identification: {
             topic: 'Suspensión Grupal Autorizada',
@@ -2262,17 +2262,17 @@ Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
     'W14': {
       id: 'W14',
       label: 'Semana 14',
-      title: 'Presentaciones Electrónicas: Ficha y Reglas de "El Juego" (7 Diapositivas en Google Slides)',
+      title: 'Presentaciones Electrónicas: Ficha y Manual de la App GeoCalc (7 Diapositivas en Google Slides)',
       dates: '16 Nov - 20 Nov',
       status: 'active',
       presentationUrl: './html/W14.html',
       toolUrl: 'https://slides.google.com',
       toolBtnText: 'Abrir Google Slides',
-      summary: 'Diseño integral de una presentación ejecutiva de 7 diapositivas en Presentaciones de Google (Google Slides) con la ficha técnica, reglas, personajes, niveles, mockups y descarga de "El Juego" (GeoCalc), configurando interactividad y publicación web.',
+      summary: 'Diseño integral de una presentación ejecutiva de 7 diapositivas en Presentaciones de Google (Google Slides) con la ficha técnica, instrucciones de uso, figuras y controles, fórmulas matemáticas, mockups y descarga de la aplicación GeoCalc (Calculadora de Áreas y Perímetros), configurando interactividad y publicación web.',
       expectedProduct: 'Presentación de 7 diapositivas en Google Slides con imágenes de referencia, enlaces interactivos y URL pública publicada en la web.',
       notices: [
         '⚠️ LUNES 16 DE NOVIEMBRE: Suspensión Oficial de Labores por la Conmemoración del Aniversario de la Revolución Mexicana. No hay clases en el plantel.',
-        'MIÉRCOLES 18 DE NOVIEMBRE (Sesión 01 · 1 hr · 17:40 - 18:30): Construcción de las 7 diapositivas de "El Juego" en Google Slides siguiendo las plantillas de referencia.',
+        'MIÉRCOLES 18 DE NOVIEMBRE (Sesión 01 · 1 hr · 17:40 - 18:30): Construcción de las 7 diapositivas de la app GeoCalc en Google Slides siguiendo las plantillas de referencia.',
         'JUEVES 19 DE NOVIEMBRE (Sesión 02 · 2 hrs · 16:50 - 18:30): Hipervínculos internos, interactividad de navegación y coevaluación en pares en laboratorio.',
         'VIERNES 20 DE NOVIEMBRE (Sesión 03 · 1 hr · 15:00 - 15:50): Publicación en la web (archivo público sin restricciones) y evaluación sumativa definitiva.'
       ],
@@ -2280,13 +2280,13 @@ Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
         {
           id: 'S1',
           label: 'Sesión 01',
-          subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Las 7 Diapositivas de "El Juego" en Google Slides',
-          start: '¿Cómo estructuramos la ficha técnica y las reglas de un videojuego en 7 diapositivas ejecutivas que comuniquen su valor al instante?',
+          subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Las 7 Diapositivas de la App GeoCalc en Google Slides',
+          start: '¿Cómo presentamos una aplicación para calcular áreas y perímetros en 7 diapositivas claras que muestren para qué sirve, cómo se usa y cómo se descarga?',
           dictation: `⏱️ HORA 1 · El Escaparate Digital de Nuestra Aplicación Móvil:
-Crear una aplicación es como diseñar un videojuego: el código en bloques es el motor invisible que calcula las matemáticas, pero la presentación es la caja del juego que convence al público de probarlo. En el desarrollo de software, una suite de siete diapositivas funciona como la vitrina de una tienda digital: con solo mirar la portada, las reglas, los personajes y las fotos reales de la pantalla, cualquier persona entiende en tres minutos cómo se juega y cómo instalarla con un código QR sin enredarse en tecnicismos.`,
-          learningResult: 'Crear en Google Slides la estructura visual de las 7 diapositivas de "El Juego" (GeoCalc) integrando textos ejecutivos, capturas reales y código QR.',
+Crear una aplicación es como fabricar una calculadora de bolsillo: los bloques de programación son el circuito interno que hace las cuentas, pero la presentación es el manual y la vitrina que le explica a cualquier persona para qué sirve. En el desarrollo de software, una suite de siete diapositivas funciona como el folleto oficial de tu app: con solo mirar la portada, las instrucciones de uso, las figuras disponibles, las fórmulas y las fotos reales de la pantalla, cualquier usuario entiende en tres minutos cómo calcular áreas y perímetros y cómo instalarla con un código QR.`,
+          learningResult: 'Crear en Google Slides la estructura visual de las 7 diapositivas de la app GeoCalc (Calculadora de Áreas y Perímetros) integrando textos ejecutivos, capturas reales y código QR.',
           identification: {
-            topic: '7 Diapositivas de "El Juego" en Slides',
+            topic: '7 Diapositivas de la App GeoCalc en Slides',
             evidence: 'Presentación Google Slides (7 Diapositivas · Sello 1)',
             organization: 'Individual en PC (Google Slides)',
             location: 'Laboratorio de Informática',
@@ -2294,86 +2294,85 @@ Crear una aplicación es como diseñar un videojuego: el código en bloques es e
           },
           infographicTitle: 'Ruta Sesión 01 (Miércoles · 1 Hora)',
           infographicSteps: [
-            { title: '1. Portada y Sinopsis', desc: 'Diapositivas 1 y 2 con título oficial, ícono y misión del juego.' },
-            { title: '2. Reglas y Elementos', desc: 'Diapositivas 3 y 4 con pasos de juego, vidas/puntos y botones de acción.' },
-            { title: '3. Niveles y Mockups', desc: 'Diapositivas 5 y 6 con retos progresivos y 3 celulares con capturas.' },
+            { title: '1. Portada y Propósito', desc: 'Diapositivas 1 y 2 con título oficial, ícono y qué hace la calculadora GeoCalc.' },
+            { title: '2. Uso y Controles', desc: 'Diapositivas 3 y 4 con pasos de uso, las 7 figuras y los botones de acción.' },
+            { title: '3. Fórmulas y Mockups', desc: 'Diapositivas 5 y 6 con fórmulas de área/perímetro y 3 celulares con capturas.' },
             { title: '4. Créditos y QR', desc: 'Diapositiva 7 con datos del alumno, grupo 301-INFO25 y QR de descarga.' }
           ],
           developmentColumns: [
             {
-              groupTitle: '🎮 ARQUITECTURA DE LAS 7 DIAPOSITIVAS DE "EL JUEGO" EN GOOGLE SLIDES',
+              groupTitle: '📱 ARQUITECTURA DE LAS 7 DIAPOSITIVAS DE LA APP GEOCALC EN GOOGLE SLIDES',
               groupSubtitle: 'Guía visual con imágenes de referencia para proyectar en cañón y reproducir en computadoras',
               columnsCount: 3,
               items: [
                 {
                   badge: 'Diapositiva 1 · Portada',
-                  title: 'Portada Oficial del Juego',
+                  title: 'Portada Oficial de la App',
                   screen: 'Slide 1 · Título e Identidad',
                   color: '#005C42',
                   bgHeader: '#ecfdf5',
                   image: imgGSlide1,
                   rows: [
-                    { label: 'Título del Juego', value: 'GeoCalc · La Aventura Matemática' },
-                    { label: 'Subtítulo', value: 'Videojuego Móvil Educativo · Android APK' },
+                    { label: 'Título de la App', value: 'GeoCalc · Calculadora de Áreas y Perímetros' },
+                    { label: 'Subtítulo', value: 'Aplicación Móvil Educativa · Android APK v1.0' },
                     { label: 'Elemento Gráfico', value: 'Logotipo / Ícono central de Dibujos de Google' },
                     { label: 'Membrete Institucional', value: 'CONALEP Pachuca II · EDOA-20 · Grupo 301-INFO25' }
                   ]
                 },
                 {
-                  badge: 'Diapositiva 2 · Sinopsis',
-                  title: '¿Qué Hace el Juego?',
-                  screen: 'Slide 2 · Objetivo y Misión',
+                  badge: 'Diapositiva 2 · Propósito',
+                  title: '¿Qué Hace la Aplicación?',
+                  screen: 'Slide 2 · Función Principal',
                   color: '#1E3A8A',
                   bgHeader: '#eff6ff',
                   image: imgGSlide2,
                   rows: [
-                    { label: 'Premisa Principal', value: 'Conviértete en el Arquitecto Digital y supera retos de cálculo geométrico.' },
-                    { label: 'Mecánica Central', value: 'Calcula perímetros y áreas en tiempo real para desbloquear mundos.' },
-                    { label: 'Características Clave', value: '7 Figuras geométricas, respuestas instantáneas y modo offline.' },
-                    { label: 'Audiencia Objetivo', value: 'Estudiantes de secundaria y bachillerato que buscan agilidad mental.' }
+                    { label: 'Función Central', value: 'Calcula perímetros (cm) y áreas (cm²) al instante desde el celular.' },
+                    { label: 'Cobertura', value: '7 figuras geométricas planas programadas en MIT App Inventor.' },
+                    { label: 'Ventajas Clave', value: 'Resultados inmediatos, unidades claras y uso 100% offline.' },
+                    { label: 'Público Objetivo', value: 'Estudiantes y docentes que necesitan comprobar ejercicios de geometría.' }
                   ]
                 },
                 {
-                  badge: 'Diapositiva 3 · Reglas',
-                  title: 'Instrucciones y Reglas de Juego',
-                  screen: 'Slide 3 · ¿Cómo Jugar?',
+                  badge: 'Diapositiva 3 · Instrucciones',
+                  title: 'Instrucciones de Uso',
+                  screen: 'Slide 3 · ¿Cómo se Usa?',
                   color: '#B45309',
                   bgHeader: '#fffbeb',
                   image: imgGSlide3,
                   rows: [
                     { label: 'Paso 1: Selecciona', value: 'Elige una figura geométrica en el Menú Principal.' },
-                    { label: 'Paso 2: Ingresa Datos', value: 'Escribe las medidas en las cajas de texto (TextBox).' },
-                    { label: 'Paso 3: Presiona Acción', value: 'Toca Perímetro (verde) o Área (azul) para obtener tu puntaje.' },
-                    { label: 'Reglas de Partida', value: '3 Vidas por nivel, límite de tiempo de 60s y penalización por error.' }
+                    { label: 'Paso 2: Ingresa Datos', value: 'Escribe las medidas en las cajas de texto (radio, base, altura o lados).' },
+                    { label: 'Paso 3: Calcula', value: 'Presiona Perímetro (verde) o Área (azul) para ver el resultado.' },
+                    { label: 'Recomendación', value: 'Capturar solo números positivos y usar Limpiar antes de otro cálculo.' }
                   ]
                 },
                 {
-                  badge: 'Diapositiva 4 · Elementos',
-                  title: 'Personajes y Mecánicas',
-                  screen: 'Slide 4 · Interfaz y Controles',
+                  badge: 'Diapositiva 4 · Interfaz',
+                  title: 'Figuras y Controles',
+                  screen: 'Slide 4 · Pantallas y Botones',
                   color: '#7C3AED',
                   bgHeader: '#faf5ff',
                   image: imgGSlide4,
                   rows: [
-                    { label: 'El Jugador', value: 'El Arquitecto Digital (Tú): resuelve figuras y acumula puntos.' },
-                    { label: 'Figuras Objetivo', value: 'Círculo, Cuadrado, Rectángulo, Pentágono y 3 Triángulos.' },
-                    { label: 'Botón Perímetro', value: 'Verde · Calcula contorno en cm (+100 puntos).' },
-                    { label: 'Botón Área', value: 'Azul · Procesa superficie en cm² (+250 puntos).' },
-                    { label: 'Botones Auxiliares', value: 'Limpiar (resetea campos) y Menú (retorna al lobby).' }
+                    { label: '7 Figuras', value: 'Círculo, Cuadrado, Rectángulo, Pentágono y 3 Triángulos.' },
+                    { label: 'Botón Perímetro', value: 'Verde · Calcula la suma del contorno en cm.' },
+                    { label: 'Botón Área', value: 'Azul · Procesa la superficie interna en cm².' },
+                    { label: 'Botones Auxiliares', value: 'Limpiar (borra datos) y Menú (regresa al inicio).' }
                   ]
                 },
                 {
-                  badge: 'Diapositiva 5 · Progresión',
-                  title: 'Niveles y Curva de Dificultad',
-                  screen: 'Slide 5 · Desafíos del Juego',
+                  badge: 'Diapositiva 5 · Fórmulas',
+                  title: 'Fórmulas Matemáticas',
+                  screen: 'Slide 5 · Lógica de Cálculo',
                   color: '#C2410C',
                   bgHeader: '#fff7ed',
                   image: imgGSlide5,
                   rows: [
-                    { label: 'Nivel 1 (Fácil)', value: 'Círculo y Cuadrado · Medidas enteras de 1 dígito.' },
-                    { label: 'Nivel 2 (Medio)', value: 'Rectángulo y Pentágono · Uso de decimales y apotema.' },
-                    { label: 'Nivel 3 (Difícil)', value: 'Triángulos Isósceles y Escaleno · Múltiples variables y lados.' },
-                    { label: 'Nivel 4 (Experto)', value: 'Desafío Contra Reloj · Resolver 5 figuras en menos de 90 segundos.' }
+                    { label: 'Círculo y Cuadrado', value: 'P = 2·π·r / A = π·r²  |  P = 4·L / A = L·L' },
+                    { label: 'Rectángulo', value: 'P = 2·(b + h)  |  A = b · h' },
+                    { label: 'Pentágono', value: 'P = 5·L  |  A = (P · apotema) / 2' },
+                    { label: 'Triángulos', value: 'P = L1 + L2 + L3  |  A = (b · h) / 2' }
                   ]
                 },
                 {
@@ -2384,10 +2383,10 @@ Crear una aplicación es como diseñar un videojuego: el código en bloques es e
                   bgHeader: '#f0f9ff',
                   image: imgGSlide6,
                   rows: [
-                    { label: 'Pantalla 1 (Lobby)', value: 'Screen1 con logotipo, presentación y botón Iniciar.' },
-                    { label: 'Pantalla 2 (Niveles)', value: 'Menú Principal con acceso táctil a las 7 figuras.' },
-                    { label: 'Pantalla 3 (Partida)', value: 'Pantalla de cálculo activa con resultados en cm y cm².' },
-                    { label: 'Estilo Visual', value: '3 Smartphones flotantes con marcos, sombras y alta definición.' }
+                    { label: 'Pantalla 1 (Portada)', value: 'Screen1 con logotipo, título y botón Iniciar.' },
+                    { label: 'Pantalla 2 (Menú)', value: 'Menú Principal con botones para las 7 figuras.' },
+                    { label: 'Pantalla 3 (Cálculo)', value: 'Pantalla de operación activa con resultados en cm y cm².' },
+                    { label: 'Estilo Visual', value: '3 Smartphones alineados con marcos, sombras y alta nitidez.' }
                   ]
                 },
                 {
@@ -2399,7 +2398,7 @@ Crear una aplicación es como diseñar un videojuego: el código en bloques es e
                   image: imgGSlide7,
                   rows: [
                     { label: 'Código QR Oficial', value: 'Escaneo directo con cámara móvil para descargar el APK.' },
-                    { label: 'Desarrollador Líder', value: 'Nombre y Apellidos del Estudiante.' },
+                    { label: 'Desarrollador(a)', value: 'Nombre y Apellidos del Estudiante.' },
                     { label: 'Plantel Educativo', value: 'CONALEP Pachuca II · CCT 13DPT0002Y.' },
                     { label: 'Módulo y Grupo', value: 'EDOA-20 · Grupo 301-INFO25 · Semestre 1.26.27.' }
                   ]
@@ -2411,20 +2410,20 @@ Crear una aplicación es como diseñar un videojuego: el código en bloques es e
 Metodología: Sesión 01 de Semana 14 (Lunes sin clases) ➔ Proyección de Plantillas Visuales en Cañón (15 min) ➔ Construcción en PC (35 min) ➔ Revisión de Enlace (10 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 (17:40 - 18:30) · Montaje de las 7 Diapositivas de "El Juego"
+⏱️ HORA 1 (17:40 - 18:30) · Montaje de las 7 Diapositivas de la App GeoCalc
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Inicio · 5 min):
-"El lunes descansamos por la Revolución Mexicana, pero hoy arrancamos la Semana 14 con todo: su juego GeoCalc ya funciona en el celular, ahora vamos a documentarlo con una presentación ejecutiva de 7 diapositivas que simula el lanzamiento oficial de un videojuego."
+"El lunes descansamos por la Revolución Mexicana, pero hoy arrancamos la Semana 14 con todo: su aplicación GeoCalc ya calcula áreas y perímetros en el celular; ahora vamos a documentarla con una presentación ejecutiva de 7 diapositivas."
 
 🖥️ DEMO EN CAÑÓN POR BLOQUES (15 min):
-1) Abrir slides.new en el navegador. Nombrar el archivo: 'El_Juego_GeoCalc_Apellido_Nombre'.
+1) Abrir slides.new en el navegador. Nombrar el archivo: 'App_GeoCalc_Apellido_Nombre'.
 2) Bloque Identidad (Slides 1 y 2):
    - Diapositiva 1: Portada con el ícono diseñado en Dibujos de Google, título en negritas y datos de CONALEP Pachuca II.
-   - Diapositiva 2: ¿Qué hace el juego? Sinopsis del 'Arquitecto Digital', objetivo de cálculo y características destacadas.
-3) Bloque Jugabilidad (Slides 3, 4 y 5):
-   - Diapositiva 3: Instrucciones en 3 pasos (Selecciona figura, ingresa medidas, presiona botón) y reglas de vidas/tiempo.
-   - Diapositiva 4: Personajes y Elementos (El Jugador, las 7 figuras y los botones Perímetro verde y Área azul).
-   - Diapositiva 5: Niveles (Fácil, Medio, Difícil y Modo Contra Reloj).
+   - Diapositiva 2: ¿Qué hace la app? Explicación clara de que calcula áreas y perímetros de 7 figuras geométricas sin internet.
+3) Bloque Uso y Lógica (Slides 3, 4 y 5):
+   - Diapositiva 3: Instrucciones en 3 pasos (Selecciona figura, ingresa medidas, presiona Perímetro o Área).
+   - Diapositiva 4: Figuras disponibles (las 7 figuras) y función de cada botón (Perímetro verde, Área azul, Limpiar y Menú).
+   - Diapositiva 5: Tabla de fórmulas matemáticas implementadas en los bloques de App Inventor.
 4) Bloque Showcase y Descarga (Slides 6 y 7):
    - Diapositiva 6: Mockups con 3 teléfonos mostrando Screen1, Menú y una Pantalla de Cálculo.
    - Diapositiva 7: Ficha técnica del alumno, datos del plantel y la imagen del Código QR generado en App Inventor (Build APK).
@@ -2435,15 +2434,15 @@ Cada alumno construye sus 7 diapositivas guiándose por los ejemplos proyectados
 
 🏷️ EVIDENCIA Y SELLO:
 Presentación de 7 diapositivas completa en Google Slides. 👉 SELLO 1`,
-          closure: 'Estructura de las 7 diapositivas de "El Juego" concluida en Google Slides y compartida en Google Drive.'
+          closure: 'Estructura de las 7 diapositivas de la app GeoCalc concluida en Google Slides y compartida en Google Drive.'
         },
         {
           id: 'S2',
           label: 'Sesión 02',
           subtitle: 'Jueves (2 hrs · 16:50 - 18:30) · Interactividad, Enlaces Internos y Coevaluación en Pares',
-          start: '¿Cómo convertimos una presentación estática en un prototipo interactivo donde los botones cambien de diapositiva como si fuera el juego real?',
+          start: '¿Cómo convertimos una presentación estática en un manual interactivo donde los botones cambien de diapositiva como si fuera la app real?',
           dictation: `⏱️ HORAS 2 Y 3 · Interactividad y Navegación Mediante Hipervínculos:
-Una presentación tradicional se lee como un libro de papel: pasas hoja por hoja de forma obligada. En cambio, una presentación interactiva funciona como el control remoto de una consola: al hacer clic sobre un botón dibujado en la pantalla, el sistema da un salto inmediato a la sección que tú elegiste. Los hipervínculos internos conectan las diapositivas entre sí para que el usuario navegue libremente por las reglas, los niveles o el menú principal como si ya estuviera jugando dentro de la aplicación.`,
+Una presentación tradicional se lee como un libro de papel: pasas hoja por hoja de forma obligada. En cambio, una presentación interactiva funciona como el menú de una aplicación móvil: al hacer clic sobre un botón dibujado en la pantalla, el sistema da un salto inmediato a la sección que tú elegiste. Los hipervínculos internos conectan las diapositivas entre sí para que el usuario navegue libremente por las instrucciones, las fórmulas, las pantallas o el menú principal.`,
           learningResult: 'Configurar hipervínculos internos entre diapositivas en Google Slides para crear una navegación interactiva y coevaluar el proyecto de un compañero.',
           identification: {
             topic: 'Hipervínculos e Interactividad en Slides',
@@ -2454,7 +2453,7 @@ Una presentación tradicional se lee como un libro de papel: pasas hoja por hoja
           },
           infographicTitle: 'Ruta Sesión 02 (Jueves · 2 Horas)',
           infographicSteps: [
-            { title: '1. Creación de Botones', desc: 'Dibujar formas redondeadas con texto ("Jugar", "Reglas", "Niveles", "Menú").' },
+            { title: '1. Creación de Botones', desc: 'Dibujar formas redondeadas con texto ("Uso", "Figuras", "Fórmulas", "Menú").' },
             { title: '2. Enlaces Internos', desc: 'Asignar a cada botón su salto hacia la diapositiva correspondiente (Ctrl+K).' },
             { title: '3. Botón Retorno Universal', desc: 'Colocar un botón de regreso al lobby en las diapositivas 2 a la 7.' },
             { title: '4. Coevaluación Cruzada', desc: 'Intercambiar computadoras, probar en F5 y evaluar con rúbrica técnica.' }
@@ -2466,7 +2465,7 @@ Metodología: Desglose Estricto por Horas (Hora 2: Interactividad e Hipervíncul
 ⏱️ HORA 2 (16:50 - 17:40) · Enlaces Internos y Prototipado Navegable
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Inicio · 5 min):
-"Una presentación tradicional se pasa con la barra espaciadora. Hoy vamos a convertir nuestras 7 diapositivas en una aplicación interactiva: al tocar un botón en pantalla, la presentación saltará automáticamente a esa sección del juego."
+"Una presentación tradicional se pasa con la barra espaciadora. Hoy vamos a convertir nuestras 7 diapositivas en un manual interactivo: al tocar un botón en pantalla, la presentación saltará automáticamente a esa sección de la app."
 
 🖥️ DEMO EN CAÑÓN (10 min):
 1) Seleccionar una forma o botón en la Diapositiva 1 (ej. 'Ver Instrucciones').
@@ -2483,7 +2482,7 @@ Los alumnos vinculan todos los botones de su presentación y prueban la navegaci
 ⏱️ HORA 3 (17:40 - 18:30) · Coevaluación Cruzada en Pares y Retroalimentación
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ FRASE GANCHO (Inicio · 5 min):
-"El mejor evaluador de un videojuego es otro jugador. Cámbiense de asiento con su compañero de al lado: van a jugar su presentación y verificar si los botones funcionan y si el diseño cumple con los 7 requisitos."
+"El mejor evaluador de una aplicación es otro usuario. Cámbiense de asiento con su compañero de al lado: van a probar su presentación y verificar si los botones funcionan y si el diseño cumple con los 7 requisitos."
 
 🖥️ DINÁMICA DE COEVALUACIÓN (10 min):
 1) Cada alumno abre la presentación de su compañero en modo presentación completa.
@@ -2542,8 +2541,8 @@ Metodología: Publicación Web (15 min) ➔ Revisión Individual y Asentamiento 
 El docente revisa en cada lugar el enlace web publicado y registra el cumplimiento de los 7 elementos clave.
 
 📋 RÚBRICA SUMATIVA SEMANA 14 (100%):
-• Diapositivas 1 y 2 (Portada institucional con ícono y ¿Qué hace el juego?): 20%
-• Diapositivas 3, 4 y 5 (Instrucciones, Personajes/Elementos y Niveles de reto): 30%
+• Diapositivas 1 y 2 (Portada institucional con ícono y ¿Qué hace la aplicación?): 20%
+• Diapositivas 3, 4 y 5 (Instrucciones de uso, Figuras/Controles y Fórmulas matemáticas): 30%
 • Diapositivas 6 y 7 (Galería de Mockups y Créditos con Código QR APK): 25%
 • Interactividad (Hipervínculos internos entre diapositivas): 15%
 • Despliegue Web (Enlace público verificado en incógnito): 10%
