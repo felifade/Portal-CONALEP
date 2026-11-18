@@ -2373,18 +2373,22 @@ Fila F: . . . B B B B . . B B B B . . .
                             <p>Análisis de cómo los juegos 2D profesionales separan el fondo, el plano de acción y la interfaz en capas con distintas velocidades de desplazamiento (*Parallax*).</p>
                         </div>
                         <div class="moment-box desarrollo">
-                            <div class="moment-label">🔵 Desarrollo (30 min) — Configuración de las 3 Capas Oficiales</div>
+                            <div class="moment-label">🔵 Desarrollo (30 min) — Configuración de 2 Capas (Compatible Edición Gratuita)</div>
                             <ul class="clean-list">
-                                <li>Amplía el tamaño del escenario (*Layout Size*) a <code>1920 x 360</code> píxeles (3 pantallas de largo).</li>
-                                <li>En el panel <strong>Capas (Layers)</strong>, crea y ordena de abajo hacia arriba:
+                                <li>Amplía el tamaño del escenario (*Layout Size / Tamaño*) a <code>1920 x 720</code> píxeles.</li>
+                                <li>En el panel <strong>Capas (Layers)</strong>, mantén exactamente <strong>2 capas</strong> de abajo hacia arriba (límite de la Edición Gratuita):
                                     <pre>
-Capa 2: "HUD"   ➔ Parallax: 0% x 0%     (Congelada en pantalla para marcadores)
-Capa 1: "Juego" ➔ Parallax: 100% x 100% (Velocidad real para Jugador y Plataformas)
-Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de profundidad)
+Capa 1: "Juego" ➔ Paralaje: 100% x 100% (Piso, Plataformas, Jugador, Malware_Bot y texto)
+Capa 0: "Fondo" ➔ Paralaje: 50% x 50%   (Cielo nocturno en lejanía, bloqueada con 🔒)
                                     </pre>
                                 </li>
-                                <li>Pinta el color de fondo de la Capa <code>Fondo</code> en azul noche cyber (<code>#090d16</code>) y coloca gabinetes decorativos con opacidad al 40%.</li>
+                                <li>Estira el <code>Cielo</code> (en capa <code>Fondo</code>) y el <code>Piso</code> (en capa <code>Juego</code>) hasta cubrir los <code>1920 px</code> de ancho.</li>
                             </ul>
+                            <div style="margin: 14px 0;">
+                                <a href="../img/cyberdefender/construct3_semana14_nivel_camara_patrulla.png" target="_blank" title="Clic para abrir guía de Nivel, Cámara y Malware_Bot">
+                                    <img src="../img/cyberdefender/construct3_semana14_nivel_camara_patrulla.png" alt="Guía visual Semana 14: Nivel 1920px en 2 Capas, Cámara y Malware_Bot" style="width:100%; border-radius:10px; border:1px solid rgba(56,189,248,0.4); display:block;">
+                                </a>
+                            </div>
 <div style="margin: 18px 0; text-align: center;">
 <svg viewBox="0 0 800 280" width="100%" style="max-width:780px; background:#06090f; border-radius:10px; border:1px solid #334155; box-shadow:0 6px 20px rgba(0,0,0,0.4);" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -4070,17 +4074,25 @@ Capa 0: "Fondo" ➔ Parallax: 50% x 50%   (Velocidad media para sensación de pr
                         <label class="taller-check-label"><input type="checkbox" class="taller-step-cb" data-step="7"> Marcar como hecho</label>
                     </div>
                     <ul class="clean-list">
-                        <li>Inserta un Sprite sencillo de color oscuro llamado <code>Piso</code> debajo de tu personaje. En sus Propiedades ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Sólido (Solid)</strong>.</li>
-                        <li>Selecciona al <code>Jugador</code> ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Plataforma (Platform)</strong> (desactiva <em>Default controls</em> solo si después usarás teclas personalizadas; por ahora déjalo activo para probar con las flechas).</li>
-                        <li>Abre la <strong>Hoja de Eventos 1 (Event Sheet 1)</strong> y agrega estos 3 eventos rápidos para ver las animaciones cambiar al moverte:
-                            <br>• <code>Jugador ➔ Platform: On moved</code> ➔ Acción: <code>Jugador ➔ Set animation to "Run"</code>
-                            <br>• <code>Jugador ➔ Platform: On stopped</code> ➔ Acción: <code>Jugador ➔ Set animation to "Idle"</code>
-                            <br>• <code>Jugador ➔ Platform: On jumped</code> ➔ Acción: <code>Jugador ➔ Set animation to "Jump"</code>
+                        <li>Inserta un Sprite sencillo llamado <code>Piso</code> debajo de tu personaje. En sus Propiedades ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Sólido (Solid)</strong>.</li>
+                        <li>Selecciona al <code>Jugador</code> ➔ <strong>Comportamientos (Behaviors)</strong> ➔ añade <strong>Plataforma (Platform)</strong> y <strong>Restringido a (Bound to layout)</strong>.</li>
+                        <li>En <strong>Escena 1</strong>, da doble clic en el fondo vacío ➔ sección <em>Entrada</em> ➔ inserta el objeto <strong>Teclado (Keyboard)</strong>.</li>
+                        <li>Abre la pestaña <strong>Hoja de eventos 1 (Event Sheet 1)</strong> y programa estos <strong>6 eventos exactos</strong> para voltear y elegir <code>Idle</code>, <code>Run</code> y <code>Jump</code>:
+                            <br>• <strong>1)</strong> <code>Teclado ➔ Al pulsar tecla [Flecha izquierda]</code> ➔ Acción: <code>Jugador ➔ Establecer reflejado: Reflejado</code>
+                            <br>• <strong>2)</strong> <code>Teclado ➔ Al pulsar tecla [Flecha derecha]</code> ➔ Acción: <code>Jugador ➔ Establecer reflejado: Sin reflejar</code>
+                            <br>• <strong>3)</strong> <code>Jugador ➔ Plataforma: ¿Está en el suelo?</code> (sin acción) y dentro crea 2 sub-eventos (clic derecho ➔ <em>Añadir sub-evento</em> o tecla <code>S</code>):
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;↳ <strong>3a)</strong> <code>Jugador ➔ ¿Está moviéndose?</code> ➔ Acción: <code>Jugador ➔ Establecer animación: "Run"</code> (desde Principio)
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;↳ <strong>3b)</strong> Clic derecho en 3a ➔ <code>Añadir "Sino" (tecla X)</code> ➔ Acción: <code>Jugador ➔ Establecer animación: "Idle"</code> (desde Principio)
+                            <br>• <strong>4)</strong> <code>Jugador ➔ Plataforma: ¿Está saltando?</code> ➔ Acción: <code>Jugador ➔ Establecer animación: "Jump"</code>
+                            <br>• <strong>5)</strong> <code>Jugador ➔ Plataforma: ¿Está cayendo?</code> ➔ Acción: <code>Jugador ➔ Establecer animación: "Jump"</code>
                         </li>
-                        <li>Presiona <strong>Play (▶ Preview)</strong> arriba y muévete con las flechas y barra/arriba.</li>
+                        <li>Presiona <strong>▶ Vista previa (Preview)</strong> arriba y muévete con las flechas.</li>
                         <li><strong>Guarda tu proyecto:</strong> <code>Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia (.c3p)</code> y nómbralo <code>CyberDefender_Sem1.c3p</code>.</li>
                     </ul>
                     <div style="margin-top:0.9rem;">
+                        <a href="../img/cyberdefender/construct3_semana14_hoja_eventos_paso_a_paso.png" target="_blank" title="Clic para abrir guía explícita de la Hoja de Eventos 1 en grande">
+                            <img src="../img/cyberdefender/construct3_semana14_hoja_eventos_paso_a_paso.png" alt="Guía explícita Paso 7: Paso 0 y los 6 eventos en Hoja de eventos 1 de Construct 3 en español" style="width:100%; border-radius:10px; border:1px solid rgba(56,189,248,0.45); display:block; margin-bottom:0.9rem;">
+                        </a>
                         <a href="../img/cyberdefender/paso7_plataforma_eventos.png" target="_blank" title="Clic para abrir imagen en grande">
                             <img src="../img/cyberdefender/paso7_plataforma_eventos.png" alt="Guía visual Paso 7: Piso Solid, Jugador Platform y Eventos de animación" style="width:100%; border-radius:10px; border:1px solid rgba(16,185,129,0.35); display:block;">
                         </a>
