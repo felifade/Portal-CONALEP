@@ -667,4 +667,15 @@ LOCATION:Pachuca / Recorrido Oficial
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1120-revolucion-ceremonia-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261119T120000Z
+DTSTART:20261120T083000
+DTEND:20261120T113000
+SUMMARY:🇲🇽 Ceremonia 116 Aniv. de la Revolución Mexicana (Gpos 101, 102, 103 y 303)
+DESCRIPTION:Ceremonia Conmemorativa en Ciudad Deportiva de Alto Rendimiento (08:30 hrs). Acuden grupos 101, 102, 103 y 303 (no asisten al plantel). Docentes a cargo: 101 (Patricia Vera y Jesús Aguirre), 102 (Rosa Inés Escamilla y Silvia Diego), 103 (Jair Rodríguez y Martín García), 303 (Iraís). Todos los demás grupos tienen clases normales en plantel.
+LOCATION:Ciudad Deportiva de Alto Rendimiento
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
