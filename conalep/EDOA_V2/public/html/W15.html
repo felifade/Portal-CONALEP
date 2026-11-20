@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Σ EDOA · Semana 15 · Proyecto Integrador en Google Sites</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --green: #025940;
+      --green-dark: #01402e;
+      --emerald: #059669;
+      --blue: #1d4ed8;
+      --amber: #d97706;
+      --purple: #6d28d9;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+    .deck { height: 100vh; width: 100vw; position: relative; }
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 40px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: var(--green);
+      border: 1px solid #6ee7b7;
+      font-size: 0.9vw;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      width: fit-content;
+    }
+    h1 { font-size: 3.6vw; font-weight: 900; color: var(--green); line-height: 1.1; margin-bottom: 16px; }
+    h2 { font-size: 2.3vw; font-weight: 800; color: var(--text); margin-bottom: 18px; line-height: 1.2; }
+    h3 { font-size: 1.35vw; font-weight: 800; color: var(--green); margin-bottom: 8px; }
+    p, li { font-size: 1.25vw; line-height: 1.5; color: #334155; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    code {
+      background: #e2e8f0;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 1.1vw;
+      color: #0f172a;
+    }
+    .cover-box { max-width: 1050px; }
+    .lead { font-size: 1.5vw; color: var(--muted); margin-bottom: 24px; }
+    .teacher-badge {
+      display: inline-flex;
+      gap: 12px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1vw;
+      color: var(--green);
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    }
+    .dictado {
+      border-left: 6px solid var(--blue);
+      background: #eff6ff;
+    }
+    .callout-green { border-top: 5px solid var(--green); }
+    .callout-blue { border-top: 5px solid var(--blue); }
+    .callout-amber { border-top: 5px solid var(--amber); }
+    .callout-purple { border-top: 5px solid var(--purple); }
+    .nav-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      z-index: 50;
+    }
+    .nav-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .nav-btn:hover { background: var(--green-dark); }
+    #counter { font-weight: 800; font-size: 14px; color: var(--text); min-width: 48px; text-align: center; }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <!-- SLIDE 0: PORTADA -->
+    <section class="slide active">
+      <div class="cover-box">
+        <span class="badge">CONALEP Pachuca II · Módulo EDOA-20 · Semana 15 (RA 3.2)</span>
+        <h1>Proyecto Integrador en Google Sites</h1>
+        <p class="lead">Portafolio Digital por Resultados de Aprendizaje: todos tus documentos del semestre y la presentación de <strong>GeoCalc</strong> en un solo sitio web.</p>
+        <div class="teacher-badge">
+          <span>👨‍🏫 Dr. Felipe López Salazar</span>
+          <span>•</span>
+          <span>Grupo 301-INFO25</span>
+          <span>•</span>
+          <span>23 al 27 de Noviembre 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 1: LUNES CINE-DEBATE -->
+    <section class="slide">
+      <span class="badge">Sesión 01 · Lunes (1 hr) · Relax</span>
+      <h2>🎬 Cine-Debate: Black Mirror — "Rachel, Jack and Ashley Too" (T5E3)</h2>
+      <div class="grid-2">
+        <div class="card callout-purple">
+          <h3>🎯 ¿En qué poner atención durante el capítulo?</h3>
+          <ul>
+            <li>Cómo se fabrica una <strong>imagen digital artificial</strong> para vender un producto prefabricado.</li>
+            <li>Qué pasa cuando se oculta el <strong>trabajo auténtico</strong> detrás de la apariencia.</li>
+            <li>Cómo el trabajo en equipo recupera la identidad real de un proyecto.</li>
+          </ul>
+        </div>
+        <div class="card dictado">
+          <h3 style="color:var(--blue);">✍️ Actividad de Cierre en Libreta (5 líneas)</h3>
+          <p>Al terminar el episodio, responde en tu libreta:</p>
+          <p style="margin-top:10px; font-weight:700; color:#1e3a8a;">
+            "¿Cuál de tus trabajos de este semestre (Docs, Sheets, App GeoCalc o Slides) demuestra mejor tu propio esfuerzo y estilo? ¿Por qué?"
+          </p>
+          <p style="margin-top:12px; font-weight:800; color:var(--green);">👉 SELLO 1 en libreta</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: MIÉRCOLES DICTADO + SITES INICIO -->
+    <section class="slide">
+      <span class="badge">Sesión 02 · Miércoles (1 hr · 17:40 - 18:30)</span>
+      <h2>📝 Dictado y Arranque en Google Sites</h2>
+      <div class="grid-2">
+        <div class="card dictado">
+          <h3 style="color:var(--blue);">Dictado: Arquitectura de un Portafolio Web</h3>
+          <p>
+            "Un portafolio digital en <strong>Google Sites</strong> funciona como una carpeta ejecutiva con separadores transparentes: en lugar de entregar archivos sueltos por correo o mensajes, cada pestaña del sitio organiza tus documentos por <strong>Corte</strong> y <strong>Resultado de Aprendizaje</strong>. Así, cualquier evaluador entra a un único enlace web y recorre tu evolución desde el primer documento hasta tu aplicación móvil final."
+          </p>
+        </div>
+        <div class="card callout-green">
+          <h3>⚙️ Pasos en PC (<code>sites.new</code>)</h3>
+          <ol>
+            <li>Abrir <code>sites.new</code> y nombrar: <code>Portafolio_EDOA_Apellido_Nombre</code>.</li>
+            <li>Diseñar página <strong>Inicio</strong> (CONALEP Pachuca II, Grupo 301-INFO25).</li>
+            <li>En <strong>Páginas (+)</strong>, crear: <code>Corte 1</code>, <code>Corte 2</code> y <code>Corte 3</code>.</li>
+            <li>En <strong>Corte 1</strong>, insertar desde Drive tus Docs de <strong>RA 1.1, 1.2 y 1.3</strong>.</li>
+          </ol>
+          <p style="margin-top:10px; font-weight:800; color:var(--green);">👉 SELLO 2: Portada + Corte 1 embebido</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: MAPA DEL PORTAFOLIO (4 PESTAÑAS) -->
+    <section class="slide">
+      <span class="badge">Estructura del Sitio</span>
+      <h2>🗺️ Las 4 Pestañas de tu Portafolio Integrador</h2>
+      <div class="grid-4">
+        <div class="card callout-green">
+          <h3>1. Inicio</h3>
+          <p>Portada con tu nombre, plantel, grupo <code>301-INFO25</code>, introducción y botones hacia los 3 Cortes.</p>
+        </div>
+        <div class="card callout-blue">
+          <h3>2. Corte 1</h3>
+          <p>Documentos de <strong>Google Docs</strong> embebidos desde Drive:<br>• RA 1.1 Estilos<br>• RA 1.2 Formato<br>• RA 1.3 Colaboración</p>
+        </div>
+        <div class="card callout-amber">
+          <h3>3. Corte 2</h3>
+          <p>Hojas de cálculo y App:<br>• RA 2.1 Fusión Masiva<br>• RA 2.2 Modelos Sheets<br>• Ícono y avances de GeoCalc</p>
+        </div>
+        <div class="card callout-purple">
+          <h3>4. Corte 3</h3>
+          <p>Cierre del proyecto:<br>• RA 3.1 Presentación de 7 Diapositivas de GeoCalc<br>• Código QR del APK<br>• Reflexión final</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: JUEVES CORTE 2 Y CORTE 3 -->
+    <section class="slide">
+      <span class="badge">Sesión 03 · Jueves (2 hrs · 16:50 - 18:30)</span>
+      <h2>🧩 Integración de Corte 2 y Corte 3 en Vivo</h2>
+      <div class="grid-2">
+        <div class="card callout-amber">
+          <h3>⏱️ Hora 3 (16:50 - 17:40) · Página Corte 2</h3>
+          <ul>
+            <li>Entra a la subpágina <strong>Corte 2</strong>.</li>
+            <li>Usa <em>Insertar &gt; Drive</em> para embeber tus hojas de cálculo de <strong>RA 2.1</strong> y <strong>RA 2.2</strong>.</li>
+            <li>Agrega debajo el <strong>ícono de GeoCalc</strong> (Dibujos de Google) y explica qué calcula la app.</li>
+          </ul>
+        </div>
+        <div class="card callout-purple">
+          <h3>⏱️ Hora 4 (17:40 - 18:30) · Página Corte 3</h3>
+          <ul>
+            <li>Entra a la subpágina <strong>Corte 3</strong>.</li>
+            <li>Inserta tu <strong>Presentación de 7 Diapositivas</strong> (<code>App_GeoCalc_Apellido_Nombre</code>) en tamaño grande.</li>
+            <li>Coloca a un lado el <strong>Código QR oficial</strong> del APK y una reflexión de cierre.</li>
+          </ul>
+          <p style="margin-top:10px; font-weight:800; color:var(--purple);">👉 SELLO 3: Cortes 2 y 3 integrados</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: VIERNES PERMISOS Y PUBLICACIÓN -->
+    <section class="slide">
+      <span class="badge">Sesión 04 · Viernes (1 hr · 15:00 - 15:50)</span>
+      <h2>🔐 Permisos en Drive, Publicación Web y Validación</h2>
+      <div class="grid-2">
+        <div class="card dictado">
+          <h3 style="color:var(--blue);">📝 Dictado: Permisos Públicos</h3>
+          <p>
+            "Publicar un sitio en Google Sites sin abrir los permisos de los archivos incrustados es como inaugurar una tienda con las vitrinas cerradas con cortina: la gente entra al local, pero no puede ver los productos. Cada documento, hoja y presentación debe quedar como lector para <strong>Cualquier persona con el enlace</strong>."
+          </p>
+        </div>
+        <div class="card callout-green">
+          <h3>✅ Checklist Final del Viernes</h3>
+          <ol>
+            <li>En Drive, poner todos los archivos del portafolio en <strong>Cualquier persona con el enlace (Lector)</strong>.</li>
+            <li>En Google Sites, clic en el botón azul <strong>Publicar</strong>.</li>
+            <li>Abrir la URL en <strong>ventana de incógnito (<code>Ctrl + Shift + N</code>)</strong>.</li>
+            <li>Confirmar que las 4 pestañas cargan sin pedir acceso.</li>
+          </ol>
+          <p style="margin-top:10px; font-weight:800; color:var(--green);">👉 SELLO 4: URL pública validada</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-bar">
+    <button class="nav-btn" id="prev">← Anterior</button>
+    <span id="counter">1 / 6</span>
+    <button class="nav-btn" id="next">Siguiente →</button>
+  </nav>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const counter = document.getElementById('counter');
+    let idx = 0;
+    function show(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      counter.textContent = `${idx + 1} / ${slides.length}`;
+    }
+    document.getElementById('prev').onclick = () => show(idx - 1);
+    document.getElementById('next').onclick = () => show(idx + 1);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') show(idx + 1);
+      if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+  </script>
+</body>
+</html>
