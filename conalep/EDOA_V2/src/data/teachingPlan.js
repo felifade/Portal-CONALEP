@@ -2272,9 +2272,9 @@ Estado del Grupo 301-INFO25: Suspensión de Labores por Comisión y Permisos
       expectedProduct: 'Presentación de 7 diapositivas en Google Slides con imágenes de referencia, enlaces interactivos y URL pública publicada en la web.',
       notices: [
         '⚠️ LUNES 16 DE NOVIEMBRE: Suspensión Oficial de Labores por la Conmemoración del Aniversario de la Revolución Mexicana. No hay clases en el plantel.',
-        'MIÉRCOLES 18 DE NOVIEMBRE (Sesión 01 · 1 hr · 17:40 - 18:30): Construcción de las 7 diapositivas de la app GeoCalc en Google Slides siguiendo las plantillas de referencia.',
-        'JUEVES 19 DE NOVIEMBRE (Sesión 02 · 2 hrs · 16:50 - 18:30): Hipervínculos internos, interactividad de navegación y coevaluación en pares en laboratorio.',
-        'VIERNES 20 DE NOVIEMBRE (Sesión 03 · 1 hr · 15:00 - 15:50): Publicación en la web (archivo público sin restricciones) y evaluación sumativa definitiva.'
+        'MIÉRCOLES 18 DE NOVIEMBRE (Sesión 01 · 1 hr · 17:40 - 18:30): Inicio de las diapositivas de la app GeoCalc en Google Slides (Diapositivas 1 y 2).',
+        'JUEVES 19 DE NOVIEMBRE (Sesión 02 · 2 hrs · 16:50 - 18:30): Avance y consolidación en aula hasta la Diapositiva 4 (Figuras y Controles de Interfaz).',
+        'VIERNES 20 DE NOVIEMBRE (Sesión 03 · 1 hr · 15:00 - 15:50): Construcción de las Diapositivas 5, 6 y 7 (Fórmulas, Mockups y Créditos/QR) y cierre de la presentación.'
       ],
       sessions: [
         {
@@ -2498,47 +2498,47 @@ Pruebas cruzadas y ajustes finales en el archivo de Google Slides.
 
 🏷️ EVIDENCIA Y SELLO:
 Presentación interactiva validada y coevaluación registrada. 👉 SELLO 2`,
-          closure: 'Presentación de 7 diapositivas interactiva concluida y validada por pares.'
+          closure: 'Avance real registrado en Sesión 02: Diapositivas 1 a la 4 concluidas (Portada, ¿Qué hace la app?, Instrucciones y Figuras/Controles). Para el viernes quedan pendientes las Diapositivas 5, 6 y 7.'
         },
         {
           id: 'S3',
           label: 'Sesión 03',
-          subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Publicación Web en Google Slides y Evaluación Sumativa',
-          start: '¿Cómo publicamos nuestra presentación en internet para que cualquiera pueda abrirla en pantalla completa sin iniciar sesión en Google?',
+          subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Diapositivas 5, 6 y 7 (Fórmulas, Mockups y QR) + Cierre Web',
+          start: '¿Cómo integramos las fórmulas matemáticas, las capturas reales en teléfonos (mockups) y el código QR de descarga para cerrar nuestra presentación de 7 diapositivas?',
           dictation: `⏱️ HORA 4 · Publicación en la Nube y Acceso Universal:
 Guardar un archivo en tu computadora privada es como tener un dibujo guardado bajo la cama: solo tú puedes verlo. La función de publicar en la web transforma nuestras diapositivas en un enlace público que funciona como un letrero interactivo en internet. Cualquier persona con ese enlace puede abrir la presentación en pantalla completa desde su teléfono o computadora, sin necesidad de tener cuenta de Google ni pedir contraseñas, permitiendo que nuestro trabajo escolar se comparta como un producto profesional.`,
-          learningResult: 'Publicar la presentación en la web mediante Google Slides, obtener el enlace público autónomo y acreditar la evaluación sumativa de la Semana 14.',
+          learningResult: 'Completar las Diapositivas 5, 6 y 7 de la app GeoCalc en Google Slides (Fórmulas Matemáticas, Galería de Mockups y Créditos con Código QR), publicar el enlace web y registrar la evaluación sumativa.',
           identification: {
-            topic: 'Publicación Web y Evaluación Sumativa',
-            evidence: 'URL Pública de Google Slides + Calificación en Lista Oficial (Sello 3)',
-            organization: 'Individual en PC y Proyección',
+            topic: 'Diapositivas 5, 6 y 7 + Publicación Web',
+            evidence: 'Presentación de 7 Diapositivas Completa + URL Pública (Sello 3)',
+            organization: 'Individual en PC y Revisión en Escritorio',
             location: 'Laboratorio de Informática',
             time: '1 hr'
           },
-          infographicTitle: 'Ruta Sesión 03 (Viernes · 1 Hora)',
+          infographicTitle: 'Ruta Sesión 03 (Viernes · 1 Hora · Slides 5, 6 y 7)',
           infographicSteps: [
-            { title: '1. Archivo > Publicar', desc: 'Ir al menú Archivo > Compartir > Publicar en la web.' },
-            { title: '2. Configuración de Enlace', desc: 'Hacer clic en el botón azul "Publicar" y aceptar el diálogo de confirmación.' },
-            { title: '3. Prueba en Incógnito', desc: 'Abrir una pestaña privada (Ctrl+Shift+N) y pegar el enlace para validar el acceso.' },
-            { title: '4. Calificación Oficial', desc: 'Presentar el enlace al docente y registrar la calificación definitiva en lista.' }
+            { title: '1. Slide 5 · Fórmulas', desc: 'Tabla limpia de 3 columnas con fórmulas de Perímetro (cm) y Área (cm²) de las figuras.' },
+            { title: '2. Slide 6 · Mockups', desc: 'Galería con 3 pantallas del celular: Screen1, Menú Principal y Pantalla de Cálculo.' },
+            { title: '3. Slide 7 · Créditos y QR', desc: 'Ficha técnica del alumno, CONALEP Pachuca II y Código QR del APK.' },
+            { title: '4. Publicar y Evaluar', desc: 'Archivo > Compartir > Publicar en la web, validar en incógnito y registrar nota.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA · 15:00 - 15:50)
-Metodología: Publicación Web (15 min) ➔ Revisión Individual y Asentamiento de Notas (35 min)
+Metodología: Cierre de Diapositivas 5, 6 y 7 (35 min) ➔ Publicación Web y Revisión en Lista (15 min)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 4 (15:00 - 15:50) · Despliegue Público y Evaluación Sumativa
+⏱️ HORA 4 (15:00 - 15:50) · Diapositivas 5, 6 y 7 + Despliegue Web
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗣️ FRASE GANCHO:
-"Hoy es el gran estreno: convertiremos sus diapositivas privadas en un enlace web público que pueden compartir con quien quieran o poner en su portafolio digital."
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"Ayer cerramos hasta la Diapositiva 4 con las figuras y botones de GeoCalc. Hoy terminamos el bloque completo con las láminas 5, 6 y 7 —fórmulas, capturas reales en celular y su código QR— y lo dejamos publicado en la web."
 
-🖥️ DEMO EN CAÑÓN (10 min):
-1) En Google Slides, ir a: Archivo > Compartir > Publicar en la web.
-2) Pestaña 'Enlace' > Clic en 'Publicar' > Aceptar el aviso de confirmación.
-3) Copiar el enlace generado (docs.google.com/presentation/d/e/.../pub).
-4) Abrir ventana de incógnito (Ctrl+Shift+N) y comprobar que el pitch deck se despliega en pantalla completa.
+🖥️ GUÍA RÁPIDA EN CAÑÓN (10 min):
+1) Diapositiva 5 (Fórmulas Matemáticas): Insertar tabla de 3 columnas (Figura | Perímetro en cm | Área en cm²) con las fórmulas programadas en App Inventor.
+2) Diapositiva 6 (Galería de Pantallas / Mockups): Alinear 3 capturas reales del teléfono (Screen1 Portada, Menú de 7 figuras y Pantalla de cálculo) con marcos y sombras limpias.
+3) Diapositiva 7 (Créditos y Código QR): Colocar datos del alumno, grupo 301-INFO25, CCT 13DPT0002Y y el Código QR nítido generado en App Inventor (Build APK).
+4) Publicación Web: Archivo > Compartir > Publicar en la web > Copiar enlace público y verificar en incógnito (Ctrl+Shift+N).
 
-💻 REVISIÓN EN ESCRITORIO (35 min):
-El docente revisa en cada lugar el enlace web publicado y registra el cumplimiento de los 7 elementos clave.
+💻 RETO EN PC Y REVISIÓN (35 min):
+Los alumnos completan las diapositivas 5, 6 y 7 siguiendo las imágenes de referencia y presentan su enlace web al docente.
 
 📋 RÚBRICA SUMATIVA SEMANA 14 (100%):
 • Diapositivas 1 y 2 (Portada institucional con ícono y ¿Qué hace la aplicación?): 20%
@@ -2547,8 +2547,8 @@ El docente revisa en cada lugar el enlace web publicado y registra el cumplimien
 • Interactividad (Hipervínculos internos entre diapositivas): 15%
 • Despliegue Web (Enlace público verificado en incógnito): 10%
 
-👉 RESULTADO: Calificación asentada formalmente en la lista de calificaciones del grupo 301-INFO25.`,
-          closure: 'Semana 14 concluida satisfactoriamente con la publicación web de las presentaciones y evaluación sumativa registrada.'
+👉 RESULTADO: Presentación de 7 diapositivas completa y calificación asentada en lista del grupo 301-INFO25.`,
+          closure: 'Semana 14 concluida con las 7 diapositivas completas (Slides 5, 6 y 7 finalizadas el viernes), publicación web verificada y evaluación sumativa registrada.'
         }
       ]
     }
