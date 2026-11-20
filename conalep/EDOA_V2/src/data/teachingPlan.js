@@ -2551,6 +2551,269 @@ Los alumnos completan las diapositivas 5, 6 y 7 siguiendo las imágenes de refer
           closure: 'Semana 14 concluida con las 7 diapositivas completas (Slides 5, 6 y 7 finalizadas el viernes), publicación web verificada y evaluación sumativa registrada.'
         }
       ]
+    },
+    'W15': {
+      id: 'W15',
+      label: 'Semana 15',
+      title: 'Proyecto Integrador en Google Sites: Portafolio Digital por RA y Presentación GeoCalc',
+      dates: '23 Nov - 27 Nov',
+      status: 'upcoming',
+      presentationUrl: './html/W15.html',
+      toolUrl: 'https://sites.google.com',
+      toolBtnText: 'Abrir Google Sites',
+      summary: 'Inicio del RA 3.2 (Proyecto Integrador EDOA): sesión de cine-debate con Black Mirror ("Rachel, Jack and Ashley Too") y construcción de un Portafolio Web en Google Sites que reúne en un solo lugar todos los documentos por RA (Cortes 1, 2 y 3) junto con la presentación interactiva de GeoCalc.',
+      expectedProduct: 'Sitio web publicado en Google Sites con Portada, páginas organizadas por Corte/RA (Docs, Sheets y Slides de GeoCalc embebidos) y permisos públicos verificados en incógnito.',
+      notices: [
+        'LUNES 23 DE NOVIEMBRE (Sesión 01 · 1 hr): Sesión de cine-debate y relax con Black Mirror: "Rachel, Jack and Ashley Too" (Temp. 5, Ep. 3).',
+        'MIÉRCOLES 25 DE NOVIEMBRE (Sesión 02 · 1 hr · 17:40 - 18:30): Arranque en Google Sites (sites.new), portada del portafolio y página Corte 1 (RA 1.1, 1.2, 1.3).',
+        'JUEVES 26 DE NOVIEMBRE (Sesión 03 · 2 hrs · 16:50 - 18:30): Integración de evidencias en páginas Corte 2 (Sheets/Fusión/GeoCalc) y Corte 3 (Presentación de 7 Diapositivas + QR).',
+        'VIERNES 27 DE NOVIEMBRE (Sesión 04 · 1 hr · 15:00 - 15:50): Configuración de permisos en Drive ("Cualquier persona con el enlace"), publicación web y prueba en incógnito.'
+      ],
+      sessions: [
+        {
+          id: 'S1',
+          label: 'Sesión 01',
+          subtitle: 'Lunes (1 hr) · Cine-Debate Black Mirror: "Rachel, Jack and Ashley Too" (T5E3)',
+          start: '¿Qué diferencia existe entre una imagen digital prefabricada para vender y un proyecto tecnológico auténtico que refleja tu propio esfuerzo?',
+          dictation: `⏱️ HORA 1 · Identidad Digital Auténtica vs. Producto Prefabricado:
+En la era digital, muchas herramientas prometen resultados instantáneos copiando moldes ajenos, como ocurre en el episodio "Rachel, Jack and Ashley Too". Sin embargo, un portafolio profesional funciona como el taller real de un creador: no es un disfraz ni una copia automática, sino la evidencia ordenada de lo que aprendiste a diseñar, calcular y programar con tus propias manos durante todo el semestre.`,
+          learningResult: 'Reflexionar sobre la autenticidad de los proyectos digitales y la ética tecnológica como punto de partida para diseñar su Portafolio Integrador en Google Sites.',
+          identification: {
+            topic: 'Cine-Debate: Identidad y Autenticidad Digital',
+            evidence: 'Nota reflexiva de 5 líneas en libreta (Sello 1)',
+            organization: 'Proyección grupal y reflexión individual',
+            location: 'Laboratorio de Informática / Aula',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 01 (Lunes · 1 Hora · Relax y Reflexión)',
+          infographicSteps: [
+            { title: '1. Encuadre Breve', desc: 'Presentación del episodio "Rachel, Jack and Ashley Too" (T5E3) y pregunta guía.' },
+            { title: '2. Proyección', desc: 'Visualización del capítulo en grupo (se puede proyectar a 1.15x para ajustar a 50 min).' },
+            { title: '3. Conexión EDOA', desc: 'Comparar el producto artificial de la historia con un portafolio técnico auténtico.' },
+            { title: '4. Cierre en Libreta', desc: 'Escribir 5 líneas sobre qué evidencia de este semestre te representa mejor.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (1 HORA)
+Metodología: Sesión de Relax y Análisis Audiovisual ➔ Conexión con el Proyecto Integrador
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 1 · Proyección: Black Mirror T5E3 "Rachel, Jack and Ashley Too"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ ENCUADRE INICIAL (3 min):
+"Hoy vamos a tomarnos la hora para relajarnos viendo un capítulo de Black Mirror llamado 'Rachel, Jack and Ashley Too'. Fíjense muy bien en cómo la industria fabrica una imagen artificial de alguien mientras oculta su trabajo real. El miércoles arrancamos nuestro sitio web en Google Sites para mostrar su trabajo auténtico del semestre."
+
+🖥️ PROYECCIÓN EN CAÑÓN (50 min):
+• Proyectar el episodio (si la hora es de 50 min exactos, usar velocidad 1.15x para cubrirlo completo o cerrar los últimos minutos al inicio del miércoles).
+
+✍️ CIERRE BREVE (5 min):
+Cada alumno anota en su libreta una reflexión de 5 líneas respondiendo: ¿Cuál de tus trabajos del semestre (Docs, Sheets, App GeoCalc o Slides) demuestra mejor tu propio estilo y esfuerzo? 👉 SELLO 1`,
+          closure: 'Reflexión escrita en libreta sobre autenticidad digital concluida; grupo listo para iniciar Google Sites el miércoles.'
+        },
+        {
+          id: 'S2',
+          label: 'Sesión 02',
+          subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Arranque en Google Sites + Portada + Corte 1 (RA 1.1–1.3)',
+          start: '¿Cómo reunimos todos nuestros documentos de texto, hojas de cálculo y presentaciones en un solo sitio web ordenado por Resultados de Aprendizaje?',
+          dictation: `⏱️ HORA 2 · Arquitectura de un Portafolio Web por Resultados de Aprendizaje:
+Un portafolio digital en Google Sites funciona como una carpeta ejecutiva con separadores transparentes: en lugar de entregar archivos sueltos por correo o mensajes, cada pestaña del sitio organiza tus documentos por Corte y Resultado de Aprendizaje. Así, cualquier docente o evaluador entra a un único enlace web y recorre tu evolución desde el primer documento hasta tu aplicación móvil final.`,
+          learningResult: 'Crear la estructura base del Portafolio Integrador en Google Sites, diseñar la página de Inicio y embeber los documentos de Google Docs del Primer Corte (RA 1.1, 1.2 y 1.3).',
+          identification: {
+            topic: 'Google Sites: Portada y Corte 1 (RA 1.1–1.3)',
+            evidence: 'Sitio creado con Inicio y subpágina Corte 1 con Docs embebidos (Sello 2)',
+            organization: 'Individual en PC (Google Sites)',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 02 (Miércoles · 1 Hora)',
+          infographicSteps: [
+            { title: '1. Abrir sites.new', desc: 'Crear sitio nuevo y nombrarlo "Portafolio_EDOA_Apellido_Nombre".' },
+            { title: '2. Portada Institucional', desc: 'Banner con nombre del alumno, CONALEP Pachuca II, Grupo 301-INFO25 y bienvenida.' },
+            { title: '3. Crear 3 Páginas', desc: 'Pestaña Páginas (+): crear "Corte 1", "Corte 2" y "Corte 3".' },
+            { title: '4. Embeber Corte 1', desc: 'En la página Corte 1, insertar desde Drive los documentos de RA 1.1, RA 1.2 y RA 1.3.' }
+          ],
+          developmentColumns: [
+            {
+              groupTitle: '🌐 MAPA DE NAVEGACIÓN DEL PORTAFOLIO INTEGRADOR EN GOOGLE SITES',
+              groupSubtitle: 'Estructura de 4 pestañas para concentrar todo el semestre EDOA-20 en un solo lugar',
+              columnsCount: 2,
+              items: [
+                {
+                  badge: 'Pestaña 1 · Inicio',
+                  title: 'Portada del Portafolio',
+                  screen: 'Página Principal',
+                  color: '#025940',
+                  bgHeader: '#ecfdf5',
+                  rows: [
+                    { label: 'Título del Banner', value: 'Portafolio Digital EDOA-20 · Nombre del Alumno' },
+                    { label: 'Datos Oficiales', value: 'CONALEP Pachuca II · Grupo 301-INFO25 · Ciclo 1.26.27' },
+                    { label: 'Resumen', value: 'Breve introducción de qué aprenderá el visitante en los 3 Cortes.' },
+                    { label: 'Botones Rápidos', value: '3 botones o tarjetas que enlacen directo a Corte 1, Corte 2 y Corte 3.' }
+                  ]
+                },
+                {
+                  badge: 'Pestaña 2 · Corte 1',
+                  title: 'Primer Corte (RA 1.1, 1.2 y 1.3)',
+                  screen: 'Subpágina · Google Docs',
+                  color: '#1D4ED8',
+                  bgHeader: '#eff6ff',
+                  rows: [
+                    { label: 'RA 1.1', value: 'Documento con estilos base y entorno nube (embebido desde Drive).' },
+                    { label: 'RA 1.2', value: 'Documento con formato avanzado, tablas e índices.' },
+                    { label: 'RA 1.3', value: 'Evidencia de automatización y colaboración en Docs.' },
+                    { label: 'Regla Visual', value: 'Cada documento con título de RA arriba y breve descripción de 2 líneas.' }
+                  ]
+                }
+              ]
+            }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · MIÉRCOLES (1 HORA · 17:40 - 18:30)
+Metodología: Dictado (10 min) ➔ Demo Google Sites en Cañón (10 min) ➔ Montaje de Portada y Corte 1 (30 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 2 (17:40 - 18:30) · Estructura en Google Sites y Primer Corte
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"Hoy vamos a juntar todo el semestre en una sola página web profesional. En lugar de mandar diez enlaces distintos, en Google Sites van a armar su portafolio por Cortes y Resultados de Aprendizaje."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Abrir sites.new en Google Chrome.
+2) Nombrar el sitio: 'Portafolio_EDOA_Apellido_Nombre'.
+3) En el panel derecho ir a 'Páginas' > botón '+' y crear tres páginas: 'Corte 1', 'Corte 2' y 'Corte 3'.
+4) Entrar a 'Corte 1' > panel 'Insertar' > 'Drive' > seleccionar sus documentos de RA 1.1, 1.2 y 1.3 para que se vean incrustados dentro de la página.
+
+💻 RETO EN PC (30 min):
+Cada alumno diseña su portada de Inicio y deja incrustados sus documentos del Corte 1 con título y descripción.
+👉 CHECK HORA 2: Menú superior con Inicio, Corte 1, Corte 2 y Corte 3; documentos del Corte 1 visibles en pantalla.
+
+🏷️ EVIDENCIA Y SELLO:
+Portafolio iniciado en Google Sites con Corte 1 integrado. 👉 SELLO 2`,
+          closure: 'Sitio en Google Sites creado con Portada institucional, menú por Cortes y documentos de Corte 1 embebidos.'
+        },
+        {
+          id: 'S3',
+          label: 'Sesión 03',
+          subtitle: 'Jueves (2 hrs · 16:50 - 18:30) · Integración de Corte 2 (Sheets/GeoCalc) y Corte 3 (Presentación Slides)',
+          start: '¿Cómo integramos hojas de cálculo, la presentación de 7 diapositivas de GeoCalc y su código QR dentro de las páginas de Corte 2 y Corte 3?',
+          dictation: `⏱️ HORAS 3 Y 4 · Integración Multimedia en Sitios Web:
+Incrustar o embeber un archivo dentro de un sitio web es como colocar una ventana de vidrio hacia tu escritorio de trabajo: el visitante no tiene que descargar nada ni abrir otra pestaña para ver tu hoja de cálculo o recorrer tus diapositivas. Google Sites conecta directamente con Drive, Sheets y Slides para que tus evidencias funcionen en vivo dentro de la misma página.`,
+          learningResult: 'Integrar en las subpáginas de Corte 2 y Corte 3 las hojas de cálculo (RA 2.1–2.2), la presentación interactiva de GeoCalc (RA 3.1) y el Código QR del APK.',
+          identification: {
+            topic: 'Integración de Corte 2 y Corte 3 en Google Sites',
+            evidence: 'Páginas Corte 2 y Corte 3 completas con Sheets, Slides y QR (Sello 3)',
+            organization: 'Individual en PC (Google Sites)',
+            location: 'Laboratorio de Informática',
+            time: '2 hrs'
+          },
+          infographicTitle: 'Ruta Sesión 03 (Jueves · 2 Horas)',
+          infographicSteps: [
+            { title: '1. Hora 3 · Corte 2', desc: 'Insertar hojas de cálculo de Fusión Masiva (RA 2.1) y Modelos/App (RA 2.2).' },
+            { title: '2. Hora 3 · Avances App', desc: 'Agregar sección visual de GeoCalc (ícono de Dibujos de Google y bloques).' },
+            { title: '3. Hora 4 · Corte 3', desc: 'Insertar la Presentación de 7 Diapositivas de GeoCalc desde Drive/Slides.' },
+            { title: '4. Hora 4 · Descarga APK', desc: 'Colocar el Código QR oficial de App Inventor junto a la presentación.' }
+          ],
+          developmentColumns: [
+            {
+              groupTitle: '🧩 CONTENIDO DE LAS PESTAÑAS CORTE 2 Y CORTE 3 EN GOOGLE SITES',
+              groupSubtitle: 'Cada Corte muestra sus evidencias embebidas en vivo con título de RA y descripción breve',
+              columnsCount: 2,
+              items: [
+                {
+                  badge: 'Pestaña 3 · Corte 2',
+                  title: 'Segundo Corte (RA 2.1 y RA 2.2)',
+                  screen: 'Subpágina · Sheets y App',
+                  color: '#B45309',
+                  bgHeader: '#fffbeb',
+                  rows: [
+                    { label: 'RA 2.1', value: 'Hoja de cálculo / documento de Fusión Masiva de Datos embebido.' },
+                    { label: 'RA 2.2', value: 'Modelo financiero / hoja de cálculo de áreas y perímetros embebida.' },
+                    { label: 'Visual GeoCalc', value: 'Ícono diseñado en Google Drawings y captura de bloques en App Inventor.' }
+                  ]
+                },
+                {
+                  badge: 'Pestaña 4 · Corte 3',
+                  title: 'Tercer Corte (RA 3.1 y Proyecto)',
+                  screen: 'Subpágina · Slides + QR',
+                  color: '#7C3AED',
+                  bgHeader: '#faf5ff',
+                  rows: [
+                    { label: 'RA 3.1 (Slides)', value: 'Presentación de 7 Diapositivas de GeoCalc incrustada en tamaño grande.' },
+                    { label: 'Descarga APK', value: 'Imagen del Código QR de App Inventor con instrucción de escaneo.' },
+                    { label: 'Cierre RA 3.2', value: 'Breve reflexión final: ¿Qué aprendí en el módulo EDOA-20?' }
+                  ]
+                }
+              ]
+            }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · JUEVES (2 HORAS · 16:50 - 18:30)
+Metodología: Hora 3 (Corte 2: Sheets + Avances GeoCalc) ➔ Hora 4 (Corte 3: Presentación 7 Diapositivas + Código QR)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 3 (16:50 - 17:40) · Página Corte 2 (RA 2.1 y RA 2.2)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Ir a la página 'Corte 2' en Google Sites.
+2) Usar los diseños predefinidos (2 columnas) para poner título del RA a la izquierda y la hoja de cálculo embebida a la derecha.
+3) Agregar abajo el ícono de GeoCalc hecho en Dibujos de Google y una breve descripción de las 7 figuras.
+
+💻 RETO EN PC (40 min):
+Los alumnos completan su página de Corte 2 verificando que las hojas de cálculo se puedan recorrer con scroll dentro del sitio.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 4 (17:40 - 18:30) · Página Corte 3 (RA 3.1 · Slides y Código QR)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖥️ DEMO EN CAÑÓN (10 min):
+1) Ir a la página 'Corte 3'.
+2) Ir a Insertar > Presentaciones (o Drive) y seleccionar su archivo 'App_GeoCalc_Apellido_Nombre'.
+3) Ajustar el visor de la presentación al ancho completo de la columna principal para que se puedan pasar las 7 diapositivas en vivo.
+4) Colocar al lado o debajo la imagen del Código QR de App Inventor y una nota de cierre del semestre.
+
+💻 RETO EN PC (35 min):
+Los alumnos integran la presentación y el QR en Corte 3.
+🏷️ EVIDENCIA Y SELLO: Páginas Corte 2 y Corte 3 completas en el editor de Google Sites. 👉 SELLO 3`,
+          closure: 'Páginas Corte 2 y Corte 3 completas con documentos, hojas de cálculo, presentación de 7 diapositivas y Código QR integrados.'
+        },
+        {
+          id: 'S4',
+          label: 'Sesión 04',
+          subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Permisos en Drive, Publicación del Sitio y Prueba en Incógnito',
+          start: '¿Por qué un sitio web publicado puede mostrar cuadros grises de "Solicitar acceso" si olvidamos configurar los permisos de cada archivo en Google Drive?',
+          dictation: `⏱️ HORA 5 · Permisos Públicos y Verificación en Ventana de Incógnito:
+Publicar un sitio en Google Sites sin abrir los permisos de los archivos incrustados es como inaugurar una tienda con las vitrinas cubiertas por una cortina cerrada: la gente entra al local, pero no puede ver los productos. Para que un portafolio web funcione de verdad, cada documento, hoja de cálculo y presentación debe tener el permiso de lector para "Cualquier persona con el enlace", y siempre se verifica en una ventana de incógnito.`,
+          learningResult: 'Configurar correctamente los permisos de lectura en Google Drive para todos los recursos embebidos, publicar el Google Site y validar su acceso público en incógnito.',
+          identification: {
+            topic: 'Permisos Drive, Publicación Web y Validación',
+            evidence: 'URL Pública de Google Sites Verificada en Incógnito (Sello 4)',
+            organization: 'Individual en PC y Cotejo en Parejas',
+            location: 'Laboratorio de Informática',
+            time: '1 hr'
+          },
+          infographicTitle: 'Ruta Sesión 04 (Viernes · 1 Hora)',
+          infographicSteps: [
+            { title: '1. Revisar Drive', desc: 'Poner cada Doc, Sheet y Slide en "Cualquier persona con el enlace: Lector".' },
+            { title: '2. Botón Publicar', desc: 'Clic en el botón azul "Publicar" arriba a la derecha y elegir dirección web.' },
+            { title: '3. Abrir Incógnito', desc: 'Pegar la URL publicada en Ctrl+Shift+N y recorrer Inicio, Corte 1, 2 y 3.' },
+            { title: '4. Registrar Avance', desc: 'Entregar enlace al docente para pre-revisión rumbo al cierre de Semana 16.' }
+          ],
+          development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · VIERNES (1 HORA · 15:00 - 15:50)
+Metodología: Auditoría de Permisos en Drive (15 min) ➔ Publicación y Prueba en Incógnito (35 min)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ HORA 5 (15:00 - 15:50) · Permisos, Publicación y Validación Cruzada
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🗣️ FRASE GANCHO (Inicio · 5 min):
+"El error número uno al entregar un portafolio en Google Sites es que ustedes sí ven sus archivos porque están en su cuenta, pero cuando el maestro los abre le aparece 'Solicitar acceso'. Hoy vamos a blindar eso."
+
+🖥️ DEMO EN CAÑÓN (10 min):
+1) En Google Drive, seleccionar la carpeta o los archivos integrados > Compartir > Acceso general > cambiar de 'Restringido' a 'Cualquier persona con el enlace' (rol: Lector).
+2) En Google Sites, hacer clic en 'Publicar' (esquina superior derecha) > definir nombre corto de URL > 'Publicar'.
+3) Copiar el enlace del sitio publicado (icono de eslabón) y abrir una ventana de incógnito (Ctrl+Shift+N).
+4) Recorrer Inicio, Corte 1, Corte 2 y Corte 3 comprobando que TODO carga sin pedir inicio de sesión.
+
+💻 RETO EN PC Y REGISTRO (35 min):
+Los alumnos corrigen permisos de archivos que aparezcan bloqueados en incógnito y registran su enlace público con el docente.
+👉 SELLO 4: Sitio web publicado en Google Sites y validado en incógnito sin errores de permisos.`,
+          closure: 'Portafolio Integrador en Google Sites publicado y verificado en incógnito rumbo a la evaluación final de Semana 16.'
+        }
+      ]
     }
   }
 };
