@@ -678,4 +678,15 @@ LOCATION:Ciudad Deportiva de Alto Rendimiento
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1127-pinatas-arbol-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261123T120000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261127
+SUMMARY:🪅 Entrega de Piñatas Navideñas (Grupos Tutorados / Árbol Navideño)
+DESCRIPTION:Entrega de piñatas con medidas oficiales por parte de los grupos tutorados (incluido Grupo 501) para adorno del tradicional Árbol Navideño de CONALEP Plantel Pachuca II.
+LOCATION:Coordinación de Tutorías · Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
 END:VCALENDAR
