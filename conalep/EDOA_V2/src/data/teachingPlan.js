@@ -2561,11 +2561,11 @@ Los alumnos completan las diapositivas 5, 6 y 7 siguiendo las imágenes de refer
       presentationUrl: './html/W15.html',
       toolUrl: 'https://sites.google.com',
       toolBtnText: 'Abrir Google Sites',
-      summary: 'Inicio del RA 3.2 (Proyecto Integrador EDOA): sesión de cine-debate con Black Mirror ("Rachel, Jack and Ashley Too") y construcción de un Portafolio Web en Google Sites que reúne en un solo lugar todos los documentos por RA (Cortes 1, 2 y 3) junto con la presentación interactiva de GeoCalc.',
-      expectedProduct: 'Sitio web publicado en Google Sites con Portada, páginas organizadas por Corte/RA (Docs, Sheets y Slides de GeoCalc embebidos) y permisos públicos verificados en incógnito.',
+      summary: 'Inicio del RA 3.2 (Proyecto Integrador EDOA): sesión de cine-debate con Black Mirror ("Oso Blanco / White Bear", T2E2) y construcción de un Portafolio Web propio (sin uso de IA) en Google Sites que reúne en un solo lugar todos los documentos por RA (Cortes 1, 2 y 3) junto con la presentación interactiva de GeoCalc.',
+      expectedProduct: 'Sitio web publicado en Google Sites con Portada, páginas organizadas por Corte/RA (Docs, Sheets y Slides de GeoCalc embebidos), historial de versiones propio y permisos públicos verificados en incógnito.',
       notices: [
-        'LUNES 23 DE NOVIEMBRE (Sesión 01 · 1 hr): Sesión de cine-debate y relax con Black Mirror: "Rachel, Jack and Ashley Too" (Temp. 5, Ep. 3).',
-        'MIÉRCOLES 25 DE NOVIEMBRE (Sesión 02 · 1 hr · 17:40 - 18:30): Arranque en Google Sites (sites.new), portada del portafolio y página Corte 1 (RA 1.1, 1.2, 1.3).',
+        'LUNES 23 DE NOVIEMBRE (Sesión 01 · 1 hr): Cine-debate con Black Mirror: "Oso Blanco" (White Bear, T2E2). Quienes entregaron análisis con ChatGPT deberán reponerlo a mano en libreta sin pantallas.',
+        'MIÉRCOLES 25 DE NOVIEMBRE (Sesión 02 · 1 hr · 17:40 - 18:30): Arranque en Google Sites (sites.new), portada y página Corte 1. Prohibido usar IA: se revisará Historial de Versiones y defensa oral de 20s.',
         'JUEVES 26 DE NOVIEMBRE (Sesión 03 · 2 hrs · 16:50 - 18:30): Integración de evidencias en páginas Corte 2 (Sheets/Fusión/GeoCalc) y Corte 3 (Presentación de 7 Diapositivas + QR).',
         'VIERNES 27 DE NOVIEMBRE (Sesión 04 · 1 hr · 15:00 - 15:50): Configuración de permisos en Drive ("Cualquier persona con el enlace"), publicación web y prueba en incógnito.'
       ],
@@ -2573,40 +2573,43 @@ Los alumnos completan las diapositivas 5, 6 y 7 siguiendo las imágenes de refer
         {
           id: 'S1',
           label: 'Sesión 01',
-          subtitle: 'Lunes (1 hr) · Cine-Debate Black Mirror: "Rachel, Jack and Ashley Too" (T5E3)',
-          start: '¿Qué diferencia existe entre una imagen digital prefabricada para vender y un proyecto tecnológico auténtico que refleja tu propio esfuerzo?',
-          dictation: `⏱️ HORA 1 · Identidad Digital Auténtica vs. Producto Prefabricado:
-En la era digital, muchas herramientas prometen resultados instantáneos copiando moldes ajenos, como ocurre en el episodio "Rachel, Jack and Ashley Too". Sin embargo, un portafolio profesional funciona como el taller real de un creador: no es un disfraz ni una copia automática, sino la evidencia ordenada de lo que aprendiste a diseñar, calcular y programar con tus propias manos durante todo el semestre.`,
-          learningResult: 'Reflexionar sobre la autenticidad de los proyectos digitales y la ética tecnológica como punto de partida para diseñar su Portafolio Integrador en Google Sites.',
+          subtitle: 'Lunes (1 hr) · Cine-Debate Black Mirror: "Oso Blanco" (White Bear · T2E2)',
+          start: '¿Qué diferencia existe entre ser un espectador pasivo que solo graba o delega su criterio (como en "Oso Blanco") y construir un trabajo digital propio y consciente?',
+          dictation: `⏱️ HORA 1 · Pensamiento Propio vs. Espectador Pasivo en la Era Digital:
+En "Oso Blanco", la multitud observa detrás de una pantalla sin cuestionar ni pensar por sí misma. En la escuela y en el trabajo ocurre lo mismo cuando alguien le pide a una inteligencia artificial que piense y redacte por él: entrega un texto vacío que no comprende. Un portafolio profesional funciona como el taller de un autor real, donde cada documento y presentación refleja tu propio criterio.`,
+          learningResult: 'Reflexionar sobre el pensamiento crítico, la ética digital y la autoría propia como base para diseñar su Portafolio Integrador en Google Sites sin delegar el trabajo a la IA.',
           identification: {
-            topic: 'Cine-Debate: Identidad y Autenticidad Digital',
-            evidence: 'Nota reflexiva de 5 líneas en libreta (Sello 1)',
-            organization: 'Proyección grupal y reflexión individual',
+            topic: 'Cine-Debate: "Oso Blanco" y Autoría Propia',
+            evidence: 'Análisis a mano en libreta sin pantallas (Sello 1)',
+            organization: 'Proyección grupal y reflexión escrita a mano',
             location: 'Laboratorio de Informática / Aula',
             time: '1 hr'
           },
-          infographicTitle: 'Ruta Sesión 01 (Lunes · 1 Hora · Relax y Reflexión)',
+          infographicTitle: 'Ruta Sesión 01 (Lunes · 1 Hora · "Oso Blanco")',
           infographicSteps: [
-            { title: '1. Encuadre Breve', desc: 'Presentación del episodio "Rachel, Jack and Ashley Too" (T5E3) y pregunta guía.' },
-            { title: '2. Proyección', desc: 'Visualización del capítulo en grupo (se puede proyectar a 1.15x para ajustar a 50 min).' },
-            { title: '3. Conexión EDOA', desc: 'Comparar el producto artificial de la historia con un portafolio técnico auténtico.' },
-            { title: '4. Cierre en Libreta', desc: 'Escribir 5 líneas sobre qué evidencia de este semestre te representa mejor.' }
+            { title: '1. Encuadre Breve', desc: 'Presentación del episodio "Oso Blanco" (White Bear · T2E2) y pregunta guía.' },
+            { title: '2. Proyección', desc: 'Visualización del capítulo completo en grupo (42 min).' },
+            { title: '3. Regla Anti-IA', desc: 'Anulación de entregas hechas con ChatGPT; reposición obligatoria a mano en libreta.' },
+            { title: '4. Cierre en Libreta', desc: 'Responder a mano qué hacía la gente con sus celulares, el giro final y su postura ética.' }
           ],
           development: `🎙️ TELEPROMPTER EJECUTIVO DOCENTE · LUNES (1 HORA)
-Metodología: Sesión de Relax y Análisis Audiovisual ➔ Conexión con el Proyecto Integrador
+Metodología: Proyección "Oso Blanco" (42 min) ➔ Análisis Escrito a Mano sin Pantallas (Sello 1)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⏱️ HORA 1 · Proyección: Black Mirror T5E3 "Rachel, Jack and Ashley Too"
+⏱️ HORA 1 · Proyección: Black Mirror T2E2 "Oso Blanco" (White Bear)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🗣️ ENCUADRE INICIAL (3 min):
-"Hoy vamos a tomarnos la hora para relajarnos viendo un capítulo de Black Mirror llamado 'Rachel, Jack and Ashley Too'. Fíjense muy bien en cómo la industria fabrica una imagen artificial de alguien mientras oculta su trabajo real. El miércoles arrancamos nuestro sitio web en Google Sites para mostrar su trabajo auténtico del semestre."
+"Hoy vamos a ver 'Oso Blanco' (White Bear). Pongan atención al papel de las pantallas y a cómo la gente sigue la corriente sin pensar. Al terminar, el análisis se hace con sus propias palabras."
 
-🖥️ PROYECCIÓN EN CAÑÓN (50 min):
-• Proyectar el episodio (si la hora es de 50 min exactos, usar velocidad 1.15x para cubrirlo completo o cerrar los últimos minutos al inicio del miércoles).
+🖥️ PROYECCIÓN EN CAÑÓN (42 min):
+• Proyectar el episodio completo.
 
-✍️ CIERRE BREVE (5 min):
-Cada alumno anota en su libreta una reflexión de 5 líneas respondiendo: ¿Cuál de tus trabajos del semestre (Docs, Sheets, App GeoCalc o Slides) demuestra mejor tu propio estilo y esfuerzo? 👉 SELLO 1`,
-          closure: 'Reflexión escrita en libreta sobre autenticidad digital concluida; grupo listo para iniciar Google Sites el miércoles.'
+✍️ CIERRE Y MEDIDA CORRECTIVA ANTI-CHATGPT (10 min):
+• Quien haya utilizado ChatGPT para redactar su análisis pierde el sello de la sesión y deberá reponerlo el miércoles en los primeros 10 minutos, a mano en libreta (con celular guardado y monitor apagado), respondiendo:
+  1) ¿Qué hacía la gente con sus celulares cada vez que la protagonista pedía ayuda?
+  2) ¿Cuál es el giro real del lugar al final del capítulo?
+  3) ¿El castigo es justicia o espectáculo? Explica con tus palabras en 20s frente al docente. 👉 SELLO 1`,
+          closure: 'Episodio "Oso Blanco" visto; establecida la regla de autoría propia (cero ChatGPT) y revisión por Historial de Versiones para Google Sites.'
         },
         {
           id: 'S2',
