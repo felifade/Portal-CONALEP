@@ -2616,8 +2616,8 @@ Metodología: Proyección "Oso Blanco" (42 min) ➔ Análisis Escrito a Mano sin
           label: 'Sesión 02',
           subtitle: 'Miércoles (1 hr · 17:40 - 18:30) · Arranque en Google Sites + Portada + Corte 1 (RA 1.1–1.3)',
           start: '¿Cómo reunimos todos nuestros documentos de texto, hojas de cálculo y presentaciones en un solo sitio web ordenado por Resultados de Aprendizaje?',
-          dictation: `⏱️ HORA 2 · Arquitectura de un Portafolio Web por Resultados de Aprendizaje:
-Un portafolio digital en Google Sites funciona como una carpeta ejecutiva con separadores transparentes: en lugar de entregar archivos sueltos por correo o mensajes, cada pestaña del sitio organiza tus documentos por Corte y Resultado de Aprendizaje. Así, cualquier docente o evaluador entra a un único enlace web y recorre tu evolución desde el primer documento hasta tu aplicación móvil final.`,
+          dictation: `⏱️ HORA 2 · Tu Carta de Presentación en Internet (Google Sites):
+Cuando buscas trabajo, pides una beca o quieres ofrecer un servicio, nadie tiene tiempo de abrir diez archivos regados por WhatsApp. Un portafolio en Google Sites funciona como tu carta de presentación en internet: en un solo enlace guardas ordenados tus mejores trabajos. Así, si alguien te pregunta qué sabes hacer, solo le mandas tu liga y en segundos puede ver todo lo que eres capaz de crear.`,
           learningResult: 'Crear la estructura base del Portafolio Integrador en Google Sites, diseñar la página de Inicio y embeber los documentos de Google Docs del Primer Corte (RA 1.1, 1.2 y 1.3).',
           identification: {
             topic: 'Google Sites: Portada y Corte 1 (RA 1.1–1.3)',
@@ -2696,8 +2696,8 @@ Portafolio iniciado en Google Sites con Corte 1 integrado. 👉 SELLO 2`,
           label: 'Sesión 03',
           subtitle: 'Jueves (2 hrs · 16:50 - 18:30) · Integración de Corte 2 (Sheets/GeoCalc) y Corte 3 (Presentación Slides)',
           start: '¿Cómo integramos hojas de cálculo, la presentación de 7 diapositivas de GeoCalc y su código QR dentro de las páginas de Corte 2 y Corte 3?',
-          dictation: `⏱️ HORAS 3 Y 4 · Integración Multimedia en Sitios Web:
-Incrustar o embeber un archivo dentro de un sitio web es como colocar una ventana de vidrio hacia tu escritorio de trabajo: el visitante no tiene que descargar nada ni abrir otra pestaña para ver tu hoja de cálculo o recorrer tus diapositivas. Google Sites conecta directamente con Drive, Sheets y Slides para que tus evidencias funcionen en vivo dentro de la misma página.`,
+          dictation: `⏱️ HORAS 3 Y 4 · Mostrar tu Trabajo sin Llenar la Memoria de Nadie:
+Incrustar un archivo en tu página web es como poner una ventana directa hacia tu trabajo: quien visite tu sitio no tiene que descargar nada ni llenar la memoria de su celular para ver tu hoja de cálculo o tu presentación. Todo se abre ahí mismo en la pantalla, igual que cuando ves un video o un mapa dentro de una página sin salirte de ella.`,
           learningResult: 'Integrar en las subpáginas de Corte 2 y Corte 3 las hojas de cálculo (RA 2.1–2.2), la presentación interactiva de GeoCalc (RA 3.1) y el Código QR del APK.',
           identification: {
             topic: 'Integración de Corte 2 y Corte 3 en Google Sites',
@@ -2779,8 +2779,8 @@ Los alumnos integran la presentación y el QR en Corte 3.
           label: 'Sesión 04',
           subtitle: 'Viernes (1 hr · 15:00 - 15:50) · Permisos en Drive, Publicación del Sitio y Prueba en Incógnito',
           start: '¿Por qué un sitio web publicado puede mostrar cuadros grises de "Solicitar acceso" si olvidamos configurar los permisos de cada archivo en Google Drive?',
-          dictation: `⏱️ HORA 5 · Permisos Públicos y Verificación en Ventana de Incógnito:
-Publicar un sitio en Google Sites sin abrir los permisos de los archivos incrustados es como inaugurar una tienda con las vitrinas cubiertas por una cortina cerrada: la gente entra al local, pero no puede ver los productos. Para que un portafolio web funcione de verdad, cada documento, hoja de cálculo y presentación debe tener el permiso de lector para "Cualquier persona con el enlace", y siempre se verifica en una ventana de incógnito.`,
+          dictation: `⏱️ HORA 5 · Evita Quedar Mal por un Archivo Bloqueado:
+De nada sirve mandar un enlace muy bien hecho para un trabajo o una tarea si cuando lo abren les aparece "Solicitar acceso". Es como invitar a alguien a tu negocio y dejar la puerta con candado. Antes de compartir cualquier enlace en internet, siempre debes ponerlo como lector para "Cualquier persona con el enlace" y probarlo en modo incógnito para asegurarte de que cualquiera pueda verlo.`,
           learningResult: 'Configurar correctamente los permisos de lectura en Google Drive para todos los recursos embebidos, publicar el Google Site y validar su acceso público en incógnito.',
           identification: {
             topic: 'Permisos Drive, Publicación Web y Validación',
