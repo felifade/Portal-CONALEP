@@ -2626,8 +2626,7 @@ export const teachingPlan = {
       id: 'W14',
       label: 'Semana 14',
       dateRange: '16 - 20 Nov',
-      status: 'En curso',
-      defaultWeek: true,
+      status: 'Histórico',
       corteId: 'C3',
       raId: 'RA 3.1',
       title: 'Programación Visual en Construct 3: Hoja de Eventos, Animaciones y Nivel en 2 Capas',
@@ -3031,6 +3030,380 @@ export const teachingPlan = {
           product: 'Malware_Bot patrullando con Seno + Evento 7 de colisión + Sem14_Nivel_Apellido_501.c3p + Kahoot (Sello 3).',
           unlockDate: '2026-11-20',
           unlockLabel: 'Viernes 20 de Noviembre (15:00 hrs)',
+        },
+      ],
+    },
+    {
+      id: 'W15',
+      label: 'Semana 15',
+      dateRange: '23 - 27 Nov',
+      status: 'En curso',
+      defaultWeek: true,
+      corteId: 'C3',
+      raId: 'RA 3.1',
+      title: 'Ciberseguridad en la Vida Cotidiana + Nivel 1920 px, Malware_Bot y Variables en Construct 3',
+      result: 'Aplica hábitos prácticos de ciberseguridad diaria (Wi-Fi público, verificación 2FA, detección de phishing, contraseñas seguras, permisos de apps y respaldos) mientras amplía CyberDefender con cámara móvil, patrulla Malware_Bot, variables globales (Vidas/Puntos) y Llave_TLS en 2 capas.',
+      htmlUrl: './html/Manual_Videojuegos_Construct3.html',
+      identification: {
+        place: 'Laboratorio de Cómputo y Aula de Clase',
+        modality: 'Dictado práctico para la vida diaria en libreta + Programación guiada en editor.construct.net (Edición Gratuita · 2 capas)',
+        product: '4 Dictados de Ciberseguridad Cotidiana + Videojuego con Nivel 1920 px, ScrollTo, Malware_Bot, Variables (Vidas/Puntos), Llave_TLS, .c3p y Kahoot Sem 15',
+      },
+      notices: [
+        'Tercer Corte (RA 3.1 · 20%): Semana enfocada en CIBERSEGURIDAD ÚTIL EN TU DÍA A DÍA + avance jugable en Construct 3 (2 capas).',
+        'Miércoles 25 Nov (Sesión 01 · 1 hr): Dictado "Wi-Fi Público, HTTPS y Datos Móviles" + Escenario extendido 1920×720 con Cámara Desplazar hasta (Sello 1).',
+        'Jueves 26 Nov (Sesión 02 · 2 hrs): Dictados "Fraudes SMS/WhatsApp + 2FA" y "Frases-Contraseña vs Claves Repetidas" + Malware_Bot (Seno) + Variables Vidas/Puntos y Daño (Sello 2).',
+        'Viernes 27 Nov (Sesión 03 · 2 hrs): Dictado "Permisos de Apps, Privacidad y Respaldos" + Coleccionables Llave_TLS + Sem15_Juego_Apellido_501.c3p + Gran Kahoot Semana 15 (Sello 3).',
+      ],
+      hours: [
+        {
+          id: 'H01',
+          label: 'Sesión 01 (Miércoles 25 Nov · 1 Hora)',
+          title: 'Vida Cotidiana: Wi-Fi Público vs Datos + Nivel Largo (1920 px) y Cámara Móvil',
+          hook: 'Cuando conectas tu celular al Wi-Fi gratis de una plaza o camión puedes exponer tus cuentas sin darte cuenta. Hoy aprendemos a proteger tu teléfono en redes abiertas y hacemos que la cámara de CyberDefender siga al héroe por un nivel largo.',
+          start: '¿Por qué es peligroso revisar tu banco o meter contraseñas conectado al Wi-Fi gratis de una plaza o cafetería, y cómo hacemos que la cámara del juego nos siga?',
+          infographicImages: [
+            { src: 'construct3_semana15_escudo_cotidiano.png', title: '4 Escudos de Ciberseguridad Diaria + Nivel 1920 px y Cámara Scroll To' }
+          ],
+          dictationTitle: 'CIBERSEGURIDAD DIARIA 1: WI-FI PÚBLICO, CANDADO HTTPS Y DATOS DEL CELULAR',
+          dictation: 'Conectarse a redes Wi-Fi abiertas o gratuitas en plazas, restaurantes, escuelas o transporte público implica un riesgo real, ya que cualquier persona en esa misma red puede espiar el tráfico no cifrado o crear una red falsa con el mismo nombre para robar sesiones. En tu vida cotidiana sigue tres reglas básicas: 1) Desactiva en tu celular la opción "Conectar automáticamente a redes Wi-Fi"; 2) Cuando uses una red ajena, verifica siempre que las páginas tengan el candado HTTPS antes de escribir datos; y 3) Para entrar a apps de banco, transferencias o cambiar contraseñas importantes, desconéctate del Wi-Fi público y usa tus propios datos móviles (4G/5G), que viajan cifrados directo hacia tu compañía telefónica.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Libreta (Dictado Útil) + Construct 3 (Escenario 1920 px y Cámara)',
+            steps: [
+              'LIBRETA: Copia el Dictado de Wi-Fi Público y escribe 2 situaciones cotidianas donde SÍ debes apagar el Wi-Fi y usar tus datos móviles.',
+              'NIVEL EN 2 CAPAS (Construct 3): En "Escena 1", verifica que solo tengas 2 capas ("Fondo" con Paralaje 50%×50% y "Juego" con 100%×100%).',
+              'AMPLIAR ESCENARIO: Clic en la zona gris exterior ➔ Propiedades de Escena ➔ cambia Tamaño (Size) de 1280, 720 a 1920, 720. Estira el "Cielo" y el "Piso" hasta los 1920 px y clona 3 o 4 plataformas con Ctrl + arrastrar.',
+              'ACTIVAR CÁMARA: Clic en "Jugador" ➔ Comportamientos ➔ Añadir "Desplazar hasta" (Scroll To) ➔ Presiona ▶ Vista previa y recorre todo el nivel.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · En tu Día a Día',
+              title: 'Checklist para tu Celular Hoy',
+              items: [
+                'Apaga "Conexión automática" en Ajustes ➔ Wi-Fi.',
+                'Jamás hagas transferencias ni compres en Wi-Fi gratis sin clave.',
+                'Si ves "Conexión no segura" sin candado HTTPS, sal de esa página.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 2 · Construct 3 (2 Capas)',
+              title: 'Ampliar Escena a 1920 × 720 px',
+              items: [
+                'Clic en fondo gris ➔ Tamaño de Escena: 1920, 720.',
+                'Estira Cielo (Fondo 50%) y Piso (Juego 100%) hasta 1920 px.',
+                'Mantén Ctrl + arrastra Plataforma para crear camino escalonado.'
+              ]
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Columna 3 · Cámara Scroll To',
+              title: 'Que la Pantalla Siga al Héroe',
+              items: [
+                'Clic en Sprite Jugador ➔ Comportamientos ➔ Añadir.',
+                'Elige "Desplazar hasta" (Scroll To).',
+                'Prueba en ▶ Vista previa: si algún compañero aún termina animación/piso de Sem 14, cierra primero esos 6 eventos con el PDF.'
+              ]
+            }
+          ],
+          terminalRadar: 'Escudo Diario #1 (Wi-Fi / Datos) + Escena 1920×720 en 2 capas con Scroll To funcionando.',
+          learningResult: 'El estudiante distingue los riesgos de las redes Wi-Fi abiertas en su vida diaria e implementa desplazamiento de cámara sobre un nivel extendido en 2 capas.',
+          identification: 'Tema: Wi-Fi Público/HTTPS y Nivel con Cámara Scroll To. Evidencia: Dictado en libreta + Nivel 1920 px navegable (Sello 1).',
+          development: 'Dictado práctico para el uso seguro del celular y ampliación física del escenario respetando límite de 2 capas.',
+          closure: 'Validación en ▶ Vista previa del seguimiento horizontal de cámara y firma del Sello 1.',
+          faq: [
+            { q: '¿Si estoy en un café y solo quiero ver videos o música pasa algo?', a: 'Para ver contenido público sin iniciar sesión el riesgo es menor, pero nunca entres a tu banco, correo principal o tiendas con tarjeta desde Wi-Fi público.' }
+          ],
+          sello: {
+            num: 'Sello 1',
+            desc: 'Dictado de Wi-Fi Público en libreta + Nivel 1920 px con cámara Desplazar hasta funcionando en ▶.'
+          }
+        },
+        {
+          id: 'H02',
+          label: 'Sesión 02 (Jueves 26 Nov · Hora 1)',
+          title: 'Vida Cotidiana: Fraudes SMS/WhatsApp y 2FA + Patrulla Malware_Bot (Seno)',
+          hook: '"Tu paquete está detenido", "Cargo sospechoso de $4,500", "Hola, me llegó un código a tu número, ¿me lo pasas?". Así roban cuentas todos los días. Hoy aprendemos a detectarlos en segundos y ponemos a patrullar al primer enemigo en nuestro juego.',
+          start: '¿Cómo identificas en 5 segundos un mensaje falso (Phishing / Smishing) y cómo programamos que Malware_Bot patrulle sin gastar eventos?',
+          infographicImages: [
+            { src: 'construct3_semana15_bot_variables_llaves.png', title: 'Guía Explícita · Malware_Bot (Seno), Variables Globales, Marcador y Llave_TLS' }
+          ],
+          dictationTitle: 'CIBERSEGURIDAD DIARIA 2: FRAUDES POR SMS/WHATSAPP Y VERIFICACIÓN EN 2 PASOS (2FA)',
+          dictation: 'El Phishing (por correo o enlace) y el Smishing (por SMS o WhatsApp) son engaños diseñados para que entregues tus datos por miedo o prisa, usando mensajes como "tu cuenta será suspendida", "ganaste un premio" o "paquete retenido en aduana". Antes de tocar cualquier enlace revisa siempre la dirección web real (por ejemplo, un banco o dependencia oficial jamás usa dominios raros como .xyz o .top) y nunca respondas ni des clic desde el mensaje: abre mejor la app oficial directamente. Además, activa la Verificación en Dos Pasos (2FA) en WhatsApp, Instagram, TikTok y tu correo, y recuerda la regla absoluta: jamás le compartas a nadie un código de 6 dígitos que llegue a tu teléfono, ni siquiera si parece escribirte un amigo o familiar.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Libreta (Detectar Fraudes + Activar 2FA) y Patrulla Malware_Bot',
+            steps: [
+              'LIBRETA: Copia el Dictado y anota 3 señales de alerta de un SMS o mensaje fraudulento real.',
+              'CONSTRUCT 3: En "Escena 1" (capa Juego), inserta o coloca el Sprite "Malware_Bot" sobre una plataforma elevada.',
+              'PATRULLA AUTOMÁTICA: Selecciona Malware_Bot ➔ Comportamientos ➔ Añadir "Seno" (Sine) ➔ Movimiento: Horizontal | Periodo: 4 | Magnitud: 80.',
+              'PRUEBA EN ▶ VISTA PREVIA: Comprueba que el bot se desliza solo sobre su plataforma de izquierda a derecha.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'amber',
+              badge: '🟡 Columna 1 · En tu Celular',
+              title: 'Regla Anti-Robo en WhatsApp/SMS',
+              items: [
+                'Si llega "cargo en tarjeta" o "paquete", NO des clic: abre tú mismo la app del banco/paquetería.',
+                'Revisa los Ajustes de WhatsApp ➔ Cuenta ➔ Verificación en dos pasos (PIN de 6 dígitos).',
+                'Si un amigo te pide dinero o un código por mensaje, llámale por voz primero.'
+              ]
+            },
+            {
+              color: 'red',
+              badge: '🔴 Columna 2 · Patrulla Malware_Bot',
+              title: 'Comportamiento Seno (Sine)',
+              items: [
+                'Coloca a Malware_Bot arriba de una plataforma en el tramo medio/derecho.',
+                'Comportamientos ➔ Añadir ➔ Movimiento: "Seno" (Sine).',
+                'Configura: Movimiento = Horizontal, Periodo = 4, Magnitud = 80.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 3 · Ventaja Técnica',
+              title: 'Ahorro de Eventos (Edición Gratis)',
+              items: [
+                'El comportamiento Seno mueve al enemigo automáticamente en cada fotograma.',
+                'Consume CERO eventos de tu límite de 25 eventos en modo Invitado.',
+                'Deja espacio libre arriba de la plataforma para poder saltarlo.'
+              ]
+            }
+          ],
+          terminalRadar: 'Escudo Diario #2 (Anti-Phishing + 2FA) + Malware_Bot patrullando con Seno (4s / 80px).',
+          learningResult: 'El estudiante identifica técnicas de ingeniería social cotidiana (phishing/smishing), comprende el 2FA e implementa movimiento periódico con Sine.',
+          identification: 'Tema: Phishing/Smishing/2FA y Patrulla Sine. Evidencia: Dictado + Malware_Bot patrullando en pantalla.',
+          development: 'Análisis de estafas reales frecuentes en jóvenes y configuración autónoma de patrulla enemiga.',
+          closure: 'Verificación de que Malware_Bot no se sale del borde de su plataforma al oscilar.',
+          faq: [
+            { q: '¿Por qué me pueden robar mi WhatsApp si les doy el código de 6 dígitos?', a: 'Ese SMS de 6 dígitos es la llave para registrar tu número en otro teléfono. Si lo reenvías, cierran tu sesión en segundos y usan tu cuenta para pedir dinero a tus contactos.' }
+          ],
+          sello: {
+            num: 'Sello 2 (Parte 1)',
+            desc: 'Dictado de Phishing/2FA en libreta + Malware_Bot patrullando con Seno.'
+          }
+        },
+        {
+          id: 'H03',
+          label: 'Sesión 02 (Jueves 26 Nov · Hora 2)',
+          title: 'Vida Cotidiana: Contraseñas Fuertes vs Claves Repetidas + Variables Vidas y Puntos',
+          hook: 'Si usas la misma contraseña en un juego gratis, en Instagram y en tu correo, el día que hackean el juego gratis tienen la llave de toda tu vida. Hoy aprendemos a crear frases-contraseña imposibles de adivinar y creamos las variables de Vidas y Puntos.',
+          start: '¿Por qué repetir la misma contraseña en todas tus apps es un peligro gigante y cómo guardamos en Construct 3 cuántas Vidas y Puntos lleva el jugador?',
+          dictationTitle: 'CIBERSEGURIDAD DIARIA 3: FRASES-CONTRASEÑA ÚNICAS Y GESTORES SEGUROS',
+          dictation: 'El error más común en la vida diaria es usar contraseñas cortas (como 123456 o tu fecha de nacimiento) o repetir exactamente la misma clave en todas tus aplicaciones. Cuando una página secundaria sufre una filtración de datos, los atacantes prueban ese mismo correo y contraseña automáticamente en tu Gmail, redes sociales y bancos (ataque llamado Credential Stuffing). La solución práctica es usar Frases-Contraseña de al menos 12 a 16 caracteres mezclando palabras cotidianas, mayúsculas, números y un símbolo (por ejemplo: TacosDeCanasta!Pachuca26), variando un detalle distinto por cada cuenta importante y apoyándote en el gestor integrado de tu navegador o teléfono protegido con tu huella o PIN.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Libreta (Crea tu Fórmula de Clave) + Variables Vidas/Puntos y Daño en C3',
+            steps: [
+              'LIBRETA: Copia el Dictado y diseña en tu cuaderno tu propia fórmula de Frase-Contraseña (sin escribir tu clave real personal).',
+              'VARIABLES GLOBALES (Hoja de eventos 1): Clic derecho en zona vacía ➔ Añadir variable global: crea "Vidas" (Número, valor inicial 3) y "Puntos" (Número, valor inicial 0).',
+              'TEXTO MARCADOR (Escena 1 · capa Juego): Doble clic ➔ Texto ➔ "TextoMarcador" arriba a la izquierda (sin crear 3ra capa).',
+              'EVENTOS 6, 7 y 8: Cada tick ➔ TextoMarcador: "Vidas: " & Vidas & " | Puntos: " & Puntos. Al colisionar Jugador con Malware_Bot ➔ Restar 1 a Vidas e ir a (220, 618). Si Vidas <= 0 ➔ Reiniciar escena y Restablecer variables globales.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'purple',
+              badge: '🟣 Columna 1 · Tu Clave Cotidiana',
+              title: 'Regla de Oro para Contraseñas',
+              items: [
+                'Larga (12+ caracteres) vale más que rara y corta.',
+                'Ejemplo fácil de recordar: 3 palabras + símbolo + número.',
+                'Jamás repitas la clave de tu correo principal en páginas desconocidas.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 2 · Variables + Texto',
+              title: 'Memoria del Juego (En Capa Juego)',
+              items: [
+                'Hoja de eventos 1 ➔ clic derecho vacío ➔ Añadir variable global: Vidas = 3 y Puntos = 0.',
+                'Escena 1 ➔ insertar Texto llamado TextoMarcador arriba a la izquierda.',
+                'Evento 6: Sistema: Cada tick ➔ TextoMarcador: "Vidas: " & Vidas & " | Puntos: " & Puntos.'
+              ]
+            },
+            {
+              color: 'red',
+              badge: '🔴 Columna 3 · Eventos 7 y 8 (Daño)',
+              title: 'Restar Vidas y Reiniciar',
+              items: [
+                'Evento 7: Jugador ➔ Al colisionar con Malware_Bot ➔ Sistema: Restar 1 de Vidas + Jugador: Establecer posición (220, 618).',
+                'Evento 8: Sistema ➔ Comparar variable Vidas <= 0 ➔ Sistema: Reiniciar escena + Restablecer variables globales.'
+              ]
+            }
+          ],
+          terminalRadar: 'Escudo Diario #3 (Frase-Contraseña) + Variables [Vidas=3, Puntos=0] + Choque funcional.',
+          learningResult: 'El estudiante comprende el riesgo de reutilizar contraseñas y programa variables globales, concatenación de texto dinámico y lógica de derrota/reinicio.',
+          identification: 'Tema: Contraseñas Seguras y Variables Globales (Vidas/Puntos). Evidencia: Marcador vivo y descuento de vidas al chocar (Sello 2).',
+          development: 'Construcción de variables globales en memoria, actualización dinámica con Cada tick y prueba de colisión con Malware_Bot.',
+          closure: 'Prueba real en ▶ Vista previa tocando 3 veces al Malware_Bot para comprobar que reinicia Vidas = 3.',
+          faq: [
+            { q: '¿Por qué se usa el símbolo & dentro de "Vidas: " & Vidas?', a: 'En Construct 3 el símbolo & (ampersand) pega texto fijo con el número que está guardado dentro de la variable en tiempo real.' }
+          ],
+          sello: {
+            num: 'Sello 2',
+            desc: 'Dictado de Contraseñas + Marcador de Vidas bajando de 3 a 0 al tocar Malware_Bot y reiniciando escena.'
+          }
+        },
+        {
+          id: 'H04',
+          label: 'Sesión 03 (Viernes 27 Nov · Hora 1)',
+          title: 'Vida Cotidiana: Permisos de Apps y Respaldos + Coleccionables Llave_TLS (+100 Puntos)',
+          hook: '¿Por qué una app gratis de linterna o filtros te pide acceso a tus contactos, ubicación exacta y micrófono? Y si hoy se te cae o pierdes el celular, ¿pierdes tus fotos y tareas? Hoy cerramos el cuarto escudo diario y agregamos las Llaves_TLS coleccionables.',
+          start: '¿Qué permisos debes negarle a una aplicación en tu teléfono y cómo programamos que al recoger una Llave_TLS sume 100 puntos?',
+          dictationTitle: 'CIBERSEGURIDAD DIARIA 4: PERMISOS DE APPS, PRIVACIDAD Y RESPALDOS EN LA NUBE',
+          dictation: 'Cada vez que instalas una aplicación en Android o iOS, debes aplicar el Principio de Mínimo Privilegio en tu vida diaria: pregúntate si la app realmente necesita ese permiso para funcionar. Si un juego offline o editor de texto pide acceso a tus contactos, llamadas o micrófono en segundo plano, deniégalo en Ajustes ➔ Aplicaciones ➔ Permisos. De igual forma, configura la privacidad de tus redes sociales para no publicar en vivo tu ubicación exacta, escuela o documentos con código QR. Finalmente, mantén respaldo automático de tus fotos y tareas importantes en la nube (Google Drive / iCloud): así, si pierdes el celular o te infecta un virus secuestrador (Ransomware), tu información sigue intacta.',
+          workBlock: {
+            duration: '35 minutos',
+            title: 'Libreta (Auditoría de Permisos) + Llave_TLS (+100 pts) y Respaldo .c3p',
+            steps: [
+              'LIBRETA: Copia el Dictado y anota 3 permisos innecesarios que jamás debería pedir una app de calculadora o fondos de pantalla.',
+              'COLECCIONABLES (Escena 1 · capa Juego): Inserta o coloca 3 copias de "Llave_TLS" repartidas sobre tus plataformas (usa Ctrl + arrastrar).',
+              'EVENTO 9 (Hoja de eventos 1): Condición: Jugador ➔ Al colisionar con otro objeto [Llave_TLS] ➔ Acciones: 1) Llave_TLS ➔ Destruir, 2) Sistema ➔ Añadir 100 a Puntos.',
+              'RESPALDO EN LA NUBE (Aplicando lo dictado hoy): Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia: Sem15_Juego_Apellido_501.c3p y súbelo a Drive/Classroom.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'green',
+              badge: '🟢 Columna 1 · Privacidad Celular',
+              title: 'Revisión Hoy en tu Teléfono',
+              items: [
+                'Ubicación: elige "Solo mientras se usa la app" (nunca "Siempre" si no es mapa).',
+                'No subas fotos de boletos, credenciales o placas sin tapar datos.',
+                'Guarda copias de trabajos escolares y .c3p en Drive.'
+              ]
+            },
+            {
+              color: 'amber',
+              badge: '🟡 Columna 2 · Evento 9 (Llave_TLS)',
+              title: 'Sumar +100 Puntos al Recoger',
+              items: [
+                'Coloca 3 Llave_TLS sobre distintas plataformas de tu nivel de 1920 px.',
+                'Hoja de eventos 1 ➔ Añadir evento ➔ Jugador: Al colisionar con Llave_TLS.',
+                'Acciones: Llave_TLS ➔ Destruir | Sistema ➔ Añadir 100 a Puntos.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 3 · Respaldo .c3p',
+              title: 'Guardar Evidencia en Nube',
+              items: [
+                'Total de eventos del juego: ~9 eventos (dentro del límite gratis).',
+                'Descarga Sem15_Juego_Apellido_501.c3p.',
+                'Súbelo a Classroom/Drive como respaldo real.'
+              ]
+            }
+          ],
+          terminalRadar: 'Escudo Diario #4 (Permisos + Nube) + Evento 9 (Llave_TLS +100 pts) + Respaldo .c3p.',
+          learningResult: 'El estudiante aplica el principio de mínimo privilegio en dispositivos personales e implementa recolección de objetos con actualización de puntaje y respaldo en la nube.',
+          identification: 'Tema: Permisos de Apps/Respaldos y Coleccionables Llave_TLS. Evidencia: Puntos subiendo de 0 a 300 y archivo .c3p respaldado.',
+          development: 'Auditoría práctica de permisos móviles y programación del Evento 9 de recolección y destrucción de instancias.',
+          closure: 'Verificación de suma de puntos (100 por llave) y subida exitosa de Sem15_Juego_Apellido_501.c3p.',
+          faq: [
+            { q: '¿Si tengo 3 copias de Llave_TLS tengo que programar 3 eventos?', a: 'No: en Construct 3 un solo evento con "Destruir Llave_TLS" destruye únicamente la copia exacta que acaba de tocar el Jugador.' }
+          ],
+          sello: {
+            num: 'Sello 3 (Parte 1)',
+            desc: 'Dictado de Permisos/Respaldos + 3 Llaves_TLS sumando +100 pts cada una + archivo .c3p.'
+          }
+        },
+        {
+          id: 'H05',
+          label: 'Sesión 03 (Viernes 27 Nov · Hora 2)',
+          title: '🏆 Casos Reales del Día a Día y Gran Kahoot Semana 15',
+          hook: '¿Sabrías reaccionar en menos de 10 segundos si te llega un WhatsApp sospechoso, te piden un código o falla una app? Cerramos la semana poniendo a prueba tus 4 escudos cotidianos y lo programado en Construct 3.',
+          start: '¿Qué aprendimos esta semana que ya puedes aplicar hoy mismo en tu teléfono y qué mecánicas ya tiene tu videojuego CyberDefender?',
+          dictationTitle: 'PROTOCOLO DIARIO DE CIBERSEGURIDAD PERSONAL (RESUMEN DE BOLSILLO)',
+          dictation: 'La ciberseguridad cotidiana no depende de programas costosos sino de cuatro hábitos diarios: 1) Red segura: evita banca o contraseñas en Wi-Fi público y usa datos móviles + HTTPS; 2) Cero engaños: desconfía de enlaces urgentes por SMS/WhatsApp y nunca entregues códigos de 6 dígitos (activa 2FA); 3) Claves únicas: usa frases-contraseña largas y distintas en tus cuentas importantes; y 4) Control y respaldo: niega permisos innecesarios en tus apps y guarda respaldo en la nube de tus archivos valiosos.',
+          workBlock: {
+            duration: '30 minutos',
+            title: 'Cierre en 3 Columnas: Casos Cotidianos ➔ Gran Kahoot ➔ Sello 3',
+            steps: [
+              'Copia el Protocolo de 4 Hábitos en tu libreta como resumen semanal.',
+              'Participa en el Gran Kahoot Semana 15 (casos reales de Wi-Fi, SMS falso, 2FA, contraseñas, permisos + ScrollTo, Sine y Variables).',
+              'Muestra tu juego funcionando, tu archivo .c3p y tu puntaje de Kahoot para recibir el Sello 3.'
+            ]
+          },
+          devColumns: [
+            {
+              color: 'purple',
+              badge: '🟣 Columna 1 · Casos Rápidos',
+              title: '¿Qué Harías Tú Hoy?',
+              items: [
+                'Caso 1: Llega SMS "Estafeta: actualiza tu dirección en bit.ly/...". ➔ Borrar y no abrir.',
+                'Caso 2: Wi-Fi del camión pide iniciar sesión con Facebook. ➔ No usarlo, usar datos.',
+                'Caso 3: App de tonos pide acceso a tus contactos. ➔ Denegar permiso.'
+              ]
+            },
+            {
+              color: 'blue',
+              badge: '🔵 Columna 2 · Gran Kahoot Sem 15',
+              title: 'Evaluación Gamificada (20 Preguntas)',
+              items: [
+                'Entra a kahoot.it con el PIN proyectado.',
+                'Mitad de preguntas sobre casos de tu celular/vida diaria y mitad sobre Construct 3 (ScrollTo, Seno, Variables &).',
+                'Anota tu lugar y puntaje en la libreta.'
+              ]
+            },
+            {
+              color: 'green',
+              badge: '🟢 Columna 3 · Sello 3 Final',
+              title: 'Checklist de Cierre Semanal',
+              items: [
+                '1. 4 Dictados cotidianos completos en libreta + Sellos 1 y 2.',
+                '2. Juego funcionando en ▶ (Cámara, Malware_Bot, Vidas, Puntos y Llaves).',
+                '3. Archivo Sem15_Juego_Apellido_501.c3p guardado + puntaje Kahoot.'
+              ]
+            }
+          ],
+          terminalRadar: 'Semana 15 Completa ➔ 4 Escudos Diarios + CyberDefender Jugable (Vidas/Puntos/Llaves) + Kahoot.',
+          learningResult: 'El estudiante integra hábitos diarios de autoprotección digital y consolida programación basada en eventos y variables.',
+          identification: 'Tema: Protocolo Diario + Gran Kahoot Semana 15. Evidencia: Libreta sellada, .c3p y puntaje Kahoot.',
+          development: 'Resolución grupal de casos cotidianos reales, competencia Kahoot Semana 15 y evaluación final.',
+          closure: 'Firma del Sello 3 y adelanto de Semana 16: Puerta_Servidor (chmod 600), Cristal_Salting (escudo temporal) y pantalla de Victoria.',
+          faq: [
+            { q: '¿Qué agregaremos la próxima semana (Semana 16)?', a: 'El escudo Cristal_Salting (inmunidad temporal de 6 segundos), la Puerta_Servidor chmod 600 que pide las 3 Llaves y la exportación final Web HTML5.' }
+          ],
+          sello: {
+            num: 'Sello 3',
+            desc: 'Dictados cotidianos completos + Juego Sem 15 (.c3p con cámara, bot, vidas y llaves) + Puntaje Kahoot.'
+          }
+        }
+      ],
+      sessions: [
+        {
+          id: 'S01',
+          label: 'Sesión 01',
+          duration: '1 hora',
+          title: 'Vida Cotidiana (Wi-Fi Público / HTTPS) + Nivel 1920 px y Cámara Móvil',
+          hourIds: ['H01'],
+          product: 'Dictado de Wi-Fi Público en libreta + Nivel 1920×720 en 2 capas con cámara Scroll To funcionando (Sello 1).',
+        },
+        {
+          id: 'S02',
+          label: 'Sesión 02',
+          duration: '2 horas',
+          title: 'Vida Cotidiana (Phishing/2FA y Contraseñas) + Malware_Bot (Seno) + Variables Vidas y Puntos',
+          hourIds: ['H02', 'H03'],
+          product: 'Dictados de fraudes/contraseñas + Malware_Bot patrullando + Marcador de Vidas y Puntos bajando al chocar (Sello 2).',
+          unlockDate: '2026-11-26',
+          unlockLabel: 'Jueves 26 de Noviembre (15:00 hrs)',
+        },
+        {
+          id: 'S03',
+          label: 'Sesión 03',
+          duration: '2 horas',
+          title: 'Vida Cotidiana (Permisos de Apps y Respaldos) + Llave_TLS + .c3p + Gran Kahoot Sem 15',
+          hourIds: ['H04', 'H05'],
+          product: 'Dictado de permisos/nube + 3 Llaves_TLS (+100 pts) + Sem15_Juego_Apellido_501.c3p + Kahoot Semana 15 (Sello 3).',
+          unlockDate: '2026-11-27',
+          unlockLabel: 'Viernes 27 de Noviembre (15:00 hrs)',
         },
       ],
     },
