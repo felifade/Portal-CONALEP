@@ -44,6 +44,8 @@ import imgC3Importar from '../assets/construct3_paso2_importar_dibujo.png';
 import imgC3Animar from '../assets/construct3_paso3_animar_duplicando.png';
 import imgC3Sem14Eventos from '../assets/construct3_semana14_hoja_eventos_paso_a_paso.png';
 import imgC3Sem14Nivel from '../assets/construct3_semana14_nivel_camara_patrulla.png';
+import imgC3Sem15Escudo from '../assets/construct3_semana15_escudo_cotidiano.png';
+import imgC3Sem15Vars from '../assets/construct3_semana15_bot_variables_llaves.png';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -60,6 +62,8 @@ const ASSET_REGISTRY = {
   'construct3_paso3_animar_duplicando.png': imgC3Animar,
   'construct3_semana14_hoja_eventos_paso_a_paso.png': imgC3Sem14Eventos,
   'construct3_semana14_nivel_camara_patrulla.png': imgC3Sem14Nivel,
+  'construct3_semana15_escudo_cotidiano.png': imgC3Sem15Escudo,
+  'construct3_semana15_bot_variables_llaves.png': imgC3Sem15Vars,
 };
 
 function resolveAssetUrl(src) {
