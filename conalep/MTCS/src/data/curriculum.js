@@ -72,9 +72,7 @@ export const curriculumData = {
       peso: "20%",
       corte: 3,
       weeks: [
-        { id: "W14", label: "Semana 14 (16-20 Nov)" },
-        { id: "W15", label: "Semana 15 (23-27 Nov)" },
-        { id: "W16", label: "Semana 16 (30 Nov-04 Dic)" }
+        { id: "W14", label: "Semana 14 (16-20 Nov)" }
       ]
     },
     {
@@ -83,6 +81,8 @@ export const curriculumData = {
       peso: "15%",
       corte: 3,
       weeks: [
+        { id: "W15", label: "Semana 15 (23-27 Nov)" },
+        { id: "W16", label: "Semana 16 (30 Nov-04 Dic)" },
         { id: "W17", label: "Semana 17 (07-11 Dic)" },
         { id: "W18", label: "Semana 18 (14-18 Dic)" },
         { id: "W19", label: "Semana 19 (04-08 Ene)" }
