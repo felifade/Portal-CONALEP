@@ -2036,6 +2036,33 @@ button {
   font-size: 11.5px;
   color: #15803d;
 }
+.teacher-faq-details {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.teacher-faq-details summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 13px;
+  color: #334155;
+  list-style: none;
+}
+.teacher-faq-details summary::-webkit-details-marker {
+  display: none;
+}
+.teacher-faq-details .details-hint {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284c7;
+}
+.teacher-faq-details-body {
+  margin-top: 10px;
+}
 .dev-col-badge {
   align-self: flex-start;
   font-size: 10.5px;
