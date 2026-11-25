@@ -1050,33 +1050,35 @@ function TeachingPortal() {
                       </div>
                     )}
 
-                    {/* 4. Radar de Terminal */}
-                    {hour.terminalRadar && (
-                      <div className="teacher-radar-card">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                          <Terminal size={16} style={{ color: '#00ff88' }} />
-                          <strong>💻 Radar de Terminal (Lo que debes ver en sus pantallas):</strong>
-                        </div>
-                        <pre className="terminal-radar-pre">{hour.terminalRadar}</pre>
-                      </div>
-                    )}
-
-                    {/* 5. Clave de Respuestas / FAQ */}
-                    {hour.faq?.length > 0 && (
-                      <div className="teacher-faq-card">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                          <CheckCircle2 size={16} style={{ color: '#9333ea' }} />
-                          <strong>🎯 Clave de Respuestas / Dudas al Vuelo:</strong>
-                        </div>
-                        <div className="faq-items-list">
-                          {hour.faq.map((item, fidx) => (
-                            <div className="faq-item" key={fidx}>
-                              <p className="faq-q">❓ {item.q}</p>
-                              <p className="faq-a">👉 <strong>Respuesta:</strong> {item.a}</p>
+                    {/* 4. Radar y Dudas al vuelo (Compacto / Desplegable para evitar saturación visual) */}
+                    {(hour.terminalRadar || hour.faq?.length > 0) && (
+                      <details className="teacher-faq-details">
+                        <summary>
+                          <span>🎯 Radar de Pantalla y Dudas Rápidas ({hour.faq?.length || 0})</span>
+                          <span className="details-hint">Clic para ver / ocultar</span>
+                        </summary>
+                        <div className="teacher-faq-details-body">
+                          {hour.terminalRadar && (
+                            <div className="teacher-radar-card" style={{ marginBottom: hour.faq?.length ? 10 : 0 }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                                <Terminal size={15} style={{ color: '#00ff88' }} />
+                                <strong>💻 Qué debes ver en pantalla:</strong>
+                              </div>
+                              <pre className="terminal-radar-pre">{hour.terminalRadar}</pre>
                             </div>
-                          ))}
+                          )}
+                          {hour.faq?.length > 0 && (
+                            <div className="faq-items-list">
+                              {hour.faq.map((item, fidx) => (
+                                <div className="faq-item" key={fidx}>
+                                  <p className="faq-q">❓ {item.q}</p>
+                                  <p className="faq-a">👉 <strong>Respuesta:</strong> {item.a}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      </div>
+                      </details>
                     )}
 
                     {/* 6. Criterio de Sello */}

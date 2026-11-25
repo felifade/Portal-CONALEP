@@ -3059,116 +3059,70 @@ export const teachingPlan = {
         {
           id: 'H01',
           label: 'Sesión 01 (Miércoles 25 Nov · 1 Hora)',
-          title: 'Vida Cotidiana: Wi-Fi Público + Cómo Crear el Fondo (Cielo), Nivel 1920 px y Cámara',
-          hook: 'Cuando conectas tu celular al Wi-Fi gratis de una plaza o camión puedes exponer tus cuentas sin darte cuenta. Hoy protegemos tu teléfono y construimos paso a paso el fondo espacial de CyberDefender, ampliamos el mapa y ponemos cámara móvil.',
-          start: '¿Por qué es peligroso usar Wi-Fi abierto para tu banco o contraseñas, y cómo creamos la capa Fondo con un Cielo nocturno que dé sensación de profundidad?',
-          infographicImages: [
-            { src: 'construct3_semana15_escudo_cotidiano.png', title: 'Resumen Visual · Los 4 Escudos de Ciberseguridad para tu Vida Cotidiana' },
-            { src: 'w15_s01_paso1_capas_fondo.png', title: 'Paso 1 Ilustrado · Cómo crear la capa Fondo, el Cielo (Fondo en mosaico) y bloquear con Candado' },
-            { src: 'w15_s01_paso2_nivel_plataformas.png', title: 'Paso 2 Ilustrado · Ampliar Escena a 1920 × 720, estirar Cielo/Piso y clonar con Ctrl' },
-            { src: 'w15_s01_paso3_camara_prueba.png', title: 'Paso 3 Ilustrado · Poner cámara Desplazar hasta (Scroll To) y verificar en Vista previa' }
-          ],
-          dictationTitle: 'CIBERSEGURIDAD DIARIA 1: WI-FI PÚBLICO, CANDADO HTTPS Y DATOS DEL CELULAR',
-          dictation: 'Conectarse a redes Wi-Fi abiertas o gratuitas en plazas, restaurantes, escuelas o transporte público implica un riesgo real, ya que cualquier persona en esa misma red puede espiar el tráfico no cifrado o crear una red falsa con el mismo nombre para robar sesiones. En tu vida cotidiana sigue tres reglas básicas: 1) Desactiva en tu celular la opción "Conectar automáticamente a redes Wi-Fi"; 2) Cuando uses una red ajena, verifica siempre que las páginas tengan el candado HTTPS antes de escribir datos; y 3) Para entrar a apps de banco, transferencias o cambiar contraseñas importantes, desconéctate del Wi-Fi público y usa tus propios datos móviles (4G/5G), que viajan cifrados directo hacia tu compañía telefónica.',
+          title: 'Red Abierta vs Ruta Segura: Candado en Capa "Fondo" (Cielo) y Cámara en "Juego"',
+          hook: '¿Qué tiene que ver tu celular con este nivel? En la calle, el Wi-Fi público es un entorno abierto que cualquiera puede mover o espiar si no pones candado (HTTPS) y usas tu ruta segura (Datos Móviles). Hoy construimos esa misma regla en Construct 3: separaremos la Capa "Fondo" (bloqueada con Candado 🔒) de tu Capa "Juego" (la ruta segura de plataformas con cámara vigilante).',
+          start: 'Si un Wi-Fi abierto es como un fondo público sin protección, ¿cómo blindas tus datos en la vida diaria y cómo proteges el Fondo de tu juego para no alterarlo por error?',
+          dictationTitle: 'SEPARA LO PÚBLICO DE TU RUTA SEGURA (WI-FI PÚBLICO VS DATOS Y CANDADO HTTPS)',
+          dictation: 'Conectarse al Wi-Fi gratis de una plaza, café o camión es como caminar en un entorno abierto donde desconocidos pueden espiar lo que envías. Para protegerte cada día: 1) Desactiva en tu celular "Conectar automáticamente a redes Wi-Fi"; 2) Revisa siempre el candado HTTPS antes de escribir contraseñas; y 3) Para entrar al banco o cuentas importantes, sal del Wi-Fi público y usa tus datos móviles, que viajan cifrados por tu propio camino. Igual que en tu celular separas lo abierto de tu canal seguro con candado, hoy en Construct 3 separaremos la capa "Fondo" (protegida con Candado 🔒) de la capa "Juego" (el camino seguro donde viaja tu personaje).',
           workBlock: {
             duration: '30 minutos',
-            title: '3 Pasos Ilustrados con Verificación (Marca cada paso ✔ al completarlo)',
+            title: '3 Pasos Ilustrados con Verificación (Marca cada paso ✔ al terminarlo)',
             steps: [
-              'PASO 1 (Crear el Fondo): En el panel Capas, crea abajo la capa "Fondo" (Paralaje 50%×50%) y arriba deja "Juego" (100%×100%). En Fondo inserta un "Fondo en mosaico" llamado "Cielo", píntalo azul noche con puntitos de luz, cubre la hoja y activa el Candado 🔒.',
-              'PASO 2 (Ampliar a 1920 px): Clic en zona gris fuera de la hoja ➔ Propiedades ➔ Tamaño: 1920, 720. Estira "Cielo" y "Piso" hasta 1920 px y clona 3 o 4 copias de "Plataforma" manteniendo Ctrl + arrastrar.',
-              'PASO 3 (Cámara y Prueba): Clic en "Jugador" ➔ Comportamientos ➔ Añadir "Desplazar hasta" (Scroll To). Presiona ▶ Vista previa y camina hasta el fondo derecho.'
+              'PASO 1 · Capa Fondo + Cielo (🔒): Crea la capa "Fondo" abajo (Paralaje 50%×50%) y pon un Fondo en mosaico llamado "Cielo" con Candado 🔒.',
+              'PASO 2 · Ruta de 1920 px: Cambia Tamaño de Escena a 1920, 720, estira Cielo y Piso, y clona 3 o 4 plataformas con Ctrl + arrastrar.',
+              'PASO 3 · Cámara Vigilante: Añade "Desplazar hasta" (Scroll To) a Jugador, prueba en ▶ Vista previa y anota 2 ejemplos cotidianos en libreta.'
             ]
           },
           devColumns: [
             {
               color: 'green',
-              badge: '🟢 Paso 1 · Crear Fondo y Cielo',
-              title: 'Capa "Fondo" + Fondo en Mosaico "Cielo"',
+              badge: '🟢 Paso 1 · Capa "Fondo" y "Cielo"',
+              title: 'Separar Fondo (🔒) de Juego',
               image: 'w15_s01_paso1_capas_fondo.png',
               items: [
-                '1. Panel derecho Capas: clic derecho en la capa actual ➔ Añadir ➔ Añadir capa abajo.',
-                '2. Nombra la capa de abajo "Fondo" y la de arriba "Juego" (máximo 2 capas).',
-                '3. Haz clic en "Fondo" y a la izquierda pon Paralaje (Parallax): 50% x 50%.',
-                '4. Doble clic en escena ➔ elige "Fondo en mosaico" (Tiled Background) ➔ nómbralo "Cielo" ➔ Insertar.',
-                '5. Píntalo azul noche (#090d16) con puntitos de estrellas, cierra [X], cúbrelo de lado a lado y activa el Candado 🔒 en "Fondo".'
+                '1. Panel Capas (derecha): clic derecho ➔ Añadir capa abajo. Nombra abajo "Fondo" (Paralaje 50%×50%) y arriba "Juego".',
+                '2. Selecciona "Fondo" ➔ doble clic en la escena ➔ elige "Fondo en mosaico" ➔ nómbralo "Cielo".',
+                '3. Píntalo azul noche (#090d16) con estrellas, cubre la pantalla y activa el Candado 🔒 en "Fondo" (como tu candado HTTPS).'
               ],
-              verify: 'En el panel Capas ves exactamente 2 capas ("Fondo" abajo con 🔒 y "Juego" arriba) y tu escenario ya tiene cielo nocturno detrás del Piso.'
+              verify: 'En Capas ves 2 capas ("Fondo" con 🔒 abajo y "Juego" arriba) y tu escena ya tiene cielo nocturno.'
             },
             {
               color: 'blue',
-              badge: '🔵 Paso 2 · Nivel Largo 1920 px',
-              title: 'Ampliar Escena y Clonar Plataformas',
+              badge: '🔵 Paso 2 · Ruta Segura 1920 px',
+              title: 'Ampliar Nivel y Clonar Plataformas',
               image: 'w15_s01_paso2_nivel_plataformas.png',
               items: [
-                '1. Haz clic en el área gris afuera de la hoja blanca para ver Propiedades de Escena 1.',
-                '2. Cambia Tamaño (Size) de 1280, 720 a 1920, 720.',
-                '3. Quita el Candado 🔒 a "Fondo" un momento, estira "Cielo" hasta 1920 px y vuelve a poner 🔒.',
-                '4. Clic en capa "Juego" ➔ estira tu "Piso" (Sólido) desde X=0 hasta X=1920.',
-                '5. Selecciona "Plataforma", mantén presionada la tecla Ctrl y arrastra para crear 3 o 4 escalones a la derecha.'
+                '1. Clic en zona gris exterior ➔ Propiedades ➔ Tamaño: 1920, 720.',
+                '2. Quita 🔒 a "Fondo" un segundo, estira "Cielo" a 1920 px y vuelve a poner 🔒.',
+                '3. En "Juego", estira "Piso" a 1920 px y clona 3 plataformas hacia la derecha con Ctrl + arrastrar.'
               ],
-              verify: 'La escena se ve más larga hacia la derecha (1920 px) con el Piso continuo abajo y 3 o 4 plataformas escalonadas encima.'
+              verify: 'Tu nivel mide 1920 px de ancho con Piso continuo y 3 o 4 escalones saltables a la derecha.'
             },
             {
               color: 'purple',
-              badge: '🟣 Paso 3 · Cámara Scroll To',
-              title: 'Cámara Móvil y Verificación en Vivo',
+              badge: '🟣 Paso 3 · Cámara + 2 Ejemplos',
+              title: 'Cámara Scroll To y Cierre Diario',
               image: 'w15_s01_paso3_camara_prueba.png',
               items: [
-                '1. En la capa "Juego", haz clic sobre tu héroe "Jugador".',
-                '2. Panel izquierdo Propiedades ➔ Comportamientos ➔ Añadir nuevo.',
-                '3. En la categoría General, elige "Desplazar hasta" (Scroll To) y pulsa Añadir.',
-                '4. Presiona el botón verde [▶ Vista previa] arriba y camina con ◀ ▶ ▲ hasta la derecha.',
-                '5. Anota en tu libreta el Dictado #1 (Wi-Fi Público) + 2 situaciones donde debes apagar el Wi-Fi.'
+                '1. Clic en "Jugador" ➔ Comportamientos ➔ Añadir "Desplazar hasta" (Scroll To).',
+                '2. Pulsa [▶ Vista previa] y camina hasta X=1920 viendo el cielo deslizarse lento.',
+                '3. En tu libreta, escribe debajo del dictado 2 ejemplos reales donde debes apagar el Wi-Fi y usar datos.'
               ],
-              verify: 'Al caminar pasando la mitad de la pantalla en Vista previa, la cámara sigue al Jugador y las estrellas del Fondo se deslizan más lento.'
+              verify: 'La cámara sigue al héroe hasta el final en ▶ Play y tienes el dictado + 2 ejemplos en libreta.'
             }
           ],
-          visualExample: {
-            title: 'Checklist de Verificación Instantánea para Sello 1 (Libreta + Pantalla)',
-            badge: 'Sello en 10 Segundos',
-            description: 'Antes de llamar al profesor para firmar tu Sello 1, comprueba estas 3 cosas:',
-            columns: [
-              {
-                color: 'green',
-                badge: '1. Libreta Lista',
-                title: 'Dictado Wi-Fi + 2 Ejemplos',
-                items: [
-                  'Título centrado + Dictado de Wi-Fi Público, HTTPS y Datos.',
-                  '2 ejemplos propios escritos debajo.'
-                ]
-              },
-              {
-                color: 'cyan',
-                badge: '2. Capas y Cielo OK',
-                title: 'Máximo 2 Capas (Fondo 🔒 + Juego)',
-                items: [
-                  'Fondo con Paralaje 50% x 50% y Cielo en mosaico.',
-                  'Escena de 1920 × 720 px con Piso y plataformas.'
-                ]
-              },
-              {
-                color: 'amber',
-                badge: '3. Cámara en ▶ Play',
-                title: 'Desplazar Hasta Activo',
-                items: [
-                  'Jugador con Plataforma + Restringido a + Desplazar hasta.',
-                  'Camina hasta el extremo derecho sin perder al héroe.'
-                ]
-              }
-            ]
-          },
-          terminalRadar: 'Paso 1 (Fondo + Cielo 🔒) ✔ | Paso 2 (Nivel 1920 px + Ctrl Plataformas) ✔ | Paso 3 (Cámara Scroll To) ✔.',
-          learningResult: 'El estudiante distingue riesgos en redes Wi-Fi abiertas y construye desde cero una arquitectura de 2 capas con fondo en mosaico, Parallax y cámara móvil.',
-          identification: 'Tema: Wi-Fi Público/HTTPS y Creación de Fondo, Nivel 1920 px y Cámara. Evidencia: Dictado + 3 pasos verificados (Sello 1).',
-          development: 'Dictado práctico cotidiano y construcción guiada paso a paso con verificación visual inmediata en cada tarjeta.',
-          closure: 'Comprobación de los 3 checks en Vista previa y firma del Sello 1.',
+          terminalRadar: 'Capas: [Fondo 🔒 (Cielo 50%) + Juego (100%)] · Tamaño: 1920×720 · Jugador: Desplazar hasta activo.',
+          learningResult: 'El estudiante relaciona la separación entre redes abiertas y canales cifrados con una arquitectura de 2 capas protegida en Construct 3.',
+          identification: 'Tema: Wi-Fi Público/HTTPS ↔ Capas Fondo (🔒), Cielo, Nivel 1920 px y Cámara. Evidencia: Dictado + 3 pasos verificados (Sello 1).',
+          development: 'Puente conceptual entre seguridad en redes cotidianas y diseño de niveles por capas con verificación paso a paso.',
+          closure: 'Comprobación visual de los 3 pasos en ▶ Vista previa y firma de Sello 1.',
           faq: [
-            { q: '¿Por qué usamos "Fondo en mosaico" en lugar de Sprite para el Cielo?', a: 'Porque al estirarlo de 1280 a 1920 píxeles, el Fondo en mosaico repite el dibujo como azulejo sin estirar ni deformar los píxeles de tus estrellas.' },
-            { q: '¿Qué pasa si al intentar mover el Piso o Jugador selecciono por error el Cielo?', a: 'Para eso activamos el icono de Candado 🔒 en la capa Fondo del panel derecho: así nunca seleccionas ni mueves el cielo por accidente.' }
+            { q: '¿Por qué usamos "Fondo en mosaico" para el Cielo en vez de un Sprite?', a: 'Porque al estirarlo a 1920 px repite las estrellas como azulejo sin estirar ni deformar el dibujo.' },
+            { q: '¿Para qué sirve el Candado 🔒 en la capa Fondo?', a: 'Igual que el candado HTTPS protege tu conexión contra cambios o intrusos, aquí evita que muevas el Cielo por accidente al editar plataformas.' }
           ],
           sello: {
             num: 'Sello 1',
-            desc: 'Dictado Wi-Fi/HTTPS + 3 pasos verificados (Capa Fondo con Cielo 🔒, Nivel 1920 px y Cámara Scroll To).'
+            desc: 'Dictado + 2 ejemplos reales de Wi-Fi/Datos + 3 pasos verificados en Construct 3 (Capa Fondo con Cielo 🔒, 1920 px y Cámara).'
           }
         },
         {
