@@ -46,6 +46,9 @@ import imgC3Sem14Eventos from '../assets/construct3_semana14_hoja_eventos_paso_a
 import imgC3Sem14Nivel from '../assets/construct3_semana14_nivel_camara_patrulla.png';
 import imgC3Sem15Escudo from '../assets/construct3_semana15_escudo_cotidiano.png';
 import imgC3Sem15Vars from '../assets/construct3_semana15_bot_variables_llaves.png';
+import imgW15Paso1 from '../assets/w15_s01_paso1_capas_fondo.png';
+import imgW15Paso2 from '../assets/w15_s01_paso2_nivel_plataformas.png';
+import imgW15Paso3 from '../assets/w15_s01_paso3_camara_prueba.png';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -64,6 +67,9 @@ const ASSET_REGISTRY = {
   'construct3_semana14_nivel_camara_patrulla.png': imgC3Sem14Nivel,
   'construct3_semana15_escudo_cotidiano.png': imgC3Sem15Escudo,
   'construct3_semana15_bot_variables_llaves.png': imgC3Sem15Vars,
+  'w15_s01_paso1_capas_fondo.png': imgW15Paso1,
+  'w15_s01_paso2_nivel_plataformas.png': imgW15Paso2,
+  'w15_s01_paso3_camara_prueba.png': imgW15Paso3,
 };
 
 function resolveAssetUrl(src) {
@@ -644,6 +650,24 @@ function TeachingPortal() {
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState(false);
   const [brandClicks, setBrandClicks] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState(() => {
+    try {
+      const saved = localStorage.getItem('mtcs_completed_steps_v1');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const toggleCompletedStep = (stepKey) => {
+    setCompletedSteps((prev) => {
+      const next = { ...prev, [stepKey]: !prev[stepKey] };
+      try {
+        localStorage.setItem('mtcs_completed_steps_v1', JSON.stringify(next));
+      } catch {}
+      return next;
+    });
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -863,30 +887,65 @@ function TeachingPortal() {
                       </div>
                     </div>
 
-                    {/* 3. Desarrollo en Columnas a Color (Nuevo diseño visual por columnas) */}
-                    {hour.devColumns?.length > 0 ? (
+                    {/* 3. Desarrollo en Columnas a Color (Diseño educativo con imagen, verificación y check interactivo) */}
+                    {hour.devColumns?.length > 0 ? (() => {
+                      const doneCount = hour.devColumns.filter((_, cidx) => completedSteps[`${activeWeek.id}-${hour.id}-${cidx}`]).length;
+                      return (
                       <div className="teacher-workblock-card">
                         <div className="card-workblock-header">
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                             <Layers3 size={18} />
                             <strong>🚀 DESARROLLO PASO A PASO ({hour.workBlock?.title || 'Guía Visual por Columnas'})</strong>
+                            <span className="dev-progress-pill">
+                              {doneCount} / {hour.devColumns.length} pasos verificados
+                            </span>
                           </div>
                           {hour.workBlock?.duration && (
                             <span className="workblock-badge">⌛ {hour.workBlock.duration}</span>
                           )}
                         </div>
                         <div className="dev-columns-grid">
-                          {hour.devColumns.map((col, cidx) => (
-                            <div className={`dev-col-card theme-${col.color || 'blue'}`} key={cidx}>
+                          {hour.devColumns.map((col, cidx) => {
+                            const stepKey = `${activeWeek.id}-${hour.id}-${cidx}`;
+                            const isDone = Boolean(completedSteps[stepKey]);
+                            const colImgUrl = col.image ? resolveAssetUrl(col.image) : '';
+                            return (
+                            <div className={`dev-col-card theme-${col.color || 'blue'}${isDone ? ' is-done' : ''}`} key={cidx}>
                               <div className="dev-col-header">
-                                <span className="dev-col-badge">{col.badge || `Columna ${cidx + 1}`}</span>
+                                <div className="dev-col-top-row">
+                                  <span className="dev-col-badge">{col.badge || `Paso ${cidx + 1}`}</span>
+                                  <button
+                                    type="button"
+                                    className={`dev-col-check-btn${isDone ? ' checked' : ''}`}
+                                    onClick={() => toggleCompletedStep(stepKey)}
+                                    title="Marca este paso cuando ya lo veas funcionando en tu pantalla"
+                                  >
+                                    {isDone ? '✔ Listo' : '☐ Marcar listo'}
+                                  </button>
+                                </div>
                                 <h4>{col.title}</h4>
                               </div>
+                              {colImgUrl && (
+                                <div
+                                  className="dev-col-img-wrap"
+                                  onClick={() => setZoomedImg({ src: colImgUrl, title: `${col.badge || ''} · ${col.title}` })}
+                                  title="Haz clic para ver esta guía ilustrativa en grande"
+                                >
+                                  <img src={colImgUrl} alt={col.title} />
+                                  <span className="dev-col-img-zoom">🔍 Clic para ampliar</span>
+                                </div>
+                              )}
                               <ul className="dev-col-list">
                                 {col.items?.map((it, iidx) => (
                                   <li key={iidx}>{it}</li>
                                 ))}
                               </ul>
+                              {col.verify && (
+                                <div className="dev-col-verify-box">
+                                  <strong>✅ ¿Cómo sé que quedó bien?</strong>
+                                  <span>{col.verify}</span>
+                                </div>
+                              )}
                               {col.prompt && (
                                 <div className="dev-col-prompt-box">
                                   <div className="dev-col-prompt-top">
@@ -905,10 +964,11 @@ function TeachingPortal() {
                                 </div>
                               )}
                             </div>
-                          ))}
+                          );})}
                         </div>
                       </div>
-                    ) : hour.workBlock ? (
+                      );
+                    })() : hour.workBlock ? (
                       <div className="teacher-workblock-card">
                         <div className="card-workblock-header">
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
