@@ -689,4 +689,15 @@ LOCATION:Coordinación de Tutorías · Plantel Pachuca II
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1127-realizar-horarios-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261126T120000Z
+DTSTART:20261127T174000
+DTEND:20261127T190000
+SUMMARY:📅 Realizar Horarios (Gestión Académica)
+DESCRIPTION:Sesión de planeación, ajuste y elaboración de horarios para CONALEP Plantel Pachuca II.
+LOCATION:Plantel Pachuca II
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
