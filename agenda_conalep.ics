@@ -700,4 +700,15 @@ LOCATION:Plantel Pachuca II
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:ev-1127-ingles-diagnostico-2026@conalep-pachuca2.edu.mx
+DTSTAMP:20261127T120000Z
+DTSTART:20261127T170000
+DTEND:20261130T170000
+SUMMARY:🇬🇧 Examen Diagnóstico: Certificación de Inglés (2da Etapa)
+DESCRIPTION:Aplicación y resolución del examen diagnóstico para la segunda etapa de la Certificación de Inglés en plataforma con usuarios y contraseñas enviados por Jefatura. Ventana activa hasta el lunes 30 de noviembre.
+LOCATION:Plataforma Virtual de Inglés
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
