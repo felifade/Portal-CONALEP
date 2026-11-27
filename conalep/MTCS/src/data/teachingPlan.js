@@ -3042,8 +3042,9 @@ export const teachingPlan = {
       corteId: 'C3',
       raId: 'RA 3.2',
       title: 'Ciberseguridad en la Vida Cotidiana + Nivel 1920 px, Malware_Bot y Variables en Construct 3',
-      result: 'Aplica hábitos prácticos de ciberseguridad diaria (Wi-Fi público, verificación 2FA, detección de phishing, contraseñas seguras, permisos de apps y respaldos) mientras amplía CyberDefender con cámara móvil, patrulla Malware_Bot, variables globales (Vidas/Puntos) y Llave_TLS en 2 capas.',
+      result: 'Aplica hábitos prácticos de ciberseguridad diaria mientras expande su nivel en Construct 3 con plataformas, cámara móvil, llaves coleccionables, enemigos patrullando y marcador en 2 capas.',
       htmlUrl: './html/Manual_Videojuegos_Construct3.html',
+      pdfUrl: './pdf/Practica_Construct3_Nivel_Llaves_Enemigos_MTCS.pdf',
       identification: {
         place: 'Laboratorio de Cómputo y Aula de Clase',
         modality: 'Dictado práctico para la vida diaria en libreta + Programación guiada en editor.construct.net (Edición Gratuita · 2 capas)',
@@ -3255,127 +3256,133 @@ export const teachingPlan = {
         },
         {
           id: 'H04',
-          label: 'Sesión 03 (Viernes 27 Nov · Hora 1)',
-          title: 'Vida Cotidiana: Permisos de Apps y Respaldos + Coleccionables Llave_TLS (+100 Puntos)',
-          hook: '¿Por qué una app gratis de linterna o filtros te pide acceso a tus contactos, ubicación exacta y micrófono? Y si hoy se te cae o pierdes el celular, ¿pierdes tus fotos y tareas? Hoy cerramos el cuarto escudo diario y agregamos las Llaves_TLS coleccionables.',
-          start: '¿Qué permisos debes negarle a una aplicación en tu teléfono y cómo programamos que al recoger una Llave_TLS sume 100 puntos?',
-          dictationTitle: 'CIBERSEGURIDAD DIARIA 4: PERMISOS DE APPS, PRIVACIDAD Y RESPALDOS EN LA NUBE',
-          dictation: 'Cada vez que instalas una aplicación en Android o iOS, debes aplicar el Principio de Mínimo Privilegio en tu vida diaria: pregúntate si la app realmente necesita ese permiso para funcionar. Si un juego offline o editor de texto pide acceso a tus contactos, llamadas o micrófono en segundo plano, deniégalo en Ajustes ➔ Aplicaciones ➔ Permisos. De igual forma, configura la privacidad de tus redes sociales para no publicar en vivo tu ubicación exacta, escuela o documentos con código QR. Finalmente, mantén respaldo automático de tus fotos y tareas importantes en la nube (Google Drive / iCloud): así, si pierdes el celular o te infecta un virus secuestrador (Ransomware), tu información sigue intacta.',
+          label: 'Hora 4 de 5 (Viernes 27 Nov · Hora 1)',
+          title: 'Práctica 1: Expandir tu Nivel + Crear Llaves y Enemigo (Malware_Bot)',
+          hook: 'Ya tienes a tu personaje caminando sobre el piso. En esta hora alargamos tu mapa con más plataformas y metemos los dos objetos que hacen divertido el juego: llaves coleccionables y un enemigo que patrulle solo.',
+          start: '¿Cómo alargamos el nivel sin romper lo que ya funciona y qué comportamiento hace que un enemigo patrulle sin escribir código?',
+          dictationTitle: 'PERMISOS DE APPS Y RESPALDO EN LA NUBE (LO QUE HACES HOY CON TU PROYECTO)',
+          dictation: 'Así como cuidas qué permisos pide cada app en tu celular (negando acceso innecesario a contactos, micrófono o ubicación exacta), todo avance importante en tu computadora debe respaldarse en la nube (Google Drive o Classroom) antes de modificarlo. Hoy respaldamos nuestro archivo .c3p antes de expandir el nivel y agregar coleccionables y enemigos.',
           workBlock: {
             duration: '35 minutos',
-            title: 'Libreta (Auditoría de Permisos) + Llave_TLS (+100 pts) y Respaldo .c3p',
+            title: '3 Pasos Sencillos en Escena 1 (Marca cada paso ✔ al verlo en pantalla)',
             steps: [
-              'LIBRETA: Copia el Dictado y anota 3 permisos innecesarios que jamás debería pedir una app de calculadora o fondos de pantalla.',
-              'COLECCIONABLES (Escena 1 · capa Juego): Inserta o coloca 3 copias de "Llave_TLS" repartidas sobre tus plataformas (usa Ctrl + arrastrar).',
-              'EVENTO 9 (Hoja de eventos 1): Condición: Jugador ➔ Al colisionar con otro objeto [Llave_TLS] ➔ Acciones: 1) Llave_TLS ➔ Destruir, 2) Sistema ➔ Añadir 100 a Puntos.',
-              'RESPALDO EN LA NUBE (Aplicando lo dictado hoy): Menú ➔ Proyecto ➔ Guardar como ➔ Descargar una copia: Sem15_Juego_Apellido_501.c3p y súbelo a Drive/Classroom.'
+              '1. Expandir Nivel: Cambia Tamaño a 1920, 720 (o 3840, 720), estira Cielo/Piso, copia plataformas con Ctrl y pon Desplazar hasta al Jugador.',
+              '2. Crear Llave_TLS: Doble clic ➔ Sprite ➔ "Llave_TLS", dibuja o carga llave/moneda y colócala sobre plataformas (opcional: Seno Vertical).',
+              '3. Crear Malware_Bot: Doble clic ➔ Sprite ➔ "Malware_Bot", ponlo en piso/plataforma y añádele Seno Horizontal (Periodo 4, Magnitud 80).'
             ]
           },
           devColumns: [
             {
-              color: 'green',
-              badge: '🟢 Columna 1 · Privacidad Celular',
-              title: 'Revisión Hoy en tu Teléfono',
+              color: 'blue',
+              badge: '🔵 Paso 1 · Expandir Nivel',
+              title: 'Alargar Escena + Cámara Móvil',
+              image: 'w15_h04_expandir_objetos.png',
               items: [
-                'Ubicación: elige "Solo mientras se usa la app" (nunca "Siempre" si no es mapa).',
-                'No subas fotos de boletos, credenciales o placas sin tapar datos.',
-                'Guarda copias de trabajos escolares y .c3p en Drive.'
-              ]
+                '1. Clic en zona gris externa ➔ Propiedades: cambia Tamaño a 1920, 720 (o 3840, 720).',
+                '2. Estira tu Cielo y tu Piso hacia la derecha y clona 3 plataformas con Ctrl + arrastrar.',
+                '3. Clic en Jugador ➔ Comportamientos ➔ Añadir "Desplazar hasta" (Scroll To).'
+              ],
+              verify: 'Tu nivel ya es más ancho y en ▶ Vista previa la cámara sigue a tu personaje.'
             },
             {
               color: 'amber',
-              badge: '🟡 Columna 2 · Evento 9 (Llave_TLS)',
-              title: 'Sumar +100 Puntos al Recoger',
+              badge: '🟡 Paso 2 · Crear Llave_TLS',
+              title: 'Tu Objeto Coleccionable',
               items: [
-                'Coloca 3 Llave_TLS sobre distintas plataformas de tu nivel de 1920 px.',
-                'Hoja de eventos 1 ➔ Añadir evento ➔ Jugador: Al colisionar con Llave_TLS.',
-                'Acciones: Llave_TLS ➔ Destruir | Sistema ➔ Añadir 100 a Puntos.'
-              ]
+                '1. En la capa Juego: doble clic libre ➔ Sprite ➔ nómbralo Llave_TLS.',
+                '2. Dibuja una llave o moneda (o sube un PNG) y ponla encima de una plataforma.',
+                '3. Clona 3 o 4 llaves por el mapa usando Ctrl + arrastrar (opcional: Seno Vertical para que flote).'
+              ],
+              verify: 'Ves 3 o 4 llaves doradas acomodadas encima de distintas plataformas.'
             },
             {
-              color: 'blue',
-              badge: '🔵 Columna 3 · Respaldo .c3p',
-              title: 'Guardar Evidencia en Nube',
+              color: 'red',
+              badge: '🔴 Paso 3 · Crear Malware_Bot',
+              title: 'Enemigo Patrullando con Seno',
               items: [
-                'Total de eventos del juego: ~9 eventos (dentro del límite gratis).',
-                'Descarga Sem15_Juego_Apellido_501.c3p.',
-                'Súbelo a Classroom/Drive como respaldo real.'
-              ]
+                '1. Doble clic libre ➔ Sprite ➔ nómbralo Malware_Bot y dibuja o sube tu enemigo.',
+                '2. Ponlo sobre un tramo plano de Piso o Plataforma con espacio para saltarlo.',
+                '3. Comportamientos ➔ Añadir "Seno" (Sine): Movimiento Horizontal | Periodo 4 | Magnitud 80.'
+              ],
+              verify: 'Al presionar ▶ Vista previa, el Malware_Bot camina solo de izquierda a derecha.'
             }
           ],
-          terminalRadar: 'Escudo Diario #4 (Permisos + Nube) + Evento 9 (Llave_TLS +100 pts) + Respaldo .c3p.',
-          learningResult: 'El estudiante aplica el principio de mínimo privilegio en dispositivos personales e implementa recolección de objetos con actualización de puntaje y respaldo en la nube.',
-          identification: 'Tema: Permisos de Apps/Respaldos y Coleccionables Llave_TLS. Evidencia: Puntos subiendo de 0 a 300 y archivo .c3p respaldado.',
-          development: 'Auditoría práctica de permisos móviles y programación del Evento 9 de recolección y destrucción de instancias.',
-          closure: 'Verificación de suma de puntos (100 por llave) y subida exitosa de Sem15_Juego_Apellido_501.c3p.',
+          terminalRadar: 'Escena larga + Cámara siguiendo al Jugador + 3 Llave_TLS + Malware_Bot patrullando con Seno.',
+          learningResult: 'El estudiante amplía la arquitectura de nivel e integra sprites coleccionables y enemigos con movimiento periódico autónomo.',
+          identification: 'Tema: Hora 4 de 5 — Expandir nivel, Llave_TLS y Malware_Bot. Evidencia: Escena armada y bot patrullando en ▶ Play.',
+          development: 'Ampliación física del mapa en 2 capas, creación de coleccionables y configuración del comportamiento Seno.',
+          closure: 'Comprobación visual en cada equipo de que la llave y el enemigo están listos para programarse en la Hora 5.',
           faq: [
-            { q: '¿Si tengo 3 copias de Llave_TLS tengo que programar 3 eventos?', a: 'No: en Construct 3 un solo evento con "Destruir Llave_TLS" destruye únicamente la copia exacta que acaba de tocar el Jugador.' }
+            { q: '¿Puedo dibujar mi propia llave o enemigo diferente?', a: 'Sí, solo ponles exactamente los nombres Llave_TLS y Malware_Bot para que no te confundas en la Hora 5 al programarlos.' }
           ],
           sello: {
-            num: 'Sello 3 (Parte 1)',
-            desc: 'Dictado de Permisos/Respaldos + 3 Llaves_TLS sumando +100 pts cada una + archivo .c3p.'
+            num: 'Sello 3 (Hora 4 de 5)',
+            desc: 'Nivel expandido con cámara + Llave_TLS y Malware_Bot patrullando con Seno en ▶ Vista previa.'
           }
         },
         {
           id: 'H05',
-          label: 'Sesión 03 (Viernes 27 Nov · Hora 2)',
-          title: '🏆 Casos Reales del Día a Día y Gran Kahoot Semana 15',
-          hook: '¿Sabrías reaccionar en menos de 10 segundos si te llega un WhatsApp sospechoso, te piden un código o falla una app? Cerramos la semana poniendo a prueba tus 4 escudos cotidianos y lo programado en Construct 3.',
-          start: '¿Qué aprendimos esta semana que ya puedes aplicar hoy mismo en tu teléfono y qué mecánicas ya tiene tu videojuego CyberDefender?',
-          dictationTitle: 'PROTOCOLO DIARIO DE CIBERSEGURIDAD PERSONAL (RESUMEN DE BOLSILLO)',
-          dictation: 'La ciberseguridad cotidiana no depende de programas costosos sino de cuatro hábitos diarios: 1) Red segura: evita banca o contraseñas en Wi-Fi público y usa datos móviles + HTTPS; 2) Cero engaños: desconfía de enlaces urgentes por SMS/WhatsApp y nunca entregues códigos de 6 dígitos (activa 2FA); 3) Claves únicas: usa frases-contraseña largas y distintas en tus cuentas importantes; y 4) Control y respaldo: niega permisos innecesarios en tus apps y guarda respaldo en la nube de tus archivos valiosos.',
+          label: 'Hora 5 de 5 (Viernes 27 Nov · Hora 2)',
+          title: 'Práctica 2: Programar Llaves (+100 pts), Enemigo, Marcador y Guardar .c3p',
+          hook: 'Ya están las llaves y el enemigo en escena, pero todavía los traspasas sin que pase nada. En esta hora programamos en 4 reglas fáciles que sumen puntos, resten vidas y muestren el marcador arriba.',
+          start: '¿Cómo guardamos las Vidas y los Puntos en memoria y qué eventos hacen que las llaves desaparezcan al tocarlas?',
+          dictationTitle: 'REGLA DE CONTROL EN VIDEOJUEGOS (VARIABLES + EVENTOS DE COLISIÓN)',
+          dictation: 'Una Variable Global guarda un dato que cambia mientras juegas, como tus Vidas (empiezan en 3) o tus Puntos (empiezan en 0). Para hacer que el juego reaccione cuando el jugador toca otro objeto usamos el evento "Al colisionar con otro objeto": al chocar con Llave_TLS destruye la llave y suma 100 a Puntos; al chocar con Malware_Bot resta 1 a Vidas y regresa al inicio.',
           workBlock: {
-            duration: '30 minutos',
-            title: 'Cierre en 3 Columnas: Casos Cotidianos ➔ Gran Kahoot ➔ Sello 3',
+            duration: '35 minutos',
+            title: '3 Pasos en Hoja de Eventos 1 (Incluye Ficha PDF Sencilla)',
             steps: [
-              'Copia el Protocolo de 4 Hábitos en tu libreta como resumen semanal.',
-              'Participa en el Gran Kahoot Semana 15 (casos reales de Wi-Fi, SMS falso, 2FA, contraseñas, permisos + ScrollTo, Sine y Variables).',
-              'Muestra tu juego funcionando, tu archivo .c3p y tu puntaje de Kahoot para recibir el Sello 3.'
+              '1. Crear Variables y Texto: En Hoja de eventos 1 clic derecho vacío ➔ Añadir variable global "Vidas = 3" y "Puntos = 0". En Escena 1 inserta Texto "TextoMarcador".',
+              '2. Programar Llave y Enemigo: Al chocar con Llave_TLS ➔ Destruir + Sumar 100 a Puntos. Al chocar con Malware_Bot ➔ Restar 1 a Vidas + Ir al inicio.',
+              '3. Marcador y Respaldo: Cada tick ➔ TextoMarcador: "Vidas: " & Vidas & " | Puntos: " & Puntos. Si Vidas <= 0 ➔ Reiniciar escena. Guardar .c3p.'
             ]
           },
           devColumns: [
             {
-              color: 'purple',
-              badge: '🟣 Columna 1 · Casos Rápidos',
-              title: '¿Qué Harías Tú Hoy?',
-              items: [
-                'Caso 1: Llega SMS "Estafeta: actualiza tu dirección en bit.ly/...". ➔ Borrar y no abrir.',
-                'Caso 2: Wi-Fi del camión pide iniciar sesión con Facebook. ➔ No usarlo, usar datos.',
-                'Caso 3: App de tonos pide acceso a tus contactos. ➔ Denegar permiso.'
-              ]
-            },
-            {
-              color: 'blue',
-              badge: '🔵 Columna 2 · Gran Kahoot Sem 15',
-              title: 'Evaluación Gamificada (20 Preguntas)',
-              items: [
-                'Entra a kahoot.it con el PIN proyectado.',
-                'Mitad de preguntas sobre casos de tu celular/vida diaria y mitad sobre Construct 3 (ScrollTo, Seno, Variables &).',
-                'Anota tu lugar y puntaje en la libreta.'
-              ]
-            },
-            {
               color: 'green',
-              badge: '🟢 Columna 3 · Sello 3 Final',
-              title: 'Checklist de Cierre Semanal',
+              badge: '🟢 Paso 1 · Variables y Texto',
+              title: 'Crear Memoria + TextoMarcador',
+              image: 'w15_h05_programar_llaves_bot.png',
               items: [
-                '1. 4 Dictados cotidianos completos en libreta + Sellos 1 y 2.',
-                '2. Juego funcionando en ▶ (Cámara, Malware_Bot, Vidas, Puntos y Llaves).',
-                '3. Archivo Sem15_Juego_Apellido_501.c3p guardado + puntaje Kahoot.'
-              ]
+                '1. En Hoja de eventos 1: clic derecho en zona vacía ➔ Añadir variable global: Vidas = 3 y otra Puntos = 0.',
+                '2. En Escena 1 (capa Juego): doble clic ➔ Texto ➔ nómbralo TextoMarcador.',
+                '3. Ponlo arriba a la izquierda con letra clara (tamaño 18).'
+              ],
+              verify: 'Arriba de tu Hoja de eventos aparecen Vidas = 3 y Puntos = 0 y ves el texto en pantalla.'
+            },
+            {
+              color: 'amber',
+              badge: '🟡 Paso 2 · Llaves y Enemigo',
+              title: 'Eventos de Colisión Fáciles',
+              items: [
+                '1. Evento Llave: Jugador ➔ Al colisionar con [Llave_TLS] ➔ Acciones: Llave_TLS: Destruir + Sistema: Añadir 100 a Puntos.',
+                '2. Evento Enemigo: Jugador ➔ Al colisionar con [Malware_Bot] ➔ Acciones: Sistema: Restar 1 a Vidas + Jugador: Establecer posición (150, 580).'
+              ],
+              verify: 'Al tocar una llave desaparece y al tocar al enemigo regresas al inicio.'
+            },
+            {
+              color: 'purple',
+              badge: '🟣 Paso 3 · Marcador + .c3p',
+              title: 'Actualizar Texto y Guardar',
+              items: [
+                '1. Evento Marcador: Sistema ➔ Cada tick ➔ TextoMarcador: Establecer texto = "Vidas: " & Vidas & " | Puntos: " & Puntos.',
+                '2. Evento Reinicio: Sistema ➔ Comparar variable (Vidas <= 0) ➔ Reiniciar escena y volver Vidas=3, Puntos=0.',
+                '3. Menú ➔ Proyecto ➔ Guardar como ➔ Descargar copia (Sem15_Apellido_501.c3p).'
+              ],
+              verify: 'Al recoger llaves sube el puntaje (+100) arriba en tiempo real y guardaste tu archivo .c3p.'
             }
           ],
-          terminalRadar: 'Semana 15 Completa ➔ 4 Escudos Diarios + CyberDefender Jugable (Vidas/Puntos/Llaves) + Kahoot.',
-          learningResult: 'El estudiante integra hábitos diarios de autoprotección digital y consolida programación basada en eventos y variables.',
-          identification: 'Tema: Protocolo Diario + Gran Kahoot Semana 15. Evidencia: Libreta sellada, .c3p y puntaje Kahoot.',
-          development: 'Resolución grupal de casos cotidianos reales, competencia Kahoot Semana 15 y evaluación final.',
-          closure: 'Firma del Sello 3 y adelanto de Semana 16: Puerta_Servidor (chmod 600), Cristal_Salting (escudo temporal) y pantalla de Victoria.',
+          terminalRadar: 'Vidas = 3 · Puntos = 0 · Llave_TLS (+100 y destruir) · Malware_Bot (-1 vida) · Sem15_Apellido_501.c3p.',
+          learningResult: 'El estudiante programa variables globales, concatenación de texto dinámico y detección de colisiones en Construct 3.',
+          identification: 'Tema: Hora 5 de 5 — Programar llaves, enemigo, marcador y entrega .c3p.',
+          development: 'Declaración de variables globales, eventos de colisión de premio y daño, marcador en vivo y exportación de respaldo.',
+          closure: 'Prueba en ▶ Vista previa de las 3 metas y firma del Sello 3 de Semana 15.',
           faq: [
-            { q: '¿Qué agregaremos la próxima semana (Semana 16)?', a: 'El escudo Cristal_Salting (inmunidad temporal de 6 segundos), la Puerta_Servidor chmod 600 que pide las 3 Llaves y la exportación final Web HTML5.' }
+            { q: '¿Si quieren aprender el efecto de caer al vacío donde la cámara no lo siga?', a: 'Quitar Restringido a en Jugador, actualizar cámara solo si EstaMuerto=0, hacer salto Vector Y = -560 y parpadear antes de reaparecer (ya listo en CyberDefender_Escuela_3840.c3p).' }
           ],
           sello: {
-            num: 'Sello 3',
-            desc: 'Dictados cotidianos completos + Juego Sem 15 (.c3p con cámara, bot, vidas y llaves) + Puntaje Kahoot.'
+            num: 'Sello 3 (Hora 5 de 5)',
+            desc: 'Llaves sumando +100 pts + Malware_Bot restando vidas + Marcador en vivo + archivo Sem15_Apellido_501.c3p.'
           }
         }
       ],
@@ -3384,29 +3391,25 @@ export const teachingPlan = {
           id: 'S01',
           label: 'Sesión 01',
           duration: '1 hora',
-          title: 'Vida Cotidiana (Wi-Fi Público / HTTPS) + Nivel 1920 px y Cámara Móvil',
+          title: 'Red Abierta vs Ruta Segura (Wi-Fi/HTTPS) + Capa Fondo, Nivel 1920 px y Cámara',
           hourIds: ['H01'],
-          product: 'Dictado de Wi-Fi Público en libreta + Nivel 1920×720 en 2 capas con cámara Scroll To funcionando (Sello 1).',
+          product: 'Dictado de Wi-Fi Público + Capa Fondo (Cielo 🔒), Nivel 1920 px y Cámara Scroll To (Sello 1).',
         },
         {
           id: 'S02',
           label: 'Sesión 02',
           duration: '2 horas',
-          title: 'Vida Cotidiana (Phishing/2FA y Contraseñas) + Malware_Bot (Seno) + Variables Vidas y Puntos',
+          title: 'Vida Cotidiana (Phishing/2FA y Contraseñas) + Patrulla y Variables',
           hourIds: ['H02', 'H03'],
-          product: 'Dictados de fraudes/contraseñas + Malware_Bot patrullando + Marcador de Vidas y Puntos bajando al chocar (Sello 2).',
-          unlockDate: '2026-11-26',
-          unlockLabel: 'Jueves 26 de Noviembre (15:00 hrs)',
+          product: 'Dictados de fraudes y frases-contraseña + avance en nivel y variables (Sello 2).',
         },
         {
           id: 'S03',
-          label: 'Sesión 03',
-          duration: '2 horas',
-          title: 'Vida Cotidiana (Permisos de Apps y Respaldos) + Llave_TLS + .c3p + Gran Kahoot Sem 15',
+          label: 'Sesión 03 (Hoy Viernes)',
+          duration: '2 horas (Horas 4 y 5 de 5)',
+          title: 'Hora 4: Expandir Nivel + Llaves y Enemigo | Hora 5: Programar Colisiones y Marcador',
           hourIds: ['H04', 'H05'],
-          product: 'Dictado de permisos/nube + 3 Llaves_TLS (+100 pts) + Sem15_Juego_Apellido_501.c3p + Kahoot Semana 15 (Sello 3).',
-          unlockDate: '2026-11-27',
-          unlockLabel: 'Viernes 27 de Noviembre (15:00 hrs)',
+          product: 'Nivel expandido con cámara, Llave_TLS (+100 pts), Malware_Bot (-1 vida), TextoMarcador y Sem15_Apellido_501.c3p (Sello 3).',
         },
       ],
     },
