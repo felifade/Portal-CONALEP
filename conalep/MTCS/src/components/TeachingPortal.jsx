@@ -49,6 +49,8 @@ import imgC3Sem15Vars from '../assets/construct3_semana15_bot_variables_llaves.p
 import imgW15Paso1 from '../assets/w15_s01_paso1_capas_fondo.png';
 import imgW15Paso2 from '../assets/w15_s01_paso2_nivel_plataformas.png';
 import imgW15Paso3 from '../assets/w15_s01_paso3_camara_prueba.png';
+import imgW15H04 from '../assets/w15_h04_expandir_objetos.png';
+import imgW15H05 from '../assets/w15_h05_programar_llaves_bot.png';
 
 const ASSET_REGISTRY = {
   'mtcs-modelo-osi-paquete-digital.jpg': imgOsi,
@@ -70,6 +72,8 @@ const ASSET_REGISTRY = {
   'w15_s01_paso1_capas_fondo.png': imgW15Paso1,
   'w15_s01_paso2_nivel_plataformas.png': imgW15Paso2,
   'w15_s01_paso3_camara_prueba.png': imgW15Paso3,
+  'w15_h04_expandir_objetos.png': imgW15H04,
+  'w15_h05_programar_llaves_bot.png': imgW15H05,
 };
 
 function resolveAssetUrl(src) {
